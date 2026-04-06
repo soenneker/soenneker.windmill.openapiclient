@@ -35,6 +35,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy;
 using Soenneker.Windmill.OpenApiClient.W.Item.Oauth;
 using Soenneker.Windmill.OpenApiClient.W.Item.Oidc;
 using Soenneker.Windmill.OpenApiClient.W.Item.Openapi;
+using Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Postgres_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources;
@@ -225,6 +226,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Openapi.OpenapiRequestBuilder Openapi
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Openapi.OpenapiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The path_autocomplete property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete.Path_autocompleteRequestBuilder Path_autocomplete
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete.Path_autocompleteRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The postgres_triggers property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Postgres_triggers.Postgres_triggersRequestBuilder Postgres_triggers

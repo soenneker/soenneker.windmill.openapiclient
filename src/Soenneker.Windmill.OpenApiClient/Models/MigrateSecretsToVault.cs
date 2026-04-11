@@ -46,6 +46,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Namespace { get; set; }
 #endif
+        /// <summary>Skip TLS certificate verification when connecting to Vault. Only use for self-signed certificates in development environments.</summary>
+        public bool? SkipSslVerify { get; set; }
         /// <summary>Static Vault token for testing/development (optional, if provided this is used instead of JWT authentication)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "jwt_role", n => { JwtRole = n.GetStringValue(); } },
                 { "mount_path", n => { MountPath = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
+                { "skip_ssl_verify", n => { SkipSslVerify = n.GetBoolValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
             };
         }
@@ -97,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("jwt_role", JwtRole);
             writer.WriteStringValue("mount_path", MountPath);
             writer.WriteStringValue("namespace", Namespace);
+            writer.WriteBoolValue("skip_ssl_verify", SkipSslVerify);
             writer.WriteStringValue("token", Token);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -11,6 +11,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Users.Is_owner;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.List_usage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.List_usernames;
+using Soenneker.Windmill.OpenApiClient.W.Item.Users.Offboard;
+using Soenneker.Windmill.OpenApiClient.W.Item.Users.Offboard_preview;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.Update;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.Username_to_email;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.Whoami;
@@ -71,6 +73,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Users
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.List_usernames.List_usernamesRequestBuilder List_usernames
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Users.List_usernames.List_usernamesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The offboard property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.Offboard.OffboardRequestBuilder Offboard
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Users.Offboard.OffboardRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The offboard_preview property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.Offboard_preview.Offboard_previewRequestBuilder Offboard_preview
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Users.Offboard_preview.Offboard_previewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.Update.UpdateRequestBuilder Update

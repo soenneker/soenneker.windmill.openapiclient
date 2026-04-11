@@ -84,8 +84,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The dedicated_worker property</summary>
         public bool? DedicatedWorker { get; set; }
-        /// <summary>The delete_after_use property</summary>
-        public bool? DeleteAfterUse { get; set; }
+        /// <summary>If set, delete the job&apos;s args, result and logs after this many seconds following job completion</summary>
+        public int? DeleteAfterSecs { get; set; }
         /// <summary>The deleted property</summary>
         public bool? Deleted { get; set; }
         /// <summary>The description property</summary>
@@ -275,7 +275,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "debounce_delay_s", n => { DebounceDelayS = n.GetIntValue(); } },
                 { "debounce_key", n => { DebounceKey = n.GetStringValue(); } },
                 { "dedicated_worker", n => { DedicatedWorker = n.GetBoolValue(); } },
-                { "delete_after_use", n => { DeleteAfterUse = n.GetBoolValue(); } },
+                { "delete_after_secs", n => { DeleteAfterSecs = n.GetIntValue(); } },
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
@@ -329,7 +329,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("debounce_delay_s", DebounceDelayS);
             writer.WriteStringValue("debounce_key", DebounceKey);
             writer.WriteBoolValue("dedicated_worker", DedicatedWorker);
-            writer.WriteBoolValue("delete_after_use", DeleteAfterUse);
+            writer.WriteIntValue("delete_after_secs", DeleteAfterSecs);
             writer.WriteBoolValue("deleted", Deleted);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("draft_only", DraftOnly);

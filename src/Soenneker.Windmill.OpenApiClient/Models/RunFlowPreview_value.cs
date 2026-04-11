@@ -51,6 +51,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string DebounceKey { get; set; }
 #endif
+        /// <summary>If set, delete the flow job&apos;s args, result and logs after this many seconds following job completion</summary>
+        public int? DeleteAfterSecs { get; set; }
         /// <summary>JavaScript expression to return early from the flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,6 +159,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "debounce_args_to_accumulate", n => { DebounceArgsToAccumulate = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "debounce_delay_s", n => { DebounceDelayS = n.GetIntValue(); } },
                 { "debounce_key", n => { DebounceKey = n.GetStringValue(); } },
+                { "delete_after_secs", n => { DeleteAfterSecs = n.GetIntValue(); } },
                 { "early_return", n => { EarlyReturn = n.GetStringValue(); } },
                 { "failure_module", n => { FailureModule = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value_failure_module>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value_failure_module.CreateFromDiscriminatorValue); } },
                 { "flow_env", n => { FlowEnv = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value_flow_env>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value_flow_env.CreateFromDiscriminatorValue); } },
@@ -187,6 +190,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("debounce_args_to_accumulate", DebounceArgsToAccumulate);
             writer.WriteIntValue("debounce_delay_s", DebounceDelayS);
             writer.WriteStringValue("debounce_key", DebounceKey);
+            writer.WriteIntValue("delete_after_secs", DeleteAfterSecs);
             writer.WriteStringValue("early_return", EarlyReturn);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value_failure_module>("failure_module", FailureModule);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value_flow_env>("flow_env", FlowEnv);

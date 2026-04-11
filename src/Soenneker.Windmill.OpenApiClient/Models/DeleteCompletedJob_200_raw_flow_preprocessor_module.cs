@@ -29,8 +29,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob_200_raw_flow_preprocessor_module_debouncing Debouncing { get; set; }
 #endif
-        /// <summary>If true, this step&apos;s result is deleted after use to save memory</summary>
-        public bool? DeleteAfterUse { get; set; }
+        /// <summary>If set, delete the step&apos;s args, result and logs after this many seconds following job completion</summary>
+        public int? DeleteAfterSecs { get; set; }
         /// <summary>Unique identifier for this step. Used to reference results via &apos;results.step_id&apos;. Must be a valid identifier (alphanumeric, underscore, hyphen)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -150,7 +150,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "cache_ttl", n => { CacheTtl = n.GetDoubleValue(); } },
                 { "continue_on_error", n => { ContinueOnError = n.GetBoolValue(); } },
                 { "debouncing", n => { Debouncing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob_200_raw_flow_preprocessor_module_debouncing>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob_200_raw_flow_preprocessor_module_debouncing.CreateFromDiscriminatorValue); } },
-                { "delete_after_use", n => { DeleteAfterUse = n.GetBoolValue(); } },
+                { "delete_after_secs", n => { DeleteAfterSecs = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "mock", n => { Mock = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob_200_raw_flow_preprocessor_module_mock>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob_200_raw_flow_preprocessor_module_mock.CreateFromDiscriminatorValue); } },
                 { "priority", n => { Priority = n.GetDoubleValue(); } },
@@ -176,7 +176,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("cache_ttl", CacheTtl);
             writer.WriteBoolValue("continue_on_error", ContinueOnError);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob_200_raw_flow_preprocessor_module_debouncing>("debouncing", Debouncing);
-            writer.WriteBoolValue("delete_after_use", DeleteAfterUse);
+            writer.WriteIntValue("delete_after_secs", DeleteAfterSecs);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob_200_raw_flow_preprocessor_module_mock>("mock", Mock);
             writer.WriteDoubleValue("priority", Priority);

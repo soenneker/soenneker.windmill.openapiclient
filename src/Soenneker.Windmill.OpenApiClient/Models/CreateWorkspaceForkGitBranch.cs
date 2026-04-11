@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Color { get; set; }
 #endif
+        /// <summary>The forked_datatables property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranch_forked_datatables>? ForkedDatatables { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranch_forked_datatables> ForkedDatatables { get; set; }
+#endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +72,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "color", n => { Color = n.GetStringValue(); } },
+                { "forked_datatables", n => { ForkedDatatables = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranch_forked_datatables>(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranch_forked_datatables.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
@@ -76,6 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranch_forked_datatables>("forked_datatables", ForkedDatatables);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);

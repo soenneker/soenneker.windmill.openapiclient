@@ -10,9 +10,12 @@ using Soenneker.Windmill.OpenApiClient.Users.Delete;
 using Soenneker.Windmill.OpenApiClient.Users.Email;
 using Soenneker.Windmill.OpenApiClient.Users.Exists;
 using Soenneker.Windmill.OpenApiClient.Users.Export;
+using Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens;
 using Soenneker.Windmill.OpenApiClient.Users.Leave_instance;
 using Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin;
 using Soenneker.Windmill.OpenApiClient.Users.List_invites;
+using Soenneker.Windmill.OpenApiClient.Users.Offboard;
+using Soenneker.Windmill.OpenApiClient.Users.Offboard_preview;
 using Soenneker.Windmill.OpenApiClient.Users.Onboarding;
 using Soenneker.Windmill.OpenApiClient.Users.Overwrite;
 using Soenneker.Windmill.OpenApiClient.Users.Refresh_token;
@@ -78,6 +81,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The ext_jwt_tokens property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder Ext_jwt_tokens
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The leave_instance property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Leave_instance.Leave_instanceRequestBuilder Leave_instance
         {
@@ -92,6 +100,16 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         public global::Soenneker.Windmill.OpenApiClient.Users.List_invites.List_invitesRequestBuilder List_invites
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.List_invites.List_invitesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The offboard property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Offboard.OffboardRequestBuilder Offboard
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Offboard.OffboardRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The offboard_preview property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Offboard_preview.Offboard_previewRequestBuilder Offboard_preview
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Offboard_preview.Offboard_previewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The onboarding property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Onboarding.OnboardingRequestBuilder Onboarding

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Settings.Critical_alerts;
 using Soenneker.Windmill.OpenApiClient.Settings.Customer_portal;
+using Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database;
 using Soenneker.Windmill.OpenApiClient.Settings.Get_stats;
 using Soenneker.Windmill.OpenApiClient.Settings.Global;
 using Soenneker.Windmill.OpenApiClient.Settings.Instance_config;
@@ -12,7 +13,9 @@ using Soenneker.Windmill.OpenApiClient.Settings.List_custom_instance_pg_database
 using Soenneker.Windmill.OpenApiClient.Settings.List_global;
 using Soenneker.Windmill.OpenApiClient.Settings.Local;
 using Soenneker.Windmill.OpenApiClient.Settings.Log_cleanup_status;
+using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_aws_sm;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_azure_kv;
+using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_aws_sm;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_azure_kv;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_database;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_vault;
@@ -23,6 +26,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group;
 using Soenneker.Windmill.OpenApiClient.Settings.Run_log_cleanup;
 using Soenneker.Windmill.OpenApiClient.Settings.Send_stats;
 using Soenneker.Windmill.OpenApiClient.Settings.Setup_custom_instance_pg_database;
+using Soenneker.Windmill.OpenApiClient.Settings.Test_aws_sm_backend;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_azure_kv_backend;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_critical_channels;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_license_key;
@@ -50,6 +54,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Customer_portal.Customer_portalRequestBuilder Customer_portal
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Customer_portal.Customer_portalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The drop_custom_instance_pg_database property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database.Drop_custom_instance_pg_databaseRequestBuilder Drop_custom_instance_pg_database
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database.Drop_custom_instance_pg_databaseRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The get_stats property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Get_stats.Get_statsRequestBuilder Get_stats
@@ -91,10 +100,20 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Log_cleanup_status.Log_cleanup_statusRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The migrate_secrets_from_aws_sm property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_aws_sm.Migrate_secrets_from_aws_smRequestBuilder Migrate_secrets_from_aws_sm
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_aws_sm.Migrate_secrets_from_aws_smRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The migrate_secrets_from_azure_kv property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_azure_kv.Migrate_secrets_from_azure_kvRequestBuilder Migrate_secrets_from_azure_kv
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_azure_kv.Migrate_secrets_from_azure_kvRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The migrate_secrets_to_aws_sm property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_aws_sm.Migrate_secrets_to_aws_smRequestBuilder Migrate_secrets_to_aws_sm
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_aws_sm.Migrate_secrets_to_aws_smRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The migrate_secrets_to_azure_kv property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_azure_kv.Migrate_secrets_to_azure_kvRequestBuilder Migrate_secrets_to_azure_kv
@@ -145,6 +164,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Setup_custom_instance_pg_database.Setup_custom_instance_pg_databaseRequestBuilder Setup_custom_instance_pg_database
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Setup_custom_instance_pg_database.Setup_custom_instance_pg_databaseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The test_aws_sm_backend property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Test_aws_sm_backend.Test_aws_sm_backendRequestBuilder Test_aws_sm_backend
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Test_aws_sm_backend.Test_aws_sm_backendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The test_azure_kv_backend property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Test_azure_kv_backend.Test_azure_kv_backendRequestBuilder Test_azure_kv_backend

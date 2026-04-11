@@ -13,6 +13,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Cloud_quotas;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Connect_teams;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_pg_database;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_service_account;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_workspace_fork_branch;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Critical_alerts;
@@ -20,6 +21,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Default_app;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Default_scripts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_repository;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_invite;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_copilot_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_datatable_config;
@@ -37,9 +39,11 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_success_handler;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_teams_command;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_webhook;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Encryption_key;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Export_pg_schema;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_as_superadmin;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_copilot_info;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_copilot_settings_state;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_full_schema;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependency_map;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents_amounts;
@@ -49,6 +53,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_secondary_storage_n
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_workspace_name;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Import_pg_database;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Invite_user;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Is_premium;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Leave;
@@ -138,6 +143,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork.Create_forkRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The create_pg_database property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_pg_database.Create_pg_databaseRequestBuilder Create_pg_database
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_pg_database.Create_pg_databaseRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The create_service_account property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_service_account.Create_service_accountRequestBuilder Create_service_account
         {
@@ -172,6 +182,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_invite.Delete_inviteRequestBuilder Delete_invite
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_invite.Delete_inviteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The drop_forked_datatable_databases property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases.Drop_forked_datatable_databasesRequestBuilder Drop_forked_datatable_databases
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases.Drop_forked_datatable_databasesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The edit_auto_invite property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite.Edit_auto_inviteRequestBuilder Edit_auto_invite
@@ -258,6 +273,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Encryption_key.Encryption_keyRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The export_pg_schema property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Export_pg_schema.Export_pg_schemaRequestBuilder Export_pg_schema
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Export_pg_schema.Export_pg_schemaRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The get_as_superadmin property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_as_superadmin.Get_as_superadminRequestBuilder Get_as_superadmin
         {
@@ -272,6 +292,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_copilot_settings_state.Get_copilot_settings_stateRequestBuilder Get_copilot_settings_state
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_copilot_settings_state.Get_copilot_settings_stateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The get_datatable_full_schema property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_full_schema.Get_datatable_full_schemaRequestBuilder Get_datatable_full_schema
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_full_schema.Get_datatable_full_schemaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The get_dependency_map property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependency_map.Get_dependency_mapRequestBuilder Get_dependency_map
@@ -317,6 +342,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled.Git_sync_enabledRequestBuilder Git_sync_enabled
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled.Git_sync_enabledRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The import_pg_database property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Import_pg_database.Import_pg_databaseRequestBuilder Import_pg_database
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Import_pg_database.Import_pg_databaseRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The invite_user property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Invite_user.Invite_userRequestBuilder Invite_user

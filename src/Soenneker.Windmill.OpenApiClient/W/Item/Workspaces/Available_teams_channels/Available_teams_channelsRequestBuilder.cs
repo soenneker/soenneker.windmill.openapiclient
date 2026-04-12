@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_cha
         /// <summary>
         /// list available channels for a specific team
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_channels.Available_teams_channelsRequestBuilder.Available_teams_channelsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_channels.Available_teams_channelsRequestBuilder.Available_teams_channelsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_channels.Available_teams_channelsRequestBuilder.Available_teams_channelsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels200> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_channels.Available_teams_channelsRequestBuilder.Available_teams_channelsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels_200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListAvailableTeamsChannels200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// list available channels for a specific team

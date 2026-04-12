@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.Jobs.Completed.Count_by_tag
         /// <summary>
         /// Count jobs by tag
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag_200&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag200&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag_200>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Jobs.Completed.Count_by_tag.Count_by_tagRequestBuilder.Count_by_tagRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag200>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Jobs.Completed.Count_by_tag.Count_by_tagRequestBuilder.Count_by_tagRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag_200>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Jobs.Completed.Count_by_tag.Count_by_tagRequestBuilder.Count_by_tagRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag200>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Jobs.Completed.Count_by_tag.Count_by_tagRequestBuilder.Count_by_tagRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag_200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CountJobsByTag200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

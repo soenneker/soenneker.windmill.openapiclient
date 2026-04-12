@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens
         /// <summary>
         /// list external JWT tokens (ee only)
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens_200&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens200&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens_200>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder.Ext_jwt_tokensRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens200>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder.Ext_jwt_tokensRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens_200>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder.Ext_jwt_tokensRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens200>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder.Ext_jwt_tokensRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens_200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListExtJwtTokens200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

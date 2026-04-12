@@ -36,25 +36,25 @@ namespace Soenneker.Windmill.OpenApiClient.Health.Detailed
         /// <summary>
         /// Returns detailed health information including database pool stats, worker details, and queue status.Requires authentication. Use for monitoring dashboards and debugging.This endpoint always returns fresh data (no caching).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed_503">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed_200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed_200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "503", global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed_503.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed_200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detailed health information including database pool stats, worker details, and queue status.Requires authentication. Use for monitoring dashboards and debugging.This endpoint always returns fresh data (no caching).

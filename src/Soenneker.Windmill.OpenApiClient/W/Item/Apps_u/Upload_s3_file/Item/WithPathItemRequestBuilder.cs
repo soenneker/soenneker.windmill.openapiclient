@@ -36,22 +36,22 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Upload_s3_file.Item
         /// <summary>
         /// upload s3 file from app
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp200"/></returns>
         /// <param name="body">Binary request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp_200?> PostAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Upload_s3_file.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp200?> PostAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Upload_s3_file.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp_200> PostAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Upload_s3_file.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp200> PostAsync(Stream body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Upload_s3_file.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp_200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.UploadS3FileFromApp200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// upload s3 file from app

@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item
         /// <summary>
         /// Get approval info for a suspended flow/WAC job. Returns form schema, approval rules, and whether the current user can approve. Either a valid token query parameter or an authenticated session is required.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJob_ItemRequestBuilder.WithJob_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJob_ItemRequestBuilder.WithJob_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJob_ItemRequestBuilder.WithJob_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJob_ItemRequestBuilder.WithJob_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo_200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo_200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Get approval info for a suspended flow/WAC job. Returns form schema, approval rules, and whether the current user can approve. Either a valid token query parameter or an authenticated session is required.

@@ -16,5 +16,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         DisableWorkspaceForking,
         #pragma warning restore CS1591
+        [EnumMember(Value = "RestrictDeployToDeployers")]
+        #pragma warning disable CS1591
+        RestrictDeployToDeployers,
+        #pragma warning restore CS1591
     }
 }

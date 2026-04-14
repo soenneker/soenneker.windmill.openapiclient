@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Assets;
 using Soenneker.Windmill.OpenApiClient.W.Item.Audit;
 using Soenneker.Windmill.OpenApiClient.W.Item.Capture;
 using Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups;
+using Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Email_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Embeddings;
@@ -96,6 +97,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.Concurrency_groupsRequestBuilder Concurrency_groups
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.Concurrency_groupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The deployment_request property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request.Deployment_requestRequestBuilder Deployment_request
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request.Deployment_requestRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The drafts property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.DraftsRequestBuilder Drafts

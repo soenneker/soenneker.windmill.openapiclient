@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
+        /// <summary>Ordered list of rules applied at create-time when admins or `wm_deployers` members deploy items in this folder. The first rule whose `path_glob` matches the item path (relative to the folder root) wins, and its `permissioned_as` is used as the default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_default_permissioned_as>? DefaultPermissionedAs { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_default_permissioned_as> DefaultPermissionedAs { get; set; }
+#endif
         /// <summary>The edited_at property</summary>
         public DateTimeOffset? EditedAt { get; set; }
         /// <summary>The extra_perms property</summary>
@@ -82,6 +90,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
+                { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_default_permissioned_as>(global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_default_permissioned_as.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_extra_perms>(global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_extra_perms.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -97,6 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_by", CreatedBy);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_default_permissioned_as>("default_permissioned_as", DefaultPermissionedAs);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200_extra_perms>("extra_perms", ExtraPerms);
             writer.WriteStringValue("name", Name);

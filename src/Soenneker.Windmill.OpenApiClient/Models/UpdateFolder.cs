@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Ordered list of rules applied at create-time when admins or `wm_deployers` members deploy items in this folder. The first rule whose `path_glob` matches the item path (relative to the folder root) wins, and its `permissioned_as` is used as the default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_default_permissioned_as>? DefaultPermissionedAs { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_default_permissioned_as> DefaultPermissionedAs { get; set; }
+#endif
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,6 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_default_permissioned_as>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_default_permissioned_as.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_extra_perms>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_extra_perms.CreateFromDiscriminatorValue); } },
                 { "owners", n => { Owners = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
@@ -75,6 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_default_permissioned_as>("default_permissioned_as", DefaultPermissionedAs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolder_extra_perms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("owners", Owners);
             writer.WriteStringValue("summary", Summary);

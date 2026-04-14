@@ -33,6 +33,7 @@ using Soenneker.Windmill.OpenApiClient.Scripts;
 using Soenneker.Windmill.OpenApiClient.Scripts_u;
 using Soenneker.Windmill.OpenApiClient.Service_logs;
 using Soenneker.Windmill.OpenApiClient.Settings;
+using Soenneker.Windmill.OpenApiClient.Settings_u;
 using Soenneker.Windmill.OpenApiClient.Srch;
 using Soenneker.Windmill.OpenApiClient.Teams;
 using Soenneker.Windmill.OpenApiClient.Tokens;
@@ -189,6 +190,11 @@ namespace Soenneker.Windmill.OpenApiClient
         public global::Soenneker.Windmill.OpenApiClient.Settings.SettingsRequestBuilder Settings
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.SettingsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The settings_u property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings_u.Settings_uRequestBuilder Settings_u
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings_u.Settings_uRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The srch property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Srch.SrchRequestBuilder Srch

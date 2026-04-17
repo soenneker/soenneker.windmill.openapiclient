@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.683.2
+  version: 1.686.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -3546,6 +3546,9 @@ paths:
                     type: string
                   client_id:
                     type: string
+                  app_owner:
+                    type: string
+                    nullable: true
                 required:
                   - base_url
                   - app_slug
@@ -34384,20 +34387,18 @@ components:
       properties:
         access_token:
           type: string
-        team_id:
-          type: string
-        team_name:
-          type: string
-        bot:
+        team:
           type: object
           properties:
-            bot_access_token:
+            id:
               type: string
+            name:
+              type: string
+          required:
+            - id
+            - name
       required:
         - access_token
-        - team_id
-        - team_name
-        - bot
     TokenResponse:
       type: object
       properties: *ref_74

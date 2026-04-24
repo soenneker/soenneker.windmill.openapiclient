@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GetItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get/{id}{?no_code*,no_logs*}", pathParameters)
+        public GetItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get/{id}{?approval_token*,no_code*,no_logs*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GetItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get/{id}{?no_code*,no_logs*}", rawUrl)
+        public GetItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get/{id}{?approval_token*,no_code*,no_logs*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,6 +85,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class GetItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>Approval token granting read access to the job when not logged in. The token must be the one issued for this job&apos;s flow (i.e. the flow id used when generating the approval URL).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("approval_token")]
+            public string? ApprovalToken { get; set; }
+#nullable restore
+#else
+            [QueryParameter("approval_token")]
+            public string ApprovalToken { get; set; }
+#endif
             [QueryParameter("no_code")]
             public bool? NoCode { get; set; }
             [QueryParameter("no_logs")]

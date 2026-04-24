@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Create
         {
         }
         /// <summary>
-        /// create script
+        /// Creates a new script when the path does not already exist.Creates a new version of an existing script when called with the same path and the current `parent_hash`.
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Create
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// create script
+        /// Creates a new script when the path does not already exist.Creates a new version of an existing script when called with the same path and the current `parent_hash`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

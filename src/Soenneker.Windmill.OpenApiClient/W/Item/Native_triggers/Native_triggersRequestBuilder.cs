@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Github;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item;
@@ -18,6 +19,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Native_triggersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The github property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Github.GithubRequestBuilder Github
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Github.GithubRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The google property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.GoogleRequestBuilder Google
         {

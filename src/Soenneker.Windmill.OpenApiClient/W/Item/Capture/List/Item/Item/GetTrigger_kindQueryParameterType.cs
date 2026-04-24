@@ -48,6 +48,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item
         #pragma warning disable CS1591
         Gcp,
         #pragma warning restore CS1591
+        [EnumMember(Value = "azure")]
+        #pragma warning disable CS1591
+        Azure,
+        #pragma warning restore CS1591
         [EnumMember(Value = "email")]
         #pragma warning disable CS1591
         Email,

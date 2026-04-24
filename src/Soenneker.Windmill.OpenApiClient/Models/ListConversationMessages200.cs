@@ -26,6 +26,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public Guid? ConversationId { get; set; }
         /// <summary>When the message was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Monotonic cursor assigned when the message is inserted</summary>
+        public long? CreatedSeq { get; set; }
         /// <summary>Unique identifier for the message</summary>
         public Guid? Id { get; set; }
         /// <summary>Associated job ID if this message came from a flow run</summary>
@@ -70,6 +72,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "conversation_id", n => { ConversationId = n.GetGuidValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_seq", n => { CreatedSeq = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "job_id", n => { JobId = n.GetGuidValue(); } },
                 { "message_type", n => { MessageType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200_message_type>(); } },
@@ -87,6 +90,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("content", Content);
             writer.WriteGuidValue("conversation_id", ConversationId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteLongValue("created_seq", CreatedSeq);
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("job_id", JobId);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200_message_type>("message_type", MessageType);

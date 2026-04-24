@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Cancel_selection
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Cancel_selectionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/cancel_selection{?force_cancel*}", pathParameters)
+        public Cancel_selectionRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/cancel_selection{?all_workspaces*,force_cancel*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Cancel_selection
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Cancel_selectionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/cancel_selection{?force_cancel*}", rawUrl)
+        public Cancel_selectionRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/cancel_selection{?all_workspaces*,force_cancel*}", rawUrl)
         {
         }
         /// <summary>
@@ -90,6 +90,8 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Cancel_selection
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Cancel_selectionRequestBuilderPostQueryParameters 
         {
+            [QueryParameter("all_workspaces")]
+            public bool? AllWorkspaces { get; set; }
             [QueryParameter("force_cancel")]
             public bool? ForceCancel { get; set; }
         }

@@ -14,12 +14,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The azure_count property</summary>
+        public double? AzureCount { get; set; }
         /// <summary>The default_email_count property</summary>
         public double? DefaultEmailCount { get; set; }
         /// <summary>The email_count property</summary>
         public double? EmailCount { get; set; }
         /// <summary>The gcp_count property</summary>
         public double? GcpCount { get; set; }
+        /// <summary>The github_count property</summary>
+        public double? GithubCount { get; set; }
         /// <summary>The google_count property</summary>
         public double? GoogleCount { get; set; }
         /// <summary>The http_routes_count property</summary>
@@ -75,9 +79,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "azure_count", n => { AzureCount = n.GetDoubleValue(); } },
                 { "default_email_count", n => { DefaultEmailCount = n.GetDoubleValue(); } },
                 { "email_count", n => { EmailCount = n.GetDoubleValue(); } },
                 { "gcp_count", n => { GcpCount = n.GetDoubleValue(); } },
+                { "github_count", n => { GithubCount = n.GetDoubleValue(); } },
                 { "google_count", n => { GoogleCount = n.GetDoubleValue(); } },
                 { "http_routes_count", n => { HttpRoutesCount = n.GetDoubleValue(); } },
                 { "kafka_count", n => { KafkaCount = n.GetDoubleValue(); } },
@@ -99,9 +105,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDoubleValue("azure_count", AzureCount);
             writer.WriteDoubleValue("default_email_count", DefaultEmailCount);
             writer.WriteDoubleValue("email_count", EmailCount);
             writer.WriteDoubleValue("gcp_count", GcpCount);
+            writer.WriteDoubleValue("github_count", GithubCount);
             writer.WriteDoubleValue("google_count", GoogleCount);
             writer.WriteDoubleValue("http_routes_count", HttpRoutesCount);
             writer.WriteDoubleValue("kafka_count", KafkaCount);

@@ -7,6 +7,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Apps;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets;
 using Soenneker.Windmill.OpenApiClient.W.Item.Audit;
+using Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Capture;
 using Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups;
 using Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request;
@@ -87,6 +88,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.AuditRequestBuilder Audit
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.AuditRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The azure_triggers property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers.Azure_triggersRequestBuilder Azure_triggers
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers.Azure_triggersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The capture property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.CaptureRequestBuilder Capture

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messag
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversation_id}/messages{?after_id*,page*,per_page*}", pathParameters)
+        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversation_id}/messages{?after_seq*,page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messag
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversation_id}/messages{?after_id*,page*,per_page*}", rawUrl)
+        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversation_id}/messages{?after_seq*,page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
@@ -86,9 +86,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messag
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MessagesRequestBuilderGetQueryParameters 
         {
-            /// <summary>id to fetch only the messages after that id</summary>
-            [QueryParameter("after_id")]
-            public Guid? AfterId { get; set; }
+            /// <summary>Message sequence cursor to fetch only the messages after that cursor</summary>
+            [QueryParameter("after_seq")]
+            public long? AfterSeq { get; set; }
             /// <summary>which page to return (start at 1, default 1)</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }

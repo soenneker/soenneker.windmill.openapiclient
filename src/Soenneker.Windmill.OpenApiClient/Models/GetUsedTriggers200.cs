@@ -14,10 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The azure_used property</summary>
+        public bool? AzureUsed { get; set; }
         /// <summary>The email_used property</summary>
         public bool? EmailUsed { get; set; }
         /// <summary>The gcp_used property</summary>
         public bool? GcpUsed { get; set; }
+        /// <summary>The github_used property</summary>
+        public bool? GithubUsed { get; set; }
         /// <summary>The google_used property</summary>
         public bool? GoogleUsed { get; set; }
         /// <summary>The http_routes_used property</summary>
@@ -61,8 +65,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "azure_used", n => { AzureUsed = n.GetBoolValue(); } },
                 { "email_used", n => { EmailUsed = n.GetBoolValue(); } },
                 { "gcp_used", n => { GcpUsed = n.GetBoolValue(); } },
+                { "github_used", n => { GithubUsed = n.GetBoolValue(); } },
                 { "google_used", n => { GoogleUsed = n.GetBoolValue(); } },
                 { "http_routes_used", n => { HttpRoutesUsed = n.GetBoolValue(); } },
                 { "kafka_used", n => { KafkaUsed = n.GetBoolValue(); } },
@@ -81,8 +87,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("azure_used", AzureUsed);
             writer.WriteBoolValue("email_used", EmailUsed);
             writer.WriteBoolValue("gcp_used", GcpUsed);
+            writer.WriteBoolValue("github_used", GithubUsed);
             writer.WriteBoolValue("google_used", GoogleUsed);
             writer.WriteBoolValue("http_routes_used", HttpRoutesUsed);
             writer.WriteBoolValue("kafka_used", KafkaUsed);

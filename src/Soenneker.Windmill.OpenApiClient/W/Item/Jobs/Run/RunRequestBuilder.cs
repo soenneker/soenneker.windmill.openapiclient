@@ -4,8 +4,10 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Batch_rerun_jobs;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies_async;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dynamic_select;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.F;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_dependencies_async;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Fv;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.P;
@@ -33,6 +35,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies.DependenciesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The dependencies_async property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies_async.Dependencies_asyncRequestBuilder Dependencies_async
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies_async.Dependencies_asyncRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The dynamic_select property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dynamic_select.Dynamic_selectRequestBuilder Dynamic_select
         {
@@ -42,6 +49,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.F.FRequestBuilder F
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.F.FRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The flow_dependencies_async property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_dependencies_async.Flow_dependencies_asyncRequestBuilder Flow_dependencies_async
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_dependencies_async.Flow_dependencies_asyncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fv property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Fv.FvRequestBuilder Fv

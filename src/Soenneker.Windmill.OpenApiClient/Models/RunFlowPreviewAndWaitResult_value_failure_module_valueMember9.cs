@@ -23,6 +23,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_input_transforms InputTransforms { get; set; }
 #endif
+        /// <summary>If true, this AI agent step does not persist its assistant or tool messages to the flow conversation when chat mode is enabled.</summary>
+        public bool? OmitOutputFromConversation { get; set; }
         /// <summary>If true, the agent can execute multiple tool calls in parallel</summary>
         public bool? Parallel { get; set; }
         /// <summary>Array of tools the agent can use. The agent decides which tools to call based on the task</summary>
@@ -61,6 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "input_transforms", n => { InputTransforms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_input_transforms>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_input_transforms.CreateFromDiscriminatorValue); } },
+                { "omit_output_from_conversation", n => { OmitOutputFromConversation = n.GetBoolValue(); } },
                 { "parallel", n => { Parallel = n.GetBoolValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_tools>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_tools.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_type>(); } },
@@ -74,6 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_input_transforms>("input_transforms", InputTransforms);
+            writer.WriteBoolValue("omit_output_from_conversation", OmitOutputFromConversation);
             writer.WriteBoolValue("parallel", Parallel);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_tools>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResult_value_failure_module_valueMember9_type>("type", Type);

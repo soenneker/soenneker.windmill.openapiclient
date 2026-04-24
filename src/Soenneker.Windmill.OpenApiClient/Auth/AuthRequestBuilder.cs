@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Auth.Is_password_login_disabled;
 using Soenneker.Windmill.OpenApiClient.Auth.Is_smtp_configured;
 using Soenneker.Windmill.OpenApiClient.Auth.Login;
 using Soenneker.Windmill.OpenApiClient.Auth.Logout;
@@ -19,6 +20,11 @@ namespace Soenneker.Windmill.OpenApiClient.Auth
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The is_password_login_disabled property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Auth.Is_password_login_disabled.Is_password_login_disabledRequestBuilder Is_password_login_disabled
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Auth.Is_password_login_disabled.Is_password_login_disabledRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The is_smtp_configured property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Auth.Is_smtp_configured.Is_smtp_configuredRequestBuilder Is_smtp_configured
         {

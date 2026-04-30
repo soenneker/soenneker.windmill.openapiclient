@@ -14,11 +14,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>for branchall or loop, the iteration at which the flow should restart (optional)</summary>
+        /// <summary>for branchall or loop at the top level, the iteration at which the flow should restart (optional)</summary>
         public int? BranchOrIterationN { get; set; }
         /// <summary>specific flow version to use for restart (optional, uses current version if not specified)</summary>
         public int? FlowVersion { get; set; }
-        /// <summary>step id to restart the flow from</summary>
+        /// <summary>path of additional steps to descend into AFTER `step_id`. Each entry represents one level of nesting inside the spawned child of the previous level&apos;s container (BranchOne / sequential ForLoop iteration / Subflow). When non-empty, the actual restart point is the LAST entry&apos;s step_id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep_nested_path>? NestedPath { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep_nested_path> NestedPath { get; set; }
+#endif
+        /// <summary>top-level step id to restart the flow from (or the outermost container when restarting at a nested step)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StepId { get; set; }
@@ -53,6 +61,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "branch_or_iteration_n", n => { BranchOrIterationN = n.GetIntValue(); } },
                 { "flow_version", n => { FlowVersion = n.GetIntValue(); } },
+                { "nested_path", n => { NestedPath = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep_nested_path>(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep_nested_path.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "step_id", n => { StepId = n.GetStringValue(); } },
             };
         }
@@ -65,6 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("branch_or_iteration_n", BranchOrIterationN);
             writer.WriteIntValue("flow_version", FlowVersion);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep_nested_path>("nested_path", NestedPath);
             writer.WriteStringValue("step_id", StepId);
             writer.WriteAdditionalData(AdditionalData);
         }

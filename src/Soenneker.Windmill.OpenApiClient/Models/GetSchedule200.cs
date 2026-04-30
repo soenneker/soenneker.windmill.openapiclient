@@ -148,7 +148,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200_on_success_extra_args OnSuccessExtraArgs { get; set; }
 #endif
-        /// <summary>The unique path identifier for this schedule</summary>
+        /// <summary>The unique Windmill path for this schedule. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Path { get; set; }

@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>provider type to auto-redirect to on login (oauth key or &quot;saml&quot;)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AutoLogin { get; set; }
+#nullable restore
+#else
+        public string AutoLogin { get; set; }
+#endif
         /// <summary>The oauth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "auto_login", n => { AutoLogin = n.GetStringValue(); } },
                 { "oauth", n => { Oauth = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200_oauth>(global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200_oauth.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "saml", n => { Saml = n.GetStringValue(); } },
             };
@@ -66,6 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("auto_login", AutoLogin);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200_oauth>("oauth", Oauth);
             writer.WriteStringValue("saml", Saml);
             writer.WriteAdditionalData(AdditionalData);

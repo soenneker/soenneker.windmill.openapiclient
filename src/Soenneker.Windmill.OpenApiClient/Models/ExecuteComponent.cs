@@ -38,6 +38,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> ForceViewerAllowUserResources { get; set; }
 #endif
+        /// <summary>The force_viewer_delete_after_secs property</summary>
+        public int? ForceViewerDeleteAfterSecs { get; set; }
         /// <summary>The force_viewer_one_of_fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,6 +47,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_force_viewer_one_of_fields ForceViewerOneOfFields { get; set; }
+#endif
+        /// <summary>The force_viewer_sensitive_inputs property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? ForceViewerSensitiveInputs { get; set; }
+#nullable restore
+#else
+        public List<string> ForceViewerSensitiveInputs { get; set; }
 #endif
         /// <summary>The force_viewer_static_fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,7 +120,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_args>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_args.CreateFromDiscriminatorValue); } },
                 { "component", n => { Component = n.GetStringValue(); } },
                 { "force_viewer_allow_user_resources", n => { ForceViewerAllowUserResources = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "force_viewer_delete_after_secs", n => { ForceViewerDeleteAfterSecs = n.GetIntValue(); } },
                 { "force_viewer_one_of_fields", n => { ForceViewerOneOfFields = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_force_viewer_one_of_fields>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_force_viewer_one_of_fields.CreateFromDiscriminatorValue); } },
+                { "force_viewer_sensitive_inputs", n => { ForceViewerSensitiveInputs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "force_viewer_static_fields", n => { ForceViewerStaticFields = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_force_viewer_static_fields>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_force_viewer_static_fields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -129,7 +141,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_args>("args", Args);
             writer.WriteStringValue("component", Component);
             writer.WriteCollectionOfPrimitiveValues<string>("force_viewer_allow_user_resources", ForceViewerAllowUserResources);
+            writer.WriteIntValue("force_viewer_delete_after_secs", ForceViewerDeleteAfterSecs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_force_viewer_one_of_fields>("force_viewer_one_of_fields", ForceViewerOneOfFields);
+            writer.WriteCollectionOfPrimitiveValues<string>("force_viewer_sensitive_inputs", ForceViewerSensitiveInputs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_force_viewer_static_fields>("force_viewer_static_fields", ForceViewerStaticFields);
             writer.WriteIntValue("id", Id);
             writer.WriteStringValue("path", Path);

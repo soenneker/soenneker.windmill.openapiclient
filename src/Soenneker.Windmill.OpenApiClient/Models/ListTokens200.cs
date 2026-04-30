@@ -52,6 +52,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string TokenPrefix { get; set; }
 #endif
+        /// <summary>The workspace_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListTokens200"/> and sets the default values.
         /// </summary>
@@ -84,6 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "token_prefix", n => { TokenPrefix = n.GetStringValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -100,6 +109,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteStringValue("token_prefix", TokenPrefix);
+            writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

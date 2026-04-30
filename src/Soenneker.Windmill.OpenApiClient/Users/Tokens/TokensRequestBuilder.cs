@@ -6,6 +6,7 @@ using Soenneker.Windmill.OpenApiClient.Users.Tokens.Create;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Delete;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Impersonate;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.List;
+using Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -37,6 +38,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Tokens
         public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The update_scopes property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Update_scopesRequestBuilder Update_scopes
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Update_scopesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Users.Tokens.TokensRequestBuilder"/> and sets the default values.

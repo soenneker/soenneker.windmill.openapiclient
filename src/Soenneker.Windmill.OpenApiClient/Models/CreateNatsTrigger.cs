@@ -58,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string NatsResourcePath { get; set; }
 #endif
-        /// <summary>The unique path identifier for this trigger</summary>
+        /// <summary>The unique Windmill path for this trigger. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`. This is the trigger object path, not the HTTP route path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Path { get; set; }

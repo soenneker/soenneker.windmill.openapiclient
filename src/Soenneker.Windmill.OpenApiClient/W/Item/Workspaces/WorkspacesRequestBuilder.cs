@@ -11,6 +11,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Change_workspace_id;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Change_workspace_name;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Cloud_quotas;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Connect_slack;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Connect_teams;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_pg_database;
@@ -44,6 +45,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_as_superadmin;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_copilot_info;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_copilot_settings_state;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_full_schema;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_table_schema;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependency_map;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents_amounts;
@@ -58,6 +60,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Invite_user;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Is_premium;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Leave;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_schemas;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ducklakes;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_pending_invites;
@@ -132,6 +135,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.CompareRequestBuilder Compare
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.CompareRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The connect_slack property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Connect_slack.Connect_slackRequestBuilder Connect_slack
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Connect_slack.Connect_slackRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The connect_teams property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Connect_teams.Connect_teamsRequestBuilder Connect_teams
@@ -298,6 +306,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_full_schema.Get_datatable_full_schemaRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The get_datatable_table_schema property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_table_schema.Get_datatable_table_schemaRequestBuilder Get_datatable_table_schema
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_table_schema.Get_datatable_table_schemaRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The get_dependency_map property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependency_map.Get_dependency_mapRequestBuilder Get_dependency_map
         {
@@ -367,6 +380,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_schemas.List_datatable_schemasRequestBuilder List_datatable_schemas
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_schemas.List_datatable_schemasRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list_datatable_tables property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder List_datatable_tables
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The list_datatables property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables.List_datatablesRequestBuilder List_datatables

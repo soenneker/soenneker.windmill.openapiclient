@@ -24,14 +24,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200_git_sync_repositories_exclude_types_override?> ExcludeTypesOverride { get; set; }
 #endif
-        /// <summary>The force_branch property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ForceBranch { get; set; }
-#nullable restore
-#else
-        public string ForceBranch { get; set; }
-#endif
         /// <summary>The git_repo_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,7 +79,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "collapsed", n => { Collapsed = n.GetBoolValue(); } },
                 { "exclude_types_override", n => { ExcludeTypesOverride = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200_git_sync_repositories_exclude_types_override>()?.AsList(); } },
-                { "force_branch", n => { ForceBranch = n.GetStringValue(); } },
                 { "git_repo_resource_path", n => { GitRepoResourcePath = n.GetStringValue(); } },
                 { "group_by_folder", n => { GroupByFolder = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
@@ -104,7 +95,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("collapsed", Collapsed);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200_git_sync_repositories_exclude_types_override>("exclude_types_override", ExcludeTypesOverride);
-            writer.WriteStringValue("force_branch", ForceBranch);
             writer.WriteStringValue("git_repo_resource_path", GitRepoResourcePath);
             writer.WriteBoolValue("group_by_folder", GroupByFolder);
             writer.WriteStringValue("script_path", ScriptPath);

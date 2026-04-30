@@ -14,12 +14,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The branch_or_iteration_n property</summary>
+        /// <summary>For BranchOne nested restart — the branch that was originally chosen, used to lock branch evaluation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_branch_chosen? BranchChosen { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_branch_chosen BranchChosen { get; set; }
+#endif
+        /// <summary>0-based iteration index for ForLoop / branch index for BranchAll. Iterations 0..n-1 are preserved; iteration n is restarted.</summary>
         public int? BranchOrIterationN { get; set; }
         /// <summary>The flow_job_id property</summary>
         public Guid? FlowJobId { get; set; }
         /// <summary>The flow_version property</summary>
         public int? FlowVersion { get; set; }
+        /// <summary>When set, the worker spawns the child for `step_id` as a `RestartedFlow` against `nested.flow_job_id` instead of fresh-launching it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_nested? Nested { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_nested Nested { get; set; }
+#endif
         /// <summary>The step_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,9 +69,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "branch_chosen", n => { BranchChosen = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_branch_chosen>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_branch_chosen.CreateFromDiscriminatorValue); } },
                 { "branch_or_iteration_n", n => { BranchOrIterationN = n.GetIntValue(); } },
                 { "flow_job_id", n => { FlowJobId = n.GetGuidValue(); } },
                 { "flow_version", n => { FlowVersion = n.GetIntValue(); } },
+                { "nested", n => { Nested = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_nested>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_nested.CreateFromDiscriminatorValue); } },
                 { "step_id", n => { StepId = n.GetStringValue(); } },
             };
         }
@@ -66,9 +84,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_branch_chosen>("branch_chosen", BranchChosen);
             writer.WriteIntValue("branch_or_iteration_n", BranchOrIterationN);
             writer.WriteGuidValue("flow_job_id", FlowJobId);
             writer.WriteIntValue("flow_version", FlowVersion);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from_nested>("nested", Nested);
             writer.WriteStringValue("step_id", StepId);
             writer.WriteAdditionalData(AdditionalData);
         }

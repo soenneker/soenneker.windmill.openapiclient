@@ -43,6 +43,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources;
 using Soenneker.Windmill.OpenApiClient.W.Item.Schedules;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts;
+using Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui;
 using Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Trigger;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users;
@@ -268,6 +269,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.ScriptsRequestBuilder Scripts
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.ScriptsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The shared_ui property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui.Shared_uiRequestBuilder Shared_ui
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui.Shared_uiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sqs_triggers property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers.Sqs_triggersRequestBuilder Sqs_triggers

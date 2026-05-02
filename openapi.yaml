@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.693.2
+  version: 1.694.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -4293,9 +4293,162 @@ paths:
                   type: object
                   properties: *ref_41
                   required: *ref_42
+  /w/{workspace}/workspaces/get_public_settings:
+    get:
+      summary: get public settings
+      description: >-
+        Returns the subset of workspace settings safe to expose to any workspace
+        member. The full settings struct is admin-only via `getSettings`.
+      operationId: getPublicSettings
+      tags:
+        - workspace
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+      responses:
+        '200':
+          description: status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  workspace_id:
+                    type: string
+                  slack_name:
+                    type: string
+                  slack_team_id:
+                    type: string
+                  teams_team_id:
+                    type: string
+                  teams_team_name:
+                    type: string
+                  teams_team_guid:
+                    type: string
+                  large_file_storage:
+                    type: object
+                    properties: &ref_45
+                      type:
+                        type: string
+                        enum:
+                          - S3Storage
+                          - AzureBlobStorage
+                          - AzureWorkloadIdentity
+                          - S3AwsOidc
+                          - GoogleCloudStorage
+                      s3_resource_path:
+                        type: string
+                      azure_blob_resource_path:
+                        type: string
+                      gcs_resource_path:
+                        type: string
+                      public_resource:
+                        type: boolean
+                      advanced_permissions:
+                        type: array
+                        items:
+                          type: object
+                          properties: &ref_531
+                            pattern:
+                              type: string
+                            allow:
+                              type: string
+                          required: &ref_532
+                            - pattern
+                            - allow
+                      secondary_storage:
+                        type: object
+                        additionalProperties:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                                - S3Storage
+                                - AzureBlobStorage
+                                - AzureWorkloadIdentity
+                                - S3AwsOidc
+                                - GoogleCloudStorage
+                            s3_resource_path:
+                              type: string
+                            azure_blob_resource_path:
+                              type: string
+                            gcs_resource_path:
+                              type: string
+                            public_resource:
+                              type: boolean
+                  datatable:
+                    type: object
+                    required: &ref_46
+                      - datatables
+                    properties: &ref_47
+                      datatables:
+                        type: object
+                        additionalProperties:
+                          type: object
+                          required:
+                            - database
+                          properties:
+                            database:
+                              type: object
+                              properties:
+                                resource_type:
+                                  type: string
+                                  enum:
+                                    - postgresql
+                                    - instance
+                                resource_path:
+                                  type: string
+                              required:
+                                - resource_type
+                            forked_from:
+                              type: object
+                              description: Fork origin info with schema snapshot
+                              properties:
+                                schema:
+                                  type: object
+                                  description: Schema snapshot at fork time
+                                  additionalProperties: true
+                  deploy_ui:
+                    type: object
+                    properties: &ref_49
+                      include_path:
+                        type: array
+                        items:
+                          type: string
+                      include_type:
+                        type: array
+                        items:
+                          type: string
+                          enum: &ref_48
+                            - script
+                            - flow
+                            - app
+                            - folder
+                            - resource
+                            - variable
+                            - secret
+                            - resourcetype
+                            - schedule
+                            - user
+                            - group
+                            - trigger
+                            - settings
+                            - key
+                            - workspacedependencies
+                  mute_critical_alerts:
+                    type: boolean
+                required:
+                  - workspace_id
   /w/{workspace}/workspaces/get_settings:
     get:
-      summary: get settings
+      summary: get settings (admin only)
+      description: >-
+        Returns the full workspace settings including admin-managed integration
+        credentials. Admin-only — non-admin callers should use
+        `getPublicSettings`.
       operationId: getSettings
       tags:
         - workspace
@@ -4371,7 +4524,7 @@ paths:
                     type: string
                   ai_config:
                     type: object
-                    properties: &ref_46
+                    properties: &ref_50
                       providers:
                         type: object
                         additionalProperties:
@@ -4393,7 +4546,7 @@ paths:
                             type: string
                           provider:
                             type: string
-                            enum: &ref_47
+                            enum: &ref_51
                               - openai
                               - azure_openai
                               - anthropic
@@ -4452,61 +4605,12 @@ paths:
                         additionalProperties: true
                   large_file_storage:
                     type: object
-                    properties: &ref_50
-                      type:
-                        type: string
-                        enum:
-                          - S3Storage
-                          - AzureBlobStorage
-                          - AzureWorkloadIdentity
-                          - S3AwsOidc
-                          - GoogleCloudStorage
-                      s3_resource_path:
-                        type: string
-                      azure_blob_resource_path:
-                        type: string
-                      gcs_resource_path:
-                        type: string
-                      public_resource:
-                        type: boolean
-                      advanced_permissions:
-                        type: array
-                        items:
-                          type: object
-                          properties: &ref_531
-                            pattern:
-                              type: string
-                            allow:
-                              type: string
-                          required: &ref_532
-                            - pattern
-                            - allow
-                      secondary_storage:
-                        type: object
-                        additionalProperties:
-                          type: object
-                          properties:
-                            type:
-                              type: string
-                              enum:
-                                - S3Storage
-                                - AzureBlobStorage
-                                - AzureWorkloadIdentity
-                                - S3AwsOidc
-                                - GoogleCloudStorage
-                            s3_resource_path:
-                              type: string
-                            azure_blob_resource_path:
-                              type: string
-                            gcs_resource_path:
-                              type: string
-                            public_resource:
-                              type: boolean
+                    properties: *ref_45
                   ducklake:
                     type: object
-                    required: &ref_51
+                    required: &ref_54
                       - ducklakes
-                    properties: &ref_52
+                    properties: &ref_55
                       ducklakes:
                         type: object
                         additionalProperties:
@@ -4541,44 +4645,16 @@ paths:
                               type: string
                   datatable:
                     type: object
-                    required: &ref_53
-                      - datatables
-                    properties: &ref_54
-                      datatables:
-                        type: object
-                        additionalProperties:
-                          type: object
-                          required:
-                            - database
-                          properties:
-                            database:
-                              type: object
-                              properties:
-                                resource_type:
-                                  type: string
-                                  enum:
-                                    - postgresql
-                                    - instance
-                                resource_path:
-                                  type: string
-                              required:
-                                - resource_type
-                            forked_from:
-                              type: object
-                              description: Fork origin info with schema snapshot
-                              properties:
-                                schema:
-                                  type: object
-                                  description: Schema snapshot at fork time
-                                  additionalProperties: true
+                    required: *ref_46
+                    properties: *ref_47
                   git_sync:
                     type: object
-                    properties: &ref_55
+                    properties: &ref_56
                       repositories:
                         type: array
                         items:
                           type: object
-                          properties: &ref_56
+                          properties: &ref_57
                             script_path:
                               type: string
                             git_repo_resource_path:
@@ -4600,22 +4676,7 @@ paths:
                                   type: array
                                   items:
                                     type: string
-                                    enum: &ref_45
-                                      - script
-                                      - flow
-                                      - app
-                                      - folder
-                                      - resource
-                                      - variable
-                                      - secret
-                                      - resourcetype
-                                      - schedule
-                                      - user
-                                      - group
-                                      - trigger
-                                      - settings
-                                      - key
-                                      - workspacedependencies
+                                    enum: *ref_48
                                 exclude_path:
                                   type: array
                                   items:
@@ -4628,21 +4689,12 @@ paths:
                               type: array
                               items:
                                 type: string
-                                enum: *ref_45
-                          required: &ref_57
+                                enum: *ref_48
+                          required: &ref_58
                             - git_repo_resource_path
                   deploy_ui:
                     type: object
-                    properties: &ref_58
-                      include_path:
-                        type: array
-                        items:
-                          type: string
-                      include_type:
-                        type: array
-                        items:
-                          type: string
-                          enum: *ref_45
+                    properties: *ref_49
                   default_app:
                     type: string
                   default_scripts:
@@ -5457,7 +5509,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: *ref_46
+              properties: *ref_50
       responses:
         '200':
           description: status
@@ -5468,14 +5520,14 @@ paths:
                 properties:
                   effective_ai_config:
                     type: object
-                    properties: *ref_46
+                    properties: *ref_50
                   has_instance_ai_config:
                     type: boolean
                   uses_instance_ai_config:
                     type: boolean
                   instance_ai_summary:
                     type: object
-                    properties: &ref_48
+                    properties: &ref_52
                       providers:
                         type: array
                         items:
@@ -5483,7 +5535,7 @@ paths:
                           properties: &ref_380
                             provider:
                               type: string
-                              enum: *ref_47
+                              enum: *ref_51
                             models:
                               type: array
                               items:
@@ -5499,7 +5551,7 @@ paths:
                         type: object
                         properties: *ref_43
                         required: *ref_44
-                    required: &ref_49
+                    required: &ref_53
                       - providers
                 required:
                   - effective_ai_config
@@ -5530,8 +5582,8 @@ paths:
                     type: boolean
                   instance_ai_summary:
                     type: object
-                    properties: *ref_48
-                    required: *ref_49
+                    properties: *ref_52
+                    required: *ref_53
                 required:
                   - has_instance_ai_config
                   - uses_instance_ai_config
@@ -5553,7 +5605,7 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: *ref_46
+                properties: *ref_50
   /w/{workspace}/workspaces/edit_error_handler:
     post:
       summary: edit error handler
@@ -5686,7 +5738,7 @@ paths:
               properties:
                 large_file_storage:
                   type: object
-                  properties: *ref_50
+                  properties: *ref_45
       responses:
         '200':
           description: status
@@ -5901,8 +5953,8 @@ paths:
               properties:
                 settings:
                   type: object
-                  required: *ref_51
-                  properties: *ref_52
+                  required: *ref_54
+                  properties: *ref_55
       responses:
         '200':
           description: status
@@ -5932,8 +5984,8 @@ paths:
               properties:
                 settings:
                   type: object
-                  required: *ref_53
-                  properties: *ref_54
+                  required: *ref_46
+                  properties: *ref_47
       responses:
         '200':
           description: status
@@ -6227,7 +6279,7 @@ paths:
               properties:
                 git_sync_settings:
                   type: object
-                  properties: *ref_55
+                  properties: *ref_56
       responses:
         '200':
           description: status
@@ -6258,8 +6310,8 @@ paths:
                   description: The resource path of the git repository to update
                 repository:
                   type: object
-                  properties: *ref_56
-                  required: *ref_57
+                  properties: *ref_57
+                  required: *ref_58
               required:
                 - git_repo_resource_path
                 - repository
@@ -6320,7 +6372,7 @@ paths:
               properties:
                 deploy_ui_settings:
                   type: object
-                  properties: *ref_58
+                  properties: *ref_49
       responses:
         '200':
           description: status
@@ -16450,6 +16502,8 @@ paths:
                       type: string
                     cache_ttl:
                       type: integer
+                    tag:
+                      type: string
                   required:
                     - content
                     - language
@@ -21579,6 +21633,11 @@ paths:
               properties:
                 enabled:
                   type: boolean
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    schedule in a fork whose parent has the same path enabled.
               required:
                 - enabled
       responses:
@@ -22824,6 +22883,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -23379,6 +23443,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -23911,6 +23980,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -24412,6 +24486,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -24859,6 +24938,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -26243,6 +26327,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -26676,6 +26765,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -27120,6 +27214,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -28117,6 +28216,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -28492,6 +28596,11 @@ paths:
                   description: job trigger mode
                   type: string
                   enum: *ref_207
+                force:
+                  type: boolean
+                  description: >
+                    Bypass the parent-state conflict warning when enabling a
+                    trigger in a fork whose parent has the same path enabled.
               required:
                 - mode
       responses:
@@ -31408,6 +31517,15 @@ paths:
             gitrepos/{workspace_id}/u/user/resource/{commit_hash})
           in: query
           required: true
+          schema:
+            type: string
+        - name: marker_file
+          description: |
+            If provided, the folder is only considered to exist when this exact
+            sentinel file is present under file_key. Lets callers distinguish a
+            fully populated folder from a partial upload.
+          in: query
+          required: false
           schema:
             type: string
       responses:
@@ -34755,10 +34873,10 @@ components:
       properties: *ref_377
     AIProvider:
       type: string
-      enum: *ref_47
+      enum: *ref_51
     GitSyncObjectType:
       type: string
-      enum: *ref_45
+      enum: *ref_48
     AIProviderModel:
       type: object
       properties: *ref_43
@@ -34769,15 +34887,15 @@ components:
       required: *ref_379
     AIConfig:
       type: object
-      properties: *ref_46
+      properties: *ref_50
     InstanceAIProviderSummary:
       type: object
       properties: *ref_380
       required: *ref_381
     InstanceAISummary:
       type: object
-      properties: *ref_48
-      required: *ref_49
+      properties: *ref_52
+      required: *ref_53
     Alert:
       type: object
       properties: *ref_382
@@ -35585,15 +35703,15 @@ components:
       required: *ref_293
     LargeFileStorage:
       type: object
-      properties: *ref_50
+      properties: *ref_45
     DucklakeSettings:
       type: object
-      required: *ref_51
-      properties: *ref_52
+      required: *ref_54
+      properties: *ref_55
     DataTableSettings:
       type: object
-      required: *ref_53
-      properties: *ref_54
+      required: *ref_46
+      properties: *ref_47
     DataTableSchema:
       type: object
       required: *ref_523
@@ -35627,10 +35745,10 @@ components:
       required: *ref_291
     WorkspaceGitSyncSettings:
       type: object
-      properties: *ref_55
+      properties: *ref_56
     WorkspaceDeployUISettings:
       type: object
-      properties: *ref_58
+      properties: *ref_49
     WorkspaceDefaultScripts:
       type: object
       properties: *ref_59
@@ -35640,8 +35758,8 @@ components:
       required: *ref_532
     GitRepositorySettings:
       type: object
-      properties: *ref_56
-      required: *ref_57
+      properties: *ref_57
+      required: *ref_58
     MetricMetadata:
       type: object
       properties: *ref_533

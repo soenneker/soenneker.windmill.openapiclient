@@ -16,6 +16,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Bypass the parent-state conflict warning when enabling a schedule in a fork whose parent has the same path enabled.</summary>
+        public bool? Force { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetScheduleEnabled"/> and sets the default values.
         /// </summary>
@@ -42,6 +44,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "force", n => { Force = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -52,6 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteBoolValue("force", Force);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

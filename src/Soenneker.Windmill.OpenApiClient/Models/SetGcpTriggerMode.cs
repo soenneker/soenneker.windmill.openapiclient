@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Bypass the parent-state conflict warning when enabling a trigger in a fork whose parent has the same path enabled.</summary>
+        public bool? Force { get; set; }
         /// <summary>job trigger mode</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.SetGcpTriggerMode_mode? Mode { get; set; }
         /// <summary>
@@ -41,6 +43,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "force", n => { Force = n.GetBoolValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetGcpTriggerMode_mode>(); } },
             };
         }
@@ -51,6 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("force", Force);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetGcpTriggerMode_mode>("mode", Mode);
             writer.WriteAdditionalData(AdditionalData);
         }

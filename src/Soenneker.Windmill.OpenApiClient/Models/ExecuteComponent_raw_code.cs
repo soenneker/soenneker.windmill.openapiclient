@@ -48,6 +48,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
+        /// <summary>The tag property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Tag { get; set; }
+#nullable restore
+#else
+        public string Tag { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_raw_code"/> and sets the default values.
         /// </summary>
@@ -78,6 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "lock", n => { Lock = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
+                { "tag", n => { Tag = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -92,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("lock", Lock);
             writer.WriteStringValue("path", Path);
+            writer.WriteStringValue("tag", Tag);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Check_s3_folder_ex
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Check_s3_folder_existsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/check_s3_folder_exists?file_key={file_key}", pathParameters)
+        public Check_s3_folder_existsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/check_s3_folder_exists?file_key={file_key}{&marker_file*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Check_s3_folder_ex
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Check_s3_folder_existsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/check_s3_folder_exists?file_key={file_key}", rawUrl)
+        public Check_s3_folder_existsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/check_s3_folder_exists?file_key={file_key}{&marker_file*}", rawUrl)
         {
         }
         /// <summary>
@@ -94,6 +94,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Check_s3_folder_ex
 #else
             [QueryParameter("file_key")]
             public string FileKey { get; set; }
+#endif
+            /// <summary>If provided, the folder is only considered to exist when this exactsentinel file is present under file_key. Lets callers distinguish afully populated folder from a partial upload.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("marker_file")]
+            public string? MarkerFile { get; set; }
+#nullable restore
+#else
+            [QueryParameter("marker_file")]
+            public string MarkerFile { get; set; }
 #endif
         }
     }

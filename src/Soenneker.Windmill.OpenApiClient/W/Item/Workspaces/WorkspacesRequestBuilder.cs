@@ -51,6 +51,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents_amounts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_deploy_to;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_imports;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_public_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_secondary_storage_names;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_workspace_name;
@@ -335,6 +336,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_imports.Get_importsRequestBuilder Get_imports
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_imports.Get_importsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The get_public_settings property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_public_settings.Get_public_settingsRequestBuilder Get_public_settings
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_public_settings.Get_public_settingsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The get_secondary_storage_names property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_secondary_storage_names.Get_secondary_storage_namesRequestBuilder Get_secondary_storage_names

@@ -84,6 +84,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string WorkspaceId { get; set; }
 #endif
+        /// <summary>The ws_specific property</summary>
+        public bool? WsSpecific { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200"/> and sets the default values.
         /// </summary>
@@ -123,6 +125,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "refresh_error", n => { RefreshError = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
+                { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -146,6 +149,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("refresh_error", RefreshError);
             writer.WriteStringValue("value", Value);
             writer.WriteStringValue("workspace_id", WorkspaceId);
+            writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

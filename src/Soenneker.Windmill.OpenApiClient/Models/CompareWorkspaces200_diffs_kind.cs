@@ -35,5 +35,53 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Resource_type,
         #pragma warning restore CS1591
+        [EnumMember(Value = "folder")]
+        #pragma warning disable CS1591
+        Folder,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "schedule")]
+        #pragma warning disable CS1591
+        Schedule,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "http_trigger")]
+        #pragma warning disable CS1591
+        Http_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "websocket_trigger")]
+        #pragma warning disable CS1591
+        Websocket_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "kafka_trigger")]
+        #pragma warning disable CS1591
+        Kafka_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "nats_trigger")]
+        #pragma warning disable CS1591
+        Nats_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "postgres_trigger")]
+        #pragma warning disable CS1591
+        Postgres_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mqtt_trigger")]
+        #pragma warning disable CS1591
+        Mqtt_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sqs_trigger")]
+        #pragma warning disable CS1591
+        Sqs_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "gcp_trigger")]
+        #pragma warning disable CS1591
+        Gcp_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "azure_trigger")]
+        #pragma warning disable CS1591
+        Azure_trigger,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "email_trigger")]
+        #pragma warning disable CS1591
+        Email_trigger,
+        #pragma warning restore CS1591
     }
 }

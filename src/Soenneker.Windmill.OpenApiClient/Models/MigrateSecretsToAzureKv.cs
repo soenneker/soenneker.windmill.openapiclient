@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ClientId { get; set; }
 #endif
-        /// <summary>Azure AD client secret</summary>
+        /// <summary>Azure AD client secret. Optional — when omitted, the integration falls back to Azure Workload Identity Federation, exchanging the Kubernetes-projected service-account JWT at AZURE_FEDERATED_TOKEN_FILE for an access token (no long-lived secret stored).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientSecret { get; set; }

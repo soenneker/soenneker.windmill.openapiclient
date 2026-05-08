@@ -54,6 +54,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.UpdateResource_value Value { get; set; }
 #endif
+        /// <summary>The ws_specific property</summary>
+        public bool? WsSpecific { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateResource"/> and sets the default values.
         /// </summary>
@@ -84,6 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateResource_value>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateResource_value.CreateFromDiscriminatorValue); } },
+                { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -98,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateResource_value>("value", Value);
+            writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

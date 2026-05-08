@@ -27,6 +27,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public int? ResourcesChanged { get; set; }
         /// <summary>Number of resource types with differences</summary>
         public int? ResourceTypesChanged { get; set; }
+        /// <summary>Number of schedules with differences</summary>
+        public int? SchedulesChanged { get; set; }
         /// <summary>Number of scripts with differences</summary>
         public int? ScriptsChanged { get; set; }
         /// <summary>Total number of ahead changes</summary>
@@ -35,6 +37,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public int? TotalBehind { get; set; }
         /// <summary>Total number of items with differences</summary>
         public int? TotalDiffs { get; set; }
+        /// <summary>Number of triggers with differences (sum across all trigger kinds)</summary>
+        public int? TriggersChanged { get; set; }
         /// <summary>Number of variables with differences</summary>
         public int? VariablesChanged { get; set; }
         /// <summary>
@@ -68,10 +72,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "folders_changed", n => { FoldersChanged = n.GetIntValue(); } },
                 { "resource_types_changed", n => { ResourceTypesChanged = n.GetIntValue(); } },
                 { "resources_changed", n => { ResourcesChanged = n.GetIntValue(); } },
+                { "schedules_changed", n => { SchedulesChanged = n.GetIntValue(); } },
                 { "scripts_changed", n => { ScriptsChanged = n.GetIntValue(); } },
                 { "total_ahead", n => { TotalAhead = n.GetIntValue(); } },
                 { "total_behind", n => { TotalBehind = n.GetIntValue(); } },
                 { "total_diffs", n => { TotalDiffs = n.GetIntValue(); } },
+                { "triggers_changed", n => { TriggersChanged = n.GetIntValue(); } },
                 { "variables_changed", n => { VariablesChanged = n.GetIntValue(); } },
             };
         }
@@ -88,10 +94,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("folders_changed", FoldersChanged);
             writer.WriteIntValue("resources_changed", ResourcesChanged);
             writer.WriteIntValue("resource_types_changed", ResourceTypesChanged);
+            writer.WriteIntValue("schedules_changed", SchedulesChanged);
             writer.WriteIntValue("scripts_changed", ScriptsChanged);
             writer.WriteIntValue("total_ahead", TotalAhead);
             writer.WriteIntValue("total_behind", TotalBehind);
             writer.WriteIntValue("total_diffs", TotalDiffs);
+            writer.WriteIntValue("triggers_changed", TriggersChanged);
             writer.WriteIntValue("variables_changed", VariablesChanged);
             writer.WriteAdditionalData(AdditionalData);
         }

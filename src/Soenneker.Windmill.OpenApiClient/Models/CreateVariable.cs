@@ -54,6 +54,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Value { get; set; }
 #endif
+        /// <summary>The ws_specific property</summary>
+        public bool? WsSpecific { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateVariable"/> and sets the default values.
         /// </summary>
@@ -87,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
+                { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -104,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("value", Value);
+            writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

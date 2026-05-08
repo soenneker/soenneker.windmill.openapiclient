@@ -98,6 +98,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string WorkspaceId { get; set; }
 #endif
+        /// <summary>The ws_specific property</summary>
+        public bool? WsSpecific { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListResource200"/> and sets the default values.
         /// </summary>
@@ -138,6 +140,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200_value>(global::Soenneker.Windmill.OpenApiClient.Models.ListResource200_value.CreateFromDiscriminatorValue); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
+                { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -162,6 +165,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200_value>("value", Value);
             writer.WriteStringValue("workspace_id", WorkspaceId);
+            writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

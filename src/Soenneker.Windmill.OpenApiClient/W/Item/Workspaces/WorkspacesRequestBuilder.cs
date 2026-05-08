@@ -65,6 +65,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ducklakes;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_pending_invites;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_versions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_chat;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Operator_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Premium_info;
@@ -406,6 +408,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_pending_invites.List_pending_invitesRequestBuilder List_pending_invites
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_pending_invites.List_pending_invitesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list_ws_specific property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific.List_ws_specificRequestBuilder List_ws_specific
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific.List_ws_specificRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list_ws_specific_versions property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_versions.List_ws_specific_versionsRequestBuilder List_ws_specific_versions
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_versions.List_ws_specific_versionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The log_chat property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_chat.Log_chatRequestBuilder Log_chat

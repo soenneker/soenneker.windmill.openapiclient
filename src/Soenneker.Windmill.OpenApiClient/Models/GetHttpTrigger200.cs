@@ -32,6 +32,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Timestamp of the last edit</summary>
+        public DateTimeOffset? EditedAt { get; set; }
+        /// <summary>Username of the last person who edited this trigger</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EditedBy { get; set; }
+#nullable restore
+#else
+        public string EditedBy { get; set; }
+#endif
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,10 +58,46 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ErrorHandlerPath { get; set; }
 #endif
+        /// <summary>Additional permissions for this trigger</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_extra_perms? ExtraPerms { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_extra_perms ExtraPerms { get; set; }
+#endif
         /// <summary>HTTP method (get, post, put, delete, patch) that triggers this endpoint</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_http_method? HttpMethod { get; set; }
+        /// <summary>True if script_path points to a flow, false if it points to a script</summary>
+        public bool? IsFlow { get; set; }
         /// <summary>If true, serves static files from S3/storage instead of running a script</summary>
         public bool? IsStaticWebsite { get; set; }
+        /// <summary>The labels property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Labels { get; set; }
+#nullable restore
+#else
+        public List<string> Labels { get; set; }
+#endif
+        /// <summary>job trigger mode</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_mode? Mode { get; set; }
+        /// <summary>The unique Windmill path for this trigger. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`. This is the trigger object path, not the HTTP route path.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Path { get; set; }
+#nullable restore
+#else
+        public string Path { get; set; }
+#endif
+        /// <summary>The user or group this trigger runs as (permissioned_as)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PermissionedAs { get; set; }
+#nullable restore
+#else
+        public string PermissionedAs { get; set; }
+#endif
         /// <summary>If true, passes the request body as a raw string instead of parsing as JSON</summary>
         public bool? RawString { get; set; }
         /// <summary>How the request is handled - &apos;sync&apos; waits for result, &apos;async&apos; returns job ID immediately, &apos;sync_sse&apos; streams results via Server-Sent Events</summary>
@@ -72,6 +118,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string RoutePath { get; set; }
 #endif
+        /// <summary>Path to the script or flow to execute when triggered</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ScriptPath { get; set; }
+#nullable restore
+#else
+        public string ScriptPath { get; set; }
+#endif
         /// <summary>Configuration for serving static assets (s3 bucket, storage path, filename)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +144,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>If true, the route includes the workspace ID in the path</summary>
         public bool? WorkspacedRoute { get; set; }
+        /// <summary>The workspace this trigger belongs to</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; set; }
+#endif
         /// <summary>If true, wraps the request body in a &apos;body&apos; parameter</summary>
         public bool? WrapBody { get; set; }
         /// <summary>
@@ -120,16 +182,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "authentication_method", n => { AuthenticationMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_authentication_method>(); } },
                 { "authentication_resource_path", n => { AuthenticationResourcePath = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
+                { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_error_handler_args>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_error_handler_args.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_extra_perms>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_extra_perms.CreateFromDiscriminatorValue); } },
                 { "http_method", n => { HttpMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_http_method>(); } },
+                { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "is_static_website", n => { IsStaticWebsite = n.GetBoolValue(); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_mode>(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
+                { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "raw_string", n => { RawString = n.GetBoolValue(); } },
                 { "request_type", n => { RequestType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_request_type>(); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_retry>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_retry.CreateFromDiscriminatorValue); } },
                 { "route_path", n => { RoutePath = n.GetStringValue(); } },
+                { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "static_asset_config", n => { StaticAssetConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_static_asset_config>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_static_asset_config.CreateFromDiscriminatorValue); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
                 { "workspaced_route", n => { WorkspacedRoute = n.GetBoolValue(); } },
                 { "wrap_body", n => { WrapBody = n.GetBoolValue(); } },
             };
@@ -144,17 +216,27 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_authentication_method>("authentication_method", AuthenticationMethod);
             writer.WriteStringValue("authentication_resource_path", AuthenticationResourcePath);
             writer.WriteStringValue("description", Description);
+            writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
+            writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_error_handler_args>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_extra_perms>("extra_perms", ExtraPerms);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_http_method>("http_method", HttpMethod);
+            writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteBoolValue("is_static_website", IsStaticWebsite);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_mode>("mode", Mode);
+            writer.WriteStringValue("path", Path);
+            writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteBoolValue("raw_string", RawString);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_request_type>("request_type", RequestType);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_retry>("retry", Retry);
             writer.WriteStringValue("route_path", RoutePath);
+            writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200_static_asset_config>("static_asset_config", StaticAssetConfig);
             writer.WriteStringValue("summary", Summary);
             writer.WriteBoolValue("workspaced_route", WorkspacedRoute);
+            writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteBoolValue("wrap_body", WrapBody);
             writer.WriteAdditionalData(AdditionalData);
         }

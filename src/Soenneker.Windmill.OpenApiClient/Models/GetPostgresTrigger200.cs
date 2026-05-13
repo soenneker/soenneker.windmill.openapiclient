@@ -14,6 +14,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Timestamp of the last edit</summary>
+        public DateTimeOffset? EditedAt { get; set; }
+        /// <summary>Username of the last person who edited this trigger</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EditedBy { get; set; }
+#nullable restore
+#else
+        public string EditedBy { get; set; }
+#endif
         /// <summary>Last error message if the trigger failed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,8 +48,44 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ErrorHandlerPath { get; set; }
 #endif
+        /// <summary>Additional permissions for this trigger</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_extra_perms? ExtraPerms { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_extra_perms ExtraPerms { get; set; }
+#endif
+        /// <summary>True if script_path points to a flow, false if it points to a script</summary>
+        public bool? IsFlow { get; set; }
+        /// <summary>The labels property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Labels { get; set; }
+#nullable restore
+#else
+        public List<string> Labels { get; set; }
+#endif
         /// <summary>Timestamp of last server heartbeat (internal)</summary>
         public DateTimeOffset? LastServerPing { get; set; }
+        /// <summary>job trigger mode</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_mode? Mode { get; set; }
+        /// <summary>The unique Windmill path for this trigger. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`. This is the trigger object path, not the HTTP route path.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Path { get; set; }
+#nullable restore
+#else
+        public string Path { get; set; }
+#endif
+        /// <summary>The user or group this trigger runs as (permissioned_as)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PermissionedAs { get; set; }
+#nullable restore
+#else
+        public string PermissionedAs { get; set; }
+#endif
         /// <summary>Path to the PostgreSQL resource containing connection configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +118,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_retry Retry { get; set; }
 #endif
+        /// <summary>Path to the script or flow to execute when triggered</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ScriptPath { get; set; }
+#nullable restore
+#else
+        public string ScriptPath { get; set; }
+#endif
         /// <summary>ID of the server currently handling this trigger (internal)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,6 +133,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string ServerId { get; set; }
+#endif
+        /// <summary>The workspace this trigger belongs to</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200"/> and sets the default values.
@@ -105,15 +167,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
+                { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_error_handler_args>(global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_error_handler_args.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_extra_perms>(global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_extra_perms.CreateFromDiscriminatorValue); } },
+                { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "last_server_ping", n => { LastServerPing = n.GetDateTimeOffsetValue(); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_mode>(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
+                { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "postgres_resource_path", n => { PostgresResourcePath = n.GetStringValue(); } },
                 { "publication_name", n => { PublicationName = n.GetStringValue(); } },
                 { "replication_slot_name", n => { ReplicationSlotName = n.GetStringValue(); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_retry>(global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_retry.CreateFromDiscriminatorValue); } },
+                { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "server_id", n => { ServerId = n.GetStringValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -123,15 +195,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
+            writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_error_handler_args>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_extra_perms>("extra_perms", ExtraPerms);
+            writer.WriteBoolValue("is_flow", IsFlow);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteDateTimeOffsetValue("last_server_ping", LastServerPing);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_mode>("mode", Mode);
+            writer.WriteStringValue("path", Path);
+            writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteStringValue("postgres_resource_path", PostgresResourcePath);
             writer.WriteStringValue("publication_name", PublicationName);
             writer.WriteStringValue("replication_slot_name", ReplicationSlotName);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPostgresTrigger200_retry>("retry", Retry);
+            writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("server_id", ServerId);
+            writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

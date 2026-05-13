@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -36,20 +35,20 @@ namespace Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item
         /// <summary>
         /// List autoscaling events
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListAutoscalingEvents200&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_group&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListAutoscalingEvents200>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_groupItemRequestBuilder.WithWorker_groupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_group>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_groupItemRequestBuilder.WithWorker_groupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListAutoscalingEvents200>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_groupItemRequestBuilder.WithWorker_groupItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_group>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_groupItemRequestBuilder.WithWorker_groupItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListAutoscalingEvents200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListAutoscalingEvents200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_group>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_group.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

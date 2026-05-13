@@ -17,14 +17,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The tool_type property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200_value_preprocessor_module_valueMember9_tools_valueMember1_tool_type? ToolType { get; set; }
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200_value_preprocessor_module_valueMember9_tools_valueMember1"/> and sets the default values.
         /// </summary>
@@ -51,7 +43,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "tool_type", n => { ToolType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200_value_preprocessor_module_valueMember9_tools_valueMember1_tool_type>(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +53,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200_value_preprocessor_module_valueMember9_tools_valueMember1_tool_type>("tool_type", ToolType);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

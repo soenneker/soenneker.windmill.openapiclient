@@ -36,6 +36,8 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.List_tokens.Item
 #endif
         /// <summary>The last_used_at property</summary>
         public DateTimeOffset? LastUsedAt { get; set; }
+        /// <summary>The read_only property</summary>
+        public bool? ReadOnly { get; set; }
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.List_tokens.Item
                 { "expiration", n => { Expiration = n.GetDateTimeOffsetValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
+                { "read_only", n => { ReadOnly = n.GetBoolValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "token_prefix", n => { TokenPrefix = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -107,6 +110,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.List_tokens.Item
             writer.WriteDateTimeOffsetValue("expiration", Expiration);
             writer.WriteStringValue("label", Label);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
+            writer.WriteBoolValue("read_only", ReadOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteStringValue("token_prefix", TokenPrefix);
             writer.WriteStringValue("workspace_id", WorkspaceId);

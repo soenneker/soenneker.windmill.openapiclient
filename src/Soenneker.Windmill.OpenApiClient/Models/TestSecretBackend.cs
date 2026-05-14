@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Address { get; set; }
 #endif
+        /// <summary>Mount path for the JWT auth method in Vault (optional, defaults to &quot;jwt&quot;). Set this when the JWT auth method is mounted at a non-default path, e.g. via `vault auth enable -path=&lt;mount&gt; jwt`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? JwtMountPath { get; set; }
+#nullable restore
+#else
+        public string JwtMountPath { get; set; }
+#endif
         /// <summary>Vault JWT auth role name for Windmill (optional, if not provided token auth is used)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +90,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address", n => { Address = n.GetStringValue(); } },
+                { "jwt_mount_path", n => { JwtMountPath = n.GetStringValue(); } },
                 { "jwt_role", n => { JwtRole = n.GetStringValue(); } },
                 { "mount_path", n => { MountPath = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
@@ -97,6 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
+            writer.WriteStringValue("jwt_mount_path", JwtMountPath);
             writer.WriteStringValue("jwt_role", JwtRole);
             writer.WriteStringValue("mount_path", MountPath);
             writer.WriteStringValue("namespace", Namespace);

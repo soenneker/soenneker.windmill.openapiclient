@@ -23,6 +23,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List
 #else
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_completion_tokens MaxCompletionTokens { get; set; }
 #endif
+        /// <summary>&quot;Number. Limits how many times the agent can loop through reasoning and tool use.Range: 1-1000.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_iterations? MaxIterations { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_iterations MaxIterations { get; set; }
+#endif
         /// <summary>Memory configuration - can be static (MemoryConfig), JavaScript expression, or AI-determined</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,6 +129,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_completion_tokens>(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_completion_tokens.CreateFromDiscriminatorValue); } },
+                { "max_iterations", n => { MaxIterations = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_iterations>(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_iterations.CreateFromDiscriminatorValue); } },
                 { "memory", n => { Memory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms.List_raw_flow_preprocessor_module_valueMember9_input_transforms_memory>(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms.List_raw_flow_preprocessor_module_valueMember9_input_transforms_memory.CreateFromDiscriminatorValue); } },
                 { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_output_schema>(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_output_schema.CreateFromDiscriminatorValue); } },
                 { "output_type", n => { OutputType = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_output_type>(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_output_type.CreateFromDiscriminatorValue); } },
@@ -140,6 +149,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_completion_tokens>("max_completion_tokens", MaxCompletionTokens);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_max_iterations>("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms.List_raw_flow_preprocessor_module_valueMember9_input_transforms_memory>("memory", Memory);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_output_schema>("output_schema", OutputSchema);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List.List_raw_flow_preprocessor_module_valueMember9_input_transforms_output_type>("output_type", OutputType);

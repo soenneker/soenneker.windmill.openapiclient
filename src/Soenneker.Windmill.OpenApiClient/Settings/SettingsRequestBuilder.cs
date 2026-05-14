@@ -8,6 +8,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database
 using Soenneker.Windmill.OpenApiClient.Settings.Get_stats;
 using Soenneker.Windmill.OpenApiClient.Settings.Global;
 using Soenneker.Windmill.OpenApiClient.Settings.Instance_config;
+using Soenneker.Windmill.OpenApiClient.Settings.Instance_hash;
 using Soenneker.Windmill.OpenApiClient.Settings.Latest_key_renewal_attempt;
 using Soenneker.Windmill.OpenApiClient.Settings.List_custom_instance_pg_databases;
 using Soenneker.Windmill.OpenApiClient.Settings.List_global;
@@ -20,6 +21,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_azure_kv;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_database;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_vault;
 using Soenneker.Windmill.OpenApiClient.Settings.Object_storage_usage;
+using Soenneker.Windmill.OpenApiClient.Settings.Offline_license_status;
 using Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user_pwd;
 using Soenneker.Windmill.OpenApiClient.Settings.Renew_license_key;
 using Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group;
@@ -74,6 +76,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder Instance_config
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The instance_hash property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Instance_hash.Instance_hashRequestBuilder Instance_hash
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Instance_hash.Instance_hashRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The latest_key_renewal_attempt property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Latest_key_renewal_attempt.Latest_key_renewal_attemptRequestBuilder Latest_key_renewal_attempt
@@ -134,6 +141,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Object_storage_usage.Object_storage_usageRequestBuilder Object_storage_usage
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Object_storage_usage.Object_storage_usageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The offline_license_status property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Offline_license_status.Offline_license_statusRequestBuilder Offline_license_status
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Offline_license_status.Offline_license_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The refresh_custom_instance_user_pwd property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user_pwd.Refresh_custom_instance_user_pwdRequestBuilder Refresh_custom_instance_user_pwd

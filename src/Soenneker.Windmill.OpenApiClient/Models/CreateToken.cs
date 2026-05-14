@@ -24,6 +24,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Label { get; set; }
 #endif
+        /// <summary>If true, the token is restricted to read-only HTTP methods(GET/HEAD/OPTIONS). Mutating endpoints and job-run actions arerejected with 403, regardless of the scopes attached.</summary>
+        public bool? ReadOnly { get; set; }
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,6 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "expiration", n => { Expiration = n.GetDateTimeOffsetValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
+                { "read_only", n => { ReadOnly = n.GetBoolValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -80,6 +83,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("expiration", Expiration);
             writer.WriteStringValue("label", Label);
+            writer.WriteBoolValue("read_only", ReadOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);

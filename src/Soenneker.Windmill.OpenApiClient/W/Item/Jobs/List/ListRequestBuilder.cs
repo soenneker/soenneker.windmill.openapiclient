@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list{?all_workspaces*,allow_wildcards*,args*,broad_filter*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*,trigger_kind*,worker*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list{?all_workspaces*,allow_wildcards*,args*,broad_filter*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,excludes_entrypoint_override*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*,trigger_kind*,worker*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list{?all_workspaces*,allow_wildcards*,args*,broad_filter*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*,trigger_kind*,worker*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list{?all_workspaces*,allow_wildcards*,args*,broad_filter*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,excludes_entrypoint_override*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*,trigger_kind*,worker*}", rawUrl)
         {
         }
         /// <summary>
@@ -214,6 +214,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List
             [QueryParameter("created_by")]
             public string CreatedBy { get; set; }
 #endif
+            /// <summary>exclude jobs that were started with a `_ENTRYPOINT_OVERRIDE` arg (e.g. dynamic-select helper runs and preprocessor previews)</summary>
+            [QueryParameter("excludes_entrypoint_override")]
+            public bool? ExcludesEntrypointOverride { get; set; }
             /// <summary>has null parent</summary>
             [QueryParameter("has_null_parent")]
             public bool? HasNullParent { get; set; }

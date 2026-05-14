@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.698.0
+  version: 1.701.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -2649,6 +2649,65 @@ paths:
             text/plain:
               schema:
                 type: string
+  /settings/offline_license_status:
+    get:
+      summary: get cap-usage status for the currently-loaded offline license
+      description: |
+        Returns the live cap status (seats used vs cap, current CU vs cap) for
+        the offline license key currently in use. Returns `null` if no offline
+        license is loaded. Super-admin only.
+      operationId: getOfflineLicenseStatus
+      tags:
+        - setting
+      responses:
+        '200':
+          description: cap status (or null when no offline license)
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+                properties:
+                  seats_used:
+                    type: number
+                    description: >-
+                      Author-equivalent seats consumed (authors + 0.5 ×
+                      operators)
+                  seats_cap:
+                    type: integer
+                  author_count:
+                    type: integer
+                  operator_count:
+                    type: integer
+                  current_cu:
+                    type: number
+                    description: >-
+                      Sum of CU rate across workers that pinged in the last 2
+                      minutes.
+                  cu_cap:
+                    type: number
+                  cu_over_cap:
+                    type: boolean
+  /settings/instance_hash:
+    get:
+      summary: per-instance binding hash for offline license issuance
+      description: |
+        Returns the hash a superadmin shares with Windmill support when
+        requesting an offline license. Super-admin only.
+      operationId: getInstanceHash
+      tags:
+        - setting
+      responses:
+        '200':
+          description: instance hash
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance_hash:
+                    type: string
+                    nullable: true
   /settings/customer_portal:
     post:
       summary: create customer portal session
@@ -2844,6 +2903,13 @@ paths:
                   description: >-
                     Vault JWT auth role name for Windmill (optional, if not
                     provided token auth is used)
+                jwt_mount_path:
+                  type: string
+                  description: >-
+                    Mount path for the JWT auth method in Vault (optional,
+                    defaults to "jwt"). Set this when the JWT auth method is
+                    mounted at a non-default path, e.g. via `vault auth enable
+                    -path=<mount> jwt`.
                 namespace:
                   type: string
                   description: Vault Enterprise namespace (optional)
@@ -6820,6 +6886,15 @@ paths:
                     type: string
                 workspace_id:
                   type: string
+                read_only:
+                  type: boolean
+                  description: >
+                    If true, the token is restricted to read-only HTTP methods
+
+                    (GET/HEAD/OPTIONS). Mutating endpoints and job-run actions
+                    are
+
+                    rejected with 403, regardless of the scopes attached.
       responses:
         '201':
           description: token created
@@ -6960,10 +7035,13 @@ paths:
                       type: string
                     workspace_id:
                       type: string
+                    read_only:
+                      type: boolean
                   required: &ref_103
                     - token_prefix
                     - created_at
                     - last_used_at
+                    - read_only
   /w/{workspace}/oidc/token/{audience}:
     post:
       summary: get OIDC token (ee only)
@@ -10673,6 +10751,20 @@ paths:
                                                 - 0.7 = balanced (common default)
 
                                                 - 1.0+ = more creative/random
+                                            max_iterations:
+                                              allOf:
+                                                - description: >-
+                                                    Maps input parameters for a step. Can be
+                                                    a static value or a JavaScript
+                                                    expression that references previous
+                                                    results or flow inputs
+                                                  oneOf: *ref_80
+                                                  discriminator: *ref_81
+                                              description: >
+                                                Number. Limits how many times the agent
+                                                can loop through reasoning and tool use.
+
+                                                Range: 1-1000.
                                           required:
                                             - provider
                                             - user_message
@@ -19911,6 +20003,13 @@ paths:
             type: boolean
         - name: is_not_schedule
           description: is not a scheduled job
+          in: query
+          schema:
+            type: boolean
+        - name: excludes_entrypoint_override
+          description: >-
+            exclude jobs that were started with a `_ENTRYPOINT_OVERRIDE` arg
+            (e.g. dynamic-select helper runs and preprocessor previews)
           in: query
           schema:
             type: boolean
@@ -34580,6 +34679,19 @@ components:
                 - 0.0 = deterministic, focused responses
                 - 0.7 = balanced (common default)
                 - 1.0+ = more creative/random
+            max_iterations:
+              allOf:
+                - description: >-
+                    Maps input parameters for a step. Can be a static value or a
+                    JavaScript expression that references previous results or
+                    flow inputs
+                  oneOf: *ref_80
+                  discriminator: *ref_81
+              description: >
+                Number. Limits how many times the agent can loop through
+                reasoning and tool use.
+
+                Range: 1-1000.
           required:
             - provider
             - user_message

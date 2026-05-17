@@ -16,5 +16,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Instance_group,
         #pragma warning restore CS1591
+        [EnumMember(Value = "service_account")]
+        #pragma warning disable CS1591
+        Service_account,
+        #pragma warning restore CS1591
     }
 }

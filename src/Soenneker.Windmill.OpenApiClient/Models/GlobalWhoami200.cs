@@ -62,6 +62,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The verified property</summary>
         public bool? Verified { get; set; }
+        /// <summary>The workspace_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GlobalWhoami200"/> and sets the default values.
         /// </summary>
@@ -99,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "super_admin", n => { SuperAdmin = n.GetBoolValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "verified", n => { Verified = n.GetBoolValue(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -120,6 +129,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("super_admin", SuperAdmin);
             writer.WriteStringValue("username", Username);
             writer.WriteBoolValue("verified", Verified);
+            writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

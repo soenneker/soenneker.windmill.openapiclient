@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.703.2
+  version: 1.704.1
   title: Windmill API
   contact:
     name: Windmill Team

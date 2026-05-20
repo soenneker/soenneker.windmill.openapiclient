@@ -84,6 +84,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Tag { get; set; }
 #endif
+        /// <summary>Map of relative-import script path -&gt; temp storage hash so the preview job resolves those imports from not-yet-deployed local content instead of the deployed script</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreview_temp_script_refs? TempScriptRefs { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreview_temp_script_refs TempScriptRefs { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreview"/> and sets the default values.
         /// </summary>
@@ -120,6 +128,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "script_hash", n => { ScriptHash = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
+                { "temp_script_refs", n => { TempScriptRefs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreview_temp_script_refs>(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreview_temp_script_refs.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -140,6 +149,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("script_hash", ScriptHash);
             writer.WriteStringValue("tag", Tag);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreview_temp_script_refs>("temp_script_refs", TempScriptRefs);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -24,6 +24,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.List
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The edited_at property</summary>
+        public DateTimeOffset? EditedAt { get; set; }
+        /// <summary>The edited_by property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EditedBy { get; set; }
+#nullable restore
+#else
+        public string EditedBy { get; set; }
+#endif
         /// <summary>The expires_at property</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>The extra_perms property</summary>
@@ -113,6 +123,8 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.List
             {
                 { "account", n => { Account = n.GetIntValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
+                { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.List.List_extra_perms>(global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.List.List_extra_perms.CreateFromDiscriminatorValue); } },
                 { "is_expired", n => { IsExpired = n.GetBoolValue(); } },
@@ -137,6 +149,8 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.List
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("account", Account);
             writer.WriteStringValue("description", Description);
+            writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
+            writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.List.List_extra_perms>("extra_perms", ExtraPerms);
             writer.WriteBoolValue("is_expired", IsExpired);

@@ -48,6 +48,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_draft Draft { get; set; }
 #endif
+        /// <summary>Timestamp at which the most recent DB draft was created. Used by the frontend&apos;s UserDraft staleness check.</summary>
+        public DateTimeOffset? DraftCreatedAt { get; set; }
         /// <summary>The draft_only property</summary>
         public bool? DraftOnly { get; set; }
         /// <summary>The execution_mode property</summary>
@@ -150,6 +152,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "custom_path", n => { CustomPath = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_draft>(global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_draft.CreateFromDiscriminatorValue); } },
+                { "draft_created_at", n => { DraftCreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "execution_mode", n => { ExecutionMode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_execution_mode>(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_extra_perms>(global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_extra_perms.CreateFromDiscriminatorValue); } },
@@ -176,6 +179,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("custom_path", CustomPath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_draft>("draft", Draft);
+            writer.WriteDateTimeOffsetValue("draft_created_at", DraftCreatedAt);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_execution_mode>("execution_mode", ExecutionMode);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPathWithDraft200_extra_perms>("extra_perms", ExtraPerms);

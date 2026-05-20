@@ -108,6 +108,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200_draft Draft { get; set; }
 #endif
+        /// <summary>Timestamp at which the most recent DB draft was created. Used by the frontend&apos;s UserDraft staleness check.</summary>
+        public DateTimeOffset? DraftCreatedAt { get; set; }
         /// <summary>The draft_only property</summary>
         public bool? DraftOnly { get; set; }
         /// <summary>The envs property</summary>
@@ -264,6 +266,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200_draft>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200_draft.CreateFromDiscriminatorValue); } },
+                { "draft_created_at", n => { DraftCreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "envs", n => { Envs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "has_preprocessor", n => { HasPreprocessor = n.GetBoolValue(); } },
@@ -314,6 +317,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("deployment_message", DeploymentMessage);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200_draft>("draft", Draft);
+            writer.WriteDateTimeOffsetValue("draft_created_at", DraftCreatedAt);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("envs", Envs);
             writer.WriteStringValue("hash", Hash);

@@ -38,6 +38,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string JwtRole { get; set; }
 #endif
+        /// <summary>Optional path prefix inserted between the KV data/metadata segment and the workspace id (e.g., &quot;apps/windmill&quot;). When set, secrets are stored at `&lt;mount&gt;/data/&lt;prefix&gt;/&lt;workspace&gt;/&lt;secret&gt;`, allowing a Vault policy scoped to exactly `&lt;mount&gt;/data/&lt;prefix&gt;/*`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? KvSecretPathPrefix { get; set; }
+#nullable restore
+#else
+        public string KvSecretPathPrefix { get; set; }
+#endif
         /// <summary>KV v2 secrets engine mount path (e.g., windmill)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "jwt_mount_path", n => { JwtMountPath = n.GetStringValue(); } },
                 { "jwt_role", n => { JwtRole = n.GetStringValue(); } },
+                { "kv_secret_path_prefix", n => { KvSecretPathPrefix = n.GetStringValue(); } },
                 { "mount_path", n => { MountPath = n.GetStringValue(); } },
                 { "namespace", n => { Namespace = n.GetStringValue(); } },
                 { "skip_ssl_verify", n => { SkipSslVerify = n.GetBoolValue(); } },
@@ -108,6 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("address", Address);
             writer.WriteStringValue("jwt_mount_path", JwtMountPath);
             writer.WriteStringValue("jwt_role", JwtRole);
+            writer.WriteStringValue("kv_secret_path_prefix", KvSecretPathPrefix);
             writer.WriteStringValue("mount_path", MountPath);
             writer.WriteStringValue("namespace", Namespace);
             writer.WriteBoolValue("skip_ssl_verify", SkipSslVerify);

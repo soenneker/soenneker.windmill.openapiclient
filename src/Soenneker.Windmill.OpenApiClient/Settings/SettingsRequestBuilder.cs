@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_status;
 using Soenneker.Windmill.OpenApiClient.Settings.Critical_alerts;
 using Soenneker.Windmill.OpenApiClient.Settings.Customer_portal;
 using Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database;
@@ -47,6 +48,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SettingsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The audit_logs_s3_status property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_status.Audit_logs_s3_statusRequestBuilder Audit_logs_s3_status
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_status.Audit_logs_s3_statusRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The critical_alerts property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Critical_alerts.Critical_alertsRequestBuilder Critical_alerts
         {

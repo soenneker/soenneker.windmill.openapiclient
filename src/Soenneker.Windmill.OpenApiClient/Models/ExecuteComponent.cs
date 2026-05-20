@@ -90,6 +90,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_run_query_params RunQueryParams { get; set; }
 #endif
+        /// <summary>Map of relative-import script path -&gt; temp storage hash. Only honored for inline-script (raw_code) execution so app dev resolves those imports from not-yet-deployed local content.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_temp_script_refs? TempScriptRefs { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_temp_script_refs TempScriptRefs { get; set; }
+#endif
         /// <summary>The version property</summary>
         public int? Version { get; set; }
         /// <summary>
@@ -128,6 +136,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "raw_code", n => { RawCode = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_raw_code>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_raw_code.CreateFromDiscriminatorValue); } },
                 { "run_query_params", n => { RunQueryParams = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_run_query_params>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_run_query_params.CreateFromDiscriminatorValue); } },
+                { "temp_script_refs", n => { TempScriptRefs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_temp_script_refs>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_temp_script_refs.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetIntValue(); } },
             };
         }
@@ -149,6 +158,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_raw_code>("raw_code", RawCode);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_run_query_params>("run_query_params", RunQueryParams);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponent_temp_script_refs>("temp_script_refs", TempScriptRefs);
             writer.WriteIntValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

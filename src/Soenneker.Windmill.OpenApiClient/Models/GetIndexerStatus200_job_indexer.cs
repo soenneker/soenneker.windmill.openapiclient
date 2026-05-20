@@ -26,6 +26,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Owner { get; set; }
 #endif
+        /// <summary>The state property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200_job_indexer_state? State { get; set; }
         /// <summary>The storage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +64,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_alive", n => { IsAlive = n.GetBoolValue(); } },
                 { "last_locked_at", n => { LastLockedAt = n.GetDateTimeOffsetValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200_job_indexer_state>(); } },
                 { "storage", n => { Storage = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200_job_indexer_storage>(global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200_job_indexer_storage.CreateFromDiscriminatorValue); } },
             };
         }
@@ -75,6 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_alive", IsAlive);
             writer.WriteDateTimeOffsetValue("last_locked_at", LastLockedAt);
             writer.WriteStringValue("owner", Owner);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200_job_indexer_state>("state", State);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200_job_indexer_storage>("storage", Storage);
             writer.WriteAdditionalData(AdditionalData);
         }

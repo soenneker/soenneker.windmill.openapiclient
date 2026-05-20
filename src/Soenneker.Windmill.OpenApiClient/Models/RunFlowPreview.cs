@@ -46,6 +46,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Tag { get; set; }
 #endif
+        /// <summary>Map of relative-import script path -&gt; temp storage hash, propagated to each flow step so inline-script relative imports resolve from not-yet-deployed local content instead of the deployed script</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_temp_script_refs? TempScriptRefs { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_temp_script_refs TempScriptRefs { get; set; }
+#endif
         /// <summary>The flow structure containing modules and optional preprocessor/failure handlers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "restarted_from", n => { RestartedFrom = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from.CreateFromDiscriminatorValue); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
+                { "temp_script_refs", n => { TempScriptRefs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_temp_script_refs>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_temp_script_refs.CreateFromDiscriminatorValue); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value.CreateFromDiscriminatorValue); } },
             };
         }
@@ -97,6 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_restarted_from>("restarted_from", RestartedFrom);
             writer.WriteStringValue("tag", Tag);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_temp_script_refs>("temp_script_refs", TempScriptRefs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreview_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

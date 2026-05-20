@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.704.1
+  version: 1.705.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -2552,6 +2552,52 @@ paths:
                   - orphans_scanned
                   - orphans_deleted
                   - errors
+  /settings/audit_logs_s3_status:
+    get:
+      summary: get status of the audit-log object-store export cursor
+      operationId: getAuditLogsS3Status
+      tags:
+        - setting
+      responses:
+        '200':
+          description: current export status (null if the feature was never enabled)
+          content:
+            application/json:
+              schema:
+                nullable: true
+                type: object
+                properties:
+                  last_xmin:
+                    type: integer
+                    format: int64
+                  last_ts:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  bootstrapping:
+                    type: boolean
+                  last_exported_audit_ts:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  last_run_at:
+                    type: string
+                    format: date-time
+                    nullable: true
+                  last_run_exported:
+                    type: integer
+                    format: int64
+                  updated_at:
+                    type: string
+                    format: date-time
+                  owner:
+                    type: string
+                    nullable: true
+                required:
+                  - last_xmin
+                  - bootstrapping
+                  - last_run_exported
+                  - updated_at
   /settings/send_stats:
     post:
       summary: send stats
@@ -2898,6 +2944,14 @@ paths:
                 mount_path:
                   type: string
                   description: KV v2 secrets engine mount path (e.g., windmill)
+                kv_secret_path_prefix:
+                  type: string
+                  description: >-
+                    Optional path prefix inserted between the KV data/metadata
+                    segment and the workspace id (e.g., "apps/windmill"). When
+                    set, secrets are stored at
+                    `<mount>/data/<prefix>/<workspace>/<secret>`, allowing a
+                    Vault policy scoped to exactly `<mount>/data/<prefix>/*`.
                 jwt_role:
                   type: string
                   description: >-
@@ -7347,6 +7401,11 @@ paths:
                       type: string
                   ws_specific:
                     type: boolean
+                  edited_at:
+                    type: string
+                    format: date-time
+                  edited_by:
+                    type: string
                 required: &ref_62
                   - workspace_id
                   - path
@@ -12999,6 +13058,13 @@ paths:
                         type: object
                         properties: *ref_104
                         required: *ref_105
+                      draft_created_at:
+                        type: string
+                        format: date-time
+                        description: >-
+                          Timestamp at which the most recent DB draft was
+                          created. Used by the frontend's UserDraft staleness
+                          check.
                       hash:
                         type: string
                     required:
@@ -15163,6 +15229,13 @@ paths:
                     properties:
                       draft:
                         allOf: *ref_124
+                      draft_created_at:
+                        type: string
+                        format: date-time
+                        description: >-
+                          Timestamp at which the most recent DB draft was
+                          created. Used by the frontend's UserDraft staleness
+                          check.
   /w/{workspace}/flows/exists/{path}:
     get:
       summary: exists flow by path
@@ -15572,6 +15645,15 @@ paths:
           in: path
           required: true
           schema: *ref_4
+        - name: force
+          description: >
+            bypass the server-side cache and re-query the DB, refreshing the
+
+            cache. Used right after a deploy so the new path appears
+            immediately.
+          in: query
+          schema:
+            type: boolean
       responses:
         '200':
           description: deduplicated path list, sorted lexicographically
@@ -16211,6 +16293,13 @@ paths:
                       draft_only:
                         type: boolean
                       draft: {}
+                      draft_created_at:
+                        type: string
+                        format: date-time
+                        description: >-
+                          Timestamp at which the most recent DB draft was
+                          created. Used by the frontend's UserDraft staleness
+                          check.
   /w/{workspace}/apps/history/p/{path}:
     get:
       summary: get app history by path
@@ -16724,6 +16813,16 @@ paths:
                 run_query_params:
                   type: object
                   description: Runnable query parameters
+                temp_script_refs:
+                  type: object
+                  nullable: true
+                  description: >-
+                    Map of relative-import script path -> temp storage hash.
+                    Only honored for inline-script (raw_code) execution so app
+                    dev resolves those imports from not-yet-deployed local
+                    content.
+                  additionalProperties:
+                    type: string
               required:
                 - args
                 - component
@@ -17379,6 +17478,15 @@ paths:
                     description: An additional module file associated with a script
                     properties: *ref_95
                     required: *ref_96
+                temp_script_refs:
+                  type: object
+                  nullable: true
+                  description: >-
+                    Map of relative-import script path -> temp storage hash so
+                    the preview job resolves those imports from not-yet-deployed
+                    local content instead of the deployed script
+                  additionalProperties:
+                    type: string
               required: &ref_142
                 - args
       responses:
@@ -17913,6 +18021,16 @@ paths:
                         fresh-launching it.
                       type: object
                       properties: *ref_151
+                temp_script_refs:
+                  type: object
+                  nullable: true
+                  description: >-
+                    Map of relative-import script path -> temp storage hash,
+                    propagated to each flow step so inline-script relative
+                    imports resolve from not-yet-deployed local content instead
+                    of the deployed script
+                  additionalProperties:
+                    type: string
               required: &ref_153
                 - value
                 - content
@@ -32879,6 +32997,12 @@ paths:
                     properties:
                       is_alive:
                         type: boolean
+                      state:
+                        type: string
+                        enum:
+                          - running
+                          - stale
+                          - never_started
                       last_locked_at:
                         type: string
                         format: date-time
@@ -32900,6 +33024,12 @@ paths:
                     properties:
                       is_alive:
                         type: boolean
+                      state:
+                        type: string
+                        enum:
+                          - running
+                          - stale
+                          - never_started
                       last_locked_at:
                         type: string
                         format: date-time

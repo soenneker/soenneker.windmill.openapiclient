@@ -34,6 +34,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200_draft Draft { get; set; }
 #endif
+        /// <summary>Timestamp at which the most recent DB draft was created. Used by the frontend&apos;s UserDraft staleness check.</summary>
+        public DateTimeOffset? DraftCreatedAt { get; set; }
         /// <summary>The draft_only property</summary>
         public bool? DraftOnly { get; set; }
         /// <summary>The edited_at property</summary>
@@ -167,6 +169,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "dedicated_worker", n => { DedicatedWorker = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200_draft>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200_draft.CreateFromDiscriminatorValue); } },
+                { "draft_created_at", n => { DraftCreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
@@ -199,6 +202,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("dedicated_worker", DedicatedWorker);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200_draft>("draft", Draft);
+            writer.WriteDateTimeOffsetValue("draft_created_at", DraftCreatedAt);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories;
+using Soenneker.Windmill.OpenApiClient.Github_app.Ghes;
 using Soenneker.Windmill.OpenApiClient.Github_app.Ghes_config;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,11 @@ namespace Soenneker.Windmill.OpenApiClient.Github_app
         public global::Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories.Connected_repositoriesRequestBuilder Connected_repositories
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories.Connected_repositoriesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The ghes property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Github_app.Ghes.GhesRequestBuilder Ghes
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Github_app.Ghes.GhesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ghes_config property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Github_app.Ghes_config.Ghes_configRequestBuilder Ghes_config

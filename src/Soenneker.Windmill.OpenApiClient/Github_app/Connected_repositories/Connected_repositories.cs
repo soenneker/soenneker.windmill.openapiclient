@@ -30,10 +30,20 @@ namespace Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories
 #else
         public string Error { get; set; }
 #endif
+        /// <summary>Set for self-managed (GHES) installs. Cloud installs omit this field.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GithubBaseUrl { get; set; }
+#nullable restore
+#else
+        public string GithubBaseUrl { get; set; }
+#endif
         /// <summary>The installation_id property</summary>
         public double? InstallationId { get; set; }
         /// <summary>Number of repositories loaded per page</summary>
         public double? PerPage { get; set; }
+        /// <summary>True when the installation was assigned by the instance super-admin from instance settings. Workspace admins cannot remove these.</summary>
+        public bool? ProvisionedByAdmin { get; set; }
         /// <summary>The repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,8 +89,10 @@ namespace Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories
             {
                 { "account_id", n => { AccountId = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
+                { "github_base_url", n => { GithubBaseUrl = n.GetStringValue(); } },
                 { "installation_id", n => { InstallationId = n.GetDoubleValue(); } },
                 { "per_page", n => { PerPage = n.GetDoubleValue(); } },
+                { "provisioned_by_admin", n => { ProvisionedByAdmin = n.GetBoolValue(); } },
                 { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories.Connected_repositories_repositories>(global::Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories.Connected_repositories_repositories.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total_count", n => { TotalCount = n.GetDoubleValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -95,8 +107,10 @@ namespace Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account_id", AccountId);
             writer.WriteStringValue("error", Error);
+            writer.WriteStringValue("github_base_url", GithubBaseUrl);
             writer.WriteDoubleValue("installation_id", InstallationId);
             writer.WriteDoubleValue("per_page", PerPage);
+            writer.WriteBoolValue("provisioned_by_admin", ProvisionedByAdmin);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Github_app.Connected_repositories.Connected_repositories_repositories>("repositories", Repositories);
             writer.WriteDoubleValue("total_count", TotalCount);
             writer.WriteStringValue("workspace_id", WorkspaceId);

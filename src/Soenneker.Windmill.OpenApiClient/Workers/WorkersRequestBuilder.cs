@@ -10,6 +10,7 @@ using Soenneker.Windmill.OpenApiClient.Workers.List;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_counts;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts;
+using Soenneker.Windmill.OpenApiClient.Workers.Workspace_fairness_events;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -61,6 +62,11 @@ namespace Soenneker.Windmill.OpenApiClient.Workers
         public global::Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts.Queue_running_countsRequestBuilder Queue_running_counts
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts.Queue_running_countsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workspace_fairness_events property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Workers.Workspace_fairness_events.Workspace_fairness_eventsRequestBuilder Workspace_fairness_events
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Workers.Workspace_fairness_events.Workspace_fairness_eventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Workers.WorkersRequestBuilder"/> and sets the default values.

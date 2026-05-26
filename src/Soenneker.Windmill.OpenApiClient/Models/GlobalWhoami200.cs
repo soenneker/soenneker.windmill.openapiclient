@@ -36,6 +36,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The first_time_user property</summary>
         public bool? FirstTimeUser { get; set; }
+        /// <summary>Populated only for service accounts. True if the service account has workspace admin in its (single) workspace.</summary>
+        public bool? IsWorkspaceAdmin { get; set; }
         /// <summary>The login_type property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GlobalWhoami200_login_type? LoginType { get; set; }
         /// <summary>The name property</summary>
@@ -100,6 +102,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "first_time_user", n => { FirstTimeUser = n.GetBoolValue(); } },
+                { "is_workspace_admin", n => { IsWorkspaceAdmin = n.GetBoolValue(); } },
                 { "login_type", n => { LoginType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GlobalWhoami200_login_type>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "operator_only", n => { OperatorOnly = n.GetBoolValue(); } },
@@ -122,6 +125,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("disabled", Disabled);
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("first_time_user", FirstTimeUser);
+            writer.WriteBoolValue("is_workspace_admin", IsWorkspaceAdmin);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GlobalWhoami200_login_type>("login_type", LoginType);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("operator_only", OperatorOnly);

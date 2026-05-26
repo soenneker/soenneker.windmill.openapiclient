@@ -14,6 +14,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Add the service account to the workspace `wm_deployers` group on creation. Recommended when the account will be used as a CLI sync / CI deploy identity so it can deploy on behalf of other users.</summary>
+        public bool? AddToDeployers { get; set; }
+        /// <summary>Grant the service account workspace admin. Defaults to false. Cannot be combined with operator=true.</summary>
+        public bool? IsAdmin { get; set; }
+        /// <summary>Make the service account an operator. Defaults to true for backward compatibility. Set to false to count as a developer (1 seat) instead of 0.5 seat.</summary>
+        public bool? Operator { get; set; }
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +53,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "add_to_deployers", n => { AddToDeployers = n.GetBoolValue(); } },
+                { "is_admin", n => { IsAdmin = n.GetBoolValue(); } },
+                { "operator", n => { Operator = n.GetBoolValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -57,6 +66,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("add_to_deployers", AddToDeployers);
+            writer.WriteBoolValue("is_admin", IsAdmin);
+            writer.WriteBoolValue("operator", Operator);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }

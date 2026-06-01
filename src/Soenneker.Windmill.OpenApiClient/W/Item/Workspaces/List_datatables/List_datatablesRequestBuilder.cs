@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables
         /// <summary>
         /// list Datatables
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables.List_datatables&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables.List_datatables>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables.List_datatables>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables.List_datatables>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatables.List_datatables.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

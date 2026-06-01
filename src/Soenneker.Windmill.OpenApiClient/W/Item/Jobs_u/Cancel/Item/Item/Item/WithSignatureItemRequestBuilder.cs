@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\jobs_u\cancel\{id}\{resume_id}\{signature}
+    /// Builds and executes requests for operations under \w\{workspace}\jobs_u\cancel\{id}\{resumeId}\{signature}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSignatureItemRequestBuilder : BaseRequestBuilder
@@ -21,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSignatureItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/cancel/{id}/{resume_id}/{signature}{?approver*}", pathParameters)
+        public WithSignatureItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/cancel/{id}/{resumeId}/{signature}{?approver*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSignatureItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/cancel/{id}/{resume_id}/{signature}{?approver*}", rawUrl)
+        public WithSignatureItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/cancel/{id}/{resumeId}/{signature}{?approver*}", rawUrl)
         {
         }
         /// <summary>
@@ -59,11 +60,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignaturePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CancelSuspendedJobPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignaturePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CancelSuspendedJobPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -97,11 +98,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignaturePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CancelSuspendedJobPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignaturePostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CancelSuspendedJobPostRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

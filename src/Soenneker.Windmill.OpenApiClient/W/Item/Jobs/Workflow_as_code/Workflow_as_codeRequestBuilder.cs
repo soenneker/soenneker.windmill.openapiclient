@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.jobs.workflow_as_code.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.WithJob_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.WithJob_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.WithJobItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.WithJobItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("job_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.WithJob_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("jobId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.WithJobItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

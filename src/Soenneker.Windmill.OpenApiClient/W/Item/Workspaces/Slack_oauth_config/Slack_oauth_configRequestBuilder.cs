@@ -54,20 +54,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config
         /// <summary>
         /// get workspace slack oauth config
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOauthConfig200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOAuthConfig200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOauthConfig200?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOAuthConfig200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOauthConfig200> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOAuthConfig200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOauthConfig200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOauthConfig200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOAuthConfig200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOAuthConfig200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// set workspace slack oauth config
@@ -78,11 +78,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOauthConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOauthConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -135,11 +135,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOauthConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOauthConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

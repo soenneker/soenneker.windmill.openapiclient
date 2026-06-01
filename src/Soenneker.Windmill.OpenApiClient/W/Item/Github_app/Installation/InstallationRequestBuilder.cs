@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.github_app.installation.item collection</summary>
         /// <param name="position">The ID of the GitHub installation to delete</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.Item.WithInstallation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.Item.WithInstallation_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.Item.WithInstallationItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.Item.WithInstallationItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("installation_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.Item.WithInstallation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("installationId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.Item.WithInstallationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

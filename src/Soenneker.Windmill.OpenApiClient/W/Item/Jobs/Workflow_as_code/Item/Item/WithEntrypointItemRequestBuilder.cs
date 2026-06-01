@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\jobs\workflow_as_code\{job_id}\{entrypoint}
+    /// Builds and executes requests for operations under \w\{workspace}\jobs\workflow_as_code\{jobId}\{entrypoint}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithEntrypointItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.Ite
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithEntrypointItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/workflow_as_code/{job_id}/{entrypoint}", pathParameters)
+        public WithEntrypointItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/workflow_as_code/{jobId}/{entrypoint}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.Ite
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithEntrypointItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/workflow_as_code/{job_id}/{entrypoint}", rawUrl)
+        public WithEntrypointItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/workflow_as_code/{jobId}/{entrypoint}", rawUrl)
         {
         }
         /// <summary>
@@ -42,11 +42,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.Ite
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTask body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTaskRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTask body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTaskRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Item.Ite
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTask body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTaskRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTask body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunCodeWorkflowTaskRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

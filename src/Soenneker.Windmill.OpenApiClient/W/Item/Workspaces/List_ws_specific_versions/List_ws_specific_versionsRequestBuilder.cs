@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -86,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_ve
         public partial class List_ws_specific_versionsRequestBuilderGetQueryParameters 
         {
             [QueryParameter("kind")]
-            public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_versions.GetKindQueryParameterType? Kind { get; set; }
+            public global::Soenneker.Windmill.OpenApiClient.Models.ListWsSpecificVersionsKindParameter? Kind { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("path")]

@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow.Item.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\jobs_u\get_flow\{id}\{resume_id}\{signature}
+    /// Builds and executes requests for operations under \w\{workspace}\jobs_u\get_flow\{id}\{resumeId}\{signature}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSignatureItemRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow.Item.Item.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSignatureItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get_flow/{id}/{resume_id}/{signature}{?approver*}", pathParameters)
+        public WithSignatureItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get_flow/{id}/{resumeId}/{signature}{?approver*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,26 +30,26 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow.Item.Item.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSignatureItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get_flow/{id}/{resume_id}/{signature}{?approver*}", rawUrl)
+        public WithSignatureItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/get_flow/{id}/{resumeId}/{signature}{?approver*}", rawUrl)
         {
         }
         /// <summary>
         /// get parent flow job of suspended job
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// get parent flow job of suspended job

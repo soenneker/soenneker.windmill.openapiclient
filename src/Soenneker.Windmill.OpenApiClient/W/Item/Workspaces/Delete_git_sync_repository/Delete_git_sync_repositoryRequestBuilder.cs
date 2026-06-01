@@ -36,22 +36,22 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_rep
         /// <summary>
         /// delete individual git sync repository
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_repository.Delete_git_sync_repositoryDeleteResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository200ResponseResponseJson"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_repository.Delete_git_sync_repositoryDeleteResponse?> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository200ResponseResponseJson?> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepositoryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_repository.Delete_git_sync_repositoryDeleteResponse> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository200ResponseResponseJson> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepositoryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToDeleteRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_repository.Delete_git_sync_repositoryDeleteResponse>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_repository.Delete_git_sync_repositoryDeleteResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// delete individual git sync repository
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_rep
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepositoryRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepository body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteGitSyncRepositoryRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

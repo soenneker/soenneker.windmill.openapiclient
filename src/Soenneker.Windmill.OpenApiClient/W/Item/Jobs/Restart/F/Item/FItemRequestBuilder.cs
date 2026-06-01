@@ -42,11 +42,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStep body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.F.Item.FItemRequestBuilder.FItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user
         /// <summary>
         /// Refreshes the password for the custom_instance_user
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user_pwd.Refresh_custom_instance_user_pwdPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user_pwd.Refresh_custom_instance_user_pwdPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user_pwd.Refresh_custom_instance_user_pwdPostResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user_pwd.Refresh_custom_instance_user_pwdPostResponse>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user_pwd.Refresh_custom_instance_user_pwdPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Refreshes the password for the custom_instance_user

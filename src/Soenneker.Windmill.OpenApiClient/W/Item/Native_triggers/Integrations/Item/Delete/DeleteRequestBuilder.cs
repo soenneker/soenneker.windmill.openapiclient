@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Delete
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\integrations\{service_name}\delete
+    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\integrations\{serviceName}\delete
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeleteRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{service_name}/delete", pathParameters)
+        public DeleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{serviceName}/delete", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{service_name}/delete", rawUrl)
+        public DeleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{serviceName}/delete", rawUrl)
         {
         }
         /// <summary>

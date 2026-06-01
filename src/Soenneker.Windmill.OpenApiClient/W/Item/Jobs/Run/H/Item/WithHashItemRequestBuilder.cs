@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -41,11 +42,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Guid?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -60,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

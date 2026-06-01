@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W
 {
     /// <summary>
-    /// Builds and executes requests for operations under \native_triggers\{service_name}\w
+    /// Builds and executes requests for operations under \native_triggers\{serviceName}\w
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.native_triggers.item.w.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.WithWorkspace_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.WithWorkspace_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.WithWorkspaceItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.WithWorkspaceItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("workspace_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.WithWorkspace_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("workspaceId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.WithWorkspaceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{service_name}/w", pathParameters)
+        public WRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{serviceName}/w", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{service_name}/w", rawUrl)
+        public WRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{serviceName}/w", rawUrl)
         {
         }
     }

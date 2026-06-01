@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Callback
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\integrations\{service_name}\callback
+    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\integrations\{serviceName}\callback
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CallbackRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallbackRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{service_name}/callback", pathParameters)
+        public CallbackRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{serviceName}/callback", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CallbackRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{service_name}/callback", rawUrl)
+        public CallbackRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{serviceName}/callback", rawUrl)
         {
         }
         /// <summary>
@@ -42,11 +42,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallback body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallbackRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallback body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallbackRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallback body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallbackRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallback body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.NativeTriggerServiceCallbackRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

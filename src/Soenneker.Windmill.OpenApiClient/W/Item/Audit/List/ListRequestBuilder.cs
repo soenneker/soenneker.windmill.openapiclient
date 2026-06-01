@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
         /// <summary>
         /// list audit logs (requires admin privilege)
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.List&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.List>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.ListRequestBuilder.ListRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.ListRequestBuilder.ListRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.List>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.ListRequestBuilder.ListRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.ListRequestBuilder.ListRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.List>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.List.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -87,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
         {
             /// <summary>filter on type of operation</summary>
             [QueryParameter("action_kind")]
-            public global::Soenneker.Windmill.OpenApiClient.W.Item.Audit.List.GetAction_kindQueryParameterType? ActionKind { get; set; }
+            public global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogsActionKindParameter? ActionKind { get; set; }
             /// <summary>filter on created after (exclusive) timestamp</summary>
             [QueryParameter("after")]
             public DateTimeOffset? After { get; set; }

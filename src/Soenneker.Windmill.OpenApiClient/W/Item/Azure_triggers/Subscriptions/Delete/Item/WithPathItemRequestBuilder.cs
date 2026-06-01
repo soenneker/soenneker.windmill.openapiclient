@@ -42,11 +42,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers.Subscriptions.D
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscription body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscription body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> DeleteAsync(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers.Subscriptions.D
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscription body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscription body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

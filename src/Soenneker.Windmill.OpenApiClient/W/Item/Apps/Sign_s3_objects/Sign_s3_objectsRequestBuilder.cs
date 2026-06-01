@@ -36,22 +36,22 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects
         /// <summary>
         /// sign s3 objects, to be used by anonymous users in public apps
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects.Sign_s3_objects&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects200ResponseResponseJsonItem&gt;</returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects.Sign_s3_objects>?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects200ResponseResponseJsonItem>?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects.Sign_s3_objects>> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects200ResponseResponseJsonItem>> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects.Sign_s3_objects>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects.Sign_s3_objects.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -62,11 +62,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

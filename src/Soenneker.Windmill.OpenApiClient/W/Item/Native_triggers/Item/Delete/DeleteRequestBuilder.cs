@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\{service_name}\delete
+    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\{serviceName}\delete
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeleteRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.native_triggers.item.delete.item collection</summary>
         /// <param name="position">The external ID of the trigger from the external service</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete.Item.WithExternal_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete.Item.WithExternal_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete.Item.WithExternalItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete.Item.WithExternalItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("external_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete.Item.WithExternal_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("externalId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete.Item.WithExternalItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/{service_name}/delete", pathParameters)
+        public DeleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/{serviceName}/delete", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DeleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/{service_name}/delete", rawUrl)
+        public DeleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/{serviceName}/delete", rawUrl)
         {
         }
     }

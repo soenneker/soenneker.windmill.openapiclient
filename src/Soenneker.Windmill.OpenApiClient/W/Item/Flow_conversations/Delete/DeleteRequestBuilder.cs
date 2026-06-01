@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.flow_conversations.delete.item collection</summary>
         /// <param name="position">conversation id</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete.Item.WithConversation_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete.Item.WithConversation_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete.Item.WithConversationItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete.Item.WithConversationItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("conversation_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete.Item.WithConversation_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("conversationId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete.Item.WithConversationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

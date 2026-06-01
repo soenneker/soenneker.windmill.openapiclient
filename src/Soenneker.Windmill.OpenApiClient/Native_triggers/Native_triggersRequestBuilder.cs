@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Native_triggers
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.native_triggers.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.WithService_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.WithService_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.WithServiceNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.WithServiceNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("service_name", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.WithService_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("serviceName", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.WithServiceNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

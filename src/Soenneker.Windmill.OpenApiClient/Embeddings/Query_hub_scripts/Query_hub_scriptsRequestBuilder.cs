@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts
         /// <summary>
         /// query hub scripts by similarity
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scripts&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.QueryHubScripts200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scripts>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scriptsRequestBuilder.Query_hub_scriptsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.QueryHubScripts200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scriptsRequestBuilder.Query_hub_scriptsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scripts>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scriptsRequestBuilder.Query_hub_scriptsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.QueryHubScripts200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scriptsRequestBuilder.Query_hub_scriptsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scripts>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Embeddings.Query_hub_scripts.Query_hub_scripts.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.QueryHubScripts200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.QueryHubScripts200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

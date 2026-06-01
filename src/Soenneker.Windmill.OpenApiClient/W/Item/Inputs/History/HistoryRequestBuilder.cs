@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History
         /// <summary>
         /// List Inputs used in previously completed jobs
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.History&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.GetInputHistory200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.History>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.GetInputHistory200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.History>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.GetInputHistory200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.HistoryRequestBuilder.HistoryRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.History>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.History.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetInputHistory200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetInputHistory200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -113,7 +114,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History
             public string RunnableId { get; set; }
 #endif
             [QueryParameter("runnable_type")]
-            public global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History.GetRunnable_typeQueryParameterType? RunnableType { get; set; }
+            public global::Soenneker.Windmill.OpenApiClient.Models.GetInputHistoryRunnableTypeParameter? RunnableType { get; set; }
         }
     }
 }

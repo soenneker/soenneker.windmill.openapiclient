@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.List_paths_from_workspace_runnable.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\apps\list_paths_from_workspace_runnable\{runnable_kind}\{path}
+    /// Builds and executes requests for operations under \w\{workspace}\apps\list_paths_from_workspace_runnable\{runnableKind}\{path}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPathItemRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.List_paths_from_workspace
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/list_paths_from_workspace_runnable/{runnable_kind}/{path}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/list_paths_from_workspace_runnable/{runnableKind}/{path}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.List_paths_from_workspace
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/list_paths_from_workspace_runnable/{runnable_kind}/{path}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/list_paths_from_workspace_runnable/{runnableKind}/{path}", rawUrl)
         {
         }
         /// <summary>

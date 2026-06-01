@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\capture\ping_config\{trigger_kind}\{runnable_kind}\{path}
+    /// Builds and executes requests for operations under \w\{workspace}\capture\ping_config\{triggerKind}\{runnableKind}\{path}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPathItemRequestBuilder : BaseRequestBuilder
@@ -21,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/ping_config/{trigger_kind}/{runnable_kind}/{path}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/ping_config/{triggerKind}/{runnableKind}/{path}", pathParameters)
         {
         }
         /// <summary>
@@ -29,26 +30,26 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/ping_config/{trigger_kind}/{runnable_kind}/{path}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/ping_config/{triggerKind}/{runnableKind}/{path}", rawUrl)
         {
         }
         /// <summary>
         /// ping capture config
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.Item.WithPathPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson18"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.Item.WithPathPostResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson18?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.Item.WithPathPostResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson18> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.Item.WithPathPostResponse>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.Ping_config.Item.Item.Item.WithPathPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson18>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson18.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ping capture config

@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.jobs_u.flow.approval_info.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJob_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJob_ItemRequestBuilder this[Guid position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJobItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJobItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("job_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJob_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("jobId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.Approval_info.Item.WithJobItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

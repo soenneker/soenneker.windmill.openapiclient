@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.users.tokens.update_scopes.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Item.WithToken_prefixItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Item.WithToken_prefixItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Item.WithTokenPrefixItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Item.WithTokenPrefixItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("token_prefix", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Item.WithToken_prefixItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("tokenPrefix", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Item.WithTokenPrefixItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

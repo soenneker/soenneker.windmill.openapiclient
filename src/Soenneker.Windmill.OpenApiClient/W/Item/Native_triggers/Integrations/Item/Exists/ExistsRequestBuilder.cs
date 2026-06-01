@@ -11,7 +11,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Exists
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\integrations\{service_name}\exists
+    /// Builds and executes requests for operations under \w\{workspace}\native_triggers\integrations\{serviceName}\exists
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExistsRequestBuilder : BaseRequestBuilder
@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExistsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{service_name}/exists", pathParameters)
+        public ExistsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{serviceName}/exists", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExistsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{service_name}/exists", rawUrl)
+        public ExistsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/integrations/{serviceName}/exists", rawUrl)
         {
         }
         /// <summary>

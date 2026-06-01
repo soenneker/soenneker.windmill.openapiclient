@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.apps_u.public_app_by_custom_path.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Item.WithCustom_pathItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Item.WithCustom_pathItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Item.WithCustomPathItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Item.WithCustomPathItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("custom_path", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Item.WithCustom_pathItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("customPath", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Item.WithCustomPathItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

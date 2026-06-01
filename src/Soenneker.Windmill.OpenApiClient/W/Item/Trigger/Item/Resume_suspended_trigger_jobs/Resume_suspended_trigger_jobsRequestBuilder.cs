@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_trigger_jobs
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\trigger\{trigger_kind}\resume_suspended_trigger_jobs
+    /// Builds and executes requests for operations under \w\{workspace}\trigger\{triggerKind}\resume_suspended_trigger_jobs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Resume_suspended_trigger_jobsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.trigger.item.resume_suspended_trigger_jobs.item collection</summary>
         /// <param name="position">The path of the trigger (can contain forward slashes)</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_trigger_jobs.Item.WithTrigger_pathItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_trigger_jobs.Item.WithTrigger_pathItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_trigger_jobs.Item.WithTriggerPathItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_trigger_jobs.Item.WithTriggerPathItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("trigger_path", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_trigger_jobs.Item.WithTrigger_pathItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("triggerPath", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_trigger_jobs.Item.WithTriggerPathItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Resume_suspended_trigger_jobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/trigger/{trigger_kind}/resume_suspended_trigger_jobs", pathParameters)
+        public Resume_suspended_trigger_jobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/trigger/{triggerKind}/resume_suspended_trigger_jobs", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.Resume_suspended_
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Resume_suspended_trigger_jobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/trigger/{trigger_kind}/resume_suspended_trigger_jobs", rawUrl)
+        public Resume_suspended_trigger_jobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/trigger/{triggerKind}/resume_suspended_trigger_jobs", rawUrl)
         {
         }
     }

@@ -36,22 +36,22 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_sto
         /// <summary>
         /// edit large file storage settings
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage_config.Edit_large_file_storage_configPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig200ResponseResponseJson"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage_config.Edit_large_file_storage_configPostResponse?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig200ResponseResponseJson?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage_config.Edit_large_file_storage_configPostResponse> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig200ResponseResponseJson> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage_config.Edit_large_file_storage_configPostResponse>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage_config.Edit_large_file_storage_configPostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// edit large file storage settings
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_sto
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfig body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

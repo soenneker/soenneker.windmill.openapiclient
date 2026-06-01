@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.workspaces.compare.item collection</summary>
         /// <param name="position">The ID of the workspace to compare with</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.Item.WithTarget_workspace_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.Item.WithTarget_workspace_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.Item.WithTargetWorkspaceItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.Item.WithTargetWorkspaceItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("target_workspace_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.Item.WithTarget_workspace_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("targetWorkspaceId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Compare.Item.WithTargetWorkspaceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

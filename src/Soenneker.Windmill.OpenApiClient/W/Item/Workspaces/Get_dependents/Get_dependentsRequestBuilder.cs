@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.workspaces.get_dependents.item collection</summary>
         /// <param name="position">The imported path to get dependents for</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents.Item.WithImported_pathItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents.Item.WithImported_pathItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents.Item.WithImportedPathItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents.Item.WithImportedPathItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("imported_path", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents.Item.WithImported_pathItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("importedPath", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents.Item.WithImportedPathItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

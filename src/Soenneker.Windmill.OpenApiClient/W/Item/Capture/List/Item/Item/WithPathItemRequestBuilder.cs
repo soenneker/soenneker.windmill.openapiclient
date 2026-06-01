@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\capture\list\{runnable_kind}\{path}
+    /// Builds and executes requests for operations under \w\{workspace}\capture\list\{runnableKind}\{path}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPathItemRequestBuilder : BaseRequestBuilder
@@ -21,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/list/{runnable_kind}/{path}{?page*,per_page*,trigger_kind*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/list/{runnableKind}/{path}{?page*,per_page*,trigger_kind*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,26 +30,26 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/list/{runnable_kind}/{path}{?page*,per_page*,trigger_kind*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/capture/list/{runnableKind}/{path}{?page*,per_page*,trigger_kind*}", rawUrl)
         {
         }
         /// <summary>
         /// list captures for a script or flow
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPath&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPath>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPath>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPath>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.WithPath.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -92,7 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
             [QueryParameter("trigger_kind")]
-            public global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item.GetTrigger_kindQueryParameterType? TriggerKind { get; set; }
+            public global::Soenneker.Windmill.OpenApiClient.Models.ListCapturesTriggerKindParameter? TriggerKind { get; set; }
         }
     }
 }

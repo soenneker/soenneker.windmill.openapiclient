@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -59,11 +60,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunAndStreamFlowByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunAndStreamFlowByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -97,11 +98,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunAndStreamFlowByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.RunAndStreamFlowByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.F.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

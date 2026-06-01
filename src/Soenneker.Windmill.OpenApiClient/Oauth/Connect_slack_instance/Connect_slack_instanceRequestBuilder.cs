@@ -36,22 +36,22 @@ namespace Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance
         /// <summary>
         /// connect slack instance (non-interactive; pre-minted bot token)
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance.Connect_slack_instancePostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson8"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance.Connect_slack_instancePostResponse?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstance body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson8?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstanceRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance.Connect_slack_instancePostResponse> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstance body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson8> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstanceRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance.Connect_slack_instancePostResponse>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance.Connect_slack_instancePostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson8>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson8.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// connect slack instance (non-interactive; pre-minted bot token)
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstance body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstanceRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstance body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.ConnectSlackInstanceRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

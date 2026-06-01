@@ -10,21 +10,21 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook
 {
     /// <summary>
-    /// Builds and executes requests for operations under \native_triggers\{service_name}\w\{workspace_id}\webhook
+    /// Builds and executes requests for operations under \native_triggers\{serviceName}\w\{workspaceId}\webhook
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.native_triggers.item.w.item.webhook.item collection</summary>
         /// <param name="position">The internal database ID of the trigger</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook.Item.WithInternal_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook.Item.WithInternal_ItemRequestBuilder this[long position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook.Item.WithInternalItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook.Item.WithInternalItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("internal_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook.Item.WithInternal_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("internalId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook.Item.WithInternalItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhookRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{service_name}/w/{workspace_id}/webhook", pathParameters)
+        public WebhookRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{serviceName}/w/{workspaceId}/webhook", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.Native_triggers.Item.W.Item.Webhook
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhookRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{service_name}/w/{workspace_id}/webhook", rawUrl)
+        public WebhookRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/native_triggers/{serviceName}/w/{workspaceId}/webhook", rawUrl)
         {
         }
     }

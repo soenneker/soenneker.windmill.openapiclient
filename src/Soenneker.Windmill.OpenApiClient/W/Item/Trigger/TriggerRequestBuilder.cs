@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Trigger
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.trigger.item collection</summary>
         /// <param name="position">The kind of trigger</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.WithTrigger_kindItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.WithTrigger_kindItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.WithTriggerKindItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.WithTriggerKindItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("trigger_kind", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.WithTrigger_kindItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("triggerKind", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.Item.WithTriggerKindItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

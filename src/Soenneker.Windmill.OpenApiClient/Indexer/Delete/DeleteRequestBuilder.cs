@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Indexer.Delete
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.indexer.delete.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Indexer.Delete.Item.WithIdx_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Indexer.Delete.Item.WithIdx_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Indexer.Delete.Item.WithIdxNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Indexer.Delete.Item.WithIdxNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("idx_name", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Indexer.Delete.Item.WithIdx_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("idxName", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Indexer.Delete.Item.WithIdxNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.configs.list_autoscaling_events.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_groupItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_groupItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorkerGroupItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorkerGroupItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("worker_group", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorker_groupItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("workerGroup", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events.Item.WithWorkerGroupItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

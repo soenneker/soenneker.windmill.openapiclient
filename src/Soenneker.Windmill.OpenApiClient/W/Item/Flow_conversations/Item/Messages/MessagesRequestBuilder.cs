@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\flow_conversations\{conversation_id}\messages
+    /// Builds and executes requests for operations under \w\{workspace}\flow_conversations\{conversationId}\messages
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MessagesRequestBuilder : BaseRequestBuilder
@@ -21,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messag
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversation_id}/messages{?after_seq*,page*,per_page*}", pathParameters)
+        public MessagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversationId}/messages{?after_seq*,page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,26 +30,26 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messag
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversation_id}/messages{?after_seq*,page*,per_page*}", rawUrl)
+        public MessagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/{conversationId}/messages{?after_seq*,page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
         /// list conversation messages
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.Messages&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.Messages>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.MessagesRequestBuilder.MessagesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.MessagesRequestBuilder.MessagesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.Messages>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.MessagesRequestBuilder.MessagesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.MessagesRequestBuilder.MessagesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.Messages>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item.Messages.Messages.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

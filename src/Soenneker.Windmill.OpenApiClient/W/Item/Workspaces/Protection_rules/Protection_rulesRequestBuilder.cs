@@ -20,14 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.workspaces.protection_rules.item collection</summary>
         /// <param name="position">Name of the protection rule to update</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Item.WithRule_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Item.WithRule_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Item.WithRuleNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Item.WithRuleNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("rule_name", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Item.WithRule_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("ruleName", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Item.WithRuleNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -49,20 +49,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules
         /// <summary>
         /// list all protection rules for a workspace
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Protection_rules&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListProtectionRules200ResponseResponseJsonItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Protection_rules>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListProtectionRules200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Protection_rules>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListProtectionRules200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Protection_rules>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules.Protection_rules.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListProtectionRules200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListProtectionRules200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -74,11 +74,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRule body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRule body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -112,11 +112,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRule body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRule body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

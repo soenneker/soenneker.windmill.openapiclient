@@ -23,14 +23,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations
         }
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.native_triggers.integrations.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.WithService_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.WithService_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.WithServiceNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.WithServiceNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("service_name", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.WithService_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("serviceName", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.WithServiceNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

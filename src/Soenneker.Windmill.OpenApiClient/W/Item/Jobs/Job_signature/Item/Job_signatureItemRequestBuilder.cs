@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.jobs.job_signature.item.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item.Item.WithResume_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item.Item.WithResume_ItemRequestBuilder this[int position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item.Item.WithResumeItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item.Item.WithResumeItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("resume_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item.Item.WithResume_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("resumeId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item.Item.WithResumeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

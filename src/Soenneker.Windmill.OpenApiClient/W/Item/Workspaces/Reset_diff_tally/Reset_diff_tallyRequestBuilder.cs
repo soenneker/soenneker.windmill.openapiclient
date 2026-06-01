@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.workspaces.reset_diff_tally.item collection</summary>
         /// <param name="position">The ID of the workspace to compare with</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Item.WithFork_workspace_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Item.WithFork_workspace_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Item.WithForkWorkspaceItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Item.WithForkWorkspaceItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("fork_workspace_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Item.WithFork_workspace_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("forkWorkspaceId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Item.WithForkWorkspaceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

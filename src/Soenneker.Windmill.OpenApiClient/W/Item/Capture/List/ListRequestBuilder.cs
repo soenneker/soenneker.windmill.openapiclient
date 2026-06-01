@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.List
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.capture.list.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.WithRunnable_kindItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.WithRunnable_kindItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.WithRunnableKindItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.WithRunnableKindItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("runnable_kind", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.WithRunnable_kindItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("runnableKind", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.WithRunnableKindItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

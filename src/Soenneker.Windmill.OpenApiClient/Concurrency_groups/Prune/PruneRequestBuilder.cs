@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.concurrency_groups.prune.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune.Item.WithConcurrency_ItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune.Item.WithConcurrency_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune.Item.WithConcurrencyItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune.Item.WithConcurrencyItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("concurrency_id", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune.Item.WithConcurrency_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("concurrencyId", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune.Item.WithConcurrencyItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

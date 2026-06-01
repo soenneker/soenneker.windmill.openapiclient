@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.jobs.queue.position.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.Item.WithScheduled_forItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.Item.WithScheduled_forItemRequestBuilder this[int position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.Item.WithScheduledForItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.Item.WithScheduledForItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("scheduled_for", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.Item.WithScheduled_forItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("scheduledFor", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.Item.WithScheduledForItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

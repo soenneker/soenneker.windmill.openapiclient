@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.settings.restart_worker_group.item collection</summary>
         /// <param name="position">the name of the worker group to restart</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group.Item.WithWorker_groupItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group.Item.WithWorker_groupItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group.Item.WithWorkerGroupItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group.Item.WithWorkerGroupItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("worker_group", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group.Item.WithWorker_groupItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("workerGroup", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group.Item.WithWorkerGroupItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

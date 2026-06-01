@@ -17,14 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Oauth.Login_callback
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.oauth.login_callback.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Item.WithClient_nameItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Item.WithClient_nameItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Item.WithClientNameItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Item.WithClientNameItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("client_name", position);
-                return new global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Item.WithClient_nameItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("clientName", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Item.WithClientNameItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

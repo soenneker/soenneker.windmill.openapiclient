@@ -70,6 +70,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestSchema Schema { get; set; }
 #endif
+        /// <summary>When true (set by the CLI / git sync), deploying this flow does not delete an existing user draft at the same path.</summary>
+        public bool? SkipDraftDeletion { get; set; }
         /// <summary>Short description of what this flow does</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,6 +137,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preserve_on_behalf_of", n => { PreserveOnBehalfOf = n.GetBoolValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestSchema>(global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestSchema.CreateFromDiscriminatorValue); } },
+                { "skip_draft_deletion", n => { SkipDraftDeletion = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "timeout", n => { Timeout = n.GetDoubleValue(); } },
@@ -160,6 +163,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("preserve_on_behalf_of", PreserveOnBehalfOf);
             writer.WriteIntValue("priority", Priority);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestSchema>("schema", Schema);
+            writer.WriteBoolValue("skip_draft_deletion", SkipDraftDeletion);
             writer.WriteStringValue("summary", Summary);
             writer.WriteStringValue("tag", Tag);
             writer.WriteDoubleValue("timeout", Timeout);

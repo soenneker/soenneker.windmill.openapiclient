@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.711.0
+  version: 1.714.1
   title: Windmill API
   contact:
     name: Windmill Team
@@ -2057,6 +2057,14 @@ paths:
                       enum: &ref_22
                         - ducklake
                         - datatable
+                    used_by_workspaces:
+                      type: array
+                      items:
+                        type: string
+                      description: >-
+                        Workspaces that reference this database via a ducklake
+                        catalog or datatable database with resource_type
+                        'instance'. Computed at request time, not persisted.
   /settings/setup_custom_instance_pg_database/{name}:
     post:
       summary: >-
@@ -11364,6 +11372,13 @@ paths:
                             description: >-
                               If true, all steps run on the same worker for
                               better performance
+                          preserve_step_tags:
+                            type: boolean
+                            description: >-
+                              If true and the flow runs on a custom worker tag,
+                              steps that declare their own non-empty tag run on
+                              it instead of inheriting the flow tag. Steps
+                              without their own tag still inherit the flow tag.
                           concurrent_limit:
                             type: number
                             description: >-
@@ -12619,6 +12634,11 @@ paths:
                   type: array
                   items:
                     type: string
+                skip_draft_deletion:
+                  type: boolean
+                  description: >-
+                    When true (set by the CLI / git sync), deploying this script
+                    does not delete an existing user draft at the same path.
               required: &ref_105
                 - path
                 - summary
@@ -15461,6 +15481,12 @@ paths:
                       type: boolean
                     deployment_message:
                       type: string
+                    skip_draft_deletion:
+                      type: boolean
+                      description: >-
+                        When true (set by the CLI / git sync), deploying this
+                        flow does not delete an existing user draft at the same
+                        path.
       responses:
         '201':
           description: flow created
@@ -15507,6 +15533,12 @@ paths:
                   properties:
                     deployment_message:
                       type: string
+                    skip_draft_deletion:
+                      type: boolean
+                      description: >-
+                        When true (set by the CLI / git sync), deploying this
+                        flow does not delete an existing user draft at the same
+                        path.
       responses:
         '200':
           description: flow updated
@@ -16244,6 +16276,11 @@ paths:
                   type: array
                   items:
                     type: string
+                skip_draft_deletion:
+                  type: boolean
+                  description: >-
+                    When true (set by the CLI / git sync), deploying this app
+                    does not delete an existing user draft at the same path.
               required:
                 - path
                 - value
@@ -16303,6 +16340,12 @@ paths:
                       type: array
                       items:
                         type: string
+                    skip_draft_deletion:
+                      type: boolean
+                      description: >-
+                        When true (set by the CLI / git sync), deploying this
+                        app does not delete an existing user draft at the same
+                        path.
                   required:
                     - path
                     - value
@@ -16740,6 +16783,11 @@ paths:
                   type: array
                   items:
                     type: string
+                skip_draft_deletion:
+                  type: boolean
+                  description: >-
+                    When true (set by the CLI / git sync), deploying this app
+                    does not delete an existing user draft at the same path.
       responses:
         '200':
           description: app updated
@@ -16796,6 +16844,12 @@ paths:
                       type: array
                       items:
                         type: string
+                    skip_draft_deletion:
+                      type: boolean
+                      description: >-
+                        When true (set by the CLI / git sync), deploying this
+                        app does not delete an existing user draft at the same
+                        path.
                 js:
                   type: string
                 css:
@@ -17954,6 +18008,13 @@ paths:
                       description: >-
                         If true, all steps run on the same worker for better
                         performance
+                    preserve_step_tags:
+                      type: boolean
+                      description: >-
+                        If true and the flow runs on a custom worker tag, steps
+                        that declare their own non-empty tag run on it instead
+                        of inheriting the flow tag. Steps without their own tag
+                        still inherit the flow tag.
                     concurrent_limit:
                       type: number
                       description: Maximum number of concurrent executions of this flow

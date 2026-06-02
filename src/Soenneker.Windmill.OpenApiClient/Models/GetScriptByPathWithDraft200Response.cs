@@ -202,6 +202,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200ResponseSchema Schema { get; set; }
 #endif
+        /// <summary>When true (set by the CLI / git sync), deploying this script does not delete an existing user draft at the same path.</summary>
+        public bool? SkipDraftDeletion { get; set; }
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -286,6 +288,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "restart_unless_cancelled", n => { RestartUnlessCancelled = n.GetBoolValue(); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200ResponseSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200ResponseSchema.CreateFromDiscriminatorValue); } },
+                { "skip_draft_deletion", n => { SkipDraftDeletion = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "timeout", n => { Timeout = n.GetIntValue(); } },
@@ -337,6 +340,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("priority", Priority);
             writer.WriteBoolValue("restart_unless_cancelled", RestartUnlessCancelled);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPathWithDraft200ResponseSchema>("schema", Schema);
+            writer.WriteBoolValue("skip_draft_deletion", SkipDraftDeletion);
             writer.WriteStringValue("summary", Summary);
             writer.WriteStringValue("tag", Tag);
             writer.WriteIntValue("timeout", Timeout);

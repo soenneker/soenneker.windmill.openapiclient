@@ -113,6 +113,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModule PreprocessorModule { get; set; }
 #endif
+        /// <summary>If true and the flow runs on a custom worker tag, steps that declare their own non-empty tag run on it instead of inheriting the flow tag. Steps without their own tag still inherit the flow tag.</summary>
+        public bool? PreserveStepTags { get; set; }
         /// <summary>Execution priority (higher numbers run first)</summary>
         public double? Priority { get; set; }
         /// <summary>If true, all steps run on the same worker for better performance</summary>
@@ -169,6 +171,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "modules", n => { Modules = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "notes", n => { Notes = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowNotesItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowNotesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "preprocessor_module", n => { PreprocessorModule = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModule>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModule.CreateFromDiscriminatorValue); } },
+                { "preserve_step_tags", n => { PreserveStepTags = n.GetBoolValue(); } },
                 { "priority", n => { Priority = n.GetDoubleValue(); } },
                 { "same_worker", n => { SameWorker = n.GetBoolValue(); } },
                 { "skip_expr", n => { SkipExpr = n.GetStringValue(); } },
@@ -200,6 +203,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItem>("modules", Modules);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowNotesItem>("notes", Notes);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModule>("preprocessor_module", PreprocessorModule);
+            writer.WriteBoolValue("preserve_step_tags", PreserveStepTags);
             writer.WriteDoubleValue("priority", Priority);
             writer.WriteBoolValue("same_worker", SameWorker);
             writer.WriteStringValue("skip_expr", SkipExpr);

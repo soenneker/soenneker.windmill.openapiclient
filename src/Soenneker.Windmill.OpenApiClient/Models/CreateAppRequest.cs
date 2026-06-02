@@ -58,6 +58,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>When true and the caller is a member of the &apos;wm_deployers&apos; group, preserves the original on_behalf_of value in the policy instead of overwriting it.</summary>
         public bool? PreserveOnBehalfOf { get; set; }
+        /// <summary>When true (set by the CLI / git sync), deploying this app does not delete an existing user draft at the same path.</summary>
+        public bool? SkipDraftDeletion { get; set; }
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,6 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "policy", n => { Policy = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRequestPolicy>(global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRequestPolicy.CreateFromDiscriminatorValue); } },
                 { "preserve_on_behalf_of", n => { PreserveOnBehalfOf = n.GetBoolValue(); } },
+                { "skip_draft_deletion", n => { SkipDraftDeletion = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRequestValue>(global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRequestValue.CreateFromDiscriminatorValue); } },
             };
@@ -124,6 +127,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRequestPolicy>("policy", Policy);
             writer.WriteBoolValue("preserve_on_behalf_of", PreserveOnBehalfOf);
+            writer.WriteBoolValue("skip_draft_deletion", SkipDraftDeletion);
             writer.WriteStringValue("summary", Summary);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRequestValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);

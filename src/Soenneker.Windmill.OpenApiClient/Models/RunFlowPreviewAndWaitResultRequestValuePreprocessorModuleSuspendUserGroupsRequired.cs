@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValuePreprocessorModuleSuspendUserGroupsRequired();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowPreviewAndWaitResultRequestValuePreprocessorModuleSuspendUserGroupsRequiredOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValuePreprocessorModuleSuspendUserGroupsRequiredOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowPreviewAndWaitResultRequestValuePreprocessorModuleSuspendUserGroupsRequiredOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValuePreprocessorModuleSuspendUserGroupsRequiredOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowPreviewAndWaitResultRequestValuePreprocessorModuleSuspendUserGroupsRequiredOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValuePreprocessorModuleSuspendUserGroupsRequiredOneOf3();
-            }
             return result;
         }
         /// <summary>

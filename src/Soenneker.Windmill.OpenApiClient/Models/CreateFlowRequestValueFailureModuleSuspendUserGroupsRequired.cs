@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequired();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3();
-            }
             return result;
         }
         /// <summary>

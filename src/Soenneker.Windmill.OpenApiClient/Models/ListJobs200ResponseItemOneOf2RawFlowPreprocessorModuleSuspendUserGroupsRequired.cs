@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleSuspendUserGroupsRequired();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleSuspendUserGroupsRequiredOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleSuspendUserGroupsRequiredOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleSuspendUserGroupsRequiredOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleSuspendUserGroupsRequiredOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleSuspendUserGroupsRequiredOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleSuspendUserGroupsRequiredOneOf3();
-            }
             return result;
         }
         /// <summary>

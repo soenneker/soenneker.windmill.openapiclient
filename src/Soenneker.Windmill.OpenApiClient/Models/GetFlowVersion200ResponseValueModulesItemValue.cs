@@ -95,42 +95,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValue();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf3();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf4();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf5 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf5();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf6 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf6();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf7 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf7();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf8 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf8();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowVersion200ResponseValueModulesItemValueOneOf9 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9();
-            }
             return result;
         }
         /// <summary>

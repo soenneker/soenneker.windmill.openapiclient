@@ -95,42 +95,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValue();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf3();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf4();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf5 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf5();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf6 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf6();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf7 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf7();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf8 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf8();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.UpdateFlowRequestValuePreprocessorModuleValueOneOf9 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValuePreprocessorModuleValueOneOf9();
-            }
             return result;
         }
         /// <summary>

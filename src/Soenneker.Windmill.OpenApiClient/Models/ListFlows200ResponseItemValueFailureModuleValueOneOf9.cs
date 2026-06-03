@@ -43,6 +43,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public ListFlows200ResponseItemValueFailureModuleValueOneOf9()
         {
             AdditionalData = new Dictionary<string, object>();
+            OmitOutputFromConversation = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

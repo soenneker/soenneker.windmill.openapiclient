@@ -39,6 +39,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public EditErrorHandlerRequestOneOf2()
         {
             AdditionalData = new Dictionary<string, object>();
+            ErrorHandlerMutedOnCancel = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

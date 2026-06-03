@@ -95,42 +95,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValue();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf3();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf4();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf5 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf5();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf6 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf6();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf7 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf7();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf8 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf8();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf9 = new global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf9();
-            }
             return result;
         }
         /// <summary>

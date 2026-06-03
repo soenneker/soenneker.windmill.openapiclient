@@ -63,6 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public DeleteCompletedJob200ResponseRawFlowGroupsItem()
         {
             AdditionalData = new Dictionary<string, object>();
+            Autocollapse = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

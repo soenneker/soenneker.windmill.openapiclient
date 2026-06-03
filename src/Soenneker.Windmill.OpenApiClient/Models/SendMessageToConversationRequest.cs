@@ -46,6 +46,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public SendMessageToConversationRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            Success = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

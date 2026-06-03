@@ -43,6 +43,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9()
         {
             AdditionalData = new Dictionary<string, object>();
+            OmitOutputFromConversation = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

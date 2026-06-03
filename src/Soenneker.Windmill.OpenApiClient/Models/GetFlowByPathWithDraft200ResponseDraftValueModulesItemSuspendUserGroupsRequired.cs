@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200ResponseDraftValueModulesItemSuspendUserGroupsRequired();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowByPathWithDraft200ResponseDraftValueModulesItemSuspendUserGroupsRequiredOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200ResponseDraftValueModulesItemSuspendUserGroupsRequiredOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowByPathWithDraft200ResponseDraftValueModulesItemSuspendUserGroupsRequiredOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200ResponseDraftValueModulesItemSuspendUserGroupsRequiredOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetFlowByPathWithDraft200ResponseDraftValueModulesItemSuspendUserGroupsRequiredOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPathWithDraft200ResponseDraftValueModulesItemSuspendUserGroupsRequiredOneOf3();
-            }
             return result;
         }
         /// <summary>

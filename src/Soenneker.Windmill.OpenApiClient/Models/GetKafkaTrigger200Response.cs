@@ -162,6 +162,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public GetKafkaTrigger200Response()
         {
             AdditionalData = new Dictionary<string, object>();
+            AutoCommit = true;
             AutoOffsetReset = global::Soenneker.Windmill.OpenApiClient.Models.GetKafkaTrigger200ResponseAutoOffsetReset.Latest;
             FilterLogic = global::Soenneker.Windmill.OpenApiClient.Models.GetKafkaTrigger200ResponseFilterLogic.And;
         }

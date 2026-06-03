@@ -73,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public GetFlowByPath200ResponseValueNotesItem()
         {
             AdditionalData = new Dictionary<string, object>();
+            Locked = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleSuspendUserGroupsRequired();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleSuspendUserGroupsRequiredOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleSuspendUserGroupsRequiredOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleSuspendUserGroupsRequiredOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleSuspendUserGroupsRequiredOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleSuspendUserGroupsRequiredOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleSuspendUserGroupsRequiredOneOf3();
-            }
             return result;
         }
         /// <summary>

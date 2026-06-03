@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleValueOneOf9InputTransformsMemory();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleValueOneOf9InputTransformsMemoryOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleValueOneOf9InputTransformsMemoryOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleValueOneOf9InputTransformsMemoryOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleValueOneOf9InputTransformsMemoryOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleValueOneOf9InputTransformsMemoryOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf2RawFlowFailureModuleValueOneOf9InputTransformsMemoryOneOf3();
-            }
             return result;
         }
         /// <summary>

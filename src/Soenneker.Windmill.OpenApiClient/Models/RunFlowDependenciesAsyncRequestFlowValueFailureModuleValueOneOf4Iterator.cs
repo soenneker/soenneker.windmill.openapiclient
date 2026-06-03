@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf4Iterator();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf4IteratorOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf4IteratorOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf4IteratorOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf4IteratorOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf4IteratorOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf4IteratorOneOf3();
-            }
             return result;
         }
         /// <summary>

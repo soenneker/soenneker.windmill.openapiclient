@@ -46,6 +46,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public ListGoogleDriveFiles200ResponseFilesItem()
         {
             AdditionalData = new Dictionary<string, object>();
+            IsFolder = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

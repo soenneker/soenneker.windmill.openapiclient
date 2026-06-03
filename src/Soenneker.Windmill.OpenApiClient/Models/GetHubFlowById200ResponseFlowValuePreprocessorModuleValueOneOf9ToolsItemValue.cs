@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("tool_type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9ToolsItemValue();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9ToolsItemValueOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9ToolsItemValueOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9ToolsItemValueOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9ToolsItemValueOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9ToolsItemValueOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9ToolsItemValueOneOf3();
-            }
             return result;
         }
         /// <summary>

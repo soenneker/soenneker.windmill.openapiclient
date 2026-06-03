@@ -47,18 +47,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleTimeout();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowPreviewRequestValueFailureModuleTimeoutOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleTimeoutOneOf1();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowPreviewRequestValueFailureModuleTimeoutOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleTimeoutOneOf2();
-            }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.RunFlowPreviewRequestValueFailureModuleTimeoutOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleTimeoutOneOf3();
-            }
             return result;
         }
         /// <summary>

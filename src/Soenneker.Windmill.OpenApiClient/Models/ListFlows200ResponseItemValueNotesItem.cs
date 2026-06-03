@@ -73,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public ListFlows200ResponseItemValueNotesItem()
         {
             AdditionalData = new Dictionary<string, object>();
+            Locked = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

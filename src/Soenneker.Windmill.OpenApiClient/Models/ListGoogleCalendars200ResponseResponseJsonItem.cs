@@ -38,6 +38,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public ListGoogleCalendars200ResponseResponseJsonItem()
         {
             AdditionalData = new Dictionary<string, object>();
+            Primary = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

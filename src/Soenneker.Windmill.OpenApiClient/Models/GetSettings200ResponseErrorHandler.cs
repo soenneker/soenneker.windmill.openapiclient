@@ -41,6 +41,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public GetSettings200ResponseErrorHandler()
         {
             AdditionalData = new Dictionary<string, object>();
+            MutedOnCancel = false;
+            MutedOnUserPath = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

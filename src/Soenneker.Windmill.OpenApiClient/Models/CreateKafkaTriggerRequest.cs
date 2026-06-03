@@ -120,6 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public CreateKafkaTriggerRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            AutoCommit = true;
             AutoOffsetReset = global::Soenneker.Windmill.OpenApiClient.Models.CreateKafkaTriggerRequestAutoOffsetReset.Latest;
             FilterLogic = global::Soenneker.Windmill.OpenApiClient.Models.CreateKafkaTriggerRequestFilterLogic.And;
         }

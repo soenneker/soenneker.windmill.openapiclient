@@ -38,6 +38,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public OffboardWorkspaceUserRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            DeleteUser = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

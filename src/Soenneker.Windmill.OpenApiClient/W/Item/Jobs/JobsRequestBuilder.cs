@@ -7,6 +7,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Get_otel_traces;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_view_token;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_filtered_uuids;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_selected_job_groups;
@@ -57,6 +58,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Job_signatureRequestBuilder Job_signature
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Job_signatureRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The job_view_token property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_view_token.Job_view_tokenRequestBuilder Job_view_token
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_view_token.Job_view_tokenRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The list property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List.ListRequestBuilder List

@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.715.0
+  version: 1.717.1
   title: Windmill API
   contact:
     name: Windmill Team
@@ -4850,6 +4850,10 @@ paths:
                         required: &ref_44
                           - model
                           - provider
+                      metadata_model:
+                        type: object
+                        properties: *ref_43
+                        required: *ref_44
                       code_completion_model:
                         type: object
                         properties: *ref_43
@@ -5833,6 +5837,10 @@ paths:
                             - provider
                             - models
                       default_model:
+                        type: object
+                        properties: *ref_43
+                        required: *ref_44
+                      metadata_model:
                         type: object
                         properties: *ref_43
                         required: *ref_44

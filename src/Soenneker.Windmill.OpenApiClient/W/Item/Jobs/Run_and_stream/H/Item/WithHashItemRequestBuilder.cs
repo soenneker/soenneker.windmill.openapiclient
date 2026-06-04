@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/w/{workspace}/jobs/run_and_stream/h/{hash}{?cache_ttl*,include_header*,job_id*,parent_job*,payload*,poll_delay_ms*,queue_limit*,skip_preprocessor*,tag*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/event-stream");
             return requestInfo;
@@ -106,7 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/w/{workspace}/jobs/run_and_stream/h/{hash}{?cache_ttl*,include_header*,job_id*,parent_job*,poll_delay_ms*,queue_limit*,skip_preprocessor*,tag*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/event-stream");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

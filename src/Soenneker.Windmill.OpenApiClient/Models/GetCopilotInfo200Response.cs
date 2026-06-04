@@ -46,6 +46,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel MaxTokensPerModel { get; set; }
 #endif
+        /// <summary>The metadata_model property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel? MetadataModel { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel MetadataModel { get; set; }
+#endif
         /// <summary>The providers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "custom_prompts", n => { CustomPrompts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts.CreateFromDiscriminatorValue); } },
                 { "default_model", n => { DefaultModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel.CreateFromDiscriminatorValue); } },
                 { "max_tokens_per_model", n => { MaxTokensPerModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel.CreateFromDiscriminatorValue); } },
+                { "metadata_model", n => { MetadataModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel.CreateFromDiscriminatorValue); } },
                 { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders.CreateFromDiscriminatorValue); } },
             };
         }
@@ -97,6 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts>("custom_prompts", CustomPrompts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel>("default_model", DefaultModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel>("max_tokens_per_model", MaxTokensPerModel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel>("metadata_model", MetadataModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders>("providers", Providers);
             writer.WriteAdditionalData(AdditionalData);
         }

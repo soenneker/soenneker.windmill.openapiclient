@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Resume.Item.Item.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Resume.Item.Item.Item.WithSignatureItemRequestBuilder.WithSignatureItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/w/{workspace}/jobs_u/resume/{id}/{resumeId}/{signature}{?approver*,payload*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
             return requestInfo;
@@ -106,7 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Resume.Item.Item.Item
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/w/{workspace}/jobs_u/resume/{id}/{resumeId}/{signature}{?approver*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/plain;q=0.9");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

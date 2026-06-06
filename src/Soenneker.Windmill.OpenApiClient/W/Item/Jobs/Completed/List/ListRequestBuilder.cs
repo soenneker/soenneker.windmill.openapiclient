@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,tag*,worker*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,worker*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,tag*,worker*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,worker*}", rawUrl)
         {
         }
         /// <summary>
@@ -209,6 +209,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List
             /// <summary>filter on started before (inclusive) timestamp</summary>
             [QueryParameter("started_before")]
             public DateTimeOffset? StartedBefore { get; set; }
+            /// <summary>filter on the exact completed job status. Unlike `success=true` (which also matches `skipped`), `status=success` matches only `success`.</summary>
+            [QueryParameter("status")]
+            public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobsStatusParameter? Status { get; set; }
             /// <summary>filter on successful jobs</summary>
             [QueryParameter("success")]
             public bool? Success { get; set; }

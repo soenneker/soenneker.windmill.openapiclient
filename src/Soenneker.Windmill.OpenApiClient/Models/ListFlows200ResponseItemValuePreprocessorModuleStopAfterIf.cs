@@ -15,6 +15,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When stopping with an error (error_message set), embed the stopping step&apos;s own result inside the raised error object (as error.result) instead of discarding it. The top-level result stays { error }. Defaults to false.</summary>
+        public bool? ErrorIncludeResult { get; set; }
         /// <summary>Custom error message when stopping with an error. Mutually exclusive with skip_if_stopped. If set to a non-empty string, the flow stops with this error. If empty string, a default error message is used. If null or omitted, no error is raised.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "error_include_result", n => { ErrorIncludeResult = n.GetBoolValue(); } },
                 { "error_message", n => { ErrorMessage = n.GetStringValue(); } },
                 { "expr", n => { Expr = n.GetStringValue(); } },
                 { "skip_if_stopped", n => { SkipIfStopped = n.GetBoolValue(); } },
@@ -70,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("error_include_result", ErrorIncludeResult);
             writer.WriteStringValue("error_message", ErrorMessage);
             writer.WriteStringValue("expr", Expr);
             writer.WriteBoolValue("skip_if_stopped", SkipIfStopped);

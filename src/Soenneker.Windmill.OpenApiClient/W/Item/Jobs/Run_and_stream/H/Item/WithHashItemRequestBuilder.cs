@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithHashItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+        public WithHashItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run_and_stream/h/{hash}{?cache_ttl*,include_header*,job_id*,parent_job*,payload*,poll_delay_ms*,queue_limit*,skip_preprocessor*,tag*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithHashItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+        public WithHashItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run_and_stream/h/{hash}{?cache_ttl*,include_header*,job_id*,parent_job*,payload*,poll_delay_ms*,queue_limit*,skip_preprocessor*,tag*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item.WithHashItemRequestBuilder.WithHashItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/w/{workspace}/jobs/run_and_stream/h/{hash}{?cache_ttl*,include_header*,job_id*,parent_job*,payload*,poll_delay_ms*,queue_limit*,skip_preprocessor*,tag*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/event-stream");
             return requestInfo;
@@ -106,7 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.H.Item
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/w/{workspace}/jobs/run_and_stream/h/{hash}{?cache_ttl*,include_header*,job_id*,parent_job*,poll_delay_ms*,queue_limit*,skip_preprocessor*,tag*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "text/event-stream");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

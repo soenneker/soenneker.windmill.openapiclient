@@ -32,8 +32,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The draft_only property</summary>
-        public bool? DraftOnly { get; set; }
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -130,7 +128,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "dedicated_worker", n => { DedicatedWorker = n.GetBoolValue(); } },
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -156,7 +153,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("dedicated_worker", DedicatedWorker);
             writer.WriteStringValue("deployment_message", DeploymentMessage);
             writer.WriteStringValue("description", Description);
-            writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteStringValue("path", Path);

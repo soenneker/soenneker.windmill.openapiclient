@@ -32,6 +32,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The draft property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseDraft? Draft { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseDraft Draft { get; set; }
+#endif
+        /// <summary>True when this row is a per-user draft with no deployedtrigger at the same path. Set by list endpoints when`include_draft_only=true` synthesizes the row from thedraft. Frontend renders a &quot;Draft&quot; badge.</summary>
+        public bool? DraftOnly { get; set; }
+        /// <summary>The draft_saved_at property</summary>
+        public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>Timestamp of the last edit</summary>
         public DateTimeOffset? EditedAt { get; set; }
         /// <summary>Username of the last person who edited this trigger</summary>
@@ -68,6 +80,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>HTTP method (get, post, put, delete, patch) that triggers this endpoint</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseHttpMethod? HttpMethod { get; set; }
+        /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>True if script_path points to a flow, false if it points to a script</summary>
         public bool? IsFlow { get; set; }
         /// <summary>If true, serves static files from S3/storage instead of running a script</summary>
@@ -82,6 +96,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>job trigger mode</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseMode? Mode { get; set; }
+        /// <summary>The no_deployed property</summary>
+        public bool? NoDeployed { get; set; }
+        /// <summary>Other workspace users (and the legacy NULL-email row, if any)with a saved draft at the same path. Populated only on theauthed user&apos;s &quot;get by path&quot; responses for kinds the editorsurfaces a fork banner for (script, flow, app, raw_app).Empty / omitted for kinds without that UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseOtherDraftsUsersItem>? OtherDraftsUsers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseOtherDraftsUsersItem> OtherDraftsUsers { get; set; }
+#endif
         /// <summary>The unique Windmill path for this trigger. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`. This is the trigger object path, not the HTTP route path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -182,16 +206,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "authentication_method", n => { AuthenticationMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseAuthenticationMethod>(); } },
                 { "authentication_resource_path", n => { AuthenticationResourcePath = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseDraft.CreateFromDiscriminatorValue); } },
+                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
+                { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseErrorHandlerArgs.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
                 { "http_method", n => { HttpMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseHttpMethod>(); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "is_static_website", n => { IsStaticWebsite = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseMode>(); } },
+                { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
+                { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseOtherDraftsUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseOtherDraftsUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "raw_string", n => { RawString = n.GetBoolValue(); } },
@@ -216,16 +246,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseAuthenticationMethod>("authentication_method", AuthenticationMethod);
             writer.WriteStringValue("authentication_resource_path", AuthenticationResourcePath);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseDraft>("draft", Draft);
+            writer.WriteBoolValue("draft_only", DraftOnly);
+            writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseHttpMethod>("http_method", HttpMethod);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteBoolValue("is_static_website", IsStaticWebsite);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseMode>("mode", Mode);
+            writer.WriteBoolValue("no_deployed", NoDeployed);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetHttpTrigger200ResponseOtherDraftsUsersItem>("other_drafts_users", OtherDraftsUsers);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteBoolValue("raw_string", RawString);

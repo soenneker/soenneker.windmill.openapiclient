@@ -40,6 +40,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms ExtraPerms { get; set; }
 #endif
+        /// <summary>Labels set on the folder. Items inside the folder inherit them, exposed as `inherited_labels` on scripts and flows and stamped into job labels at run time.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Labels { get; set; }
+#nullable restore
+#else
+        public List<string> Labels { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemDefaultPermissionedAsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemDefaultPermissionedAsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owners", n => { Owners = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
@@ -109,6 +118,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemDefaultPermissionedAsItem>("default_permissioned_as", DefaultPermissionedAs);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("owners", Owners);
             writer.WriteStringValue("summary", Summary);

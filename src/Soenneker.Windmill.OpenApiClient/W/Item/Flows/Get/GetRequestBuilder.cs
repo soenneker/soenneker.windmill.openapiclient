@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get.Draft;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get.Item;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get.V;
 using System.Collections.Generic;
@@ -17,11 +16,6 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The draft property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get.Draft.DraftRequestBuilder Draft
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get.Draft.DraftRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The v property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get.V.VRequestBuilder V
         {

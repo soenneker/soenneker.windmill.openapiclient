@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Schedules.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/schedules/list{?args*,broad_filter*,description*,is_flow*,label*,page*,path*,path_start*,per_page*,schedule_path*,summary*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/schedules/list{?args*,broad_filter*,description*,include_draft_only*,is_flow*,label*,page*,path*,path_start*,per_page*,schedule_path*,summary*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Schedules.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/schedules/list{?args*,broad_filter*,description*,is_flow*,label*,page*,path*,path_start*,per_page*,schedule_path*,summary*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/schedules/list{?args*,broad_filter*,description*,include_draft_only*,is_flow*,label*,page*,path*,path_start*,per_page*,schedule_path*,summary*}", rawUrl)
         {
         }
         /// <summary>
@@ -116,6 +116,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Schedules.List
             [QueryParameter("description")]
             public string Description { get; set; }
 #endif
+            /// <summary>&quot;When true, append per-user draft schedules whose path hasno deployed schedule. Synthesized rows carry`draft_only: true`.&quot;</summary>
+            [QueryParameter("include_draft_only")]
+            public bool? IncludeDraftOnly { get; set; }
             /// <summary>filter schedules by whether they target a flow</summary>
             [QueryParameter("is_flow")]
             public bool? IsFlow { get; set; }

@@ -38,6 +38,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The draft property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseDraft? Draft { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseDraft Draft { get; set; }
+#endif
+        /// <summary>True when this row is a per-user draft with no deployedschedule at the same path. Frontend renders a &quot;Draft&quot; badge.</summary>
+        public bool? DraftOnly { get; set; }
+        /// <summary>The draft_saved_at property</summary>
+        public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>Path to a script that validates scheduled datetimes. Receives scheduled_for datetime and returns boolean to skip (true) or run (false)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +94,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseExtraPerms ExtraPerms { get; set; }
 #endif
+        /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? InheritedLabels { get; set; }
+#nullable restore
+#else
+        public List<string> InheritedLabels { get; set; }
+#endif
+        /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>True if script_path points to a flow, false if it points to a script</summary>
         public bool? IsFlow { get; set; }
         /// <summary>The labels property</summary>
@@ -92,6 +114,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> Labels { get; set; }
 #endif
+        /// <summary>The no_deployed property</summary>
+        public bool? NoDeployed { get; set; }
         /// <summary>If true, skip this schedule&apos;s execution if the previous run is still in progress (prevents concurrent runs)</summary>
         public bool? NoFlowOverlap { get; set; }
         /// <summary>Path to a script or flow to run when the scheduled job fails</summary>
@@ -147,6 +171,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOnSuccessExtraArgs OnSuccessExtraArgs { get; set; }
+#endif
+        /// <summary>Other workspace users (and the legacy NULL-email row, if any)with a saved draft at the same path. Populated only on theauthed user&apos;s &quot;get by path&quot; responses for kinds the editorsurfaces a fork banner for (script, flow, app, raw_app).Empty / omitted for kinds without that UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOtherDraftsUsersItem>? OtherDraftsUsers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOtherDraftsUsersItem> OtherDraftsUsers { get; set; }
 #endif
         /// <summary>The unique Windmill path for this schedule. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -244,6 +276,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseArgs>(global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseArgs.CreateFromDiscriminatorValue); } },
                 { "cron_version", n => { CronVersion = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseDraft.CreateFromDiscriminatorValue); } },
+                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
+                { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "dynamic_skip", n => { DynamicSkip = n.GetStringValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
@@ -251,8 +286,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
+                { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
                 { "no_flow_overlap", n => { NoFlowOverlap = n.GetBoolValue(); } },
                 { "on_failure", n => { OnFailure = n.GetStringValue(); } },
                 { "on_failure_exact", n => { OnFailureExact = n.GetBoolValue(); } },
@@ -263,6 +301,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "on_recovery_times", n => { OnRecoveryTimes = n.GetDoubleValue(); } },
                 { "on_success", n => { OnSuccess = n.GetStringValue(); } },
                 { "on_success_extra_args", n => { OnSuccessExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOnSuccessExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOnSuccessExtraArgs.CreateFromDiscriminatorValue); } },
+                { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOtherDraftsUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOtherDraftsUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "paused_until", n => { PausedUntil = n.GetDateTimeOffsetValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
@@ -285,6 +324,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseArgs>("args", Args);
             writer.WriteStringValue("cron_version", CronVersion);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseDraft>("draft", Draft);
+            writer.WriteBoolValue("draft_only", DraftOnly);
+            writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteStringValue("dynamic_skip", DynamicSkip);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
@@ -292,8 +334,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("error", Error);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
+            writer.WriteBoolValue("no_deployed", NoDeployed);
             writer.WriteBoolValue("no_flow_overlap", NoFlowOverlap);
             writer.WriteStringValue("on_failure", OnFailure);
             writer.WriteBoolValue("on_failure_exact", OnFailureExact);
@@ -304,6 +349,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("on_recovery_times", OnRecoveryTimes);
             writer.WriteStringValue("on_success", OnSuccess);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOnSuccessExtraArgs>("on_success_extra_args", OnSuccessExtraArgs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseOtherDraftsUsersItem>("other_drafts_users", OtherDraftsUsers);
             writer.WriteStringValue("path", Path);
             writer.WriteDateTimeOffsetValue("paused_until", PausedUntil);
             writer.WriteStringValue("permissioned_as", PermissionedAs);

@@ -18,6 +18,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? CanReturnErrorResult { get; set; }
         /// <summary>If true, the script can return a message to send back through the WebSocket</summary>
         public bool? CanReturnMessage { get; set; }
+        /// <summary>True when this row is a per-user draft with no deployedtrigger at the same path. Set by list endpoints when`include_draft_only=true` synthesizes the row from thedraft. Frontend renders a &quot;Draft&quot; badge.</summary>
+        public bool? DraftOnly { get; set; }
         /// <summary>Timestamp of the last edit</summary>
         public DateTimeOffset? EditedAt { get; set; }
         /// <summary>Username of the last person who edited this trigger</summary>
@@ -86,6 +88,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemInitialMessagesItem> InitialMessages { get; set; }
 #endif
+        /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>True if script_path points to a flow, false if it points to a script</summary>
         public bool? IsFlow { get; set; }
         /// <summary>The labels property</summary>
@@ -192,6 +196,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "can_return_error_result", n => { CanReturnErrorResult = n.GetBoolValue(); } },
                 { "can_return_message", n => { CanReturnMessage = n.GetBoolValue(); } },
+                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
@@ -202,6 +207,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "heartbeat", n => { Heartbeat = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat.CreateFromDiscriminatorValue); } },
                 { "initial_messages", n => { InitialMessages = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemInitialMessagesItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemInitialMessagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "last_server_ping", n => { LastServerPing = n.GetDateTimeOffsetValue(); } },
@@ -225,6 +231,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("can_return_error_result", CanReturnErrorResult);
             writer.WriteBoolValue("can_return_message", CanReturnMessage);
+            writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
@@ -235,6 +242,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem>("filters", Filters);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat>("heartbeat", Heartbeat);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemInitialMessagesItem>("initial_messages", InitialMessages);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteDateTimeOffsetValue("last_server_ping", LastServerPing);

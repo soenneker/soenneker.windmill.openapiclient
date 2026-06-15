@@ -30,8 +30,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string DeploymentMessage { get; set; }
 #endif
-        /// <summary>The draft_only property</summary>
-        public bool? DraftOnly { get; set; }
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -103,7 +101,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "custom_path", n => { CustomPath = n.GetStringValue(); } },
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
-                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "policy", n => { Policy = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicy>(global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicy.CreateFromDiscriminatorValue); } },
@@ -122,7 +119,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("custom_path", CustomPath);
             writer.WriteStringValue("deployment_message", DeploymentMessage);
-            writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicy>("policy", Policy);

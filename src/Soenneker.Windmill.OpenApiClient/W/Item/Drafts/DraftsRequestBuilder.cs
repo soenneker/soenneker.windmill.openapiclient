@@ -2,8 +2,9 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Create;
-using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Delete;
+using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get;
+using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Update;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -16,15 +17,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DraftsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The create property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Create.CreateRequestBuilder Create
+        /// <summary>The getPath property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get.GetRequestBuilder GetPath
         {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Create.CreateRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get.GetRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The deletePath property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Delete.DeleteRequestBuilder DeletePath
+        /// <summary>The list property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List.ListRequestBuilder List
         {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Delete.DeleteRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The update property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Update.UpdateRequestBuilder Update
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Update.UpdateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.DraftsRequestBuilder"/> and sets the default values.

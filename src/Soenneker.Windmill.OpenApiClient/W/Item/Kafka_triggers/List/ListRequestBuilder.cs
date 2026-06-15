@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Kafka_triggers.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/kafka_triggers/list{?is_flow*,label*,page*,path*,path_start*,per_page*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/kafka_triggers/list{?include_draft_only*,is_flow*,label*,page*,path*,path_start*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Kafka_triggers.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/kafka_triggers/list{?is_flow*,label*,page*,path*,path_start*,per_page*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/kafka_triggers/list{?include_draft_only*,is_flow*,label*,page*,path*,path_start*,per_page*}", rawUrl)
         {
         }
         /// <summary>
@@ -86,6 +86,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Kafka_triggers.List
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ListRequestBuilderGetQueryParameters 
         {
+            /// <summary>&quot;When true, append per-user draft rows whose path has nodeployed counterpart. Synthesized rows carry `draft_only: true`so the home page can render a \&quot;Draft\&quot; badge. Gated tonon-operators + page 0 + no narrowing filters on the backend sopicker callers stay deployed-only and pagination stays clean.&quot;</summary>
+            [QueryParameter("include_draft_only")]
+            public bool? IncludeDraftOnly { get; set; }
             [QueryParameter("is_flow")]
             public bool? IsFlow { get; set; }
             /// <summary>Filter by label</summary>

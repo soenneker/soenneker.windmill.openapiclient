@@ -18,6 +18,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? AutoCommit { get; set; }
         /// <summary>Initial offset behavior when consumer group has no committed offset. &apos;latest&apos; starts from new messages only, &apos;earliest&apos; starts from the beginning.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemAutoOffsetReset? AutoOffsetReset { get; set; }
+        /// <summary>True when this row is a per-user draft with no deployedtrigger at the same path. Set by list endpoints when`include_draft_only=true` synthesizes the row from thedraft. Frontend renders a &quot;Draft&quot; badge.</summary>
+        public bool? DraftOnly { get; set; }
         /// <summary>Timestamp of the last edit</summary>
         public DateTimeOffset? EditedAt { get; set; }
         /// <summary>Username of the last person who edited this trigger</summary>
@@ -78,6 +80,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string GroupId { get; set; }
 #endif
+        /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>True if script_path points to a flow, false if it points to a script</summary>
         public bool? IsFlow { get; set; }
         /// <summary>Path to the Kafka resource containing connection configuration</summary>
@@ -186,6 +190,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "auto_commit", n => { AutoCommit = n.GetBoolValue(); } },
                 { "auto_offset_reset", n => { AutoOffsetReset = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemAutoOffsetReset>(); } },
+                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
@@ -195,6 +200,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "filter_logic", n => { FilterLogic = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFilterLogic>(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFiltersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "kafka_resource_path", n => { KafkaResourcePath = n.GetStringValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -218,6 +224,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_commit", AutoCommit);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemAutoOffsetReset>("auto_offset_reset", AutoOffsetReset);
+            writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
@@ -227,6 +234,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFilterLogic>("filter_logic", FilterLogic);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFiltersItem>("filters", Filters);
             writer.WriteStringValue("group_id", GroupId);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteStringValue("kafka_resource_path", KafkaResourcePath);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);

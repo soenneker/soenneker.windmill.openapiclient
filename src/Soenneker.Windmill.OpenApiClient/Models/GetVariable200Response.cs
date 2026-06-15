@@ -24,6 +24,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The draft property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseDraft? Draft { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseDraft Draft { get; set; }
+#endif
+        /// <summary>True when this row is a per-user draft with no deployedvariable at the same path. Frontend renders a &quot;Draft&quot; badge.</summary>
+        public bool? DraftOnly { get; set; }
+        /// <summary>The draft_saved_at property</summary>
+        public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>The edited_at property</summary>
         public DateTimeOffset? EditedAt { get; set; }
         /// <summary>The edited_by property</summary>
@@ -44,6 +56,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseExtraPerms ExtraPerms { get; set; }
 #endif
+        /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? InheritedLabels { get; set; }
+#nullable restore
+#else
+        public List<string> InheritedLabels { get; set; }
+#endif
+        /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>The is_expired property</summary>
         public bool? IsExpired { get; set; }
         /// <summary>The is_linked property</summary>
@@ -61,6 +83,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> Labels { get; set; }
+#endif
+        /// <summary>The no_deployed property</summary>
+        public bool? NoDeployed { get; set; }
+        /// <summary>Other workspace users (and the legacy NULL-email row, if any)with a saved draft at the same path. Populated only on theauthed user&apos;s &quot;get by path&quot; responses for kinds the editorsurfaces a fork banner for (script, flow, app, raw_app).Empty / omitted for kinds without that UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseOtherDraftsUsersItem>? OtherDraftsUsers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseOtherDraftsUsersItem> OtherDraftsUsers { get; set; }
 #endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,16 +155,23 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "account", n => { Account = n.GetIntValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseDraft.CreateFromDiscriminatorValue); } },
+                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
+                { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
+                { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_expired", n => { IsExpired = n.GetBoolValue(); } },
                 { "is_linked", n => { IsLinked = n.GetBoolValue(); } },
                 { "is_oauth", n => { IsOauth = n.GetBoolValue(); } },
                 { "is_refreshed", n => { IsRefreshed = n.GetBoolValue(); } },
                 { "is_secret", n => { IsSecret = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
+                { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseOtherDraftsUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseOtherDraftsUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "refresh_error", n => { RefreshError = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
@@ -149,16 +188,23 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("account", Account);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseDraft>("draft", Draft);
+            writer.WriteBoolValue("draft_only", DraftOnly);
+            writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_expired", IsExpired);
             writer.WriteBoolValue("is_linked", IsLinked);
             writer.WriteBoolValue("is_oauth", IsOauth);
             writer.WriteBoolValue("is_refreshed", IsRefreshed);
             writer.WriteBoolValue("is_secret", IsSecret);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
+            writer.WriteBoolValue("no_deployed", NoDeployed);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetVariable200ResponseOtherDraftsUsersItem>("other_drafts_users", OtherDraftsUsers);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("refresh_error", RefreshError);
             writer.WriteStringValue("value", Value);

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/raw_apps/list{?created_by*,label*,order_desc*,page*,path_exact*,path_start*,per_page*,starred_only*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/raw_apps/list{?created_by*,include_draft_only*,label*,order_desc*,page*,path_exact*,path_start*,per_page*,starred_only*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/raw_apps/list{?created_by*,label*,order_desc*,page*,path_exact*,path_start*,per_page*,starred_only*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/raw_apps/list{?created_by*,include_draft_only*,label*,order_desc*,page*,path_exact*,path_start*,per_page*,starred_only*}", rawUrl)
         {
         }
         /// <summary>
@@ -96,6 +96,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps.List
             [QueryParameter("created_by")]
             public string CreatedBy { get; set; }
 #endif
+            /// <summary>&quot;When true, append per-user draft rows whose path has nodeployed counterpart. Synthesized rows carry `draft_only: true`so the home page can render a \&quot;Draft\&quot; badge. Gated tonon-operators + page 0 + no narrowing filters on the backend sopicker callers stay deployed-only and pagination stays clean.&quot;</summary>
+            [QueryParameter("include_draft_only")]
+            public bool? IncludeDraftOnly { get; set; }
             /// <summary>Filter by label</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

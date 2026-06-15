@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get.P.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/get/p/{path}{?with_starred_info*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/get/p/{path}{?get_draft*,raw_app*,with_starred_info*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get.P.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/get/p/{path}{?with_starred_info*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps/get/p/{path}{?get_draft*,raw_app*,with_starred_info*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,6 +85,12 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get.P.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>When true, overlay the authed user&apos;s draft (if any) onto the deployed payload.</summary>
+            [QueryParameter("get_draft")]
+            public bool? GetDraft { get; set; }
+            /// <summary>When no deployed app exists at this path and `get_draft` is set,disambiguates which draft kind (`raw_app` or `app`) to look up.Ignored when a deployed row exists.</summary>
+            [QueryParameter("raw_app")]
+            public bool? RawApp { get; set; }
             [QueryParameter("with_starred_info")]
             public bool? WithStarredInfo { get; set; }
         }

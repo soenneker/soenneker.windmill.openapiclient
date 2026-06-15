@@ -6,6 +6,7 @@ using Soenneker.Windmill.OpenApiClient.Users.Tokens.Create;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Delete;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Impersonate;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.List;
+using Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_label;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes;
 using System.Collections.Generic;
 using System.IO;
@@ -38,6 +39,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Tokens
         public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The update_label property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_label.Update_labelRequestBuilder Update_label
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_label.Update_labelRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update_scopes property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Update_scopesRequestBuilder Update_scopes

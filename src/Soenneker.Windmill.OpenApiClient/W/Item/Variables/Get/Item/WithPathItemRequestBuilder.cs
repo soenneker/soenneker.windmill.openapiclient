@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.Get.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/get/{path}{?decrypt_secret*,include_encrypted*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/get/{path}{?decrypt_secret*,get_draft*,include_encrypted*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.Get.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/get/{path}{?decrypt_secret*,include_encrypted*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/get/{path}{?decrypt_secret*,get_draft*,include_encrypted*}", rawUrl)
         {
         }
         /// <summary>
@@ -88,6 +88,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.Get.Item
             /// <summary>&quot;ask to decrypt secret if this variable is secret(if not secret no effect, default: true)&quot;</summary>
             [QueryParameter("decrypt_secret")]
             public bool? DecryptSecret { get; set; }
+            /// <summary>When true, overlay the authed user&apos;s draft (if any) onto the deployed payload.</summary>
+            [QueryParameter("get_draft")]
+            public bool? GetDraft { get; set; }
             /// <summary>&quot;ask to include the encrypted value if secret and decrypt secret is not true (default: false)&quot;</summary>
             [QueryParameter("include_encrypted")]
             public bool? IncludeEncrypted { get; set; }

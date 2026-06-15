@@ -22,6 +22,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ConsumerName { get; set; }
 #endif
+        /// <summary>The draft property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft? Draft { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft Draft { get; set; }
+#endif
+        /// <summary>True when this row is a per-user draft with no deployedtrigger at the same path. Set by list endpoints when`include_draft_only=true` synthesizes the row from thedraft. Frontend renders a &quot;Draft&quot; badge.</summary>
+        public bool? DraftOnly { get; set; }
+        /// <summary>The draft_saved_at property</summary>
+        public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>Timestamp of the last edit</summary>
         public DateTimeOffset? EditedAt { get; set; }
         /// <summary>Username of the last person who edited this trigger</summary>
@@ -64,6 +76,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseExtraPerms ExtraPerms { get; set; }
 #endif
+        /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>True if script_path points to a flow, false if it points to a script</summary>
         public bool? IsFlow { get; set; }
         /// <summary>The labels property</summary>
@@ -85,6 +99,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string NatsResourcePath { get; set; }
+#endif
+        /// <summary>The no_deployed property</summary>
+        public bool? NoDeployed { get; set; }
+        /// <summary>Other workspace users (and the legacy NULL-email row, if any)with a saved draft at the same path. Populated only on theauthed user&apos;s &quot;get by path&quot; responses for kinds the editorsurfaces a fork banner for (script, flow, app, raw_app).Empty / omitted for kinds without that UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseOtherDraftsUsersItem>? OtherDraftsUsers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseOtherDraftsUsersItem> OtherDraftsUsers { get; set; }
 #endif
         /// <summary>The unique Windmill path for this trigger. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`. This is the trigger object path, not the HTTP route path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -178,17 +202,23 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "consumer_name", n => { ConsumerName = n.GetStringValue(); } },
+                { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft.CreateFromDiscriminatorValue); } },
+                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
+                { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseErrorHandlerArgs.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "last_server_ping", n => { LastServerPing = n.GetDateTimeOffsetValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseMode>(); } },
                 { "nats_resource_path", n => { NatsResourcePath = n.GetStringValue(); } },
+                { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
+                { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseOtherDraftsUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseOtherDraftsUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseRetry>(global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseRetry.CreateFromDiscriminatorValue); } },
@@ -208,17 +238,23 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("consumer_name", ConsumerName);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft>("draft", Draft);
+            writer.WriteBoolValue("draft_only", DraftOnly);
+            writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteDateTimeOffsetValue("last_server_ping", LastServerPing);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseMode>("mode", Mode);
             writer.WriteStringValue("nats_resource_path", NatsResourcePath);
+            writer.WriteBoolValue("no_deployed", NoDeployed);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseOtherDraftsUsersItem>("other_drafts_users", OtherDraftsUsers);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseRetry>("retry", Retry);

@@ -27,6 +27,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? OmitOutputFromConversation { get; set; }
         /// <summary>If true, the agent can execute multiple tool calls in parallel</summary>
         public bool? Parallel { get; set; }
+        /// <summary>Worker group tag for execution routing. If not set, the AI agent step runs on the flow&apos;s tag (default `flow`)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Tag { get; set; }
+#nullable restore
+#else
+        public string Tag { get; set; }
+#endif
         /// <summary>Array of tools the agent can use. The agent decides which tools to call based on the task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,6 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "input_transforms", n => { InputTransforms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9InputTransforms>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9InputTransforms.CreateFromDiscriminatorValue); } },
                 { "omit_output_from_conversation", n => { OmitOutputFromConversation = n.GetBoolValue(); } },
                 { "parallel", n => { Parallel = n.GetBoolValue(); } },
+                { "tag", n => { Tag = n.GetStringValue(); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9ToolsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9ToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9Type>(); } },
             };
@@ -80,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9InputTransforms>("input_transforms", InputTransforms);
             writer.WriteBoolValue("omit_output_from_conversation", OmitOutputFromConversation);
             writer.WriteBoolValue("parallel", Parallel);
+            writer.WriteStringValue("tag", Tag);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9ToolsItem>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2RawFlowFailureModuleValueOneOf9Type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

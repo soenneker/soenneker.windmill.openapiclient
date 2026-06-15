@@ -114,8 +114,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.DeleteScriptByHash200ResponseExtraPerms ExtraPerms { get; set; }
 #endif
-        /// <summary>The has_draft property</summary>
-        public bool? HasDraft { get; set; }
         /// <summary>The hash property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +124,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The has_preprocessor property</summary>
         public bool? HasPreprocessor { get; set; }
+        /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? InheritedLabels { get; set; }
+#nullable restore
+#else
+        public List<string> InheritedLabels { get; set; }
+#endif
         /// <summary>The is_template property</summary>
         public bool? IsTemplate { get; set; }
         /// <summary>The kind property</summary>
@@ -281,9 +287,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "envs", n => { Envs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteScriptByHash200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteScriptByHash200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
-                { "has_draft", n => { HasDraft = n.GetBoolValue(); } },
                 { "has_preprocessor", n => { HasPreprocessor = n.GetBoolValue(); } },
                 { "hash", n => { Hash = n.GetStringValue(); } },
+                { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_template", n => { IsTemplate = n.GetBoolValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteScriptByHash200ResponseKind>(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -335,9 +341,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("envs", Envs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteScriptByHash200ResponseExtraPerms>("extra_perms", ExtraPerms);
-            writer.WriteBoolValue("has_draft", HasDraft);
             writer.WriteStringValue("hash", Hash);
             writer.WriteBoolValue("has_preprocessor", HasPreprocessor);
+            writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
             writer.WriteBoolValue("is_template", IsTemplate);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteScriptByHash200ResponseKind>("kind", Kind);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);

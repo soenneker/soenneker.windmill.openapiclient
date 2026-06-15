@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateFolderRequestExtraPerms ExtraPerms { get; set; }
 #endif
+        /// <summary>The labels property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Labels { get; set; }
+#nullable restore
+#else
+        public List<string> Labels { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateFolderRequestDefaultPermissionedAsItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateFolderRequestDefaultPermissionedAsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFolderRequestExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.CreateFolderRequestExtraPerms.CreateFromDiscriminatorValue); } },
+                { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owners", n => { Owners = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
@@ -95,6 +104,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateFolderRequestDefaultPermissionedAsItem>("default_permissioned_as", DefaultPermissionedAs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFolderRequestExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("owners", Owners);
             writer.WriteStringValue("summary", Summary);

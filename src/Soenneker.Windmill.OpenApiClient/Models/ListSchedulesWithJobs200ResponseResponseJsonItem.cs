@@ -38,6 +38,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>True when this row is a per-user draft with no deployedschedule at the same path. Frontend renders a &quot;Draft&quot; badge.</summary>
+        public bool? DraftOnly { get; set; }
         /// <summary>Path to a script that validates scheduled datetimes. Receives scheduled_for datetime and returns boolean to skip (true) or run (false)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,6 +84,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemExtraPerms ExtraPerms { get; set; }
 #endif
+        /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? InheritedLabels { get; set; }
+#nullable restore
+#else
+        public List<string> InheritedLabels { get; set; }
+#endif
+        /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>True if script_path points to a flow, false if it points to a script</summary>
         public bool? IsFlow { get; set; }
         /// <summary>The jobs property</summary>
@@ -252,6 +264,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemArgs.CreateFromDiscriminatorValue); } },
                 { "cron_version", n => { CronVersion = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "dynamic_skip", n => { DynamicSkip = n.GetStringValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
@@ -259,6 +272,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemJobsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemJobsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -294,6 +309,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemArgs>("args", Args);
             writer.WriteStringValue("cron_version", CronVersion);
             writer.WriteStringValue("description", Description);
+            writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteStringValue("dynamic_skip", DynamicSkip);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
@@ -301,6 +317,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("error", Error);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemJobsItem>("jobs", Jobs);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);

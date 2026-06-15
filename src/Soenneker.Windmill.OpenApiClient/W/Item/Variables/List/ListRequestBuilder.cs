@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/list{?broad_filter*,description*,label*,page*,path*,path_start*,per_page*,value*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/list{?broad_filter*,description*,include_draft_only*,label*,page*,path*,path_start*,per_page*,value*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/list{?broad_filter*,description*,label*,page*,path*,path_start*,per_page*,value*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/variables/list{?broad_filter*,description*,include_draft_only*,label*,page*,path*,path_start*,per_page*,value*}", rawUrl)
         {
         }
         /// <summary>
@@ -106,6 +106,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.List
             [QueryParameter("description")]
             public string Description { get; set; }
 #endif
+            /// <summary>&quot;When true, append per-user draft variables whose path has nodeployed variable. Synthesized rows carry `draft_only: true`so the home page can render a \&quot;Draft\&quot; badge.&quot;</summary>
+            [QueryParameter("include_draft_only")]
+            public bool? IncludeDraftOnly { get; set; }
             /// <summary>Filter by label</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

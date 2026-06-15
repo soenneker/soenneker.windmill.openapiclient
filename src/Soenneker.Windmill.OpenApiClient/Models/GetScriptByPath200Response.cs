@@ -96,8 +96,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The draft property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseDraft? Draft { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseDraft Draft { get; set; }
+#endif
         /// <summary>The draft_only property</summary>
         public bool? DraftOnly { get; set; }
+        /// <summary>The draft_saved_at property</summary>
+        public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>The envs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -114,8 +124,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseExtraPerms ExtraPerms { get; set; }
 #endif
-        /// <summary>The has_draft property</summary>
-        public bool? HasDraft { get; set; }
         /// <summary>The hash property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +134,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The has_preprocessor property</summary>
         public bool? HasPreprocessor { get; set; }
+        /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? InheritedLabels { get; set; }
+#nullable restore
+#else
+        public List<string> InheritedLabels { get; set; }
+#endif
+        /// <summary>The is_draft property</summary>
+        public bool? IsDraft { get; set; }
         /// <summary>The is_template property</summary>
         public bool? IsTemplate { get; set; }
         /// <summary>The kind property</summary>
@@ -168,6 +186,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseModules Modules { get; set; }
 #endif
+        /// <summary>The no_deployed property</summary>
+        public bool? NoDeployed { get; set; }
         /// <summary>The on_behalf_of_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -175,6 +195,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string OnBehalfOfEmail { get; set; }
+#endif
+        /// <summary>Other workspace users (and the legacy NULL-email row, if any)with a saved draft at the same path. Populated only on theauthed user&apos;s &quot;get by path&quot; responses for kinds the editorsurfaces a fork banner for (script, flow, app, raw_app).Empty / omitted for kinds without that UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem>? OtherDraftsUsers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem> OtherDraftsUsers { get; set; }
 #endif
         /// <summary>The first element is the direct parent of the script, the second is the parent of the first, etc</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -278,12 +306,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "delete_after_secs", n => { DeleteAfterSecs = n.GetIntValue(); } },
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseDraft.CreateFromDiscriminatorValue); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
+                { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "envs", n => { Envs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
-                { "has_draft", n => { HasDraft = n.GetBoolValue(); } },
                 { "has_preprocessor", n => { HasPreprocessor = n.GetBoolValue(); } },
                 { "hash", n => { Hash = n.GetStringValue(); } },
+                { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_template", n => { IsTemplate = n.GetBoolValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseKind>(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -293,7 +324,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "max_total_debounces_amount", n => { MaxTotalDebouncesAmount = n.GetIntValue(); } },
                 { "max_total_debouncing_time", n => { MaxTotalDebouncingTime = n.GetIntValue(); } },
                 { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseModules>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseModules.CreateFromDiscriminatorValue); } },
+                { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
+                { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parent_hashes", n => { ParentHashes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
@@ -332,12 +365,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("delete_after_secs", DeleteAfterSecs);
             writer.WriteBoolValue("deleted", Deleted);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseDraft>("draft", Draft);
             writer.WriteBoolValue("draft_only", DraftOnly);
+            writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteCollectionOfPrimitiveValues<string>("envs", Envs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseExtraPerms>("extra_perms", ExtraPerms);
-            writer.WriteBoolValue("has_draft", HasDraft);
             writer.WriteStringValue("hash", Hash);
             writer.WriteBoolValue("has_preprocessor", HasPreprocessor);
+            writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
+            writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_template", IsTemplate);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseKind>("kind", Kind);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
@@ -347,7 +383,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("max_total_debounces_amount", MaxTotalDebouncesAmount);
             writer.WriteIntValue("max_total_debouncing_time", MaxTotalDebouncingTime);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseModules>("modules", Modules);
+            writer.WriteBoolValue("no_deployed", NoDeployed);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem>("other_drafts_users", OtherDraftsUsers);
             writer.WriteCollectionOfPrimitiveValues<string>("parent_hashes", ParentHashes);
             writer.WriteStringValue("path", Path);
             writer.WriteIntValue("priority", Priority);

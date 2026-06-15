@@ -100,8 +100,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The draft_only property</summary>
-        public bool? DraftOnly { get; set; }
         /// <summary>The envs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -249,7 +247,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "delete_after_secs", n => { DeleteAfterSecs = n.GetIntValue(); } },
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "envs", n => { Envs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "has_preprocessor", n => { HasPreprocessor = n.GetBoolValue(); } },
                 { "is_template", n => { IsTemplate = n.GetBoolValue(); } },
@@ -298,7 +295,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("delete_after_secs", DeleteAfterSecs);
             writer.WriteStringValue("deployment_message", DeploymentMessage);
             writer.WriteStringValue("description", Description);
-            writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("envs", Envs);
             writer.WriteBoolValue("has_preprocessor", HasPreprocessor);
             writer.WriteBoolValue("is_template", IsTemplate);

@@ -18,8 +18,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>No deployed counterpart exists at this path — the draft is the whole item.</summary>
         public bool? DraftOnly { get; set; }
+        /// <summary>User-typed friendly path from the draft JSON&apos;s `draft_path`, when set and different from the storage path (e.g. a never-deployed item parked at `u/{user}/draft_{uuid}`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DraftPath { get; set; }
+#nullable restore
+#else
+        public string DraftPath { get; set; }
+#endif
         /// <summary>Closed set of item kinds a user can autosave as a draft. Mirrors thePostgres `DRAFT_KIND` enum and the backend `UserDraftItemKind`.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind? Kind { get; set; }
+        /// <summary>The listed draft is a legacy workspace-level row (email NULL) predating the per-user drafts migration. Only true when no per-user draft exists at this path.</summary>
+        public bool? LegacyDraft { get; set; }
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +73,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
+                { "draft_path", n => { DraftPath = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind>(); } },
+                { "legacy_draft", n => { LegacyDraft = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
             };
@@ -77,7 +89,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteBoolValue("draft_only", DraftOnly);
+            writer.WriteStringValue("draft_path", DraftPath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind>("kind", Kind);
+            writer.WriteBoolValue("legacy_draft", LegacyDraft);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("summary", Summary);
             writer.WriteAdditionalData(AdditionalData);

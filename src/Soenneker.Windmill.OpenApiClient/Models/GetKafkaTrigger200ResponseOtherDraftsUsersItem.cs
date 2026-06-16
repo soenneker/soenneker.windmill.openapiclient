@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When this user&apos;s draft was last saved (`draft.created_at`),surfaced in the fork modal as &quot;Last updated&quot;.</summary>
+        public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>Workspace username of the draft owner. `null` representsthe legacy workspace-level (NULL-email) row. Emails neverleave the server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -57,6 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }

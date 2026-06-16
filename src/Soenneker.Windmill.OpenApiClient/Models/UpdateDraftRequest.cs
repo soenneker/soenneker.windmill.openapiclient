@@ -18,6 +18,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? Force { get; set; }
         /// <summary>Server timestamp of the client&apos;s last known sync for this draft. Omit on first save.</summary>
         public DateTimeOffset? LastSync { get; set; }
+        /// <summary>Delete-only. Target the legacy workspace-level row (email NULL) instead of the current user&apos;s row. Used to discard a legacy draft from the review page.</summary>
+        public bool? Legacy { get; set; }
         /// <summary>Draft content to save. `null` (or omitted) signals a delete — the row is removed under the same conflict rules.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,6 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "force", n => { Force = n.GetBoolValue(); } },
                 { "last_sync", n => { LastSync = n.GetDateTimeOffsetValue(); } },
+                { "legacy", n => { Legacy = n.GetBoolValue(); } },
                 { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -65,6 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("force", Force);
             writer.WriteDateTimeOffsetValue("last_sync", LastSync);
+            writer.WriteBoolValue("legacy", Legacy);
             writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

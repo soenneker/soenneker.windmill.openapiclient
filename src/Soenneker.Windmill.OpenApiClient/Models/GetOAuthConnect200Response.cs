@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The instance OAuth entry carries shared client-credentials, so the connect dialog can skip the bring-your-own form and run the exchange server-side</summary>
+        public bool? ClientCredentialsConfigured { get; set; }
         /// <summary>The extra_params property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,6 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "client_credentials_configured", n => { ClientCredentialsConfigured = n.GetBoolValue(); } },
                 { "extra_params", n => { ExtraParams = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetOAuthConnect200ResponseExtraParams>(global::Soenneker.Windmill.OpenApiClient.Models.GetOAuthConnect200ResponseExtraParams.CreateFromDiscriminatorValue); } },
                 { "grant_types", n => { GrantTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -75,6 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("client_credentials_configured", ClientCredentialsConfigured);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetOAuthConnect200ResponseExtraParams>("extra_params", ExtraParams);
             writer.WriteCollectionOfPrimitiveValues<string>("grant_types", GrantTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);

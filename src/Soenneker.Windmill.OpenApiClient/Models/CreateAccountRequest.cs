@@ -30,13 +30,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CcClientSecret { get; set; }
 #endif
-        /// <summary>OAuth token URL override for resource-level authentication (client_credentials flow only)</summary>
+        /// <summary>Instance name for built-in providers whose client-credentials token URL is instance-templated; substituted into the fixed-host registry template server-side (client_credentials flow only). The token URL is never caller-supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcTokenUrl { get; set; }
+        public string? CcInstance { get; set; }
 #nullable restore
 #else
-        public string CcTokenUrl { get; set; }
+        public string CcInstance { get; set; }
 #endif
         /// <summary>The client property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "cc_client_id", n => { CcClientId = n.GetStringValue(); } },
                 { "cc_client_secret", n => { CcClientSecret = n.GetStringValue(); } },
-                { "cc_token_url", n => { CcTokenUrl = n.GetStringValue(); } },
+                { "cc_instance", n => { CcInstance = n.GetStringValue(); } },
                 { "client", n => { Client = n.GetStringValue(); } },
                 { "expires_in", n => { ExpiresIn = n.GetIntValue(); } },
                 { "grant_type", n => { GrantType = n.GetStringValue(); } },
@@ -126,7 +126,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cc_client_id", CcClientId);
             writer.WriteStringValue("cc_client_secret", CcClientSecret);
-            writer.WriteStringValue("cc_token_url", CcTokenUrl);
+            writer.WriteStringValue("cc_instance", CcInstance);
             writer.WriteStringValue("client", Client);
             writer.WriteIntValue("expires_in", ExpiresIn);
             writer.WriteStringValue("grant_type", GrantType);

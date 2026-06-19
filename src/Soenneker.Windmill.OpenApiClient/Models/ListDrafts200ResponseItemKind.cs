@@ -103,5 +103,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         TriggerGithub,
         #pragma warning restore CS1591
+        [EnumMember(Value = "data_pipeline")]
+        #pragma warning disable CS1591
+        DataPipeline,
+        #pragma warning restore CS1591
     }
 }

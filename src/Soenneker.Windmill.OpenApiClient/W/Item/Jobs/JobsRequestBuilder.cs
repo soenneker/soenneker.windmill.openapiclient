@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Asset_dispatch_edges;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow;
@@ -34,6 +35,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class JobsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The asset_dispatch_edges property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Asset_dispatch_edges.Asset_dispatch_edgesRequestBuilder Asset_dispatch_edges
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Asset_dispatch_edges.Asset_dispatch_edgesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The completed property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.CompletedRequestBuilder Completed
         {

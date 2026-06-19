@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Cancel;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Dispatch_events;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_args;
@@ -39,6 +40,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed.CompletedRequestBuilder Completed
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed.CompletedRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dispatch_events property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Dispatch_events.Dispatch_eventsRequestBuilder Dispatch_events
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Dispatch_events.Dispatch_eventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The flow property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Flow.FlowRequestBuilder Flow

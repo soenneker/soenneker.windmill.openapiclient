@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Upsert-only override for the stored creation timestamp. Normal saves omit it (stamped server-side); the localStorage→DB migration passes the draft&apos;s original write time so migrated drafts keep their age.</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>Skip the conflict check and overwrite the server copy.</summary>
         public bool? Force { get; set; }
         /// <summary>Server timestamp of the client&apos;s last known sync for this draft. Omit on first save.</summary>
@@ -53,6 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "force", n => { Force = n.GetBoolValue(); } },
                 { "last_sync", n => { LastSync = n.GetDateTimeOffsetValue(); } },
                 { "legacy", n => { Legacy = n.GetBoolValue(); } },
@@ -66,6 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteBoolValue("force", Force);
             writer.WriteDateTimeOffsetValue("last_sync", LastSync);
             writer.WriteBoolValue("legacy", Legacy);

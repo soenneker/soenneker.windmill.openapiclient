@@ -14,7 +14,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>OAuth client ID for resource-level authentication</summary>
+        /// <summary>OAuth client ID. Omit to use the credentials configured on the provider&apos;s instance OAuth entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CcClientId { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CcClientId { get; set; }
 #endif
-        /// <summary>OAuth client secret for resource-level authentication</summary>
+        /// <summary>OAuth client secret. Omit to use the credentials configured on the provider&apos;s instance OAuth entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CcClientSecret { get; set; }
@@ -30,13 +30,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CcClientSecret { get; set; }
 #endif
-        /// <summary>OAuth token URL override for resource-level authentication</summary>
+        /// <summary>Instance name for built-in providers whose client-credentials token URL is instance-templated; substituted into the fixed-host registry template server-side. The token URL is never caller-supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcTokenUrl { get; set; }
+        public string? CcInstance { get; set; }
 #nullable restore
 #else
-        public string CcTokenUrl { get; set; }
+        public string CcInstance { get; set; }
 #endif
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "cc_client_id", n => { CcClientId = n.GetStringValue(); } },
                 { "cc_client_secret", n => { CcClientSecret = n.GetStringValue(); } },
-                { "cc_token_url", n => { CcTokenUrl = n.GetStringValue(); } },
+                { "cc_instance", n => { CcInstance = n.GetStringValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -86,7 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cc_client_id", CcClientId);
             writer.WriteStringValue("cc_client_secret", CcClientSecret);
-            writer.WriteStringValue("cc_token_url", CcTokenUrl);
+            writer.WriteStringValue("cc_instance", CcInstance);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteAdditionalData(AdditionalData);
         }

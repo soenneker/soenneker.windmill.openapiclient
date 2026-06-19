@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Oauth.Connect_callback;
-using Soenneker.Windmill.OpenApiClient.Oauth.Connect_client_credentials;
 using Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_callback;
 using Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_instance;
 using Soenneker.Windmill.OpenApiClient.Oauth.Get_connect;
@@ -26,11 +25,6 @@ namespace Soenneker.Windmill.OpenApiClient.Oauth
         public global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_callback.Connect_callbackRequestBuilder Connect_callback
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_callback.Connect_callbackRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The connect_client_credentials property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_client_credentials.Connect_client_credentialsRequestBuilder Connect_client_credentials
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_client_credentials.Connect_client_credentialsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The connect_slack_callback property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Oauth.Connect_slack_callback.Connect_slack_callbackRequestBuilder Connect_slack_callback

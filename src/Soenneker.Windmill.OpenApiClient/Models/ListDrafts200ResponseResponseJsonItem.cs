@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether the current user may deploy/discard this draft (same check the deploy/discard endpoints enforce).</summary>
+        public bool? CanWrite { get; set; }
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>No deployed counterpart exists at this path — the draft is the whole item.</summary>
@@ -26,10 +28,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string DraftPath { get; set; }
 #endif
+        /// <summary>Draft authors at this (path, kind) — the legacy NULL-email row surfaced as a null username.Populated only for the shared full-page-editor kinds (script/flow/app/raw_app); omitted fordrawer kinds, which keep their drafts private. Feeds the Draft badge&apos;s owner-avatar circles.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem>? DraftUsers { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem> DraftUsers { get; set; }
+#endif
         /// <summary>Closed set of item kinds a user can autosave as a draft. Mirrors thePostgres `DRAFT_KIND` enum and the backend `UserDraftItemKind`.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind? Kind { get; set; }
         /// <summary>The listed draft is a legacy workspace-level row (email NULL) predating the per-user drafts migration. Only true when no per-user draft exists at this path.</summary>
         public bool? LegacyDraft { get; set; }
+        /// <summary>The row belongs to the current user (own draft or the legacy no-owner row) and is therefore actionable. Always true in the default listing; with `all_users=true`, other users&apos; rows are false (view-only).</summary>
+        public bool? Mine { get; set; }
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,11 +83,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "can_write", n => { CanWrite = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "draft_path", n => { DraftPath = n.GetStringValue(); } },
+                { "draft_users", n => { DraftUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind>(); } },
                 { "legacy_draft", n => { LegacyDraft = n.GetBoolValue(); } },
+                { "mine", n => { Mine = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
             };
@@ -87,11 +102,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("can_write", CanWrite);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteStringValue("draft_path", DraftPath);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem>("draft_users", DraftUsers);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind>("kind", Kind);
             writer.WriteBoolValue("legacy_draft", LegacyDraft);
+            writer.WriteBoolValue("mine", Mine);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("summary", Summary);
             writer.WriteAdditionalData(AdditionalData);

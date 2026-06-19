@@ -2,9 +2,11 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_by_usages;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites;
+using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Pipelines;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +19,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssetsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The graph property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph.GraphRequestBuilder Graph
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph.GraphRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The list property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.List.ListRequestBuilder List
         {
@@ -31,6 +38,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites.List_favoritesRequestBuilder List_favorites
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites.List_favoritesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The pipelines property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Pipelines.PipelinesRequestBuilder Pipelines
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Pipelines.PipelinesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.AssetsRequestBuilder"/> and sets the default values.

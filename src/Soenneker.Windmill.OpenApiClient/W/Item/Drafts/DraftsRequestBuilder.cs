@@ -3,7 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get;
+using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get_own;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Migrate_legacy;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Update;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +19,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DraftsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The get_own property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get_own.Get_ownRequestBuilder Get_own
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get_own.Get_ownRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The getPath property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get.GetRequestBuilder GetPath
         {
@@ -26,6 +33,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The migrate_legacy property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Migrate_legacy.Migrate_legacyRequestBuilder Migrate_legacy
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Migrate_legacy.Migrate_legacyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Update.UpdateRequestBuilder Update

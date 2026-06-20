@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob Job { get; set; }
 #endif
+        /// <summary>Share-read-link token for the parent flow. An authenticated workspace member can append it as a `view_token` query param on the run page to read a flow they don&apos;t otherwise have access to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ViewToken { get; set; }
+#nullable restore
+#else
+        public string ViewToken { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200Response"/> and sets the default values.
         /// </summary>
@@ -57,6 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "approvers", n => { Approvers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "job", n => { Job = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob>(global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob.CreateFromDiscriminatorValue); } },
+                { "view_token", n => { ViewToken = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,6 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem>("approvers", Approvers);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob>("job", Job);
+            writer.WriteStringValue("view_token", ViewToken);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

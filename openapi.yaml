@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.730.0
+  version: 1.733.1
   title: Windmill API
   contact:
     name: Windmill Team
@@ -22330,6 +22330,13 @@ paths:
                           type: integer
                         approver:
                           type: string
+                  view_token:
+                    type: string
+                    description: >-
+                      Share-read-link token for the flow. An authenticated
+                      workspace member can append it as a `view_token` query
+                      param on the run page to read a flow they don't otherwise
+                      have access to.
   /w/{workspace}/jobs_u/resume/{id}/{resume_id}/{signature}:
     get:
       summary: resume a job for a suspended flow
@@ -22630,6 +22637,13 @@ paths:
                       required:
                         - resume_id
                         - approver
+                  view_token:
+                    type: string
+                    description: >-
+                      Share-read-link token for the parent flow. An
+                      authenticated workspace member can append it as a
+                      `view_token` query param on the run page to read a flow
+                      they don't otherwise have access to.
                 required:
                   - job
                   - approvers

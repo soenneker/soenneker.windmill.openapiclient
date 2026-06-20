@@ -54,6 +54,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? HideCancel { get; set; }
         /// <summary>whether user authentication is required to approve</summary>
         public bool? UserAuthRequired { get; set; }
+        /// <summary>Share-read-link token for the flow. An authenticated workspace member can append it as a `view_token` query param on the run page to read a flow they don&apos;t otherwise have access to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ViewToken { get; set; }
+#nullable restore
+#else
+        public string ViewToken { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200Response"/> and sets the default values.
         /// </summary>
@@ -87,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "form_schema", n => { FormSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema.CreateFromDiscriminatorValue); } },
                 { "hide_cancel", n => { HideCancel = n.GetBoolValue(); } },
                 { "user_auth_required", n => { UserAuthRequired = n.GetBoolValue(); } },
+                { "view_token", n => { ViewToken = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -104,6 +113,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema>("form_schema", FormSchema);
             writer.WriteBoolValue("hide_cancel", HideCancel);
             writer.WriteBoolValue("user_auth_required", UserAuthRequired);
+            writer.WriteStringValue("view_token", ViewToken);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

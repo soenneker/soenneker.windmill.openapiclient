@@ -50,6 +50,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> FoldersOwners { get; set; }
 #endif
+        /// <summary>The folders_read property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FoldersRead { get; set; }
+#nullable restore
+#else
+        public List<string> FoldersRead { get; set; }
+#endif
         /// <summary>The groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,6 +121,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "folders", n => { Folders = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "folders_owners", n => { FoldersOwners = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "folders_read", n => { FoldersRead = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "groups", n => { Groups = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_admin", n => { IsAdmin = n.GetBoolValue(); } },
                 { "is_service_account", n => { IsServiceAccount = n.GetBoolValue(); } },
@@ -135,6 +144,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("email", Email);
             writer.WriteCollectionOfPrimitiveValues<string>("folders", Folders);
             writer.WriteCollectionOfPrimitiveValues<string>("folders_owners", FoldersOwners);
+            writer.WriteCollectionOfPrimitiveValues<string>("folders_read", FoldersRead);
             writer.WriteCollectionOfPrimitiveValues<string>("groups", Groups);
             writer.WriteBoolValue("is_admin", IsAdmin);
             writer.WriteBoolValue("is_service_account", IsServiceAccount);

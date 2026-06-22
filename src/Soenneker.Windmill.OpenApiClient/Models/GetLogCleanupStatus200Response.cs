@@ -46,6 +46,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? Running { get; set; }
         /// <summary>The s3_deleted property</summary>
         public long? S3Deleted { get; set; }
+        /// <summary>The s3_not_found property</summary>
+        public long? S3NotFound { get; set; }
         /// <summary>The started_at property</summary>
         public DateTimeOffset? StartedAt { get; set; }
         /// <summary>The total_jobs property</summary>
@@ -87,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "processed_service", n => { ProcessedService = n.GetLongValue(); } },
                 { "running", n => { Running = n.GetBoolValue(); } },
                 { "s3_deleted", n => { S3Deleted = n.GetLongValue(); } },
+                { "s3_not_found", n => { S3NotFound = n.GetLongValue(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "total_jobs", n => { TotalJobs = n.GetLongValue(); } },
                 { "total_service", n => { TotalService = n.GetLongValue(); } },
@@ -109,6 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteLongValue("processed_service", ProcessedService);
             writer.WriteBoolValue("running", Running);
             writer.WriteLongValue("s3_deleted", S3Deleted);
+            writer.WriteLongValue("s3_not_found", S3NotFound);
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteLongValue("total_jobs", TotalJobs);
             writer.WriteLongValue("total_service", TotalService);

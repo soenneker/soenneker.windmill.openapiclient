@@ -30,6 +30,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string AutoKind { get; set; }
 #endif
+        /// <summary>When true, the backend resolves the parent to the current deployed head for this path within the transaction (ignoring parent_hash), instead of failing with a &quot;lineage must be linear&quot; error when the supplied parent_hash is stale.</summary>
+        public bool? AutoParent { get; set; }
         /// <summary>The cache_ignore_s3_path property</summary>
         public bool? CacheIgnoreS3Path { get; set; }
         /// <summary>The cache_ttl property</summary>
@@ -233,6 +235,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestAssetsItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestAssetsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "auto_kind", n => { AutoKind = n.GetStringValue(); } },
+                { "auto_parent", n => { AutoParent = n.GetBoolValue(); } },
                 { "cache_ignore_s3_path", n => { CacheIgnoreS3Path = n.GetBoolValue(); } },
                 { "cache_ttl", n => { CacheTtl = n.GetDoubleValue(); } },
                 { "codebase", n => { Codebase = n.GetStringValue(); } },
@@ -281,6 +284,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestAssetsItem>("assets", Assets);
             writer.WriteStringValue("auto_kind", AutoKind);
+            writer.WriteBoolValue("auto_parent", AutoParent);
             writer.WriteBoolValue("cache_ignore_s3_path", CacheIgnoreS3Path);
             writer.WriteDoubleValue("cache_ttl", CacheTtl);
             writer.WriteStringValue("codebase", Codebase);

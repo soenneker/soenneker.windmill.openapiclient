@@ -38,6 +38,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CcInstance { get; set; }
 #endif
+        /// <summary>Bring-your-own token endpoint override (client_credentials flow only). Only honored together with cc_client_id/cc_client_secret and mutually exclusive with cc_instance; ignored/rejected on the shared-instance path.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CcTokenUrl { get; set; }
+#nullable restore
+#else
+        public string CcTokenUrl { get; set; }
+#endif
         /// <summary>The client property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "cc_client_id", n => { CcClientId = n.GetStringValue(); } },
                 { "cc_client_secret", n => { CcClientSecret = n.GetStringValue(); } },
                 { "cc_instance", n => { CcInstance = n.GetStringValue(); } },
+                { "cc_token_url", n => { CcTokenUrl = n.GetStringValue(); } },
                 { "client", n => { Client = n.GetStringValue(); } },
                 { "expires_in", n => { ExpiresIn = n.GetIntValue(); } },
                 { "grant_type", n => { GrantType = n.GetStringValue(); } },
@@ -127,6 +136,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("cc_client_id", CcClientId);
             writer.WriteStringValue("cc_client_secret", CcClientSecret);
             writer.WriteStringValue("cc_instance", CcInstance);
+            writer.WriteStringValue("cc_token_url", CcTokenUrl);
             writer.WriteStringValue("client", Client);
             writer.WriteIntValue("expires_in", ExpiresIn);
             writer.WriteStringValue("grant_type", GrantType);

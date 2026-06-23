@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Delete_s3_file;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Embed_token;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Public_app;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Public_resource;
@@ -23,6 +24,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Delete_s3_file.Delete_s3_fileRequestBuilder Delete_s3_file
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Delete_s3_file.Delete_s3_fileRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The embed_token property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Embed_token.Embed_tokenRequestBuilder Embed_token
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Embed_token.Embed_tokenRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The execute_component property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component.Execute_componentRequestBuilder Execute_component

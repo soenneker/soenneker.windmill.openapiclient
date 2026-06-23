@@ -48,6 +48,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyS3InputsItem> S3Inputs { get; set; }
 #endif
+        /// <summary>Publisher opt-in to app sandbox isolation (alpha). When true the app is isolated from each viewer&apos;s Windmill session. When false/absent the app runs same-origin with the viewer&apos;s full session (the default, pre-isolation behavior).</summary>
+        public bool? Sandbox { get; set; }
         /// <summary>The triggerables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,6 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "s3_inputs", n => { S3Inputs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyS3InputsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyS3InputsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sandbox", n => { Sandbox = n.GetBoolValue(); } },
                 { "triggerables", n => { Triggerables = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyTriggerables>(global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyTriggerables.CreateFromDiscriminatorValue); } },
                 { "triggerables_v2", n => { TriggerablesV2 = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyTriggerablesV2>(global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyTriggerablesV2.CreateFromDiscriminatorValue); } },
             };
@@ -110,6 +113,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyS3InputsItem>("s3_inputs", S3Inputs);
+            writer.WriteBoolValue("sandbox", Sandbox);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyTriggerables>("triggerables", Triggerables);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByVersion200ResponsePolicyTriggerablesV2>("triggerables_v2", TriggerablesV2);
             writer.WriteAdditionalData(AdditionalData);

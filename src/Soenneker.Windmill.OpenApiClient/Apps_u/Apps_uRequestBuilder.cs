@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Apps_u.Embed_token_by_custom_path;
 using Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Windmill.OpenApiClient.Apps_u
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Apps_uRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The embed_token_by_custom_path property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Apps_u.Embed_token_by_custom_path.Embed_token_by_custom_pathRequestBuilder Embed_token_by_custom_path
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Apps_u.Embed_token_by_custom_path.Embed_token_by_custom_pathRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The public_app_by_custom_path property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Public_app_by_custom_pathRequestBuilder Public_app_by_custom_path
         {

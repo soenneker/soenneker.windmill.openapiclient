@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Acls;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets;
@@ -69,6 +70,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Acls.AclsRequestBuilder Acls
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Acls.AclsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The ai_skills property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills.Ai_skillsRequestBuilder Ai_skills
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills.Ai_skillsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The apps property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.AppsRequestBuilder Apps

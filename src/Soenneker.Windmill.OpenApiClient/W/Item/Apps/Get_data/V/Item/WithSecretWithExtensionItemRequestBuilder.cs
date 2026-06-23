@@ -66,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get_data.V.Item
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "text/javascript");
+            requestInfo.Headers.TryAdd("Accept", "text/javascript, text/css, text/html");
             return requestInfo;
         }
         /// <summary>

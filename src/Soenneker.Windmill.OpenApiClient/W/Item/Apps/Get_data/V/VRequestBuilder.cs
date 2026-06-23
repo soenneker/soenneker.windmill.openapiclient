@@ -16,7 +16,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get_data.V
     public partial class VRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.apps.get_data.v.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">App version secret suffixed with the requested file type extension. Supported extensions are `.js` (JavaScript bundle), `.css` (stylesheet), and `.html` (sandboxed wrapper document).</param>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get_data.V.Item.WithSecretWithExtensionItemRequestBuilder"/></returns>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get_data.V.Item.WithSecretWithExtensionItemRequestBuilder this[string position]
         {

@@ -6,6 +6,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create_raw;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Custom_path_exists;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Delete;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Embed_token;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Exists;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get_data;
@@ -51,6 +52,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Delete.DeleteRequestBuilder DeletePath
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Delete.DeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The embed_token property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Embed_token.Embed_tokenRequestBuilder Embed_token
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Embed_token.Embed_tokenRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The exists property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Exists.ExistsRequestBuilder Exists

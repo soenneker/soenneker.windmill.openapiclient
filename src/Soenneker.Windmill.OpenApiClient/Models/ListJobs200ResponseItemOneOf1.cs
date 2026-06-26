@@ -78,6 +78,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public Guid? Id { get; set; }
         /// <summary>The is_flow_step property</summary>
         public bool? IsFlowStep { get; set; }
+        /// <summary>The is_retry property</summary>
+        public bool? IsRetry { get; set; }
         /// <summary>The is_skipped property</summary>
         public bool? IsSkipped { get; set; }
         /// <summary>The job_kind property</summary>
@@ -245,6 +247,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1FlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1FlowStatus.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_flow_step", n => { IsFlowStep = n.GetBoolValue(); } },
+                { "is_retry", n => { IsRetry = n.GetBoolValue(); } },
                 { "is_skipped", n => { IsSkipped = n.GetBoolValue(); } },
                 { "job_kind", n => { JobKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1JobKind>(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -293,6 +296,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1FlowStatus>("flow_status", FlowStatus);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_flow_step", IsFlowStep);
+            writer.WriteBoolValue("is_retry", IsRetry);
             writer.WriteBoolValue("is_skipped", IsSkipped);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1JobKind>("job_kind", JobKind);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);

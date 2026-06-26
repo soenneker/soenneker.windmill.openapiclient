@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Preview
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PreviewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/preview{?include_header*,invisible_to_owner*,job_id*}", pathParameters)
+        public PreviewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/preview{?include_header*,invisible_to_owner*,job_id*,timeout*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Preview
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PreviewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/preview{?include_header*,invisible_to_owner*,job_id*}", rawUrl)
+        public PreviewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/preview{?include_header*,invisible_to_owner*,job_id*,timeout*}", rawUrl)
         {
         }
         /// <summary>
@@ -106,6 +106,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Preview
             /// <summary>The job id to assign to the created job. if missing, job is chosen randomly using the ULID scheme. If a job id already exists in the queue or as a completed job, the request to create one will fail (Bad Request)</summary>
             [QueryParameter("job_id")]
             public Guid? JobId { get; set; }
+            /// <summary>custom timeout in seconds for this preview run</summary>
+            [QueryParameter("timeout")]
+            public int? Timeout { get; set; }
         }
     }
 }

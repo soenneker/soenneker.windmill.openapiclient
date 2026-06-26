@@ -72,6 +72,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public Guid? Id { get; set; }
         /// <summary>The is_flow_step property</summary>
         public bool? IsFlowStep { get; set; }
+        /// <summary>The is_retry property</summary>
+        public bool? IsRetry { get; set; }
         /// <summary>The job_kind property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemJobKind? JobKind { get; set; }
         /// <summary>The language property</summary>
@@ -222,6 +224,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_flow_step", n => { IsFlowStep = n.GetBoolValue(); } },
+                { "is_retry", n => { IsRetry = n.GetBoolValue(); } },
                 { "job_kind", n => { JobKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemJobKind>(); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemLanguage>(); } },
                 { "last_ping", n => { LastPing = n.GetDateTimeOffsetValue(); } },
@@ -266,6 +269,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus>("flow_status", FlowStatus);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_flow_step", IsFlowStep);
+            writer.WriteBoolValue("is_retry", IsRetry);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemJobKind>("job_kind", JobKind);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemLanguage>("language", Language);
             writer.WriteDateTimeOffsetValue("last_ping", LastPing);

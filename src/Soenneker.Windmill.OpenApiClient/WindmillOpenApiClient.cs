@@ -12,6 +12,7 @@ using Soenneker.Windmill.OpenApiClient.Apps_u;
 using Soenneker.Windmill.OpenApiClient.Auth;
 using Soenneker.Windmill.OpenApiClient.Concurrency_groups;
 using Soenneker.Windmill.OpenApiClient.Configs;
+using Soenneker.Windmill.OpenApiClient.Docs;
 using Soenneker.Windmill.OpenApiClient.Ee_license;
 using Soenneker.Windmill.OpenApiClient.Embeddings;
 using Soenneker.Windmill.OpenApiClient.Flows;
@@ -19,7 +20,6 @@ using Soenneker.Windmill.OpenApiClient.Github_app;
 using Soenneker.Windmill.OpenApiClient.Groups;
 using Soenneker.Windmill.OpenApiClient.Health;
 using Soenneker.Windmill.OpenApiClient.Indexer;
-using Soenneker.Windmill.OpenApiClient.Inkeep;
 using Soenneker.Windmill.OpenApiClient.Integrations;
 using Soenneker.Windmill.OpenApiClient.Jobs;
 using Soenneker.Windmill.OpenApiClient.Mcp;
@@ -86,6 +86,11 @@ namespace Soenneker.Windmill.OpenApiClient
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Configs.ConfigsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The docs property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Docs.DocsRequestBuilder Docs
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Docs.DocsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The ee_license property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Ee_license.Ee_licenseRequestBuilder Ee_license
         {
@@ -120,11 +125,6 @@ namespace Soenneker.Windmill.OpenApiClient
         public global::Soenneker.Windmill.OpenApiClient.Indexer.IndexerRequestBuilder Indexer
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Indexer.IndexerRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The inkeep property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Inkeep.InkeepRequestBuilder Inkeep
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.Inkeep.InkeepRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The integrations property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Integrations.IntegrationsRequestBuilder Integrations

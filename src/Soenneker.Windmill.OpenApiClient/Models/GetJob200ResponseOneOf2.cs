@@ -72,6 +72,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public Guid? Id { get; set; }
         /// <summary>The is_flow_step property</summary>
         public bool? IsFlowStep { get; set; }
+        /// <summary>The is_retry property</summary>
+        public bool? IsRetry { get; set; }
         /// <summary>The job_kind property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2JobKind? JobKind { get; set; }
         /// <summary>The language property</summary>
@@ -224,6 +226,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2FlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2FlowStatus.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_flow_step", n => { IsFlowStep = n.GetBoolValue(); } },
+                { "is_retry", n => { IsRetry = n.GetBoolValue(); } },
                 { "job_kind", n => { JobKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2JobKind>(); } },
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2Language>(); } },
                 { "last_ping", n => { LastPing = n.GetDateTimeOffsetValue(); } },
@@ -269,6 +272,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2FlowStatus>("flow_status", FlowStatus);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_flow_step", IsFlowStep);
+            writer.WriteBoolValue("is_retry", IsRetry);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2JobKind>("job_kind", JobKind);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2Language>("language", Language);
             writer.WriteDateTimeOffsetValue("last_ping", LastPing);

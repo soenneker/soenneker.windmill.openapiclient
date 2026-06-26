@@ -11,6 +11,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_args;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_completed_logs_tail;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_all_logs;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_all_logs_structured;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_debug_info;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_log_file;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_logs;
@@ -70,6 +71,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_all_logs.Get_flow_all_logsRequestBuilder Get_flow_all_logs
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_all_logs.Get_flow_all_logsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The get_flow_all_logs_structured property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_all_logs_structured.Get_flow_all_logs_structuredRequestBuilder Get_flow_all_logs_structured
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_all_logs_structured.Get_flow_all_logs_structuredRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The get_flow_debug_info property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_debug_info.Get_flow_debug_infoRequestBuilder Get_flow_debug_info

@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Slack_approval.Item
         /// <summary>
         /// generate interactive slack approval for suspended job
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson10"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson11"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson10?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Slack_approval.Item.Slack_approvalItemRequestBuilder.Slack_approvalItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson11?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Slack_approval.Item.Slack_approvalItemRequestBuilder.Slack_approvalItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson10> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Slack_approval.Item.Slack_approvalItemRequestBuilder.Slack_approvalItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson11> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Slack_approval.Item.Slack_approvalItemRequestBuilder.Slack_approvalItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson10>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson10.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson11>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DefaultResponseResponseJson11.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// generate interactive slack approval for suspended job

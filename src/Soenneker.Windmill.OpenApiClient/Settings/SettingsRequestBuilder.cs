@@ -2,6 +2,8 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_backfill;
+using Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_backfill_status;
 using Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_status;
 using Soenneker.Windmill.OpenApiClient.Settings.Critical_alerts;
 using Soenneker.Windmill.OpenApiClient.Settings.Customer_portal;
@@ -48,6 +50,16 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SettingsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The audit_logs_s3_backfill property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_backfill.Audit_logs_s3_backfillRequestBuilder Audit_logs_s3_backfill
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_backfill.Audit_logs_s3_backfillRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The audit_logs_s3_backfill_status property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_backfill_status.Audit_logs_s3_backfill_statusRequestBuilder Audit_logs_s3_backfill_status
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_backfill_status.Audit_logs_s3_backfill_statusRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The audit_logs_s3_status property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_status.Audit_logs_s3_statusRequestBuilder Audit_logs_s3_status
         {

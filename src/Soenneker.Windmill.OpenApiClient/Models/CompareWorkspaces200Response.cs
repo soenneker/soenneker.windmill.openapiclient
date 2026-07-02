@@ -26,6 +26,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem> Diffs { get; set; }
 #endif
+        /// <summary>Ahead items excluded from `diffs` because they are not visible to the caller</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead? HiddenAhead { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead HiddenAhead { get; set; }
+#endif
+        /// <summary>Behind items excluded from `diffs` because they are not visible to the caller</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind? HiddenBehind { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind HiddenBehind { get; set; }
+#endif
         /// <summary>Whether the comparison was skipped. This happens with old forks that where not being kept track of</summary>
         public bool? SkippedComparison { get; set; }
         /// <summary>Summary statistics of the comparison</summary>
@@ -64,6 +80,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "all_ahead_items_visible", n => { AllAheadItemsVisible = n.GetBoolValue(); } },
                 { "all_behind_items_visible", n => { AllBehindItemsVisible = n.GetBoolValue(); } },
                 { "diffs", n => { Diffs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem>(global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "hidden_ahead", n => { HiddenAhead = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead>(global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead.CreateFromDiscriminatorValue); } },
+                { "hidden_behind", n => { HiddenBehind = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind>(global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind.CreateFromDiscriminatorValue); } },
                 { "skipped_comparison", n => { SkippedComparison = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary>(global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary.CreateFromDiscriminatorValue); } },
             };
@@ -78,6 +96,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("all_ahead_items_visible", AllAheadItemsVisible);
             writer.WriteBoolValue("all_behind_items_visible", AllBehindItemsVisible);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem>("diffs", Diffs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead>("hidden_ahead", HiddenAhead);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind>("hidden_behind", HiddenBehind);
             writer.WriteBoolValue("skipped_comparison", SkippedComparison);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary>("summary", Summary);
             writer.WriteAdditionalData(AdditionalData);

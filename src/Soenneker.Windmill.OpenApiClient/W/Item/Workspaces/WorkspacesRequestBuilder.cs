@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Add_user;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Archive;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Attach_dev_workspace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_channels;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_ids;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Change_workspace_color;
@@ -22,6 +23,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Default_app;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Default_scripts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_repository;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_invite;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Detach_dev_workspace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_copilot_config;
@@ -50,6 +52,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependency_map;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dependents_amounts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_deploy_to;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dev_workspace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_imports;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_public_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_secondary_storage_names;
@@ -78,6 +81,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_slack_message_test_job;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_job;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Threshold_alert;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Usage;
@@ -103,6 +107,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Archive.ArchiveRequestBuilder Archive
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Archive.ArchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The attach_dev_workspace property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Attach_dev_workspace.Attach_dev_workspaceRequestBuilder Attach_dev_workspace
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Attach_dev_workspace.Attach_dev_workspaceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The available_teams_channels property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_channels.Available_teams_channelsRequestBuilder Available_teams_channels
@@ -193,6 +202,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_invite.Delete_inviteRequestBuilder Delete_invite
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_invite.Delete_inviteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The detach_dev_workspace property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Detach_dev_workspace.Detach_dev_workspaceRequestBuilder Detach_dev_workspace
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Detach_dev_workspace.Detach_dev_workspaceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The drop_forked_datatable_databases property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases.Drop_forked_datatable_databasesRequestBuilder Drop_forked_datatable_databases
@@ -334,6 +348,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_deploy_to.Get_deploy_toRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The get_dev_workspace property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dev_workspace.Get_dev_workspaceRequestBuilder Get_dev_workspace
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_dev_workspace.Get_dev_workspaceRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The get_imports property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_imports.Get_importsRequestBuilder Get_imports
         {
@@ -473,6 +492,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable.Set_environment_variableRequestBuilder Set_environment_variable
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable.Set_environment_variableRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The set_ws_specific property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific.Set_ws_specificRequestBuilder Set_ws_specific
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific.Set_ws_specificRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The slack_oauth_config property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config.Slack_oauth_configRequestBuilder Slack_oauth_config

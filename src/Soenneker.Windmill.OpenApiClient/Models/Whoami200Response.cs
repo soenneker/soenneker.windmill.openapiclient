@@ -80,6 +80,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>True when this is a superadmin viewing a workspace they are not a member of (is_admin/role reflect the superadmin fallback, not an actual membership).</summary>
+        public bool? NonMember { get; set; }
         /// <summary>The operator property</summary>
         public bool? Operator { get; set; }
         /// <summary>The username property</summary>
@@ -127,6 +129,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_service_account", n => { IsServiceAccount = n.GetBoolValue(); } },
                 { "is_super_admin", n => { IsSuperAdmin = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "non_member", n => { NonMember = n.GetBoolValue(); } },
                 { "operator", n => { Operator = n.GetBoolValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
@@ -150,6 +153,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_service_account", IsServiceAccount);
             writer.WriteBoolValue("is_super_admin", IsSuperAdmin);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("non_member", NonMember);
             writer.WriteBoolValue("operator", Operator);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);

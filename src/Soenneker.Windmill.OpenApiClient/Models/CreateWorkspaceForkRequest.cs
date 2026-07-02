@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Color { get; set; }
 #endif
+        /// <summary>Copy the parent&apos;s members (users + group memberships) into the fork so the team can work in it</summary>
+        public bool? CopyMembers { get; set; }
         /// <summary>The forked_datatables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +40,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Create the fork as a persistent dev workspace (id not required to carry the wm-fork- prefix; at most one per parent)</summary>
+        public bool? IsDevWorkspace { get; set; }
+        /// <summary>When creating a dev workspace, lock the parent (prod) against direct deployment</summary>
+        public bool? LockProdDeploy { get; set; }
+        /// <summary>When creating a dev workspace, prevent forking the parent (prod)</summary>
+        public bool? LockProdForking { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,8 +80,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "color", n => { Color = n.GetStringValue(); } },
+                { "copy_members", n => { CopyMembers = n.GetBoolValue(); } },
                 { "forked_datatables", n => { ForkedDatatables = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "is_dev_workspace", n => { IsDevWorkspace = n.GetBoolValue(); } },
+                { "lock_prod_deploy", n => { LockProdDeploy = n.GetBoolValue(); } },
+                { "lock_prod_forking", n => { LockProdForking = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -85,8 +97,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
+            writer.WriteBoolValue("copy_members", CopyMembers);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>("forked_datatables", ForkedDatatables);
             writer.WriteStringValue("id", Id);
+            writer.WriteBoolValue("is_dev_workspace", IsDevWorkspace);
+            writer.WriteBoolValue("lock_prod_deploy", LockProdDeploy);
+            writer.WriteBoolValue("lock_prod_forking", LockProdForking);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

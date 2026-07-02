@@ -2,10 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Asset_schemas;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_by_usages;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites;
+using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Pipelines;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +21,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AssetsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The asset_schemas property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Asset_schemas.Asset_schemasRequestBuilder Asset_schemas
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Asset_schemas.Asset_schemasRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The graph property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph.GraphRequestBuilder Graph
         {
@@ -38,6 +45,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites.List_favoritesRequestBuilder List_favorites
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites.List_favoritesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The partitions property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions.PartitionsRequestBuilder Partitions
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions.PartitionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The pipelines property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Pipelines.PipelinesRequestBuilder Pipelines

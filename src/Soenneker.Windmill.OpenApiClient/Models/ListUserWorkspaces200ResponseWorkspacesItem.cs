@@ -40,6 +40,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>The is_dev_workspace property</summary>
+        public bool? IsDevWorkspace { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,6 +103,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "is_dev_workspace", n => { IsDevWorkspace = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "operator_settings", n => { OperatorSettings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings>(global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings.CreateFromDiscriminatorValue); } },
                 { "parent_workspace_id", n => { ParentWorkspaceId = n.GetStringValue(); } },
@@ -118,6 +121,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteBoolValue("disabled", Disabled);
             writer.WriteStringValue("id", Id);
+            writer.WriteBoolValue("is_dev_workspace", IsDevWorkspace);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings>("operator_settings", OperatorSettings);
             writer.WriteStringValue("parent_workspace_id", ParentWorkspaceId);

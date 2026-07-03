@@ -7,7 +7,9 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_by_usages;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites;
+using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Macros;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions_in_range;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Pipelines;
 using System.Collections.Generic;
 using System.IO;
@@ -46,10 +48,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_favorites.List_favoritesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The macros property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Macros.MacrosRequestBuilder Macros
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Macros.MacrosRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The partitions property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions.PartitionsRequestBuilder Partitions
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions.PartitionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The partitions_in_range property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions_in_range.Partitions_in_rangeRequestBuilder Partitions_in_range
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions_in_range.Partitions_in_rangeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The pipelines property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Pipelines.PipelinesRequestBuilder Pipelines

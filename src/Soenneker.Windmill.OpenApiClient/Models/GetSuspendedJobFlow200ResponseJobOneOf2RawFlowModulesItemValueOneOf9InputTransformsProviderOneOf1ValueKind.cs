@@ -15,6 +15,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         AzureOpenai,
         #pragma warning restore CS1591
+        [EnumMember(Value = "azure_foundry")]
+        #pragma warning disable CS1591
+        AzureFoundry,
+        #pragma warning restore CS1591
         [EnumMember(Value = "anthropic")]
         #pragma warning disable CS1591
         Anthropic,

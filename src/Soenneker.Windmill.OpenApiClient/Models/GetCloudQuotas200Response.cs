@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows Flows { get; set; }
 #endif
+        /// <summary>The forks property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks? Forks { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks Forks { get; set; }
+#endif
         /// <summary>The resources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "apps", n => { Apps = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps.CreateFromDiscriminatorValue); } },
                 { "flows", n => { Flows = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows.CreateFromDiscriminatorValue); } },
+                { "forks", n => { Forks = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks.CreateFromDiscriminatorValue); } },
                 { "resources", n => { Resources = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources.CreateFromDiscriminatorValue); } },
                 { "scripts", n => { Scripts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts.CreateFromDiscriminatorValue); } },
                 { "variables", n => { Variables = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables.CreateFromDiscriminatorValue); } },
@@ -95,6 +104,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps>("apps", Apps);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows>("flows", Flows);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks>("forks", Forks);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources>("resources", Resources);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts>("scripts", Scripts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables>("variables", Variables);

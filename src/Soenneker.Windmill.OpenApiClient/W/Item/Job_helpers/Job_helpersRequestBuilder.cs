@@ -18,6 +18,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_parquet_preview;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_table_count;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Move_s3_file;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Polars_connection_settings;
+using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Storage_usage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Test_connection;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Upload_git_repo_file_to_instance_storage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Upload_s3_file;
@@ -113,6 +114,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Polars_connection_settings.Polars_connection_settingsRequestBuilder Polars_connection_settings
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Polars_connection_settings.Polars_connection_settingsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The storage_usage property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Storage_usage.Storage_usageRequestBuilder Storage_usage
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Storage_usage.Storage_usageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The test_connection property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Test_connection.Test_connectionRequestBuilder Test_connection

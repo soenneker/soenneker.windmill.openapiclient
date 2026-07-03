@@ -16,6 +16,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>True iff the script is a pipeline member (deployed with `// pipeline`). Omitted when false.</summary>
         public bool? InPipeline { get; set; }
+        /// <summary>Macros this script provides to the workspace registry (deployed `// macros` library). Omitted when empty.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItemMacrosItem>? Macros { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItemMacrosItem> Macros { get; set; }
+#endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "in_pipeline", n => { InPipeline = n.GetBoolValue(); } },
+                { "macros", n => { Macros = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItemMacrosItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItemMacrosItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "usage_kind", n => { UsageKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItemUsageKind>(); } },
             };
@@ -64,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("in_pipeline", InPipeline);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItemMacrosItem>("macros", Macros);
             writer.WriteStringValue("path", Path);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItemUsageKind>("usage_kind", UsageKind);
             writer.WriteAdditionalData(AdditionalData);

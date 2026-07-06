@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Fork workspaces only — &apos;fork&apos; when this ducklake asset was materialized in the fork itself, &apos;deferred&apos; when reads fall back to the parent workspace&apos;s current table via a defer view. Omitted otherwise.</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemForkMaterialization? ForkMaterialization { get; set; }
         /// <summary>The kind property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemKind? Kind { get; set; }
         /// <summary>The path property</summary>
@@ -49,6 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "fork_materialization", n => { ForkMaterialization = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemForkMaterialization>(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemKind>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
             };
@@ -60,6 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemForkMaterialization>("fork_materialization", ForkMaterialization);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemKind>("kind", Kind);
             writer.WriteStringValue("path", Path);
             writer.WriteAdditionalData(AdditionalData);

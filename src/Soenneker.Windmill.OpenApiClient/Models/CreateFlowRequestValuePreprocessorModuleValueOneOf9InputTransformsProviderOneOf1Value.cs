@@ -25,6 +25,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Model { get; set; }
 #endif
+        /// <summary>Provider-native reasoning effort token (e.g. &apos;low&apos;, &apos;high&apos;, &apos;none&apos;) for models that support extended thinking. Optional; unset leaves the provider default.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReasoningEffort { get; set; }
+#nullable restore
+#else
+        public string ReasoningEffort { get; set; }
+#endif
         /// <summary>Resource reference in format &apos;$res:{resource_path}&apos; pointing to provider credentials</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,6 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsProviderOneOf1ValueKind>(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetStringValue(); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
             };
         }
@@ -72,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsProviderOneOf1ValueKind>("kind", Kind);
             writer.WriteStringValue("model", Model);
+            writer.WriteStringValue("reasoning_effort", ReasoningEffort);
             writer.WriteStringValue("resource", Resource);
             writer.WriteAdditionalData(AdditionalData);
         }

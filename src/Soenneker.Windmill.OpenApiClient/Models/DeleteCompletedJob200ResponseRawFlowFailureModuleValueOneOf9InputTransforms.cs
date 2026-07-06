@@ -63,7 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsProvider Provider { get; set; }
 #endif
-        /// <summary>&quot;Boolean. If true, stream the AI response incrementally.Streaming events include: token_delta, tool_call, tool_call_arguments, tool_execution, tool_result&quot;</summary>
+        /// <summary>&quot;Boolean. If true, stream the AI response incrementally.Streaming events include: token_delta, reasoning_token_delta, tool_call, tool_call_arguments, tool_execution, tool_result&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsStreaming? Streaming { get; set; }

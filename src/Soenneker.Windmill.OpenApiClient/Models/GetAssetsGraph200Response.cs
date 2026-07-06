@@ -46,6 +46,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem> Runnables { get; set; }
 #endif
+        /// <summary>Ordering-only &quot;must-run-after&quot; edges — a `// data_test relationships` (or custom test reading a pipeline asset) requires the referenced asset&apos;s producer to run before the tested script. Not a data-consumption edge; fed into the cascade topo-sort so cold runs order correctly. Omitted when empty.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem>? TestEdges { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem> TestEdges { get; set; }
+#endif
         /// <summary>The triggers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "edges", n => { Edges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "macro_edges", n => { MacroEdges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "runnables", n => { Runnables = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "test_edges", n => { TestEdges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "triggers", n => { Triggers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -97,6 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem>("edges", Edges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem>("macro_edges", MacroEdges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>("runnables", Runnables);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem>("test_edges", TestEdges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem>("triggers", Triggers);
             writer.WriteAdditionalData(AdditionalData);
         }

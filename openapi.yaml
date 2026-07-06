@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.746.0
+  version: 1.750.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -2009,6 +2009,15 @@ paths:
                       new_dbname:
                         type: string
                         description: New database name for the fork
+                shared_ducklakes:
+                  type: array
+                  items:
+                    type: string
+                  description: >-
+                    Lake names the fork SHARES with the parent (reads and writes
+                    the parent's lake directly). Every lake not listed gets the
+                    default isolated fork namespace with read-defer to the
+                    parent.
                 is_dev_workspace:
                   type: boolean
                   description: >-
@@ -5300,6 +5309,49 @@ paths:
                                 - path
                             extra_args:
                               type: string
+                            fork_behavior:
+                              type: string
+                              enum:
+                                - isolated
+                                - shared
+                              description: >-
+                                Fork workspaces only - how this lake behaves in
+                                the fork, stamped at fork creation. Absent =
+                                isolated (fork-scoped namespace + read-defer to
+                                parent).
+                            maintenance:
+                              type: object
+                              description: >-
+                                Scheduled maintenance (enterprise) - snapshot
+                                expiry, adjacent-file compaction and
+                                orphaned-file cleanup, run as a managed per-lake
+                                schedule
+                              required:
+                                - enabled
+                              properties:
+                                enabled:
+                                  type: boolean
+                                schedule:
+                                  type: string
+                                  description: >-
+                                    cron cadence (v2, UTC); defaults to daily at
+                                    03h with a per-lake minute offset
+                                retention_days:
+                                  type: integer
+                                  description: >-
+                                    snapshot retention window in days (default
+                                    7); time-travel older than this stops
+                                    working
+                                compaction:
+                                  type: boolean
+                                  description: >-
+                                    merge adjacent small parquet files (default
+                                    true)
+                                orphan_cleanup:
+                                  type: boolean
+                                  description: >-
+                                    delete orphaned files older than
+                                    max(retention, 1 day) (default true)
                   datatable:
                     type: object
                     required: *ref_48
@@ -6714,6 +6766,28 @@ paths:
                   type: array
                   items:
                     type: string
+      responses:
+        '200':
+          description: list of errors (empty if all succeeded)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /w/{workspace}/workspaces/drop_forked_ducklake_namespaces:
+    post:
+      summary: >-
+        drop this fork workspace's ducklake namespaces (catalog metadata schemas
+        + data files)
+      operationId: dropForkedDucklakeNamespaces
+      tags:
+        - workspace
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
       responses:
         '200':
           description: list of errors (empty if all succeeded)
@@ -8411,12 +8485,12 @@ paths:
                   description: >-
                     A workspace protection rule defining restrictions and bypass
                     permissions
-                  required: &ref_578
+                  required: &ref_580
                     - name
                     - rules
                     - bypass_groups
                     - bypass_users
-                  properties: &ref_579
+                  properties: &ref_581
                     name:
                       type: string
                       description: Unique name for the protection rule
@@ -8428,7 +8502,7 @@ paths:
                       description: Configuration of protection restrictions
                       items: &ref_66
                         type: string
-                        enum: &ref_580
+                        enum: &ref_582
                           - DisableDirectDeployment
                           - DisableWorkspaceForking
                           - RestrictDeployToDeployers
@@ -8589,11 +8663,11 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_581
+                  required: &ref_583
                     - username
                     - email
                     - is_admin
-                  properties: &ref_582
+                  properties: &ref_584
                     username:
                       type: string
                     email:
@@ -8648,10 +8722,10 @@ paths:
                         type: array
                         items:
                           type: object
-                          required: &ref_583
+                          required: &ref_585
                             - username
                             - email
-                          properties: &ref_584
+                          properties: &ref_586
                             username:
                               type: string
                             email:
@@ -10743,7 +10817,7 @@ paths:
                         description: >-
                           The flow structure containing modules and optional
                           preprocessor/failure handlers
-                        properties: &ref_623
+                        properties: &ref_625
                           modules:
                             type: array
                             description: >-
@@ -11308,13 +11382,13 @@ paths:
                                                   description: >-
                                                     Static provider configuration passed
                                                     directly to the AI agent
-                                                  properties: &ref_608
+                                                  properties: &ref_610
                                                     value:
                                                       type: object
                                                       description: >-
                                                         Complete AI provider configuration with
                                                         resource reference and model selection
-                                                      properties: &ref_606
+                                                      properties: &ref_608
                                                         kind:
                                                           type: string
                                                           description: Supported AI provider types
@@ -11342,7 +11416,15 @@ paths:
                                                           description: >-
                                                             Model identifier (e.g., 'gpt-4',
                                                             'claude-3-opus-20240229', 'gemini-pro')
-                                                      required: &ref_607
+                                                        reasoning_effort:
+                                                          type: string
+                                                          description: >-
+                                                            Provider-native reasoning effort token
+                                                            (e.g. 'low', 'high', 'none') for models
+                                                            that support extended thinking.
+                                                            Optional; unset leaves the provider
+                                                            default.
+                                                      required: &ref_609
                                                         - kind
                                                         - resource
                                                         - model
@@ -11350,7 +11432,7 @@ paths:
                                                       type: string
                                                       enum:
                                                         - static
-                                                  required: &ref_609
+                                                  required: &ref_611
                                                     - type
                                                     - value
                                                 - type: object
@@ -11433,8 +11515,9 @@ paths:
                                                 incrementally.
 
                                                 Streaming events include: token_delta,
-                                                tool_call, tool_call_arguments,
-                                                tool_execution, tool_result
+                                                reasoning_token_delta, tool_call,
+                                                tool_call_arguments, tool_execution,
+                                                tool_result
                                             memory:
                                               description: >-
                                                 Memory configuration - can be static
@@ -11445,10 +11528,10 @@ paths:
                                                   description: >-
                                                     Static memory configuration passed
                                                     directly to the AI agent
-                                                  properties: &ref_614
+                                                  properties: &ref_616
                                                     value:
                                                       description: Conversation memory configuration
-                                                      oneOf: &ref_612
+                                                      oneOf: &ref_614
                                                         - type: object
                                                           description: No conversation memory/context
                                                           properties: &ref_326
@@ -11489,7 +11572,7 @@ paths:
                                                               items:
                                                                 type: object
                                                                 description: A single message in conversation history
-                                                                properties: &ref_610
+                                                                properties: &ref_612
                                                                   role:
                                                                     type: string
                                                                     enum:
@@ -11498,13 +11581,13 @@ paths:
                                                                       - system
                                                                   content:
                                                                     type: string
-                                                                required: &ref_611
+                                                                required: &ref_613
                                                                   - role
                                                                   - content
                                                           required: &ref_331
                                                             - kind
                                                             - messages
-                                                      discriminator: &ref_613
+                                                      discriminator: &ref_615
                                                         propertyName: kind
                                                         mapping:
                                                           'off': '#/components/schemas/MemoryOff'
@@ -11514,7 +11597,7 @@ paths:
                                                       type: string
                                                       enum:
                                                         - static
-                                                  required: &ref_615
+                                                  required: &ref_617
                                                     - type
                                                     - value
                                                 - type: object
@@ -11665,12 +11748,12 @@ paths:
                                                   The implementation of a tool. Can be a
                                                   flow module (script/flow) or an MCP tool
                                                   reference
-                                                oneOf: &ref_621
+                                                oneOf: &ref_623
                                                   - description: >-
                                                       A tool implemented as a flow module
                                                       (script, flow, etc.). The AI can call
                                                       this like any other flow module
-                                                    allOf: &ref_616
+                                                    allOf: &ref_618
                                                       - type: object
                                                         properties:
                                                           tool_type:
@@ -11703,7 +11786,7 @@ paths:
                                                       Reference to an external MCP (Model
                                                       Context Protocol) tool. The AI can call
                                                       tools from MCP servers
-                                                    properties: &ref_617
+                                                    properties: &ref_619
                                                       tool_type:
                                                         type: string
                                                         enum:
@@ -11727,7 +11810,7 @@ paths:
                                                           MCP server
                                                         items:
                                                           type: string
-                                                    required: &ref_618
+                                                    required: &ref_620
                                                       - tool_type
                                                       - resource_path
                                                   - type: object
@@ -11735,14 +11818,14 @@ paths:
                                                       A tool implemented as a websearch tool.
                                                       The AI can call this like any other
                                                       websearch tool
-                                                    properties: &ref_619
+                                                    properties: &ref_621
                                                       tool_type:
                                                         type: string
                                                         enum:
                                                           - websearch
-                                                    required: &ref_620
+                                                    required: &ref_622
                                                       - tool_type
-                                                discriminator: &ref_622
+                                                discriminator: &ref_624
                                                   propertyName: tool_type
                                                   mapping:
                                                     flowmodule: '#/components/schemas/FlowModuleTool'
@@ -12244,7 +12327,7 @@ paths:
                               required: &ref_156
                                 - start_id
                                 - end_id
-                        required: &ref_624
+                        required: &ref_626
                           - modules
                       schema:
                         type: object
@@ -14733,6 +14816,100 @@ paths:
                     type: object
                     properties: *ref_115
                     required: *ref_116
+  /w/{workspace}/scripts/check_schema_contracts:
+    post:
+      summary: check a script's asset references against captured producer schemas
+      description: >
+        Save-time schema-contract check for data pipelines: validates the given
+
+        script content's asset references (body column reads, `// column`
+        lineage,
+
+        `// data_test relationships`) against the latest captured producer
+        schemas
+
+        and returns warnings. Warnings never block a save/deploy; an asset whose
+
+        producer declares `on_schema_change=ignore` is suppressed to a single
+
+        informational entry.
+      operationId: checkSchemaContracts
+      tags:
+        - script
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - language
+                - content
+              properties:
+                language:
+                  type: string
+                  enum: *ref_102
+                content:
+                  type: string
+      responses:
+        '200':
+          description: contract warnings (empty when all references match)
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - warnings
+                properties:
+                  warnings:
+                    type: array
+                    items:
+                      description: >
+                        One save-time schema-contract warning: a consumer
+                        reference that does
+
+                        not match the referenced asset's latest captured schema.
+
+                        `schema_version`/`captured_at` identify the capture the
+                        check ran
+
+                        against (as-of the producer's last run, not its latest
+                        save).
+                      type: object
+                      required: &ref_576
+                        - kind
+                        - asset_path
+                        - message
+                      properties: &ref_577
+                        kind:
+                          type: string
+                          enum:
+                            - missing_column
+                            - missing_lineage_source
+                            - missing_relationship_column
+                            - relationship_type_mismatch
+                            - suppressed
+                        asset_path:
+                          type: string
+                        column:
+                          type: string
+                        expected_type:
+                          type: string
+                        found_type:
+                          type: string
+                        schema_version:
+                          type: integer
+                          format: int64
+                        captured_at:
+                          type: string
+                          format: date-time
+                        message:
+                          type: string
   /w/{workspace}/scripts/raw_temp/store:
     post:
       summary: store raw script content temporarily for CLI lock generation
@@ -20809,6 +20986,7 @@ paths:
               - google
               - github
               - asset
+              - freshness
         - name: trigger_path
           description: The path of the trigger (can contain forward slashes)
           in: path
@@ -27609,7 +27787,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_589
+                  properties: &ref_591
                     service_name:
                       type: string
                       enum: &ref_238
@@ -27643,7 +27821,7 @@ paths:
                       type: string
                       nullable: true
                       description: Path to the resource storing the OAuth token
-                  required: &ref_590
+                  required: &ref_592
                     - service_name
   /w/{workspace}/native_triggers/integrations/{service_name}/exists:
     get:
@@ -27922,13 +28100,13 @@ paths:
               schema:
                 type: object
                 description: Response returned when a native trigger is created
-                properties: &ref_592
+                properties: &ref_594
                   external_id:
                     type: string
                     description: >-
                       The external ID of the created trigger from the external
                       service
-                required: &ref_593
+                required: &ref_595
                   - external_id
   /w/{workspace}/native_triggers/{service_name}/update/{external_id}:
     post:
@@ -28013,7 +28191,7 @@ paths:
                 description: >-
                   Full trigger response containing both Windmill data and
                   external service data
-                properties: &ref_587
+                properties: &ref_589
                   external_id:
                     type: string
                     description: The unique identifier from the external service
@@ -28049,7 +28227,7 @@ paths:
                     type: object
                     description: Configuration data from the external service
                     additionalProperties: true
-                required: &ref_588
+                required: &ref_590
                   - external_id
                   - workspace_id
                   - service_name
@@ -28154,7 +28332,7 @@ paths:
                 items:
                   type: object
                   description: A native trigger stored in Windmill
-                  properties: &ref_585
+                  properties: &ref_587
                     external_id:
                       type: string
                       description: The unique identifier from the external service
@@ -28186,7 +28364,7 @@ paths:
                       type: string
                       nullable: true
                       description: Short summary to be displayed when listed
-                  required: &ref_586
+                  required: &ref_588
                     - external_id
                     - workspace_id
                     - service_name
@@ -28265,7 +28443,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_594
+                  properties: &ref_596
                     id:
                       type: string
                     name:
@@ -28276,7 +28454,7 @@ paths:
                       type: string
                     path:
                       type: string
-                  required: &ref_595
+                  required: &ref_597
                     - id
                     - name
                     - path
@@ -28301,7 +28479,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_596
+                  properties: &ref_598
                     id:
                       type: string
                     summary:
@@ -28309,7 +28487,7 @@ paths:
                     primary:
                       type: boolean
                       default: false
-                  required: &ref_597
+                  required: &ref_599
                     - id
                     - summary
   /w/{workspace}/native_triggers/google/drive/files:
@@ -28352,12 +28530,12 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: &ref_600
+                properties: &ref_602
                   files:
                     type: array
                     items:
                       type: object
-                      properties: &ref_598
+                      properties: &ref_600
                         id:
                           type: string
                         name:
@@ -28367,13 +28545,13 @@ paths:
                         is_folder:
                           type: boolean
                           default: false
-                      required: &ref_599
+                      required: &ref_601
                         - id
                         - name
                         - mime_type
                   next_page_token:
                     type: string
-                required: &ref_601
+                required: &ref_603
                   - files
   /w/{workspace}/native_triggers/google/drive/shared_drives:
     get:
@@ -28396,12 +28574,12 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_602
+                  properties: &ref_604
                     id:
                       type: string
                     name:
                       type: string
-                  required: &ref_603
+                  required: &ref_605
                     - id
                     - name
   /w/{workspace}/native_triggers/github/repos:
@@ -28425,7 +28603,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_604
+                  properties: &ref_606
                     full_name:
                       type: string
                     name:
@@ -28434,7 +28612,7 @@ paths:
                       type: string
                     private:
                       type: boolean
-                  required: &ref_605
+                  required: &ref_607
                     - full_name
                     - name
                     - owner
@@ -36013,6 +36191,17 @@ paths:
                           enum: *ref_310
                         path:
                           type: string
+                        fork_materialization:
+                          type: string
+                          enum:
+                            - fork
+                            - deferred
+                          description: >-
+                            Fork workspaces only — 'fork' when this ducklake
+                            asset was materialized in the fork itself,
+                            'deferred' when reads fall back to the parent
+                            workspace's current table via a defer view. Omitted
+                            otherwise.
                   runnables:
                     type: array
                     items:
@@ -36153,6 +36342,40 @@ paths:
                             type: string
                         via_use:
                           type: boolean
+                  test_edges:
+                    type: array
+                    description: >-
+                      Ordering-only "must-run-after" edges — a `// data_test
+                      relationships` (or custom test reading a pipeline asset)
+                      requires the referenced asset's producer to run before the
+                      tested script. Not a data-consumption edge; fed into the
+                      cascade topo-sort so cold runs order correctly. Omitted
+                      when empty.
+                    items:
+                      type: object
+                      required:
+                        - producer_kind
+                        - producer_path
+                        - runnable_kind
+                        - runnable_path
+                        - asset_kind
+                        - asset_path
+                      properties:
+                        producer_kind:
+                          type: string
+                          enum: *ref_312
+                        producer_path:
+                          type: string
+                        runnable_kind:
+                          type: string
+                          enum: *ref_312
+                        runnable_path:
+                          type: string
+                        asset_kind:
+                          type: string
+                          enum: *ref_310
+                        asset_path:
+                          type: string
   /w/{workspace}/assets/macros:
     get:
       summary: List every workspace DuckDB macro (deployed `// macros` libraries)
@@ -36447,13 +36670,13 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_576
+                  required: &ref_578
                     - name
                     - size_bytes
                     - file_count
                     - created_at
                     - created_by
-                  properties: &ref_577
+                  properties: &ref_579
                     name:
                       type: string
                     size_bytes:
@@ -37389,6 +37612,12 @@ components:
           description: >-
             Model identifier (e.g., 'gpt-4', 'claude-3-opus-20240229',
             'gemini-pro')
+        reasoning_effort:
+          type: string
+          description: >-
+            Provider-native reasoning effort token (e.g. 'low', 'high', 'none')
+            for models that support extended thinking. Optional; unset leaves
+            the provider default.
       required:
         - kind
         - resource
@@ -37933,8 +38162,8 @@ components:
               description: >
                 Boolean. If true, stream the AI response incrementally.
 
-                Streaming events include: token_delta, tool_call,
-                tool_call_arguments, tool_execution, tool_result
+                Streaming events include: token_delta, reasoning_token_delta,
+                tool_call, tool_call_arguments, tool_execution, tool_result
             memory:
               description: >-
                 Memory configuration - can be static (MemoryConfig), JavaScript
@@ -39557,22 +39786,31 @@ components:
       required:
         - path
         - kind
-    Volume:
+    ContractWarning:
+      description: |
+        One save-time schema-contract warning: a consumer reference that does
+        not match the referenced asset's latest captured schema.
+        `schema_version`/`captured_at` identify the capture the check ran
+        against (as-of the producer's last run, not its latest save).
       type: object
       required: *ref_576
       properties: *ref_577
+    Volume:
+      type: object
+      required: *ref_578
+      properties: *ref_579
     ProtectionRuleset:
       type: object
       description: A workspace protection rule defining restrictions and bypass permissions
-      required: *ref_578
-      properties: *ref_579
+      required: *ref_580
+      properties: *ref_581
     ProtectionRules:
       type: array
       description: Configuration of protection restrictions
       items: *ref_66
     ProtectionRuleKind:
       type: string
-      enum: *ref_580
+      enum: *ref_582
     RuleBypasserGroups:
       type: array
       description: Groups that can bypass this ruleset
@@ -39583,12 +39821,12 @@ components:
       items: *ref_68
     DeploymentRequestEligibleDeployer:
       type: object
-      required: *ref_581
-      properties: *ref_582
-    DeploymentRequestAssignee:
-      type: object
       required: *ref_583
       properties: *ref_584
+    DeploymentRequestAssignee:
+      type: object
+      required: *ref_585
+      properties: *ref_586
     DeploymentRequestComment:
       type: object
       required: *ref_71
@@ -39607,19 +39845,19 @@ components:
     NativeTrigger:
       type: object
       description: A native trigger stored in Windmill
-      properties: *ref_585
-      required: *ref_586
+      properties: *ref_587
+      required: *ref_588
     NativeTriggerWithExternal:
       type: object
       description: >-
         Full trigger response containing both Windmill data and external service
         data
-      properties: *ref_587
-      required: *ref_588
-    WorkspaceIntegrations:
-      type: object
       properties: *ref_589
       required: *ref_590
+    WorkspaceIntegrations:
+      type: object
+      properties: *ref_591
+      required: *ref_592
     WorkspaceOAuthConfig:
       type: object
       properties: *ref_239
@@ -39634,7 +39872,7 @@ components:
         request_type:
           type: string
           description: The type of webhook request (define possible values here)
-          enum: &ref_591
+          enum: &ref_593
             - async
             - sync
       required:
@@ -39643,7 +39881,7 @@ components:
     WebhookRequestType:
       type: string
       description: The type of webhook request (define possible values here)
-      enum: *ref_591
+      enum: *ref_593
     RedirectUri:
       type: object
       properties: *ref_241
@@ -39656,8 +39894,8 @@ components:
     CreateTriggerResponse:
       type: object
       description: Response returned when a native trigger is created
-      properties: *ref_592
-      required: *ref_593
+      properties: *ref_594
+      required: *ref_595
     SyncResult:
       type: object
       properties:
@@ -39681,28 +39919,28 @@ components:
         - total_windmill
     NextCloudEventType:
       type: object
-      properties: *ref_594
-      required: *ref_595
-    GoogleCalendarEntry:
-      type: object
       properties: *ref_596
       required: *ref_597
-    GoogleDriveFile:
+    GoogleCalendarEntry:
       type: object
       properties: *ref_598
       required: *ref_599
-    GoogleDriveFilesResponse:
+    GoogleDriveFile:
       type: object
       properties: *ref_600
       required: *ref_601
-    SharedDriveEntry:
+    GoogleDriveFilesResponse:
       type: object
       properties: *ref_602
       required: *ref_603
-    GithubRepoEntry:
+    SharedDriveEntry:
       type: object
       properties: *ref_604
       required: *ref_605
+    GithubRepoEntry:
+      type: object
+      properties: *ref_606
+      required: *ref_607
     schemas-StaticTransform:
       type: object
       description: >-
@@ -39808,13 +40046,13 @@ components:
       description: >-
         Complete AI provider configuration with resource reference and model
         selection
-      properties: *ref_606
-      required: *ref_607
+      properties: *ref_608
+      required: *ref_609
     StaticProviderTransform:
       type: object
       description: Static provider configuration passed directly to the AI agent
-      properties: *ref_608
-      required: *ref_609
+      properties: *ref_610
+      required: *ref_611
     ProviderTransform:
       description: >-
         Provider configuration - can be static (ProviderConfig), JavaScript
@@ -39834,8 +40072,8 @@ components:
     MemoryMessage:
       type: object
       description: A single message in conversation history
-      properties: *ref_610
-      required: *ref_611
+      properties: *ref_612
+      required: *ref_613
     MemoryManual:
       type: object
       description: Explicit message history
@@ -39843,13 +40081,13 @@ components:
       required: *ref_331
     schemas-MemoryConfig:
       description: Conversation memory configuration
-      oneOf: *ref_612
-      discriminator: *ref_613
+      oneOf: *ref_614
+      discriminator: *ref_615
     StaticMemoryTransform:
       type: object
       description: Static memory configuration passed directly to the AI agent
-      properties: *ref_614
-      required: *ref_615
+      properties: *ref_616
+      required: *ref_617
     MemoryTransform:
       description: >-
         Memory configuration - can be static (MemoryConfig), JavaScript
@@ -39866,27 +40104,27 @@ components:
       description: >-
         A tool implemented as a flow module (script, flow, etc.). The AI can
         call this like any other flow module
-      allOf: *ref_616
+      allOf: *ref_618
     McpToolValue:
       type: object
       description: >-
         Reference to an external MCP (Model Context Protocol) tool. The AI can
         call tools from MCP servers
-      properties: *ref_617
-      required: *ref_618
+      properties: *ref_619
+      required: *ref_620
     WebsearchToolValue:
       type: object
       description: >-
         A tool implemented as a websearch tool. The AI can call this like any
         other websearch tool
-      properties: *ref_619
-      required: *ref_620
+      properties: *ref_621
+      required: *ref_622
     ToolValue:
       description: >-
         The implementation of a tool. Can be a flow module (script/flow) or an
         MCP tool reference
-      oneOf: *ref_621
-      discriminator: *ref_622
+      oneOf: *ref_623
+      discriminator: *ref_624
     AgentTool:
       type: object
       description: >-
@@ -39935,8 +40173,8 @@ components:
       description: >-
         The flow structure containing modules and optional preprocessor/failure
         handlers
-      properties: *ref_623
-      required: *ref_624
+      properties: *ref_625
+      required: *ref_626
     schemas-FlowStatusModule:
       type: object
       properties: *ref_162

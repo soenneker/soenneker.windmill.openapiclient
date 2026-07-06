@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Archive;
+using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Check_schema_contracts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Ci_test_results;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Ci_test_results_batch;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Create;
@@ -40,6 +41,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Archive.ArchiveRequestBuilder Archive
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Archive.ArchiveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The check_schema_contracts property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Check_schema_contracts.Check_schema_contractsRequestBuilder Check_schema_contracts
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Check_schema_contracts.Check_schema_contractsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The ci_test_results property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Ci_test_results.Ci_test_resultsRequestBuilder Ci_test_results

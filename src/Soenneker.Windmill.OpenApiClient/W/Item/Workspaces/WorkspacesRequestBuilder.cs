@@ -25,6 +25,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_git_sync_reposit
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_invite;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Detach_dev_workspace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_ducklake_namespaces;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_copilot_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_datatable_config;
@@ -212,6 +213,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases.Drop_forked_datatable_databasesRequestBuilder Drop_forked_datatable_databases
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases.Drop_forked_datatable_databasesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The drop_forked_ducklake_namespaces property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_ducklake_namespaces.Drop_forked_ducklake_namespacesRequestBuilder Drop_forked_ducklake_namespaces
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_ducklake_namespaces.Drop_forked_ducklake_namespacesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The edit_auto_invite property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite.Edit_auto_inviteRequestBuilder Edit_auto_invite

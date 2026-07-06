@@ -54,6 +54,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>Lake names the fork SHARES with the parent (reads and writes the parent&apos;s lake directly). Every lake not listed gets the default isolated fork namespace with read-defer to the parent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SharedDucklakes { get; set; }
+#nullable restore
+#else
+        public List<string> SharedDucklakes { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest"/> and sets the default values.
         /// </summary>
@@ -87,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "lock_prod_deploy", n => { LockProdDeploy = n.GetBoolValue(); } },
                 { "lock_prod_forking", n => { LockProdForking = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "shared_ducklakes", n => { SharedDucklakes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -104,6 +113,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("lock_prod_deploy", LockProdDeploy);
             writer.WriteBoolValue("lock_prod_forking", LockProdForking);
             writer.WriteStringValue("name", Name);
+            writer.WriteCollectionOfPrimitiveValues<string>("shared_ducklakes", SharedDucklakes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -52,7 +52,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             Enabled = false;
-            Mode = global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAutoInviteMode.Invite;
             Operator = false;
         }
         /// <summary>

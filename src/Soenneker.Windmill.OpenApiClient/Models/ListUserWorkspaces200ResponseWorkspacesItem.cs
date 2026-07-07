@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
+        /// <summary>Cosmetic display label of the dev workspace (&apos;dev&apos; | &apos;staging&apos;); null defaults to &apos;dev&apos;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DevWorkspaceLabel { get; set; }
+#nullable restore
+#else
+        public string DevWorkspaceLabel { get; set; }
+#endif
         /// <summary>The disabled property</summary>
         public bool? Disabled { get; set; }
         /// <summary>The id property</summary>
@@ -101,6 +109,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
+                { "dev_workspace_label", n => { DevWorkspaceLabel = n.GetStringValue(); } },
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_dev_workspace", n => { IsDevWorkspace = n.GetBoolValue(); } },
@@ -119,6 +128,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
             writer.WriteStringValue("created_by", CreatedBy);
+            writer.WriteStringValue("dev_workspace_label", DevWorkspaceLabel);
             writer.WriteBoolValue("disabled", Disabled);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_dev_workspace", IsDevWorkspace);

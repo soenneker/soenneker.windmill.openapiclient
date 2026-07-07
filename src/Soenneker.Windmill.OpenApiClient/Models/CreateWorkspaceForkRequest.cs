@@ -24,6 +24,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Copy the parent&apos;s members (users + group memberships) into the fork so the team can work in it</summary>
         public bool? CopyMembers { get; set; }
+        /// <summary>Cosmetic display label for the dev workspace (badge text + wording only); ignored for non-dev forks</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestDevWorkspaceLabel? DevWorkspaceLabel { get; set; }
         /// <summary>The forked_datatables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,6 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "copy_members", n => { CopyMembers = n.GetBoolValue(); } },
+                { "dev_workspace_label", n => { DevWorkspaceLabel = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestDevWorkspaceLabel>(); } },
                 { "forked_datatables", n => { ForkedDatatables = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_dev_workspace", n => { IsDevWorkspace = n.GetBoolValue(); } },
@@ -107,6 +110,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
             writer.WriteBoolValue("copy_members", CopyMembers);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestDevWorkspaceLabel>("dev_workspace_label", DevWorkspaceLabel);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>("forked_datatables", ForkedDatatables);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_dev_workspace", IsDevWorkspace);

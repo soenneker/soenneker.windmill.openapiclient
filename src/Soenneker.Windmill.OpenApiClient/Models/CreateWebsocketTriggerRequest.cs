@@ -128,7 +128,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public CreateWebsocketTriggerRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            FilterLogic = global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFilterLogic.And;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -194,7 +194,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public GetWebsocketTrigger200Response()
         {
             AdditionalData = new Dictionary<string, object>();
-            FilterLogic = global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFilterLogic.And;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

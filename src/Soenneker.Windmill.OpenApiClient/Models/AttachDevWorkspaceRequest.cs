@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string DevWorkspaceId { get; set; }
 #endif
+        /// <summary>The dev_workspace_label property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? DevWorkspaceLabel { get; set; }
         /// <summary>The lock_prod_deploy property</summary>
         public bool? LockProdDeploy { get; set; }
         /// <summary>The lock_prod_forking property</summary>
@@ -52,6 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "dev_workspace_id", n => { DevWorkspaceId = n.GetStringValue(); } },
+                { "dev_workspace_label", n => { DevWorkspaceLabel = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel>(); } },
                 { "lock_prod_deploy", n => { LockProdDeploy = n.GetBoolValue(); } },
                 { "lock_prod_forking", n => { LockProdForking = n.GetBoolValue(); } },
             };
@@ -64,6 +67,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("dev_workspace_id", DevWorkspaceId);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel>("dev_workspace_label", DevWorkspaceLabel);
             writer.WriteBoolValue("lock_prod_deploy", LockProdDeploy);
             writer.WriteBoolValue("lock_prod_forking", LockProdForking);
             writer.WriteAdditionalData(AdditionalData);

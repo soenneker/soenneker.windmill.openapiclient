@@ -119,8 +119,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             AdditionalData = new Dictionary<string, object>();
             AutoCommit = true;
-            AutoOffsetReset = global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestAutoOffsetReset.Latest;
-            FilterLogic = global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFilterLogic.And;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

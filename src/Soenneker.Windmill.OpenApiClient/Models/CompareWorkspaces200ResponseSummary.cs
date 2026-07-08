@@ -19,6 +19,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public int? AppsChanged { get; set; }
         /// <summary>Number of items that are both ahead and behind (conflicts)</summary>
         public int? Conflicts { get; set; }
+        /// <summary>Number of data table migrations with differences</summary>
+        public int? DatatableMigrationsChanged { get; set; }
         /// <summary>Number of flows with differences</summary>
         public int? FlowsChanged { get; set; }
         /// <summary>Number of folders with differences</summary>
@@ -68,6 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "apps_changed", n => { AppsChanged = n.GetIntValue(); } },
                 { "conflicts", n => { Conflicts = n.GetIntValue(); } },
+                { "datatable_migrations_changed", n => { DatatableMigrationsChanged = n.GetIntValue(); } },
                 { "flows_changed", n => { FlowsChanged = n.GetIntValue(); } },
                 { "folders_changed", n => { FoldersChanged = n.GetIntValue(); } },
                 { "resource_types_changed", n => { ResourceTypesChanged = n.GetIntValue(); } },
@@ -90,6 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("apps_changed", AppsChanged);
             writer.WriteIntValue("conflicts", Conflicts);
+            writer.WriteIntValue("datatable_migrations_changed", DatatableMigrationsChanged);
             writer.WriteIntValue("flows_changed", FlowsChanged);
             writer.WriteIntValue("folders_changed", FoldersChanged);
             writer.WriteIntValue("resources_changed", ResourcesChanged);

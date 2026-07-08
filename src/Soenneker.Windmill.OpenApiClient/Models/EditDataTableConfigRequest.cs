@@ -14,6 +14,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>data tables removed in this save, so their migrations are deleted</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? DeletedDatatables { get; set; }
+#nullable restore
+#else
+        public List<string> DeletedDatatables { get; set; }
+#endif
+        /// <summary>data tables renamed in this save, so their migrations cascade</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem>? Renames { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem> Renames { get; set; }
+#endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +63,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "deleted_datatables", n => { DeletedDatatables = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "renames", n => { Renames = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem>(global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings>(global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,6 +75,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("deleted_datatables", DeletedDatatables);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem>("renames", Renames);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings>("settings", Settings);
             writer.WriteAdditionalData(AdditionalData);
         }

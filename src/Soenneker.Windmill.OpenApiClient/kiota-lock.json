@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "4B2E5093703F2600D3DCBEEDA1406EA757A1FC83923F3B48EE14E6ED8C1E195A6455DE8C5AB3D267E9A3739E0043C42DE98DCDBFE0F809991A986DDD93BDD54A",
+  "descriptionHash": "36ABDC691176AA970D3A450357441287C1B2FBB1A6770C90651D0741E39ECF1F4B4C9C909A01C3C002048EB9A1281EEDAE275CF1FE9F5F99BFA6CF5FB24E8DE5",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.34.0",
+  "kiotaVersion": "1.34.1",
   "clientClassName": "WindmillOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Windmill.OpenApiClient",

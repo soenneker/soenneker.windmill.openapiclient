@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.752.0
+  version: 1.754.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -11402,6 +11402,7 @@ paths:
                                           enum:
                                             - deno
                                             - bun
+                                            - bunnative
                                             - python3
                                             - go
                                             - bash
@@ -38215,6 +38216,7 @@ components:
           enum:
             - deno
             - bun
+            - bunnative
             - python3
             - go
             - bash

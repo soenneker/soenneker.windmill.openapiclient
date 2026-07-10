@@ -15,6 +15,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Bun,
         #pragma warning restore CS1591
+        [EnumMember(Value = "bunnative")]
+        #pragma warning disable CS1591
+        Bunnative,
+        #pragma warning restore CS1591
         [EnumMember(Value = "python3")]
         #pragma warning disable CS1591
         Python3,

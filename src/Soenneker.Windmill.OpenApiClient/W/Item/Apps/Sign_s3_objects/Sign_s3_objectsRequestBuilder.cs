@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects
         {
         }
         /// <summary>
-        /// sign s3 objects, to be used by anonymous users in public apps
+        /// sign s3 objects (caller must have S3 read permission on each key); the signed URLs can then be used by anonymous users in public apps
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.SignS3Objects200ResponseResponseJsonItem&gt;</returns>
         /// <param name="body">The request body</param>
@@ -55,7 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// sign s3 objects, to be used by anonymous users in public apps
+        /// sign s3 objects (caller must have S3 read permission on each key); the signed URLs can then be used by anonymous users in public apps
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

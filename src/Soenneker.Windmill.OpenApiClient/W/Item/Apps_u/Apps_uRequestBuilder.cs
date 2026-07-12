@@ -3,8 +3,14 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Delete_s3_file;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_file_as_csv;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Embed_token;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_csv_preview;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_metadata;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_table_count;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Public_app;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Public_resource;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Upload_s3_file;
@@ -25,6 +31,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Delete_s3_file.Delete_s3_fileRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The download_s3_parquet_file_as_csv property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_file_as_csv.Download_s3_parquet_file_as_csvRequestBuilder Download_s3_parquet_file_as_csv
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_file_as_csv.Download_s3_parquet_file_as_csvRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The embed_token property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Embed_token.Embed_tokenRequestBuilder Embed_token
         {
@@ -34,6 +45,31 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component.Execute_componentRequestBuilder Execute_component
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component.Execute_componentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The load_csv_preview property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_csv_preview.Load_csv_previewRequestBuilder Load_csv_preview
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_csv_preview.Load_csv_previewRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The load_file_metadata property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_metadata.Load_file_metadataRequestBuilder Load_file_metadata
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_metadata.Load_file_metadataRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The load_file_preview property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview.Load_file_previewRequestBuilder Load_file_preview
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview.Load_file_previewRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The load_parquet_preview property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Load_parquet_previewRequestBuilder Load_parquet_preview
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Load_parquet_previewRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The load_table_count property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_table_count.Load_table_countRequestBuilder Load_table_count
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_table_count.Load_table_countRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The public_app property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Public_app.Public_appRequestBuilder Public_app

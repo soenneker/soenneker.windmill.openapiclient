@@ -15,6 +15,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Free-text description of the tool given to the AI to decide when and how to call it. Overrides the description auto-derived from the underlying script.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
         /// <summary>Unique identifier for this tool. Cannot contain spaces - use underscores instead (e.g., &apos;get_user_data&apos; not &apos;get user data&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +72,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf9ToolsItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf9ToolsItemValue.CreateFromDiscriminatorValue); } },
@@ -76,6 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("summary", Summary);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemValueOneOf9ToolsItemValue>("value", Value);

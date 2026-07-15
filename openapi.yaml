@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.756.0
+  version: 1.760.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -12210,6 +12210,13 @@ paths:
                                                 description: >-
                                                   Short description of what this tool does
                                                   (shown to the AI)
+                                              description:
+                                                type: string
+                                                description: >-
+                                                  Free-text description of the tool given
+                                                  to the AI to decide when and how to call
+                                                  it. Overrides the description
+                                                  auto-derived from the underlying script.
                                               value:
                                                 description: >-
                                                   The implementation of a tool. Can be a
@@ -21758,6 +21765,7 @@ paths:
               - github
               - asset
               - freshness
+              - app
         - name: trigger_path
           description: The path of the trigger (can contain forward slashes)
           in: path

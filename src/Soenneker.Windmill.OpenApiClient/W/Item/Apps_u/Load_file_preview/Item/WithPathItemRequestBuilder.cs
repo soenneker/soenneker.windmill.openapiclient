@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/load_file_preview/{path}?file_key={file_key}&read_bytes_from={read_bytes_from}&read_bytes_length={read_bytes_length}{&csv_has_header*,csv_separator*,file_mime_type*,file_size_in_bytes*,storage*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/load_file_preview/{path}?file_key={file_key}&read_bytes_from={read_bytes_from}&read_bytes_length={read_bytes_length}{&csv_has_header*,csv_separator*,exp*,file_mime_type*,file_size_in_bytes*,sig*,storage*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/load_file_preview/{path}?file_key={file_key}&read_bytes_from={read_bytes_from}&read_bytes_length={read_bytes_length}{&csv_has_header*,csv_separator*,file_mime_type*,file_size_in_bytes*,storage*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/load_file_preview/{path}?file_key={file_key}&read_bytes_from={read_bytes_from}&read_bytes_length={read_bytes_length}{&csv_has_header*,csv_separator*,exp*,file_mime_type*,file_size_in_bytes*,sig*,storage*}", rawUrl)
         {
         }
         /// <summary>
@@ -96,6 +96,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview.Item
             [QueryParameter("csv_separator")]
             public string CsvSeparator { get; set; }
 #endif
+            /// <summary>Expiry timestamp of a presigned S3 object signature</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("exp")]
+            public string? Exp { get; set; }
+#nullable restore
+#else
+            [QueryParameter("exp")]
+            public string Exp { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("file_key")]
@@ -120,6 +130,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview.Item
             public int? ReadBytesFrom { get; set; }
             [QueryParameter("read_bytes_length")]
             public int? ReadBytesLength { get; set; }
+            /// <summary>HMAC signature of a presigned S3 object (bypasses the app provenance gate)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("sig")]
+            public string? Sig { get; set; }
+#nullable restore
+#else
+            [QueryParameter("sig")]
+            public string Sig { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("storage")]

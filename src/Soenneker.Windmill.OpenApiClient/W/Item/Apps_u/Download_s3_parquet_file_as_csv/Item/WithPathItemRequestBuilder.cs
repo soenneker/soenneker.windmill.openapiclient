@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_fil
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/download_s3_parquet_file_as_csv/{path}?file_key={file_key}{&storage*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/download_s3_parquet_file_as_csv/{path}?file_key={file_key}{&exp*,sig*,storage*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_fil
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/download_s3_parquet_file_as_csv/{path}?file_key={file_key}{&storage*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/apps_u/download_s3_parquet_file_as_csv/{path}?file_key={file_key}{&exp*,sig*,storage*}", rawUrl)
         {
         }
         /// <summary>
@@ -84,6 +84,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_fil
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>Expiry timestamp of a presigned S3 object signature</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("exp")]
+            public string? Exp { get; set; }
+#nullable restore
+#else
+            [QueryParameter("exp")]
+            public string Exp { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("file_key")]
@@ -92,6 +102,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_fil
 #else
             [QueryParameter("file_key")]
             public string FileKey { get; set; }
+#endif
+            /// <summary>HMAC signature of a presigned S3 object (bypasses the app provenance gate)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("sig")]
+            public string? Sig { get; set; }
+#nullable restore
+#else
+            [QueryParameter("sig")]
+            public string Sig { get; set; }
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -33,7 +33,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Users.Delete.Item
         {
         }
         /// <summary>
-        /// delete user (require admin privilege)
+        /// delete user (require admin privilege, except for the creator of a fork removing a non-admin member of the fork)
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Users.Delete.Item
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// delete user (require admin privilege)
+        /// delete user (require admin privilege, except for the creator of a fork removing a non-admin member of the fork)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

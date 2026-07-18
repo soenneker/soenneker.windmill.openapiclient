@@ -58,6 +58,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Summary { get; set; }
 #endif
+        /// <summary>Only present when `compare_to_workspace` was passed. True when this draft is identical to the parent&apos;s draft at the same path/kind/owner (cloned in on fork and never edited here).</summary>
+        public bool? UnchangedFromParent { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseResponseJsonItem"/> and sets the default values.
         /// </summary>
@@ -93,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "mine", n => { Mine = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
+                { "unchanged_from_parent", n => { UnchangedFromParent = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -112,6 +115,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("mine", Mine);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("summary", Summary);
+            writer.WriteBoolValue("unchanged_from_parent", UnchangedFromParent);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

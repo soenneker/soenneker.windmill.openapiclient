@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The auto_pull property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull? AutoPull { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull AutoPull { get; set; }
+#endif
         /// <summary>The collapsed property</summary>
         public bool? Collapsed { get; set; }
         /// <summary>The exclude_types_override property</summary>
@@ -24,6 +32,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem?> ExcludeTypesOverride { get; set; }
 #endif
+        /// <summary>The fork_open_prs property</summary>
+        public bool? ForkOpenPrs { get; set; }
         /// <summary>The git_repo_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +44,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The group_by_folder property</summary>
         public bool? GroupByFolder { get; set; }
+        /// <summary>server-owned, last failure opening a PR for a deploy branch of this repo</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OpenPrError { get; set; }
+#nullable restore
+#else
+        public string OpenPrError { get; set; }
+#endif
+        /// <summary>The promotion_open_prs property</summary>
+        public bool? PromotionOpenPrs { get; set; }
         /// <summary>The script_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,10 +97,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "auto_pull", n => { AutoPull = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull>(global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull.CreateFromDiscriminatorValue); } },
                 { "collapsed", n => { Collapsed = n.GetBoolValue(); } },
                 { "exclude_types_override", n => { ExcludeTypesOverride = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem>()?.AsList(); } },
+                { "fork_open_prs", n => { ForkOpenPrs = n.GetBoolValue(); } },
                 { "git_repo_resource_path", n => { GitRepoResourcePath = n.GetStringValue(); } },
                 { "group_by_folder", n => { GroupByFolder = n.GetBoolValue(); } },
+                { "open_pr_error", n => { OpenPrError = n.GetStringValue(); } },
+                { "promotion_open_prs", n => { PromotionOpenPrs = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings>(global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings.CreateFromDiscriminatorValue); } },
                 { "use_individual_branch", n => { UseIndividualBranch = n.GetBoolValue(); } },
@@ -93,10 +117,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull>("auto_pull", AutoPull);
             writer.WriteBoolValue("collapsed", Collapsed);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem>("exclude_types_override", ExcludeTypesOverride);
+            writer.WriteBoolValue("fork_open_prs", ForkOpenPrs);
             writer.WriteStringValue("git_repo_resource_path", GitRepoResourcePath);
             writer.WriteBoolValue("group_by_folder", GroupByFolder);
+            writer.WriteStringValue("open_pr_error", OpenPrError);
+            writer.WriteBoolValue("promotion_open_prs", PromotionOpenPrs);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings>("settings", Settings);
             writer.WriteBoolValue("use_individual_branch", UseIndividualBranch);

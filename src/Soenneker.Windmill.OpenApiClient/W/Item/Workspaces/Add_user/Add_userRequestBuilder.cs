@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Add_user
         {
         }
         /// <summary>
-        /// add user to workspace
+        /// add user to workspace (require admin privilege, except for the creator of a fork adding a developer/admin of its parent workspace as a developer of the fork)
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Add_user
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// add user to workspace
+        /// add user to workspace (require admin privilege, except for the creator of a fork adding a developer/admin of its parent workspace as a developer of the fork)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

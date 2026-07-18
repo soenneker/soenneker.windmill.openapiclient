@@ -90,7 +90,6 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Rollback_datatable_migr
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_datatable_migrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_slack_message_test_job;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_job;
-using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_dev_workspace_label;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config;
@@ -549,11 +548,6 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_job.Run_teams_message_test_jobRequestBuilder Run_teams_message_test_job
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_job.Run_teams_message_test_jobRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The set_dev_workspace_label property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_dev_workspace_label.Set_dev_workspace_labelRequestBuilder Set_dev_workspace_label
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_dev_workspace_label.Set_dev_workspace_labelRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The set_environment_variable property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable.Set_environment_variableRequestBuilder Set_environment_variable

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/drafts/list{?all_users*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/drafts/list{?all_users*,compare_to_workspace*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/drafts/list{?all_users*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/drafts/list{?all_users*,compare_to_workspace*}", rawUrl)
         {
         }
         /// <summary>
@@ -89,6 +89,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List
             /// <summary>List every draft in the workspace (all users), not just the current user&apos;s own + legacy rows. Other users&apos; rows come back with `mine=false` (view-only).</summary>
             [QueryParameter("all_users")]
             public bool? AllUsers { get; set; }
+            /// <summary>A fork passes its parent workspace id here to have each row flagged with `unchanged_from_parent`. Ignored unless it is exactly this workspace&apos;s parent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("compare_to_workspace")]
+            public string? CompareToWorkspace { get; set; }
+#nullable restore
+#else
+            [QueryParameter("compare_to_workspace")]
+            public string CompareToWorkspace { get; set; }
+#endif
         }
     }
 }

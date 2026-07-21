@@ -65,6 +65,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_public_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_secondary_storage_names;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_workspace_name;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_deploy_mode;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Import_pg_database;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Invite_user;
@@ -78,7 +79,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ducklakes;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_pending_invites;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_versions;
-using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_chat;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_feature_usage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Operator_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Premium_info;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules;
@@ -424,6 +425,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_workspace_name.Get_workspace_nameRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The git_sync_deploy_mode property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_deploy_mode.Git_sync_deploy_modeRequestBuilder Git_sync_deploy_mode
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_deploy_mode.Git_sync_deploy_modeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The git_sync_enabled property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled.Git_sync_enabledRequestBuilder Git_sync_enabled
         {
@@ -489,10 +495,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_versions.List_ws_specific_versionsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The log_chat property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_chat.Log_chatRequestBuilder Log_chat
+        /// <summary>The log_feature_usage property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_feature_usage.Log_feature_usageRequestBuilder Log_feature_usage
         {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_chat.Log_chatRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_feature_usage.Log_feature_usageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The operator_settings property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Operator_settings.Operator_settingsRequestBuilder Operator_settings

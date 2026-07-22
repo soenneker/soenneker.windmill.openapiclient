@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The amqp_count property</summary>
+        public double? AmqpCount { get; set; }
         /// <summary>The azure_count property</summary>
         public double? AzureCount { get; set; }
         /// <summary>The default_email_count property</summary>
@@ -79,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "amqp_count", n => { AmqpCount = n.GetDoubleValue(); } },
                 { "azure_count", n => { AzureCount = n.GetDoubleValue(); } },
                 { "default_email_count", n => { DefaultEmailCount = n.GetDoubleValue(); } },
                 { "email_count", n => { EmailCount = n.GetDoubleValue(); } },
@@ -105,6 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteDoubleValue("amqp_count", AmqpCount);
             writer.WriteDoubleValue("azure_count", AzureCount);
             writer.WriteDoubleValue("default_email_count", DefaultEmailCount);
             writer.WriteDoubleValue("email_count", EmailCount);

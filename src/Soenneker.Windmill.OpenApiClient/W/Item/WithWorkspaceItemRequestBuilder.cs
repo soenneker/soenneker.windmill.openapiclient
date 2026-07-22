@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Acls;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills;
+using Soenneker.Windmill.OpenApiClient.W.Item.Amqp_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets;
@@ -11,6 +12,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Audit;
 using Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Capture;
 using Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups;
+using Soenneker.Windmill.OpenApiClient.W.Item.Data_metrics;
 using Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Email_triggers;
@@ -76,6 +78,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills.Ai_skillsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The amqp_triggers property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Amqp_triggers.Amqp_triggersRequestBuilder Amqp_triggers
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Amqp_triggers.Amqp_triggersRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The apps property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.AppsRequestBuilder Apps
         {
@@ -110,6 +117,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.Concurrency_groupsRequestBuilder Concurrency_groups
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.Concurrency_groupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The data_metrics property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Data_metrics.Data_metricsRequestBuilder Data_metrics
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Data_metrics.Data_metricsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The deployment_request property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request.Deployment_requestRequestBuilder Deployment_request

@@ -24,6 +24,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         RelationshipTypeMismatch,
         #pragma warning restore CS1591
+        [EnumMember(Value = "missing_measure_column")]
+        #pragma warning disable CS1591
+        MissingMeasureColumn,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "missing_dimension_column")]
+        #pragma warning disable CS1591
+        MissingDimensionColumn,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "non_aggregate_measure")]
+        #pragma warning disable CS1591
+        NonAggregateMeasure,
+        #pragma warning restore CS1591
         [EnumMember(Value = "suppressed")]
         #pragma warning disable CS1591
         Suppressed,

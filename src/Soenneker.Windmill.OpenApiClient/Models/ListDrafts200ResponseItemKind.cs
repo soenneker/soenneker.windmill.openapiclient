@@ -71,6 +71,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         TriggerMqtt,
         #pragma warning restore CS1591
+        [EnumMember(Value = "trigger_amqp")]
+        #pragma warning disable CS1591
+        TriggerAmqp,
+        #pragma warning restore CS1591
         [EnumMember(Value = "trigger_sqs")]
         #pragma warning disable CS1591
         TriggerSqs,

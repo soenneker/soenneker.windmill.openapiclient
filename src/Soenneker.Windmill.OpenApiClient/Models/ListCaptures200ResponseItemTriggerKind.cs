@@ -44,6 +44,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Mqtt,
         #pragma warning restore CS1591
+        [EnumMember(Value = "amqp")]
+        #pragma warning disable CS1591
+        Amqp,
+        #pragma warning restore CS1591
         [EnumMember(Value = "gcp")]
         #pragma warning disable CS1591
         Gcp,

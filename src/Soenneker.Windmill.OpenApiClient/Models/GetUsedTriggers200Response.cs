@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The amqp_used property</summary>
+        public bool? AmqpUsed { get; set; }
         /// <summary>The azure_used property</summary>
         public bool? AzureUsed { get; set; }
         /// <summary>The email_used property</summary>
@@ -65,6 +67,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "amqp_used", n => { AmqpUsed = n.GetBoolValue(); } },
                 { "azure_used", n => { AzureUsed = n.GetBoolValue(); } },
                 { "email_used", n => { EmailUsed = n.GetBoolValue(); } },
                 { "gcp_used", n => { GcpUsed = n.GetBoolValue(); } },
@@ -87,6 +90,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("amqp_used", AmqpUsed);
             writer.WriteBoolValue("azure_used", AzureUsed);
             writer.WriteBoolValue("email_used", EmailUsed);
             writer.WriteBoolValue("gcp_used", GcpUsed);

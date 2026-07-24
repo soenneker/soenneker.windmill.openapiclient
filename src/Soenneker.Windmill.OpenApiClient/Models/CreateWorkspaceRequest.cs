@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Color { get; set; }
 #endif
+        /// <summary>Report failed jobs to the instance critical alert channels when no workspace error handler is set. Not available on cloud or on fork workspaces.</summary>
+        public bool? ErrorHandlerFallbackToInstanceAlerts { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public CreateWorkspaceRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            ErrorHandlerFallbackToInstanceAlerts = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -72,6 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "color", n => { Color = n.GetStringValue(); } },
+                { "error_handler_fallback_to_instance_alerts", n => { ErrorHandlerFallbackToInstanceAlerts = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
@@ -85,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
+            writer.WriteBoolValue("error_handler_fallback_to_instance_alerts", ErrorHandlerFallbackToInstanceAlerts);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("username", Username);

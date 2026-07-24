@@ -102,6 +102,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler ErrorHandler { get; set; }
 #endif
+        /// <summary>Report failed jobs to the instance critical alert channels when no workspace error handler is set.</summary>
+        public bool? ErrorHandlerFallbackToInstanceAlerts { get; set; }
         /// <summary>The git_sync property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -270,6 +272,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "deploy_ui", n => { DeployUi = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDeployUi>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDeployUi.CreateFromDiscriminatorValue); } },
                 { "ducklake", n => { Ducklake = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklake>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklake.CreateFromDiscriminatorValue); } },
                 { "error_handler", n => { ErrorHandler = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler.CreateFromDiscriminatorValue); } },
+                { "error_handler_fallback_to_instance_alerts", n => { ErrorHandlerFallbackToInstanceAlerts = n.GetBoolValue(); } },
                 { "git_sync", n => { GitSync = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSync>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSync.CreateFromDiscriminatorValue); } },
                 { "large_file_storage", n => { LargeFileStorage = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorage>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorage.CreateFromDiscriminatorValue); } },
                 { "mute_critical_alerts", n => { MuteCriticalAlerts = n.GetBoolValue(); } },
@@ -308,6 +311,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDeployUi>("deploy_ui", DeployUi);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklake>("ducklake", Ducklake);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler>("error_handler", ErrorHandler);
+            writer.WriteBoolValue("error_handler_fallback_to_instance_alerts", ErrorHandlerFallbackToInstanceAlerts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSync>("git_sync", GitSync);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorage>("large_file_storage", LargeFileStorage);
             writer.WriteBoolValue("mute_critical_alerts", MuteCriticalAlerts);

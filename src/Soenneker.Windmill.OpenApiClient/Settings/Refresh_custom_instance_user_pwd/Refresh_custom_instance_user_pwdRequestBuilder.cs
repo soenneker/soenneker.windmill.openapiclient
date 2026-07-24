@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user
         {
         }
         /// <summary>
-        /// Refreshes the password for the custom_instance_user
+        /// Refreshes the passwords for the custom_instance_user and the custom_instance_replication_user (used by postgres triggers)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Refreshes the password for the custom_instance_user
+        /// Refreshes the passwords for the custom_instance_user and the custom_instance_replication_user (used by postgres triggers)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

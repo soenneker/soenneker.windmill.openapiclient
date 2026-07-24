@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.767.0
+  version: 1.768.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -146,18 +146,18 @@ paths:
                   checks:
                     type: object
                     description: Detailed health checks
-                    required: &ref_365
+                    required: &ref_368
                       - database
                       - readiness
-                    properties: &ref_366
+                    properties: &ref_369
                       database:
                         type: object
                         description: Database health status
-                        required: &ref_367
+                        required: &ref_370
                           - healthy
                           - latency_ms
                           - pool
-                        properties: &ref_368
+                        properties: &ref_371
                           healthy:
                             type: boolean
                             description: Whether the database is reachable
@@ -168,11 +168,11 @@ paths:
                           pool:
                             type: object
                             description: Database connection pool statistics
-                            required: &ref_369
+                            required: &ref_372
                               - size
                               - idle
                               - max_connections
-                            properties: &ref_370
+                            properties: &ref_373
                               size:
                                 type: integer
                                 description: Current number of connections in the pool
@@ -186,13 +186,13 @@ paths:
                         description: Workers health status
                         nullable: true
                         type: object
-                        required: &ref_371
+                        required: &ref_374
                           - healthy
                           - active_count
                           - worker_groups
                           - min_version
                           - versions
-                        properties: &ref_372
+                        properties: &ref_375
                           healthy:
                             type: boolean
                             description: Whether any workers are active
@@ -219,10 +219,10 @@ paths:
                         description: Job queue status
                         nullable: true
                         type: object
-                        required: &ref_373
+                        required: &ref_376
                           - pending_jobs
                           - running_jobs
-                        properties: &ref_374
+                        properties: &ref_377
                           pending_jobs:
                             type: integer
                             format: int64
@@ -234,9 +234,9 @@ paths:
                       readiness:
                         type: object
                         description: Server readiness status
-                        required: &ref_375
+                        required: &ref_378
                           - healthy
-                        properties: &ref_376
+                        properties: &ref_379
                           healthy:
                             type: boolean
                             description: Whether the server is ready to accept requests
@@ -567,12 +567,12 @@ paths:
         - name: username
           description: filter on exact username of user
           in: query
-          schema: &ref_326
+          schema: &ref_329
             type: string
         - name: operation
           description: filter on exact or prefix name of operation
           in: query
-          schema: &ref_327
+          schema: &ref_330
             type: string
         - name: operations
           in: query
@@ -587,12 +587,12 @@ paths:
         - name: resource
           description: filter on exact or prefix name of resource
           in: query
-          schema: &ref_328
+          schema: &ref_331
             type: string
         - name: action_kind
           description: filter on type of operation
           in: query
-          schema: &ref_329
+          schema: &ref_332
             type: string
             enum:
               - Create
@@ -629,12 +629,12 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_416
+              properties: &ref_419
                 email:
                   type: string
                 password:
                   type: string
-              required: &ref_417
+              required: &ref_420
                 - email
                 - password
       responses:
@@ -828,7 +828,7 @@ paths:
                     nullable: true
                     allOf:
                       - type: object
-                        properties: &ref_413
+                        properties: &ref_416
                           source:
                             type: string
                             enum:
@@ -846,7 +846,7 @@ paths:
                             description: >-
                               The instance group name (when source is
                               'instance_group')
-                        required: &ref_414
+                        required: &ref_417
                           - source
                   is_service_account:
                     type: boolean
@@ -891,7 +891,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_418
+              properties: &ref_421
                 is_admin:
                   type: boolean
                 operator:
@@ -1265,7 +1265,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_432
+                  properties: &ref_435
                     jwt_hash:
                       type: integer
                       format: int64
@@ -1288,7 +1288,7 @@ paths:
                     last_used_at:
                       type: string
                       format: date-time
-                  required: &ref_433
+                  required: &ref_436
                     - jwt_hash
                     - email
                     - username
@@ -1422,7 +1422,7 @@ paths:
                     type: array
                     items:
                       type: object
-                      properties: &ref_419
+                      properties: &ref_422
                         label:
                           type: string
                         scopes:
@@ -1431,7 +1431,7 @@ paths:
                             type: string
                         expiration:
                           type: string
-                      required: &ref_420
+                      required: &ref_423
                         - label
                         - scopes
                     description: Tokens owned by this user (will be deleted)
@@ -1475,7 +1475,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_421
+              properties: &ref_424
                 reassign_to:
                   type: string
                   description: 'Target for reassignment: ''u/{username}'' or ''f/{folder}'''
@@ -1489,7 +1489,7 @@ paths:
                   type: boolean
                   default: true
                   description: Whether to also remove the user from the workspace
-              required: &ref_422
+              required: &ref_425
                 - reassign_to
       responses:
         '200':
@@ -1508,7 +1508,7 @@ paths:
                       on success.
                   summary:
                     type: object
-                    properties: &ref_423
+                    properties: &ref_426
                       scripts_reassigned:
                         type: integer
                       flows_reassigned:
@@ -1525,7 +1525,7 @@ paths:
                         type: integer
                       drafts_deleted:
                         type: integer
-                    required: &ref_424
+                    required: &ref_427
                       - scripts_reassigned
                       - flows_reassigned
                       - apps_reassigned
@@ -1555,12 +1555,12 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: &ref_425
+                properties: &ref_428
                   workspaces:
                     type: array
                     items:
                       type: object
-                      properties: &ref_427
+                      properties: &ref_430
                         workspace_id:
                           type: string
                         username:
@@ -1569,11 +1569,11 @@ paths:
                           type: object
                           properties: *ref_12
                           required: *ref_13
-                      required: &ref_428
+                      required: &ref_431
                         - workspace_id
                         - username
                         - preview
-                required: &ref_426
+                required: &ref_429
                   - workspaces
   /users/offboard/{email}:
     post:
@@ -1595,12 +1595,12 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_429
+              properties: &ref_432
                 reassignments:
                   type: object
                   additionalProperties:
                     type: object
-                    properties: &ref_430
+                    properties: &ref_433
                       reassign_to:
                         type: string
                         description: 'Target: ''u/{username}'' or ''f/{folder}'''
@@ -1609,7 +1609,7 @@ paths:
                         description: >-
                           Required when reassign_to is a folder. Username to use
                           as permissioned_as.
-                    required: &ref_431
+                    required: &ref_434
                       - reassign_to
                   description: Map of workspace_id to reassignment config
                 delete_user:
@@ -1669,7 +1669,7 @@ paths:
             application/json:
               schema:
                 type: array
-                items: &ref_591
+                items: &ref_594
                   type: object
                   properties:
                     workspace_id:
@@ -1779,7 +1779,7 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: &ref_521
+                properties: &ref_524
                   email:
                     type: string
                   workspaces:
@@ -1863,7 +1863,7 @@ paths:
                         - color
                         - is_dev_workspace
                         - disabled
-                required: &ref_522
+                required: &ref_525
                   - email
                   - workspaces
   /workspaces/session_workspace_status:
@@ -1959,7 +1959,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_523
+              properties: &ref_526
                 id:
                   type: string
                 name:
@@ -1968,7 +1968,14 @@ paths:
                   type: string
                 color:
                   type: string
-              required: &ref_524
+                error_handler_fallback_to_instance_alerts:
+                  type: boolean
+                  default: false
+                  description: >-
+                    Report failed jobs to the instance critical alert channels
+                    when no workspace error handler is set. Not available on
+                    cloud or on fork workspaces.
+              required: &ref_527
                 - id
                 - name
       responses:
@@ -2252,7 +2259,9 @@ paths:
                 type: boolean
   /settings/refresh_custom_instance_user_pwd:
     post:
-      summary: Refreshes the password for the custom_instance_user
+      summary: >-
+        Refreshes the passwords for the custom_instance_user and the
+        custom_instance_replication_user (used by postgres triggers)
       operationId: refreshCustomInstanceUserPwd
       tags:
         - setting
@@ -2284,7 +2293,7 @@ paths:
                   properties: &ref_24
                     logs:
                       type: object
-                      properties: &ref_489
+                      properties: &ref_492
                         super_admin:
                           type: string
                           enum: &ref_21
@@ -3178,11 +3187,11 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_572
+                  properties: &ref_575
                     name:
                       type: string
                     value: {}
-                  required: &ref_573
+                  required: &ref_576
                     - name
                     - value
   /settings/instance_config:
@@ -3280,9 +3289,9 @@ paths:
             application/json:
               schema:
                 type: object
-                required: &ref_388
+                required: &ref_391
                   - keys
-                properties: &ref_389
+                properties: &ref_392
                   keys:
                     type: array
                     items:
@@ -3399,11 +3408,11 @@ paths:
                     type: array
                     items:
                       type: object
-                      required: &ref_386
+                      required: &ref_389
                         - workspace_id
                         - path
                         - error
-                      properties: &ref_387
+                      properties: &ref_390
                         workspace_id:
                           type: string
                           description: Workspace ID where the secret is located
@@ -4701,7 +4710,7 @@ paths:
             application/json:
               schema:
                 type: object
-                required: &ref_581
+                required: &ref_584
                   - all_ahead_items_visible
                   - all_behind_items_visible
                   - skipped_comparison
@@ -4709,7 +4718,7 @@ paths:
                   - summary
                   - hidden_ahead
                   - hidden_behind
-                properties: &ref_582
+                properties: &ref_585
                   all_ahead_items_visible:
                     type: boolean
                     description: >-
@@ -4730,7 +4739,7 @@ paths:
                     description: List of differences found between workspaces
                     items:
                       type: object
-                      required: &ref_585
+                      required: &ref_588
                         - kind
                         - path
                         - ahead
@@ -4738,7 +4747,7 @@ paths:
                         - has_changes
                         - exists_in_source
                         - exists_in_fork
-                      properties: &ref_586
+                      properties: &ref_589
                         kind:
                           type: string
                           enum:
@@ -4784,7 +4793,7 @@ paths:
                   summary:
                     description: Summary statistics of the comparison
                     type: object
-                    required: &ref_587
+                    required: &ref_590
                       - total_diffs
                       - total_ahead
                       - total_behind
@@ -4799,7 +4808,7 @@ paths:
                       - triggers_changed
                       - datatable_migrations_changed
                       - conflicts
-                    properties: &ref_588
+                    properties: &ref_591
                       total_diffs:
                         type: integer
                         description: Total number of items with differences
@@ -4874,10 +4883,10 @@ paths:
                           otherwise)
                         items:
                           type: object
-                          required: &ref_583
+                          required: &ref_586
                             - kind
                             - path
-                          properties: &ref_584
+                          properties: &ref_587
                             kind:
                               type: string
                               description: Type of the hidden item
@@ -5044,12 +5053,12 @@ paths:
                         type: array
                         items:
                           type: object
-                          properties: &ref_553
+                          properties: &ref_556
                             pattern:
                               type: string
                             allow:
                               type: string
-                          required: &ref_554
+                          required: &ref_557
                             - pattern
                             - allow
                       secondary_storage:
@@ -5187,7 +5196,7 @@ paths:
                   auto_invite:
                     type: object
                     description: Configuration for auto-inviting users to the workspace
-                    properties: &ref_377
+                    properties: &ref_380
                       enabled:
                         type: boolean
                         default: false
@@ -5228,7 +5237,7 @@ paths:
                         type: object
                         additionalProperties:
                           type: object
-                          properties: &ref_396
+                          properties: &ref_399
                             resource_path:
                               type: string
                             models:
@@ -5237,7 +5246,7 @@ paths:
                                 type: string
                             web_search_enabled:
                               type: boolean
-                          required: &ref_397
+                          required: &ref_400
                             - resource_path
                             - models
                       default_model:
@@ -5284,7 +5293,7 @@ paths:
                   error_handler:
                     type: object
                     description: Configuration for the workspace error handler
-                    properties: &ref_378
+                    properties: &ref_381
                       path:
                         type: string
                         description: Path to the error handler script or flow
@@ -5301,7 +5310,7 @@ paths:
                   success_handler:
                     type: object
                     description: Configuration for the workspace success handler
-                    properties: &ref_379
+                    properties: &ref_382
                       path:
                         type: string
                         description: Path to the success handler script or flow
@@ -5441,12 +5450,12 @@ paths:
                                 enum: *ref_50
                             auto_pull:
                               type: object
-                              properties: &ref_558
+                              properties: &ref_561
                                 enabled:
                                   type: boolean
                                 mode:
                                   type: string
-                                  enum: &ref_555
+                                  enum: &ref_558
                                     - auto
                                     - webhook
                                     - polling
@@ -5467,7 +5476,7 @@ paths:
                                     type: string
                                 last_pull_status:
                                   type: object
-                                  properties: &ref_556
+                                  properties: &ref_559
                                     synced_sha:
                                       type: string
                                     at:
@@ -5480,10 +5489,10 @@ paths:
                                       type: boolean
                                     error:
                                       type: string
-                                  required: &ref_557
+                                  required: &ref_560
                                     - at
                                     - success
-                              required: &ref_559
+                              required: &ref_562
                                 - enabled
                             promotion_open_prs:
                               type: boolean
@@ -5529,6 +5538,11 @@ paths:
                     description: >-
                       Rate limit for public app executions per minute per
                       server. NULL or 0 means disabled.
+                  error_handler_fallback_to_instance_alerts:
+                    type: boolean
+                    description: >-
+                      Report failed jobs to the instance critical alert channels
+                      when no workspace error handler is set.
   /w/{workspace}/workspaces/get_deploy_to:
     get:
       summary: get deploy to
@@ -5703,7 +5717,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_526
+                  properties: &ref_529
                     importer_path:
                       type: string
                     importer_kind:
@@ -5717,7 +5731,7 @@ paths:
                       items:
                         type: string
                       nullable: true
-                  required: &ref_527
+                  required: &ref_530
                     - importer_path
                     - importer_kind
   /w/{workspace}/workspaces/get_imports/{importer_path}:
@@ -5775,13 +5789,13 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_528
+                  properties: &ref_531
                     imported_path:
                       type: string
                     count:
                       type: integer
                       format: int64
-                  required: &ref_529
+                  required: &ref_532
                     - imported_path
                     - count
   /w/{workspace}/workspaces/get_dependency_map:
@@ -5804,7 +5818,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_525
+                  properties: &ref_528
                     workspace_id:
                       type: string
                       nullable: true
@@ -6336,7 +6350,7 @@ paths:
                         type: array
                         items:
                           type: object
-                          properties: &ref_398
+                          properties: &ref_401
                             provider:
                               type: string
                               enum: *ref_53
@@ -6344,7 +6358,7 @@ paths:
                               type: array
                               items:
                                 type: string
-                          required: &ref_399
+                          required: &ref_402
                             - provider
                             - models
                       default_model:
@@ -6435,10 +6449,10 @@ paths:
                 Request body for editing the workspace error handler. Accepts
                 both new grouped format and legacy flat format for backward
                 compatibility.
-              oneOf: &ref_380
+              oneOf: &ref_383
                 - type: object
                   description: New grouped format for editing error handler
-                  properties: &ref_381
+                  properties: &ref_384
                     path:
                       type: string
                       description: Path to the error handler script or flow
@@ -6452,11 +6466,17 @@ paths:
                     muted_on_user_path:
                       type: boolean
                       default: false
+                    fallback_to_instance_alerts:
+                      type: boolean
+                      description: >-
+                        Report failed jobs to the instance critical alert
+                        channels when no workspace error handler is set. Omit to
+                        leave the stored value untouched.
                 - type: object
                   description: >-
                     Legacy flat format for editing error handler (deprecated,
                     use new format)
-                  properties: &ref_382
+                  properties: &ref_385
                     error_handler:
                       type: string
                       description: Path to the error handler script or flow
@@ -6495,10 +6515,10 @@ paths:
                 Request body for editing the workspace success handler. Accepts
                 both new grouped format and legacy flat format for backward
                 compatibility.
-              oneOf: &ref_383
+              oneOf: &ref_386
                 - type: object
                   description: New grouped format for editing success handler
-                  properties: &ref_384
+                  properties: &ref_387
                     path:
                       type: string
                       description: Path to the success handler script or flow
@@ -6510,7 +6530,7 @@ paths:
                   description: >-
                     Legacy flat format for editing success handler (deprecated,
                     use new format)
-                  properties: &ref_385
+                  properties: &ref_388
                     success_handler:
                       type: string
                       description: Path to the success handler script or flow
@@ -6661,13 +6681,13 @@ paths:
 
                         a trailing `FILTER (WHERE filter)`.
                       type: object
-                      required: &ref_598
+                      required: &ref_601
                         - script_path
                         - table_path
                         - kind
                         - name
                         - expr
-                      properties: &ref_599
+                      properties: &ref_602
                         script_path:
                           type: string
                           description: >-
@@ -6765,10 +6785,10 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_545
+                  required: &ref_548
                     - datatable_name
                     - schemas
-                  properties: &ref_546
+                  properties: &ref_549
                     datatable_name:
                       type: string
                     schemas:
@@ -6810,10 +6830,10 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_547
+                  required: &ref_550
                     - datatable_name
                     - schemas
-                  properties: &ref_548
+                  properties: &ref_551
                     datatable_name:
                       type: string
                     schemas:
@@ -6858,12 +6878,12 @@ paths:
             application/json:
               schema:
                 type: object
-                required: &ref_549
+                required: &ref_552
                   - datatable_name
                   - schema_name
                   - table_name
                   - columns
-                properties: &ref_550
+                properties: &ref_553
                   datatable_name:
                     type: string
                   schema_name:
@@ -7131,12 +7151,12 @@ paths:
                     type: array
                     items:
                       type: object
-                      required: &ref_543
+                      required: &ref_546
                         - timestamp
                         - name
                         - code_up
                         - status
-                      properties: &ref_544
+                      properties: &ref_547
                         timestamp:
                           type: integer
                           format: int64
@@ -8092,7 +8112,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_415
+                  properties: &ref_418
                     email:
                       type: string
                     executions:
@@ -8155,7 +8175,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_539
+                  properties: &ref_542
                     name:
                       type: string
                     description:
@@ -8165,7 +8185,7 @@ paths:
                       type: array
                       items:
                         type: object
-                        properties: &ref_537
+                        properties: &ref_540
                           value:
                             type: string
                           label:
@@ -8175,11 +8195,11 @@ paths:
                             nullable: true
                           requires_resource_path:
                             type: boolean
-                        required: &ref_538
+                        required: &ref_541
                           - value
                           - label
                           - requires_resource_path
-                  required: &ref_540
+                  required: &ref_543
                     - name
                     - scopes
   /users/tokens/create:
@@ -8195,7 +8215,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_434
+              properties: &ref_437
                 label:
                   type: string
                 expiration:
@@ -8236,7 +8256,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_435
+              properties: &ref_438
                 label:
                   type: string
                 expiration:
@@ -8246,7 +8266,7 @@ paths:
                   type: string
                 workspace_id:
                   type: string
-              required: &ref_436
+              required: &ref_439
                 - impersonate_email
       responses:
         '201':
@@ -8444,7 +8464,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_439
+              properties: &ref_442
                 path:
                   type: string
                   description: The path to the variable
@@ -8473,7 +8493,7 @@ paths:
                     type: string
                 ws_specific:
                   type: boolean
-              required: &ref_440
+              required: &ref_443
                 - path
                 - value
                 - is_secret
@@ -8595,7 +8615,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_441
+              properties: &ref_444
                 path:
                   type: string
                   description: The path to the variable
@@ -8968,7 +8988,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_437
+                  properties: &ref_440
                     name:
                       type: string
                     value:
@@ -8977,7 +8997,7 @@ paths:
                       type: string
                     is_custom:
                       type: boolean
-                  required: &ref_438
+                  required: &ref_441
                     - name
                     - value
                     - description
@@ -9164,12 +9184,12 @@ paths:
                   description: >-
                     A workspace protection rule defining restrictions and bypass
                     permissions
-                  required: &ref_604
+                  required: &ref_607
                     - name
                     - rules
                     - bypass_groups
                     - bypass_users
-                  properties: &ref_605
+                  properties: &ref_608
                     name:
                       type: string
                       description: Unique name for the protection rule
@@ -9181,7 +9201,7 @@ paths:
                       description: Configuration of protection restrictions
                       items: &ref_68
                         type: string
-                        enum: &ref_606
+                        enum: &ref_609
                           - DisableDirectDeployment
                           - DisableWorkspaceForking
                           - RestrictDeployToDeployers
@@ -9342,11 +9362,11 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_607
+                  required: &ref_610
                     - username
                     - email
                     - is_admin
-                  properties: &ref_608
+                  properties: &ref_611
                     username:
                       type: string
                     email:
@@ -9401,10 +9421,10 @@ paths:
                         type: array
                         items:
                           type: object
-                          required: &ref_609
+                          required: &ref_612
                             - username
                             - email
-                          properties: &ref_610
+                          properties: &ref_613
                             username:
                               type: string
                             email:
@@ -10420,7 +10440,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_446
+              properties: &ref_449
                 path:
                   type: string
                   description: The path to the resource
@@ -10437,7 +10457,7 @@ paths:
                     type: string
                 ws_specific:
                   type: boolean
-              required: &ref_447
+              required: &ref_450
                 - path
                 - value
                 - resource_type
@@ -10528,7 +10548,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_448
+              properties: &ref_451
                 path:
                   type: string
                   description: The path to the resource
@@ -11114,7 +11134,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_449
+              properties: &ref_452
                 schema: {}
                 description:
                   type: string
@@ -11503,7 +11523,7 @@ paths:
                         description: >-
                           The flow structure containing modules and optional
                           preprocessor/failure handlers
-                        properties: &ref_649
+                        properties: &ref_681
                           modules:
                             type: array
                             description: >-
@@ -11535,7 +11555,7 @@ paths:
                                         in the flow. Use 'bun' as default
                                         language if unspecified. The script
                                         receives arguments from input_transforms
-                                      properties: &ref_341
+                                      properties: &ref_344
                                         input_transforms:
                                           type: object
                                           description: >-
@@ -11714,7 +11734,7 @@ paths:
                                                   - r
                                                   - w
                                                   - rw
-                                      required: &ref_342
+                                      required: &ref_345
                                         - type
                                         - content
                                         - language
@@ -11724,7 +11744,7 @@ paths:
                                         Reference to an existing script by path.
                                         Use this when calling a previously saved
                                         script instead of writing inline code
-                                      properties: &ref_343
+                                      properties: &ref_346
                                         input_transforms:
                                           type: object
                                           description: >-
@@ -11764,7 +11784,7 @@ paths:
                                           description: >-
                                             If true, this script is a trigger that
                                             can start the flow
-                                      required: &ref_344
+                                      required: &ref_347
                                         - type
                                         - path
                                         - input_transforms
@@ -11773,7 +11793,7 @@ paths:
                                         Reference to an existing flow by path.
                                         Use this to call another flow as a
                                         subflow
-                                      properties: &ref_345
+                                      properties: &ref_348
                                         input_transforms:
                                           type: object
                                           description: >-
@@ -11798,7 +11818,7 @@ paths:
                                           type: string
                                           enum:
                                             - flow
-                                      required: &ref_346
+                                      required: &ref_349
                                         - type
                                         - path
                                         - input_transforms
@@ -11811,7 +11831,7 @@ paths:
                                         'flow_input.iter.index' for the index.
                                         Supports parallel execution for better
                                         performance on I/O-bound operations
-                                      properties: &ref_347
+                                      properties: &ref_350
                                         modules:
                                           type: array
                                           description: >-
@@ -11860,7 +11880,7 @@ paths:
                                           discriminator: *ref_90
                                         squash:
                                           type: boolean
-                                      required: &ref_348
+                                      required: &ref_351
                                         - modules
                                         - iterator
                                         - skip_failures
@@ -11872,7 +11892,7 @@ paths:
                                         condition after each iteration. Use
                                         stop_after_if on modules to control loop
                                         termination
-                                      properties: &ref_349
+                                      properties: &ref_352
                                         modules:
                                           type: array
                                           description: >-
@@ -11910,7 +11930,7 @@ paths:
                                           discriminator: *ref_90
                                         squash:
                                           type: boolean
-                                      required: &ref_350
+                                      required: &ref_353
                                         - modules
                                         - skip_failures
                                         - type
@@ -11922,7 +11942,7 @@ paths:
                                         one with a true expression runs. If no
                                         branches match, the default branch
                                         executes
-                                      properties: &ref_351
+                                      properties: &ref_354
                                         branches:
                                           type: array
                                           description: >-
@@ -11974,7 +11994,7 @@ paths:
                                           type: string
                                           enum:
                                             - branchone
-                                      required: &ref_352
+                                      required: &ref_355
                                         - branches
                                         - default
                                         - type
@@ -11985,7 +12005,7 @@ paths:
                                         BranchOne, all branches run regardless
                                         of conditions. Useful for executing
                                         independent tasks concurrently
-                                      properties: &ref_353
+                                      properties: &ref_356
                                         branches:
                                           type: array
                                           description: >-
@@ -12026,7 +12046,7 @@ paths:
                                             If true, all branches execute
                                             concurrently. If false, they execute
                                             sequentially
-                                      required: &ref_354
+                                      required: &ref_357
                                         - branches
                                         - type
                                     - type: object
@@ -12034,7 +12054,7 @@ paths:
                                         Pass-through module that returns its
                                         input unchanged. Useful for flow
                                         structure or as a placeholder
-                                      properties: &ref_355
+                                      properties: &ref_358
                                         type:
                                           type: string
                                           enum:
@@ -12044,7 +12064,7 @@ paths:
                                           description: >-
                                             If true, marks this as a flow identity
                                             (special handling)
-                                      required: &ref_356
+                                      required: &ref_359
                                         - type
                                     - type: object
                                       description: >-
@@ -12052,7 +12072,7 @@ paths:
                                         accomplish tasks. The agent receives
                                         inputs and can call any of its
                                         configured tools to complete the task
-                                      properties: &ref_357
+                                      properties: &ref_360
                                         input_transforms:
                                           type: object
                                           description: >-
@@ -12064,22 +12084,22 @@ paths:
                                                 Provider configuration - can be static
                                                 (ProviderConfig), JavaScript expression,
                                                 or AI-determined
-                                              oneOf: &ref_359
+                                              oneOf: &ref_362
                                                 - type: object
                                                   description: >-
                                                     Static provider configuration passed
                                                     directly to the AI agent
-                                                  properties: &ref_634
+                                                  properties: &ref_666
                                                     value:
                                                       type: object
                                                       description: >-
                                                         Complete AI provider configuration with
                                                         resource reference and model selection
-                                                      properties: &ref_632
+                                                      properties: &ref_664
                                                         kind:
                                                           type: string
                                                           description: Supported AI provider types
-                                                          enum: &ref_334
+                                                          enum: &ref_337
                                                             - openai
                                                             - azure_openai
                                                             - azure_foundry
@@ -12111,7 +12131,7 @@ paths:
                                                             that support extended thinking.
                                                             Optional; unset leaves the provider
                                                             default.
-                                                      required: &ref_633
+                                                      required: &ref_665
                                                         - kind
                                                         - resource
                                                         - model
@@ -12119,7 +12139,7 @@ paths:
                                                       type: string
                                                       enum:
                                                         - static
-                                                  required: &ref_635
+                                                  required: &ref_667
                                                     - type
                                                     - value
                                                 - type: object
@@ -12139,7 +12159,7 @@ paths:
                                                     satisfy the parameter.
                                                   properties: *ref_95
                                                   required: *ref_96
-                                              discriminator: &ref_360
+                                              discriminator: &ref_363
                                                 propertyName: type
                                                 mapping:
                                                   static: >-
@@ -12210,27 +12230,27 @@ paths:
                                                 Memory configuration - can be static
                                                 (MemoryConfig), JavaScript expression,
                                                 or AI-determined
-                                              oneOf: &ref_361
+                                              oneOf: &ref_364
                                                 - type: object
                                                   description: >-
                                                     Static memory configuration passed
                                                     directly to the AI agent
-                                                  properties: &ref_640
+                                                  properties: &ref_672
                                                     value:
                                                       description: Conversation memory configuration
-                                                      oneOf: &ref_638
+                                                      oneOf: &ref_670
                                                         - type: object
                                                           description: No conversation memory/context
-                                                          properties: &ref_335
+                                                          properties: &ref_338
                                                             kind:
                                                               type: string
                                                               enum:
                                                                 - 'off'
-                                                          required: &ref_336
+                                                          required: &ref_339
                                                             - kind
                                                         - type: object
                                                           description: Automatic context management
-                                                          properties: &ref_337
+                                                          properties: &ref_340
                                                             kind:
                                                               type: string
                                                               enum:
@@ -12245,11 +12265,11 @@ paths:
                                                               description: >-
                                                                 Identifier for persistent memory across
                                                                 agent invocations
-                                                          required: &ref_338
+                                                          required: &ref_341
                                                             - kind
                                                         - type: object
                                                           description: Explicit message history
-                                                          properties: &ref_339
+                                                          properties: &ref_342
                                                             kind:
                                                               type: string
                                                               enum:
@@ -12259,7 +12279,7 @@ paths:
                                                               items:
                                                                 type: object
                                                                 description: A single message in conversation history
-                                                                properties: &ref_636
+                                                                properties: &ref_668
                                                                   role:
                                                                     type: string
                                                                     enum:
@@ -12268,13 +12288,13 @@ paths:
                                                                       - system
                                                                   content:
                                                                     type: string
-                                                                required: &ref_637
+                                                                required: &ref_669
                                                                   - role
                                                                   - content
-                                                          required: &ref_340
+                                                          required: &ref_343
                                                             - kind
                                                             - messages
-                                                      discriminator: &ref_639
+                                                      discriminator: &ref_671
                                                         propertyName: kind
                                                         mapping:
                                                           'off': '#/components/schemas/MemoryOff'
@@ -12284,7 +12304,7 @@ paths:
                                                       type: string
                                                       enum:
                                                         - static
-                                                  required: &ref_641
+                                                  required: &ref_673
                                                     - type
                                                     - value
                                                 - type: object
@@ -12304,7 +12324,7 @@ paths:
                                                     satisfy the parameter.
                                                   properties: *ref_95
                                                   required: *ref_96
-                                              discriminator: &ref_362
+                                              discriminator: &ref_365
                                                 propertyName: type
                                                 mapping:
                                                   static: >-
@@ -12417,7 +12437,7 @@ paths:
                                               A tool available to an AI agent. Can be
                                               a flow module or an external MCP (Model
                                               Context Protocol) tool
-                                            properties: &ref_363
+                                            properties: &ref_366
                                               id:
                                                 type: string
                                                 description: >-
@@ -12442,12 +12462,12 @@ paths:
                                                   The implementation of a tool. Can be a
                                                   flow module (script/flow) or an MCP tool
                                                   reference
-                                                oneOf: &ref_647
+                                                oneOf: &ref_679
                                                   - description: >-
                                                       A tool implemented as a flow module
                                                       (script, flow, etc.). The AI can call
                                                       this like any other flow module
-                                                    allOf: &ref_642
+                                                    allOf: &ref_674
                                                       - type: object
                                                         properties:
                                                           tool_type:
@@ -12480,7 +12500,7 @@ paths:
                                                       Reference to an external MCP (Model
                                                       Context Protocol) tool. The AI can call
                                                       tools from MCP servers
-                                                    properties: &ref_643
+                                                    properties: &ref_675
                                                       tool_type:
                                                         type: string
                                                         enum:
@@ -12504,7 +12524,7 @@ paths:
                                                           MCP server
                                                         items:
                                                           type: string
-                                                    required: &ref_644
+                                                    required: &ref_676
                                                       - tool_type
                                                       - resource_path
                                                   - type: object
@@ -12512,20 +12532,20 @@ paths:
                                                       A tool implemented as a websearch tool.
                                                       The AI can call this like any other
                                                       websearch tool
-                                                    properties: &ref_645
+                                                    properties: &ref_677
                                                       tool_type:
                                                         type: string
                                                         enum:
                                                           - websearch
-                                                    required: &ref_646
+                                                    required: &ref_678
                                                       - tool_type
-                                                discriminator: &ref_648
+                                                discriminator: &ref_680
                                                   propertyName: tool_type
                                                   mapping:
                                                     flowmodule: '#/components/schemas/FlowModuleTool'
                                                     mcp: '#/components/schemas/McpToolValue'
                                                     websearch: '#/components/schemas/WebsearchToolValue'
-                                            required: &ref_364
+                                            required: &ref_367
                                               - id
                                               - value
                                         type:
@@ -12551,7 +12571,7 @@ paths:
                                           description: >-
                                             If true, the agent can execute multiple
                                             tool calls in parallel
-                                      required: &ref_358
+                                      required: &ref_361
                                         - tools
                                         - type
                                         - input_transforms
@@ -12724,7 +12744,7 @@ paths:
                                     Retry configuration for failed module
                                     executions
                                   type: object
-                                  properties: &ref_333
+                                  properties: &ref_336
                                     constant:
                                       type: object
                                       description: >-
@@ -13021,7 +13041,7 @@ paths:
                               required: &ref_159
                                 - start_id
                                 - end_id
-                        required: &ref_650
+                        required: &ref_682
                           - modules
                       schema:
                         type: object
@@ -14373,7 +14393,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_405
+              properties: &ref_408
                 path:
                   type: string
                 parent_hash:
@@ -14518,7 +14538,7 @@ paths:
                   description: >-
                     When true (set by the CLI / git sync), deploying this script
                     does not delete an existing user draft at the same path.
-              required: &ref_406
+              required: &ref_409
                 - path
                 - summary
                 - content
@@ -14651,7 +14671,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_403
+              properties: &ref_406
                 workspace_id:
                   type: string
                 language:
@@ -14663,7 +14683,7 @@ paths:
                   type: string
                 content:
                   type: string
-              required: &ref_404
+              required: &ref_407
                 - workspace_id
                 - language
                 - content
@@ -15310,7 +15330,7 @@ paths:
         - name: token
           in: path
           required: true
-          schema: &ref_323
+          schema: &ref_326
             type: string
         - name: path
           in: path
@@ -15593,11 +15613,11 @@ paths:
                         against (as-of the producer's last run, not its latest
                         save).
                       type: object
-                      required: &ref_600
+                      required: &ref_603
                         - kind
                         - asset_path
                         - message
-                      properties: &ref_601
+                      properties: &ref_604
                         kind:
                           type: string
                           enum:
@@ -17014,7 +17034,7 @@ paths:
                           properties: *ref_129
                           required: *ref_130
                         - type: object
-                          properties: &ref_531
+                          properties: &ref_534
                             workspace_id:
                               type: string
                             path:
@@ -17028,7 +17048,7 @@ paths:
                               type: boolean
                             extra_perms:
                               type: object
-                              additionalProperties: &ref_530
+                              additionalProperties: &ref_533
                                 type: boolean
                             starred:
                               type: boolean
@@ -17061,7 +17081,7 @@ paths:
                                 Labels inherited from the parent folder,
                                 computed at read time. Read-only — edit them on
                                 the folder.
-                          required: &ref_532
+                          required: &ref_535
                             - path
                             - edited_by
                             - edited_at
@@ -17493,7 +17513,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - allOf: &ref_533
+                - allOf: &ref_536
                     - type: object
                       description: >-
                         Top-level flow definition containing metadata,
@@ -17581,7 +17601,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - allOf: &ref_534
+                - allOf: &ref_537
                     - type: object
                       description: >-
                         Top-level flow definition containing metadata,
@@ -17726,14 +17746,14 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_390
+                  required: &ref_393
                     - id
                     - workspace_id
                     - flow_path
                     - created_at
                     - updated_at
                     - created_by
-                  properties: &ref_391
+                  properties: &ref_394
                     id:
                       type: string
                       format: uuid
@@ -17826,14 +17846,14 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_392
+                  required: &ref_395
                     - id
                     - conversation_id
                     - message_type
                     - content
                     - created_at
                     - created_seq
-                  properties: &ref_393
+                  properties: &ref_396
                     id:
                       type: string
                       format: uuid
@@ -17990,7 +18010,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_541
+                  properties: &ref_544
                     workspace_id:
                       type: string
                     path:
@@ -18020,7 +18040,7 @@ paths:
                       description: >
                         Labels inherited from the parent folder, computed at
                         read time. Read-only — edit them on the folder.
-                  required: &ref_542
+                  required: &ref_545
                     - workspace_id
                     - path
                     - summary
@@ -18431,7 +18451,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_535
+                  properties: &ref_538
                     id:
                       type: integer
                     workspace_id:
@@ -18518,7 +18538,7 @@ paths:
                       description: >
                         Labels inherited from the parent folder, computed at
                         read time. Read-only — edit them on the folder.
-                  required: &ref_536
+                  required: &ref_539
                     - id
                     - workspace_id
                     - path
@@ -18912,7 +18932,7 @@ paths:
         - name: version
           in: path
           required: true
-          schema: &ref_324
+          schema: &ref_327
             type: integer
       requestBody:
         description: App deployment message
@@ -20433,7 +20453,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_442
+              properties: &ref_445
                 content:
                   type: string
                   description: The code to run
@@ -20444,7 +20464,7 @@ paths:
                 language:
                   type: string
                   enum: *ref_104
-              required: &ref_443
+              required: &ref_446
                 - content
                 - args
                 - language
@@ -20579,12 +20599,12 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_444
+              properties: &ref_447
                 args:
                   type: object
                   description: The arguments to pass to the script or flow
                   additionalProperties: true
-              required: &ref_445
+              required: &ref_448
                 - args
       responses:
         '201':
@@ -21018,7 +21038,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_551
+              properties: &ref_554
                 entrypoint_function:
                   type: string
                   description: Name of the function to execute for dynamic select
@@ -21061,7 +21081,7 @@ paths:
                       required:
                         - source
                         - code
-              required: &ref_552
+              required: &ref_555
                 - entrypoint_function
                 - runnable_ref
       responses:
@@ -21136,7 +21156,7 @@ paths:
             'f/trigger1,f/trigger2') and negation by prefixing all values with
             '!' (e.g. '!f/trigger1,!f/trigger2')
           in: query
-          schema: &ref_325
+          schema: &ref_328
             type: string
         - name: trigger_kind
           description: >-
@@ -23685,7 +23705,7 @@ paths:
           schema: *ref_183
         - name: get_started
           in: query
-          schema: &ref_331
+          schema: &ref_334
             type: boolean
       responses:
         '200':
@@ -24764,7 +24784,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_451
+              properties: &ref_454
                 path:
                   type: string
                   description: >-
@@ -24946,7 +24966,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_452
+              required: &ref_455
                 - path
                 - schedule
                 - timezone
@@ -24990,7 +25010,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_453
+              properties: &ref_456
                 schedule:
                   type: string
                   description: >-
@@ -25121,7 +25141,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_454
+              required: &ref_457
                 - schedule
                 - timezone
                 - args
@@ -25599,7 +25619,7 @@ paths:
               schema:
                 type: array
                 items:
-                  allOf: &ref_450
+                  allOf: &ref_453
                     - type: object
                       properties: *ref_209
                       required: *ref_210
@@ -25683,7 +25703,7 @@ paths:
               properties: &ref_212
                 info:
                   type: object
-                  properties: &ref_460
+                  properties: &ref_463
                     title:
                       type: string
                     version:
@@ -25712,28 +25732,28 @@ paths:
                           type: string
                       required:
                         - name
-                  required: &ref_461
+                  required: &ref_464
                     - title
                     - version
                 url:
                   type: string
                 openapi_spec_format:
                   type: string
-                  enum: &ref_455
+                  enum: &ref_458
                     - yaml
                     - json
                 http_route_filters:
                   type: array
                   items:
                     type: object
-                    properties: &ref_456
+                    properties: &ref_459
                       folder_regex:
                         type: string
                       path_regex:
                         type: string
                       route_path_regex:
                         type: string
-                    required: &ref_457
+                    required: &ref_460
                       - folder_regex
                       - path_regex
                       - route_path_regex
@@ -25741,7 +25761,7 @@ paths:
                   type: array
                   items:
                     type: object
-                    properties: &ref_458
+                    properties: &ref_461
                       user_or_folder_regex:
                         type: string
                         enum:
@@ -25755,7 +25775,7 @@ paths:
                       runnable_kind:
                         type: string
                         enum: *ref_211
-                    required: &ref_459
+                    required: &ref_462
                       - user_or_folder_regex
                       - user_or_folder_regex_value
                       - path
@@ -26018,7 +26038,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_462
+              properties: &ref_465
                 path:
                   type: string
                   description: >-
@@ -26135,7 +26155,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_463
+              required: &ref_466
                 - path
                 - script_path
                 - is_flow
@@ -26598,7 +26618,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_464
+              properties: &ref_467
                 path:
                   type: string
                   description: >-
@@ -26743,7 +26763,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_465
+              required: &ref_468
                 - path
                 - script_path
                 - url
@@ -26780,7 +26800,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_466
+              properties: &ref_469
                 url:
                   type: string
                   description: >-
@@ -26878,7 +26898,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_467
+              required: &ref_470
                 - path
                 - script_path
                 - url
@@ -27251,7 +27271,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_503
+              properties: &ref_506
                 path:
                   type: string
                   description: >-
@@ -27347,7 +27367,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_504
+              required: &ref_507
                 - path
                 - script_path
                 - is_flow
@@ -27384,7 +27404,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_505
+              properties: &ref_508
                 kafka_resource_path:
                   type: string
                   description: >-
@@ -27476,7 +27496,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_506
+              required: &ref_509
                 - path
                 - script_path
                 - kafka_resource_path
@@ -27892,7 +27912,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_507
+              properties: &ref_510
                 path:
                   type: string
                   description: >-
@@ -27962,7 +27982,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_508
+              required: &ref_511
                 - path
                 - script_path
                 - is_flow
@@ -27998,7 +28018,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_509
+              properties: &ref_512
                 nats_resource_path:
                   type: string
                   description: >-
@@ -28064,7 +28084,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_510
+              required: &ref_513
                 - path
                 - script_path
                 - nats_resource_path
@@ -28397,7 +28417,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_490
+              properties: &ref_493
                 queue_url:
                   type: string
                   description: The full URL of the AWS SQS queue to poll for messages
@@ -28468,7 +28488,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_491
+              required: &ref_494
                 - queue_url
                 - aws_resource_path
                 - path
@@ -28504,7 +28524,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_492
+              properties: &ref_495
                 queue_url:
                   type: string
                   description: The full URL of the AWS SQS queue to poll for messages
@@ -28573,7 +28593,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_493
+              required: &ref_496
                 - queue_url
                 - aws_resource_path
                 - path
@@ -28904,7 +28924,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_615
+                  properties: &ref_618
                     service_name:
                       type: string
                       enum: &ref_241
@@ -28938,7 +28958,7 @@ paths:
                       type: string
                       nullable: true
                       description: Path to the resource storing the OAuth token
-                  required: &ref_616
+                  required: &ref_619
                     - service_name
   /w/{workspace}/native_triggers/integrations/{service_name}/exists:
     get:
@@ -29217,13 +29237,13 @@ paths:
               schema:
                 type: object
                 description: Response returned when a native trigger is created
-                properties: &ref_618
+                properties: &ref_621
                   external_id:
                     type: string
                     description: >-
                       The external ID of the created trigger from the external
                       service
-                required: &ref_619
+                required: &ref_622
                   - external_id
   /w/{workspace}/native_triggers/{service_name}/update/{external_id}:
     post:
@@ -29308,7 +29328,7 @@ paths:
                 description: >-
                   Full trigger response containing both Windmill data and
                   external service data
-                properties: &ref_613
+                properties: &ref_616
                   external_id:
                     type: string
                     description: The unique identifier from the external service
@@ -29344,7 +29364,7 @@ paths:
                     type: object
                     description: Configuration data from the external service
                     additionalProperties: true
-                required: &ref_614
+                required: &ref_617
                   - external_id
                   - workspace_id
                   - service_name
@@ -29449,7 +29469,7 @@ paths:
                 items:
                   type: object
                   description: A native trigger stored in Windmill
-                  properties: &ref_611
+                  properties: &ref_614
                     external_id:
                       type: string
                       description: The unique identifier from the external service
@@ -29481,7 +29501,7 @@ paths:
                       type: string
                       nullable: true
                       description: Short summary to be displayed when listed
-                  required: &ref_612
+                  required: &ref_615
                     - external_id
                     - workspace_id
                     - service_name
@@ -29560,7 +29580,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_620
+                  properties: &ref_623
                     id:
                       type: string
                     name:
@@ -29571,7 +29591,7 @@ paths:
                       type: string
                     path:
                       type: string
-                  required: &ref_621
+                  required: &ref_624
                     - id
                     - name
                     - path
@@ -29596,7 +29616,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_622
+                  properties: &ref_625
                     id:
                       type: string
                     summary:
@@ -29604,7 +29624,7 @@ paths:
                     primary:
                       type: boolean
                       default: false
-                  required: &ref_623
+                  required: &ref_626
                     - id
                     - summary
   /w/{workspace}/native_triggers/google/drive/files:
@@ -29647,12 +29667,12 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: &ref_626
+                properties: &ref_629
                   files:
                     type: array
                     items:
                       type: object
-                      properties: &ref_624
+                      properties: &ref_627
                         id:
                           type: string
                         name:
@@ -29662,13 +29682,13 @@ paths:
                         is_folder:
                           type: boolean
                           default: false
-                      required: &ref_625
+                      required: &ref_628
                         - id
                         - name
                         - mime_type
                   next_page_token:
                     type: string
-                required: &ref_627
+                required: &ref_630
                   - files
   /w/{workspace}/native_triggers/google/drive/shared_drives:
     get:
@@ -29691,12 +29711,12 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_628
+                  properties: &ref_631
                     id:
                       type: string
                     name:
                       type: string
-                  required: &ref_629
+                  required: &ref_632
                     - id
                     - name
   /w/{workspace}/native_triggers/github/repos:
@@ -29720,7 +29740,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_630
+                  properties: &ref_633
                     full_name:
                       type: string
                     name:
@@ -29729,7 +29749,7 @@ paths:
                       type: string
                     private:
                       type: boolean
-                  required: &ref_631
+                  required: &ref_634
                     - full_name
                     - name
                     - owner
@@ -29795,7 +29815,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_469
+              properties: &ref_472
                 mqtt_resource_path:
                   type: string
                   description: >-
@@ -29808,7 +29828,7 @@ paths:
                     properties: &ref_248
                       qos:
                         type: string
-                        enum: &ref_468
+                        enum: &ref_471
                           - qos0
                           - qos1
                           - qos2
@@ -29897,7 +29917,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_470
+              required: &ref_473
                 - path
                 - script_path
                 - is_flow
@@ -29932,7 +29952,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_471
+              properties: &ref_474
                 mqtt_resource_path:
                   type: string
                   description: >-
@@ -30014,7 +30034,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_472
+              required: &ref_475
                 - path
                 - script_path
                 - is_flow
@@ -30354,7 +30374,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_473
+              properties: &ref_476
                 amqp_resource_path:
                   type: string
                   description: >-
@@ -30441,7 +30461,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_474
+              required: &ref_477
                 - path
                 - script_path
                 - is_flow
@@ -30476,7 +30496,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_475
+              properties: &ref_478
                 amqp_resource_path:
                   type: string
                   description: >-
@@ -30541,7 +30561,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_476
+              required: &ref_479
                 - path
                 - script_path
                 - is_flow
@@ -31365,10 +31385,10 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_479
+              properties: &ref_482
                 subscription_id:
                   type: string
-              required: &ref_480
+              required: &ref_483
                 - subscription_id
       responses:
         '200':
@@ -31423,10 +31443,10 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_477
+              properties: &ref_480
                 topic_id:
                   type: string
-              required: &ref_478
+              required: &ref_481
                 - topic_id
       responses:
         '200':
@@ -31834,10 +31854,10 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_483
+              properties: &ref_486
                 azure_resource_path:
                   type: string
-              required: &ref_484
+              required: &ref_487
                 - azure_resource_path
       responses:
         '200':
@@ -31867,10 +31887,10 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_485
+              properties: &ref_488
                 scope_resource_id:
                   type: string
-              required: &ref_486
+              required: &ref_489
                 - scope_resource_id
       responses:
         '200':
@@ -31902,12 +31922,12 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_487
+              properties: &ref_490
                 scope_resource_id:
                   type: string
                 topic_name:
                   type: string
-              required: &ref_488
+              required: &ref_491
                 - scope_resource_id
                 - topic_name
       responses:
@@ -31940,7 +31960,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_481
+              properties: &ref_484
                 azure_mode:
                   type: string
                   enum: *ref_273
@@ -31952,7 +31972,7 @@ paths:
                   nullable: true
                 subscription_name:
                   type: string
-              required: &ref_482
+              required: &ref_485
                 - azure_mode
                 - scope_resource_id
                 - subscription_name
@@ -32092,7 +32112,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_497
+              properties: &ref_500
                 postgres_resource_path:
                   type: string
                 relations:
@@ -32104,7 +32124,7 @@ paths:
                         type: string
                       table_to_track:
                         type: array
-                        items: &ref_495
+                        items: &ref_498
                           type: object
                           properties:
                             table_name:
@@ -32122,9 +32142,9 @@ paths:
                       - table_to_track
                 language:
                   type: string
-                  enum: &ref_496
+                  enum: &ref_499
                     - Typescript
-              required: &ref_498
+              required: &ref_501
                 - postgres_resource_path
                 - relations
                 - language
@@ -32149,7 +32169,7 @@ paths:
         - name: id
           in: path
           required: true
-          schema: &ref_322
+          schema: &ref_325
             type: string
       responses:
         '200':
@@ -32182,7 +32202,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_494
+                  properties: &ref_497
                     slot_name:
                       type: string
                     active:
@@ -32431,7 +32451,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_499
+              properties: &ref_502
                 replication_slot_name:
                   type: string
                   description: Name of the PostgreSQL logical replication slot to use
@@ -32498,7 +32518,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_500
+              required: &ref_503
                 - path
                 - script_path
                 - is_flow
@@ -32533,7 +32553,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_501
+              properties: &ref_504
                 replication_slot_name:
                   type: string
                   description: Name of the PostgreSQL logical replication slot to use
@@ -32600,7 +32620,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_502
+              required: &ref_505
                 - path
                 - script_path
                 - is_flow
@@ -32920,7 +32940,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_511
+              properties: &ref_514
                 path:
                   type: string
                 script_path:
@@ -32960,7 +32980,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_512
+              required: &ref_515
                 - path
                 - script_path
                 - local_part
@@ -32994,7 +33014,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_513
+              properties: &ref_516
                 path:
                   type: string
                 script_path:
@@ -33030,7 +33050,7 @@ paths:
                   type: array
                   items:
                     type: string
-              required: &ref_514
+              required: &ref_517
                 - path
                 - script_path
                 - is_flow
@@ -33320,9 +33340,9 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_515
+                  required: &ref_518
                     - name
-                  properties: &ref_516
+                  properties: &ref_519
                     name:
                       type: string
                     summary:
@@ -33373,14 +33393,14 @@ paths:
                       type: array
                       items:
                         type: object
-                        properties: &ref_517
+                        properties: &ref_520
                           workspace_id:
                             type: string
                           workspace_name:
                             type: string
                           role:
                             type: string
-                        required: &ref_518
+                        required: &ref_521
                           - name
   /groups/get/{name}:
     get:
@@ -34366,7 +34386,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_519
+                  properties: &ref_522
                     worker:
                       type: string
                     worker_instance:
@@ -34412,7 +34432,7 @@ paths:
                       type: string
                     native_mode:
                       type: boolean
-                  required: &ref_520
+                  required: &ref_523
                     - worker
                     - worker_instance
                     - ping_at
@@ -34586,12 +34606,12 @@ paths:
               schema:
                 type: object
                 nullable: true
-                properties: &ref_402
+                properties: &ref_405
                   alerts:
                     type: array
                     items:
                       type: object
-                      properties: &ref_400
+                      properties: &ref_403
                         name:
                           type: string
                         tags_to_monitor:
@@ -34604,7 +34624,7 @@ paths:
                           type: integer
                         alert_time_threshold_seconds:
                           type: integer
-                      required: &ref_401
+                      required: &ref_404
                         - name
                         - tags_to_monitor
                         - jobs_num_threshold
@@ -34666,12 +34686,12 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_574
+                  properties: &ref_577
                     name:
                       type: string
                     config:
                       type: object
-                  required: &ref_575
+                  required: &ref_578
                     - name
   /configs/list_autoscaling_events/{worker_group}:
     get:
@@ -34702,7 +34722,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_578
+                  properties: &ref_581
                     id:
                       type: integer
                       format: int64
@@ -35225,7 +35245,7 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_579
+                  properties: &ref_582
                     trigger_config: {}
                     trigger_kind:
                       type: string
@@ -35235,7 +35255,7 @@ paths:
                     last_server_ping:
                       type: string
                       format: date-time
-                  required: &ref_580
+                  required: &ref_583
                     - trigger_kind
   /w/{workspace}/capture/list/{runnable_kind}/{path}:
     get:
@@ -35453,7 +35473,7 @@ paths:
           in: query
           schema: &ref_305
             type: string
-            enum: &ref_411
+            enum: &ref_414
               - ScriptHash
               - ScriptPath
               - FlowPath
@@ -35595,12 +35615,12 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_407
+              properties: &ref_410
                 name:
                   type: string
                 args:
                   type: object
-              required: &ref_408
+              required: &ref_411
                 - name
                 - args
                 - created_by
@@ -35630,14 +35650,14 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_409
+              properties: &ref_412
                 id:
                   type: string
                 name:
                   type: string
                 is_public:
                   type: boolean
-              required: &ref_410
+              required: &ref_413
                 - id
                 - name
                 - is_public
@@ -35663,7 +35683,7 @@ paths:
         - name: input
           in: path
           required: true
-          schema: &ref_330
+          schema: &ref_333
             type: string
       responses:
         '200':
@@ -36758,46 +36778,46 @@ paths:
                     type: array
                     items:
                       type: object
-                      properties: &ref_560
+                      properties: &ref_563
                         id:
                           type: string
                         name:
                           type: string
-                      required: &ref_561
+                      required: &ref_564
                         - id
                   scalar_metrics:
                     type: array
                     items:
                       type: object
-                      properties: &ref_562
+                      properties: &ref_565
                         metric_id:
                           type: string
                         value:
                           type: number
-                      required: &ref_563
+                      required: &ref_566
                         - id
                         - value
                   timeseries_metrics:
                     type: array
                     items:
                       type: object
-                      properties: &ref_564
+                      properties: &ref_567
                         metric_id:
                           type: string
                         values:
                           type: array
                           items:
                             type: object
-                            properties: &ref_566
+                            properties: &ref_569
                               timestamp:
                                 type: string
                                 format: date-time
                               value:
                                 type: number
-                            required: &ref_567
+                            required: &ref_570
                               - timestamp
                               - value
-                      required: &ref_565
+                      required: &ref_568
                         - id
                         - values
   /w/{workspace}/job_metrics/set_progress/{id}:
@@ -36942,12 +36962,12 @@ paths:
                 type: array
                 items:
                   type: object
-                  properties: &ref_568
+                  properties: &ref_571
                     concurrency_key:
                       type: string
                     total_running:
                       type: number
-                  required: &ref_569
+                  required: &ref_572
                     - concurrency_key
                     - total_running
   /concurrency_groups/prune/{concurrency_id}:
@@ -36960,7 +36980,7 @@ paths:
         - name: concurrency_id
           in: path
           required: true
-          schema: &ref_332
+          schema: &ref_335
             type: string
       responses:
         '200':
@@ -37182,7 +37202,7 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: &ref_570
+                properties: &ref_573
                   jobs:
                     type: array
                     items:
@@ -37192,7 +37212,7 @@ paths:
                     type: array
                     items:
                       type: object
-                      properties: &ref_412
+                      properties: &ref_415
                         typ:
                           type: string
                         started_at:
@@ -37205,7 +37225,7 @@ paths:
                       Obscured jobs omitted for security because of too specific
                       filtering
                     type: boolean
-                required: &ref_571
+                required: &ref_574
                   - jobs
                   - obscured_jobs
   /srch/w/{workspace}/index/search/job:
@@ -37249,7 +37269,7 @@ paths:
                     type: array
                     items:
                       type: object
-                      properties: &ref_576
+                      properties: &ref_579
                         dancer:
                           type: string
                   hit_count:
@@ -37328,7 +37348,7 @@ paths:
                     type: array
                     items:
                       type: object
-                      properties: &ref_577
+                      properties: &ref_580
                         dancer:
                           type: string
   /srch/index/search/count_service_logs:
@@ -38085,13 +38105,13 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_592
+                  required: &ref_595
                     - asset_kind
                     - asset_path
                     - partition
                     - status
                     - materialized_at
-                  properties: &ref_593
+                  properties: &ref_596
                     asset_kind:
                       type: string
                       enum: *ref_319
@@ -38169,11 +38189,11 @@ paths:
             application/json:
               schema:
                 type: object
-                required: &ref_594
+                required: &ref_597
                   - producer_path
                   - partition_kind
                   - partitions
-                properties: &ref_595
+                properties: &ref_598
                   producer_path:
                     type: string
                     description: >-
@@ -38231,11 +38251,11 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_596
+                  required: &ref_599
                     - version
                     - columns
                     - captured_at
-                  properties: &ref_597
+                  properties: &ref_600
                     version:
                       type: integer
                       format: int64
@@ -38282,13 +38302,13 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_602
+                  required: &ref_605
                     - name
                     - size_bytes
                     - file_count
                     - created_at
                     - created_by
-                  properties: &ref_603
+                  properties: &ref_606
                     name:
                       type: string
                     size_bytes:
@@ -38403,13 +38423,13 @@ paths:
                 type: array
                 items:
                   type: object
-                  required: &ref_394
+                  required: &ref_397
                     - name
                     - description
                     - instructions
                     - path
                     - method
-                  properties: &ref_395
+                  properties: &ref_398
                     name:
                       type: string
                       description: The tool name/operation ID
@@ -38532,6 +38552,964 @@ paths:
             text/html:
               schema:
                 type: string
+  /w/{workspace}/hub/publish_draft:
+    post:
+      summary: create or update a hub project draft
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubDraft
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: &ref_322
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_635
+                slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+                name:
+                  type: string
+                summary:
+                  type: string
+                readme:
+                  type: string
+              required: &ref_636
+                - slug
+                - name
+                - summary
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/scripts:
+    post:
+      summary: publish a script to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubScript
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_637
+                summary:
+                  type: string
+                app:
+                  type: string
+                description:
+                  type: string
+                kind:
+                  type: string
+                content:
+                  type: string
+                language:
+                  type: string
+                schema:
+                  type: object
+                lockfile:
+                  type: string
+                path:
+                  type: string
+                source_path:
+                  type: string
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_638
+                - summary
+                - app
+                - content
+                - language
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/flows:
+    post:
+      summary: publish a flow to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubFlow
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_641
+                flow:
+                  type: object
+                  properties: &ref_639
+                    summary:
+                      type: string
+                    description:
+                      type: string
+                    value:
+                      type: object
+                    schema:
+                      type: object
+                  required: &ref_640
+                    - summary
+                    - value
+                apps:
+                  type: array
+                  items:
+                    type: string
+                path:
+                  type: string
+                source_path:
+                  type: string
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_642
+                - flow
+                - apps
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/apps:
+    post:
+      summary: publish an app to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubApp
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_643
+                app:
+                  type: object
+                apps:
+                  type: array
+                  items:
+                    type: string
+                description:
+                  type: string
+                summary:
+                  type: string
+                path:
+                  type: string
+                source_path:
+                  type: string
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_644
+                - app
+                - apps
+                - summary
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/raw_apps:
+    post:
+      summary: publish a raw app to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubRawApp
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_645
+                raw:
+                  type: string
+                apps:
+                  type: array
+                  items:
+                    type: string
+                description:
+                  type: string
+                summary:
+                  type: string
+                path:
+                  type: string
+                source_path:
+                  type: string
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_646
+                - raw
+                - apps
+                - summary
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/raw_apps/{id}/embed:
+    post:
+      summary: set or clear the embed url of a hub raw app
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubRawAppEmbed
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: id
+          in: path
+          required: true
+          description: hub id of the raw app
+          schema:
+            type: integer
+            format: int64
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_647
+                external_embed_url:
+                  type: string
+                  nullable: true
+                  description: explicit `null` clears the embed (unpublish)
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_648
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/scripts/{ask_id}/recording:
+    post:
+      summary: attach a recording to a hub script
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubScriptRecording
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: ask_id
+          in: path
+          required: true
+          description: hub ask id of the script
+          schema:
+            type: integer
+            format: int64
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_323
+                recording:
+                  type: object
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_324
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/flows/{flow_id}/recording:
+    post:
+      summary: attach a recording to a hub flow
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubFlowRecording
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: flow_id
+          in: path
+          required: true
+          description: hub id of the flow
+          schema:
+            type: integer
+            format: int64
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: *ref_323
+              required: *ref_324
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/projects/{slug}/pipeline_recording:
+    post:
+      summary: attach a data-pipeline recording to a hub project
+      description: >
+        Requires the caller to be a workspace admin. A data-pipeline recording
+        is
+
+        scoped to the whole project (a folder cascade), not a single item.
+        Forwards
+
+        the request to the configured Hub scoped to the `{workspace}:{folder}`
+
+        source and returns the Hub's status code and raw response body.
+      operationId: publishHubPipelineRecording
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: slug
+          in: path
+          required: true
+          description: hub project slug
+          schema:
+            type: string
+            description: >-
+              hub project slug (3-50 chars, lowercase alphanumeric and hyphens,
+              no leading/trailing hyphen)
+            minLength: 3
+            maxLength: 50
+            pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_649
+                recording:
+                  type: object
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/resource_types:
+    post:
+      summary: publish a resource type to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubResourceType
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_650
+                name:
+                  type: string
+                schema:
+                  type: object
+                description:
+                  type: string
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_651
+                - name
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/resources:
+    post:
+      summary: publish resource placeholders to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubResources
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_654
+                resources:
+                  type: array
+                  items:
+                    type: object
+                    properties: &ref_652
+                      path:
+                        type: string
+                      resource_type:
+                        type: string
+                    required: &ref_653
+                      - path
+                      - resource_type
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_655
+                - resources
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/triggers:
+    post:
+      summary: publish triggers to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubTriggers
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_658
+                triggers:
+                  type: array
+                  items:
+                    type: object
+                    properties: &ref_656
+                      path:
+                        type: string
+                      kind:
+                        type: string
+                      summary:
+                        type: string
+                        nullable: true
+                      description:
+                        type: string
+                        nullable: true
+                      config:
+                        type: object
+                      script_ask_id:
+                        type: integer
+                        format: int64
+                        nullable: true
+                      flow_id:
+                        type: integer
+                        format: int64
+                        nullable: true
+                    required: &ref_657
+                      - path
+                      - kind
+                      - config
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_659
+                - triggers
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/migrations:
+    post:
+      summary: publish data table migrations to a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: publishHubMigrations
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: &ref_662
+                migrations:
+                  type: array
+                  items:
+                    type: object
+                    description: >-
+                      one best-effort data table migration attached to a project
+                      (per data table)
+                    properties: &ref_660
+                      datatable_name:
+                        type: string
+                      sql:
+                        type: string
+                      sql_down:
+                        type: string
+                        description: defaults to an empty string when omitted
+                      enabled:
+                        type: boolean
+                    required: &ref_661
+                      - datatable_name
+                      - sql
+                      - enabled
+                project_slug:
+                  type: string
+                  description: >-
+                    hub project slug (3-50 chars, lowercase alphanumeric and
+                    hyphens, no leading/trailing hyphen)
+                  minLength: 3
+                  maxLength: 50
+                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+              required: &ref_663
+                - migrations
+                - project_slug
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/projects/{slug}/export:
+    get:
+      summary: export a hub project
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub and returns the Hub's status code and raw response body.
+        The folder scope is only needed to re-export the caller's own draft;
+        approved projects are public, so it is optional here.
+      operationId: getHubProjectExport
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: slug
+          in: path
+          required: true
+          description: >-
+            hub project slug (3-50 chars, lowercase alphanumeric and hyphens, no
+            leading/trailing hyphen)
+          schema:
+            type: string
+            minLength: 3
+            maxLength: 50
+            pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+        - name: folder
+          in: query
+          required: false
+          description: folder scoping the Hub project source (`{workspace}:{folder}`)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/projects/{slug}/submit:
+    post:
+      summary: submit a hub project draft for review
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: submitHubProject
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: slug
+          in: path
+          required: true
+          description: >-
+            hub project slug (3-50 chars, lowercase alphanumeric and hyphens, no
+            leading/trailing hyphen)
+          schema:
+            type: string
+            minLength: 3
+            maxLength: 50
+            pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+  /w/{workspace}/hub/project:
+    get:
+      summary: get the hub project linked to a workspace folder
+      description: |
+        Requires the caller to be a workspace admin. Forwards the request to the
+        configured Hub scoped to the `{workspace}:{folder}` source and returns
+        the Hub's status code and raw response body.
+      operationId: getHubProjectBySource
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: folder
+          in: query
+          required: true
+          description: >
+            workspace folder scoping the Hub publication: a workspace can
+            publish
+
+            one Hub project per folder and the Hub-side source key is
+
+            `{workspace}:{folder}`
+          schema: *ref_322
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
 components:
   securitySchemes:
     bearerAuth:
@@ -38565,7 +39543,7 @@ components:
       name: id
       in: path
       required: true
-      schema: *ref_322
+      schema: *ref_325
     Key:
       name: key
       in: path
@@ -38576,6 +39554,15 @@ components:
       in: path
       required: true
       schema: *ref_4
+    HubPublishFolder:
+      name: folder
+      in: query
+      required: true
+      description: |
+        workspace folder scoping the Hub publication: a workspace can publish
+        one Hub project per folder and the Hub-side source key is
+        `{workspace}:{folder}`
+      schema: *ref_322
     PublicationName:
       name: publication
       in: path
@@ -38592,7 +39579,7 @@ components:
       name: token
       in: path
       required: true
-      schema: *ref_323
+      schema: *ref_326
     AccountId:
       name: id
       in: path
@@ -38649,7 +39636,7 @@ components:
       name: version
       in: path
       required: true
-      schema: *ref_324
+      schema: *ref_327
     Name:
       name: name
       in: path
@@ -38781,7 +39768,7 @@ components:
         'f/trigger1,f/trigger2') and negation by prefixing all values with '!'
         (e.g. '!f/trigger1,!f/trigger2')
       in: query
-      schema: *ref_325
+      schema: *ref_328
     ScriptExactPath:
       name: script_path_exact
       description: >-
@@ -38892,22 +39879,22 @@ components:
       name: username
       description: filter on exact username of user
       in: query
-      schema: *ref_326
+      schema: *ref_329
     Operation:
       name: operation
       description: filter on exact or prefix name of operation
       in: query
-      schema: *ref_327
+      schema: *ref_330
     ResourceName:
       name: resource
       description: filter on exact or prefix name of resource
       in: query
-      schema: *ref_328
+      schema: *ref_331
     ActionKind:
       name: action_kind
       description: filter on type of operation
       in: query
-      schema: *ref_329
+      schema: *ref_332
     JobKinds:
       name: job_kinds
       description: >-
@@ -38928,16 +39915,16 @@ components:
       name: input
       in: path
       required: true
-      schema: *ref_330
+      schema: *ref_333
     GetStarted:
       name: get_started
       in: query
-      schema: *ref_331
+      schema: *ref_334
     ConcurrencyId:
       name: concurrency_id
       in: path
       required: true
-      schema: *ref_332
+      schema: *ref_335
     RunnableKind:
       name: runnable_kind
       in: path
@@ -39134,7 +40121,7 @@ components:
         retry:
           description: Retry configuration for failed module executions
           type: object
-          properties: *ref_333
+          properties: *ref_336
         debouncing:
           description: Debounce configuration for this step (EE only)
           type: object
@@ -39225,7 +40212,7 @@ components:
         kind:
           type: string
           description: Supported AI provider types
-          enum: *ref_334
+          enum: *ref_337
         resource:
           type: string
           description: >-
@@ -39251,16 +40238,16 @@ components:
       oneOf:
         - type: object
           description: No conversation memory/context
-          properties: *ref_335
-          required: *ref_336
+          properties: *ref_338
+          required: *ref_339
         - type: object
           description: Automatic context management
-          properties: *ref_337
-          required: *ref_338
+          properties: *ref_340
+          required: *ref_341
         - type: object
           description: Explicit message history
-          properties: *ref_339
-          required: *ref_340
+          properties: *ref_342
+          required: *ref_343
       discriminator:
         propertyName: kind
         mapping:
@@ -39277,62 +40264,62 @@ components:
             Inline script with code defined directly in the flow. Use 'bun' as
             default language if unspecified. The script receives arguments from
             input_transforms
-          properties: *ref_341
-          required: *ref_342
+          properties: *ref_344
+          required: *ref_345
         - type: object
           description: >-
             Reference to an existing script by path. Use this when calling a
             previously saved script instead of writing inline code
-          properties: *ref_343
-          required: *ref_344
+          properties: *ref_346
+          required: *ref_347
         - type: object
           description: >-
             Reference to an existing flow by path. Use this to call another flow
             as a subflow
-          properties: *ref_345
-          required: *ref_346
+          properties: *ref_348
+          required: *ref_349
         - type: object
           description: >-
             Executes nested modules in a loop over an iterator. Inside the loop,
             use 'flow_input.iter.value' to access the current iteration value,
             and 'flow_input.iter.index' for the index. Supports parallel
             execution for better performance on I/O-bound operations
-          properties: *ref_347
-          required: *ref_348
+          properties: *ref_350
+          required: *ref_351
         - type: object
           description: >-
             Executes nested modules repeatedly while a condition is true. The
             loop checks the condition after each iteration. Use stop_after_if on
             modules to control loop termination
-          properties: *ref_349
-          required: *ref_350
+          properties: *ref_352
+          required: *ref_353
         - type: object
           description: >-
             Conditional branching where only the first matching branch executes.
             Branches are evaluated in order, and the first one with a true
             expression runs. If no branches match, the default branch executes
-          properties: *ref_351
-          required: *ref_352
+          properties: *ref_354
+          required: *ref_355
         - type: object
           description: >-
             Parallel branching where all branches execute simultaneously. Unlike
             BranchOne, all branches run regardless of conditions. Useful for
             executing independent tasks concurrently
-          properties: *ref_353
-          required: *ref_354
+          properties: *ref_356
+          required: *ref_357
         - type: object
           description: >-
             Pass-through module that returns its input unchanged. Useful for
             flow structure or as a placeholder
-          properties: *ref_355
-          required: *ref_356
+          properties: *ref_358
+          required: *ref_359
         - type: object
           description: >-
             AI agent step that can use tools to accomplish tasks. The agent
             receives inputs and can call any of its configured tools to complete
             the task
-          properties: *ref_357
-          required: *ref_358
+          properties: *ref_360
+          required: *ref_361
       discriminator:
         propertyName: type
         mapping:
@@ -39739,8 +40726,8 @@ components:
               description: >-
                 Provider configuration - can be static (ProviderConfig),
                 JavaScript expression, or AI-determined
-              oneOf: *ref_359
-              discriminator: *ref_360
+              oneOf: *ref_362
+              discriminator: *ref_363
             output_type:
               allOf:
                 - description: >-
@@ -39793,8 +40780,8 @@ components:
               description: >-
                 Memory configuration - can be static (MemoryConfig), JavaScript
                 expression, or AI-determined
-              oneOf: *ref_361
-              discriminator: *ref_362
+              oneOf: *ref_364
+              discriminator: *ref_365
             output_schema:
               allOf:
                 - description: >-
@@ -39883,8 +40870,8 @@ components:
             description: >-
               A tool available to an AI agent. Can be a flow module or an
               external MCP (Model Context Protocol) tool
-            properties: *ref_363
-            required: *ref_364
+            properties: *ref_366
+            required: *ref_367
         type:
           type: string
           enum:
@@ -40162,75 +41149,75 @@ components:
     HealthChecks:
       type: object
       description: Detailed health checks
-      required: *ref_365
-      properties: *ref_366
+      required: *ref_368
+      properties: *ref_369
     DatabaseHealth:
       type: object
       description: Database health status
-      required: *ref_367
-      properties: *ref_368
+      required: *ref_370
+      properties: *ref_371
     PoolStats:
       type: object
       description: Database connection pool statistics
-      required: *ref_369
-      properties: *ref_370
+      required: *ref_372
+      properties: *ref_373
     WorkersHealth:
       type: object
       description: Workers health status
-      required: *ref_371
-      properties: *ref_372
+      required: *ref_374
+      properties: *ref_375
     QueueHealth:
       type: object
       description: Job queue status
-      required: *ref_373
-      properties: *ref_374
+      required: *ref_376
+      properties: *ref_377
     ReadinessHealth:
       type: object
       description: Server readiness status
-      required: *ref_375
-      properties: *ref_376
+      required: *ref_378
+      properties: *ref_379
     AutoInviteConfig:
       type: object
       description: Configuration for auto-inviting users to the workspace
-      properties: *ref_377
+      properties: *ref_380
     ErrorHandlerConfig:
       type: object
       description: Configuration for the workspace error handler
-      properties: *ref_378
+      properties: *ref_381
     SuccessHandlerConfig:
       type: object
       description: Configuration for the workspace success handler
-      properties: *ref_379
+      properties: *ref_382
     EditErrorHandler:
       description: >-
         Request body for editing the workspace error handler. Accepts both new
         grouped format and legacy flat format for backward compatibility.
-      oneOf: *ref_380
+      oneOf: *ref_383
     EditErrorHandlerNew:
       type: object
       description: New grouped format for editing error handler
-      properties: *ref_381
+      properties: *ref_384
     EditErrorHandlerLegacy:
       type: object
       description: >-
         Legacy flat format for editing error handler (deprecated, use new
         format)
-      properties: *ref_382
+      properties: *ref_385
     EditSuccessHandler:
       description: >-
         Request body for editing the workspace success handler. Accepts both new
         grouped format and legacy flat format for backward compatibility.
-      oneOf: *ref_383
+      oneOf: *ref_386
     EditSuccessHandlerNew:
       type: object
       description: New grouped format for editing success handler
-      properties: *ref_384
+      properties: *ref_387
     EditSuccessHandlerLegacy:
       type: object
       description: >-
         Legacy flat format for editing success handler (deprecated, use new
         format)
-      properties: *ref_385
+      properties: *ref_388
     VaultSettings:
       type: object
       required: *ref_27
@@ -40245,28 +41232,28 @@ components:
       properties: *ref_34
     SecretMigrationFailure:
       type: object
-      required: *ref_386
-      properties: *ref_387
+      required: *ref_389
+      properties: *ref_390
     SecretMigrationReport:
       type: object
       required: *ref_29
       properties: *ref_30
     JwksResponse:
       type: object
-      required: *ref_388
-      properties: *ref_389
+      required: *ref_391
+      properties: *ref_392
     FlowConversation:
       type: object
-      required: *ref_390
-      properties: *ref_391
+      required: *ref_393
+      properties: *ref_394
     FlowConversationMessage:
       type: object
-      required: *ref_392
-      properties: *ref_393
+      required: *ref_395
+      properties: *ref_396
     EndpointTool:
       type: object
-      required: *ref_394
-      properties: *ref_395
+      required: *ref_397
+      properties: *ref_398
     AIProvider:
       type: string
       enum: *ref_53
@@ -40279,43 +41266,43 @@ components:
       required: *ref_46
     AIProviderConfig:
       type: object
-      properties: *ref_396
-      required: *ref_397
+      properties: *ref_399
+      required: *ref_400
     AIConfig:
       type: object
       properties: *ref_52
     InstanceAIProviderSummary:
       type: object
-      properties: *ref_398
-      required: *ref_399
+      properties: *ref_401
+      required: *ref_402
     InstanceAISummary:
       type: object
       properties: *ref_54
       required: *ref_55
     Alert:
       type: object
-      properties: *ref_400
-      required: *ref_401
+      properties: *ref_403
+      required: *ref_404
     Configs:
       type: object
       nullable: true
-      properties: *ref_402
+      properties: *ref_405
     WorkspaceDependencies:
       type: object
       properties: *ref_108
       required: *ref_109
     NewWorkspaceDependencies:
       type: object
-      properties: *ref_403
-      required: *ref_404
+      properties: *ref_406
+      required: *ref_407
     Script:
       type: object
       properties: *ref_110
       required: *ref_111
     NewScript:
       type: object
-      properties: *ref_405
-      required: *ref_406
+      properties: *ref_408
+      required: *ref_409
     ScriptHistory:
       type: object
       properties: *ref_115
@@ -40330,15 +41317,15 @@ components:
       required: *ref_307
     CreateInput:
       type: object
-      properties: *ref_407
-      required: *ref_408
+      properties: *ref_410
+      required: *ref_411
     UpdateInput:
       type: object
-      properties: *ref_409
-      required: *ref_410
+      properties: *ref_412
+      required: *ref_413
     RunnableType:
       type: string
-      enum: *ref_411
+      enum: *ref_414
     QueuedJob:
       type: object
       properties: *ref_202
@@ -40359,7 +41346,7 @@ components:
       required: *ref_192
     ObscuredJob:
       type: object
-      properties: *ref_412
+      properties: *ref_415
     Job:
       oneOf: *ref_204
       discriminator: *ref_205
@@ -40369,22 +41356,22 @@ components:
       required: *ref_36
     UserSource:
       type: object
-      properties: *ref_413
-      required: *ref_414
-    UserUsage:
-      type: object
-      properties: *ref_415
-    Login:
-      type: object
       properties: *ref_416
       required: *ref_417
+    UserUsage:
+      type: object
+      properties: *ref_418
+    Login:
+      type: object
+      properties: *ref_419
+      required: *ref_420
     PasswordResetResponse:
       type: object
       properties: *ref_7
       required: *ref_8
     EditWorkspaceUser:
       type: object
-      properties: *ref_418
+      properties: *ref_421
     OffboardAffectedPaths:
       type: object
       properties: *ref_11
@@ -40394,64 +41381,64 @@ components:
       required: *ref_13
     OffboardTokenInfo:
       type: object
-      properties: *ref_419
-      required: *ref_420
+      properties: *ref_422
+      required: *ref_423
     OffboardRequest:
       type: object
-      properties: *ref_421
-      required: *ref_422
+      properties: *ref_424
+      required: *ref_425
     OffboardResponse:
       type: object
       properties: *ref_14
     OffboardSummary:
       type: object
-      properties: *ref_423
-      required: *ref_424
+      properties: *ref_426
+      required: *ref_427
     GlobalOffboardPreview:
       type: object
-      properties: *ref_425
-      required: *ref_426
+      properties: *ref_428
+      required: *ref_429
     WorkspaceOffboardPreview:
-      type: object
-      properties: *ref_427
-      required: *ref_428
-    GlobalOffboardRequest:
-      type: object
-      properties: *ref_429
-    WorkspaceReassignment:
       type: object
       properties: *ref_430
       required: *ref_431
+    GlobalOffboardRequest:
+      type: object
+      properties: *ref_432
+    WorkspaceReassignment:
+      type: object
+      properties: *ref_433
+      required: *ref_434
     TruncatedToken:
       type: object
       properties: *ref_113
       required: *ref_114
     ExternalJwtToken:
       type: object
-      properties: *ref_432
-      required: *ref_433
-    NewToken:
-      type: object
-      properties: *ref_434
-    NewTokenImpersonate:
-      type: object
       properties: *ref_435
       required: *ref_436
+    NewToken:
+      type: object
+      properties: *ref_437
+    NewTokenImpersonate:
+      type: object
+      properties: *ref_438
+      required: *ref_439
     ListableVariable:
       type: object
       properties: *ref_65
       required: *ref_66
     ContextualVariable:
       type: object
-      properties: *ref_437
-      required: *ref_438
+      properties: *ref_440
+      required: *ref_441
     CreateVariable:
       type: object
-      properties: *ref_439
-      required: *ref_440
+      properties: *ref_442
+      required: *ref_443
     EditVariable:
       type: object
-      properties: *ref_441
+      properties: *ref_444
     AuditLog:
       type: object
       properties: *ref_5
@@ -40600,15 +41587,15 @@ components:
       required: *ref_153
     PreviewInline:
       type: object
-      properties: *ref_442
-      required: *ref_443
+      properties: *ref_445
+      required: *ref_446
     InlineScriptArgs:
       type: object
       properties: *ref_151
     WorkflowTask:
       type: object
-      properties: *ref_444
-      required: *ref_445
+      properties: *ref_447
+      required: *ref_448
     WorkflowStatusRecord:
       type: object
       additionalProperties:
@@ -40619,11 +41606,11 @@ components:
       properties: *ref_188
     CreateResource:
       type: object
-      properties: *ref_446
-      required: *ref_447
+      properties: *ref_449
+      required: *ref_450
     EditResource:
       type: object
-      properties: *ref_448
+      properties: *ref_451
     Resource:
       type: object
       properties:
@@ -40674,13 +41661,13 @@ components:
       required: *ref_87
     EditResourceType:
       type: object
-      properties: *ref_449
+      properties: *ref_452
     Schedule:
       type: object
       properties: *ref_209
       required: *ref_210
     ScheduleWJobs:
-      allOf: *ref_450
+      allOf: *ref_453
     ErrorHandler:
       type: string
       enum:
@@ -40688,14 +41675,15 @@ components:
         - slack
         - teams
         - email
+        - instance_alerts
     NewSchedule:
       type: object
-      properties: *ref_451
-      required: *ref_452
+      properties: *ref_454
+      required: *ref_455
     EditSchedule:
       type: object
-      properties: *ref_453
-      required: *ref_454
+      properties: *ref_456
+      required: *ref_457
     JobTriggerKind:
       description: job trigger kind (schedule, http, websocket...)
       type: string
@@ -40716,19 +41704,19 @@ components:
       enum: *ref_211
     OpenapiSpecFormat:
       type: string
-      enum: *ref_455
+      enum: *ref_458
     OpenapiHttpRouteFilters:
       type: object
-      properties: *ref_456
-      required: *ref_457
+      properties: *ref_459
+      required: *ref_460
     WebhookFilters:
       type: object
-      properties: *ref_458
-      required: *ref_459
+      properties: *ref_461
+      required: *ref_462
     OpenapiV3Info:
       type: object
-      properties: *ref_460
-      required: *ref_461
+      properties: *ref_463
+      required: *ref_464
     GenerateOpenapiSpec:
       type: object
       properties: *ref_212
@@ -40749,8 +41737,8 @@ components:
       required: *ref_214
     EditHttpTrigger:
       type: object
-      properties: *ref_462
-      required: *ref_463
+      properties: *ref_465
+      required: *ref_466
     TriggersCount:
       type: object
       properties: *ref_134
@@ -40765,17 +41753,17 @@ components:
       required: *ref_230
     NewWebsocketTrigger:
       type: object
-      properties: *ref_464
-      required: *ref_465
+      properties: *ref_467
+      required: *ref_468
     EditWebsocketTrigger:
       type: object
-      properties: *ref_466
-      required: *ref_467
+      properties: *ref_469
+      required: *ref_470
     WebsocketTriggerInitialMessage:
       anyOf: *ref_223
     MqttQoS:
       type: string
-      enum: *ref_468
+      enum: *ref_471
     MqttV3Config:
       type: object
       properties: *ref_250
@@ -40796,12 +41784,12 @@ components:
       required: *ref_255
     NewMqttTrigger:
       type: object
-      properties: *ref_469
-      required: *ref_470
+      properties: *ref_472
+      required: *ref_473
     EditMqttTrigger:
       type: object
-      properties: *ref_471
-      required: *ref_472
+      properties: *ref_474
+      required: *ref_475
     AmqpExchange:
       type: object
       properties: *ref_256
@@ -40816,12 +41804,12 @@ components:
       required: *ref_261
     NewAmqpTrigger:
       type: object
-      properties: *ref_473
-      required: *ref_474
+      properties: *ref_476
+      required: *ref_477
     EditAmqpTrigger:
       type: object
-      properties: *ref_475
-      required: *ref_476
+      properties: *ref_478
+      required: *ref_479
     DeliveryType:
       type: string
       enum: *ref_264
@@ -40856,12 +41844,12 @@ components:
       required: *ref_263
     GetAllTopicSubscription:
       type: object
-      properties: *ref_477
-      required: *ref_478
+      properties: *ref_480
+      required: *ref_481
     DeleteGcpSubscription:
       type: object
-      properties: *ref_479
-      required: *ref_480
+      properties: *ref_482
+      required: *ref_483
     AzureMode:
       type: string
       enum: *ref_273
@@ -40873,8 +41861,8 @@ components:
       required: *ref_278
     AzureDeleteSubscription:
       type: object
-      properties: *ref_481
-      required: *ref_482
+      properties: *ref_484
+      required: *ref_485
     AzureTrigger:
       allOf: *ref_274
       type: object
@@ -40890,16 +41878,16 @@ components:
       required: *ref_272
     TestAzureConnection:
       type: object
-      properties: *ref_483
-      required: *ref_484
+      properties: *ref_486
+      required: *ref_487
     AzureListTopics:
       type: object
-      properties: *ref_485
-      required: *ref_486
+      properties: *ref_488
+      required: *ref_489
     AzureListSubscriptions:
       type: object
-      properties: *ref_487
-      required: *ref_488
+      properties: *ref_490
+      required: *ref_491
     AwsAuthResourceType:
       type: string
       enum: *ref_237
@@ -40913,7 +41901,7 @@ components:
       enum: *ref_21
     CustomInstanceDbLogs:
       type: object
-      properties: *ref_489
+      properties: *ref_492
     CustomInstanceDbTag:
       type: string
       enum: *ref_22
@@ -40923,36 +41911,36 @@ components:
       properties: *ref_24
     NewSqsTrigger:
       type: object
-      properties: *ref_490
-      required: *ref_491
+      properties: *ref_493
+      required: *ref_494
     EditSqsTrigger:
       type: object
-      properties: *ref_492
-      required: *ref_493
+      properties: *ref_495
+      required: *ref_496
     Slot:
       type: object
       properties: *ref_279
     SlotList:
       type: object
-      properties: *ref_494
+      properties: *ref_497
     PublicationData:
       type: object
       properties: *ref_283
       required: *ref_284
     TableToTrack:
       type: array
-      items: *ref_495
+      items: *ref_498
     Relations:
       type: object
       properties: *ref_280
       required: *ref_281
     Language:
       type: string
-      enum: *ref_496
+      enum: *ref_499
     TemplateScript:
       type: object
-      properties: *ref_497
-      required: *ref_498
+      properties: *ref_500
+      required: *ref_501
     PostgresTrigger:
       allOf: *ref_285
       type: object
@@ -40960,12 +41948,12 @@ components:
       required: *ref_287
     NewPostgresTrigger:
       type: object
-      properties: *ref_499
-      required: *ref_500
+      properties: *ref_502
+      required: *ref_503
     EditPostgresTrigger:
       type: object
-      properties: *ref_501
-      required: *ref_502
+      properties: *ref_504
+      required: *ref_505
     KafkaTrigger:
       allOf: *ref_231
       type: object
@@ -40973,12 +41961,12 @@ components:
       required: *ref_233
     NewKafkaTrigger:
       type: object
-      properties: *ref_503
-      required: *ref_504
+      properties: *ref_506
+      required: *ref_507
     EditKafkaTrigger:
       type: object
-      properties: *ref_505
-      required: *ref_506
+      properties: *ref_508
+      required: *ref_509
     NatsTrigger:
       allOf: *ref_234
       type: object
@@ -40986,12 +41974,12 @@ components:
       required: *ref_236
     NewNatsTrigger:
       type: object
-      properties: *ref_507
-      required: *ref_508
+      properties: *ref_510
+      required: *ref_511
     EditNatsTrigger:
       type: object
-      properties: *ref_509
-      required: *ref_510
+      properties: *ref_512
+      required: *ref_513
     EmailTrigger:
       allOf: *ref_288
       type: object
@@ -40999,28 +41987,28 @@ components:
       required: *ref_290
     NewEmailTrigger:
       type: object
-      properties: *ref_511
-      required: *ref_512
+      properties: *ref_514
+      required: *ref_515
     EditEmailTrigger:
       type: object
-      properties: *ref_513
-      required: *ref_514
+      properties: *ref_516
+      required: *ref_517
     Group:
       type: object
       properties: *ref_296
       required: *ref_297
     InstanceGroup:
       type: object
-      required: *ref_515
-      properties: *ref_516
+      required: *ref_518
+      properties: *ref_519
     InstanceGroupWithWorkspaces:
       type: object
       required: *ref_292
       properties: *ref_293
     WorkspaceInfo:
       type: object
-      properties: *ref_517
-      required: *ref_518
+      properties: *ref_520
+      required: *ref_521
     Folder:
       type: object
       properties: *ref_299
@@ -41035,16 +42023,16 @@ components:
       items: *ref_298
     WorkerPing:
       type: object
-      properties: *ref_519
-      required: *ref_520
+      properties: *ref_522
+      required: *ref_523
     UserWorkspaceList:
       type: object
-      properties: *ref_521
-      required: *ref_522
+      properties: *ref_524
+      required: *ref_525
     CreateWorkspace:
       type: object
-      properties: *ref_523
-      required: *ref_524
+      properties: *ref_526
+      required: *ref_527
     CreateWorkspaceFork:
       type: object
       properties: *ref_19
@@ -41055,15 +42043,15 @@ components:
       required: *ref_16
     DependencyMap:
       type: object
-      properties: *ref_525
+      properties: *ref_528
     DependencyDependent:
       type: object
-      properties: *ref_526
-      required: *ref_527
+      properties: *ref_529
+      required: *ref_530
     DependentsAmount:
       type: object
-      properties: *ref_528
-      required: *ref_529
+      properties: *ref_531
+      required: *ref_532
     WorkspaceInvite:
       type: object
       properties: *ref_43
@@ -41076,15 +42064,15 @@ components:
       allOf: *ref_133
     ExtraPerms:
       type: object
-      additionalProperties: *ref_530
+      additionalProperties: *ref_533
     FlowMetadata:
       type: object
-      properties: *ref_531
-      required: *ref_532
+      properties: *ref_534
+      required: *ref_535
     OpenFlowWPath:
-      allOf: *ref_533
+      allOf: *ref_536
     EditFlow:
-      allOf: *ref_534
+      allOf: *ref_537
     FlowPreview:
       type: object
       properties: *ref_163
@@ -41097,20 +42085,20 @@ components:
       properties: *ref_135
     ListableApp:
       type: object
-      properties: *ref_535
-      required: *ref_536
+      properties: *ref_538
+      required: *ref_539
     ScopeDefinition:
       type: object
-      properties: *ref_537
-      required: *ref_538
+      properties: *ref_540
+      required: *ref_541
     ScopeDomain:
       type: object
-      properties: *ref_539
-      required: *ref_540
+      properties: *ref_542
+      required: *ref_543
     ListableRawApp:
       type: object
-      properties: *ref_541
-      required: *ref_542
+      properties: *ref_544
+      required: *ref_545
     AppWithLastVersion:
       type: object
       properties: *ref_136
@@ -41172,24 +42160,24 @@ components:
       properties: *ref_59
     DatatableMigrationWithStatus:
       type: object
-      required: *ref_543
-      properties: *ref_544
+      required: *ref_546
+      properties: *ref_547
     DataTableSchema:
       type: object
-      required: *ref_545
-      properties: *ref_546
+      required: *ref_548
+      properties: *ref_549
     DataTableTables:
       type: object
-      required: *ref_547
-      properties: *ref_548
+      required: *ref_550
+      properties: *ref_551
     DataTableTableSchema:
       type: object
-      required: *ref_549
-      properties: *ref_550
+      required: *ref_552
+      properties: *ref_553
     DynamicInputData:
       type: object
-      properties: *ref_551
-      required: *ref_552
+      properties: *ref_554
+      required: *ref_555
     WindmillLargeFile:
       type: object
       properties: *ref_315
@@ -41216,59 +42204,59 @@ components:
       properties: *ref_63
     S3PermissionRule:
       type: object
-      properties: *ref_553
-      required: *ref_554
+      properties: *ref_556
+      required: *ref_557
     GitRepositorySettings:
       type: object
       properties: *ref_61
       required: *ref_62
     AutoPullMode:
       type: string
-      enum: *ref_555
+      enum: *ref_558
     AutoPullStatus:
       type: object
-      properties: *ref_556
-      required: *ref_557
+      properties: *ref_559
+      required: *ref_560
     AutoPullSettings:
       type: object
-      properties: *ref_558
-      required: *ref_559
+      properties: *ref_561
+      required: *ref_562
     MetricMetadata:
       type: object
-      properties: *ref_560
-      required: *ref_561
+      properties: *ref_563
+      required: *ref_564
     ScalarMetric:
       type: object
-      properties: *ref_562
-      required: *ref_563
+      properties: *ref_565
+      required: *ref_566
     TimeseriesMetric:
       type: object
-      properties: *ref_564
-      required: *ref_565
+      properties: *ref_567
+      required: *ref_568
     MetricDataPoint:
       type: object
-      properties: *ref_566
-      required: *ref_567
+      properties: *ref_569
+      required: *ref_570
     RawScriptForDependencies:
       type: object
       properties: *ref_154
       required: *ref_155
     ConcurrencyGroup:
       type: object
-      properties: *ref_568
-      required: *ref_569
+      properties: *ref_571
+      required: *ref_572
     ExtendedJobs:
       type: object
-      properties: *ref_570
-      required: *ref_571
+      properties: *ref_573
+      required: *ref_574
     ExportedUser:
       type: object
       properties: *ref_9
       required: *ref_10
     GlobalSetting:
       type: object
-      properties: *ref_572
-      required: *ref_573
+      properties: *ref_575
+      required: *ref_576
     InstanceConfig:
       type: object
       description: >-
@@ -41277,21 +42265,21 @@ components:
       properties: *ref_26
     Config:
       type: object
-      properties: *ref_574
-      required: *ref_575
+      properties: *ref_577
+      required: *ref_578
     ExportedInstanceGroup:
       type: object
       properties: *ref_294
       required: *ref_295
     JobSearchHit:
       type: object
-      properties: *ref_576
+      properties: *ref_579
     LogSearchHit:
       type: object
-      properties: *ref_577
+      properties: *ref_580
     AutoscalingEvent:
       type: object
-      properties: *ref_578
+      properties: *ref_581
     CriticalAlert:
       type: object
       properties: *ref_67
@@ -41304,8 +42292,8 @@ components:
       required: *ref_303
     CaptureConfig:
       type: object
-      properties: *ref_579
-      required: *ref_580
+      properties: *ref_582
+      required: *ref_583
     OperatorSettings:
       nullable: true
       type: object
@@ -41313,24 +42301,24 @@ components:
       properties: *ref_38
     WorkspaceComparison:
       type: object
-      required: *ref_581
-      properties: *ref_582
+      required: *ref_584
+      properties: *ref_585
     HiddenItemsSummary:
       type: object
       required: *ref_39
       properties: *ref_40
     HiddenItem:
       type: object
-      required: *ref_583
-      properties: *ref_584
+      required: *ref_586
+      properties: *ref_587
     WorkspaceItemDiff:
       type: object
-      required: *ref_585
-      properties: *ref_586
+      required: *ref_588
+      properties: *ref_589
     CompareSummary:
       type: object
-      required: *ref_587
-      properties: *ref_588
+      required: *ref_590
+      properties: *ref_591
     TeamInfo:
       type: object
       required:
@@ -41351,12 +42339,12 @@ components:
           description: List of channels within the team
           items:
             type: object
-            required: &ref_589
+            required: &ref_592
               - channel_id
               - channel_name
               - tenant_id
               - service_url
-            properties: &ref_590
+            properties: &ref_593
               channel_id:
                 type: string
                 description: The unique identifier of the channel
@@ -41376,11 +42364,11 @@ components:
                   https://smba.trafficmanager.net/amer/12345678-1234-1234-1234-123456789012/
     ChannelInfo:
       type: object
-      required: *ref_589
-      properties: *ref_590
+      required: *ref_592
+      properties: *ref_593
     GithubInstallations:
       type: array
-      items: *ref_591
+      items: *ref_594
     WorkspaceGithubInstallation:
       type: object
       properties:
@@ -41431,16 +42419,16 @@ components:
       enum: *ref_319
     MaterializedPartition:
       type: object
-      required: *ref_592
-      properties: *ref_593
+      required: *ref_595
+      properties: *ref_596
     PartitionsInRange:
       type: object
-      required: *ref_594
-      properties: *ref_595
+      required: *ref_597
+      properties: *ref_598
     AssetSchemaVersion:
       type: object
-      required: *ref_596
-      properties: *ref_597
+      required: *ref_599
+      properties: *ref_600
     Asset:
       type: object
       properties:
@@ -41463,8 +42451,8 @@ components:
 
         a trailing `FILTER (WHERE filter)`.
       type: object
-      required: *ref_598
-      properties: *ref_599
+      required: *ref_601
+      properties: *ref_602
     ContractWarning:
       description: |
         One save-time schema-contract warning: a consumer reference that does
@@ -41472,24 +42460,24 @@ components:
         `schema_version`/`captured_at` identify the capture the check ran
         against (as-of the producer's last run, not its latest save).
       type: object
-      required: *ref_600
-      properties: *ref_601
+      required: *ref_603
+      properties: *ref_604
     Volume:
       type: object
-      required: *ref_602
-      properties: *ref_603
+      required: *ref_605
+      properties: *ref_606
     ProtectionRuleset:
       type: object
       description: A workspace protection rule defining restrictions and bypass permissions
-      required: *ref_604
-      properties: *ref_605
+      required: *ref_607
+      properties: *ref_608
     ProtectionRules:
       type: array
       description: Configuration of protection restrictions
       items: *ref_68
     ProtectionRuleKind:
       type: string
-      enum: *ref_606
+      enum: *ref_609
     RuleBypasserGroups:
       type: array
       description: Groups that can bypass this ruleset
@@ -41500,12 +42488,12 @@ components:
       items: *ref_70
     DeploymentRequestEligibleDeployer:
       type: object
-      required: *ref_607
-      properties: *ref_608
+      required: *ref_610
+      properties: *ref_611
     DeploymentRequestAssignee:
       type: object
-      required: *ref_609
-      properties: *ref_610
+      required: *ref_612
+      properties: *ref_613
     DeploymentRequestComment:
       type: object
       required: *ref_73
@@ -41524,19 +42512,19 @@ components:
     NativeTrigger:
       type: object
       description: A native trigger stored in Windmill
-      properties: *ref_611
-      required: *ref_612
+      properties: *ref_614
+      required: *ref_615
     NativeTriggerWithExternal:
       type: object
       description: >-
         Full trigger response containing both Windmill data and external service
         data
-      properties: *ref_613
-      required: *ref_614
+      properties: *ref_616
+      required: *ref_617
     WorkspaceIntegrations:
       type: object
-      properties: *ref_615
-      required: *ref_616
+      properties: *ref_618
+      required: *ref_619
     WorkspaceOAuthConfig:
       type: object
       properties: *ref_242
@@ -41551,7 +42539,7 @@ components:
         request_type:
           type: string
           description: The type of webhook request (define possible values here)
-          enum: &ref_617
+          enum: &ref_620
             - async
             - sync
       required:
@@ -41560,7 +42548,7 @@ components:
     WebhookRequestType:
       type: string
       description: The type of webhook request (define possible values here)
-      enum: *ref_617
+      enum: *ref_620
     RedirectUri:
       type: object
       properties: *ref_244
@@ -41573,8 +42561,8 @@ components:
     CreateTriggerResponse:
       type: object
       description: Response returned when a native trigger is created
-      properties: *ref_618
-      required: *ref_619
+      properties: *ref_621
+      required: *ref_622
     SyncResult:
       type: object
       properties:
@@ -41598,28 +42586,102 @@ components:
         - total_windmill
     NextCloudEventType:
       type: object
-      properties: *ref_620
-      required: *ref_621
+      properties: *ref_623
+      required: *ref_624
     GoogleCalendarEntry:
       type: object
-      properties: *ref_622
-      required: *ref_623
+      properties: *ref_625
+      required: *ref_626
     GoogleDriveFile:
       type: object
-      properties: *ref_624
-      required: *ref_625
+      properties: *ref_627
+      required: *ref_628
     GoogleDriveFilesResponse:
       type: object
-      properties: *ref_626
-      required: *ref_627
+      properties: *ref_629
+      required: *ref_630
     SharedDriveEntry:
       type: object
-      properties: *ref_628
-      required: *ref_629
+      properties: *ref_631
+      required: *ref_632
     GithubRepoEntry:
       type: object
-      properties: *ref_630
-      required: *ref_631
+      properties: *ref_633
+      required: *ref_634
+    HubProjectSlug:
+      type: string
+      description: >-
+        hub project slug (3-50 chars, lowercase alphanumeric and hyphens, no
+        leading/trailing hyphen)
+      minLength: 3
+      maxLength: 50
+      pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
+    PublishDraftBody:
+      type: object
+      properties: *ref_635
+      required: *ref_636
+    PublishScriptBody:
+      type: object
+      properties: *ref_637
+      required: *ref_638
+    PublishFlowInner:
+      type: object
+      properties: *ref_639
+      required: *ref_640
+    PublishFlowBody:
+      type: object
+      properties: *ref_641
+      required: *ref_642
+    PublishAppBody:
+      type: object
+      properties: *ref_643
+      required: *ref_644
+    PublishRawAppBody:
+      type: object
+      properties: *ref_645
+      required: *ref_646
+    RawAppEmbedBody:
+      type: object
+      properties: *ref_647
+      required: *ref_648
+    RecordingBody:
+      type: object
+      properties: *ref_323
+      required: *ref_324
+    PipelineRecordingBody:
+      type: object
+      properties: *ref_649
+    PublishResourceTypeBody:
+      type: object
+      properties: *ref_650
+      required: *ref_651
+    PublishResourceBody:
+      type: object
+      properties: *ref_652
+      required: *ref_653
+    PublishResourcesBody:
+      type: object
+      properties: *ref_654
+      required: *ref_655
+    PublishTriggerBody:
+      type: object
+      properties: *ref_656
+      required: *ref_657
+    PublishTriggersBody:
+      type: object
+      properties: *ref_658
+      required: *ref_659
+    PublishMigrationBody:
+      type: object
+      description: >-
+        one best-effort data table migration attached to a project (per data
+        table)
+      properties: *ref_660
+      required: *ref_661
+    PublishMigrationsBody:
+      type: object
+      properties: *ref_662
+      required: *ref_663
     schemas-StaticTransform:
       type: object
       description: >-
@@ -41655,22 +42717,22 @@ components:
         Inline script with code defined directly in the flow. Use 'bun' as
         default language if unspecified. The script receives arguments from
         input_transforms
-      properties: *ref_341
-      required: *ref_342
+      properties: *ref_344
+      required: *ref_345
     schemas-PathScript:
       type: object
       description: >-
         Reference to an existing script by path. Use this when calling a
         previously saved script instead of writing inline code
-      properties: *ref_343
-      required: *ref_344
+      properties: *ref_346
+      required: *ref_347
     schemas-PathFlow:
       type: object
       description: >-
         Reference to an existing flow by path. Use this to call another flow as
         a subflow
-      properties: *ref_345
-      required: *ref_346
+      properties: *ref_348
+      required: *ref_349
     schemas-FlowModule:
       type: object
       description: A single step in a flow. Can be a script, subflow, loop, or branch
@@ -41683,96 +42745,96 @@ components:
         'flow_input.iter.value' to access the current iteration value, and
         'flow_input.iter.index' for the index. Supports parallel execution for
         better performance on I/O-bound operations
-      properties: *ref_347
-      required: *ref_348
+      properties: *ref_350
+      required: *ref_351
     schemas-WhileloopFlow:
       type: object
       description: >-
         Executes nested modules repeatedly while a condition is true. The loop
         checks the condition after each iteration. Use stop_after_if on modules
         to control loop termination
-      properties: *ref_349
-      required: *ref_350
+      properties: *ref_352
+      required: *ref_353
     schemas-BranchOne:
       type: object
       description: >-
         Conditional branching where only the first matching branch executes.
         Branches are evaluated in order, and the first one with a true
         expression runs. If no branches match, the default branch executes
-      properties: *ref_351
-      required: *ref_352
+      properties: *ref_354
+      required: *ref_355
     schemas-BranchAll:
       type: object
       description: >-
         Parallel branching where all branches execute simultaneously. Unlike
         BranchOne, all branches run regardless of conditions. Useful for
         executing independent tasks concurrently
-      properties: *ref_353
-      required: *ref_354
+      properties: *ref_356
+      required: *ref_357
     schemas-Identity:
       type: object
       description: >-
         Pass-through module that returns its input unchanged. Useful for flow
         structure or as a placeholder
-      properties: *ref_355
-      required: *ref_356
+      properties: *ref_358
+      required: *ref_359
     AIProviderKind:
       type: string
       description: Supported AI provider types
-      enum: *ref_334
+      enum: *ref_337
     schemas-ProviderConfig:
       type: object
       description: >-
         Complete AI provider configuration with resource reference and model
         selection
-      properties: *ref_632
-      required: *ref_633
+      properties: *ref_664
+      required: *ref_665
     StaticProviderTransform:
       type: object
       description: Static provider configuration passed directly to the AI agent
-      properties: *ref_634
-      required: *ref_635
+      properties: *ref_666
+      required: *ref_667
     ProviderTransform:
       description: >-
         Provider configuration - can be static (ProviderConfig), JavaScript
         expression, or AI-determined
-      oneOf: *ref_359
-      discriminator: *ref_360
+      oneOf: *ref_362
+      discriminator: *ref_363
     MemoryOff:
       type: object
       description: No conversation memory/context
-      properties: *ref_335
-      required: *ref_336
+      properties: *ref_338
+      required: *ref_339
     MemoryAuto:
       type: object
       description: Automatic context management
-      properties: *ref_337
-      required: *ref_338
+      properties: *ref_340
+      required: *ref_341
     MemoryMessage:
       type: object
       description: A single message in conversation history
-      properties: *ref_636
-      required: *ref_637
+      properties: *ref_668
+      required: *ref_669
     MemoryManual:
       type: object
       description: Explicit message history
-      properties: *ref_339
-      required: *ref_340
+      properties: *ref_342
+      required: *ref_343
     schemas-MemoryConfig:
       description: Conversation memory configuration
-      oneOf: *ref_638
-      discriminator: *ref_639
+      oneOf: *ref_670
+      discriminator: *ref_671
     StaticMemoryTransform:
       type: object
       description: Static memory configuration passed directly to the AI agent
-      properties: *ref_640
-      required: *ref_641
+      properties: *ref_672
+      required: *ref_673
     MemoryTransform:
       description: >-
         Memory configuration - can be static (MemoryConfig), JavaScript
         expression, or AI-determined
-      oneOf: *ref_361
-      discriminator: *ref_362
+      oneOf: *ref_364
+      discriminator: *ref_365
     schemas-FlowModuleValue:
       description: >-
         The actual implementation of a flow step. Can be a script (inline or
@@ -41783,41 +42845,41 @@ components:
       description: >-
         A tool implemented as a flow module (script, flow, etc.). The AI can
         call this like any other flow module
-      allOf: *ref_642
+      allOf: *ref_674
     McpToolValue:
       type: object
       description: >-
         Reference to an external MCP (Model Context Protocol) tool. The AI can
         call tools from MCP servers
-      properties: *ref_643
-      required: *ref_644
+      properties: *ref_675
+      required: *ref_676
     WebsearchToolValue:
       type: object
       description: >-
         A tool implemented as a websearch tool. The AI can call this like any
         other websearch tool
-      properties: *ref_645
-      required: *ref_646
+      properties: *ref_677
+      required: *ref_678
     ToolValue:
       description: >-
         The implementation of a tool. Can be a flow module (script/flow) or an
         MCP tool reference
-      oneOf: *ref_647
-      discriminator: *ref_648
+      oneOf: *ref_679
+      discriminator: *ref_680
     AgentTool:
       type: object
       description: >-
         A tool available to an AI agent. Can be a flow module or an external MCP
         (Model Context Protocol) tool
-      properties: *ref_363
-      required: *ref_364
+      properties: *ref_366
+      required: *ref_367
     schemas-AiAgent:
       type: object
       description: >-
         AI agent step that can use tools to accomplish tasks. The agent receives
         inputs and can call any of its configured tools to complete the task
-      properties: *ref_357
-      required: *ref_358
+      properties: *ref_360
+      required: *ref_361
     schemas-StopAfterIf:
       type: object
       description: Early termination condition for a module
@@ -41831,7 +42893,7 @@ components:
     schemas-Retry:
       type: object
       description: Retry configuration for failed module executions
-      properties: *ref_333
+      properties: *ref_336
     schemas-FlowNote:
       type: object
       description: A sticky note attached to a flow for documentation and annotation
@@ -41852,8 +42914,8 @@ components:
       description: >-
         The flow structure containing modules and optional preprocessor/failure
         handlers
-      properties: *ref_649
-      required: *ref_650
+      properties: *ref_681
+      required: *ref_682
     schemas-FlowStatusModule:
       type: object
       properties: *ref_165

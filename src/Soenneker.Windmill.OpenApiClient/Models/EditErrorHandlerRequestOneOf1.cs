@@ -23,6 +23,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs ExtraArgs { get; set; }
 #endif
+        /// <summary>Report failed jobs to the instance critical alert channels when no workspace error handler is set. Omit to leave the stored value untouched.</summary>
+        public bool? FallbackToInstanceAlerts { get; set; }
         /// <summary>The muted_on_cancel property</summary>
         public bool? MutedOnCancel { get; set; }
         /// <summary>The muted_on_user_path property</summary>
@@ -63,6 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs.CreateFromDiscriminatorValue); } },
+                { "fallback_to_instance_alerts", n => { FallbackToInstanceAlerts = n.GetBoolValue(); } },
                 { "muted_on_cancel", n => { MutedOnCancel = n.GetBoolValue(); } },
                 { "muted_on_user_path", n => { MutedOnUserPath = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -76,6 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs>("extra_args", ExtraArgs);
+            writer.WriteBoolValue("fallback_to_instance_alerts", FallbackToInstanceAlerts);
             writer.WriteBoolValue("muted_on_cancel", MutedOnCancel);
             writer.WriteBoolValue("muted_on_user_path", MutedOnUserPath);
             writer.WriteStringValue("path", Path);

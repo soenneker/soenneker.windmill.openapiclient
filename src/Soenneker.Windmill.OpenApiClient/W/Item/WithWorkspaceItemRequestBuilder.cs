@@ -27,6 +27,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Github_app;
 using Soenneker.Windmill.OpenApiClient.W.Item.Groups;
 using Soenneker.Windmill.OpenApiClient.W.Item.Groups_history;
 using Soenneker.Windmill.OpenApiClient.W.Item.Http_triggers;
+using Soenneker.Windmill.OpenApiClient.W.Item.Hub;
 using Soenneker.Windmill.OpenApiClient.W.Item.Inputs;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_metrics;
@@ -192,6 +193,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Http_triggers.Http_triggersRequestBuilder Http_triggers
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Http_triggers.Http_triggersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The hub property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.HubRequestBuilder Hub
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.HubRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The inputs property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Inputs.InputsRequestBuilder Inputs

@@ -134,6 +134,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlow RawFlow { get; set; }
 #endif
+        /// <summary>The resolution_note property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResolutionNote { get; set; }
+#nullable restore
+#else
+        public string ResolutionNote { get; set; }
+#endif
+        /// <summary>whether this failure has been marked as handled</summary>
+        public bool? Resolved { get; set; }
+        /// <summary>The resolved_at property</summary>
+        public DateTimeOffset? ResolvedAt { get; set; }
+        /// <summary>true when a succeeding retry resolved this rather than a person. Explicit rather than inferred from an absent resolved_by, which is also absent for a manual resolution outside enterprise</summary>
+        public bool? ResolvedAutomatically { get; set; }
+        /// <summary>who resolved the failure. Enterprise-only, so also absent for a manual resolution outside enterprise; use resolved_automatically to tell the two apart</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResolvedBy { get; set; }
+#nullable restore
+#else
+        public string ResolvedBy { get; set; }
+#endif
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -258,6 +280,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "raw_code", n => { RawCode = n.GetStringValue(); } },
                 { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlow.CreateFromDiscriminatorValue); } },
+                { "resolution_note", n => { ResolutionNote = n.GetStringValue(); } },
+                { "resolved", n => { Resolved = n.GetBoolValue(); } },
+                { "resolved_at", n => { ResolvedAt = n.GetDateTimeOffsetValue(); } },
+                { "resolved_automatically", n => { ResolvedAutomatically = n.GetBoolValue(); } },
+                { "resolved_by", n => { ResolvedBy = n.GetStringValue(); } },
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseResult>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseResult.CreateFromDiscriminatorValue); } },
                 { "schedule_path", n => { SchedulePath = n.GetStringValue(); } },
                 { "script_hash", n => { ScriptHash = n.GetStringValue(); } },
@@ -306,6 +333,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("priority", Priority);
             writer.WriteStringValue("raw_code", RawCode);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlow>("raw_flow", RawFlow);
+            writer.WriteStringValue("resolution_note", ResolutionNote);
+            writer.WriteBoolValue("resolved", Resolved);
+            writer.WriteDateTimeOffsetValue("resolved_at", ResolvedAt);
+            writer.WriteBoolValue("resolved_automatically", ResolvedAutomatically);
+            writer.WriteStringValue("resolved_by", ResolvedBy);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseResult>("result", Result);
             writer.WriteStringValue("schedule_path", SchedulePath);
             writer.WriteStringValue("script_hash", ScriptHash);

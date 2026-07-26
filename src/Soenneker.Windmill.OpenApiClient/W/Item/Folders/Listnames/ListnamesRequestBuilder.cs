@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Folders.Listnames
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListnamesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/folders/listnames{?only_member_of*}", pathParameters)
+        public ListnamesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/folders/listnames{?only_member_of*,page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Folders.Listnames
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListnamesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/folders/listnames{?only_member_of*}", rawUrl)
+        public ListnamesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/folders/listnames{?only_member_of*,page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
@@ -88,6 +88,12 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Folders.Listnames
             /// <summary>only list the folders the user is member of (default false)</summary>
             [QueryParameter("only_member_of")]
             public bool? OnlyMemberOf { get; set; }
+            /// <summary>which page to return (start at 1, default 1)</summary>
+            [QueryParameter("page")]
+            public int? Page { get; set; }
+            /// <summary>number of items to return for a given page (default 30, max 100)</summary>
+            [QueryParameter("per_page")]
+            public int? PerPage { get; set; }
         }
     }
 }

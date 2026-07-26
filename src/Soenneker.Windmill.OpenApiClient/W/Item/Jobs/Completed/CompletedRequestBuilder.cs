@@ -8,6 +8,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Export;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Import;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Resolve;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Unresolve;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -49,6 +51,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The resolve property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Resolve.ResolveRequestBuilder Resolve
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Resolve.ResolveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The unresolve property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Unresolve.UnresolveRequestBuilder Unresolve
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Unresolve.UnresolveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.CompletedRequestBuilder"/> and sets the default values.

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,worker*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,resolved*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,worker*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,worker*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/completed/list{?allow_wildcards*,args*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,resolved*,result*,schedule_path*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,worker*}", rawUrl)
         {
         }
         /// <summary>
@@ -153,6 +153,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.List
             /// <summary>number of items to return for a given page (default 30, max 100)</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            /// <summary>filter on whether a failure has been marked as handled. true keeps only resolved failures, false hides them</summary>
+            [QueryParameter("resolved")]
+            public bool? Resolved { get; set; }
             /// <summary>filter on jobs containing those result as a json subset (@&gt; in postgres)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_preview
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Load_file_previewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_preview?file_key={file_key}{&csv_has_header*,csv_separator*,file_mime_type*,file_size_in_bytes*,read_bytes_from*,read_bytes_length*,storage*}", pathParameters)
+        public Load_file_previewRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_preview?file_key={file_key}{&csv_has_header*,csv_separator*,file_mime_type*,file_size_in_bytes*,read_bytes_from*,read_bytes_length*,s3_resource_path*,storage*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_preview
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Load_file_previewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_preview?file_key={file_key}{&csv_has_header*,csv_separator*,file_mime_type*,file_size_in_bytes*,read_bytes_from*,read_bytes_length*,storage*}", rawUrl)
+        public Load_file_previewRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_preview?file_key={file_key}{&csv_has_header*,csv_separator*,file_mime_type*,file_size_in_bytes*,read_bytes_from*,read_bytes_length*,s3_resource_path*,storage*}", rawUrl)
         {
         }
         /// <summary>
@@ -120,6 +120,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_preview
             public int? ReadBytesFrom { get; set; }
             [QueryParameter("read_bytes_length")]
             public int? ReadBytesLength { get; set; }
+            /// <summary>When set, load the file preview from this object storage resource instead of the workspace storage</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("s3_resource_path")]
+            public string? S3ResourcePath { get; set; }
+#nullable restore
+#else
+            [QueryParameter("s3_resource_path")]
+            public string S3ResourcePath { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("storage")]

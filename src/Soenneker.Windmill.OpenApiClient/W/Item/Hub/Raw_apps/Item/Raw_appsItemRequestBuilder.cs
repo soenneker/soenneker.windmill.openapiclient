@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Embed;
+using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Recording;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Embed.EmbedRequestBuilder Embed
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Embed.EmbedRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The recording property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Recording.RecordingRequestBuilder Recording
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Recording.RecordingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Raw_appsItemRequestBuilder"/> and sets the default values.

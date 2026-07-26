@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export;
+using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Logo;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Pipeline_recording;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Submit;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export.ExportRequestBuilder Export
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The logo property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Logo.LogoRequestBuilder Logo
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Logo.LogoRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The pipeline_recording property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Pipeline_recording.Pipeline_recordingRequestBuilder Pipeline_recording

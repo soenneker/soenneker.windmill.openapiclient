@@ -45,6 +45,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Postgres_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources;
+using Soenneker.Windmill.OpenApiClient.W.Item.Runnables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Schedules;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui;
@@ -283,6 +284,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.ResourcesRequestBuilder Resources
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.ResourcesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The runnables property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Runnables.RunnablesRequestBuilder Runnables
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Runnables.RunnablesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The schedules property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Schedules.SchedulesRequestBuilder Schedules

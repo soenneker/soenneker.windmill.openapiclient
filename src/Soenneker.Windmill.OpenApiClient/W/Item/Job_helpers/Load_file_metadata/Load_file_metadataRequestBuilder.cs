@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_metadata
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Load_file_metadataRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_metadata?file_key={file_key}{&storage*}", pathParameters)
+        public Load_file_metadataRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_metadata?file_key={file_key}{&s3_resource_path*,storage*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_metadata
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Load_file_metadataRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_metadata?file_key={file_key}{&storage*}", rawUrl)
+        public Load_file_metadataRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_file_metadata?file_key={file_key}{&s3_resource_path*,storage*}", rawUrl)
         {
         }
         /// <summary>
@@ -93,6 +93,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_metadata
 #else
             [QueryParameter("file_key")]
             public string FileKey { get; set; }
+#endif
+            /// <summary>When set, load the file metadata from this object storage resource instead of the workspace storage</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("s3_resource_path")]
+            public string? S3ResourcePath { get; set; }
+#nullable restore
+#else
+            [QueryParameter("s3_resource_path")]
+            public string S3ResourcePath { get; set; }
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

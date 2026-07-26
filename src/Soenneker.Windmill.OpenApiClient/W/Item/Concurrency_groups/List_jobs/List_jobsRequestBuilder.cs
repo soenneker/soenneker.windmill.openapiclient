@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.List_jobs
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_jobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/concurrency_groups/list_jobs{?all_workspaces*,allow_wildcards*,args*,completed_after*,completed_before*,concurrency_key*,created_after_queue*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,page*,parent_job*,per_page*,result*,row_limit*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,trigger_kind*}", pathParameters)
+        public List_jobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/concurrency_groups/list_jobs{?all_workspaces*,allow_wildcards*,args*,completed_after*,completed_before*,concurrency_key*,created_after_queue*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,page*,parent_job*,per_page*,resolved*,result*,row_limit*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,trigger_kind*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.List_jobs
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_jobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/concurrency_groups/list_jobs{?all_workspaces*,allow_wildcards*,args*,completed_after*,completed_before*,concurrency_key*,created_after_queue*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,page*,parent_job*,per_page*,result*,row_limit*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,trigger_kind*}", rawUrl)
+        public List_jobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/concurrency_groups/list_jobs{?all_workspaces*,allow_wildcards*,args*,completed_after*,completed_before*,concurrency_key*,created_after_queue*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,page*,parent_job*,per_page*,resolved*,result*,row_limit*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,tag*,trigger_kind*}", rawUrl)
         {
         }
         /// <summary>
@@ -173,6 +173,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.List_jobs
             /// <summary>number of items to return for a given page (default 30, max 100)</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            /// <summary>filter on whether a failure has been marked as handled. true keeps only resolved failures, false hides them</summary>
+            [QueryParameter("resolved")]
+            public bool? Resolved { get; set; }
             /// <summary>filter on jobs containing those result as a json subset (@&gt; in postgres)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

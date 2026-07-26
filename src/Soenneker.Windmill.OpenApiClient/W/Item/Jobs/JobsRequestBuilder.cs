@@ -22,6 +22,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_inline;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Slack_approval;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Teams_approval;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Wac_approval_urls;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code;
 using System.Collections.Generic;
 using System.IO;
@@ -134,6 +135,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Teams_approval.Teams_approvalRequestBuilder Teams_approval
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Teams_approval.Teams_approvalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The wac_approval_urls property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Wac_approval_urls.Wac_approval_urlsRequestBuilder Wac_approval_urls
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Wac_approval_urls.Wac_approval_urlsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workflow_as_code property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Workflow_as_code.Workflow_as_codeRequestBuilder Workflow_as_code

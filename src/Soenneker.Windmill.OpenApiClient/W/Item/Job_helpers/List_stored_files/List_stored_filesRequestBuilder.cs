@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_stored_filesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/list_stored_files?max_keys={max_keys}{&marker*,prefix*,storage*}", pathParameters)
+        public List_stored_filesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/list_stored_files?max_keys={max_keys}{&marker*,prefix*,s3_resource_path*,storage*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_stored_filesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/list_stored_files?max_keys={max_keys}{&marker*,prefix*,storage*}", rawUrl)
+        public List_stored_filesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/list_stored_files?max_keys={max_keys}{&marker*,prefix*,s3_resource_path*,storage*}", rawUrl)
         {
         }
         /// <summary>
@@ -104,6 +104,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files
 #else
             [QueryParameter("prefix")]
             public string Prefix { get; set; }
+#endif
+            /// <summary>When set, list the files of this object storage resource instead of the workspace storage</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("s3_resource_path")]
+            public string? S3ResourcePath { get; set; }
+#nullable restore
+#else
+            [QueryParameter("s3_resource_path")]
+            public string S3ResourcePath { get; set; }
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

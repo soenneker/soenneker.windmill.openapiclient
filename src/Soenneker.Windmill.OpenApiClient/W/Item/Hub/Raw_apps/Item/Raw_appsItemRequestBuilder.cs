@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Embed;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Recording;
 using System.Collections.Generic;
 using System.IO;
@@ -16,11 +15,6 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Raw_appsItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The embed property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Embed.EmbedRequestBuilder Embed
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Embed.EmbedRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The recording property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Raw_apps.Item.Recording.RecordingRequestBuilder Recording
         {

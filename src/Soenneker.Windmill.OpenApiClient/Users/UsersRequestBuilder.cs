@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Users.Accept_invite;
 using Soenneker.Windmill.OpenApiClient.Users.All_runnables;
+using Soenneker.Windmill.OpenApiClient.Users.Change_email;
 using Soenneker.Windmill.OpenApiClient.Users.Create;
 using Soenneker.Windmill.OpenApiClient.Users.Decline_invite;
 using Soenneker.Windmill.OpenApiClient.Users.Delete;
@@ -50,6 +51,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         public global::Soenneker.Windmill.OpenApiClient.Users.All_runnables.All_runnablesRequestBuilder All_runnables
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.All_runnables.All_runnablesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The change_email property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Change_email.Change_emailRequestBuilder Change_email
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Change_email.Change_emailRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The create property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Create.CreateRequestBuilder Create

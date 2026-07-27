@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,per_page*,search*,show_archived*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,per_page*,search*,show_archived*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,per_page*,search*,show_archived*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,per_page*,search*,show_archived*}", rawUrl)
         {
         }
         /// <summary>
@@ -95,6 +95,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             [QueryParameter("cursor")]
             public string Cursor { get; set; }
 #endif
+            /// <summary>also list the caller&apos;s drafts at paths with no deployed row, sorted and paginated with the deployed ones. Ignored for operators, in the archived view, and under a label filter (a draft carries no labels).</summary>
+            [QueryParameter("include_draft_only")]
+            public bool? IncludeDraftOnly { get; set; }
             /// <summary>include library scripts (no runnable main)</summary>
             [QueryParameter("include_without_main")]
             public bool? IncludeWithoutMain { get; set; }

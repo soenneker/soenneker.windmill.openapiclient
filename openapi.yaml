@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.771.0
+  version: 1.773.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -1152,6 +1152,37 @@ paths:
       responses:
         '200':
           description: user renamed
+          content:
+            text/plain:
+              schema:
+                type: string
+  /users/change_email/{email}:
+    post:
+      summary: global change user email (require super admin)
+      operationId: globalUserChangeEmail
+      tags:
+        - user
+      parameters:
+        - name: email
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: new email
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                new_email:
+                  type: string
+              required:
+                - new_email
+      responses:
+        '200':
+          description: user email changed
           content:
             text/plain:
               schema:
@@ -11523,7 +11554,7 @@ paths:
                         description: >-
                           The flow structure containing modules and optional
                           preprocessor/failure handlers
-                        properties: &ref_685
+                        properties: &ref_683
                           modules:
                             type: array
                             description: >-
@@ -11593,8 +11624,10 @@ paths:
                                                   runtime. Can reference previous step
                                                   results via 'results.step_id' or flow
                                                   inputs via 'flow_input.property'. Inside
-                                                  loops, use 'flow_input.iter.value' for
-                                                  the current iteration value
+                                                  for loops, use 'flow_input.iter.value'
+                                                  for the current iteration value (in
+                                                  while loops it equals
+                                                  'flow_input.iter.index')
                                                 properties: &ref_93
                                                   expr:
                                                     type: string
@@ -11887,18 +11920,31 @@ paths:
                                         - type
                                     - type: object
                                       description: >-
-                                        Executes nested modules repeatedly while
-                                        a condition is true. The loop checks the
-                                        condition after each iteration. Use
-                                        stop_after_if on modules to control loop
-                                        termination
+                                        Executes nested modules repeatedly until
+                                        stopped. The implicit iterator is the
+                                        iteration counter, so
+                                        'flow_input.iter.value' equals
+                                        'flow_input.iter.index' (0, 1, 2, ...)
+                                        and never carries state. To carry state
+                                        across iterations, a step reads its own
+                                        previous-iteration result via
+                                        'results.<its_own_id>' with a
+                                        first-iteration fallback - the loop's
+                                        stop_after_if must then be on that inner
+                                        step (a plain single-step body with
+                                        stop_after_if on the loop module does
+                                        not resolve 'results' across iterations
+                                        and never terminates); plain counters
+                                        can instead be derived from
+                                        'flow_input.iter.index', which works in
+                                        every configuration. stop_after_if is
+                                        evaluated after each iteration - on the
+                                        loop module 'result' is the last
+                                        iteration's result
                                       properties: &ref_352
                                         modules:
                                           type: array
-                                          description: >-
-                                            Steps to execute in each iteration. Use
-                                            stop_after_if to control when the loop
-                                            ends
+                                          description: Steps to execute in each iteration
                                           items:
                                             type: object
                                             description: >-
@@ -12089,13 +12135,13 @@ paths:
                                                   description: >-
                                                     Static provider configuration passed
                                                     directly to the AI agent
-                                                  properties: &ref_670
+                                                  properties: &ref_668
                                                     value:
                                                       type: object
                                                       description: >-
                                                         Complete AI provider configuration with
                                                         resource reference and model selection
-                                                      properties: &ref_668
+                                                      properties: &ref_666
                                                         kind:
                                                           type: string
                                                           description: Supported AI provider types
@@ -12131,7 +12177,7 @@ paths:
                                                             that support extended thinking.
                                                             Optional; unset leaves the provider
                                                             default.
-                                                      required: &ref_669
+                                                      required: &ref_667
                                                         - kind
                                                         - resource
                                                         - model
@@ -12139,7 +12185,7 @@ paths:
                                                       type: string
                                                       enum:
                                                         - static
-                                                  required: &ref_671
+                                                  required: &ref_669
                                                     - type
                                                     - value
                                                 - type: object
@@ -12148,8 +12194,10 @@ paths:
                                                     runtime. Can reference previous step
                                                     results via 'results.step_id' or flow
                                                     inputs via 'flow_input.property'. Inside
-                                                    loops, use 'flow_input.iter.value' for
-                                                    the current iteration value
+                                                    for loops, use 'flow_input.iter.value'
+                                                    for the current iteration value (in
+                                                    while loops it equals
+                                                    'flow_input.iter.index')
                                                   properties: *ref_93
                                                   required: *ref_94
                                                 - type: object
@@ -12235,10 +12283,10 @@ paths:
                                                   description: >-
                                                     Static memory configuration passed
                                                     directly to the AI agent
-                                                  properties: &ref_676
+                                                  properties: &ref_674
                                                     value:
                                                       description: Conversation memory configuration
-                                                      oneOf: &ref_674
+                                                      oneOf: &ref_672
                                                         - type: object
                                                           description: No conversation memory/context
                                                           properties: &ref_338
@@ -12279,7 +12327,7 @@ paths:
                                                               items:
                                                                 type: object
                                                                 description: A single message in conversation history
-                                                                properties: &ref_672
+                                                                properties: &ref_670
                                                                   role:
                                                                     type: string
                                                                     enum:
@@ -12288,13 +12336,13 @@ paths:
                                                                       - system
                                                                   content:
                                                                     type: string
-                                                                required: &ref_673
+                                                                required: &ref_671
                                                                   - role
                                                                   - content
                                                           required: &ref_343
                                                             - kind
                                                             - messages
-                                                      discriminator: &ref_675
+                                                      discriminator: &ref_673
                                                         propertyName: kind
                                                         mapping:
                                                           'off': '#/components/schemas/MemoryOff'
@@ -12304,7 +12352,7 @@ paths:
                                                       type: string
                                                       enum:
                                                         - static
-                                                  required: &ref_677
+                                                  required: &ref_675
                                                     - type
                                                     - value
                                                 - type: object
@@ -12313,8 +12361,10 @@ paths:
                                                     runtime. Can reference previous step
                                                     results via 'results.step_id' or flow
                                                     inputs via 'flow_input.property'. Inside
-                                                    loops, use 'flow_input.iter.value' for
-                                                    the current iteration value
+                                                    for loops, use 'flow_input.iter.value'
+                                                    for the current iteration value (in
+                                                    while loops it equals
+                                                    'flow_input.iter.index')
                                                   properties: *ref_93
                                                   required: *ref_94
                                                 - type: object
@@ -12462,12 +12512,12 @@ paths:
                                                   The implementation of a tool. Can be a
                                                   flow module (script/flow) or an MCP tool
                                                   reference
-                                                oneOf: &ref_683
+                                                oneOf: &ref_681
                                                   - description: >-
                                                       A tool implemented as a flow module
                                                       (script, flow, etc.). The AI can call
                                                       this like any other flow module
-                                                    allOf: &ref_678
+                                                    allOf: &ref_676
                                                       - type: object
                                                         properties:
                                                           tool_type:
@@ -12500,7 +12550,7 @@ paths:
                                                       Reference to an external MCP (Model
                                                       Context Protocol) tool. The AI can call
                                                       tools from MCP servers
-                                                    properties: &ref_679
+                                                    properties: &ref_677
                                                       tool_type:
                                                         type: string
                                                         enum:
@@ -12524,7 +12574,7 @@ paths:
                                                           MCP server
                                                         items:
                                                           type: string
-                                                    required: &ref_680
+                                                    required: &ref_678
                                                       - tool_type
                                                       - resource_path
                                                   - type: object
@@ -12532,14 +12582,14 @@ paths:
                                                       A tool implemented as a websearch tool.
                                                       The AI can call this like any other
                                                       websearch tool
-                                                    properties: &ref_681
+                                                    properties: &ref_679
                                                       tool_type:
                                                         type: string
                                                         enum:
                                                           - websearch
-                                                    required: &ref_682
+                                                    required: &ref_680
                                                       - tool_type
-                                                discriminator: &ref_684
+                                                discriminator: &ref_682
                                                   propertyName: tool_type
                                                   mapping:
                                                     flowmodule: '#/components/schemas/FlowModuleTool'
@@ -13041,7 +13091,7 @@ paths:
                               required: &ref_159
                                 - start_id
                                 - end_id
-                        required: &ref_686
+                        required: &ref_684
                           - modules
                       schema:
                         type: object
@@ -16983,6 +17033,14 @@ paths:
           description: opaque keyset cursor from a previous page's next_cursor
           schema:
             type: string
+        - name: include_draft_only
+          in: query
+          description: >-
+            also list the caller's drafts at paths with no deployed row, sorted
+            and paginated with the deployed ones. Ignored for operators, in the
+            archived view, and under a label filter (a draft carries no labels).
+          schema:
+            type: boolean
       responses:
         '200':
           description: a page of merged, ordered runnables
@@ -17084,6 +17142,52 @@ paths:
                         - path
                   next_cursor:
                     type: string
+  /w/{workspace}/runnables/counts:
+    get:
+      summary: count runnables per owner (folder or user space)
+      operationId: countRunnablesByOwner
+      tags:
+        - script
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: kinds
+          in: query
+          description: comma-separated subset of script,flow,app (default all)
+          schema:
+            type: string
+        - name: include_without_main
+          in: query
+          description: include library scripts (no runnable main)
+          schema:
+            type: boolean
+        - name: include_draft_only
+          in: query
+          description: >-
+            also count the caller's drafts at paths with no deployed row,
+            matching the same flag on /runnables/list
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: >-
+            number of runnables per owner prefix, empty owners omitted. Excludes
+            data-pipeline member scripts, which are listed as their folder's
+            single pipeline entry rather than as runnables.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - counts
+                properties:
+                  counts:
+                    type: object
+                    description: owner prefix (f/<folder> or u/<user>) to count
+                    additionalProperties:
+                      type: integer
   /w/{workspace}/flows/list:
     get:
       summary: list all flows
@@ -20252,9 +20356,10 @@ paths:
                                 JavaScript expression evaluated at runtime. Can
                                 reference previous step results via
                                 'results.step_id' or flow inputs via
-                                'flow_input.property'. Inside loops, use
+                                'flow_input.property'. Inside for loops, use
                                 'flow_input.iter.value' for the current
-                                iteration value
+                                iteration value (in while loops it equals
+                                'flow_input.iter.index')
                               properties: *ref_93
                               required: *ref_94
                             - type: object
@@ -39294,67 +39399,6 @@ paths:
             text/plain:
               schema:
                 type: string
-  /w/{workspace}/hub/raw_apps/{id}/embed:
-    post:
-      summary: set or clear the embed url of a hub raw app
-      description: |
-        Requires the caller to be a workspace admin. Forwards the request to the
-        configured Hub scoped to the `{workspace}:{folder}` source and returns
-        the Hub's status code and raw response body.
-      operationId: publishHubRawAppEmbed
-      tags:
-        - hubPublish
-      parameters:
-        - name: workspace
-          in: path
-          required: true
-          schema: *ref_4
-        - name: id
-          in: path
-          required: true
-          description: hub id of the raw app
-          schema:
-            type: integer
-            format: int64
-        - name: folder
-          in: query
-          required: true
-          description: >
-            workspace folder scoping the Hub publication: a workspace can
-            publish
-
-            one Hub project per folder and the Hub-side source key is
-
-            `{workspace}:{folder}`
-          schema: *ref_322
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: &ref_649
-                external_embed_url:
-                  type: string
-                  nullable: true
-                  description: explicit `null` clears the embed (unpublish)
-                project_slug:
-                  type: string
-                  description: >-
-                    hub project slug (3-50 chars, lowercase alphanumeric and
-                    hyphens, no leading/trailing hyphen)
-                  minLength: 3
-                  maxLength: 50
-                  pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
-              required: &ref_650
-                - project_slug
-      responses:
-        '200':
-          description: raw Hub response body (status code is passed through from the Hub)
-          content:
-            text/plain:
-              schema:
-                type: string
   /w/{workspace}/hub/raw_apps/{id}/recording:
     post:
       summary: attach a recorded session to a hub raw app
@@ -39560,7 +39604,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_651
+              properties: &ref_649
                 recording:
                   type: object
       responses:
@@ -39602,7 +39646,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_654
+              properties: &ref_652
                 name:
                   type: string
                 schema:
@@ -39617,7 +39661,7 @@ paths:
                   minLength: 3
                   maxLength: 50
                   pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
-              required: &ref_655
+              required: &ref_653
                 - name
                 - project_slug
       responses:
@@ -39659,17 +39703,17 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_658
+              properties: &ref_656
                 resources:
                   type: array
                   items:
                     type: object
-                    properties: &ref_656
+                    properties: &ref_654
                       path:
                         type: string
                       resource_type:
                         type: string
-                    required: &ref_657
+                    required: &ref_655
                       - path
                       - resource_type
                 project_slug:
@@ -39680,7 +39724,7 @@ paths:
                   minLength: 3
                   maxLength: 50
                   pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
-              required: &ref_659
+              required: &ref_657
                 - resources
                 - project_slug
       responses:
@@ -39722,12 +39766,12 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_662
+              properties: &ref_660
                 triggers:
                   type: array
                   items:
                     type: object
-                    properties: &ref_660
+                    properties: &ref_658
                       path:
                         type: string
                       kind:
@@ -39748,7 +39792,7 @@ paths:
                         type: integer
                         format: int64
                         nullable: true
-                    required: &ref_661
+                    required: &ref_659
                       - path
                       - kind
                       - config
@@ -39760,7 +39804,7 @@ paths:
                   minLength: 3
                   maxLength: 50
                   pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
-              required: &ref_663
+              required: &ref_661
                 - triggers
                 - project_slug
       responses:
@@ -39802,7 +39846,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_666
+              properties: &ref_664
                 migrations:
                   type: array
                   items:
@@ -39810,7 +39854,7 @@ paths:
                     description: >-
                       one best-effort data table migration attached to a project
                       (per data table)
-                    properties: &ref_664
+                    properties: &ref_662
                       datatable_name:
                         type: string
                       sql:
@@ -39820,7 +39864,7 @@ paths:
                         description: defaults to an empty string when omitted
                       enabled:
                         type: boolean
-                    required: &ref_665
+                    required: &ref_663
                       - datatable_name
                       - sql
                       - enabled
@@ -39832,7 +39876,7 @@ paths:
                   minLength: 3
                   maxLength: 50
                   pattern: ^[a-z0-9][a-z0-9-]*[a-z0-9]$
-              required: &ref_667
+              required: &ref_665
                 - migrations
                 - project_slug
       responses:
@@ -39929,7 +39973,7 @@ paths:
           application/json:
             schema:
               type: object
-              properties: &ref_652
+              properties: &ref_650
                 logo:
                   description: the logo to set, or null to clear the project's current logo
                   nullable: true
@@ -39946,7 +39990,7 @@ paths:
                   required:
                     - b64
                     - mime
-              required: &ref_653
+              required: &ref_651
                 - logo
       responses:
         '200':
@@ -40697,8 +40741,8 @@ components:
       description: >-
         JavaScript expression evaluated at runtime. Can reference previous step
         results via 'results.step_id' or flow inputs via 'flow_input.property'.
-        Inside loops, use 'flow_input.iter.value' for the current iteration
-        value
+        Inside for loops, use 'flow_input.iter.value' for the current iteration
+        value (in while loops it equals 'flow_input.iter.index')
       properties:
         expr:
           type: string
@@ -40810,9 +40854,18 @@ components:
           required: *ref_351
         - type: object
           description: >-
-            Executes nested modules repeatedly while a condition is true. The
-            loop checks the condition after each iteration. Use stop_after_if on
-            modules to control loop termination
+            Executes nested modules repeatedly until stopped. The implicit
+            iterator is the iteration counter, so 'flow_input.iter.value' equals
+            'flow_input.iter.index' (0, 1, 2, ...) and never carries state. To
+            carry state across iterations, a step reads its own
+            previous-iteration result via 'results.<its_own_id>' with a
+            first-iteration fallback - the loop's stop_after_if must then be on
+            that inner step (a plain single-step body with stop_after_if on the
+            loop module does not resolve 'results' across iterations and never
+            terminates); plain counters can instead be derived from
+            'flow_input.iter.index', which works in every configuration.
+            stop_after_if is evaluated after each iteration - on the loop module
+            'result' is the last iteration's result
           properties: *ref_352
           required: *ref_353
         - type: object
@@ -41096,15 +41149,21 @@ components:
     WhileloopFlow:
       type: object
       description: >-
-        Executes nested modules repeatedly while a condition is true. The loop
-        checks the condition after each iteration. Use stop_after_if on modules
-        to control loop termination
+        Executes nested modules repeatedly until stopped. The implicit iterator
+        is the iteration counter, so 'flow_input.iter.value' equals
+        'flow_input.iter.index' (0, 1, 2, ...) and never carries state. To carry
+        state across iterations, a step reads its own previous-iteration result
+        via 'results.<its_own_id>' with a first-iteration fallback - the loop's
+        stop_after_if must then be on that inner step (a plain single-step body
+        with stop_after_if on the loop module does not resolve 'results' across
+        iterations and never terminates); plain counters can instead be derived
+        from 'flow_input.iter.index', which works in every configuration.
+        stop_after_if is evaluated after each iteration - on the loop module
+        'result' is the last iteration's result
       properties:
         modules:
           type: array
-          description: >-
-            Steps to execute in each iteration. Use stop_after_if to control
-            when the loop ends
+          description: Steps to execute in each iteration
           items:
             type: object
             description: A single step in a flow. Can be a script, subflow, loop, or branch
@@ -43172,52 +43231,48 @@ components:
       type: object
       properties: *ref_647
       required: *ref_648
-    RawAppEmbedBody:
-      type: object
-      properties: *ref_649
-      required: *ref_650
     RecordingBody:
       type: object
       properties: *ref_323
       required: *ref_324
     PipelineRecordingBody:
       type: object
-      properties: *ref_651
+      properties: *ref_649
     ProjectLogoBody:
+      type: object
+      properties: *ref_650
+      required: *ref_651
+    PublishResourceTypeBody:
       type: object
       properties: *ref_652
       required: *ref_653
-    PublishResourceTypeBody:
+    PublishResourceBody:
       type: object
       properties: *ref_654
       required: *ref_655
-    PublishResourceBody:
+    PublishResourcesBody:
       type: object
       properties: *ref_656
       required: *ref_657
-    PublishResourcesBody:
+    PublishTriggerBody:
       type: object
       properties: *ref_658
       required: *ref_659
-    PublishTriggerBody:
+    PublishTriggersBody:
       type: object
       properties: *ref_660
       required: *ref_661
-    PublishTriggersBody:
-      type: object
-      properties: *ref_662
-      required: *ref_663
     PublishMigrationBody:
       type: object
       description: >-
         one best-effort data table migration attached to a project (per data
         table)
-      properties: *ref_664
-      required: *ref_665
+      properties: *ref_662
+      required: *ref_663
     PublishMigrationsBody:
       type: object
-      properties: *ref_666
-      required: *ref_667
+      properties: *ref_664
+      required: *ref_665
     schemas-StaticTransform:
       type: object
       description: >-
@@ -43230,8 +43285,8 @@ components:
       description: >-
         JavaScript expression evaluated at runtime. Can reference previous step
         results via 'results.step_id' or flow inputs via 'flow_input.property'.
-        Inside loops, use 'flow_input.iter.value' for the current iteration
-        value
+        Inside for loops, use 'flow_input.iter.value' for the current iteration
+        value (in while loops it equals 'flow_input.iter.index')
       properties: *ref_93
       required: *ref_94
     schemas-AiTransform:
@@ -43286,9 +43341,17 @@ components:
     schemas-WhileloopFlow:
       type: object
       description: >-
-        Executes nested modules repeatedly while a condition is true. The loop
-        checks the condition after each iteration. Use stop_after_if on modules
-        to control loop termination
+        Executes nested modules repeatedly until stopped. The implicit iterator
+        is the iteration counter, so 'flow_input.iter.value' equals
+        'flow_input.iter.index' (0, 1, 2, ...) and never carries state. To carry
+        state across iterations, a step reads its own previous-iteration result
+        via 'results.<its_own_id>' with a first-iteration fallback - the loop's
+        stop_after_if must then be on that inner step (a plain single-step body
+        with stop_after_if on the loop module does not resolve 'results' across
+        iterations and never terminates); plain counters can instead be derived
+        from 'flow_input.iter.index', which works in every configuration.
+        stop_after_if is evaluated after each iteration - on the loop module
+        'result' is the last iteration's result
       properties: *ref_352
       required: *ref_353
     schemas-BranchOne:
@@ -43323,13 +43386,13 @@ components:
       description: >-
         Complete AI provider configuration with resource reference and model
         selection
-      properties: *ref_668
-      required: *ref_669
+      properties: *ref_666
+      required: *ref_667
     StaticProviderTransform:
       type: object
       description: Static provider configuration passed directly to the AI agent
-      properties: *ref_670
-      required: *ref_671
+      properties: *ref_668
+      required: *ref_669
     ProviderTransform:
       description: >-
         Provider configuration - can be static (ProviderConfig), JavaScript
@@ -43349,8 +43412,8 @@ components:
     MemoryMessage:
       type: object
       description: A single message in conversation history
-      properties: *ref_672
-      required: *ref_673
+      properties: *ref_670
+      required: *ref_671
     MemoryManual:
       type: object
       description: Explicit message history
@@ -43358,13 +43421,13 @@ components:
       required: *ref_343
     schemas-MemoryConfig:
       description: Conversation memory configuration
-      oneOf: *ref_674
-      discriminator: *ref_675
+      oneOf: *ref_672
+      discriminator: *ref_673
     StaticMemoryTransform:
       type: object
       description: Static memory configuration passed directly to the AI agent
-      properties: *ref_676
-      required: *ref_677
+      properties: *ref_674
+      required: *ref_675
     MemoryTransform:
       description: >-
         Memory configuration - can be static (MemoryConfig), JavaScript
@@ -43381,27 +43444,27 @@ components:
       description: >-
         A tool implemented as a flow module (script, flow, etc.). The AI can
         call this like any other flow module
-      allOf: *ref_678
+      allOf: *ref_676
     McpToolValue:
       type: object
       description: >-
         Reference to an external MCP (Model Context Protocol) tool. The AI can
         call tools from MCP servers
-      properties: *ref_679
-      required: *ref_680
+      properties: *ref_677
+      required: *ref_678
     WebsearchToolValue:
       type: object
       description: >-
         A tool implemented as a websearch tool. The AI can call this like any
         other websearch tool
-      properties: *ref_681
-      required: *ref_682
+      properties: *ref_679
+      required: *ref_680
     ToolValue:
       description: >-
         The implementation of a tool. Can be a flow module (script/flow) or an
         MCP tool reference
-      oneOf: *ref_683
-      discriminator: *ref_684
+      oneOf: *ref_681
+      discriminator: *ref_682
     AgentTool:
       type: object
       description: >-
@@ -43450,8 +43513,8 @@ components:
       description: >-
         The flow structure containing modules and optional preprocessor/failure
         handlers
-      properties: *ref_685
-      required: *ref_686
+      properties: *ref_683
+      required: *ref_684
     schemas-FlowStatusModule:
       type: object
       properties: *ref_165

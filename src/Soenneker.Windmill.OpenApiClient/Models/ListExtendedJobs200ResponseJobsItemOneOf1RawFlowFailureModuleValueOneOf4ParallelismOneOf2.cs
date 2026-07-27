@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// JavaScript expression evaluated at runtime. Can reference previous step results via &apos;results.step_id&apos; or flow inputs via &apos;flow_input.property&apos;. Inside loops, use &apos;flow_input.iter.value&apos; for the current iteration value
+    /// JavaScript expression evaluated at runtime. Can reference previous step results via &apos;results.step_id&apos; or flow inputs via &apos;flow_input.property&apos;. Inside for loops, use &apos;flow_input.iter.value&apos; for the current iteration value (in while loops it equals &apos;flow_input.iter.index&apos;)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListExtendedJobs200ResponseJobsItemOneOf1RawFlowFailureModuleValueOneOf4ParallelismOneOf2 : IAdditionalDataHolder, IParsable

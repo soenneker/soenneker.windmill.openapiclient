@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Executes nested modules repeatedly while a condition is true. The loop checks the condition after each iteration. Use stop_after_if on modules to control loop termination
+    /// Executes nested modules repeatedly until stopped. The implicit iterator is the iteration counter, so &apos;flow_input.iter.value&apos; equals &apos;flow_input.iter.index&apos; (0, 1, 2, ...) and never carries state. To carry state across iterations, a step reads its own previous-iteration result via &apos;results.&lt;its_own_id&gt;&apos; with a first-iteration fallback - the loop&apos;s stop_after_if must then be on that inner step (a plain single-step body with stop_after_if on the loop module does not resolve &apos;results&apos; across iterations and never terminates); plain counters can instead be derived from &apos;flow_input.iter.index&apos;, which works in every configuration. stop_after_if is evaluated after each iteration - on the loop module &apos;result&apos; is the last iteration&apos;s result
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunFlowDependenciesAsyncRequestFlowValueModulesItemValueOneOf5 : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Steps to execute in each iteration. Use stop_after_if to control when the loop ends</summary>
+        /// <summary>Steps to execute in each iteration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueModulesItemValueOneOf5ModulesItem>? Modules { get; set; }

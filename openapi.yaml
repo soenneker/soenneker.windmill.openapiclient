@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.773.0
+  version: 1.775.2
   title: Windmill API
   contact:
     name: Windmill Team
@@ -2346,6 +2346,11 @@ paths:
                         grant_permissions:
                           type: string
                           enum: *ref_21
+                        replication_user:
+                          type: string
+                          enum: *ref_21
+                        replication_user_error:
+                          type: string
                     success:
                       type: boolean
                       description: Whether the operation completed successfully
@@ -6841,6 +6846,54 @@ paths:
                               nullable
                     error:
                       type: string
+  /w/{workspace}/workspaces/test_datatable_connection/{datatable_name}:
+    get:
+      summary: check what the data table's database lets its role do
+      operationId: testDataTableConnection
+      tags:
+        - workspace
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: datatable_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: connection and privilege report
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: string
+                  schema:
+                    type: string
+                    nullable: true
+                  can_create_table:
+                    type: boolean
+                  can_create_schema:
+                    type: boolean
+                  migrations_table_exists:
+                    type: boolean
+                  suggested_grants:
+                    type: array
+                    items:
+                      type: string
+                  suggested_search_path:
+                    type: string
+                required:
+                  - user
+                  - schema
+                  - can_create_table
+                  - can_create_schema
+                  - migrations_table_exists
+                  - suggested_grants
   /w/{workspace}/workspaces/list_datatable_tables:
     get:
       summary: list tables of all connected Datatables
@@ -12472,9 +12525,7 @@ paths:
 
                                                 Range: 1-1000.
                                           required:
-                                            - provider
                                             - user_message
-                                            - output_type
                                         tools:
                                           type: array
                                           description: >-
@@ -12616,13 +12667,58 @@ paths:
                                             persist its assistant or tool messages
                                             to the flow conversation when chat mode
                                             is enabled.
+                                        agent:
+                                          type: string
+                                          description: >
+                                            Path of a reusable `ai_agent` resource
+                                            (hybrid linking). When set, the agent
+                                            brain
+
+                                            config (provider/model/system
+                                            prompt/etc.) and tool set are resolved
+                                            at runtime from
+
+                                            that resource; the module's
+                                            input_transforms then only carry the
+                                            flow-local inputs
+
+                                            (user_message/user_attachments).
+                                        tool_inputs:
+                                          type: object
+                                          description: >
+                                            Host-local wiring for an agent's tool
+                                            inputs, keyed by tool id then input key.
+                                            Binds the
+
+                                            referenced agent's tools to this flow's
+                                            context (flow_input/results) without
+                                            mutating the
+
+                                            shared resource; overlaid onto the
+                                            tools' input_transforms at runtime —
+                                            including when
+
+                                            `agent` is unset, since a step forked
+                                            for editing keeps these overrides until
+                                            it is saved
+
+                                            back or unlinked.
+                                          additionalProperties:
+                                            type: object
+                                            additionalProperties:
+                                              description: >-
+                                                Maps input parameters for a step. Can be
+                                                a static value or a JavaScript
+                                                expression that references previous
+                                                results or flow inputs
+                                              oneOf: *ref_89
+                                              discriminator: *ref_90
                                         parallel:
                                           type: boolean
                                           description: >-
                                             If true, the agent can execute multiple
                                             tool calls in parallel
                                       required: &ref_361
-                                        - tools
                                         - type
                                         - input_transforms
                                   discriminator: *ref_98
@@ -23704,6 +23800,145 @@ paths:
                     - sibling_index
                     - sibling_count
                     - logs
+  /w/{workspace}/jobs_u/get_flow_all_results/{id}:
+    get:
+      summary: >-
+        get statuses and truncated results for all jobs of a flow job's
+        execution tree
+      operationId: getFlowAllResults
+      tags:
+        - job
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: id
+          in: path
+          required: true
+          schema: *ref_183
+        - name: max_result_len
+          in: query
+          description: >-
+            per-entry cap (in characters of JSON text) on result_prefix (default
+            2000, max 30000)
+          schema:
+            type: integer
+        - name: step
+          in: query
+          description: >-
+            step address to resolve to a single job instead of enumerating the
+            tree: "b", "b/c", "b[12]" (1-based iteration/branch), composable as
+            "b[12]/c"
+          schema:
+            type: string
+      responses:
+        '200':
+          description: >-
+            per-job statuses and truncated results of the flow's execution tree,
+            or the single resolved entry when step is provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  enclosing_job:
+                    type: string
+                    format: uuid
+                    description: >-
+                      set when the requested job is itself a step of a larger
+                      flow run; id of the flow run directly enclosing it
+                  entries:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        job_id:
+                          type: string
+                        label:
+                          type: string
+                          description: >-
+                            human-readable label describing the job's position
+                            in the flow tree
+                        kind:
+                          type: string
+                          description: job kind (script, flow, forloopflow, ...)
+                        flow_step_id:
+                          type: string
+                          nullable: true
+                        step_path:
+                          type: string
+                          nullable: true
+                          description: materialized step path (e.g. "a/b")
+                        depth:
+                          type: integer
+                          description: depth in the flow tree (0 for the root flow job)
+                        parent_module_type:
+                          type: string
+                          nullable: true
+                          description: parent module type (forloopflow, branchall, ...)
+                        sibling_index:
+                          type: integer
+                          description: >-
+                            1-based index of this job among siblings sharing the
+                            same step
+                        sibling_count:
+                          type: integer
+                          description: total number of siblings sharing the same step
+                        status:
+                          type: string
+                          enum:
+                            - success
+                            - failure
+                            - canceled
+                            - skipped
+                            - suspended
+                            - running
+                            - queued
+                        success:
+                          type: boolean
+                        duration_ms:
+                          type: integer
+                          format: int64
+                        started_at:
+                          type: string
+                          format: date-time
+                        result_prefix:
+                          type: string
+                          description: >-
+                            result JSON text truncated to the per-entry budget;
+                            absent until the job has completed
+                        result_length:
+                          type: integer
+                          description: >-
+                            full length in characters of the result JSON text
+                            (greater than the prefix length when truncated)
+                      required:
+                        - job_id
+                        - label
+                        - kind
+                        - depth
+                        - sibling_index
+                        - sibling_count
+                        - status
+                  truncated:
+                    type: boolean
+                    description: >-
+                      true when the tree has more jobs than the entry cap;
+                      entries then hold the depth-first prefix
+                  scope_filtered:
+                    type: boolean
+                    description: >-
+                      true when the caller's token is tag-scoped; steps running
+                      on other tags are omitted
+                  step_error:
+                    type: string
+                    description: >-
+                      set when step was provided but could not be resolved; a
+                      diagnostic listing available step ids or iteration
+                      statuses
+                required:
+                  - entries
   /w/{workspace}/jobs_u/get_completed_logs_tail/{id}:
     get:
       summary: get completed job logs tail
@@ -41438,9 +41673,7 @@ components:
 
                 Range: 1-1000.
           required:
-            - provider
             - user_message
-            - output_type
         tools:
           type: array
           description: >-
@@ -41468,11 +41701,48 @@ components:
           description: >-
             If true, this AI agent step does not persist its assistant or tool
             messages to the flow conversation when chat mode is enabled.
+        agent:
+          type: string
+          description: >
+            Path of a reusable `ai_agent` resource (hybrid linking). When set,
+            the agent brain
+
+            config (provider/model/system prompt/etc.) and tool set are resolved
+            at runtime from
+
+            that resource; the module's input_transforms then only carry the
+            flow-local inputs
+
+            (user_message/user_attachments).
+        tool_inputs:
+          type: object
+          description: >
+            Host-local wiring for an agent's tool inputs, keyed by tool id then
+            input key. Binds the
+
+            referenced agent's tools to this flow's context (flow_input/results)
+            without mutating the
+
+            shared resource; overlaid onto the tools' input_transforms at
+            runtime — including when
+
+            `agent` is unset, since a step forked for editing keeps these
+            overrides until it is saved
+
+            back or unlinked.
+          additionalProperties:
+            type: object
+            additionalProperties:
+              description: >-
+                Maps input parameters for a step. Can be a static value or a
+                JavaScript expression that references previous results or flow
+                inputs
+              oneOf: *ref_89
+              discriminator: *ref_90
         parallel:
           type: boolean
           description: If true, the agent can execute multiple tool calls in parallel
       required:
-        - tools
         - type
         - input_transforms
     Identity:

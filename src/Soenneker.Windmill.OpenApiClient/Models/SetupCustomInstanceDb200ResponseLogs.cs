@@ -22,6 +22,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDbConnect? DbConnect { get; set; }
         /// <summary>The grant_permissions property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsGrantPermissions? GrantPermissions { get; set; }
+        /// <summary>The replication_user property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser? ReplicationUser { get; set; }
+        /// <summary>The replication_user_error property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReplicationUserError { get; set; }
+#nullable restore
+#else
+        public string ReplicationUserError { get; set; }
+#endif
         /// <summary>The super_admin property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin? SuperAdmin { get; set; }
         /// <summary>The valid_dbname property</summary>
@@ -55,6 +65,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "database_credentials", n => { DatabaseCredentials = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDatabaseCredentials>(); } },
                 { "db_connect", n => { DbConnect = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDbConnect>(); } },
                 { "grant_permissions", n => { GrantPermissions = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsGrantPermissions>(); } },
+                { "replication_user", n => { ReplicationUser = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser>(); } },
+                { "replication_user_error", n => { ReplicationUserError = n.GetStringValue(); } },
                 { "super_admin", n => { SuperAdmin = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin>(); } },
                 { "valid_dbname", n => { ValidDbname = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname>(); } },
             };
@@ -70,6 +82,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDatabaseCredentials>("database_credentials", DatabaseCredentials);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDbConnect>("db_connect", DbConnect);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsGrantPermissions>("grant_permissions", GrantPermissions);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser>("replication_user", ReplicationUser);
+            writer.WriteStringValue("replication_user_error", ReplicationUserError);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin>("super_admin", SuperAdmin);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname>("valid_dbname", ValidDbname);
             writer.WriteAdditionalData(AdditionalData);

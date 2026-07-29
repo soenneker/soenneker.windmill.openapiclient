@@ -15,6 +15,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Path of a reusable `ai_agent` resource (hybrid linking). When set, the agent brainconfig (provider/model/system prompt/etc.) and tool set are resolved at runtime fromthat resource; the module&apos;s input_transforms then only carry the flow-local inputs(user_message/user_attachments).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Agent { get; set; }
+#nullable restore
+#else
+        public string Agent { get; set; }
+#endif
         /// <summary>Input parameters for the AI agent mapped to their values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +42,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string Tag { get; set; }
+#endif
+        /// <summary>Host-local wiring for an agent&apos;s tool inputs, keyed by tool id then input key. Binds thereferenced agent&apos;s tools to this flow&apos;s context (flow_input/results) without mutating theshared resource; overlaid onto the tools&apos; input_transforms at runtime — including when`agent` is unset, since a step forked for editing keeps these overrides until it is savedback or unlinked.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolInputs? ToolInputs { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolInputs ToolInputs { get; set; }
 #endif
         /// <summary>Array of tools the agent can use. The agent decides which tools to call based on the task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,10 +87,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "agent", n => { Agent = n.GetStringValue(); } },
                 { "input_transforms", n => { InputTransforms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9InputTransforms>(global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9InputTransforms.CreateFromDiscriminatorValue); } },
                 { "omit_output_from_conversation", n => { OmitOutputFromConversation = n.GetBoolValue(); } },
                 { "parallel", n => { Parallel = n.GetBoolValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
+                { "tool_inputs", n => { ToolInputs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolInputs>(global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolInputs.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9Type>(); } },
             };
@@ -86,10 +104,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("agent", Agent);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9InputTransforms>("input_transforms", InputTransforms);
             writer.WriteBoolValue("omit_output_from_conversation", OmitOutputFromConversation);
             writer.WriteBoolValue("parallel", Parallel);
             writer.WriteStringValue("tag", Tag);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolInputs>("tool_inputs", ToolInputs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9ToolsItem>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowFailureModuleValueOneOf9Type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

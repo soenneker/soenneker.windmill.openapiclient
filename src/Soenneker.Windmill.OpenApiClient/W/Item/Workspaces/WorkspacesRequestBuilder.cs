@@ -94,6 +94,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Test_datatable_connection;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Threshold_alert;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Upsert_datatable_migration;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Usage;
@@ -569,6 +570,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config.Slack_oauth_configRequestBuilder Slack_oauth_config
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config.Slack_oauth_configRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The test_datatable_connection property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Test_datatable_connection.Test_datatable_connectionRequestBuilder Test_datatable_connection
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Test_datatable_connection.Test_datatable_connectionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The threshold_alert property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Threshold_alert.Threshold_alertRequestBuilder Threshold_alert

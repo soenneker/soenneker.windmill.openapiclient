@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin
         /// <summary>
         /// list all users as super admin (require to be super amdin)
         /// </summary>
-        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseResponseJsonItem&gt;</returns>
+        /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseResponseJsonItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin.List_as_super_adminRequestBuilder.List_as_super_adminRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin.List_as_super_adminRequestBuilder.List_as_super_adminRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseResponseJsonItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin.List_as_super_adminRequestBuilder.List_as_super_adminRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin.List_as_super_adminRequestBuilder.List_as_super_adminRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseResponseJsonItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseResponseJsonItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseSchemaItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListUsersAsSuperAdmin200ResponseSchemaItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>

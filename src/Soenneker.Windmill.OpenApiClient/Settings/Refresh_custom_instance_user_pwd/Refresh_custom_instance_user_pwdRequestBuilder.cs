@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user
         /// <summary>
         /// Refreshes the passwords for the custom_instance_user and the custom_instance_replication_user (used by postgres triggers)
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Refreshes the passwords for the custom_instance_user and the custom_instance_replication_user (used by postgres triggers)

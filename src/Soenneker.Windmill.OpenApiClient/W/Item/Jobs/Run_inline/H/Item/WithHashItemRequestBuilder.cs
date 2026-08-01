@@ -36,22 +36,22 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_inline.H.Item
         /// <summary>
         /// run script by hash without starting a new job
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseSchema"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseResponseJson?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInlineRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseSchema?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInlineRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseResponseJson> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInlineRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseSchema> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInlineRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunScriptByHashInline200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// run script by hash without starting a new job

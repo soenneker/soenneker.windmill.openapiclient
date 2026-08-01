@@ -36,40 +36,40 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item
         /// <summary>
         /// run script by path with get
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathGet200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// run script by path
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseSchema"/></returns>
         /// <param name="body">The arguments to pass to the script or flow</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseResponseJson?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseSchema?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseResponseJson> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseSchema> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPathRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.P.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultScriptByPath200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// run script by path with get

@@ -36,40 +36,40 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item
         /// <summary>
         /// run flow by version with GET and wait until completion
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionGet200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// run flow by version and wait until completion
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseSchema"/></returns>
         /// <param name="body">The arguments to pass to the script or flow</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseResponseJson?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseSchema?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseResponseJson> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseSchema> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersionRequestRequestBody body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Fv.Item.WithVersionItemRequestBuilder.WithVersionItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RunWaitResultFlowByVersion200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// run flow by version with GET and wait until completion

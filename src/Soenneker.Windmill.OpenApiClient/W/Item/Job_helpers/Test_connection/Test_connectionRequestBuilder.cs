@@ -36,20 +36,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Test_connection
         /// <summary>
         /// Test connection to the workspace object storage
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseResponseJson"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseSchema"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseResponseJson?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Test_connection.Test_connectionRequestBuilder.Test_connectionRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseSchema?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Test_connection.Test_connectionRequestBuilder.Test_connectionRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseResponseJson> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Test_connection.Test_connectionRequestBuilder.Test_connectionRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseSchema> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Test_connection.Test_connectionRequestBuilder.Test_connectionRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseResponseJson>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseResponseJson.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DatasetStorageTestConnection200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Test connection to the workspace object storage

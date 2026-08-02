@@ -33,8 +33,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_ducklake_na
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_copilot_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_datatable_config;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_dbt_warehouses;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_default_app;
-using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_deploy_to;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_deploy_ui_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_ducklake_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_error_handler;
@@ -91,6 +91,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Rollback_datatable_migr
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_datatable_migrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_slack_message_test_job;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_job;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Seed_full_diff;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config;
@@ -266,15 +267,15 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_datatable_config.Edit_datatable_configRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The edit_dbt_warehouses property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_dbt_warehouses.Edit_dbt_warehousesRequestBuilder Edit_dbt_warehouses
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_dbt_warehouses.Edit_dbt_warehousesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The edit_default_app property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_default_app.Edit_default_appRequestBuilder Edit_default_app
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_default_app.Edit_default_appRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The edit_deploy_to property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_deploy_to.Edit_deploy_toRequestBuilder Edit_deploy_to
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_deploy_to.Edit_deploy_toRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The edit_deploy_ui_config property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_deploy_ui_config.Edit_deploy_ui_configRequestBuilder Edit_deploy_ui_config
@@ -555,6 +556,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_job.Run_teams_message_test_jobRequestBuilder Run_teams_message_test_job
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_job.Run_teams_message_test_jobRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The seed_full_diff property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Seed_full_diff.Seed_full_diffRequestBuilder Seed_full_diff
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Seed_full_diff.Seed_full_diffRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The set_environment_variable property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable.Set_environment_variableRequestBuilder Set_environment_variable

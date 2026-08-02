@@ -22,6 +22,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem> Assets { get; set; }
 #endif
+        /// <summary>`ref()` lineage BETWEEN two dbt models, in the terms the canvas draws — the relations, not dbt&apos;s node ids. Without it every model hangs off the one dbt runnable and the project reads as a flat fan-out. Omitted when empty.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem>? DbtEdges { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem> DbtEdges { get; set; }
+#endif
+        /// <summary>The job whose own snapshot the dbt half was resolved from, when one was asked for and found. A run page polls the graph while its job runs, because a dynamic descriptor&apos;s snapshot is written mid-run, and this is what tells it to stop. Omitted when the answer came from the version&apos;s deployed graph.</summary>
+        public Guid? DbtSnapshotJob { get; set; }
         /// <summary>The edges property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,6 +98,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "dbt_edges", n => { DbtEdges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "dbt_snapshot_job", n => { DbtSnapshotJob = n.GetGuidValue(); } },
                 { "edges", n => { Edges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "macro_edges", n => { MacroEdges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "runnables", n => { Runnables = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -103,6 +115,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem>("assets", Assets);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem>("dbt_edges", DbtEdges);
+            writer.WriteGuidValue("dbt_snapshot_job", DbtSnapshotJob);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem>("edges", Edges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem>("macro_edges", MacroEdges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>("runnables", Runnables);

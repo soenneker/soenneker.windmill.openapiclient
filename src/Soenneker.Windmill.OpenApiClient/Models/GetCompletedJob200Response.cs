@@ -202,6 +202,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Tag { get; set; }
 #endif
+        /// <summary>job trigger kind (schedule, http, websocket...)</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseTriggerKind? TriggerKind { get; set; }
         /// <summary>The visible_to_owner property</summary>
         public bool? VisibleToOwner { get; set; }
         /// <summary>The worker property</summary>
@@ -293,6 +295,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
+                { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseTriggerKind>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
                 { "worker", n => { Worker = n.GetStringValue(); } },
                 { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
@@ -346,6 +349,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteBoolValue("success", Success);
             writer.WriteStringValue("tag", Tag);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseTriggerKind>("trigger_kind", TriggerKind);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
             writer.WriteStringValue("worker", Worker);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);

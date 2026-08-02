@@ -162,6 +162,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Tag { get; set; }
 #endif
+        /// <summary>job trigger kind (schedule, http, websocket...)</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2TriggerKind? TriggerKind { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2Type? Type { get; set; }
         /// <summary>The visible_to_owner property</summary>
@@ -247,6 +249,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "suspend", n => { Suspend = n.GetDoubleValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
+                { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2TriggerKind>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2Type>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
                 { "worker", n => { Worker = n.GetStringValue(); } },
@@ -293,6 +296,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteDoubleValue("suspend", Suspend);
             writer.WriteStringValue("tag", Tag);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2TriggerKind>("trigger_kind", TriggerKind);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2Type>("type", Type);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
             writer.WriteStringValue("worker", Worker);

@@ -26,6 +26,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem> Diffs { get; set; }
 #endif
+        /// <summary>For a pair outside the fork lineage, when its candidate set was last seeded by an explicit full scan. Absent when the pair has never been scanned (an empty `diffs` then says nothing about whether the workspaces agree) or when the pair is a lineage pair, which the tally keeps current.</summary>
+        public DateTimeOffset? FullScanAt { get; set; }
         /// <summary>Ahead items excluded from `diffs` because they are not visible to the caller</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "all_ahead_items_visible", n => { AllAheadItemsVisible = n.GetBoolValue(); } },
                 { "all_behind_items_visible", n => { AllBehindItemsVisible = n.GetBoolValue(); } },
                 { "diffs", n => { Diffs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem>(global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "full_scan_at", n => { FullScanAt = n.GetDateTimeOffsetValue(); } },
                 { "hidden_ahead", n => { HiddenAhead = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead>(global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead.CreateFromDiscriminatorValue); } },
                 { "hidden_behind", n => { HiddenBehind = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind>(global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind.CreateFromDiscriminatorValue); } },
                 { "skipped_comparison", n => { SkippedComparison = n.GetBoolValue(); } },
@@ -96,6 +99,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("all_ahead_items_visible", AllAheadItemsVisible);
             writer.WriteBoolValue("all_behind_items_visible", AllBehindItemsVisible);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem>("diffs", Diffs);
+            writer.WriteDateTimeOffsetValue("full_scan_at", FullScanAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead>("hidden_ahead", HiddenAhead);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind>("hidden_behind", HiddenBehind);
             writer.WriteBoolValue("skipped_comparison", SkippedComparison);

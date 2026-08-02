@@ -54,6 +54,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDatatable Datatable { get; set; }
 #endif
+        /// <summary>Warehouses a dbt project may run against, by name. `main` is the one a project gets when its descriptor names none. Each entry points at a resource; it never holds credentials.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDbtWarehouses? DbtWarehouses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDbtWarehouses DbtWarehouses { get; set; }
+#endif
         /// <summary>The default_app property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,14 +77,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDefaultScripts DefaultScripts { get; set; }
-#endif
-        /// <summary>The deploy_to property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DeployTo { get; set; }
-#nullable restore
-#else
-        public string DeployTo { get; set; }
 #endif
         /// <summary>The deploy_ui property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -266,9 +266,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "customer_id", n => { CustomerId = n.GetStringValue(); } },
                 { "datatable", n => { Datatable = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDatatable>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDatatable.CreateFromDiscriminatorValue); } },
+                { "dbt_warehouses", n => { DbtWarehouses = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDbtWarehouses>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDbtWarehouses.CreateFromDiscriminatorValue); } },
                 { "default_app", n => { DefaultApp = n.GetStringValue(); } },
                 { "default_scripts", n => { DefaultScripts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDefaultScripts>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDefaultScripts.CreateFromDiscriminatorValue); } },
-                { "deploy_to", n => { DeployTo = n.GetStringValue(); } },
                 { "deploy_ui", n => { DeployUi = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDeployUi>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDeployUi.CreateFromDiscriminatorValue); } },
                 { "ducklake", n => { Ducklake = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklake>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklake.CreateFromDiscriminatorValue); } },
                 { "error_handler", n => { ErrorHandler = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler.CreateFromDiscriminatorValue); } },
@@ -305,9 +305,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("color", Color);
             writer.WriteStringValue("customer_id", CustomerId);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDatatable>("datatable", Datatable);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDbtWarehouses>("dbt_warehouses", DbtWarehouses);
             writer.WriteStringValue("default_app", DefaultApp);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDefaultScripts>("default_scripts", DefaultScripts);
-            writer.WriteStringValue("deploy_to", DeployTo);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDeployUi>("deploy_ui", DeployUi);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklake>("ducklake", Ducklake);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler>("error_handler", ErrorHandler);

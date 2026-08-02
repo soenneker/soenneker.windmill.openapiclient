@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GraphRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/assets/graph{?asset_kinds*,folder*}", pathParameters)
+        public GraphRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/assets/graph{?asset_kinds*,dbt_script_hash*,folder*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public GraphRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/assets/graph{?asset_kinds*,folder*}", rawUrl)
+        public GraphRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/assets/graph{?asset_kinds*,dbt_script_hash*,folder*}", rawUrl)
         {
         }
         /// <summary>
@@ -94,6 +94,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph
 #else
             [QueryParameter("asset_kinds")]
             public string AssetKinds { get; set; }
+#endif
+            /// <summary>&quot;Render the dbt half of the graph as one version of a dbt script had it, rather than as the currently deployed one. Given this, `folder` no longer scopes the dbt nodes: the pinned version&apos;s own models and lineage are the answer, including models a later deploy removed.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("dbt_script_hash")]
+            public string? DbtScriptHash { get; set; }
+#nullable restore
+#else
+            [QueryParameter("dbt_script_hash")]
+            public string DbtScriptHash { get; set; }
 #endif
             /// <summary>Scope the graph to runnables in a single folder</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

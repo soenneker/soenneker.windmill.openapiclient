@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_deploy_to
         {
         }
         /// <summary>
-        /// get deploy to
+        /// get the workspace this one deploys into (its fork parent)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDeployTo200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_deploy_to
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetDeployTo200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetDeployTo200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// get deploy to
+        /// get the workspace this one deploys into (its fork parent)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

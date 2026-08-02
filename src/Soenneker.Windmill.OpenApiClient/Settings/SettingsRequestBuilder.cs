@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Critical_alerts;
 using Soenneker.Windmill.OpenApiClient.Settings.Customer_portal;
 using Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database;
 using Soenneker.Windmill.OpenApiClient.Settings.Get_stats;
+using Soenneker.Windmill.OpenApiClient.Settings.Github_app_stale_webhooks;
 using Soenneker.Windmill.OpenApiClient.Settings.Global;
 using Soenneker.Windmill.OpenApiClient.Settings.Instance_config;
 using Soenneker.Windmill.OpenApiClient.Settings.Instance_hash;
@@ -84,6 +85,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Get_stats.Get_statsRequestBuilder Get_stats
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Get_stats.Get_statsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The github_app_stale_webhooks property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Github_app_stale_webhooks.Github_app_stale_webhooksRequestBuilder Github_app_stale_webhooks
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Github_app_stale_webhooks.Github_app_stale_webhooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The global property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Global.GlobalRequestBuilder Global

@@ -40,7 +40,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> Labels { get; set; }
 #endif
-        /// <summary>The flow will be run with the permissions of the user with this email.</summary>
+        /// <summary>&quot;The flow runs with the permissions of this identity: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it. Omit it when writing and it is resolved from that address instead.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
+        /// <summary>Address of the account the flow runs on behalf of. Derived from on_behalf_of on read; accepted on write, where it is resolved to the account it names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnBehalfOfEmail { get; set; }
@@ -56,7 +64,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>When true and the caller is a member of the &apos;wm_deployers&apos; group, preserves the original on_behalf_of_email value instead of overwriting it.</summary>
+        /// <summary>When true and the caller is a member of the &apos;wm_deployers&apos; group, preserves the original on_behalf_of_email / on_behalf_of pair instead of overwriting it with the caller&apos;s own identity.</summary>
         public bool? PreserveOnBehalfOf { get; set; }
         /// <summary>The priority property</summary>
         public int? Priority { get; set; }
@@ -129,6 +137,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "preserve_on_behalf_of", n => { PreserveOnBehalfOf = n.GetBoolValue(); } },
@@ -154,6 +163,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("deployment_message", DeploymentMessage);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteStringValue("path", Path);
             writer.WriteBoolValue("preserve_on_behalf_of", PreserveOnBehalfOf);

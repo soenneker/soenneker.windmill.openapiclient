@@ -88,7 +88,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string LockErrorLogs { get; set; }
 #endif
-        /// <summary>The flow will be run with the permissions of the user with this email.</summary>
+        /// <summary>&quot;The flow runs with the permissions of this identity: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it. Omit it when writing and it is resolved from that address instead.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
+        /// <summary>Address of the account the flow runs on behalf of. Derived from on_behalf_of on read; accepted on write, where it is resolved to the account it names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnBehalfOfEmail { get; set; }
@@ -194,6 +202,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "lock_error_logs", n => { LockErrorLogs = n.GetStringValue(); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
@@ -229,6 +238,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("lock_error_logs", LockErrorLogs);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteStringValue("path", Path);
             writer.WriteIntValue("priority", Priority);

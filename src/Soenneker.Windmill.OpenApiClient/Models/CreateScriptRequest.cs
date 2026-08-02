@@ -146,6 +146,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestModules Modules { get; set; }
 #endif
+        /// <summary>&quot;Authorization identity to run as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. Supply this or on_behalf_of_email; when only the address is given it is resolved to the account it names, and an address naming nobody is rejected. A pair that disagrees is rejected.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
         /// <summary>The on_behalf_of_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -170,7 +178,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>When true and the caller is a member of the &apos;wm_deployers&apos; group, preserves the original on_behalf_of_email value instead of overwriting it.</summary>
+        /// <summary>When true and the caller is a member of the &apos;wm_deployers&apos; group, preserves the original on_behalf_of_email / on_behalf_of pair instead of overwriting it with the caller&apos;s own identity.</summary>
         public bool? PreserveOnBehalfOf { get; set; }
         /// <summary>The priority property</summary>
         public int? Priority { get; set; }
@@ -260,6 +268,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "max_total_debounces_amount", n => { MaxTotalDebouncesAmount = n.GetIntValue(); } },
                 { "max_total_debouncing_time", n => { MaxTotalDebouncingTime = n.GetIntValue(); } },
                 { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestModules>(global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestModules.CreateFromDiscriminatorValue); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "parent_hash", n => { ParentHash = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -309,6 +318,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("max_total_debounces_amount", MaxTotalDebouncesAmount);
             writer.WriteIntValue("max_total_debouncing_time", MaxTotalDebouncingTime);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestModules>("modules", Modules);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteStringValue("parent_hash", ParentHash);
             writer.WriteStringValue("path", Path);

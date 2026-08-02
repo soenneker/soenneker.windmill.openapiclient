@@ -4,6 +4,9 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Asset_dispatch_edges;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_graph;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable_script;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Get_otel_traces;
@@ -19,6 +22,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Resume_urls;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_inline;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_progress;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Slack_approval;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Teams_approval;
@@ -45,6 +49,21 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.CompletedRequestBuilder Completed
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.CompletedRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dbt_graph property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_graph.Dbt_graphRequestBuilder Dbt_graph
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_graph.Dbt_graphRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dbt_resumable property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable.Dbt_resumableRequestBuilder Dbt_resumable
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable.Dbt_resumableRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dbt_resumable_script property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable_script.Dbt_resumable_scriptRequestBuilder Dbt_resumable_script
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable_script.Dbt_resumable_scriptRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The deletePath property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Delete.DeleteRequestBuilder DeletePath
@@ -120,6 +139,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_inline.Run_inlineRequestBuilder Run_inline
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_inline.Run_inlineRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The run_progress property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_progress.Run_progressRequestBuilder Run_progress
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_progress.Run_progressRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The run_wait_result property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Run_wait_resultRequestBuilder Run_wait_result

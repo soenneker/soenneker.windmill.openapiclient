@@ -68,5 +68,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Workspacedependencies,
         #pragma warning restore CS1591
+        [EnumMember(Value = "datatablemigration")]
+        #pragma warning disable CS1591
+        Datatablemigration,
+        #pragma warning restore CS1591
     }
 }

@@ -32,5 +32,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Volume,
         #pragma warning restore CS1591
+        [EnumMember(Value = "dbt")]
+        #pragma warning disable CS1591
+        Dbt,
+        #pragma warning restore CS1591
     }
 }

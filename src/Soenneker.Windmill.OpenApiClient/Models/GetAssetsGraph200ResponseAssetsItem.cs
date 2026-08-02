@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>What dbt says about the model, snapshot, seed or source that produces (or, for a source, is read at) this relation. A dbt project is one runnable node with many model assets, so per-model metadata belongs here rather than on the script.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt? Dbt { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt Dbt { get; set; }
+#endif
         /// <summary>Fork workspaces only — &apos;fork&apos; when this ducklake asset was materialized in the fork itself, &apos;deferred&apos; when reads fall back to the parent workspace&apos;s current table via a defer view. Omitted otherwise.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemForkMaterialization? ForkMaterialization { get; set; }
         /// <summary>The kind property</summary>
@@ -51,6 +59,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "dbt", n => { Dbt = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt.CreateFromDiscriminatorValue); } },
                 { "fork_materialization", n => { ForkMaterialization = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemForkMaterialization>(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemKind>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -63,6 +72,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt>("dbt", Dbt);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemForkMaterialization>("fork_materialization", ForkMaterialization);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemKind>("kind", Kind);
             writer.WriteStringValue("path", Path);

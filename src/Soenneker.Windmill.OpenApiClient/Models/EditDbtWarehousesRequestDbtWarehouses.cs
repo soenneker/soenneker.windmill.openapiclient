@@ -7,37 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// Warehouses a dbt project may run against, by name. `main` is the one a project gets when its descriptor names none. Each entry points at a resource; it never holds credentials.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class EditDeployToRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class EditDbtWarehousesRequestDbtWarehouses : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The deploy_to property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DeployTo { get; set; }
-#nullable restore
-#else
-        public string DeployTo { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditDeployToRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses"/> and sets the default values.
         /// </summary>
-        public EditDeployToRequest()
+        public EditDbtWarehousesRequestDbtWarehouses()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditDeployToRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Windmill.OpenApiClient.Models.EditDeployToRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditDeployToRequest();
+            return new global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +40,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deploy_to", n => { DeployTo = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +49,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("deploy_to", DeployTo);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

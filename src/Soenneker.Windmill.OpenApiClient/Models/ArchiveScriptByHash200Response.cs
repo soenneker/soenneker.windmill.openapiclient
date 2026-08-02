@@ -174,6 +174,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ArchiveScriptByHash200ResponseModules Modules { get; set; }
 #endif
+        /// <summary>&quot;Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
         /// <summary>The on_behalf_of_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -299,6 +307,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "max_total_debounces_amount", n => { MaxTotalDebouncesAmount = n.GetIntValue(); } },
                 { "max_total_debouncing_time", n => { MaxTotalDebouncingTime = n.GetIntValue(); } },
                 { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ArchiveScriptByHash200ResponseModules>(global::Soenneker.Windmill.OpenApiClient.Models.ArchiveScriptByHash200ResponseModules.CreateFromDiscriminatorValue); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "parent_hashes", n => { ParentHashes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -353,6 +362,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("max_total_debounces_amount", MaxTotalDebouncesAmount);
             writer.WriteIntValue("max_total_debouncing_time", MaxTotalDebouncingTime);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ArchiveScriptByHash200ResponseModules>("modules", Modules);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteCollectionOfPrimitiveValues<string>("parent_hashes", ParentHashes);
             writer.WriteStringValue("path", Path);

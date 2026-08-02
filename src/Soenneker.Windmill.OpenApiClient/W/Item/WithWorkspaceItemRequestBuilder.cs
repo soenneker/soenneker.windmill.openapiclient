@@ -13,6 +13,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Capture;
 using Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups;
 using Soenneker.Windmill.OpenApiClient.W.Item.Data_metrics;
+using Soenneker.Windmill.OpenApiClient.W.Item.Dbt;
 using Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Email_triggers;
@@ -124,6 +125,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Data_metrics.Data_metricsRequestBuilder Data_metrics
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Data_metrics.Data_metricsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dbt property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Dbt.DbtRequestBuilder Dbt
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Dbt.DbtRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The deployment_request property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Deployment_request.Deployment_requestRequestBuilder Deployment_request

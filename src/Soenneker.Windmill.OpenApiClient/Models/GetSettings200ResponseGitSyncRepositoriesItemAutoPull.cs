@@ -56,6 +56,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string WebhookSecret { get; set; }
 #endif
+        /// <summary>The webhook_url property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WebhookUrl { get; set; }
+#nullable restore
+#else
+        public string WebhookUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSyncRepositoriesItemAutoPull"/> and sets the default values.
         /// </summary>
@@ -90,6 +98,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "webhook_error", n => { WebhookError = n.GetStringValue(); } },
                 { "webhook_id", n => { WebhookId = n.GetLongValue(); } },
                 { "webhook_secret", n => { WebhookSecret = n.GetStringValue(); } },
+                { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -108,6 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("webhook_error", WebhookError);
             writer.WriteLongValue("webhook_id", WebhookId);
             writer.WriteStringValue("webhook_secret", WebhookSecret);
+            writer.WriteStringValue("webhook_url", WebhookUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

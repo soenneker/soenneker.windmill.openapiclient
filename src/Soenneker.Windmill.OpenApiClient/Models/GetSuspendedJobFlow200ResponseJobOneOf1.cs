@@ -202,6 +202,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Tag { get; set; }
 #endif
+        /// <summary>job trigger kind (schedule, http, websocket...)</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1TriggerKind? TriggerKind { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1Type? Type { get; set; }
         /// <summary>The visible_to_owner property</summary>
@@ -295,6 +297,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
+                { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1TriggerKind>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1Type>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
                 { "worker", n => { Worker = n.GetStringValue(); } },
@@ -349,6 +352,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started_at", StartedAt);
             writer.WriteBoolValue("success", Success);
             writer.WriteStringValue("tag", Tag);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1TriggerKind>("trigger_kind", TriggerKind);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1Type>("type", Type);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
             writer.WriteStringValue("worker", Worker);

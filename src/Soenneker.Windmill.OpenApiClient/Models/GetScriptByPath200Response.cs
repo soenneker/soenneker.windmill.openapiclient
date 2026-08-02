@@ -188,6 +188,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The no_deployed property</summary>
         public bool? NoDeployed { get; set; }
+        /// <summary>&quot;Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
         /// <summary>The on_behalf_of_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -325,6 +333,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "max_total_debouncing_time", n => { MaxTotalDebouncingTime = n.GetIntValue(); } },
                 { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseModules>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseModules.CreateFromDiscriminatorValue); } },
                 { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parent_hashes", n => { ParentHashes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -384,6 +393,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("max_total_debouncing_time", MaxTotalDebouncingTime);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseModules>("modules", Modules);
             writer.WriteBoolValue("no_deployed", NoDeployed);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetScriptByPath200ResponseOtherDraftsUsersItem>("other_drafts_users", OtherDraftsUsers);
             writer.WriteCollectionOfPrimitiveValues<string>("parent_hashes", ParentHashes);

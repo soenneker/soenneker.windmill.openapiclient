@@ -30,6 +30,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseDbtEdgesItem> DbtEdges { get; set; }
 #endif
+        /// <summary>When the dbt half on screen was parsed, for a graph pinned to a job. What the dbt editor labels its provenance with — &quot;parsed from the editor at 14:32&quot; against &quot;as of last deploy&quot; — since the two are drawn identically and the ambiguity would otherwise just move into the editor. Omitted for the unpinned workspace graph, which spans every project and so has no one time.</summary>
+        public DateTimeOffset? DbtGraphIngestedAt { get; set; }
         /// <summary>The job whose own snapshot the dbt half was resolved from, when one was asked for and found. A run page polls the graph while its job runs, because a dynamic descriptor&apos;s snapshot is written mid-run, and this is what tells it to stop. Omitted when the answer came from the version&apos;s deployed graph.</summary>
         public Guid? DbtSnapshotJob { get; set; }
         /// <summary>The edges property</summary>
@@ -99,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "dbt_edges", n => { DbtEdges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseDbtEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseDbtEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "dbt_graph_ingested_at", n => { DbtGraphIngestedAt = n.GetDateTimeOffsetValue(); } },
                 { "dbt_snapshot_job", n => { DbtSnapshotJob = n.GetGuidValue(); } },
                 { "edges", n => { Edges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "macro_edges", n => { MacroEdges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseMacroEdgesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseMacroEdgesItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -116,6 +119,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItem>("assets", Assets);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseDbtEdgesItem>("dbt_edges", DbtEdges);
+            writer.WriteDateTimeOffsetValue("dbt_graph_ingested_at", DbtGraphIngestedAt);
             writer.WriteGuidValue("dbt_snapshot_job", DbtSnapshotJob);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseEdgesItem>("edges", Edges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseMacroEdgesItem>("macro_edges", MacroEdges);

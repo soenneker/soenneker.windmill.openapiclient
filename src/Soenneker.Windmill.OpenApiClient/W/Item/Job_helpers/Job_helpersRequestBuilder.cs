@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Download_s3_parquet_fi
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Duckdb_connection_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_git_repo_files;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files;
+using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files_paged;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_csv_preview;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_metadata;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_file_preview;
@@ -69,6 +70,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files.List_stored_filesRequestBuilder List_stored_files
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files.List_stored_filesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list_stored_files_paged property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files_paged.List_stored_files_pagedRequestBuilder List_stored_files_paged
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.List_stored_files_paged.List_stored_files_pagedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The load_csv_preview property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_csv_preview.Load_csv_previewRequestBuilder Load_csv_preview

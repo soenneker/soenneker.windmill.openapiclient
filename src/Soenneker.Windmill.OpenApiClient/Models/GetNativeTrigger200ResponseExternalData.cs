@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration data from the external service
+    /// Configuration data from the external service. Null when the service has no such API, or when it could not be read — see external_error.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetNativeTrigger200ResponseExternalData : IAdditionalDataHolder, IParsable

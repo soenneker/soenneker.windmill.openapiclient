@@ -22,6 +22,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Color { get; set; }
 #endif
+        /// <summary>Archived (soft-deleted) workspace</summary>
+        public bool? Deleted { get; set; }
+        /// <summary>Cosmetic display label of the dev workspace (&apos;dev&apos; | &apos;staging&apos;); null defaults to &apos;dev&apos;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DevWorkspaceLabel { get; set; }
+#nullable restore
+#else
+        public string DevWorkspaceLabel { get; set; }
+#endif
         /// <summary>The domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +48,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>The is_dev_workspace property</summary>
+        public bool? IsDevWorkspace { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,8 +100,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "color", n => { Color = n.GetStringValue(); } },
+                { "deleted", n => { Deleted = n.GetBoolValue(); } },
+                { "dev_workspace_label", n => { DevWorkspaceLabel = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "is_dev_workspace", n => { IsDevWorkspace = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
                 { "parent_workspace_id", n => { ParentWorkspaceId = n.GetStringValue(); } },
@@ -103,8 +118,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
+            writer.WriteBoolValue("deleted", Deleted);
+            writer.WriteStringValue("dev_workspace_label", DevWorkspaceLabel);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("id", Id);
+            writer.WriteBoolValue("is_dev_workspace", IsDevWorkspace);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("owner", Owner);
             writer.WriteStringValue("parent_workspace_id", ParentWorkspaceId);

@@ -23,13 +23,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Error { get; set; }
 #endif
-        /// <summary>Configuration data from the external service</summary>
+        /// <summary>Configuration data from the external service. Null when the service has no such API, or when it could not be read — see external_error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.GetNativeTrigger200ResponseExternalData? ExternalData { get; set; }
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetNativeTrigger200ResponseExternalData ExternalData { get; set; }
+#endif
+        /// <summary>Why the external service configuration could not be read. When set, external_data is null and the configuration Windmill stored is returned instead.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalError { get; set; }
+#nullable restore
+#else
+        public string ExternalError { get; set; }
 #endif
         /// <summary>The unique identifier from the external service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -102,6 +110,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "external_data", n => { ExternalData = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNativeTrigger200ResponseExternalData>(global::Soenneker.Windmill.OpenApiClient.Models.GetNativeTrigger200ResponseExternalData.CreateFromDiscriminatorValue); } },
+                { "external_error", n => { ExternalError = n.GetStringValue(); } },
                 { "external_id", n => { ExternalId = n.GetStringValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
@@ -120,6 +129,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNativeTrigger200ResponseExternalData>("external_data", ExternalData);
+            writer.WriteStringValue("external_error", ExternalError);
             writer.WriteStringValue("external_id", ExternalId);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteStringValue("script_path", ScriptPath);

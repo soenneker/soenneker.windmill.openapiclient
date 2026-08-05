@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When true, this deploy may switch the app between low-code and raw. Without it, deploying a value to an app of the other kind is refused so an app is never converted by accident.</summary>
+        public bool? AllowKindChange { get; set; }
         /// <summary>The custom_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "allow_kind_change", n => { AllowKindChange = n.GetBoolValue(); } },
                 { "custom_path", n => { CustomPath = n.GetStringValue(); } },
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -117,6 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("allow_kind_change", AllowKindChange);
             writer.WriteStringValue("custom_path", CustomPath);
             writer.WriteStringValue("deployment_message", DeploymentMessage);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);

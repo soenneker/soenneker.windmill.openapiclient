@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create_raw;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create_raw_source;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Custom_path_exists;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Embed_token;
@@ -16,11 +17,13 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Apps.History_update;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.List_paths_from_workspace_runnable;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.List_search;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Preview_sdk_token;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Secret_of;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Secret_of_latest_version;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Sign_s3_objects;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Update;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Update_raw;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps.Update_raw_source;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -42,6 +45,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create_raw.Create_rawRequestBuilder Create_raw
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create_raw.Create_rawRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The create_raw_source property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create_raw_source.Create_raw_sourceRequestBuilder Create_raw_source
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Create_raw_source.Create_raw_sourceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The custom_path_exists property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Custom_path_exists.Custom_path_existsRequestBuilder Custom_path_exists
@@ -103,6 +111,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.List_search.List_searchRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The preview_sdk_token property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Preview_sdk_token.Preview_sdk_tokenRequestBuilder Preview_sdk_token
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Preview_sdk_token.Preview_sdk_tokenRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The secret_of property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Secret_of.Secret_ofRequestBuilder Secret_of
         {
@@ -127,6 +140,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Update_raw.Update_rawRequestBuilder Update_raw
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Update_raw.Update_rawRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The update_raw_source property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Update_raw_source.Update_raw_sourceRequestBuilder Update_raw_source
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.Update_raw_source.Update_raw_sourceRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Apps.AppsRequestBuilder"/> and sets the default values.

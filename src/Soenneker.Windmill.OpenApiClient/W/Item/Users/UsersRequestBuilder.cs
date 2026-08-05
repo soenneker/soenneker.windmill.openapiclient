@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Users.Get;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.Impersonate_service_account;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.Is_owner;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Users.List_addable;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.List_usage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.List_usernames;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users.Offboard;
@@ -63,6 +64,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Users
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Users.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list_addable property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.List_addable.List_addableRequestBuilder List_addable
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Users.List_addable.List_addableRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The list_usage property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.List_usage.List_usageRequestBuilder List_usage

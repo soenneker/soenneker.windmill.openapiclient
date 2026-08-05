@@ -24,6 +24,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The execution_mode property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyExecutionMode? ExecutionMode { get; set; }
+        /// <summary>&quot;Raw apps: author-declared scopes for the frontend SDK token. Takes effect only when `sandbox` is also true — an unsandboxed bundle runs with the viewer&apos;s own session, so no token is advertised or minted for it and this list stays inert. On a sandboxed app a non-empty list lets viewers mint (after consenting) a short-lived token carrying their own identity restricted to these scopes, handed to the app bundle so `windmill-client` calls run as the viewer. Must be a subset of the server&apos;s curated allowlist (jobs:run, jobs:read, users:read, resources:read, variables:read).&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FrontendSdkScopes { get; set; }
+#nullable restore
+#else
+        public List<string> FrontendSdkScopes { get; set; }
+#endif
         /// <summary>The on_behalf_of property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "allowed_s3_keys", n => { AllowedS3Keys = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyAllowedS3KeysItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyAllowedS3KeysItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "execution_mode", n => { ExecutionMode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyExecutionMode>(); } },
+                { "frontend_sdk_scopes", n => { FrontendSdkScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "s3_inputs", n => { S3Inputs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyS3InputsItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyS3InputsItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -110,6 +119,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyAllowedS3KeysItem>("allowed_s3_keys", AllowedS3Keys);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyExecutionMode>("execution_mode", ExecutionMode);
+            writer.WriteCollectionOfPrimitiveValues<string>("frontend_sdk_scopes", FrontendSdkScopes);
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawFormDataRequestAppPolicyS3InputsItem>("s3_inputs", S3Inputs);

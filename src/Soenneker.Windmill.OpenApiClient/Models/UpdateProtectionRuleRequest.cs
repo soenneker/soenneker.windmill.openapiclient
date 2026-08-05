@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> BypassUsers { get; set; }
 #endif
+        /// <summary>New name for the rule. Omit, or pass the current name, to leave it unchanged. The reserved `dev_workspace_lock` rule cannot be renamed, nor can another rule be renamed onto it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Name { get; set; }
+#nullable restore
+#else
+        public string Name { get; set; }
+#endif
         /// <summary>Configuration of protection restrictions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "bypass_groups", n => { BypassGroups = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "bypass_users", n => { BypassUsers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
                 { "rules", n => { Rules = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem>()?.AsList(); } },
             };
         }
@@ -77,6 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("bypass_groups", BypassGroups);
             writer.WriteCollectionOfPrimitiveValues<string>("bypass_users", BypassUsers);
+            writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem>("rules", Rules);
             writer.WriteAdditionalData(AdditionalData);
         }

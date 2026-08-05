@@ -22,6 +22,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? ExistsInFork { get; set; }
         /// <summary>If the item exists in the source workspace</summary>
         public bool? ExistsInSource { get; set; }
+        /// <summary>&quot;What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.&quot;</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventKind? ForkLastEventKind { get; set; }
+        /// <summary>&quot;Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.&quot;</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin? ForkLastEventOrigin { get; set; }
         /// <summary>Whether the item has any differences</summary>
         public bool? HasChanges { get; set; }
         /// <summary>Type of the item</summary>
@@ -34,6 +38,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
+        /// <summary>&quot;What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.&quot;</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind? SourceLastEventKind { get; set; }
+        /// <summary>&quot;Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.&quot;</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin? SourceLastEventOrigin { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem"/> and sets the default values.
         /// </summary>
@@ -63,9 +71,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "behind", n => { Behind = n.GetIntValue(); } },
                 { "exists_in_fork", n => { ExistsInFork = n.GetBoolValue(); } },
                 { "exists_in_source", n => { ExistsInSource = n.GetBoolValue(); } },
+                { "fork_last_event_kind", n => { ForkLastEventKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventKind>(); } },
+                { "fork_last_event_origin", n => { ForkLastEventOrigin = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin>(); } },
                 { "has_changes", n => { HasChanges = n.GetBoolValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemKind>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
+                { "source_last_event_kind", n => { SourceLastEventKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind>(); } },
+                { "source_last_event_origin", n => { SourceLastEventOrigin = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin>(); } },
             };
         }
         /// <summary>
@@ -79,9 +91,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("behind", Behind);
             writer.WriteBoolValue("exists_in_fork", ExistsInFork);
             writer.WriteBoolValue("exists_in_source", ExistsInSource);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventKind>("fork_last_event_kind", ForkLastEventKind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin>("fork_last_event_origin", ForkLastEventOrigin);
             writer.WriteBoolValue("has_changes", HasChanges);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemKind>("kind", Kind);
             writer.WriteStringValue("path", Path);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind>("source_last_event_kind", SourceLastEventKind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin>("source_last_event_origin", SourceLastEventOrigin);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

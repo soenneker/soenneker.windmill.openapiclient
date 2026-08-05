@@ -24,17 +24,33 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Expiration of the embed token.</summary>
         public DateTimeOffset? Expiration { get; set; }
-        /// <summary>Raw apps render single-iframe and skip the opaque-viewer indirection and the embed token entirely.</summary>
+        /// <summary>&quot;Raw apps render single-iframe and skip the opaque-viewer indirection and the embed token entirely. A sandboxed one may still carry a token here: the viewer-scoped frontend SDK token, which is a different credential from the low-code embed token.&quot;</summary>
         public bool? RawApp { get; set; }
         /// <summary>Publisher opted this app into sandbox isolation. When false the viewer runs the app same-origin with its full session.</summary>
         public bool? Sandbox { get; set; }
-        /// <summary>Narrowly-scoped embed token for the iframe. Absent for fully anonymous or raw apps, which load without a scoped token.</summary>
+        /// <summary>&quot;Sandboxed raw apps: scopes the app policy declares for the frontend SDK token. Null when the app is unsandboxed, however the policy reads. The viewer renders these in the permission prompt; token stays absent until the endpoint is re-called with sdk_consent=true.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SdkScopes { get; set; }
+#nullable restore
+#else
+        public List<string> SdkScopes { get; set; }
+#endif
+        /// <summary>Scoped token for the app. For sandboxed low-code apps this is the embed token handed to the opaque iframe. For a raw app it is the viewer-scoped frontend SDK token, returned only when the app is sandboxed, its policy declares frontend_sdk_scopes, and the request carries sdk_consent=true. Absent for anonymous viewers and whenever no token is needed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Token { get; set; }
 #nullable restore
 #else
         public string Token { get; set; }
+#endif
+        /// <summary>The caller&apos;s own email, returned alongside sdk_scopes so the viewer can key its stored &quot;do not ask again&quot; per person.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ViewerEmail { get; set; }
+#nullable restore
+#else
+        public string ViewerEmail { get; set; }
 #endif
         /// <summary>The resolved workspace; pairs with app_path so apps at the same path in different workspaces don&apos;t share a localStorage store.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +89,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "expiration", n => { Expiration = n.GetDateTimeOffsetValue(); } },
                 { "raw_app", n => { RawApp = n.GetBoolValue(); } },
                 { "sandbox", n => { Sandbox = n.GetBoolValue(); } },
+                { "sdk_scopes", n => { SdkScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
+                { "viewer_email", n => { ViewerEmail = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -88,7 +106,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("expiration", Expiration);
             writer.WriteBoolValue("raw_app", RawApp);
             writer.WriteBoolValue("sandbox", Sandbox);
+            writer.WriteCollectionOfPrimitiveValues<string>("sdk_scopes", SdkScopes);
             writer.WriteStringValue("token", Token);
+            writer.WriteStringValue("viewer_email", ViewerEmail);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }

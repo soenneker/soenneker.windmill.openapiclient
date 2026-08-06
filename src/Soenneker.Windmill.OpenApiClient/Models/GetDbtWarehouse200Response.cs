@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>decides whether the value is translated into a profiles.yml target or already is one</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourceType { get; set; }
+#nullable restore
+#else
+        public string ResourceType { get; set; }
+#endif
         /// <summary>The target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "resource_type", n => { ResourceType = n.GetStringValue(); } },
                 { "target", n => { Target = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue.CreateFromDiscriminatorValue); } },
             };
@@ -66,6 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("resource_type", ResourceType);
             writer.WriteStringValue("target", Target);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);

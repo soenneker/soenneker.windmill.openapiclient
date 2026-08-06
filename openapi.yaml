@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.779.0
+  version: 1.782.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -6852,6 +6852,11 @@ paths:
                     description: the resolved resource, rendered into profiles.yml
                   target:
                     type: string
+                  resource_type:
+                    type: string
+                    description: >-
+                      decides whether the value is translated into a
+                      profiles.yml target or already is one
                 required: &ref_557
                   - value
   /w/{workspace}/dbt/warehouse_exists/{name}:

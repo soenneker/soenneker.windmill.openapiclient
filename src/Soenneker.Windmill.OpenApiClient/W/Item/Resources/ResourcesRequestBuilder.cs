@@ -11,6 +11,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Resources.Get;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.Get_value;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.Get_value_interpolated;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.Git_commit_hash;
+using Soenneker.Windmill.OpenApiClient.W.Item.Resources.History;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.List_names;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.List_search;
@@ -74,6 +75,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.Git_commit_hash.Git_commit_hashRequestBuilder Git_commit_hash
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.Git_commit_hash.Git_commit_hashRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The history property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.HistoryRequestBuilder History
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.HistoryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The list property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.List.ListRequestBuilder List

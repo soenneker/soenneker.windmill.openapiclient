@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Archived (soft-deleted) workspace</summary>
         public bool? Deleted { get; set; }
-        /// <summary>Cosmetic display label of the dev workspace (&apos;dev&apos; | &apos;staging&apos;); null defaults to &apos;dev&apos;</summary>
+        /// <summary>Environment label of the dev workspace, e.g. &apos;dev&apos; or &apos;staging&apos;; null defaults to &apos;dev&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DevWorkspaceLabel { get; set; }

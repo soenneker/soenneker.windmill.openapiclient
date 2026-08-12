@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Copy the parent&apos;s members (users + group memberships) into the fork so the team can work in it</summary>
         public bool? CopyMembers { get; set; }
-        /// <summary>Cosmetic display label for the dev workspace (badge text + wording only); ignored for non-dev forks</summary>
+        /// <summary>&quot;Environment label for the dev workspace: its badge text and the branch it deploys to. Ignored for non-dev forks. Omitted defaults to &apos;dev&apos;&quot;</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranchRequestDevWorkspaceLabel? DevWorkspaceLabel { get; set; }
         /// <summary>The forked_datatables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

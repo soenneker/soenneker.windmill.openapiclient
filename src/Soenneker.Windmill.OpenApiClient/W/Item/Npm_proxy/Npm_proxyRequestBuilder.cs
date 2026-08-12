@@ -2,10 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.FileNamespace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Filetree;
 using Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Metadata;
 using Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Resolve;
+using Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Tarball;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,6 +20,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Npm_proxyRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The config property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Config.ConfigRequestBuilder Config
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Config.ConfigRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The file property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.FileNamespace.FileRequestBuilder File
         {
@@ -37,6 +44,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Resolve.ResolveRequestBuilder Resolve
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Resolve.ResolveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The tarball property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Tarball.TarballRequestBuilder Tarball
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Tarball.TarballRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Npm_proxy.Npm_proxyRequestBuilder"/> and sets the default values.

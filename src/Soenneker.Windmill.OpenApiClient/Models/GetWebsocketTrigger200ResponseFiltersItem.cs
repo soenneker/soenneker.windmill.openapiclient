@@ -7,13 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) — addressed by `key` for a top-level field or `path` for a dotted path into nested objects — or a group nesting sub-filters under a boolean operator (`none_of` matches when none of its sub-filters do).
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class GetWebsocketTrigger200ResponseFiltersItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The all_of property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAllOfItem>? AllOf { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAllOfItem> AllOf { get; set; }
+#endif
+        /// <summary>The any_of property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAnyOfItem>? AnyOf { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAnyOfItem> AnyOf { get; set; }
+#endif
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,6 +38,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string Key { get; set; }
+#endif
+        /// <summary>The none_of property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemNoneOfItem>? NoneOf { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemNoneOfItem> NoneOf { get; set; }
+#endif
+        /// <summary>Dotted path into nested objects, e.g. `a.b.c`. Does not traverse arrays.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Path { get; set; }
+#nullable restore
+#else
+        public string Path { get; set; }
 #endif
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +88,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "all_of", n => { AllOf = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAllOfItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAllOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "any_of", n => { AnyOf = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAnyOfItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAnyOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
+                { "none_of", n => { NoneOf = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemNoneOfItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemNoneOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemValue.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +103,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAllOfItem>("all_of", AllOf);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemAnyOfItem>("any_of", AnyOf);
             writer.WriteStringValue("key", Key);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemNoneOfItem>("none_of", NoneOf);
+            writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetWebsocketTrigger200ResponseFiltersItemValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

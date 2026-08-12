@@ -20,5 +20,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Apps,
         #pragma warning restore CS1591
+        [EnumMember(Value = "resources")]
+        #pragma warning disable CS1591
+        Resources,
+        #pragma warning restore CS1591
     }
 }

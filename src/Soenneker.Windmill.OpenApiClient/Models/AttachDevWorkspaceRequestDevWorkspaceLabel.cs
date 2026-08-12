@@ -3,18 +3,41 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>Environment label; also names the branch the dev workspace deploys to. Omitted defaults to &apos;dev&apos;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum AttachDevWorkspaceRequestDevWorkspaceLabel
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "dev")]
         #pragma warning disable CS1591
         Dev,
         #pragma warning restore CS1591
+        [EnumMember(Value = "qa")]
+        #pragma warning disable CS1591
+        Qa,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "test")]
+        #pragma warning disable CS1591
+        Test,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "uat")]
+        #pragma warning disable CS1591
+        Uat,
+        #pragma warning restore CS1591
         [EnumMember(Value = "staging")]
         #pragma warning disable CS1591
         Staging,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "demo")]
+        #pragma warning disable CS1591
+        Demo,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sandbox")]
+        #pragma warning disable CS1591
+        Sandbox,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "preprod")]
+        #pragma warning disable CS1591
+        Preprod,
         #pragma warning restore CS1591
     }
 }

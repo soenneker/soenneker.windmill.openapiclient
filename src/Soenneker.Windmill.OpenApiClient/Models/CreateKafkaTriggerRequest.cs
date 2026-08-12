@@ -34,9 +34,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ErrorHandlerPath { get; set; }
 #endif
-        /// <summary>Logic to apply when evaluating filters. &apos;and&apos; requires all filters to match, &apos;or&apos; requires any filter to match.</summary>
+        /// <summary>Logic to apply when evaluating the top-level filters. &apos;and&apos; requires all of them to match, &apos;or&apos; requires any of them to match. Nested `any_of`/`all_of`/`none_of` groups carry their own logic.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateKafkaTriggerRequestFilterLogic? FilterLogic { get; set; }
-        /// <summary>The filters property</summary>
+        /// <summary>&quot;Filters to match incoming messages (only matching messages trigger the script). Each entry is either a leaf `{key, value}` (top-level field) or `{path, value}` (dotted path into nested objects), or a group `{any_of: [...]}` / `{all_of: [...]}` / `{none_of: [...]}` nesting more entries. Entries at the top level are combined with `filter_logic`.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateKafkaTriggerRequestFiltersItem>? Filters { get; set; }

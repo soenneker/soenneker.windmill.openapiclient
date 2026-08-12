@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>Logic to apply when evaluating filters. &apos;and&apos; requires all filters to match, &apos;or&apos; requires any filter to match.</summary>
+    /// <summary>Logic to apply when evaluating the top-level filters. &apos;and&apos; requires all of them to match, &apos;or&apos; requires any of them to match. Nested `any_of`/`all_of`/`none_of` groups carry their own logic.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateKafkaTriggerRequestFilterLogic
     {

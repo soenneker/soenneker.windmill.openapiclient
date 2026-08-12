@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string DevWorkspaceId { get; set; }
 #endif
-        /// <summary>The dev_workspace_label property</summary>
+        /// <summary>Environment label; also names the branch the dev workspace deploys to. Omitted defaults to &apos;dev&apos;</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? DevWorkspaceLabel { get; set; }
         /// <summary>The lock_prod_deploy property</summary>
         public bool? LockProdDeploy { get; set; }

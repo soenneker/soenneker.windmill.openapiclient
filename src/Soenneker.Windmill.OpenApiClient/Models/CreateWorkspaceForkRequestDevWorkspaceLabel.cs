@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>Cosmetic display label for the dev workspace (badge text + wording only); ignored for non-dev forks</summary>
+    /// <summary>&quot;Environment label for the dev workspace: its badge text and the branch it deploys to. Ignored for non-dev forks. Omitted defaults to &apos;dev&apos;&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateWorkspaceForkRequestDevWorkspaceLabel
     {
@@ -11,9 +11,33 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Dev,
         #pragma warning restore CS1591
+        [EnumMember(Value = "qa")]
+        #pragma warning disable CS1591
+        Qa,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "test")]
+        #pragma warning disable CS1591
+        Test,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "uat")]
+        #pragma warning disable CS1591
+        Uat,
+        #pragma warning restore CS1591
         [EnumMember(Value = "staging")]
         #pragma warning disable CS1591
         Staging,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "demo")]
+        #pragma warning disable CS1591
+        Demo,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sandbox")]
+        #pragma warning disable CS1591
+        Sandbox,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "preprod")]
+        #pragma warning disable CS1591
+        Preprod,
         #pragma warning restore CS1591
     }
 }

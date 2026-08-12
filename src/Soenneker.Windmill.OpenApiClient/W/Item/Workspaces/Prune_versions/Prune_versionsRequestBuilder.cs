@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Prune_versions
         {
         }
         /// <summary>
-        /// prune old versions of scripts, flows, or apps
+        /// prune old versions of scripts, flows, apps, or resources
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.PruneVersions200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Prune_versions
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.PruneVersions200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.PruneVersions200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// prune old versions of scripts, flows, or apps
+        /// prune old versions of scripts, flows, apps, or resources
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

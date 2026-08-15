@@ -33,7 +33,7 @@ namespace Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key
         {
         }
         /// <summary>
-        /// Get the concurrency key for a job that has concurrency limits enabled
+        /// Requires read access to the job, the same as reading the run itself. Returns 403 for a workspace member who cannot see the run, and 404 when the caller is not a member of the job&apos;s workspace.
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Get the concurrency key for a job that has concurrency limits enabled
+        /// Requires read access to the job, the same as reading the run itself. Returns 403 for a workspace member who cannot see the run, and 404 when the caller is not a member of the job&apos;s workspace.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

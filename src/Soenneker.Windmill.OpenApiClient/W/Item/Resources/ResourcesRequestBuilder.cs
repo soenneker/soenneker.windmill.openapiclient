@@ -15,6 +15,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Resources.History;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.List_names;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.List_search;
+using Soenneker.Windmill.OpenApiClient.W.Item.Resources.Mcp_call_tool;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.Mcp_tools;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.Update;
@@ -95,6 +96,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.List_search.List_searchRequestBuilder List_search
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.List_search.List_searchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mcp_call_tool property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.Mcp_call_tool.Mcp_call_toolRequestBuilder Mcp_call_tool
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.Mcp_call_tool.Mcp_call_toolRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mcp_tools property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.Mcp_tools.Mcp_toolsRequestBuilder Mcp_tools

@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The annotations property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations? Annotations { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations Annotations { get; set; }
+#endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The inputSchema property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema? InputSchema { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema InputSchema { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,14 +45,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
-#endif
-        /// <summary>The parameters property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemParameters? Parameters { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemParameters Parameters { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItem"/> and sets the default values.
@@ -63,9 +71,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations>(global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemParameters>(global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemParameters.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,9 +84,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema>("inputSchema", InputSchema);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemParameters>("parameters", Parameters);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

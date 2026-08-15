@@ -14,7 +14,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The name property</summary>
+        /// <summary>Environment variable name. New names must be a plain JS identifier (matching ^[A-Za-z_$][A-Za-z0-9_$]*$) since the name is spliced into the NativeTS/Bun worker prologue; otherwise the request is rejected with 400. Existing names can still be updated regardless of shape.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

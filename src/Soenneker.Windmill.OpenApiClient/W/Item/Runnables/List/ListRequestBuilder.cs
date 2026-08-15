@@ -139,7 +139,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             /// <summary>number of items to return for a given page (default 30, max 100)</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>case-insensitive substring match on summary or path</summary>
+            /// <summary>&quot;case-insensitive fuzzy match on \&quot;summary (path)\&quot;: the query is split into terms on runs of anything but ASCII letters, digits and apostrophes, and each of the first 8 must appear whole and in order, with anything in between. Terms past the 8th are ignored, so an over-long query matches more rows rather than fewer. Omitted or empty filters nothing; a query holding no ASCII-alphanumeric character at all (a lone space, \&quot;_\&quot;, or text in a non-Latin script) yields no terms and matches nothing, mirroring the homepage, whose matcher discards those queries too.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("search")]

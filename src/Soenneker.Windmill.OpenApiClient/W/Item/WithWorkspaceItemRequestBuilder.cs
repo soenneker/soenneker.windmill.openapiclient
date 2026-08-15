@@ -52,6 +52,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Scripts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui;
 using Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Trigger;
+using Soenneker.Windmill.OpenApiClient.W.Item.Triggers_history;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users;
 using Soenneker.Windmill.OpenApiClient.W.Item.Variables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Volumes;
@@ -320,6 +321,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.TriggerRequestBuilder Trigger
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.TriggerRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The triggers_history property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Triggers_history.Triggers_historyRequestBuilder Triggers_history
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Triggers_history.Triggers_historyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The users property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Users.UsersRequestBuilder Users

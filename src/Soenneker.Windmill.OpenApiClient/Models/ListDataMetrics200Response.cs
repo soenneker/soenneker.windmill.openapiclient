@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.ListDataMetrics200ResponseMetricsItem> Metrics { get; set; }
 #endif
-        /// <summary>&quot;Present when more rows may follow: pass its fields back as the `cursor_*` params. Absent means the catalog is exhausted.&quot;</summary>
+        /// <summary>Present when more rows may follow: pass its fields back as the `cursor_*` params. Absent means the catalog is exhausted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.ListDataMetrics200ResponseNextCursor? NextCursor { get; set; }

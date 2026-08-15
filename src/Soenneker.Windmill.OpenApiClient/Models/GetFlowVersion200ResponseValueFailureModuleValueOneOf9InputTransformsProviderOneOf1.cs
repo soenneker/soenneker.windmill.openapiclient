@@ -16,7 +16,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProviderOneOf1Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.StaticValueType? Type { get; set; }
         /// <summary>Complete AI provider configuration with resource reference and model selection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProviderOneOf1Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.StaticValueType>(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProviderOneOf1Value>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProviderOneOf1Value.CreateFromDiscriminatorValue); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProviderOneOf1Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.StaticValueType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProviderOneOf1Value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

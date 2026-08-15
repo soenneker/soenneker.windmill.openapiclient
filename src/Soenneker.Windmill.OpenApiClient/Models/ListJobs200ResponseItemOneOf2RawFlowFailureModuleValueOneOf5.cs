@@ -38,7 +38,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The squash property</summary>
         public bool? Squash { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf5Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.WhileloopflowType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf5"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "parallelism", n => { Parallelism = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf5Parallelism>(global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf5Parallelism.CreateFromDiscriminatorValue); } },
                 { "skip_failures", n => { SkipFailures = n.GetBoolValue(); } },
                 { "squash", n => { Squash = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf5Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.WhileloopflowType>(); } },
             };
         }
         /// <summary>
@@ -84,7 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf5Parallelism>("parallelism", Parallelism);
             writer.WriteBoolValue("skip_failures", SkipFailures);
             writer.WriteBoolValue("squash", Squash);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf5Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.WhileloopflowType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

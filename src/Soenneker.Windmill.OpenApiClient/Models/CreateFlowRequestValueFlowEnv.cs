@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Environment variables available to all steps. Values can be strings, JSON values, or special references: &apos;$var:path&apos; (workspace variable) or &apos;$res:path&apos; (resource).&quot;
+    /// Environment variables available to all steps. Values can be strings, JSON values, or special references: &apos;$var:path&apos; (workspace variable) or &apos;$res:path&apos; (resource).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFlowRequestValueFlowEnv : IAdditionalDataHolder, IParsable

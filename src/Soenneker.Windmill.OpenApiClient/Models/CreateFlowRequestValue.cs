@@ -69,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModule FailureModule { get; set; }
 #endif
-        /// <summary>&quot;Environment variables available to all steps. Values can be strings, JSON values, or special references: &apos;$var:path&apos; (workspace variable) or &apos;$res:path&apos; (resource).&quot;</summary>
+        /// <summary>Environment variables available to all steps. Values can be strings, JSON values, or special references: &apos;$var:path&apos; (workspace variable) or &apos;$res:path&apos; (resource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFlowEnv? FlowEnv { get; set; }

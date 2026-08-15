@@ -16,7 +16,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fork_behavior property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ImportPgDatabaseRequestForkBehavior? ForkBehavior { get; set; }
-        /// <summary>&quot;Source database: &apos;datatable://name&apos; or &apos;$res:path&apos;&quot;</summary>
+        /// <summary>Source database: &apos;datatable://name&apos; or &apos;$res:path&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Source { get; set; }
@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Source { get; set; }
 #endif
-        /// <summary>&quot;Target database: &apos;datatable://name&apos; or &apos;$res:path&apos;&quot;</summary>
+        /// <summary>Target database: &apos;datatable://name&apos; or &apos;$res:path&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Target { get; set; }

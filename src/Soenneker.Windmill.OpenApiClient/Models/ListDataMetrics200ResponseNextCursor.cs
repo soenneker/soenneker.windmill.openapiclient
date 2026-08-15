@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Present when more rows may follow: pass its fields back as the `cursor_*` params. Absent means the catalog is exhausted.&quot;
+    /// Present when more rows may follow: pass its fields back as the `cursor_*` params. Absent means the catalog is exhausted.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListDataMetrics200ResponseNextCursor : IAdditionalDataHolder, IParsable

@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The execution_mode property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestPolicyExecutionMode? ExecutionMode { get; set; }
-        /// <summary>&quot;Raw apps: author-declared scopes for the frontend SDK token. Takes effect only when `sandbox` is also true — an unsandboxed bundle runs with the viewer&apos;s own session, so no token is advertised or minted for it and this list stays inert. On a sandboxed app a non-empty list lets viewers mint (after consenting) a short-lived token carrying their own identity restricted to these scopes, handed to the app bundle so `windmill-client` calls run as the viewer. Must be a subset of the server&apos;s curated allowlist (jobs:run, jobs:read, users:read, resources:read, variables:read).&quot;</summary>
+        /// <summary>Raw apps: author-declared scopes for the frontend SDK token. Takes effect only when `sandbox` is also true — an unsandboxed bundle runs with the viewer&apos;s own session, so no token is advertised or minted for it and this list stays inert. On a sandboxed app a non-empty list lets viewers mint (after consenting) a short-lived token carrying their own identity restricted to these scopes, handed to the app bundle so `windmill-client` calls run as the viewer. Must be a subset of the server&apos;s curated allowlist (jobs:run, jobs:read, users:read, resources:read, variables:read).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? FrontendSdkScopes { get; set; }

@@ -22,9 +22,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? ExistsInFork { get; set; }
         /// <summary>If the item exists in the source workspace</summary>
         public bool? ExistsInSource { get; set; }
-        /// <summary>&quot;What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.&quot;</summary>
+        /// <summary>What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventKind? ForkLastEventKind { get; set; }
-        /// <summary>&quot;Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.&quot;</summary>
+        /// <summary>Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin? ForkLastEventOrigin { get; set; }
         /// <summary>Whether the item has any differences</summary>
         public bool? HasChanges { get; set; }
@@ -38,9 +38,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>&quot;What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.&quot;</summary>
+        /// <summary>What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind? SourceLastEventKind { get; set; }
-        /// <summary>&quot;Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.&quot;</summary>
+        /// <summary>Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin? SourceLastEventOrigin { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem"/> and sets the default values.

@@ -103,7 +103,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Flows
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FlowsRequestBuilderPostQueryParameters 
         {
-            /// <summary>&quot;workspace folder scoping the Hub publication: a workspace can publishone Hub project per folder and the Hub-side source key is`{workspace}:{folder}`&quot;</summary>
+            /// <summary>workspace folder scoping the Hub publication: a workspace can publishone Hub project per folder and the Hub-side source key is`{workspace}:{folder}`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("folder")]

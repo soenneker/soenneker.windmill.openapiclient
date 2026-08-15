@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Dbt.Warehouse.Item
         {
         }
         /// <summary>
-        /// &quot;Job-scoped: needs a job token, because the response carries the warehouse&apos;s credentials. dbt is unpermissioned by design, so a running job reaches any warehouse the workspace configures.&quot;
+        /// Job-scoped: needs a job token, because the response carries the warehouse&apos;s credentials. dbt is unpermissioned by design, so a running job reaches any warehouse the workspace configures.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Dbt.Warehouse.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Job-scoped: needs a job token, because the response carries the warehouse&apos;s credentials. dbt is unpermissioned by design, so a running job reaches any warehouse the workspace configures.&quot;
+        /// Job-scoped: needs a job token, because the response carries the warehouse&apos;s credentials. dbt is unpermissioned by design, so a running job reaches any warehouse the workspace configures.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

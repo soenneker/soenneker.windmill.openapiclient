@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;{field: {old, new}} for the fields that actually changed. Unset for a delete.&quot;
+    /// {field: {old, new}} for the fields that actually changed. Unset for a delete.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListTriggerHistory200ResponseItemChanges : IAdditionalDataHolder, IParsable

@@ -80,7 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Tag { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowFailureModuleValueOneOf1Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RawscriptType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowFailureModuleValueOneOf1"/> and sets the default values.
         /// </summary>
@@ -117,7 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "lock", n => { Lock = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowFailureModuleValueOneOf1Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RawscriptType>(); } },
             };
         }
         /// <summary>
@@ -138,7 +138,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("lock", Lock);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("tag", Tag);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowFailureModuleValueOneOf1Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RawscriptType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

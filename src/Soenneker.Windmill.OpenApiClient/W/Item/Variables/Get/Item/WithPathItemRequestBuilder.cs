@@ -85,13 +85,13 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.Get.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;ask to decrypt secret if this variable is secret(if not secret no effect, default: true)&quot;</summary>
+            /// <summary>ask to decrypt secret if this variable is secret(if not secret no effect, default: true)</summary>
             [QueryParameter("decrypt_secret")]
             public bool? DecryptSecret { get; set; }
             /// <summary>When true, overlay the authed user&apos;s draft (if any) onto the deployed payload.</summary>
             [QueryParameter("get_draft")]
             public bool? GetDraft { get; set; }
-            /// <summary>&quot;ask to include the encrypted value if secret and decrypt secret is not true (default: false)&quot;</summary>
+            /// <summary>ask to include the encrypted value if secret and decrypt secret is not true (default: false)</summary>
             [QueryParameter("include_encrypted")]
             public bool? IncludeEncrypted { get; set; }
         }

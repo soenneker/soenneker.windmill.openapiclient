@@ -146,7 +146,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateScriptRequestModules Modules { get; set; }
 #endif
-        /// <summary>&quot;Authorization identity to run as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. Supply this or on_behalf_of_email; when only the address is given it is resolved to the account it names, and an address naming nobody is rejected. A pair that disagrees is rejected.&quot;</summary>
+        /// <summary>Authorization identity to run as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. Supply this or on_behalf_of_email; when only the address is given it is resolved to the account it names, and an address naming nobody is rejected. A pair that disagrees is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnBehalfOf { get; set; }

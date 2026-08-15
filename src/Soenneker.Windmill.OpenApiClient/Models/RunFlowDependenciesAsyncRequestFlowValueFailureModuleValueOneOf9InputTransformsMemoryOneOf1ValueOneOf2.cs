@@ -18,7 +18,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Maximum number of messages to retain in context</summary>
         public int? ContextLength { get; set; }
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2Kind? Kind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.AutoKind? Kind { get; set; }
         /// <summary>Identifier for persistent memory across agent invocations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +53,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "context_length", n => { ContextLength = n.GetIntValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2Kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AutoKind>(); } },
                 { "memory_id", n => { MemoryId = n.GetStringValue(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("context_length", ContextLength);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2Kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AutoKind>("kind", Kind);
             writer.WriteStringValue("memory_id", MemoryId);
             writer.WriteAdditionalData(AdditionalData);
         }

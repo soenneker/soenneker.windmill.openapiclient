@@ -40,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string ResourcePath { get; set; }
 #endif
         /// <summary>The tool_type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf9ToolsItemValueOneOf2ToolType? ToolType { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.McpToolType? ToolType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf9ToolsItemValueOneOf2"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "exclude_tools", n => { ExcludeTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "include_tools", n => { IncludeTools = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "resource_path", n => { ResourcePath = n.GetStringValue(); } },
-                { "tool_type", n => { ToolType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf9ToolsItemValueOneOf2ToolType>(); } },
+                { "tool_type", n => { ToolType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.McpToolType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("exclude_tools", ExcludeTools);
             writer.WriteCollectionOfPrimitiveValues<string>("include_tools", IncludeTools);
             writer.WriteStringValue("resource_path", ResourcePath);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf9ToolsItemValueOneOf2ToolType>("tool_type", ToolType);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.McpToolType>("tool_type", ToolType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

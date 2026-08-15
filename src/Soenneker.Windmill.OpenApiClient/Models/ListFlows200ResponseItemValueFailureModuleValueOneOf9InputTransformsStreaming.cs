@@ -8,37 +8,13 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs
+    /// Boolean. If true, stream the AI response incrementally.Streaming events include: token_delta, reasoning_token_delta, tool_call, tool_call_arguments, tool_execution, tool_result
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListFlows200ResponseItemValueFailureModuleValueOneOf9InputTransformsStreaming : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>JavaScript expression returning the value. Available variables - results (object with all previous step results), flow_input (flow inputs), flow_input.iter (in loops)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Expr { get; set; }
-#nullable restore
-#else
-        public string Expr { get; set; }
-#endif
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
-        /// <summary>The static value. For resources, use format &apos;$res:path/to/resource&apos;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueFailureModuleValueOneOf9InputTransformsStreamingAllOf1OneOf1Value? Value { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueFailureModuleValueOneOf9InputTransformsStreamingAllOf1OneOf1Value Value { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueFailureModuleValueOneOf9InputTransformsStreaming"/> and sets the default values.
         /// </summary>
@@ -64,9 +40,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expr", n => { Expr = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueFailureModuleValueOneOf9InputTransformsStreamingAllOf1OneOf1Value>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueFailureModuleValueOneOf9InputTransformsStreamingAllOf1OneOf1Value.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,9 +49,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("expr", Expr);
-            writer.WriteStringValue("type", Type);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueFailureModuleValueOneOf9InputTransformsStreamingAllOf1OneOf1Value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

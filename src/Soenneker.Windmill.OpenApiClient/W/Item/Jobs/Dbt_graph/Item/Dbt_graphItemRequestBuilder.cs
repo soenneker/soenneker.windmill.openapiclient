@@ -95,7 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_graph.Item
             [QueryParameter("asset_kinds")]
             public string AssetKinds { get; set; }
 #endif
-            /// <summary>&quot;Fallback only, for a job that names no deployed script — a preview or a flow. For a script job the version comes from the job row itself, so this is ignored: which deploy&apos;s models, SQL and `ref()` lineage are shown is not the caller&apos;s to choose.&quot;</summary>
+            /// <summary>Fallback only, for a job that names no deployed script — a preview or a flow. For a script job the version comes from the job row itself, so this is ignored: which deploy&apos;s models, SQL and `ref()` lineage are shown is not the caller&apos;s to choose.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("dbt_script_hash")]

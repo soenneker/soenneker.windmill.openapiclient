@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>&quot;What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.&quot;</summary>
+    /// <summary>What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CompareWorkspaces200ResponseDiffsItemSourceLastEventKind
     {

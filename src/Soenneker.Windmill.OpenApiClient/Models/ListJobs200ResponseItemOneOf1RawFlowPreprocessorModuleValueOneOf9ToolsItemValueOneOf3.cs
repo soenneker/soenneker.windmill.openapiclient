@@ -16,7 +16,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The tool_type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3ToolType? ToolType { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.WebsearchToolType? ToolType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tool_type", n => { ToolType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3ToolType>(); } },
+                { "tool_type", n => { ToolType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.WebsearchToolType>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3ToolType>("tool_type", ToolType);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.WebsearchToolType>("tool_type", ToolType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

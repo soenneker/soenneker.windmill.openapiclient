@@ -16,7 +16,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1Kind? Kind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.OffKind? Kind { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1Kind>(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.OffKind>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1Kind>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.OffKind>("kind", Kind);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

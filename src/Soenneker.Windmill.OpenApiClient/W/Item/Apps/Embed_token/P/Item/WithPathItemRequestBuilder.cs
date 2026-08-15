@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Embed_token.P.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Raw apps: the viewer confirmed the frontend-SDK permissions consent banner, so the viewer-scoped SDK token may actually be minted. Without it the response only advertises the declared sdk_scopes.&quot;</summary>
+            /// <summary>Raw apps: the viewer confirmed the frontend-SDK permissions consent banner, so the viewer-scoped SDK token may actually be minted. Without it the response only advertises the declared sdk_scopes.</summary>
             [QueryParameter("sdk_consent")]
             public bool? SdkConsent { get; set; }
         }

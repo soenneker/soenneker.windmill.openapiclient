@@ -188,7 +188,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The no_deployed property</summary>
         public bool? NoDeployed { get; set; }
-        /// <summary>&quot;Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it.&quot;</summary>
+        /// <summary>Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnBehalfOf { get; set; }

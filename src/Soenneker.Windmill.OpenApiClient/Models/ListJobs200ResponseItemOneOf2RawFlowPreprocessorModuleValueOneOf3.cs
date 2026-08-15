@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Path { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf3Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.FlowType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf3"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "input_transforms", n => { InputTransforms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf3InputTransforms>(global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf3InputTransforms.CreateFromDiscriminatorValue); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf3Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.FlowType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf3InputTransforms>("input_transforms", InputTransforms);
             writer.WriteStringValue("path", Path);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf3Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.FlowType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

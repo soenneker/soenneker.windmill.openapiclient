@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Dispatch_events.Item
         {
         }
         /// <summary>
-        /// &quot;Returns the chronological log of decisions the asset-trigger dispatcher made after this producer job completed. Each row is one (subscriber, asset write) decision: `dispatched` (with `child_job_id`), `join_pending` (with `received_inputs` / `required_inputs` / `partition`), or `skipped` (with `reason`). Rows are reaped automatically when the producer&apos;s `v2_job` row is deleted by the retention sweep.&quot;
+        /// Returns the chronological log of decisions the asset-trigger dispatcher made after this producer job completed. Each row is one (subscriber, asset write) decision: `dispatched` (with `child_job_id`), `join_pending` (with `received_inputs` / `required_inputs` / `partition`), or `skipped` (with `reason`). Rows are reaped automatically when the producer&apos;s `v2_job` row is deleted by the retention sweep.
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -53,7 +53,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Dispatch_events.Item
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Returns the chronological log of decisions the asset-trigger dispatcher made after this producer job completed. Each row is one (subscriber, asset write) decision: `dispatched` (with `child_job_id`), `join_pending` (with `received_inputs` / `required_inputs` / `partition`), or `skipped` (with `reason`). Rows are reaped automatically when the producer&apos;s `v2_job` row is deleted by the retention sweep.&quot;
+        /// Returns the chronological log of decisions the asset-trigger dispatcher made after this producer job completed. Each row is one (subscriber, asset write) decision: `dispatched` (with `child_job_id`), `join_pending` (with `received_inputs` / `required_inputs` / `partition`), or `skipped` (with `reason`). Rows are reaped automatically when the producer&apos;s `v2_job` row is deleted by the retention sweep.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string NewOnBehalfOfUser { get; set; }
 #endif
-        /// <summary>&quot;Target for reassignment: &apos;u/{username}&apos; or &apos;f/{folder}&apos;&quot;</summary>
+        /// <summary>Target for reassignment: &apos;u/{username}&apos; or &apos;f/{folder}&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReassignTo { get; set; }

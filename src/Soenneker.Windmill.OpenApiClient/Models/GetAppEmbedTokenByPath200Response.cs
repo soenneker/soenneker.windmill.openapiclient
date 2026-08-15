@@ -24,11 +24,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Expiration of the embed token.</summary>
         public DateTimeOffset? Expiration { get; set; }
-        /// <summary>&quot;Raw apps render single-iframe and skip the opaque-viewer indirection and the embed token entirely. A sandboxed one may still carry a token here: the viewer-scoped frontend SDK token, which is a different credential from the low-code embed token.&quot;</summary>
+        /// <summary>Raw apps render single-iframe and skip the opaque-viewer indirection and the embed token entirely. A sandboxed one may still carry a token here: the viewer-scoped frontend SDK token, which is a different credential from the low-code embed token.</summary>
         public bool? RawApp { get; set; }
         /// <summary>Publisher opted this app into sandbox isolation. When false the viewer runs the app same-origin with its full session.</summary>
         public bool? Sandbox { get; set; }
-        /// <summary>&quot;Sandboxed raw apps: scopes the app policy declares for the frontend SDK token. Null when the app is unsandboxed, however the policy reads. The viewer renders these in the permission prompt; token stays absent until the endpoint is re-called with sdk_consent=true.&quot;</summary>
+        /// <summary>Sandboxed raw apps: scopes the app policy declares for the frontend SDK token. Null when the app is unsandboxed, however the policy reads. The viewer renders these in the permission prompt; token stays absent until the endpoint is re-called with sdk_consent=true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? SdkScopes { get; set; }

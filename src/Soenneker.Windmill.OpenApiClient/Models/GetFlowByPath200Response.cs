@@ -84,7 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The no_deployed property</summary>
         public bool? NoDeployed { get; set; }
-        /// <summary>&quot;The flow runs with the permissions of this identity: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it. Omit it when writing and it is resolved from that address instead.&quot;</summary>
+        /// <summary>The flow runs with the permissions of this identity: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it. Omit it when writing and it is resolved from that address instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnBehalfOf { get; set; }

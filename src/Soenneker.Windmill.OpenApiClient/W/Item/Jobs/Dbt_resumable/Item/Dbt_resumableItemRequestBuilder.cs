@@ -33,7 +33,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable.Item
         {
         }
         /// <summary>
-        /// &quot;One failed run is saved per script per execution principal, so a `retry` resumes that one — not necessarily the run being looked at. Answers about THIS run alone: its own id when a retry submitted by this caller would resume it, null otherwise (a later run holds the state, the run left nothing to rebuild, or the caller&apos;s runs execute as another principal). Authorized through the job, like `run_progress`.&quot;
+        /// One failed run is saved per script per execution principal, so a `retry` resumes that one — not necessarily the run being looked at. Answers about THIS run alone: its own id when a retry submitted by this caller would resume it, null otherwise (a later run holds the state, the run left nothing to rebuild, or the caller&apos;s runs execute as another principal). Authorized through the job, like `run_progress`.
         /// </summary>
         /// <returns>A <see cref="Guid"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable.Item
             return await RequestAdapter.SendPrimitiveAsync<Guid?>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;One failed run is saved per script per execution principal, so a `retry` resumes that one — not necessarily the run being looked at. Answers about THIS run alone: its own id when a retry submitted by this caller would resume it, null otherwise (a later run holds the state, the run left nothing to rebuild, or the caller&apos;s runs execute as another principal). Authorized through the job, like `run_progress`.&quot;
+        /// One failed run is saved per script per execution principal, so a `retry` resumes that one — not necessarily the run being looked at. Answers about THIS run alone: its own id when a retry submitted by this caller would resume it, null otherwise (a later run holds the state, the run left nothing to rebuild, or the caller&apos;s runs execute as another principal). Authorized through the job, like `run_progress`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

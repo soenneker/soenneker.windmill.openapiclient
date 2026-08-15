@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>&quot;Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.&quot;</summary>
+    /// <summary>Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin
     {

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>&quot;Environment label for the dev workspace: its badge text and the branch it deploys to. Ignored for non-dev forks. Omitted defaults to &apos;dev&apos;&quot;</summary>
+    /// <summary>Environment label for the dev workspace: its badge text and the branch it deploys to. Ignored for non-dev forks. Omitted defaults to &apos;dev&apos;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateWorkspaceForkGitBranchRequestDevWorkspaceLabel
     {

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Hierarchical schema: schema_name -&gt; table_name -&gt; column_name -&gt; compact_type (e.g. &apos;int4&apos;, &apos;text?&apos;, &apos;int4?=0&apos;)&quot;
+    /// Hierarchical schema: schema_name -&gt; table_name -&gt; column_name -&gt; compact_type (e.g. &apos;int4&apos;, &apos;text?&apos;, &apos;int4?=0&apos;)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListDataTableSchemas200ResponseItemSchemas : IAdditionalDataHolder, IParsable

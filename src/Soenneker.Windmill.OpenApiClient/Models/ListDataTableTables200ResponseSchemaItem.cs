@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Error { get; set; }
 #endif
-        /// <summary>&quot;Hierarchical metadata: schema_name -&gt; table_names&quot;</summary>
+        /// <summary>Hierarchical metadata: schema_name -&gt; table_names</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas? Schemas { get; set; }

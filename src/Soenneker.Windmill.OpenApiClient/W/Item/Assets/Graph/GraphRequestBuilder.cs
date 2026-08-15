@@ -95,7 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph
             [QueryParameter("asset_kinds")]
             public string AssetKinds { get; set; }
 #endif
-            /// <summary>&quot;Render the dbt half of the graph as one version of a dbt script had it, rather than as the currently deployed one. Given this, `folder` no longer scopes the dbt nodes: the pinned version&apos;s own models and lineage are the answer, including models a later deploy removed.&quot;</summary>
+            /// <summary>Render the dbt half of the graph as one version of a dbt script had it, rather than as the currently deployed one. Given this, `folder` no longer scopes the dbt nodes: the pinned version&apos;s own models and lineage are the answer, including models a later deploy removed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("dbt_script_hash")]

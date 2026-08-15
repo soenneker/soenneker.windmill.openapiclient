@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.Health.Status
         {
         }
         /// <summary>
-        /// &quot;Health status endpoint. Returns cached health status (database connectivity, worker count).Cache TTL is fixed at 5 seconds. Use force=true query parameter to bypass cache.Note: This endpoint is intentionally different from Kubernetes probes to avoid confusion.For k8s liveness/readiness probes, use /version endpoint.&quot;
+        /// Health status endpoint. Returns cached health status (database connectivity, worker count).Cache TTL is fixed at 5 seconds. Use force=true query parameter to bypass cache.Note: This endpoint is intentionally different from Kubernetes probes to avoid confusion.For k8s liveness/readiness probes, use /version endpoint.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHealthStatus200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace Soenneker.Windmill.OpenApiClient.Health.Status
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthStatus200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetHealthStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Health status endpoint. Returns cached health status (database connectivity, worker count).Cache TTL is fixed at 5 seconds. Use force=true query parameter to bypass cache.Note: This endpoint is intentionally different from Kubernetes probes to avoid confusion.For k8s liveness/readiness probes, use /version endpoint.&quot;
+        /// Health status endpoint. Returns cached health status (database connectivity, worker count).Cache TTL is fixed at 5 seconds. Use force=true query parameter to bypass cache.Note: This endpoint is intentionally different from Kubernetes probes to avoid confusion.For k8s liveness/readiness probes, use /version endpoint.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Health.Status
             return new global::Soenneker.Windmill.OpenApiClient.Health.Status.StatusRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Health status endpoint. Returns cached health status (database connectivity, worker count).Cache TTL is fixed at 5 seconds. Use force=true query parameter to bypass cache.Note: This endpoint is intentionally different from Kubernetes probes to avoid confusion.For k8s liveness/readiness probes, use /version endpoint.&quot;
+        /// Health status endpoint. Returns cached health status (database connectivity, worker count).Cache TTL is fixed at 5 seconds. Use force=true query parameter to bypass cache.Note: This endpoint is intentionally different from Kubernetes probes to avoid confusion.For k8s liveness/readiness probes, use /version endpoint.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class StatusRequestBuilderGetQueryParameters 

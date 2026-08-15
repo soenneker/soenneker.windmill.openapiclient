@@ -50,7 +50,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string TagOverride { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemValueOneOf2Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ScriptType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemValueOneOf2"/> and sets the default values.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_trigger", n => { IsTrigger = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "tag_override", n => { TagOverride = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemValueOneOf2Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ScriptType>(); } },
             };
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_trigger", IsTrigger);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("tag_override", TagOverride);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemValueOneOf2Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ScriptType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

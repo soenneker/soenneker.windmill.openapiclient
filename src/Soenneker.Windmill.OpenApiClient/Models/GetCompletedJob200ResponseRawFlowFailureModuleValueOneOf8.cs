@@ -18,7 +18,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>If true, marks this as a flow identity (special handling)</summary>
         public bool? Flow { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf8Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.IdentityType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf8"/> and sets the default values.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "flow", n => { Flow = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf8Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.IdentityType>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("flow", Flow);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf8Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.IdentityType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

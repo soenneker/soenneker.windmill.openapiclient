@@ -165,7 +165,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>job trigger kind (schedule, http, websocket...)</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2TriggerKind? TriggerKind { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.QueuedJobType? Type { get; set; }
         /// <summary>The visible_to_owner property</summary>
         public bool? VisibleToOwner { get; set; }
         /// <summary>The worker property</summary>
@@ -250,7 +250,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "suspend", n => { Suspend = n.GetDoubleValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2TriggerKind>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.QueuedJobType>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
                 { "worker", n => { Worker = n.GetStringValue(); } },
                 { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2WorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2WorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
@@ -297,7 +297,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("suspend", Suspend);
             writer.WriteStringValue("tag", Tag);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2TriggerKind>("trigger_kind", TriggerKind);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.QueuedJobType>("type", Type);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
             writer.WriteStringValue("worker", Worker);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2WorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Columns in this table: column_name -&gt; compact_type&quot;
+    /// Columns in this table: column_name -&gt; compact_type
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetDataTableTableSchema200ResponseColumns : IAdditionalDataHolder, IParsable

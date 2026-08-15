@@ -60,7 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItem> Tools { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiagentType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9"/> and sets the default values.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "tool_inputs", n => { ToolInputs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolInputs>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolInputs.CreateFromDiscriminatorValue); } },
                 { "tools", n => { Tools = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AiagentType>(); } },
             };
         }
         /// <summary>
@@ -111,7 +111,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("tag", Tag);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolInputs>("tool_inputs", ToolInputs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9ToolsItem>("tools", Tools);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleValueOneOf9Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AiagentType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

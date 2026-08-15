@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete.List_paths
         {
         }
         /// <summary>
-        /// &quot;Returns the flat list of all item paths visible to the caller acrossscripts, flows, apps, raw apps, variables, and resources. Intended tofeed an entirely client-side path autocomplete UI: the frontend fetchesonce (server caches per workspace for 60s) and performs all prefix/segmentcomputation locally. Capped at 20,000 paths (5,000 per table).&quot;
+        /// Returns the flat list of all item paths visible to the caller acrossscripts, flows, apps, raw apps, variables, and resources. Intended tofeed an entirely client-side path autocomplete UI: the frontend fetchesonce (server caches per workspace for 60s) and performs all prefix/segmentcomputation locally. Capped at 20,000 paths (5,000 per table).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListPathAutocompletePaths200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete.List_paths
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListPathAutocompletePaths200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListPathAutocompletePaths200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns the flat list of all item paths visible to the caller acrossscripts, flows, apps, raw apps, variables, and resources. Intended tofeed an entirely client-side path autocomplete UI: the frontend fetchesonce (server caches per workspace for 60s) and performs all prefix/segmentcomputation locally. Capped at 20,000 paths (5,000 per table).&quot;
+        /// Returns the flat list of all item paths visible to the caller acrossscripts, flows, apps, raw apps, variables, and resources. Intended tofeed an entirely client-side path autocomplete UI: the frontend fetchesonce (server caches per workspace for 60s) and performs all prefix/segmentcomputation locally. Capped at 20,000 paths (5,000 per table).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete.List_paths
             return new global::Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete.List_paths.List_pathsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns the flat list of all item paths visible to the caller acrossscripts, flows, apps, raw apps, variables, and resources. Intended tofeed an entirely client-side path autocomplete UI: the frontend fetchesonce (server caches per workspace for 60s) and performs all prefix/segmentcomputation locally. Capped at 20,000 paths (5,000 per table).&quot;
+        /// Returns the flat list of all item paths visible to the caller acrossscripts, flows, apps, raw apps, variables, and resources. Intended tofeed an entirely client-side path autocomplete UI: the frontend fetchesonce (server caches per workspace for 60s) and performs all prefix/segmentcomputation locally. Capped at 20,000 paths (5,000 per table).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class List_pathsRequestBuilderGetQueryParameters 

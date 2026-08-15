@@ -25,7 +25,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Delay in seconds to debounce this step&apos;s executions across flow runs</summary>
         public int? DebounceDelayS { get; set; }
-        /// <summary>&quot;Expression to group debounced executions. Supports $workspace and $args[name]. Default: $workspace/flow/&lt;flow_path&gt;-&lt;step_id&gt;&quot;</summary>
+        /// <summary>Expression to group debounced executions. Supports $workspace and $args[name]. Default: $workspace/flow/&lt;flow_path&gt;-&lt;step_id&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DebounceKey { get; set; }

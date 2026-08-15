@@ -153,7 +153,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.P.Item
             /// <summary>The parent job that is at the origin and responsible for the execution of this script if any</summary>
             [QueryParameter("parent_job")]
             public Guid? ParentJob { get; set; }
-            /// <summary>&quot;The base64 encoded payload that has been encoded as a JSON. e.g how to encode such payload encodeURIComponent`encodeURIComponent(btoa(JSON.stringify({a: 2})))`&quot;</summary>
+            /// <summary>The base64 encoded payload that has been encoded as a JSON. e.g how to encode such payload encodeURIComponent`encodeURIComponent(btoa(JSON.stringify({a: 2})))`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("payload")]

@@ -14,7 +14,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;{field: {old, new}} for the fields that actually changed. Unset for a delete.&quot;</summary>
+        /// <summary>{field: {old, new}} for the fields that actually changed. Unset for a delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemChanges? Changes { get; set; }

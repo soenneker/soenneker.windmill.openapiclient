@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<Guid?> JobIds { get; set; }
 #endif
-        /// <summary>&quot;a person&apos;s explanation of why the failure is considered handled. Enterprise-only: ignored outside enterprise&quot;</summary>
+        /// <summary>a person&apos;s explanation of why the failure is considered handled. Enterprise-only: ignored outside enterprise</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Note { get; set; }

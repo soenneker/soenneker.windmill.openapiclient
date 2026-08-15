@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;One `// measure` or `// dimension` declaration, as catalogued from thescript that materializes the table. `expr` and `filter` are the author&apos;sown SQL: a reader renders a measure as `expr` plus, when `filter` is set,a trailing `FILTER (WHERE filter)`.&quot;
+    /// One `// measure` or `// dimension` declaration, as catalogued from thescript that materializes the table. `expr` and `filter` are the author&apos;sown SQL: a reader renders a measure as `expr` plus, when `filter` is set,a trailing `FILTER (WHERE filter)`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListDataMetrics200ResponseMetricsItem : IAdditionalDataHolder, IParsable

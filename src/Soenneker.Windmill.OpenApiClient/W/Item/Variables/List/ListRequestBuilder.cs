@@ -106,7 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables.List
             [QueryParameter("description")]
             public string Description { get; set; }
 #endif
-            /// <summary>&quot;When true, append per-user draft variables whose path has nodeployed variable. Synthesized rows carry `draft_only: true`so the home page can render a \&quot;Draft\&quot; badge.&quot;</summary>
+            /// <summary>When true, append per-user draft variables whose path has nodeployed variable. Synthesized rows carry `draft_only: true`so the home page can render a &quot;Draft&quot; badge.</summary>
             [QueryParameter("include_draft_only")]
             public bool? IncludeDraftOnly { get; set; }
             /// <summary>Filter by label</summary>

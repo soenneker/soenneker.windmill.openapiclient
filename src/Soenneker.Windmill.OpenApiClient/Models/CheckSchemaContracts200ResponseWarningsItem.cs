@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;One save-time schema-contract warning: a consumer reference that doesnot match the referenced asset&apos;s latest captured schema.`schema_version`/`captured_at` identify the capture the check ranagainst (as-of the producer&apos;s last run, not its latest save).&quot;
+    /// One save-time schema-contract warning: a consumer reference that doesnot match the referenced asset&apos;s latest captured schema.`schema_version`/`captured_at` identify the capture the check ranagainst (as-of the producer&apos;s last run, not its latest save).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CheckSchemaContracts200ResponseWarningsItem : IAdditionalDataHolder, IParsable

@@ -15,7 +15,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Integer. Maximum number of tokens the AI will generate in its response.Range: 1 to 4,294,967,295. Typical values: 256-4096 for most use cases.&quot;</summary>
+        /// <summary>Integer. Maximum number of tokens the AI will generate in its response.Range: 1 to 4,294,967,295. Typical values: 256-4096 for most use cases.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsMaxCompletionTokens? MaxCompletionTokens { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsMaxCompletionTokens MaxCompletionTokens { get; set; }
 #endif
-        /// <summary>&quot;Number. Limits how many times the agent can loop through reasoning and tool use.Range: 1-1000.&quot;</summary>
+        /// <summary>Number. Limits how many times the agent can loop through reasoning and tool use.Range: 1-1000.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsMaxIterations? MaxIterations { get; set; }
@@ -39,7 +39,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsMemory Memory { get; set; }
 #endif
-        /// <summary>&quot;JSON Schema object defining structured output format. Used when you need the AI to return data in a specific shape.Supports standard JSON Schema properties: type, properties, required, items, enum, pattern, minLength, maxLength, minimum, maximum, etc.Example: { type: &apos;object&apos;, properties: { name: { type: &apos;string&apos; }, age: { type: &apos;integer&apos; } }, required: [&apos;name&apos;] }&quot;</summary>
+        /// <summary>JSON Schema object defining structured output format. Used when you need the AI to return data in a specific shape.Supports standard JSON Schema properties: type, properties, required, items, enum, pattern, minLength, maxLength, minimum, maximum, etc.Example: { type: &apos;object&apos;, properties: { name: { type: &apos;string&apos; }, age: { type: &apos;integer&apos; } }, required: [&apos;name&apos;] }</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsOutputSchema? OutputSchema { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsOutputSchema OutputSchema { get; set; }
 #endif
-        /// <summary>&quot;Output format type.Valid values: &apos;text&apos; (default) - plain text response, &apos;image&apos; - image generation&quot;</summary>
+        /// <summary>Output format type.Valid values: &apos;text&apos; (default) - plain text response, &apos;image&apos; - image generation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsOutputType? OutputType { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsProvider Provider { get; set; }
 #endif
-        /// <summary>&quot;Boolean. If true, stream the AI response incrementally.Streaming events include: token_delta, reasoning_token_delta, tool_call, tool_call_arguments, tool_execution, tool_result&quot;</summary>
+        /// <summary>Boolean. If true, stream the AI response incrementally.Streaming events include: token_delta, reasoning_token_delta, tool_call, tool_call_arguments, tool_execution, tool_result</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsStreaming? Streaming { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsSystemPrompt SystemPrompt { get; set; }
 #endif
-        /// <summary>&quot;Float. Controls randomness/creativity of responses.Range: 0.0 to 2.0 (provider-dependent)- 0.0 = deterministic, focused responses- 0.7 = balanced (common default)- 1.0+ = more creative/random&quot;</summary>
+        /// <summary>Float. Controls randomness/creativity of responses.Range: 0.0 to 2.0 (provider-dependent)- 0.0 = deterministic, focused responses- 0.7 = balanced (common default)- 1.0+ = more creative/random</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsTemperature? Temperature { get; set; }
@@ -87,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsTemperature Temperature { get; set; }
 #endif
-        /// <summary>&quot;Array of file references (images or PDFs) for the AI agent.Format: Array&lt;{ bucket: string, key: string }&gt; - S3 object referencesExample: [{ bucket: &apos;my-bucket&apos;, key: &apos;documents/report.pdf&apos; }]&quot;</summary>
+        /// <summary>Array of file references (images or PDFs) for the AI agent.Format: Array&lt;{ bucket: string, key: string }&gt; - S3 object referencesExample: [{ bucket: &apos;my-bucket&apos;, key: &apos;documents/report.pdf&apos; }]</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValueFailureModuleValueOneOf9InputTransformsUserAttachments? UserAttachments { get; set; }

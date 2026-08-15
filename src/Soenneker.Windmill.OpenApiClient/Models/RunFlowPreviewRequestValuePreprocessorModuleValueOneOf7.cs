@@ -26,7 +26,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>If true, all branches execute concurrently. If false, they execute sequentially</summary>
         public bool? Parallel { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValuePreprocessorModuleValueOneOf7Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.BranchallType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValuePreprocessorModuleValueOneOf7"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "branches", n => { Branches = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValuePreprocessorModuleValueOneOf7BranchesItem>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValuePreprocessorModuleValueOneOf7BranchesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parallel", n => { Parallel = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValuePreprocessorModuleValueOneOf7Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.BranchallType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValuePreprocessorModuleValueOneOf7BranchesItem>("branches", Branches);
             writer.WriteBoolValue("parallel", Parallel);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestValuePreprocessorModuleValueOneOf7Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.BranchallType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Resolve
         {
         }
         /// <summary>
-        /// &quot;Marks failed jobs as handled so triage surfaces stop showing them as failures. The job status itself is unchanged. Returns the ids actually resolved: ids that are not visible to the caller or did not fail are silently skipped.&quot;
+        /// Marks failed jobs as handled so triage surfaces stop showing them as failures. The job status itself is unchanged. Returns the ids actually resolved: ids that are not visible to the caller or did not fail are silently skipped.
         /// </summary>
         /// <returns>A List&lt;Guid&gt;</returns>
         /// <param name="body">The request body</param>
@@ -55,7 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Resolve
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// &quot;Marks failed jobs as handled so triage surfaces stop showing them as failures. The job status itself is unchanged. Returns the ids actually resolved: ids that are not visible to the caller or did not fail are silently skipped.&quot;
+        /// Marks failed jobs as handled so triage surfaces stop showing them as failures. The job status itself is unchanged. Returns the ids actually resolved: ids that are not visible to the caller or did not fail are silently skipped.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

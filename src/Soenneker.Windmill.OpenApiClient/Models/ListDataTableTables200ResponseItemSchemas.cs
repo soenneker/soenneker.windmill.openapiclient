@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Hierarchical metadata: schema_name -&gt; table_names&quot;
+    /// Hierarchical metadata: schema_name -&gt; table_names
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListDataTableTables200ResponseItemSchemas : IAdditionalDataHolder, IParsable

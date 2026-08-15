@@ -15,7 +15,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The language property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestLanguage? Language { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage? Language { get; set; }
         /// <summary>The postgres_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +57,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestLanguage>(); } },
+                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage>(); } },
                 { "postgres_resource_path", n => { PostgresResourcePath = n.GetStringValue(); } },
                 { "relations", n => { Relations = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -69,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestLanguage>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage>("language", Language);
             writer.WriteStringValue("postgres_resource_path", PostgresResourcePath);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>("relations", Relations);
             writer.WriteAdditionalData(AdditionalData);

@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Expr { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf4ParallelismOneOf2Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.JavascriptType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf4ParallelismOneOf2"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "expr", n => { Expr = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf4ParallelismOneOf2Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.JavascriptType>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("expr", Expr);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf4ParallelismOneOf2Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.JavascriptType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

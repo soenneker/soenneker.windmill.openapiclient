@@ -16,7 +16,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>At least one git-sync repository is configured.</summary>
         public bool? Configured { get; set; }
-        /// <summary>&quot;True means a `git push` is confirmed to deploy via auto-pull: exactly one licensed, deliverable repository tracks the branch. False is *not confirmed* rather than a definite no — it also covers unlicensed, ambiguous (several repos track it), and conservative false-negatives; determine the deploy path another way (CI `git push`, or `wmill sync push`).&quot;</summary>
+        /// <summary>True means a `git push` is confirmed to deploy via auto-pull: exactly one licensed, deliverable repository tracks the branch. False is *not confirmed* rather than a definite no — it also covers unlicensed, ambiguous (several repos track it), and conservative false-negatives; determine the deploy path another way (CI `git push`, or `wmill sync push`).</summary>
         public bool? DeployOnPush { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetGitSyncDeployMode200Response"/> and sets the default values.

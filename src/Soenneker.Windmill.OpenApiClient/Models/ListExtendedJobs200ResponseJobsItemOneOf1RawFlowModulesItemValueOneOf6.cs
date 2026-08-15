@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6DefaultItem> Default { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6Type? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.BranchoneType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "branches", n => { Branches = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6BranchesItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6BranchesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "default", n => { Default = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6DefaultItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6DefaultItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6Type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.BranchoneType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6BranchesItem>("branches", Branches);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6DefaultItem>("default", Default);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf6Type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.BranchoneType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

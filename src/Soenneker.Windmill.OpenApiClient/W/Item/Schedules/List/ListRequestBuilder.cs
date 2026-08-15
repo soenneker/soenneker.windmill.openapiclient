@@ -116,7 +116,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Schedules.List
             [QueryParameter("description")]
             public string Description { get; set; }
 #endif
-            /// <summary>&quot;When true, append per-user draft schedules whose path hasno deployed schedule. Synthesized rows carry`draft_only: true`.&quot;</summary>
+            /// <summary>When true, append per-user draft schedules whose path hasno deployed schedule. Synthesized rows carry`draft_only: true`.</summary>
             [QueryParameter("include_draft_only")]
             public bool? IncludeDraftOnly { get; set; }
             /// <summary>filter schedules by whether they target a flow</summary>

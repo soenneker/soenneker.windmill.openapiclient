@@ -96,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps.List
             [QueryParameter("created_by")]
             public string CreatedBy { get; set; }
 #endif
-            /// <summary>&quot;When true, append per-user draft rows whose path has nodeployed counterpart. Synthesized rows carry `draft_only: true`so the home page can render a \&quot;Draft\&quot; badge. Gated tonon-operators + page 0 + no narrowing filters on the backend sopicker callers stay deployed-only and pagination stays clean.&quot;</summary>
+            /// <summary>When true, append per-user draft rows whose path has nodeployed counterpart. Synthesized rows carry `draft_only: true`so the home page can render a &quot;Draft&quot; badge. Gated tonon-operators + page 0 + no narrowing filters on the backend sopicker callers stay deployed-only and pagination stays clean.</summary>
             [QueryParameter("include_draft_only")]
             public bool? IncludeDraftOnly { get; set; }
             /// <summary>Filter by label</summary>

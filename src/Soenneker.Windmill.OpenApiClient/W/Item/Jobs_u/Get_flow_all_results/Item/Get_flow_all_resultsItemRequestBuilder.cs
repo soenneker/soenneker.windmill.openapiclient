@@ -88,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get_flow_all_results.It
             /// <summary>per-entry cap (in characters of JSON text) on result_prefix (default 2000, max 30000)</summary>
             [QueryParameter("max_result_len")]
             public int? MaxResultLen { get; set; }
-            /// <summary>&quot;step address to resolve to a single job instead of enumerating the tree: \&quot;b\&quot;, \&quot;b/c\&quot;, \&quot;b[12]\&quot; (1-based iteration/branch), composable as \&quot;b[12]/c\&quot;&quot;</summary>
+            /// <summary>step address to resolve to a single job instead of enumerating the tree: &quot;b&quot;, &quot;b/c&quot;, &quot;b[12]&quot; (1-based iteration/branch), composable as &quot;b[12]/c&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("step")]

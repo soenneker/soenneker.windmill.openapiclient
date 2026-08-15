@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Check_schema_contracts
         {
         }
         /// <summary>
-        /// &quot;Save-time schema-contract check for data pipelines: validates the givenscript content&apos;s asset references (body column reads, `// column` lineage,`// data_test relationships`) against the latest captured producer schemasand returns warnings. Warnings never block a save/deploy; an asset whoseproducer declares `on_schema_change=ignore` is suppressed to a singleinformational entry.&quot;
+        /// Save-time schema-contract check for data pipelines: validates the givenscript content&apos;s asset references (body column reads, `// column` lineage,`// data_test relationships`) against the latest captured producer schemasand returns warnings. Warnings never block a save/deploy; an asset whoseproducer declares `on_schema_change=ignore` is suppressed to a singleinformational entry.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CheckSchemaContracts200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Check_schema_contracts
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.CheckSchemaContracts200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CheckSchemaContracts200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Save-time schema-contract check for data pipelines: validates the givenscript content&apos;s asset references (body column reads, `// column` lineage,`// data_test relationships`) against the latest captured producer schemasand returns warnings. Warnings never block a save/deploy; an asset whoseproducer declares `on_schema_change=ignore` is suppressed to a singleinformational entry.&quot;
+        /// Save-time schema-contract check for data pipelines: validates the givenscript content&apos;s asset references (body column reads, `// column` lineage,`// data_test relationships`) against the latest captured producer schemasand returns warnings. Warnings never block a save/deploy; an asset whoseproducer declares `on_schema_change=ignore` is suppressed to a singleinformational entry.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

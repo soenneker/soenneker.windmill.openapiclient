@@ -22,6 +22,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Result_by_id;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Resume_urls;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_assets;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_inline;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_progress;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result;
@@ -140,6 +141,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.Run_and_streamRequestBuilder Run_and_stream
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.Run_and_streamRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The run_assets property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_assets.Run_assetsRequestBuilder Run_assets
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_assets.Run_assetsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The run_inline property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_inline.Run_inlineRequestBuilder Run_inline

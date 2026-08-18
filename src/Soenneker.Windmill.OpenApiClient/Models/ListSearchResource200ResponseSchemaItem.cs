@@ -22,13 +22,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>The value property</summary>
+        /// <summary>whether value was cut short by that cap</summary>
+        public bool? Truncated { get; set; }
+        /// <summary>pretty-printed JSON rendering of the resource value, capped at 4000 characters — a search preview, not the value itself (use get_value for that)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSearchResource200ResponseItemValue? Value { get; set; }
+        public string? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSearchResource200ResponseItemValue Value { get; set; }
+        public string Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListSearchResource200ResponseSchemaItem"/> and sets the default values.
@@ -56,7 +58,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSearchResource200ResponseItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.ListSearchResource200ResponseItemValue.CreateFromDiscriminatorValue); } },
+                { "truncated", n => { Truncated = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,7 +70,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSearchResource200ResponseItemValue>("value", Value);
+            writer.WriteBoolValue("truncated", Truncated);
+            writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

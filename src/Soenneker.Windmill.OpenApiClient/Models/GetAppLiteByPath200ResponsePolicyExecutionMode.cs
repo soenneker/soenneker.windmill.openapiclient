@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>Who the app&apos;s runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to `publisher` (runs on behalf of the app&apos;s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Either way `anonymous`, which makes the app publicly executable, is never assumed</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public enum GetAppLiteByPath200ResponsePolicyExecutionMode
-    #pragma warning restore CS1591
     {
         [EnumMember(Value = "viewer")]
         #pragma warning disable CS1591

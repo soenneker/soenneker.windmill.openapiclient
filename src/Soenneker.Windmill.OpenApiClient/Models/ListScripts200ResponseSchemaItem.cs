@@ -24,6 +24,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string AutoKind { get; set; }
 #endif
+        /// <summary>The cache_ignore_s3_path property</summary>
+        public bool? CacheIgnoreS3Path { get; set; }
         /// <summary>The cache_ttl property</summary>
         public double? CacheTtl { get; set; }
         /// <summary>The codebase property</summary>
@@ -295,6 +297,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
                 { "auto_kind", n => { AutoKind = n.GetStringValue(); } },
+                { "cache_ignore_s3_path", n => { CacheIgnoreS3Path = n.GetBoolValue(); } },
                 { "cache_ttl", n => { CacheTtl = n.GetDoubleValue(); } },
                 { "codebase", n => { Codebase = n.GetStringValue(); } },
                 { "concurrency_key", n => { ConcurrencyKey = n.GetStringValue(); } },
@@ -353,6 +356,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archived", Archived);
             writer.WriteStringValue("auto_kind", AutoKind);
+            writer.WriteBoolValue("cache_ignore_s3_path", CacheIgnoreS3Path);
             writer.WriteDoubleValue("cache_ttl", CacheTtl);
             writer.WriteStringValue("codebase", Codebase);
             writer.WriteStringValue("concurrency_key", ConcurrencyKey);

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestPolicyAllowedS3KeysItem> AllowedS3Keys { get; set; }
 #endif
-        /// <summary>The execution_mode property</summary>
+        /// <summary>Who the app&apos;s runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to `publisher` (runs on behalf of the app&apos;s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Either way `anonymous`, which makes the app publicly executable, is never assumed</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestPolicyExecutionMode? ExecutionMode { get; set; }
         /// <summary>Raw apps: author-declared scopes for the frontend SDK token. Takes effect only when `sandbox` is also true — an unsandboxed bundle runs with the viewer&apos;s own session, so no token is advertised or minted for it and this list stays inert. On a sandboxed app a non-empty list lets viewers mint (after consenting) a short-lived token carrying their own identity restricted to these scopes, handed to the app bundle so `windmill-client` calls run as the viewer. Must be a subset of the server&apos;s curated allowlist (jobs:run, jobs:read, users:read, resources:read, variables:read).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

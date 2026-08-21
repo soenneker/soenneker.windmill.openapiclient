@@ -162,7 +162,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string OnBehalfOfEmail { get; set; }
 #endif
-        /// <summary>The parent_hash property</summary>
+        /// <summary>The hash of the version this one supersedes: deploying with it archives that version and chains the new one onto its history, and a `path` differing from the superseded version&apos;s moves the script there.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ParentHash { get; set; }

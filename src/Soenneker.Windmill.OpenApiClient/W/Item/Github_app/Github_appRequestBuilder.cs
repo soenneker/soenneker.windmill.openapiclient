@@ -7,6 +7,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Ghes_installation_callb
 using Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Import;
 using Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Install_from_workspace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation;
+using Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Repo_archive;
 using Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Token;
 using System.Collections.Generic;
 using System.IO;
@@ -44,6 +45,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Github_app
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.InstallationRequestBuilder Installation
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Installation.InstallationRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The repo_archive property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Repo_archive.Repo_archiveRequestBuilder Repo_archive
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Repo_archive.Repo_archiveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The token property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Token.TokenRequestBuilder Token

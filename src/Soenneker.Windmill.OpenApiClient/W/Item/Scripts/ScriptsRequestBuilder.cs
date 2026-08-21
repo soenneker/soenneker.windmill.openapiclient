@@ -25,6 +25,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.List_tokens;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Raw;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Raw_temp;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Toggle_workspace_error_handler;
+using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Update;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -151,6 +152,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Toggle_workspace_error_handler.Toggle_workspace_error_handlerRequestBuilder Toggle_workspace_error_handler
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Toggle_workspace_error_handler.Toggle_workspace_error_handlerRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The update property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Update.UpdateRequestBuilder Update
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Update.UpdateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.ScriptsRequestBuilder"/> and sets the default values.

@@ -78,7 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseExtraPerms ExtraPerms { get; set; }
 #endif
-        /// <summary>Path to the GCP resource containing service account credentials for authentication.</summary>
+        /// <summary>Path to the GCP resource containing service account credentials for authentication. Omit to authenticate with the instance&apos;s application default credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GcpResourcePath { get; set; }
@@ -128,6 +128,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string PermissionedAs { get; set; }
 #endif
+        /// <summary>GCP project the client operates in. Defaults to the project of the credentials. Topics and subscriptions given as fully qualified names are reached whatever it is.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
+#endif
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -152,7 +160,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ServerId { get; set; }
 #endif
-        /// <summary>Google Cloud Pub/Sub subscription ID.</summary>
+        /// <summary>Google Cloud Pub/Sub subscription ID. Accepts a bare ID or a fully qualified name (projects/&lt;project&gt;/subscriptions/&lt;id&gt;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SubscriptionId { get; set; }
@@ -162,7 +170,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The mode of subscription. &apos;existing&apos; means using an existing GCP subscription, while &apos;create_update&apos; involves creating or updating a new subscription.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseSubscriptionMode? SubscriptionMode { get; set; }
-        /// <summary>Google Cloud Pub/Sub topic ID to subscribe to.</summary>
+        /// <summary>Google Cloud Pub/Sub topic ID to subscribe to. Accepts a bare ID or a fully qualified name (projects/&lt;project&gt;/topics/&lt;id&gt;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TopicId { get; set; }
@@ -224,6 +232,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseOtherDraftsUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseOtherDraftsUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseRetry>(global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseRetry.CreateFromDiscriminatorValue); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "server_id", n => { ServerId = n.GetStringValue(); } },
@@ -261,6 +270,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseOtherDraftsUsersItem>("other_drafts_users", OtherDraftsUsers);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
+            writer.WriteStringValue("project_id", ProjectId);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetGcpTrigger200ResponseRetry>("retry", Retry);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("server_id", ServerId);

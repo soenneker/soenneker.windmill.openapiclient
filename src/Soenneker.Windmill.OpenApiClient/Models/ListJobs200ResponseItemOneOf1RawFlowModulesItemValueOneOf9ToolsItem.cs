@@ -31,7 +31,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>Short description of what this tool does (shown to the AI)</summary>
+        /// <summary>The name the AI agent calls this tool by, not a human label. On a flowmodule tool it must match ^[a-zA-Z0-9_]+$ - letters, numbers and underscores only (e.g. &apos;search_documentation&apos;, not &apos;Search documentation&apos;) - and always be set; on an mcp or websearch tool it is a plain label. Put the human-readable explanation in &apos;description&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Summary { get; set; }

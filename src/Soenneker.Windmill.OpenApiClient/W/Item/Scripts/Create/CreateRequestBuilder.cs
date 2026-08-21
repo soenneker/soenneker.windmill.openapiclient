@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Create
         {
         }
         /// <summary>
-        /// Creates a new script when the path does not already exist.Creates a new version of an existing script when called with the same path and the current `parent_hash`.
+        /// Creates a new script at a path that does not already hold one.Supplying `parent_hash` instead deploys a new version of the script that hash names, and a `path` differing from that version&apos;s moves the script there. `POST /w/{workspace}/scripts/update/{path}` does the same, naming the superseded version in its URL.
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Create
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new script when the path does not already exist.Creates a new version of an existing script when called with the same path and the current `parent_hash`.
+        /// Creates a new script at a path that does not already hold one.Supplying `parent_hash` instead deploys a new version of the script that hash names, and a `path` differing from that version&apos;s moves the script there. `POST /w/{workspace}/scripts/update/{path}` does the same, naming the superseded version in its URL.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

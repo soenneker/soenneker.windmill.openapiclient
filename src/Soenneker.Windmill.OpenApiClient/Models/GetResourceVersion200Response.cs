@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>How this version is addressed. Unique across every resource, so it says nothing about how many times this one has been saved.</summary>
         public long? Id { get; set; }
         /// <summary>The missing_references property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,6 +42,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue Value { get; set; }
 #endif
+        /// <summary>Which version of this resource it is, counted from its first. What a version is called.</summary>
+        public long? Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200Response"/> and sets the default values.
         /// </summary>
@@ -72,6 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "missing_references", n => { MissingReferences = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -86,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteLongValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("missing_references", MissingReferences);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue>("value", Value);
+            writer.WriteLongValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

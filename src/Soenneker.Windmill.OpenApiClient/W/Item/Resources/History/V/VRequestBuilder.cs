@@ -16,15 +16,15 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V
     public partial class VRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.resources.history.v.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder"/></returns>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder this[long position]
+        /// <param name="position">The version&apos;s id, not its number.</param>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder this[long position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("version", position);
-                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

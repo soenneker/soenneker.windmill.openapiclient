@@ -8,32 +8,32 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.Item
+namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Datasets.Delete.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\resources\history\restore\v\{version}
+    /// Builds and executes requests for operations under \w\{workspace}\ai_evals\datasets\delete\{path}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithVersionItemRequestBuilder : BaseRequestBuilder
+    public partial class WithPathItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.Item.WithVersionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Datasets.Delete.Item.WithPathItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVersionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/history/restore/v/{version}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/ai_evals/datasets/delete/{path}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.Item.WithVersionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Datasets.Delete.Item.WithPathItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVersionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/history/restore/v/{version}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/ai_evals/datasets/delete/{path}", rawUrl)
         {
         }
         /// <summary>
-        /// restore a resource to a previous version
+        /// The cases, the runs and their recorded case sets go with it through the foreign keys; the jobs those runs produced are left alone.
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.It
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// restore a resource to a previous version
+        /// The cases, the runs and their recorded case sets go with it through the foreign keys; the jobs those runs produced are left alone.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -72,11 +72,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.It
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.Item.WithVersionItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Datasets.Delete.Item.WithPathItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.Item.WithVersionItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Datasets.Delete.Item.WithPathItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.Restore.V.Item.WithVersionItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Datasets.Delete.Item.WithPathItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

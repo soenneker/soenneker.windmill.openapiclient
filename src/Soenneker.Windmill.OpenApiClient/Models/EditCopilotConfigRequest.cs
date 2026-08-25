@@ -54,6 +54,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMetadataModel MetadataModel { get; set; }
 #endif
+        /// <summary>The model_pricing property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing? ModelPricing { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing ModelPricing { get; set; }
+#endif
         /// <summary>The providers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "default_model", n => { DefaultModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestDefaultModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestDefaultModel.CreateFromDiscriminatorValue); } },
                 { "max_tokens_per_model", n => { MaxTokensPerModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMaxTokensPerModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMaxTokensPerModel.CreateFromDiscriminatorValue); } },
                 { "metadata_model", n => { MetadataModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMetadataModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMetadataModel.CreateFromDiscriminatorValue); } },
+                { "model_pricing", n => { ModelPricing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing.CreateFromDiscriminatorValue); } },
                 { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestProviders>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestProviders.CreateFromDiscriminatorValue); } },
             };
         }
@@ -107,6 +116,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestDefaultModel>("default_model", DefaultModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMaxTokensPerModel>("max_tokens_per_model", MaxTokensPerModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMetadataModel>("metadata_model", MetadataModel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing>("model_pricing", ModelPricing);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestProviders>("providers", Providers);
             writer.WriteAdditionalData(AdditionalData);
         }

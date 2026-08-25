@@ -304,6 +304,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         VariablesDecryptSecret,
         #pragma warning restore CS1591
+        [EnumMember(Value = "workspaces.read_encryption_key")]
+        #pragma warning disable CS1591
+        WorkspacesReadEncryptionKey,
+        #pragma warning restore CS1591
         [EnumMember(Value = "workspaces.edit_command_script")]
         #pragma warning disable CS1591
         WorkspacesEditCommandScript,

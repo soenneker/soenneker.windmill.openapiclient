@@ -24,8 +24,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string CreatedBy { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>How this version is addressed. Unique across every resource, so it says nothing about how many times this one has been saved.</summary>
         public long? Id { get; set; }
+        /// <summary>Which version of this resource it is, counted from its first. What a version is called.</summary>
+        public long? Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetResourceHistory200ResponseVersionsItem"/> and sets the default values.
         /// </summary>
@@ -54,6 +56,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
+                { "version", n => { Version = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -66,6 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteLongValue("id", Id);
+            writer.WriteLongValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

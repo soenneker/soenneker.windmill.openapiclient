@@ -12,25 +12,25 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \w\{workspace}\resources\history\v\{version}
+    /// Builds and executes requests for operations under \w\{workspace}\resources\history\v\{id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithVersionItemRequestBuilder : BaseRequestBuilder
+    public partial class VItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVersionItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/history/v/{version}", pathParameters)
+        public VItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/history/v/{id}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithVersionItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/history/v/{version}", rawUrl)
+        public VItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/history/v/{id}", rawUrl)
         {
         }
         /// <summary>
@@ -73,11 +73,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.WithVersionItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.History.V.Item.VItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

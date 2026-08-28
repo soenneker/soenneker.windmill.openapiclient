@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>how long the signature stays valid, in seconds. Defaults to 43200 (12h) and is clamped server-side to [60, 604800] (1 minute to 7 days).</summary>
+        public long? ExpirySecs { get; set; }
         /// <summary>The s3_objects property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "expiry_secs", n => { ExpirySecs = n.GetLongValue(); } },
                 { "s3_objects", n => { S3Objects = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem>(global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -57,6 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteLongValue("expiry_secs", ExpirySecs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem>("s3_objects", S3Objects);
             writer.WriteAdditionalData(AdditionalData);
         }

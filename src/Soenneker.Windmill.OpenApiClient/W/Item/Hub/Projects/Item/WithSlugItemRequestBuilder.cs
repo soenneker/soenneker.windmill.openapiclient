@@ -2,10 +2,12 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Discard_update;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Logo;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Pipeline_recording;
 using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Submit;
+using Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Withdraw;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,6 +20,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSlugItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The discard_update property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Discard_update.Discard_updateRequestBuilder Discard_update
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Discard_update.Discard_updateRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The export property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export.ExportRequestBuilder Export
         {
@@ -37,6 +44,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Submit.SubmitRequestBuilder Submit
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Submit.SubmitRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The withdraw property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Withdraw.WithdrawRequestBuilder Withdraw
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Withdraw.WithdrawRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.WithSlugItemRequestBuilder"/> and sets the default values.

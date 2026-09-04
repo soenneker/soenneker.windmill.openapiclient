@@ -89,10 +89,14 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens
             /// <summary>only tokens used in the last 30 days</summary>
             [QueryParameter("active_only")]
             public bool? ActiveOnly { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("page")]
             public int? Page { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

@@ -86,12 +86,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_signature.Item.Item
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("approver")]
             public string? Approver { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("approver")]
             public string Approver { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

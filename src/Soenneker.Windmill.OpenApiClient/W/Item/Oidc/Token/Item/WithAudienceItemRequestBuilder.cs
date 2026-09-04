@@ -84,8 +84,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Oidc.Token.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithAudienceItemRequestBuilderPostQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("expires_in")]
             public double? ExpiresIn { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

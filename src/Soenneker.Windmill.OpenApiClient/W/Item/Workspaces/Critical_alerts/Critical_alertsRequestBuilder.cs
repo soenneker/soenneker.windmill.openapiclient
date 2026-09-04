@@ -110,12 +110,18 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Critical_alerts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Critical_alertsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("acknowledged")]
             public bool? Acknowledged { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("page")]
             public int? Page { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("page_size")]
             public int? PageSize { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

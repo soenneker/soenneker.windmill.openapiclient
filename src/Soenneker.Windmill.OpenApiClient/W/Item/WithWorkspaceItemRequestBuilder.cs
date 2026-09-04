@@ -5,7 +5,6 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Acls;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals;
-using Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills;
 using Soenneker.Windmill.OpenApiClient.W.Item.Amqp_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u;
@@ -88,11 +87,6 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Ai_evalsRequestBuilder Ai_evals
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Ai_evalsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The ai_skills property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills.Ai_skillsRequestBuilder Ai_skills
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_skills.Ai_skillsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The amqp_triggers property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Amqp_triggers.Amqp_triggersRequestBuilder Amqp_triggers

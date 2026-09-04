@@ -125,10 +125,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai.Usage
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class UsageRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("days")]
             public int? Days { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("group_by")]
             public global::Soenneker.Windmill.OpenApiClient.Models.ListAiUsageGroupByParameter? GroupBy { get; set; }
+            #pragma warning restore CS1591
             /// <summary>workspace-wide usage (admin only) or the calling user&apos;s own</summary>
             [QueryParameter("scope")]
             public global::Soenneker.Windmill.OpenApiClient.Models.ListAiUsageScopeParameter? Scope { get; set; }

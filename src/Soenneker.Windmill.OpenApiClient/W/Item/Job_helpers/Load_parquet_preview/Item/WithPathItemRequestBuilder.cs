@@ -84,47 +84,69 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_parquet_previ
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public double? Limit { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("offset")]
             public double? Offset { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search_col")]
             public string? SearchCol { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search_col")]
             public string SearchCol { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search_term")]
             public string? SearchTerm { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search_term")]
             public string SearchTerm { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sort_col")]
             public string? SortCol { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sort_col")]
             public string SortCol { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("sort_desc")]
             public bool? SortDesc { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("storage")]
             public string? Storage { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("storage")]
             public string Storage { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

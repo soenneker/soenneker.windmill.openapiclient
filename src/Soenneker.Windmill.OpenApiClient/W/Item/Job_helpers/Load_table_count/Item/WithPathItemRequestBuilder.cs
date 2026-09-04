@@ -87,30 +87,42 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_table_count.I
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search_col")]
             public string? SearchCol { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search_col")]
             public string SearchCol { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search_term")]
             public string? SearchTerm { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search_term")]
             public string SearchTerm { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("storage")]
             public string? Storage { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("storage")]
             public string Storage { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

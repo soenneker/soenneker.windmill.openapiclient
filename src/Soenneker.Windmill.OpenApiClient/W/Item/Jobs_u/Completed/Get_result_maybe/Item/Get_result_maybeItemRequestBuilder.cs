@@ -85,8 +85,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed.Get_result_ma
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Get_result_maybeItemRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("get_started")]
             public bool? GetStarted { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

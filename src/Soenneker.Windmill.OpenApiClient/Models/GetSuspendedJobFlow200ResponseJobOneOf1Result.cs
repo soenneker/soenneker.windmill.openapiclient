@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// For large results, this may be the placeholder string &apos;WINDMILL_TOO_BIG&apos;.Use the completed job result endpoint to retrieve the full result.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class GetSuspendedJobFlow200ResponseJobOneOf1Result : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

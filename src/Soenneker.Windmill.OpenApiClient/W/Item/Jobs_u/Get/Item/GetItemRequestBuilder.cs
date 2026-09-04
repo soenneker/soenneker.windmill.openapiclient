@@ -95,10 +95,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Get.Item
             [QueryParameter("approval_token")]
             public string ApprovalToken { get; set; }
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("no_code")]
             public bool? NoCode { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("no_logs")]
             public bool? NoLogs { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

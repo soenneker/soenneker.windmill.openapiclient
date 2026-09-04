@@ -103,12 +103,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List_filtered_uuids
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("concurrency_key")]
             public string? ConcurrencyKey { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("concurrency_key")]
             public string ConcurrencyKey { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>filter by exact matching user creator. Supports comma-separated list (e.g. &apos;alice,bob&apos;) and negation by prefixing all values with &apos;!&apos; (e.g. &apos;!alice,!bob&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

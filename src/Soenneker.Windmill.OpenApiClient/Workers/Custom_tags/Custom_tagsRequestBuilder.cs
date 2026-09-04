@@ -85,8 +85,10 @@ namespace Soenneker.Windmill.OpenApiClient.Workers.Custom_tags
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Custom_tagsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("show_workspace_restriction")]
             public bool? ShowWorkspaceRestriction { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

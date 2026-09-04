@@ -92,15 +92,21 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Inputs.Create
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("runnable_id")]
             public string? RunnableId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("runnable_id")]
             public string RunnableId { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("runnable_type")]
             public global::Soenneker.Windmill.OpenApiClient.Models.CreateInputRunnableTypeParameter? RunnableType { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

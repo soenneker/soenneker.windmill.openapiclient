@@ -87,32 +87,46 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed.Get_result.It
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("approver")]
             public string? Approver { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("approver")]
             public string Approver { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("resume_id")]
             public int? ResumeId { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("secret")]
             public string? Secret { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("secret")]
             public string Secret { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("suspended_job")]
             public string? SuspendedJob { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("suspended_job")]
             public string SuspendedJob { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

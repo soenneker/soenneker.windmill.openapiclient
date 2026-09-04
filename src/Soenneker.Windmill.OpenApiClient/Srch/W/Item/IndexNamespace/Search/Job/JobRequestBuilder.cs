@@ -85,16 +85,22 @@ namespace Soenneker.Windmill.OpenApiClient.Srch.W.Item.IndexNamespace.Search.Job
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class JobRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("pagination_offset")]
             public int? PaginationOffset { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("search_query")]
             public string? SearchQuery { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("search_query")]
             public string SearchQuery { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

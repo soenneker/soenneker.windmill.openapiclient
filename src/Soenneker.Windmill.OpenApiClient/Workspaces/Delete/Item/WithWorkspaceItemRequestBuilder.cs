@@ -84,8 +84,10 @@ namespace Soenneker.Windmill.OpenApiClient.Workspaces.Delete.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithWorkspaceItemRequestBuilderDeleteQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("only_delete_forks")]
             public bool? OnlyDeleteForks { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

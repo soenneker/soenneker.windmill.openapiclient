@@ -88,8 +88,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flows.Get.Item
             /// <summary>When true, overlay the authed user&apos;s draft (if any) onto the deployed payload.</summary>
             [QueryParameter("get_draft")]
             public bool? GetDraft { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("with_starred_info")]
             public bool? WithStarredInfo { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

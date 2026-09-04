@@ -86,8 +86,10 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Tokens.List
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ListRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("exclude_ephemeral")]
             public bool? ExcludeEphemeral { get; set; }
+            #pragma warning restore CS1591
             /// <summary>which page to return (start at 1, default 1)</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }

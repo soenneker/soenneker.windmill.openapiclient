@@ -84,8 +84,10 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Refresh_token
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Refresh_tokenRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("if_expiring_in_less_than_s")]
             public int? IfExpiringInLessThanS { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

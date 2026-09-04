@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateAmqpTriggerRequestErrorHandlerArgs ErrorHandlerArgs { get; set; }
 #endif
-        /// <summary>Path to a script or flow to run when the triggered job fails</summary>
+        /// <summary>Path to a script to run when the triggered job fails. A bare path, without the script/ or flow/ prefix a schedule error handler takes; it cannot be a flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ErrorHandlerPath { get; set; }

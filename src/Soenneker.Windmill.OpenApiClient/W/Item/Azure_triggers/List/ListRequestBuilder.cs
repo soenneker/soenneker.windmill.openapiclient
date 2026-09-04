@@ -89,8 +89,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers.List
             /// <summary>When true, append per-user draft rows whose path has nodeployed counterpart. Synthesized rows carry `draft_only: true`so the home page can render a &quot;Draft&quot; badge. Gated tonon-operators + page 0 + no narrowing filters on the backend sopicker callers stay deployed-only and pagination stays clean.</summary>
             [QueryParameter("include_draft_only")]
             public bool? IncludeDraftOnly { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("is_flow")]
             public bool? IsFlow { get; set; }
+            #pragma warning restore CS1591
             /// <summary>which page to return (start at 1, default 1)</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -106,12 +108,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Azure_triggers.List
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("path_start")]
             public string? PathStart { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("path_start")]
             public string PathStart { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>number of items to return for a given page (default 30, max 100)</summary>
             [QueryParameter("per_page")]

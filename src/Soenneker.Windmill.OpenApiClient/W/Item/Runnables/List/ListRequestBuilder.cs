@@ -113,12 +113,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("label")]
             public string? Label { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("label")]
             public string Label { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>sort key: &apos;updated&apos; (default) or &apos;name&apos;</summary>
             [QueryParameter("order_by")]
@@ -149,8 +153,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("show_archived")]
             public bool? ShowArchived { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

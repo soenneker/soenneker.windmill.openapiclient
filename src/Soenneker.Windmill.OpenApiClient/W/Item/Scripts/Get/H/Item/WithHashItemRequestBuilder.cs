@@ -85,10 +85,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Get.H.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithHashItemRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("authed")]
             public bool? Authed { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("with_starred_info")]
             public bool? WithStarredInfo { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

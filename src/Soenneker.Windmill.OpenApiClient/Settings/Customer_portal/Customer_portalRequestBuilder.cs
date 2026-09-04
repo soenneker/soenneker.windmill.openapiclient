@@ -86,12 +86,16 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Customer_portal
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("license_key")]
             public string? LicenseKey { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("license_key")]
             public string LicenseKey { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

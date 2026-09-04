@@ -84,20 +84,34 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Getupdate_sse.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Getupdate_sseItemRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("fast")]
             public bool? Fast { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("get_progress")]
             public bool? GetProgress { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("log_offset")]
             public int? LogOffset { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("no_logs")]
             public bool? NoLogs { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("only_result")]
             public bool? OnlyResult { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("running")]
             public bool? Running { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("stream_offset")]
             public int? StreamOffset { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigCodeCompletionModel CodeCompletionModel { get; set; }
 #endif
+        /// <summary>Hides the Windmill AI assistant (chat, sessions, code generation, completion, fixes) from the workspace UI. Read from the workspace&apos;s own settings even when the providers served fall back to the instance config. AI agent steps and the AI sandbox in flows are unaffected.</summary>
+        public bool? CopilotDisabled { get; set; }
         /// <summary>The custom_prompts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +39,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigDefaultModel DefaultModel { get; set; }
+#endif
+        /// <summary>Read-only. Present when the workspace has no AI provider of its own and is running on Windmill&apos;s free tier. Ignored on write.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigFreeTier? FreeTier { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigFreeTier FreeTier { get; set; }
 #endif
         /// <summary>The max_tokens_per_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,8 +106,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code_completion_model", n => { CodeCompletionModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigCodeCompletionModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigCodeCompletionModel.CreateFromDiscriminatorValue); } },
+                { "copilot_disabled", n => { CopilotDisabled = n.GetBoolValue(); } },
                 { "custom_prompts", n => { CustomPrompts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigCustomPrompts>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigCustomPrompts.CreateFromDiscriminatorValue); } },
                 { "default_model", n => { DefaultModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigDefaultModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigDefaultModel.CreateFromDiscriminatorValue); } },
+                { "free_tier", n => { FreeTier = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigFreeTier>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigFreeTier.CreateFromDiscriminatorValue); } },
                 { "max_tokens_per_model", n => { MaxTokensPerModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigMaxTokensPerModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigMaxTokensPerModel.CreateFromDiscriminatorValue); } },
                 { "metadata_model", n => { MetadataModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigMetadataModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigMetadataModel.CreateFromDiscriminatorValue); } },
                 { "model_pricing", n => { ModelPricing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigModelPricing>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigModelPricing.CreateFromDiscriminatorValue); } },
@@ -112,8 +124,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigCodeCompletionModel>("code_completion_model", CodeCompletionModel);
+            writer.WriteBoolValue("copilot_disabled", CopilotDisabled);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigCustomPrompts>("custom_prompts", CustomPrompts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigDefaultModel>("default_model", DefaultModel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigFreeTier>("free_tier", FreeTier);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigMaxTokensPerModel>("max_tokens_per_model", MaxTokensPerModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigMetadataModel>("metadata_model", MetadataModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseAiConfigModelPricing>("model_pricing", ModelPricing);

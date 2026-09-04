@@ -92,8 +92,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Capture.List.Item.Item
             /// <summary>number of items to return for a given page (default 30, max 100)</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("trigger_kind")]
             public global::Soenneker.Windmill.OpenApiClient.Models.ListCapturesTriggerKindParameter? TriggerKind { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

@@ -86,16 +86,22 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_ve
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class List_ws_specific_versionsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("kind")]
             public global::Soenneker.Windmill.OpenApiClient.Models.ListWsSpecificVersionsKindParameter? Kind { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("path")]
             public string? Path { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("path")]
             public string Path { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

@@ -156,7 +156,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ResolvedBy { get; set; }
 #endif
-        /// <summary>The result property</summary>
+        /// <summary>For large results, this may be the placeholder string &apos;WINDMILL_TOO_BIG&apos;.Use the completed job result endpoint to retrieve the full result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseResult? Result { get; set; }

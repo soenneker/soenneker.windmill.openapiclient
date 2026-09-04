@@ -85,10 +85,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Inputs.Item.Args
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ArgsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("allow_large")]
             public bool? AllowLarge { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("input")]
             public bool? Input { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

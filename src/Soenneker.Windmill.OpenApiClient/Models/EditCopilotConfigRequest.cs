@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestCodeCompletionModel CodeCompletionModel { get; set; }
 #endif
+        /// <summary>Hides the Windmill AI assistant (chat, sessions, code generation, completion, fixes) from the workspace UI. Read from the workspace&apos;s own settings even when the providers served fall back to the instance config. AI agent steps and the AI sandbox in flows are unaffected.</summary>
+        public bool? CopilotDisabled { get; set; }
         /// <summary>The custom_prompts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +39,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestDefaultModel DefaultModel { get; set; }
+#endif
+        /// <summary>Read-only. Present when the workspace has no AI provider of its own and is running on Windmill&apos;s free tier. Ignored on write.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestFreeTier? FreeTier { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestFreeTier FreeTier { get; set; }
 #endif
         /// <summary>The max_tokens_per_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,8 +106,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code_completion_model", n => { CodeCompletionModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestCodeCompletionModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestCodeCompletionModel.CreateFromDiscriminatorValue); } },
+                { "copilot_disabled", n => { CopilotDisabled = n.GetBoolValue(); } },
                 { "custom_prompts", n => { CustomPrompts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestCustomPrompts>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestCustomPrompts.CreateFromDiscriminatorValue); } },
                 { "default_model", n => { DefaultModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestDefaultModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestDefaultModel.CreateFromDiscriminatorValue); } },
+                { "free_tier", n => { FreeTier = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestFreeTier>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestFreeTier.CreateFromDiscriminatorValue); } },
                 { "max_tokens_per_model", n => { MaxTokensPerModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMaxTokensPerModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMaxTokensPerModel.CreateFromDiscriminatorValue); } },
                 { "metadata_model", n => { MetadataModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMetadataModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMetadataModel.CreateFromDiscriminatorValue); } },
                 { "model_pricing", n => { ModelPricing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing.CreateFromDiscriminatorValue); } },
@@ -112,8 +124,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestCodeCompletionModel>("code_completion_model", CodeCompletionModel);
+            writer.WriteBoolValue("copilot_disabled", CopilotDisabled);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestCustomPrompts>("custom_prompts", CustomPrompts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestDefaultModel>("default_model", DefaultModel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestFreeTier>("free_tier", FreeTier);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMaxTokensPerModel>("max_tokens_per_model", MaxTokensPerModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestMetadataModel>("metadata_model", MetadataModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestModelPricing>("model_pricing", ModelPricing);

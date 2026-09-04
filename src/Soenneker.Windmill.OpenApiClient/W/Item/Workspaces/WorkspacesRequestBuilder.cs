@@ -7,6 +7,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Archive;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Attach_dev_workspace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_channels;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_ids;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Billable_seats;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Change_workspace_color;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Change_workspace_id;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Change_workspace_name;
@@ -136,6 +137,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_ids.Available_teams_idsRequestBuilder Available_teams_ids
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Available_teams_ids.Available_teams_idsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The billable_seats property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Billable_seats.Billable_seatsRequestBuilder Billable_seats
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Billable_seats.Billable_seatsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The change_workspace_color property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Change_workspace_color.Change_workspace_colorRequestBuilder Change_workspace_color

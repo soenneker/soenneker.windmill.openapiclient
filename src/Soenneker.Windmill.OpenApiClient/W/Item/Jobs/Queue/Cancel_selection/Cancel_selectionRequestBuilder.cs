@@ -90,10 +90,14 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Cancel_selection
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Cancel_selectionRequestBuilderPostQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("all_workspaces")]
             public bool? AllWorkspaces { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("force_cancel")]
             public bool? ForceCancel { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

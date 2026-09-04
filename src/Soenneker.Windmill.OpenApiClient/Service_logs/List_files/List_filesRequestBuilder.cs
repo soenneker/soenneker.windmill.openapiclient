@@ -92,8 +92,10 @@ namespace Soenneker.Windmill.OpenApiClient.Service_logs.List_files
             /// <summary>filter on started before (inclusive) timestamp</summary>
             [QueryParameter("before")]
             public DateTimeOffset? Before { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("with_error")]
             public bool? WithError { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

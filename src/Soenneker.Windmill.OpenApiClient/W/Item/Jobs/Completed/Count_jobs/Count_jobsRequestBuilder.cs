@@ -84,20 +84,30 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.Count_jobs
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Count_jobsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("all_workspaces")]
             public bool? AllWorkspaces { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("completed_after_s_ago")]
             public int? CompletedAfterSAgo { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("success")]
             public bool? Success { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("tags")]
             public string? Tags { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("tags")]
             public string Tags { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

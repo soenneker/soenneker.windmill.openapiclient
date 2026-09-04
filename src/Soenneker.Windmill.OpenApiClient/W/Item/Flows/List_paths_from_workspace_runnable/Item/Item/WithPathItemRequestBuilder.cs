@@ -85,8 +85,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths_from_workspac
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("match_path_start")]
             public bool? MatchPathStart { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

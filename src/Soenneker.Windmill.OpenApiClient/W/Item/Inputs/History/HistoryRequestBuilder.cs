@@ -96,8 +96,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History
             [QueryParameter("args")]
             public string Args { get; set; }
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("include_preview")]
             public bool? IncludePreview { get; set; }
+            #pragma warning restore CS1591
             /// <summary>which page to return (start at 1, default 1)</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -106,15 +108,21 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Inputs.History
             public int? PerPage { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("runnable_id")]
             public string? RunnableId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("runnable_id")]
             public string RunnableId { get; set; }
+            #pragma warning restore CS1591
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("runnable_type")]
             public global::Soenneker.Windmill.OpenApiClient.Models.GetInputHistoryRunnableTypeParameter? RunnableType { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

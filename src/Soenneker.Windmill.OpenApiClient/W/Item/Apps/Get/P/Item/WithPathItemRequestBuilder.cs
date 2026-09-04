@@ -91,8 +91,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps.Get.P.Item
             /// <summary>When no deployed app exists at this path and `get_draft` is set,disambiguates which draft kind (`raw_app` or `app`) to look up.Ignored when a deployed row exists.</summary>
             [QueryParameter("raw_app")]
             public bool? RawApp { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("with_starred_info")]
             public bool? WithStarredInfo { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

@@ -87,30 +87,42 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Data_metrics.List
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("cursor_kind")]
             public string? CursorKind { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("cursor_kind")]
             public string CursorKind { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("cursor_name")]
             public string? CursorName { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("cursor_name")]
             public string CursorName { get; set; }
+            #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("cursor_script")]
             public string? CursorScript { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("cursor_script")]
             public string CursorScript { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Keyset cursor. To page, pass the previous response&apos;s `next_cursor` fields back as `cursor_*`; all four move together, and are omitted for the first page. Continue whenever `next_cursor` is present. Every returned row is one the caller may read, so the cursor never names a hidden row.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

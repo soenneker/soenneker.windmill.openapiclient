@@ -84,8 +84,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Experiments.Collect
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CollectRequestBuilderPostQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("id")]
             public Guid? Id { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

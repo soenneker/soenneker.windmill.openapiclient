@@ -97,12 +97,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_metadata.Item
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("file_key")]
             public string? FileKey { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("file_key")]
             public string FileKey { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>HMAC signature of a presigned S3 object (bypasses the app provenance gate)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,12 +120,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_metadata.Item
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("storage")]
             public string? Storage { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("storage")]
             public string Storage { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

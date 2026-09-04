@@ -109,12 +109,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.List_jobs
             public DateTimeOffset? CompletedBefore { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("concurrency_key")]
             public string? ConcurrencyKey { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("concurrency_key")]
             public string ConcurrencyKey { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>filter on jobs created after X for jobs in the queue only</summary>
             [QueryParameter("created_after_queue")]
@@ -186,8 +190,10 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Concurrency_groups.List_jobs
             [QueryParameter("result")]
             public string Result { get; set; }
 #endif
+            #pragma warning disable CS1591
             [QueryParameter("row_limit")]
             public double? RowLimit { get; set; }
+            #pragma warning restore CS1591
             /// <summary>filter on running jobs</summary>
             [QueryParameter("running")]
             public bool? Running { get; set; }

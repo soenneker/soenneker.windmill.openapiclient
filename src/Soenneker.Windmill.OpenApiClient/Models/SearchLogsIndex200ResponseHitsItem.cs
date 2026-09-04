@@ -14,14 +14,44 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The dancer property</summary>
+        /// <summary>the log file the line came from</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Dancer { get; set; }
+        public string? FilePath { get; set; }
 #nullable restore
 #else
-        public string Dancer { get; set; }
+        public string FilePath { get; set; }
 #endif
+        /// <summary>The host property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Host { get; set; }
+#nullable restore
+#else
+        public string Host { get; set; }
+#endif
+        /// <summary>The level property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.SearchLogsIndex200ResponseHitsItemLevel? Level { get; set; }
+        /// <summary>offset of the line within its file</summary>
+        public int? LineNo { get; set; }
+        /// <summary>The message property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Message { get; set; }
+#nullable restore
+#else
+        public string Message { get; set; }
+#endif
+        /// <summary>the tracing target that emitted the line</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Target { get; set; }
+#nullable restore
+#else
+        public string Target { get; set; }
+#endif
+        /// <summary>timestamp of the log line itself, not of the file containing it</summary>
+        public DateTimeOffset? Ts { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SearchLogsIndex200ResponseHitsItem"/> and sets the default values.
         /// </summary>
@@ -47,7 +77,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dancer", n => { Dancer = n.GetStringValue(); } },
+                { "file_path", n => { FilePath = n.GetStringValue(); } },
+                { "host", n => { Host = n.GetStringValue(); } },
+                { "level", n => { Level = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SearchLogsIndex200ResponseHitsItemLevel>(); } },
+                { "line_no", n => { LineNo = n.GetIntValue(); } },
+                { "message", n => { Message = n.GetStringValue(); } },
+                { "target", n => { Target = n.GetStringValue(); } },
+                { "ts", n => { Ts = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +93,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("dancer", Dancer);
+            writer.WriteStringValue("file_path", FilePath);
+            writer.WriteStringValue("host", Host);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SearchLogsIndex200ResponseHitsItemLevel>("level", Level);
+            writer.WriteIntValue("line_no", LineNo);
+            writer.WriteStringValue("message", Message);
+            writer.WriteStringValue("target", Target);
+            writer.WriteDateTimeOffsetValue("ts", Ts);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

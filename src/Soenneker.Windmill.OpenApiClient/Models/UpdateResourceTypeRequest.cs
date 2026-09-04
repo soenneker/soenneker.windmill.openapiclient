@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>File extension for a type whose value is one file rather than a set of fields. Omit to leave it unchanged; send null to clear it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FormatExtension { get; set; }
+#nullable restore
+#else
+        public string FormatExtension { get; set; }
+#endif
         /// <summary>The is_fileset property</summary>
         public bool? IsFileset { get; set; }
         /// <summary>The schema property</summary>
@@ -58,6 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "format_extension", n => { FormatExtension = n.GetStringValue(); } },
                 { "is_fileset", n => { IsFileset = n.GetBoolValue(); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema.CreateFromDiscriminatorValue); } },
             };
@@ -70,6 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("format_extension", FormatExtension);
             writer.WriteBoolValue("is_fileset", IsFileset);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema>("schema", Schema);
             writer.WriteAdditionalData(AdditionalData);

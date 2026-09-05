@@ -16,6 +16,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Publisher,
         #pragma warning restore CS1591
+        [EnumMember(Value = "guest")]
+        #pragma warning disable CS1591
+        Guest,
+        #pragma warning restore CS1591
         [EnumMember(Value = "anonymous")]
         #pragma warning disable CS1591
         Anonymous,

@@ -28,5 +28,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         RestrictPublicRunSharing,
         #pragma warning restore CS1591
+        [EnumMember(Value = "RestrictGuestAppDeployment")]
+        #pragma warning disable CS1591
+        RestrictGuestAppDeployment,
+        #pragma warning restore CS1591
     }
 }

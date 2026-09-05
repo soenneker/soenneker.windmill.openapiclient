@@ -12,6 +12,7 @@ using Soenneker.Windmill.OpenApiClient.Users.Email;
 using Soenneker.Windmill.OpenApiClient.Users.Exists;
 using Soenneker.Windmill.OpenApiClient.Users.Export;
 using Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens;
+using Soenneker.Windmill.OpenApiClient.Users.Guests;
 using Soenneker.Windmill.OpenApiClient.Users.Leave_instance;
 using Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin;
 using Soenneker.Windmill.OpenApiClient.Users.List_invites;
@@ -91,6 +92,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         public global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder Ext_jwt_tokens
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Ext_jwt_tokens.Ext_jwt_tokensRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The guests property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Guests.GuestsRequestBuilder Guests
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Guests.GuestsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The leave_instance property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Leave_instance.Leave_instanceRequestBuilder Leave_instance

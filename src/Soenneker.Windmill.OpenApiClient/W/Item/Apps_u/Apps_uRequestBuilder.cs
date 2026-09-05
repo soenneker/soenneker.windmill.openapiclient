@@ -6,6 +6,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Delete_s3_file;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Download_s3_parquet_file_as_csv;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Embed_token;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component;
+using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Guest_entry;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_csv_preview;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_metadata;
 using Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_file_preview;
@@ -45,6 +46,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component.Execute_componentRequestBuilder Execute_component
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Execute_component.Execute_componentRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The guest_entry property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Guest_entry.Guest_entryRequestBuilder Guest_entry
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Guest_entry.Guest_entryRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The load_csv_preview property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_csv_preview.Load_csv_previewRequestBuilder Load_csv_preview

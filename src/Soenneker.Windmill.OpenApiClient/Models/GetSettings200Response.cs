@@ -112,6 +112,24 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSync GitSync { get; set; }
 #endif
+        /// <summary>Whether this workspace admits guest sessions. An app&apos;s own `guest` execution mode is inert while this is false.</summary>
+        public bool? GuestAccessEnabled { get; set; }
+        /// <summary>JWKS URL a guest JWT (`jwt_guest_`) is verified against for this workspace. Mutually exclusive with `guest_jwt_public_key`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GuestJwtJwksUrl { get; set; }
+#nullable restore
+#else
+        public string GuestJwtJwksUrl { get; set; }
+#endif
+        /// <summary>PEM public key a guest JWT (`jwt_guest_`) is verified against for this workspace. Mutually exclusive with `guest_jwt_jwks_url`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GuestJwtPublicKey { get; set; }
+#nullable restore
+#else
+        public string GuestJwtPublicKey { get; set; }
+#endif
         /// <summary>The large_file_storage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -274,6 +292,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "error_handler", n => { ErrorHandler = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler.CreateFromDiscriminatorValue); } },
                 { "error_handler_fallback_to_instance_alerts", n => { ErrorHandlerFallbackToInstanceAlerts = n.GetBoolValue(); } },
                 { "git_sync", n => { GitSync = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSync>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSync.CreateFromDiscriminatorValue); } },
+                { "guest_access_enabled", n => { GuestAccessEnabled = n.GetBoolValue(); } },
+                { "guest_jwt_jwks_url", n => { GuestJwtJwksUrl = n.GetStringValue(); } },
+                { "guest_jwt_public_key", n => { GuestJwtPublicKey = n.GetStringValue(); } },
                 { "large_file_storage", n => { LargeFileStorage = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorage>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorage.CreateFromDiscriminatorValue); } },
                 { "mute_critical_alerts", n => { MuteCriticalAlerts = n.GetBoolValue(); } },
                 { "operator_settings", n => { OperatorSettings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseOperatorSettings>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseOperatorSettings.CreateFromDiscriminatorValue); } },
@@ -313,6 +334,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandler>("error_handler", ErrorHandler);
             writer.WriteBoolValue("error_handler_fallback_to_instance_alerts", ErrorHandlerFallbackToInstanceAlerts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseGitSync>("git_sync", GitSync);
+            writer.WriteBoolValue("guest_access_enabled", GuestAccessEnabled);
+            writer.WriteStringValue("guest_jwt_jwks_url", GuestJwtJwksUrl);
+            writer.WriteStringValue("guest_jwt_public_key", GuestJwtPublicKey);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorage>("large_file_storage", LargeFileStorage);
             writer.WriteBoolValue("mute_critical_alerts", MuteCriticalAlerts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseOperatorSettings>("operator_settings", OperatorSettings);

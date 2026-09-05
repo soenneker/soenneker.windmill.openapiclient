@@ -41,6 +41,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_ducklake_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_error_handler;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_git_sync_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_git_sync_repository;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_instance_groups;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_slack_command;
@@ -68,6 +70,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_workspace_name;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_deploy_mode;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Guest_usage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Import_pg_database;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Invite_user;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Is_premium;
@@ -308,6 +311,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_git_sync_repository.Edit_git_sync_repositoryRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The edit_guest_access property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access.Edit_guest_accessRequestBuilder Edit_guest_access
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access.Edit_guest_accessRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The edit_guest_jwt_key property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key.Edit_guest_jwt_keyRequestBuilder Edit_guest_jwt_key
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key.Edit_guest_jwt_keyRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The edit_instance_groups property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_instance_groups.Edit_instance_groupsRequestBuilder Edit_instance_groups
         {
@@ -442,6 +455,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled.Git_sync_enabledRequestBuilder Git_sync_enabled
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Git_sync_enabled.Git_sync_enabledRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The guest_usage property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Guest_usage.Guest_usageRequestBuilder Guest_usage
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Guest_usage.Guest_usageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The import_pg_database property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Import_pg_database.Import_pg_databaseRequestBuilder Import_pg_database

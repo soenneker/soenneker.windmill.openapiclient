@@ -300,6 +300,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         IgroupRemoveuser,
         #pragma warning restore CS1591
+        [EnumMember(Value = "instance_groups.jit_adduser")]
+        #pragma warning disable CS1591
+        InstanceGroupsJitAdduser,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "instance_groups.jit_removeuser")]
+        #pragma warning disable CS1591
+        InstanceGroupsJitRemoveuser,
+        #pragma warning restore CS1591
         [EnumMember(Value = "variables.decrypt_secret")]
         #pragma warning disable CS1591
         VariablesDecryptSecret,

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Apps_u.Embed_token_by_custom_path;
+using Soenneker.Windmill.OpenApiClient.Apps_u.Guest_entry_by_custom_path;
 using Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,11 @@ namespace Soenneker.Windmill.OpenApiClient.Apps_u
         public global::Soenneker.Windmill.OpenApiClient.Apps_u.Embed_token_by_custom_path.Embed_token_by_custom_pathRequestBuilder Embed_token_by_custom_path
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Apps_u.Embed_token_by_custom_path.Embed_token_by_custom_pathRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The guest_entry_by_custom_path property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Apps_u.Guest_entry_by_custom_path.Guest_entry_by_custom_pathRequestBuilder Guest_entry_by_custom_path
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Apps_u.Guest_entry_by_custom_path.Guest_entry_by_custom_pathRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The public_app_by_custom_path property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Apps_u.Public_app_by_custom_path.Public_app_by_custom_pathRequestBuilder Public_app_by_custom_path

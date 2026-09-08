@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Asset_dispatch_edges;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_column_lineage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_graph;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable_script;
@@ -51,6 +52,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.CompletedRequestBuilder Completed
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed.CompletedRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dbt_column_lineage property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_column_lineage.Dbt_column_lineageRequestBuilder Dbt_column_lineage
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_column_lineage.Dbt_column_lineageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The dbt_graph property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_graph.Dbt_graphRequestBuilder Dbt_graph

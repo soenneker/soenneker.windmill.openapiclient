@@ -6,8 +6,10 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Create;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Exists;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Get;
+using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Hub;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Listnames;
+using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Resource_counts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Update;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +43,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Get.GetRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The hub property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Hub.HubRequestBuilder Hub
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Hub.HubRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The list property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.List.ListRequestBuilder List
         {
@@ -50,6 +57,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Listnames.ListnamesRequestBuilder Listnames
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Listnames.ListnamesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The resource_counts property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Resource_counts.Resource_countsRequestBuilder Resource_counts
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Resource_counts.Resource_countsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.TypeNamespace.Update.UpdateRequestBuilder Update

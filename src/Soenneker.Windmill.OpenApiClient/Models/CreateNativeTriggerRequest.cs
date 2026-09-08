@@ -15,6 +15,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Whether the trigger starts a job when it fires. Honoured on create only, so a trigger can be registered already paused; an update ignores it and setenabled is the only way to change an existing trigger&apos;s state. Defaults to true.</summary>
+        public bool? Enabled { get; set; }
         /// <summary>Whether the trigger targets a flow (true) or a script (false)</summary>
         public bool? IsFlow { get; set; }
         /// <summary>The path to the script or flow that will be triggered</summary>
@@ -66,6 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "service_config", n => { ServiceConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig>(global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig.CreateFromDiscriminatorValue); } },
@@ -79,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig>("service_config", ServiceConfig);

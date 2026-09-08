@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Token
         {
         }
         /// <summary>
-        /// get github app token
+        /// get the git credential for a git-sync job (GitHub App token, or the credential stored for the repository)
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetGithubAppToken200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Token
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGithubAppToken200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGithubAppToken200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// get github app token
+        /// get the git credential for a git-sync job (GitHub App token, or the credential stored for the repository)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

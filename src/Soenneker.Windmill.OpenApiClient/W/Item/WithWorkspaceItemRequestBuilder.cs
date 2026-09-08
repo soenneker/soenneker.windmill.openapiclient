@@ -25,6 +25,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Flows;
 using Soenneker.Windmill.OpenApiClient.W.Item.Folders;
 using Soenneker.Windmill.OpenApiClient.W.Item.Folders_history;
 using Soenneker.Windmill.OpenApiClient.W.Item.Gcp_triggers;
+using Soenneker.Windmill.OpenApiClient.W.Item.Git_sync;
 using Soenneker.Windmill.OpenApiClient.W.Item.Github_app;
 using Soenneker.Windmill.OpenApiClient.W.Item.Groups;
 using Soenneker.Windmill.OpenApiClient.W.Item.Groups_history;
@@ -187,6 +188,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Gcp_triggers.Gcp_triggersRequestBuilder Gcp_triggers
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Gcp_triggers.Gcp_triggersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The git_sync property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Git_sync.Git_syncRequestBuilder Git_sync
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Git_sync.Git_syncRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The github_app property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Github_app.Github_appRequestBuilder Github_app

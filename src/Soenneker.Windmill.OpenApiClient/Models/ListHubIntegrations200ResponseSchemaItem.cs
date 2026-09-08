@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>how often the integration has been picked, absent on a hub that does not count picks</summary>
+        public int? Picks { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListHubIntegrations200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -48,6 +50,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "picks", n => { Picks = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -58,6 +61,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
+            writer.WriteIntValue("picks", Picks);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

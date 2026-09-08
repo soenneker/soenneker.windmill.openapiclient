@@ -24,6 +24,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The collapsed property</summary>
         public bool? Collapsed { get; set; }
+        /// <summary>server-owned, what the repo&apos;s own credential reports about itself</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential? Credential { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential Credential { get; set; }
+#endif
         /// <summary>The exclude_types_override property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -99,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "auto_pull", n => { AutoPull = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemAutoPull>(global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemAutoPull.CreateFromDiscriminatorValue); } },
                 { "collapsed", n => { Collapsed = n.GetBoolValue(); } },
+                { "credential", n => { Credential = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential>(global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential.CreateFromDiscriminatorValue); } },
                 { "exclude_types_override", n => { ExcludeTypesOverride = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemExcludeTypesOverrideItem>()?.AsList(); } },
                 { "fork_open_prs", n => { ForkOpenPrs = n.GetBoolValue(); } },
                 { "git_repo_resource_path", n => { GitRepoResourcePath = n.GetStringValue(); } },
@@ -119,6 +128,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemAutoPull>("auto_pull", AutoPull);
             writer.WriteBoolValue("collapsed", Collapsed);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential>("credential", Credential);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemExcludeTypesOverrideItem>("exclude_types_override", ExcludeTypesOverride);
             writer.WriteBoolValue("fork_open_prs", ForkOpenPrs);
             writer.WriteStringValue("git_repo_resource_path", GitRepoResourcePath);

@@ -7,6 +7,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Exists;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Get;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Setenabled;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Sync;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Update;
 using System.Collections.Generic;
@@ -45,6 +46,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The setenabled property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Setenabled.SetenabledRequestBuilder Setenabled
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Setenabled.SetenabledRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sync property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Item.Sync.SyncRequestBuilder Sync

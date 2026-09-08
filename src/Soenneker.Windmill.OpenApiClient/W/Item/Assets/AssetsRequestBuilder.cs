@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Asset_schemas;
+using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Column_lineage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Assets.List_by_usages;
@@ -27,6 +28,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Asset_schemas.Asset_schemasRequestBuilder Asset_schemas
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Asset_schemas.Asset_schemasRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The column_lineage property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Column_lineage.Column_lineageRequestBuilder Column_lineage
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Column_lineage.Column_lineageRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The graph property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Assets.Graph.GraphRequestBuilder Graph

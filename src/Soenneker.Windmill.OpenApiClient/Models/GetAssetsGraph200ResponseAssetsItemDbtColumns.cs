@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Declared column metadata (name -&gt; description). NOT column lineage — `manifest.json` carries none.
+    /// Declared column metadata (name -&gt; description) — what `manifest.json` carries, which is only the columns an author wrote down. Omitted when the caller cannot read the script.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetAssetsGraph200ResponseAssetsItemDbtColumns : IAdditionalDataHolder, IParsable

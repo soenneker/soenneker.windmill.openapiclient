@@ -15,13 +15,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Declared column metadata (name -&gt; description). NOT column lineage — `manifest.json` carries none.</summary>
+        /// <summary>Declared column metadata (name -&gt; description) — what `manifest.json` carries, which is only the columns an author wrote down. Omitted when the caller cannot read the script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns? Columns { get; set; }
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns Columns { get; set; }
+#endif
+        /// <summary>Every column of the relation, typed and in the order the model produces them, from the engine&apos;s static analysis. Present only for a project that opted into it, and gated like `columns` and the model&apos;s SQL: a full column list is the shape of what the author wrote.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem>? ColumnSchema { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem> ColumnSchema { get; set; }
 #endif
         /// <summary>The data_tests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -122,6 +130,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "column_schema", n => { ColumnSchema = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "columns", n => { Columns = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns.CreateFromDiscriminatorValue); } },
                 { "data_tests", n => { DataTests = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -143,6 +152,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns>("columns", Columns);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem>("column_schema", ColumnSchema);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem>("data_tests", DataTests);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtFreshness>("freshness", Freshness);

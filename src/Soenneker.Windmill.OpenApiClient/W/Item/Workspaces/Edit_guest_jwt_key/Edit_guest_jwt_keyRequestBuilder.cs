@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key
         {
         }
         /// <summary>
-        /// A guest JWT (`jwt_guest_`) is minted by the embedding customer&apos;s own backend and verified against this key: a PEM public key (RS/ES family, HS* refused) or a JWKS URL, at most one. Both empty clears the workspace key; off cloud, verification then falls back to the instance issuer (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted (`guest_access_enabled` is the on/off switch). Workspace-admin gated. The key is validated before it is stored.
+        /// A guest JWT (`jwt_guest_`) is minted by the embedding customer&apos;s own backend and verified against this key: a PEM public key (RS/ES family, HS* refused) or a JWKS URL, at most one. Both empty clears the workspace key; off cloud, verification then falls back to the instance issuer (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted (`guest_access_enabled` is the on/off switch). Workspace-admin gated. The key is validated before it is stored. Setting a key is refused with a 400 where guests are unavailable (the shared cloud); clearing one always works.
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// A guest JWT (`jwt_guest_`) is minted by the embedding customer&apos;s own backend and verified against this key: a PEM public key (RS/ES family, HS* refused) or a JWKS URL, at most one. Both empty clears the workspace key; off cloud, verification then falls back to the instance issuer (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted (`guest_access_enabled` is the on/off switch). Workspace-admin gated. The key is validated before it is stored.
+        /// A guest JWT (`jwt_guest_`) is minted by the embedding customer&apos;s own backend and verified against this key: a PEM public key (RS/ES family, HS* refused) or a JWKS URL, at most one. Both empty clears the workspace key; off cloud, verification then falls back to the instance issuer (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted (`guest_access_enabled` is the on/off switch). Workspace-admin gated. The key is validated before it is stored. Setting a key is refused with a 400 where guests are unavailable (the shared cloud); clearing one always works.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

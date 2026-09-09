@@ -8,13 +8,15 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Guests are free up to `free_allowance` distinct emails over the trailing `window_days`. Past that an Enterprise plan meters them (`metered`, four guests to one seat: `billable_guests`, `guest_seats`); every other plan and build admits no new email until the count drops. `instance_enabled` is the superadmin switch (`guest_access_disabled` global setting) every workspace switch sits under.
+    /// Guests are free up to `free_allowance` distinct emails over the trailing `window_days`. Past that an Enterprise plan meters them (`metered`, four guests to one seat: `billable_guests`, `guest_seats`); every other plan and build admits no new email until the count drops. `instance_enabled` is the superadmin switch (`guest_access_disabled` global setting) every workspace switch sits under. `available` is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field and switch is then moot.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListGuests200ResponseUsage : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The available property</summary>
+        public bool? Available { get; set; }
         /// <summary>The billable_guests property</summary>
         public long? BillableGuests { get; set; }
         /// <summary>The free_allowance property</summary>
@@ -54,6 +56,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "available", n => { Available = n.GetBoolValue(); } },
                 { "billable_guests", n => { BillableGuests = n.GetLongValue(); } },
                 { "free_allowance", n => { FreeAllowance = n.GetLongValue(); } },
                 { "guest_count", n => { GuestCount = n.GetLongValue(); } },
@@ -70,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("available", Available);
             writer.WriteLongValue("billable_guests", BillableGuests);
             writer.WriteLongValue("free_allowance", FreeAllowance);
             writer.WriteLongValue("guest_count", GuestCount);

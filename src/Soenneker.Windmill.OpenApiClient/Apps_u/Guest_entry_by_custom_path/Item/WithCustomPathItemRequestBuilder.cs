@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.Apps_u.Guest_entry_by_custom_path.Ite
         {
         }
         /// <summary>
-        /// The custom-path counterpart of `getGuestEntry`. Unauthenticated; 404 unless the app&apos;s execution mode is `guest` AND its workspace has `guest_access_enabled` AND the instance has not set `guest_access_disabled`. Returns the workspace too, since a custom URL may not carry it.
+        /// The custom-path counterpart of `getGuestEntry`. Unauthenticated; 404 unless the app&apos;s execution mode is `guest` AND its workspace has `guest_access_enabled` AND the instance has not set `guest_access_disabled`, and never on a deployment where guests are unavailable (the shared cloud). Returns the workspace too, since a custom URL may not carry it.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntryByCustomPath200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.Apps_u.Guest_entry_by_custom_path.Ite
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntryByCustomPath200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntryByCustomPath200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// The custom-path counterpart of `getGuestEntry`. Unauthenticated; 404 unless the app&apos;s execution mode is `guest` AND its workspace has `guest_access_enabled` AND the instance has not set `guest_access_disabled`. Returns the workspace too, since a custom URL may not carry it.
+        /// The custom-path counterpart of `getGuestEntry`. Unauthenticated; 404 unless the app&apos;s execution mode is `guest` AND its workspace has `guest_access_enabled` AND the instance has not set `guest_access_disabled`, and never on a deployment where guests are unavailable (the shared cloud). Returns the workspace too, since a custom URL may not carry it.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

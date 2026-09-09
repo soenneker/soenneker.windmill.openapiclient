@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem> Guests { get; set; }
 #endif
-        /// <summary>Guests are free up to `free_allowance` distinct emails over the trailing `window_days`. Past that an Enterprise plan meters them (`metered`, four guests to one seat: `billable_guests`, `guest_seats`); every other plan and build admits no new email until the count drops. `instance_enabled` is the superadmin switch (`guest_access_disabled` global setting) every workspace switch sits under.</summary>
+        /// <summary>Guests are free up to `free_allowance` distinct emails over the trailing `window_days`. Past that an Enterprise plan meters them (`metered`, four guests to one seat: `billable_guests`, `guest_seats`); every other plan and build admits no new email until the count drops. `instance_enabled` is the superadmin switch (`guest_access_disabled` global setting) every workspace switch sits under. `available` is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field and switch is then moot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage? Usage { get; set; }

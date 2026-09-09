@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.806.0
+  version: 1.808.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -1377,8 +1377,13 @@ paths:
                       build admits no new email until the count drops.
                       `instance_enabled` is the superadmin switch
                       (`guest_access_disabled` global setting) every workspace
-                      switch sits under.
+                      switch sits under. `available` is whether this deployment
+                      can have guests at all: false on the shared cloud, where
+                      guest access requires a self-hosted or dedicated
+                      deployment, and every other field and switch is then moot.
                     properties: &ref_67
+                      available:
+                        type: boolean
                       instance_enabled:
                         type: boolean
                       guest_count:
@@ -1398,6 +1403,7 @@ paths:
                         type: integer
                         format: int64
                     required: &ref_68
+                      - available
                       - instance_enabled
                       - guest_count
                       - window_days
@@ -8653,6 +8659,8 @@ paths:
         default. Re-read where a guest session is minted and at the auth door on
         every guest request, so turning it off takes effect immediately, for
         sessions already issued and for apps whose policy already says `guest`.
+        Turning it *on* is refused with a 400 where guests are unavailable (the
+        shared cloud); turning it off always works.
       operationId: editGuestAccess
       tags:
         - workspace
@@ -8690,7 +8698,9 @@ paths:
         key; off cloud, verification then falls back to the instance issuer
         (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted
         (`guest_access_enabled` is the on/off switch). Workspace-admin gated.
-        The key is validated before it is stored.
+        The key is validated before it is stored. Setting a key is refused with
+        a 400 where guests are unavailable (the shared cloud); clearing one
+        always works.
       operationId: editGuestJwtKey
       tags:
         - workspace
@@ -8750,7 +8760,11 @@ paths:
                   `billable_guests`, `guest_seats`); every other plan and build
                   admits no new email until the count drops. `instance_enabled`
                   is the superadmin switch (`guest_access_disabled` global
-                  setting) every workspace switch sits under.
+                  setting) every workspace switch sits under. `available` is
+                  whether this deployment can have guests at all: false on the
+                  shared cloud, where guest access requires a self-hosted or
+                  dedicated deployment, and every other field and switch is then
+                  moot.
                 properties: *ref_67
                 required: *ref_68
   /w/{workspace}/workspaces/default_scripts:
@@ -14584,8 +14598,9 @@ paths:
         The custom-path counterpart of `getGuestEntry`. Unauthenticated; 404
         unless the app's execution mode is `guest` AND its workspace has
         `guest_access_enabled` AND the instance has not set
-        `guest_access_disabled`. Returns the workspace too, since a custom URL
-        may not carry it.
+        `guest_access_disabled`, and never on a deployment where guests are
+        unavailable (the shared cloud). Returns the workspace too, since a
+        custom URL may not carry it.
       operationId: getGuestEntryByCustomPath
       tags:
         - app
@@ -21923,9 +21938,10 @@ paths:
         Unauthenticated: what a signed-out visitor reads to learn that signing
         in would let them in. 404 unless the app's execution mode is `guest` AND
         the workspace has `guest_access_enabled` AND the instance has not set
-        the `guest_access_disabled` global setting, so it says nothing about
-        apps that are not open to guests. Discloses only the app path, to a
-        caller already holding the share secret.
+        the `guest_access_disabled` global setting, and never on a deployment
+        where guests are unavailable (the shared cloud), so it says nothing
+        about apps that are not open to guests. Discloses only the app path, to
+        a caller already holding the share secret.
       operationId: getGuestEntry
       tags:
         - app
@@ -44402,6 +44418,39 @@ paths:
             text/plain:
               schema:
                 type: string
+  /w/{workspace}/hub/projects:
+    get:
+      summary: list the hub's published projects
+      description: >
+        Forwards to the configured Hub's public project catalogue and returns
+        its
+
+        status code and raw response body. Readable by any workspace member: the
+
+        listing is not workspace-scoped, and it is proxied only because the
+        Hub's
+
+        listing endpoint sends no CORS header. Refused with 400 when the
+        instance
+
+        has the Hub disabled, in which case no outbound request is made.
+      operationId: listHubProjects
+      tags:
+        - hubPublish
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+      responses:
+        '200':
+          description: raw Hub response body (status code is passed through from the Hub)
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: the Hub is disabled on this instance
   /w/{workspace}/hub/project:
     get:
       summary: get the hub project linked to a workspace folder
@@ -46541,7 +46590,10 @@ components:
         guests to one seat: `billable_guests`, `guest_seats`); every other plan
         and build admits no new email until the count drops. `instance_enabled`
         is the superadmin switch (`guest_access_disabled` global setting) every
-        workspace switch sits under.
+        workspace switch sits under. `available` is whether this deployment can
+        have guests at all: false on the shared cloud, where guest access
+        requires a self-hosted or dedicated deployment, and every other field
+        and switch is then moot.
       properties: *ref_67
       required: *ref_68
     GuestActivity:

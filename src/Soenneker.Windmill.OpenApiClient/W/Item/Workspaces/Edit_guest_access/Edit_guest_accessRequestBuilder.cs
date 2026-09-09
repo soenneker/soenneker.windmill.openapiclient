@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access
         {
         }
         /// <summary>
-        /// Guests are people the identity provider authenticates who have no Windmill account; the `guest` app execution mode admits them. Off by default. Re-read where a guest session is minted and at the auth door on every guest request, so turning it off takes effect immediately, for sessions already issued and for apps whose policy already says `guest`.
+        /// Guests are people the identity provider authenticates who have no Windmill account; the `guest` app execution mode admits them. Off by default. Re-read where a guest session is minted and at the auth door on every guest request, so turning it off takes effect immediately, for sessions already issued and for apps whose policy already says `guest`. Turning it *on* is refused with a 400 where guests are unavailable (the shared cloud); turning it off always works.
         /// </summary>
         /// <returns>A <see cref="string"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access
             return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Guests are people the identity provider authenticates who have no Windmill account; the `guest` app execution mode admits them. Off by default. Re-read where a guest session is minted and at the auth door on every guest request, so turning it off takes effect immediately, for sessions already issued and for apps whose policy already says `guest`.
+        /// Guests are people the identity provider authenticates who have no Windmill account; the `guest` app execution mode admits them. Off by default. Re-read where a guest session is minted and at the auth door on every guest request, so turning it off takes effect immediately, for sessions already issued and for apps whose policy already says `guest`. Turning it *on* is refused with a 400 where guests are unavailable (the shared cloud); turning it off always works.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

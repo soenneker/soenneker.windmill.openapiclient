@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Guest_entry.Item
         {
         }
         /// <summary>
-        /// Unauthenticated: what a signed-out visitor reads to learn that signing in would let them in. 404 unless the app&apos;s execution mode is `guest` AND the workspace has `guest_access_enabled` AND the instance has not set the `guest_access_disabled` global setting, so it says nothing about apps that are not open to guests. Discloses only the app path, to a caller already holding the share secret.
+        /// Unauthenticated: what a signed-out visitor reads to learn that signing in would let them in. 404 unless the app&apos;s execution mode is `guest` AND the workspace has `guest_access_enabled` AND the instance has not set the `guest_access_disabled` global setting, and never on a deployment where guests are unavailable (the shared cloud), so it says nothing about apps that are not open to guests. Discloses only the app path, to a caller already holding the share secret.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntry200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Guest_entry.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntry200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntry200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Unauthenticated: what a signed-out visitor reads to learn that signing in would let them in. 404 unless the app&apos;s execution mode is `guest` AND the workspace has `guest_access_enabled` AND the instance has not set the `guest_access_disabled` global setting, so it says nothing about apps that are not open to guests. Discloses only the app path, to a caller already holding the share secret.
+        /// Unauthenticated: what a signed-out visitor reads to learn that signing in would let them in. 404 unless the app&apos;s execution mode is `guest` AND the workspace has `guest_access_enabled` AND the instance has not set the `guest_access_disabled` global setting, and never on a deployment where guests are unavailable (the shared cloud), so it says nothing about apps that are not open to guests. Discloses only the app path, to a caller already holding the share secret.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

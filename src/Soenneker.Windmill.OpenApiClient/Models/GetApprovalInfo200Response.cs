@@ -42,6 +42,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The flow_id property</summary>
         public Guid? FlowId { get; set; }
+        /// <summary>summary of the flow or workflow the approval belongs to</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FlowSummary { get; set; }
+#nullable restore
+#else
+        public string FlowSummary { get; set; }
+#endif
         /// <summary>form schema for the approval step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,6 +60,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>whether to hide the cancel button in the UI</summary>
         public bool? HideCancel { get; set; }
+        /// <summary>how the approval page presents the request</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin? Skin { get; set; }
+        /// <summary>summary of the approval step, for the page title</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StepSummary { get; set; }
+#nullable restore
+#else
+        public string StepSummary { get; set; }
+#endif
         /// <summary>whether user authentication is required to approve</summary>
         public bool? UserAuthRequired { get; set; }
         /// <summary>Share-read-link token for the flow. An authenticated workspace member can append it as a `view_token` query param on the run page to read a flow they don&apos;t otherwise have access to.</summary>
@@ -92,8 +110,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "can_approve", n => { CanApprove = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription.CreateFromDiscriminatorValue); } },
                 { "flow_id", n => { FlowId = n.GetGuidValue(); } },
+                { "flow_summary", n => { FlowSummary = n.GetStringValue(); } },
                 { "form_schema", n => { FormSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema.CreateFromDiscriminatorValue); } },
                 { "hide_cancel", n => { HideCancel = n.GetBoolValue(); } },
+                { "skin", n => { Skin = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin>(); } },
+                { "step_summary", n => { StepSummary = n.GetStringValue(); } },
                 { "user_auth_required", n => { UserAuthRequired = n.GetBoolValue(); } },
                 { "view_token", n => { ViewToken = n.GetStringValue(); } },
             };
@@ -110,8 +131,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("can_approve", CanApprove);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription>("description", Description);
             writer.WriteGuidValue("flow_id", FlowId);
+            writer.WriteStringValue("flow_summary", FlowSummary);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema>("form_schema", FormSchema);
             writer.WriteBoolValue("hide_cancel", HideCancel);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin>("skin", Skin);
+            writer.WriteStringValue("step_summary", StepSummary);
             writer.WriteBoolValue("user_auth_required", UserAuthRequired);
             writer.WriteStringValue("view_token", ViewToken);
             writer.WriteAdditionalData(AdditionalData);

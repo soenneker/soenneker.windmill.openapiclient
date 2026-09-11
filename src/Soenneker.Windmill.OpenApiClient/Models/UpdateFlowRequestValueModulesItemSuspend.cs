@@ -31,6 +31,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>If true, the user who started the flow cannot approve</summary>
         public bool? SelfApprovalDisabled { get; set; }
+        /// <summary>How the approval request is presented, on the approval page and in Slack/Teams approval messages. &apos;detailed&apos; (used when unset) shows the flow details (arguments, graph, approvers); &apos;minimal&apos; shows only the request: the step description, form and approve/reject actions</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendSkin? Skin { get; set; }
         /// <summary>Timeout in seconds before auto-continuing or canceling</summary>
         public int? Timeout { get; set; }
         /// <summary>If true, only authenticated users can approve</summary>
@@ -73,6 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "required_events", n => { RequiredEvents = n.GetIntValue(); } },
                 { "resume_form", n => { ResumeForm = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendResumeForm>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendResumeForm.CreateFromDiscriminatorValue); } },
                 { "self_approval_disabled", n => { SelfApprovalDisabled = n.GetBoolValue(); } },
+                { "skin", n => { Skin = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendSkin>(); } },
                 { "timeout", n => { Timeout = n.GetIntValue(); } },
                 { "user_auth_required", n => { UserAuthRequired = n.GetBoolValue(); } },
                 { "user_groups_required", n => { UserGroupsRequired = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendUserGroupsRequired>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendUserGroupsRequired.CreateFromDiscriminatorValue); } },
@@ -90,6 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("required_events", RequiredEvents);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendResumeForm>("resume_form", ResumeForm);
             writer.WriteBoolValue("self_approval_disabled", SelfApprovalDisabled);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendSkin>("skin", Skin);
             writer.WriteIntValue("timeout", Timeout);
             writer.WriteBoolValue("user_auth_required", UserAuthRequired);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSuspendUserGroupsRequired>("user_groups_required", UserGroupsRequired);

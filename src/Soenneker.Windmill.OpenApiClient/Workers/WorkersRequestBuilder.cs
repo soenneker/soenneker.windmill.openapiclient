@@ -9,7 +9,9 @@ using Soenneker.Windmill.OpenApiClient.Workers.Is_default_tags_per_workspace;
 using Soenneker.Windmill.OpenApiClient.Workers.List;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_counts;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics;
+using Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics_series;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts;
+using Soenneker.Windmill.OpenApiClient.Workers.Queue_status;
 using Soenneker.Windmill.OpenApiClient.Workers.Workspace_fairness_events;
 using System.Collections.Generic;
 using System.IO;
@@ -58,10 +60,20 @@ namespace Soenneker.Windmill.OpenApiClient.Workers
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics.Queue_metricsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The queue_metrics_series property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics_series.Queue_metrics_seriesRequestBuilder Queue_metrics_series
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics_series.Queue_metrics_seriesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The queue_running_counts property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts.Queue_running_countsRequestBuilder Queue_running_counts
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts.Queue_running_countsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The queue_status property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Workers.Queue_status.Queue_statusRequestBuilder Queue_status
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Workers.Queue_status.Queue_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workspace_fairness_events property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Workers.Workspace_fairness_events.Workspace_fairness_eventsRequestBuilder Workspace_fairness_events

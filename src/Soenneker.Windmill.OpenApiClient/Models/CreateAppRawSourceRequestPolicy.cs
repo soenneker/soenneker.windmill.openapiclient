@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> FrontendSdkScopes { get; set; }
 #endif
-        /// <summary>The on_behalf_of property</summary>
+        /// <summary>The user or group the app runs as in anonymous or publisher mode (e.g. &apos;u/admin&apos; or &apos;g/mygroup&apos;). The authority for the app&apos;s identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnBehalfOf { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string OnBehalfOf { get; set; }
 #endif
-        /// <summary>The on_behalf_of_email property</summary>
+        /// <summary>Address of `on_behalf_of`, written through from it on every save and returned as stored. Optional; when absent it is derived from `on_behalf_of`. Sending it is optional too; it must name the same account as `on_behalf_of`, and a pair that disagrees is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OnBehalfOfEmail { get; set; }

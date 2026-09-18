@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Users.Accept_invite;
 using Soenneker.Windmill.OpenApiClient.Users.All_runnables;
 using Soenneker.Windmill.OpenApiClient.Users.Change_email;
+using Soenneker.Windmill.OpenApiClient.Users.Cloud_trial_offer;
 using Soenneker.Windmill.OpenApiClient.Users.Create;
 using Soenneker.Windmill.OpenApiClient.Users.Decline_invite;
 using Soenneker.Windmill.OpenApiClient.Users.Delete;
@@ -16,9 +17,11 @@ using Soenneker.Windmill.OpenApiClient.Users.Guests;
 using Soenneker.Windmill.OpenApiClient.Users.Leave_instance;
 using Soenneker.Windmill.OpenApiClient.Users.List_as_super_admin;
 using Soenneker.Windmill.OpenApiClient.Users.List_invites;
+using Soenneker.Windmill.OpenApiClient.Users.Login_links;
 using Soenneker.Windmill.OpenApiClient.Users.Offboard;
 using Soenneker.Windmill.OpenApiClient.Users.Offboard_preview;
 using Soenneker.Windmill.OpenApiClient.Users.Onboarding;
+using Soenneker.Windmill.OpenApiClient.Users.Onboarding_profile;
 using Soenneker.Windmill.OpenApiClient.Users.Overwrite;
 using Soenneker.Windmill.OpenApiClient.Users.Refresh_token;
 using Soenneker.Windmill.OpenApiClient.Users.Rename;
@@ -57,6 +60,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         public global::Soenneker.Windmill.OpenApiClient.Users.Change_email.Change_emailRequestBuilder Change_email
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Change_email.Change_emailRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The cloud_trial_offer property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Cloud_trial_offer.Cloud_trial_offerRequestBuilder Cloud_trial_offer
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Cloud_trial_offer.Cloud_trial_offerRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The create property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Create.CreateRequestBuilder Create
@@ -113,6 +121,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.List_invites.List_invitesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The login_links property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Login_links.Login_linksRequestBuilder Login_links
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Login_links.Login_linksRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The offboard property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Offboard.OffboardRequestBuilder Offboard
         {
@@ -127,6 +140,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         public global::Soenneker.Windmill.OpenApiClient.Users.Onboarding.OnboardingRequestBuilder Onboarding
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Onboarding.OnboardingRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The onboarding_profile property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Onboarding_profile.Onboarding_profileRequestBuilder Onboarding_profile
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Onboarding_profile.Onboarding_profileRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The overwrite property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Overwrite.OverwriteRequestBuilder Overwrite

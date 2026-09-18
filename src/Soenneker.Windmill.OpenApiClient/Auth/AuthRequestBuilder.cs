@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Auth.Is_password_login_disabled;
 using Soenneker.Windmill.OpenApiClient.Auth.Is_smtp_configured;
 using Soenneker.Windmill.OpenApiClient.Auth.Login;
+using Soenneker.Windmill.OpenApiClient.Auth.Login_link;
 using Soenneker.Windmill.OpenApiClient.Auth.Logout;
 using Soenneker.Windmill.OpenApiClient.Auth.Request_password_reset;
 using Soenneker.Windmill.OpenApiClient.Auth.Reset_password;
@@ -34,6 +35,11 @@ namespace Soenneker.Windmill.OpenApiClient.Auth
         public global::Soenneker.Windmill.OpenApiClient.Auth.Login.LoginRequestBuilder Login
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Auth.Login.LoginRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The login_link property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Auth.Login_link.Login_linkRequestBuilder Login_link
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Auth.Login_link.Login_linkRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The logout property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Auth.Logout.LogoutRequestBuilder Logout

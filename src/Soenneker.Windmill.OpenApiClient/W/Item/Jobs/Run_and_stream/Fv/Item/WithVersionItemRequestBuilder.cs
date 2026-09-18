@@ -140,9 +140,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.Fv.Item
             /// <summary>The job id to assign to the created job. if missing, job is chosen randomly using the ULID scheme. If a job id already exists in the queue or as a completed job, the request to create one will fail (Bad Request)</summary>
             [QueryParameter("job_id")]
             public Guid? JobId { get; set; }
-            /// <summary>memory ID for chat-enabled flows</summary>
+            /// <summary>Memory id for the flow&apos;s AI agent steps. A uuid is used as is; any other string is hashed within the workspace and flow, so the same string always names the same memory of that flow.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("memory_id")]
-            public Guid? MemoryId { get; set; }
+            public string? MemoryId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("memory_id")]
+            public string MemoryId { get; set; }
+#endif
             /// <summary>The base64 encoded payload that has been encoded as a JSON. e.g how to encode such payload encodeURIComponent`encodeURIComponent(btoa(JSON.stringify({a: 2})))`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -189,9 +196,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_and_stream.Fv.Item
             /// <summary>The job id to assign to the created job. if missing, job is chosen randomly using the ULID scheme. If a job id already exists in the queue or as a completed job, the request to create one will fail (Bad Request)</summary>
             [QueryParameter("job_id")]
             public Guid? JobId { get; set; }
-            /// <summary>memory ID for chat-enabled flows</summary>
+            /// <summary>Memory id for the flow&apos;s AI agent steps. A uuid is used as is; any other string is hashed within the workspace and flow, so the same string always names the same memory of that flow.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("memory_id")]
-            public Guid? MemoryId { get; set; }
+            public string? MemoryId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("memory_id")]
+            public string MemoryId { get; set; }
+#endif
             /// <summary>delay between polling for job updates in milliseconds</summary>
             [QueryParameter("poll_delay_ms")]
             public long? PollDelayMs { get; set; }

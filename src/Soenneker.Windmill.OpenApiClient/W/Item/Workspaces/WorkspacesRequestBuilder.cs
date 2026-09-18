@@ -22,6 +22,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_service_account;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_workspace_fork_branch;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Critical_alerts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_migrations_status;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_permissions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_usable_roles;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Default_app;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Default_scripts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Delete_datatable_migration;
@@ -31,6 +33,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Detach_dev_workspace;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Disable_datatable_migrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_datatable_databases;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_ducklake_namespaces;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_add_admins_and_developers_to_forks;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_copilot_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_datatable_config;
@@ -216,6 +219,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_migrations_status.Datatable_migrations_statusRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The datatable_permissions property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_permissions.Datatable_permissionsRequestBuilder Datatable_permissions
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_permissions.Datatable_permissionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The datatable_usable_roles property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_usable_roles.Datatable_usable_rolesRequestBuilder Datatable_usable_roles
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_usable_roles.Datatable_usable_rolesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The default_app property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Default_app.Default_appRequestBuilder Default_app
         {
@@ -260,6 +273,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_ducklake_namespaces.Drop_forked_ducklake_namespacesRequestBuilder Drop_forked_ducklake_namespaces
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Drop_forked_ducklake_namespaces.Drop_forked_ducklake_namespacesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The edit_add_admins_and_developers_to_forks property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_add_admins_and_developers_to_forks.Edit_add_admins_and_developers_to_forksRequestBuilder Edit_add_admins_and_developers_to_forks
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_add_admins_and_developers_to_forks.Edit_add_admins_and_developers_to_forksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The edit_auto_invite property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_auto_invite.Edit_auto_inviteRequestBuilder Edit_auto_invite

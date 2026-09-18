@@ -17,7 +17,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.StaticValueType? Type { get; set; }
-        /// <summary>Conversation memory configuration</summary>
+        /// <summary>Managed memory, stored by Windmill and replayed with each request. The memory is named by a memory id, see `memory_id`. While it is off, a step can supply its history in `previous_messages`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowModulesItemValueOneOf9InputTransformsMemoryOneOf1Value? Value { get; set; }

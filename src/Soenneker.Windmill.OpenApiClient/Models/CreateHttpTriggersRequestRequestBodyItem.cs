@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Origins allowed to call this route cross-origin, matched against the request&apos;s Origin header (ignoring case) and echoed back on a match. When set, the list governs both the preflight and the response, overriding any Access-Control-Allow-Origin the runnable returns via wm_headers. Use [&apos;*&apos;] to opt out of any restriction, including the http_route_default_allowed_origins instance setting. An empty list is not a configuration and resolves exactly as null does. When null, the instance setting applies, or Access-Control-Allow-Origin: * if it is unset. Ignored on a static website, which has no authentication of its own and so hands out public files: restricting which browsers may read them protects nothing while breaking cross-origin webfonts and fetches. A single-file static asset is not exempt, since it can carry an authentication_method.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? AllowedOrigins { get; set; }
+#nullable restore
+#else
+        public List<string> AllowedOrigins { get; set; }
+#endif
         /// <summary>How requests are authenticated - &apos;none&apos; (public), &apos;windmill&apos; (Windmill token), &apos;api_key&apos;, &apos;basic_http&apos;, &apos;custom_script&apos;, &apos;signature&apos;</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>Path to the resource containing authentication configuration (for api_key, basic_http, custom_script, signature methods)</summary>
@@ -157,6 +165,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "allowed_origins", n => { AllowedOrigins = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "authentication_method", n => { AuthenticationMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemAuthenticationMethod>(); } },
                 { "authentication_resource_path", n => { AuthenticationResourcePath = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -189,6 +198,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfPrimitiveValues<string>("allowed_origins", AllowedOrigins);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemAuthenticationMethod>("authentication_method", AuthenticationMethod);
             writer.WriteStringValue("authentication_resource_path", AuthenticationResourcePath);
             writer.WriteStringValue("description", Description);

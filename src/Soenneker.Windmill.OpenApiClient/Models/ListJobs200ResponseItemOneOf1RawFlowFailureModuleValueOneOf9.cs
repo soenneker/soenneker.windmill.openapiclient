@@ -15,7 +15,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Path of a reusable `ai_agent` resource (hybrid linking). When set, the agent brainconfig (provider/model/system prompt/etc.) and tool set are resolved at runtime fromthat resource; the module&apos;s input_transforms then only carry the flow-local inputs(user_message/user_attachments).</summary>
+        /// <summary>Path of a reusable `ai_agent` resource (hybrid linking). When set, the agent brainconfig (provider/model/system prompt/etc.) and tool set are resolved at runtime fromthat resource; the module&apos;s input_transforms then only carry the flow-local inputs(user_message, user_attachments, enabled_tools and the history inputs memory_id and previous_messages).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Agent { get; set; }

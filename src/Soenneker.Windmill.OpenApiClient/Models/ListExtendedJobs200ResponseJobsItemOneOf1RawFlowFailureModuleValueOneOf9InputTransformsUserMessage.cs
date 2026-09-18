@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// The user&apos;s prompt/message to the AI agent. Supports variable interpolation with flow.input syntax.
+    /// The user&apos;s prompt/message to the AI agent. Supports variable interpolation withflow.input syntax. Required unless memory is off and `previous_messages` suppliesthe prompt; image output always needs it.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListExtendedJobs200ResponseJobsItemOneOf1RawFlowFailureModuleValueOneOf9InputTransformsUserMessage : IAdditionalDataHolder, IParsable

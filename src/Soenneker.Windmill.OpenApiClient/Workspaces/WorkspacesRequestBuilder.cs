@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.Workspaces.Exists;
 using Soenneker.Windmill.OpenApiClient.Workspaces.Exists_username;
 using Soenneker.Windmill.OpenApiClient.Workspaces.List;
 using Soenneker.Windmill.OpenApiClient.Workspaces.List_as_superadmin;
+using Soenneker.Windmill.OpenApiClient.Workspaces.Session_workspace_retention;
 using Soenneker.Windmill.OpenApiClient.Workspaces.Session_workspace_status;
 using Soenneker.Windmill.OpenApiClient.Workspaces.Unarchive;
 using Soenneker.Windmill.OpenApiClient.Workspaces.Users;
@@ -58,6 +59,11 @@ namespace Soenneker.Windmill.OpenApiClient.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.Workspaces.List_as_superadmin.List_as_superadminRequestBuilder List_as_superadmin
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Workspaces.List_as_superadmin.List_as_superadminRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The session_workspace_retention property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Workspaces.Session_workspace_retention.Session_workspace_retentionRequestBuilder Session_workspace_retention
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Workspaces.Session_workspace_retention.Session_workspace_retentionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The session_workspace_status property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Workspaces.Session_workspace_status.Session_workspace_statusRequestBuilder Session_workspace_status

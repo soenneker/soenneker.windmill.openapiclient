@@ -53,6 +53,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Schedules;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui;
 using Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers;
+using Soenneker.Windmill.OpenApiClient.W.Item.Trash;
 using Soenneker.Windmill.OpenApiClient.W.Item.Trigger;
 using Soenneker.Windmill.OpenApiClient.W.Item.Triggers_history;
 using Soenneker.Windmill.OpenApiClient.W.Item.Users;
@@ -328,6 +329,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers.Sqs_triggersRequestBuilder Sqs_triggers
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers.Sqs_triggersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The trash property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Trash.TrashRequestBuilder Trash
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Trash.TrashRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The trigger property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Trigger.TriggerRequestBuilder Trigger

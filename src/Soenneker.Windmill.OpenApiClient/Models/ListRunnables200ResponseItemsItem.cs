@@ -25,6 +25,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string AutoKind { get; set; }
 #endif
+        /// <summary>flow-only. `chat_input_enabled` of the flow&apos;s value, projected so the list can mark flows that open as a chat. Omitted when the value has no such field.</summary>
+        public bool? ChatInputEnabled { get; set; }
         /// <summary>The draft_only property</summary>
         public bool? DraftOnly { get; set; }
         /// <summary>The draft_path property</summary>
@@ -170,6 +172,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
                 { "auto_kind", n => { AutoKind = n.GetStringValue(); } },
+                { "chat_input_enabled", n => { ChatInputEnabled = n.GetBoolValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "draft_path", n => { DraftPath = n.GetStringValue(); } },
                 { "draft_users", n => { DraftUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemDraftUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemDraftUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -204,6 +207,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archived", Archived);
             writer.WriteStringValue("auto_kind", AutoKind);
+            writer.WriteBoolValue("chat_input_enabled", ChatInputEnabled);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteStringValue("draft_path", DraftPath);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemDraftUsersItem>("draft_users", DraftUsers);

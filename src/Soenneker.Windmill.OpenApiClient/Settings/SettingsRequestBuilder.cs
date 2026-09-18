@@ -7,6 +7,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_backfill_status;
 using Soenneker.Windmill.OpenApiClient.Settings.Audit_logs_s3_status;
 using Soenneker.Windmill.OpenApiClient.Settings.Critical_alerts;
 using Soenneker.Windmill.OpenApiClient.Settings.Customer_portal;
+using Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles;
 using Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database;
 using Soenneker.Windmill.OpenApiClient.Settings.Get_stats;
 using Soenneker.Windmill.OpenApiClient.Settings.Github_app_stale_webhooks;
@@ -75,6 +76,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Customer_portal.Customer_portalRequestBuilder Customer_portal
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Customer_portal.Customer_portalRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The datatable_roles property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder Datatable_roles
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The drop_custom_instance_pg_database property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database.Drop_custom_instance_pg_databaseRequestBuilder Drop_custom_instance_pg_database

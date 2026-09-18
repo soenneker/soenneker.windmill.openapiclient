@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The files a user message carried, as object-storage references: every flow input other than user_message that held one or a list of them, at most 20. Never file bytes or a presigned URL.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemAttachmentsItem>? Attachments { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemAttachmentsItem> Attachments { get; set; }
+#endif
         /// <summary>The message content</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,6 +42,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public Guid? JobId { get; set; }
         /// <summary>Type of the message</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemMessageType? MessageType { get; set; }
+        /// <summary>On an answer, the thinking that produced it; on a tool row, the thinking that led to the call. Each round&apos;s thinking is on one row. The agent job&apos;s result keeps the turn&apos;s thinking as a single string.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Reasoning { get; set; }
+#nullable restore
+#else
+        public string Reasoning { get; set; }
+#endif
         /// <summary>The step name that produced that message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,6 +60,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Whether the message is a success</summary>
         public bool? Success { get; set; }
+        /// <summary>On a tool row, the arguments the model wrote for the call. For a script, flow or AI agent tool these exclude the inputs its step wires in, which only the tool&apos;s job holds. Null for a provider-native web search, whose query the provider does not return.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ToolArguments { get; set; }
+#nullable restore
+#else
+        public string ToolArguments { get; set; }
+#endif
+        /// <summary>On a tool row, the text the model got back from the call, or what the call failed with — the row&apos;s own text names the tool rather than the reason. For a provider-native web search, its citations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ToolResult { get; set; }
+#nullable restore
+#else
+        public string ToolResult { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -69,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemAttachmentsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "conversation_id", n => { ConversationId = n.GetGuidValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -76,8 +109,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "job_id", n => { JobId = n.GetGuidValue(); } },
                 { "message_type", n => { MessageType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemMessageType>(); } },
+                { "reasoning", n => { Reasoning = n.GetStringValue(); } },
                 { "step_name", n => { StepName = n.GetStringValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
+                { "tool_arguments", n => { ToolArguments = n.GetStringValue(); } },
+                { "tool_result", n => { ToolResult = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -87,6 +123,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemAttachmentsItem>("attachments", Attachments);
             writer.WriteStringValue("content", Content);
             writer.WriteGuidValue("conversation_id", ConversationId);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
@@ -94,8 +131,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteGuidValue("job_id", JobId);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConversationMessages200ResponseItemMessageType>("message_type", MessageType);
+            writer.WriteStringValue("reasoning", Reasoning);
             writer.WriteStringValue("step_name", StepName);
             writer.WriteBoolValue("success", Success);
+            writer.WriteStringValue("tool_arguments", ToolArguments);
+            writer.WriteStringValue("tool_result", ToolResult);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

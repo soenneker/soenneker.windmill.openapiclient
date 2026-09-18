@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>password (default, requires `password`), pending_oauth (no credential until the first OAuth login proving the address adopts the account), or a configured OAuth login client key</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LoginType { get; set; }
+#nullable restore
+#else
+        public string LoginType { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,6 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "login_type", n => { LoginType = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
                 { "skip_email", n => { SkipEmail = n.GetBoolValue(); } },
@@ -92,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("company", Company);
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("login_type", LoginType);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("password", Password);
             writer.WriteBoolValue("skip_email", SkipEmail);

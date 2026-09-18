@@ -8,25 +8,17 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Automatic context management
+    /// Keeps the most recent messages of the memory named by the run&apos;s memory id (or the step&apos;s`memory_id`). Without a memory id the agent runs without memory.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2 : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Maximum number of messages to retain in context</summary>
+        /// <summary>Number of most recent messages to load and store. 0 turns memory off.</summary>
         public int? ContextLength { get; set; }
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.AutoKind? Kind { get; set; }
-        /// <summary>Identifier for persistent memory across agent invocations</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MemoryId { get; set; }
-#nullable restore
-#else
-        public string MemoryId { get; set; }
-#endif
+        public global::Soenneker.Windmill.OpenApiClient.Models.WindowKind? Kind { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2"/> and sets the default values.
         /// </summary>
@@ -53,8 +45,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "context_length", n => { ContextLength = n.GetIntValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AutoKind>(); } },
-                { "memory_id", n => { MemoryId = n.GetStringValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.WindowKind>(); } },
             };
         }
         /// <summary>
@@ -65,8 +56,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("context_length", ContextLength);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AutoKind>("kind", Kind);
-            writer.WriteStringValue("memory_id", MemoryId);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.WindowKind>("kind", Kind);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

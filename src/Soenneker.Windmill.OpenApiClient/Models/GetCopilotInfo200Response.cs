@@ -80,6 +80,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders Providers { get; set; }
 #endif
+        /// <summary>The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace&apos;s own settings like `copilot_disabled`.</summary>
+        public int? SessionsRetentionDays { get; set; }
+        /// <summary>Stops browsers from backing their AI sessions up to the workspace&apos;s object storage. Read from the workspace&apos;s own settings like `copilot_disabled`.</summary>
+        public bool? SessionsStorageDisabled { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200Response"/> and sets the default values.
         /// </summary>
@@ -114,6 +118,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "metadata_model", n => { MetadataModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel.CreateFromDiscriminatorValue); } },
                 { "model_pricing", n => { ModelPricing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing.CreateFromDiscriminatorValue); } },
                 { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders.CreateFromDiscriminatorValue); } },
+                { "sessions_retention_days", n => { SessionsRetentionDays = n.GetIntValue(); } },
+                { "sessions_storage_disabled", n => { SessionsStorageDisabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -132,6 +138,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel>("metadata_model", MetadataModel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing>("model_pricing", ModelPricing);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders>("providers", Providers);
+            writer.WriteIntValue("sessions_retention_days", SessionsRetentionDays);
+            writer.WriteBoolValue("sessions_storage_disabled", SessionsStorageDisabled);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,6 +12,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     public partial class GetPublicSettings200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Whether every new fork of this workspace starts with its admins and developers as members, keeping their role.</summary>
+        public bool? AddAdminsAndDevelopersToForks { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The datatable property</summary>
@@ -115,6 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "add_admins_and_developers_to_forks", n => { AddAdminsAndDevelopersToForks = n.GetBoolValue(); } },
                 { "datatable", n => { Datatable = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable.CreateFromDiscriminatorValue); } },
                 { "deploy_ui", n => { DeployUi = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDeployUi>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDeployUi.CreateFromDiscriminatorValue); } },
                 { "guest_access_enabled", n => { GuestAccessEnabled = n.GetBoolValue(); } },
@@ -135,6 +138,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("add_admins_and_developers_to_forks", AddAdminsAndDevelopersToForks);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable>("datatable", Datatable);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDeployUi>("deploy_ui", DeployUi);
             writer.WriteBoolValue("guest_access_enabled", GuestAccessEnabled);

@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The name the product goes by, e.g. &quot;Google Sheets&quot; for gsheets. Absent where nobody named the type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get; set; }
+#nullable restore
+#else
+        public string DisplayName { get; set; }
+#endif
         /// <summary>The edited_at property</summary>
         public DateTimeOffset? EditedAt { get; set; }
         /// <summary>The format_extension property</summary>
@@ -93,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "format_extension", n => { FormatExtension = n.GetStringValue(); } },
                 { "is_fileset", n => { IsFileset = n.GetBoolValue(); } },
@@ -110,6 +119,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("display_name", DisplayName);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("format_extension", FormatExtension);
             writer.WriteBoolValue("is_fileset", IsFileset);

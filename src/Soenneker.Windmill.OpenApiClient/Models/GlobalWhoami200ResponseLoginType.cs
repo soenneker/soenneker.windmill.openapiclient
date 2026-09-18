@@ -20,5 +20,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         ServiceAccount,
         #pragma warning restore CS1591
+        [EnumMember(Value = "pending_oauth")]
+        #pragma warning disable CS1591
+        PendingOAuth,
+        #pragma warning restore CS1591
     }
 }

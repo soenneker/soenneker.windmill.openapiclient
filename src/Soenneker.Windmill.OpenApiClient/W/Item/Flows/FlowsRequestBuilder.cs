@@ -15,6 +15,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Flows.History_update;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths_from_workspace_runnable;
+using Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths_linking_agent;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_search;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_tokens;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flows.Toggle_workspace_error_handler;
@@ -95,6 +96,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flows
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths_from_workspace_runnable.List_paths_from_workspace_runnableRequestBuilder List_paths_from_workspace_runnable
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths_from_workspace_runnable.List_paths_from_workspace_runnableRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list_paths_linking_agent property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths_linking_agent.List_paths_linking_agentRequestBuilder List_paths_linking_agent
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_paths_linking_agent.List_paths_linking_agentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The list_search property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Flows.List_search.List_searchRequestBuilder List_search

@@ -90,9 +90,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.Preview_f
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Preview_flowRequestBuilderPostQueryParameters 
         {
-            /// <summary>memory ID for chat-enabled flows</summary>
+            /// <summary>Memory id for the flow&apos;s AI agent steps. A uuid is used as is; any other string is hashed within the workspace and flow, so the same string always names the same memory of that flow.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("memory_id")]
-            public Guid? MemoryId { get; set; }
+            public string? MemoryId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("memory_id")]
+            public string MemoryId { get; set; }
+#endif
         }
     }
 }

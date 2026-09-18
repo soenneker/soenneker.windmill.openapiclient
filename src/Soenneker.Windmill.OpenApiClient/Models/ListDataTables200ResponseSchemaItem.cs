@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The governing_workspace_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GoverningWorkspaceId { get; set; }
+#nullable restore
+#else
+        public string GoverningWorkspaceId { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +30,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The permissioned property</summary>
+        public bool? Permissioned { get; set; }
         /// <summary>The resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,7 +67,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "governing_workspace_id", n => { GoverningWorkspaceId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "permissioned", n => { Permissioned = n.GetBoolValue(); } },
                 { "resource_path", n => { ResourcePath = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseItemResourceType>(); } },
             };
@@ -69,7 +81,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("governing_workspace_id", GoverningWorkspaceId);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("permissioned", Permissioned);
             writer.WriteStringValue("resource_path", ResourcePath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseItemResourceType>("resource_type", ResourceType);
             writer.WriteAdditionalData(AdditionalData);

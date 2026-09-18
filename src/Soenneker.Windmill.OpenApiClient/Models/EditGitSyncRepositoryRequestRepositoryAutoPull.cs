@@ -16,6 +16,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
+        /// <summary>Email of the admin automatic pulls apply changes as. Set by the server when the settings are saved.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EnabledBy { get; set; }
+#nullable restore
+#else
+        public string EnabledBy { get; set; }
+#endif
         /// <summary>The last_pull_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +98,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "enabled_by", n => { EnabledBy = n.GetStringValue(); } },
                 { "last_pull_status", n => { LastPullStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus>(global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus.CreateFromDiscriminatorValue); } },
                 { "last_synced_sha", n => { LastSyncedSha = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha>(global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha.CreateFromDiscriminatorValue); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullMode>(); } },
@@ -109,6 +118,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteStringValue("enabled_by", EnabledBy);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus>("last_pull_status", LastPullStatus);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha>("last_synced_sha", LastSyncedSha);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullMode>("mode", Mode);

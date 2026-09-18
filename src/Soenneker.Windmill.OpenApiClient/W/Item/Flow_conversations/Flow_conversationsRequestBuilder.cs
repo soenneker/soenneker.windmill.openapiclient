@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Item;
 using Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Update;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -26,6 +27,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The update property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Update.UpdateRequestBuilder Update
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.Update.UpdateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.flow_conversations.item collection</summary>
         /// <param name="position">conversation id</param>

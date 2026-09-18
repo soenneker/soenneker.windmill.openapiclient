@@ -50,6 +50,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The is_dev_workspace property</summary>
         public bool? IsDevWorkspace { get; set; }
+        /// <summary>Whether this membership is a service account.</summary>
+        public bool? IsServiceAccount { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,6 +115,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_dev_workspace", n => { IsDevWorkspace = n.GetBoolValue(); } },
+                { "is_service_account", n => { IsServiceAccount = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "operator_settings", n => { OperatorSettings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings>(global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings.CreateFromDiscriminatorValue); } },
                 { "parent_workspace_id", n => { ParentWorkspaceId = n.GetStringValue(); } },
@@ -132,6 +135,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("disabled", Disabled);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_dev_workspace", IsDevWorkspace);
+            writer.WriteBoolValue("is_service_account", IsServiceAccount);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings>("operator_settings", OperatorSettings);
             writer.WriteStringValue("parent_workspace_id", ParentWorkspaceId);

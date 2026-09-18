@@ -34,6 +34,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>Unique identifier for the conversation</summary>
         public Guid? Id { get; set; }
+        /// <summary>Started from the flow editor&apos;s test panel rather than a deployed run</summary>
+        public bool? IsTest { get; set; }
         /// <summary>Optional title for the conversation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,6 +83,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "flow_path", n => { FlowPath = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
+                { "is_test", n => { IsTest = n.GetBoolValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -97,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("flow_path", FlowPath);
             writer.WriteGuidValue("id", Id);
+            writer.WriteBoolValue("is_test", IsTest);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("workspace_id", WorkspaceId);

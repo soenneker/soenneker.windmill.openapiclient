@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,page*,per_page*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,kind*,page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,page*,per_page*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,kind*,page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
@@ -96,6 +96,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List
             [QueryParameter("flow_path")]
             public string FlowPath { get; set; }
 #endif
+            /// <summary>which conversations to list - the flow editor&apos;s test chats, the deployed flow&apos;s own (the default), or both</summary>
+            [QueryParameter("kind")]
+            public global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversationsKindParameter? Kind { get; set; }
             /// <summary>which page to return (start at 1, default 1)</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }

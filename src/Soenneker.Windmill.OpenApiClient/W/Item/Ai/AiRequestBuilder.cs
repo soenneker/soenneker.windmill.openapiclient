@@ -2,6 +2,8 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Sessions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Usage;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +17,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The sessions property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Sessions.SessionsRequestBuilder Sessions
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Sessions.SessionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The shared_artifacts property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Shared_artifactsRequestBuilder Shared_artifacts
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Shared_artifactsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The usage property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Usage.UsageRequestBuilder Usage
         {

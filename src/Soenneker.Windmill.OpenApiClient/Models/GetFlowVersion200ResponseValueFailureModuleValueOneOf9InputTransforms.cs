@@ -15,6 +15,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Array of strings naming which of the tools configured in `tools` the agent may callthis run. Leaving it unset carries every one of them; an empty array carries none.A tool is named as the model is shown it. An entry the model is shown nothing of isnamed by what identifies it instead: an MCP server by its resource path, carryingevery tool it exposes (which of them stays that entry&apos;s include_tools/exclude_tools),and a websearch entry by the reserved name &apos;__wm_web_search&apos;, whatever summary it carries(no tool may take that name).Example: [&apos;get_user&apos;, &apos;u/admin/github_mcp&apos;, &apos;__wm_web_search&apos;]</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsEnabledTools? EnabledTools { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsEnabledTools EnabledTools { get; set; }
+#endif
         /// <summary>Integer. Maximum number of tokens the AI will generate in its response.Range: 1 to 4,294,967,295. Typical values: 256-4096 for most use cases.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,6 +47,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemory Memory { get; set; }
 #endif
+        /// <summary>String. Names the memory this step reads and writes, overriding the memory id the runwas started with (the chat conversation, an app chat session or the `memory_id` runparameter). Leave unset to use the run&apos;s memory id. A fixed value shares one memoryacross every run; an expression such as `flow_input.customer_id` keeps one memory perkey. When it evaluates to an empty value the agent runs without memory. Read onlywhile `memory` is `window`: it is ignored when memory is off, and an older `auto` or`manual` memory reads neither history input.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryId? MemoryId { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryId MemoryId { get; set; }
+#endif
         /// <summary>JSON Schema object defining structured output format. Used when you need the AI to return data in a specific shape.Supports standard JSON Schema properties: type, properties, required, items, enum, pattern, minLength, maxLength, minimum, maximum, etc.Example: { type: &apos;object&apos;, properties: { name: { type: &apos;string&apos; }, age: { type: &apos;integer&apos; } }, required: [&apos;name&apos;] }</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +70,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsOutputType OutputType { get; set; }
+#endif
+        /// <summary>Array of MemoryMessage. History supplied by the flow, sent between the system promptand the user message. Read only while `memory` is off or absent: managed memoryignores it, and an older `auto` or `manual` memory reads neither history input.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsPreviousMessages? PreviousMessages { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsPreviousMessages PreviousMessages { get; set; }
 #endif
         /// <summary>Provider configuration - can be static (ProviderConfig), JavaScript expression, or AI-determined</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,7 +119,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsUserAttachments UserAttachments { get; set; }
 #endif
-        /// <summary>The user&apos;s prompt/message to the AI agent. Supports variable interpolation with flow.input syntax.</summary>
+        /// <summary>The user&apos;s prompt/message to the AI agent. Supports variable interpolation withflow.input syntax. Required unless memory is off and `previous_messages` suppliesthe prompt; image output always needs it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsUserMessage? UserMessage { get; set; }
@@ -128,11 +152,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "enabled_tools", n => { EnabledTools = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsEnabledTools>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsEnabledTools.CreateFromDiscriminatorValue); } },
                 { "max_completion_tokens", n => { MaxCompletionTokens = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMaxCompletionTokens>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMaxCompletionTokens.CreateFromDiscriminatorValue); } },
                 { "max_iterations", n => { MaxIterations = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations.CreateFromDiscriminatorValue); } },
                 { "memory", n => { Memory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemory>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemory.CreateFromDiscriminatorValue); } },
+                { "memory_id", n => { MemoryId = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryId>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryId.CreateFromDiscriminatorValue); } },
                 { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsOutputSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsOutputSchema.CreateFromDiscriminatorValue); } },
                 { "output_type", n => { OutputType = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsOutputType>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsOutputType.CreateFromDiscriminatorValue); } },
+                { "previous_messages", n => { PreviousMessages = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsPreviousMessages>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsPreviousMessages.CreateFromDiscriminatorValue); } },
                 { "provider", n => { Provider = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProvider>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProvider.CreateFromDiscriminatorValue); } },
                 { "streaming", n => { Streaming = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsStreaming>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsStreaming.CreateFromDiscriminatorValue); } },
                 { "system_prompt", n => { SystemPrompt = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsSystemPrompt>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsSystemPrompt.CreateFromDiscriminatorValue); } },
@@ -148,11 +175,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsEnabledTools>("enabled_tools", EnabledTools);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMaxCompletionTokens>("max_completion_tokens", MaxCompletionTokens);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations>("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemory>("memory", Memory);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsMemoryId>("memory_id", MemoryId);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsOutputSchema>("output_schema", OutputSchema);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsOutputType>("output_type", OutputType);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsPreviousMessages>("previous_messages", PreviousMessages);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsProvider>("provider", Provider);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsStreaming>("streaming", Streaming);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueFailureModuleValueOneOf9InputTransformsSystemPrompt>("system_prompt", SystemPrompt);

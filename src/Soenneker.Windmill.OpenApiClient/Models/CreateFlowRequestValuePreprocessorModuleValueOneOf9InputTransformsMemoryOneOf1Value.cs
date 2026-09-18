@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1Value : IComposedTypeWrapper, IParsable
@@ -36,6 +36,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3 CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4? CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -67,6 +75,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3.GetFieldDeserializers();
             }
+            else if(CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 != null)
+            {
+                return CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -87,6 +99,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if(CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3>(null, CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3);
+            }
+            else if(CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4>(null, CreateFlowRequestValuePreprocessorModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4);
             }
         }
     }

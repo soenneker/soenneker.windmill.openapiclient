@@ -16,6 +16,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The archived property</summary>
         public bool? Archived { get; set; }
+        /// <summary>`chat_input_enabled` of the flow&apos;s value,projected so the list can mark flows that openas a chat. Omitted when the value has no suchfield.</summary>
+        public bool? ChatInputEnabled { get; set; }
         /// <summary>The dedicated_worker property</summary>
         public bool? DedicatedWorker { get; set; }
         /// <summary>Detailed documentation for this flow</summary>
@@ -190,6 +192,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
+                { "chat_input_enabled", n => { ChatInputEnabled = n.GetBoolValue(); } },
                 { "dedicated_worker", n => { DedicatedWorker = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
@@ -226,6 +229,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archived", Archived);
+            writer.WriteBoolValue("chat_input_enabled", ChatInputEnabled);
             writer.WriteBoolValue("dedicated_worker", DedicatedWorker);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("draft_only", DraftOnly);

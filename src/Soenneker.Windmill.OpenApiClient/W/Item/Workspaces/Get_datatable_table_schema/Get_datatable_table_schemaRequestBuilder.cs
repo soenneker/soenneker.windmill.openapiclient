@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_table
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Get_datatable_table_schemaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/get_datatable_table_schema?datatable_name={datatable_name}&schema_name={schema_name}&table_name={table_name}", pathParameters)
+        public Get_datatable_table_schemaRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/get_datatable_table_schema?datatable_name={datatable_name}&schema_name={schema_name}&table_name={table_name}{&role*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_table
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Get_datatable_table_schemaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/get_datatable_table_schema?datatable_name={datatable_name}&schema_name={schema_name}&table_name={table_name}", rawUrl)
+        public Get_datatable_table_schemaRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/get_datatable_table_schema?datatable_name={datatable_name}&schema_name={schema_name}&table_name={table_name}{&role*}", rawUrl)
         {
         }
         /// <summary>
@@ -97,6 +97,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_datatable_table
             [QueryParameter("datatable_name")]
             public string DatatableName { get; set; }
             #pragma warning restore CS1591
+#endif
+            /// <summary>the data table role to read the table as; defaults to the data table&apos;s default role</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("role")]
+            public string? Role { get; set; }
+#nullable restore
+#else
+            [QueryParameter("role")]
+            public string Role { get; set; }
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

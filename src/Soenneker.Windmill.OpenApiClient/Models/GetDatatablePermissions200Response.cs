@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem> AvailableRoles { get; set; }
 #endif
+        /// <summary>for a clone, the data table whose roles it takes</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf? CloneOf { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf CloneOf { get; set; }
+#endif
         /// <summary>The default_role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,6 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "available_roles", n => { AvailableRoles = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "clone_of", n => { CloneOf = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf.CreateFromDiscriminatorValue); } },
                 { "default_role", n => { DefaultRole = n.GetStringValue(); } },
                 { "editable", n => { Editable = n.GetBoolValue(); } },
                 { "governing_workspace_id", n => { GoverningWorkspaceId = n.GetStringValue(); } },
@@ -103,6 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>("available_roles", AvailableRoles);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf>("clone_of", CloneOf);
             writer.WriteStringValue("default_role", DefaultRole);
             writer.WriteBoolValue("editable", Editable);
             writer.WriteStringValue("governing_workspace_id", GoverningWorkspaceId);

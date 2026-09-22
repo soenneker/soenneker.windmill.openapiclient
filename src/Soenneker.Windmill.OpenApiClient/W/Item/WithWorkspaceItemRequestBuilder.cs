@@ -47,6 +47,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Openapi;
 using Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Postgres_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps;
+using Soenneker.Windmill.OpenApiClient.W.Item.Remote_deploy;
 using Soenneker.Windmill.OpenApiClient.W.Item.Resources;
 using Soenneker.Windmill.OpenApiClient.W.Item.Runnables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Schedules;
@@ -299,6 +300,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps.Raw_appsRequestBuilder Raw_apps
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Raw_apps.Raw_appsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The remote_deploy property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Remote_deploy.Remote_deployRequestBuilder Remote_deploy
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Remote_deploy.Remote_deployRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The resources property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Resources.ResourcesRequestBuilder Resources

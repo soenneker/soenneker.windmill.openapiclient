@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>What the fork request copies into `new_dbname`, which it creates — with the owners and grants of a data table under roles. This server refuses an entry without it; servers predating it expect `new_dbname` created and filled beforehand.</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranchRequestForkedDatatablesItemForkBehavior? ForkBehavior { get; set; }
         /// <summary>Datatable name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +57,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "fork_behavior", n => { ForkBehavior = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranchRequestForkedDatatablesItemForkBehavior>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "new_dbname", n => { NewDbname = n.GetStringValue(); } },
             };
@@ -66,6 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranchRequestForkedDatatablesItemForkBehavior>("fork_behavior", ForkBehavior);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("new_dbname", NewDbname);
             writer.WriteAdditionalData(AdditionalData);

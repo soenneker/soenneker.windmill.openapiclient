@@ -14,6 +14,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>whether the role the listing connected as may create schemas</summary>
+        public bool? CanCreateSchema { get; set; }
+        /// <summary>the schemas the role the listing connected as may create in</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? CreatableSchemas { get; set; }
+#nullable restore
+#else
+        public List<string> CreatableSchemas { get; set; }
+#endif
         /// <summary>The datatable_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,6 +31,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string DatatableName { get; set; }
+#endif
+        /// <summary>The default_role property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DefaultRole { get; set; }
+#nullable restore
+#else
+        public string DefaultRole { get; set; }
 #endif
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,6 +48,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Error { get; set; }
 #endif
+        /// <summary>on the instance database, the only kind that can be under roles or have its access edited</summary>
+        public bool? Instance { get; set; }
+        /// <summary>The permissioned property</summary>
+        public bool? Permissioned { get; set; }
         /// <summary>Hierarchical metadata: schema_name -&gt; table_names</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +59,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas Schemas { get; set; }
+#endif
+        /// <summary>the roles the caller may connect as, by name; empty when not under roles</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? UsableRoles { get; set; }
+#nullable restore
+#else
+        public List<string> UsableRoles { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem"/> and sets the default values.
@@ -63,9 +93,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "can_create_schema", n => { CanCreateSchema = n.GetBoolValue(); } },
+                { "creatable_schemas", n => { CreatableSchemas = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "datatable_name", n => { DatatableName = n.GetStringValue(); } },
+                { "default_role", n => { DefaultRole = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
+                { "instance", n => { Instance = n.GetBoolValue(); } },
+                { "permissioned", n => { Permissioned = n.GetBoolValue(); } },
                 { "schemas", n => { Schemas = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas>(global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas.CreateFromDiscriminatorValue); } },
+                { "usable_roles", n => { UsableRoles = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -75,9 +111,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("can_create_schema", CanCreateSchema);
+            writer.WriteCollectionOfPrimitiveValues<string>("creatable_schemas", CreatableSchemas);
             writer.WriteStringValue("datatable_name", DatatableName);
+            writer.WriteStringValue("default_role", DefaultRole);
             writer.WriteStringValue("error", Error);
+            writer.WriteBoolValue("instance", Instance);
+            writer.WriteBoolValue("permissioned", Permissioned);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas>("schemas", Schemas);
+            writer.WriteCollectionOfPrimitiveValues<string>("usable_roles", UsableRoles);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

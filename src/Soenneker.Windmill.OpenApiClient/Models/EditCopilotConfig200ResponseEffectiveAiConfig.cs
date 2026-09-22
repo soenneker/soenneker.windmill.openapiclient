@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigCodeCompletionModel CodeCompletionModel { get; set; }
 #endif
+        /// <summary>Context window in tokens per `provider:model`, overriding the built-in table the AI chat uses to decide when to compact its history.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel? ContextWindowPerModel { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel ContextWindowPerModel { get; set; }
+#endif
         /// <summary>Hides the Windmill AI assistant (chat, sessions, code generation, completion, fixes) from the workspace UI. Read from the workspace&apos;s own settings even when the providers served fall back to the instance config. AI agent steps and the AI sandbox in flows are unaffected.</summary>
         public bool? CopilotDisabled { get; set; }
         /// <summary>The custom_prompts property</summary>
@@ -110,6 +118,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code_completion_model", n => { CodeCompletionModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigCodeCompletionModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigCodeCompletionModel.CreateFromDiscriminatorValue); } },
+                { "context_window_per_model", n => { ContextWindowPerModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel.CreateFromDiscriminatorValue); } },
                 { "copilot_disabled", n => { CopilotDisabled = n.GetBoolValue(); } },
                 { "custom_prompts", n => { CustomPrompts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigCustomPrompts>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigCustomPrompts.CreateFromDiscriminatorValue); } },
                 { "default_model", n => { DefaultModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigDefaultModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigDefaultModel.CreateFromDiscriminatorValue); } },
@@ -130,6 +139,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigCodeCompletionModel>("code_completion_model", CodeCompletionModel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel>("context_window_per_model", ContextWindowPerModel);
             writer.WriteBoolValue("copilot_disabled", CopilotDisabled);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigCustomPrompts>("custom_prompts", CustomPrompts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigDefaultModel>("default_model", DefaultModel);

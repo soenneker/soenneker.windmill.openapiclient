@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tabl
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_datatable_tablesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/list_datatable_tables", pathParameters)
+        public List_datatable_tablesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/list_datatable_tables{?datatable_name*,role*,role_for*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tabl
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_datatable_tablesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/list_datatable_tables", rawUrl)
+        public List_datatable_tablesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/list_datatable_tables{?datatable_name*,role*,role_for*}", rawUrl)
         {
         }
         /// <summary>
@@ -41,11 +41,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tabl
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder.List_datatable_tablesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder.List_datatable_tablesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -59,11 +59,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tabl
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder.List_datatable_tablesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder.List_datatable_tablesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -79,6 +79,43 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tabl
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_datatable_tables.List_datatable_tablesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// list tables of all connected Datatables
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class List_datatable_tablesRequestBuilderGetQueryParameters 
+        {
+            /// <summary>list only this data table; each listed data table opens a connection to its database</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("datatable_name")]
+            public string? DatatableName { get; set; }
+#nullable restore
+#else
+            [QueryParameter("datatable_name")]
+            public string DatatableName { get; set; }
+#endif
+            /// <summary>the role to list `role_for` as; refused, in that entry&apos;s `error`, if the caller may not use it</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("role")]
+            public string? Role { get; set; }
+#nullable restore
+#else
+            [QueryParameter("role")]
+            public string Role { get; set; }
+#endif
+            /// <summary>the data table `role` applies to; every other one is listed as its default role</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("role_for")]
+            public string? RoleFor { get; set; }
+#nullable restore
+#else
+            [QueryParameter("role_for")]
+            public string RoleFor { get; set; }
+#endif
         }
     }
 }

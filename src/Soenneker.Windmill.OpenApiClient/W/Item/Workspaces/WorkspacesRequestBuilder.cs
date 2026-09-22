@@ -21,6 +21,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_pg_database;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_service_account;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_workspace_fork_branch;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Critical_alerts;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_acl;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_migrations_status;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_permissions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_usable_roles;
@@ -213,6 +214,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Critical_alerts.Critical_alertsRequestBuilder Critical_alerts
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Critical_alerts.Critical_alertsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The datatable_acl property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_acl.Datatable_aclRequestBuilder Datatable_acl
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_acl.Datatable_aclRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The datatable_migrations_status property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Datatable_migrations_status.Datatable_migrations_statusRequestBuilder Datatable_migrations_status

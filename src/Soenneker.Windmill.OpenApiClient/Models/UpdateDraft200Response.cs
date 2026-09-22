@@ -16,6 +16,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The current_timestamp property</summary>
         public DateTimeOffset? CurrentTimestamp { get; set; }
+        /// <summary>`saved` only, upsert or delete: where the write landed. Differs from the URL path when the item had moved away from it; the editor follows it there. Absent when a delete found nothing to remove and the caller cannot read the path it moved to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Path { get; set; }
+#nullable restore
+#else
+        public string Path { get; set; }
+#endif
         /// <summary>The status property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraft200ResponseStatus? Status { get; set; }
         /// <summary>
@@ -44,6 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "current_timestamp", n => { CurrentTimestamp = n.GetDateTimeOffsetValue(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraft200ResponseStatus>(); } },
             };
         }
@@ -55,6 +64,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("current_timestamp", CurrentTimestamp);
+            writer.WriteStringValue("path", Path);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraft200ResponseStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -34,6 +34,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The super_admin property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin? SuperAdmin { get; set; }
+        /// <summary>The user_connect property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsUserConnect? UserConnect { get; set; }
         /// <summary>The valid_dbname property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname? ValidDbname { get; set; }
         /// <summary>
@@ -68,6 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "replication_user", n => { ReplicationUser = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser>(); } },
                 { "replication_user_error", n => { ReplicationUserError = n.GetStringValue(); } },
                 { "super_admin", n => { SuperAdmin = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin>(); } },
+                { "user_connect", n => { UserConnect = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsUserConnect>(); } },
                 { "valid_dbname", n => { ValidDbname = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname>(); } },
             };
         }
@@ -85,6 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser>("replication_user", ReplicationUser);
             writer.WriteStringValue("replication_user_error", ReplicationUserError);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin>("super_admin", SuperAdmin);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsUserConnect>("user_connect", UserConnect);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname>("valid_dbname", ValidDbname);
             writer.WriteAdditionalData(AdditionalData);
         }

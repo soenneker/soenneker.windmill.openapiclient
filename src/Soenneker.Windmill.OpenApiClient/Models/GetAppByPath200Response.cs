@@ -48,6 +48,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseDraft Draft { get; set; }
 #endif
+        /// <summary>The deployed version the draft forked from, as text whatever thekind (script hash, flow version id, app version id). Compare to thedeployed head to tell a draft that is behind. Absent when there isno draft or it was never forked from a deploy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DraftBase { get; set; }
+#nullable restore
+#else
+        public string DraftBase { get; set; }
+#endif
         /// <summary>The draft_saved_at property</summary>
         public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>The execution_mode property</summary>
@@ -162,6 +170,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "custom_path", n => { CustomPath = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseDraft.CreateFromDiscriminatorValue); } },
+                { "draft_base", n => { DraftBase = n.GetStringValue(); } },
                 { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "execution_mode", n => { ExecutionMode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseExecutionMode>(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
@@ -191,6 +200,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("custom_path", CustomPath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseDraft>("draft", Draft);
+            writer.WriteStringValue("draft_base", DraftBase);
             writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseExecutionMode>("execution_mode", ExecutionMode);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAppByPath200ResponseExtraPerms>("extra_perms", ExtraPerms);

@@ -14,8 +14,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>return a /user/login_link page that signs in only when its button is clicked, instead of a link spent by opening it; set it for links sent by email, which mail scanners open on delivery (default false)</summary>
-        public bool? Confirm { get; set; }
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>link lifetime in seconds, at most 7200 (default 600)</summary>
+        /// <summary>link lifetime in seconds, at most 900 (default 600)</summary>
         public int? ExpiresInS { get; set; }
         /// <summary>same-origin path the browser lands on after login (default /user/workspaces)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +65,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "confirm", n => { Confirm = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "expires_in_s", n => { ExpiresInS = n.GetIntValue(); } },
                 { "rd", n => { Rd = n.GetStringValue(); } },
@@ -81,7 +78,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("confirm", Confirm);
             writer.WriteStringValue("email", Email);
             writer.WriteIntValue("expires_in_s", ExpiresInS);
             writer.WriteStringValue("rd", Rd);

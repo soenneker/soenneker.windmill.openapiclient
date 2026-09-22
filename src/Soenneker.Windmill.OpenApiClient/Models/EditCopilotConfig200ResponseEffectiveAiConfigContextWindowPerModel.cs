@@ -7,37 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// Context window in tokens per `provider:model`, overriding the built-in table the AI chat uses to decide when to compact its history.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ConfirmLoginLink200Response : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The location property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Location { get; set; }
-#nullable restore
-#else
-        public string Location { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ConfirmLoginLink200Response"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel"/> and sets the default values.
         /// </summary>
-        public ConfirmLoginLink200Response()
+        public EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ConfirmLoginLink200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Windmill.OpenApiClient.Models.ConfirmLoginLink200Response CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ConfirmLoginLink200Response();
+            return new global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfigContextWindowPerModel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +40,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "location", n => { Location = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +49,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("location", Location);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

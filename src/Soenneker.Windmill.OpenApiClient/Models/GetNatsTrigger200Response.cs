@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft Draft { get; set; }
 #endif
+        /// <summary>The deployed version the draft forked from, as text whatever thekind (script hash, flow version id, app version id). Compare to thedeployed head to tell a draft that is behind. Absent when there isno draft or it was never forked from a deploy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DraftBase { get; set; }
+#nullable restore
+#else
+        public string DraftBase { get; set; }
+#endif
         /// <summary>True when this row is a per-user draft with no deployedtrigger at the same path. Set by list endpoints when`include_draft_only=true` synthesizes the row from thedraft. Frontend renders a &quot;Draft&quot; badge.</summary>
         public bool? DraftOnly { get; set; }
         /// <summary>The draft_saved_at property</summary>
@@ -203,6 +211,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "consumer_name", n => { ConsumerName = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft.CreateFromDiscriminatorValue); } },
+                { "draft_base", n => { DraftBase = n.GetStringValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
@@ -239,6 +248,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("consumer_name", ConsumerName);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft>("draft", Draft);
+            writer.WriteStringValue("draft_base", DraftBase);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);

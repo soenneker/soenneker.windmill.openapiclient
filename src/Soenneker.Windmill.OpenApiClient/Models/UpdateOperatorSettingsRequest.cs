@@ -22,6 +22,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? Folders { get; set; }
         /// <summary>Whether operators can view groups page</summary>
         public bool? Groups { get; set; }
+        /// <summary>Whether operators can create, edit and delete schedules. Granted unless withdrawn; omitting the field leaves the stored value unchanged.</summary>
+        public bool? ManageSchedules { get; set; }
+        /// <summary>Whether operators can create, edit and delete triggers. Granted unless withdrawn; omitting the field leaves the stored value unchanged.</summary>
+        public bool? ManageTriggers { get; set; }
         /// <summary>Whether operators can view resources</summary>
         public bool? Resources { get; set; }
         /// <summary>Whether operators can view runs</summary>
@@ -63,6 +67,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "audit_logs", n => { AuditLogs = n.GetBoolValue(); } },
                 { "folders", n => { Folders = n.GetBoolValue(); } },
                 { "groups", n => { Groups = n.GetBoolValue(); } },
+                { "manage_schedules", n => { ManageSchedules = n.GetBoolValue(); } },
+                { "manage_triggers", n => { ManageTriggers = n.GetBoolValue(); } },
                 { "resources", n => { Resources = n.GetBoolValue(); } },
                 { "runs", n => { Runs = n.GetBoolValue(); } },
                 { "schedules", n => { Schedules = n.GetBoolValue(); } },
@@ -82,6 +88,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("audit_logs", AuditLogs);
             writer.WriteBoolValue("folders", Folders);
             writer.WriteBoolValue("groups", Groups);
+            writer.WriteBoolValue("manage_schedules", ManageSchedules);
+            writer.WriteBoolValue("manage_triggers", ManageTriggers);
             writer.WriteBoolValue("resources", Resources);
             writer.WriteBoolValue("runs", Runs);
             writer.WriteBoolValue("schedules", Schedules);

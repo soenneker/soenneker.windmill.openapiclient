@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// String. Names the memory this step reads and writes, overriding the memory id the runwas started with (the chat conversation, an app chat session or the `memory_id` runparameter). Leave unset to use the run&apos;s memory id. A fixed value shares one memoryacross every run; an expression such as `flow_input.customer_id` keeps one memory perkey. When it evaluates to an empty value the agent runs without memory. Read onlywhile `memory` is `window`: it is ignored when memory is off, and an older `auto` or`manual` memory reads neither history input.
+    /// String. Names the memory this step reads and writes, overriding the memory id the runwas started with (the chat conversation, an app chat session or the `memory_id` runparameter). Leave unset to use the run&apos;s memory id. A fixed value shares one memoryacross every run; an expression such as `flow_input.customer_id` keeps one memory perkey. When it evaluates to an empty value the agent runs without memory. Read onlywhile `memory` is `window` or `compaction`: it is ignored when memory is off, and anolder `auto` or `manual` memory reads neither history input.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFlowRequestValueFailureModuleValueOneOf9InputTransformsMemoryId : IAdditionalDataHolder, IParsable

@@ -16,5 +16,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Instance,
         #pragma warning restore CS1591
+        [EnumMember(Value = "external_instance")]
+        #pragma warning disable CS1591
+        ExternalInstance,
+        #pragma warning restore CS1591
     }
 }

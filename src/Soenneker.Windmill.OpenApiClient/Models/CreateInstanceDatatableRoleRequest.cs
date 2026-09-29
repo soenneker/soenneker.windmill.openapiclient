@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The Windmill-managed Postgres cluster a data table role is a login on: Windmill&apos;s own (behind `instance` data tables) or the external instance cluster (behind `external_instance` ones). Defaults to `instance`.</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRoleRequestCluster? Cluster { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "cluster", n => { Cluster = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRoleRequestCluster>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -57,6 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRoleRequestCluster>("cluster", Cluster);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

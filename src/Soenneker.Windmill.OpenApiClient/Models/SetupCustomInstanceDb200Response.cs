@@ -34,13 +34,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? Success { get; set; }
         /// <summary>The tag property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseTag? Tag { get; set; }
-        /// <summary>Workspaces that reference this database via a ducklake catalog or datatable database with resource_type &apos;instance&apos;. Computed at request time, not persisted.</summary>
+        /// <summary>Workspaces that reference this database through a ducklake catalog or a datatable database of the kind being listed — &apos;instance&apos; for the instance databases endpoint, &apos;external_instance&apos; for the external cluster one. Computed at request time, not persisted, and only returned to superadmins.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? UsedByWorkspaces { get; set; }
 #nullable restore
 #else
         public List<string> UsedByWorkspaces { get; set; }
+#endif
+        /// <summary>The workspace a member created this database for as a fork copy. Only that workspace can import into it or point a fork at it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkspaceId { get; set; }
+#nullable restore
+#else
+        public string WorkspaceId { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200Response"/> and sets the default values.
@@ -72,6 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "success", n => { Success = n.GetBoolValue(); } },
                 { "tag", n => { Tag = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseTag>(); } },
                 { "used_by_workspaces", n => { UsedByWorkspaces = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -86,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("success", Success);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseTag>("tag", Tag);
             writer.WriteCollectionOfPrimitiveValues<string>("used_by_workspaces", UsedByWorkspaces);
+            writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

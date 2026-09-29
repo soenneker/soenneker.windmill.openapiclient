@@ -47,7 +47,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueModulesItemValueOneOf9InputTransformsMemory Memory { get; set; }
 #endif
-        /// <summary>String. Names the memory this step reads and writes, overriding the memory id the runwas started with (the chat conversation, an app chat session or the `memory_id` runparameter). Leave unset to use the run&apos;s memory id. A fixed value shares one memoryacross every run; an expression such as `flow_input.customer_id` keeps one memory perkey. When it evaluates to an empty value the agent runs without memory. Read onlywhile `memory` is `window`: it is ignored when memory is off, and an older `auto` or`manual` memory reads neither history input.</summary>
+        /// <summary>String. Names the memory this step reads and writes, overriding the memory id the runwas started with (the chat conversation, an app chat session or the `memory_id` runparameter). Leave unset to use the run&apos;s memory id. A fixed value shares one memoryacross every run; an expression such as `flow_input.customer_id` keeps one memory perkey. When it evaluates to an empty value the agent runs without memory. Read onlywhile `memory` is `window` or `compaction`: it is ignored when memory is off, and anolder `auto` or `manual` memory reads neither history input.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueModulesItemValueOneOf9InputTransformsMemoryId? MemoryId { get; set; }

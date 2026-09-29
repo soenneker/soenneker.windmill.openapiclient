@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>Type of note - &apos;free&apos; for standalone notes, &apos;group&apos; for notes that group other nodes</summary>
+    /// <summary>Type of note - &apos;free&apos; for standalone notes. &apos;group&apos; notes are deprecated; segment a flow with FlowValue.groups instead.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ListCompletedJobs200ResponseItemRawFlowNotesItemType
     {

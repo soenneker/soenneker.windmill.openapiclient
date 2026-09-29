@@ -112,6 +112,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> Labels { get; set; }
 #endif
+        /// <summary>latest missed occurrence, kept after the schedule runs on time again; past 1000 misses in one late run, when the miss was detected, at most one period later</summary>
+        public DateTimeOffset? LastMissedAt { get; set; }
+        /// <summary>runs in a row, up to the latest, that started or finished after the next occurrence was due, so that occurrence was missed</summary>
+        public int? LateRunStreak { get; set; }
+        /// <summary>occurrences missed by the latest streak of late runs, kept after it ends; a lower bound once a single late run misses 1000</summary>
+        public int? MissedOccurrences { get; set; }
         /// <summary>If true, skip this schedule&apos;s execution if the previous run is still in progress (prevents concurrent runs)</summary>
         public bool? NoFlowOverlap { get; set; }
         /// <summary>Path to a script or flow to run when the scheduled job fails</summary>
@@ -277,6 +283,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemJobsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemJobsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "last_missed_at", n => { LastMissedAt = n.GetDateTimeOffsetValue(); } },
+                { "late_run_streak", n => { LateRunStreak = n.GetIntValue(); } },
+                { "missed_occurrences", n => { MissedOccurrences = n.GetIntValue(); } },
                 { "no_flow_overlap", n => { NoFlowOverlap = n.GetBoolValue(); } },
                 { "on_failure", n => { OnFailure = n.GetStringValue(); } },
                 { "on_failure_exact", n => { OnFailureExact = n.GetBoolValue(); } },
@@ -322,6 +331,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedulesWithJobs200ResponseItemJobsItem>("jobs", Jobs);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
+            writer.WriteDateTimeOffsetValue("last_missed_at", LastMissedAt);
+            writer.WriteIntValue("late_run_streak", LateRunStreak);
+            writer.WriteIntValue("missed_occurrences", MissedOccurrences);
             writer.WriteBoolValue("no_flow_overlap", NoFlowOverlap);
             writer.WriteStringValue("on_failure", OnFailure);
             writer.WriteBoolValue("on_failure_exact", OnFailureExact);

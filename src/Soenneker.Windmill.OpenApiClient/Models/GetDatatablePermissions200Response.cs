@@ -30,6 +30,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf CloneOf { get; set; }
 #endif
+        /// <summary>The Windmill-managed Postgres cluster a data table role is a login on: Windmill&apos;s own (behind `instance` data tables) or the external instance cluster (behind `external_instance` ones). Defaults to `instance`.</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster? Cluster { get; set; }
         /// <summary>The default_role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem> Roles { get; set; }
 #endif
-        /// <summary>Whether this data table can be put under roles at all. Only one backed by the instance database can: a role is a login on that cluster.</summary>
+        /// <summary>Whether this data table can be put under roles at all. Only one on a database Windmill manages can: a role is a login on that database&apos;s cluster.</summary>
         public bool? Supported { get; set; }
         /// <summary>The ungoverned_reachers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,6 +97,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "available_roles", n => { AvailableRoles = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "clone_of", n => { CloneOf = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf.CreateFromDiscriminatorValue); } },
+                { "cluster", n => { Cluster = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster>(); } },
                 { "default_role", n => { DefaultRole = n.GetStringValue(); } },
                 { "editable", n => { Editable = n.GetBoolValue(); } },
                 { "governing_workspace_id", n => { GoverningWorkspaceId = n.GetStringValue(); } },
@@ -113,6 +116,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>("available_roles", AvailableRoles);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf>("clone_of", CloneOf);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster>("cluster", Cluster);
             writer.WriteStringValue("default_role", DefaultRole);
             writer.WriteBoolValue("editable", Editable);
             writer.WriteStringValue("governing_workspace_id", GoverningWorkspaceId);

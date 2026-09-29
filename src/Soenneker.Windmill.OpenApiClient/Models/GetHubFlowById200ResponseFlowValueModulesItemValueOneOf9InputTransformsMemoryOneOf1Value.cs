@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1Value : IComposedTypeWrapper, IParsable
@@ -45,6 +45,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5? GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5 GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,6 +87,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4.GetFieldDeserializers();
             }
+            else if(GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5 != null)
+            {
+                return GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -103,6 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if(GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4>(null, GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4);
+            }
+            else if(GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5>(null, GetHubFlowById200ResponseFlowValueModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf5);
             }
         }
     }

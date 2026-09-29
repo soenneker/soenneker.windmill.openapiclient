@@ -9,11 +9,13 @@ using Soenneker.Windmill.OpenApiClient.Settings.Critical_alerts;
 using Soenneker.Windmill.OpenApiClient.Settings.Customer_portal;
 using Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles;
 using Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database;
+using Soenneker.Windmill.OpenApiClient.Settings.External_instance_pg;
 using Soenneker.Windmill.OpenApiClient.Settings.Get_stats;
 using Soenneker.Windmill.OpenApiClient.Settings.Github_app_stale_webhooks;
 using Soenneker.Windmill.OpenApiClient.Settings.Global;
 using Soenneker.Windmill.OpenApiClient.Settings.Instance_config;
 using Soenneker.Windmill.OpenApiClient.Settings.Instance_hash;
+using Soenneker.Windmill.OpenApiClient.Settings.Instance_ui;
 using Soenneker.Windmill.OpenApiClient.Settings.Latest_key_renewal_attempt;
 using Soenneker.Windmill.OpenApiClient.Settings.List_custom_instance_pg_databases;
 using Soenneker.Windmill.OpenApiClient.Settings.List_global;
@@ -87,6 +89,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Drop_custom_instance_pg_database.Drop_custom_instance_pg_databaseRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The external_instance_pg property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.External_instance_pg.External_instance_pgRequestBuilder External_instance_pg
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.External_instance_pg.External_instance_pgRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The get_stats property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Get_stats.Get_statsRequestBuilder Get_stats
         {
@@ -111,6 +118,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Instance_hash.Instance_hashRequestBuilder Instance_hash
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Instance_hash.Instance_hashRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The instance_ui property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Instance_ui.Instance_uiRequestBuilder Instance_ui
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Instance_ui.Instance_uiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The latest_key_renewal_attempt property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Latest_key_renewal_attempt.Latest_key_renewal_attemptRequestBuilder Latest_key_renewal_attempt

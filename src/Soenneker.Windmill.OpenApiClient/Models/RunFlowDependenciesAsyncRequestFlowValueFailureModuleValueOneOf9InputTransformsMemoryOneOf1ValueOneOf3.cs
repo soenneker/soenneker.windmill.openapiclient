@@ -8,26 +8,17 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Deprecated, still read as it was written: the run&apos;s memory id, else the `memory_id` here.The step&apos;s own `memory_id` is not read while this kind is set; switch the kind to `window`to use it. Without a `context_length`, or with 0, it is `off` and reads `previous_messages`.
+    /// Keeps the whole memory named by the run&apos;s memory id (or the step&apos;s `memory_id`), replacingits older part with a summary as the conversation approaches the model&apos;s context window.Without a memory id the agent runs without memory, and compaction bounds the run&apos;s own loop.
     /// </summary>
-    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3 : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Maximum number of messages to retain in context</summary>
-        public int? ContextLength { get; set; }
+        /// <summary>Overrides the context window looked up from the model, in tokens. Only a modelWindmill does not know needs one; those fall back to 128000.</summary>
+        public int? ContextWindow { get; set; }
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.AutoKind? Kind { get; set; }
-        /// <summary>Identifier for persistent memory across agent invocations</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? MemoryId { get; set; }
-#nullable restore
-#else
-        public string MemoryId { get; set; }
-#endif
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompactionKind? Kind { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueFailureModuleValueOneOf9InputTransformsMemoryOneOf1ValueOneOf3"/> and sets the default values.
         /// </summary>
@@ -53,9 +44,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "context_length", n => { ContextLength = n.GetIntValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AutoKind>(); } },
-                { "memory_id", n => { MemoryId = n.GetStringValue(); } },
+                { "context_window", n => { ContextWindow = n.GetIntValue(); } },
+                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompactionKind>(); } },
             };
         }
         /// <summary>
@@ -65,9 +55,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("context_length", ContextLength);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AutoKind>("kind", Kind);
-            writer.WriteStringValue("memory_id", MemoryId);
+            writer.WriteIntValue("context_window", ContextWindow);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompactionKind>("kind", Kind);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

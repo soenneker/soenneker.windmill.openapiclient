@@ -35,7 +35,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Datatable_rolesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/datatable_roles", pathParameters)
+        public Datatable_rolesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/datatable_roles{?cluster*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,22 +43,22 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Datatable_rolesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/datatable_roles", rawUrl)
+        public Datatable_rolesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/datatable_roles{?cluster*}", rawUrl)
         {
         }
         /// <summary>
-        /// list the instance&apos;s data table roles
+        /// list the data table roles of one Windmill-managed Postgres cluster
         /// </summary>
         /// <returns>A List&lt;global::Soenneker.Windmill.OpenApiClient.Models.ListInstanceDatatableRoles200ResponseSchemaItem&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListInstanceDatatableRoles200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListInstanceDatatableRoles200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder.Datatable_rolesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListInstanceDatatableRoles200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListInstanceDatatableRoles200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder.Datatable_rolesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -66,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles
             return collectionResult?.AsList();
         }
         /// <summary>
-        /// create a data table role on the instance&apos;s Postgres cluster
+        /// create a data table role on a Windmill-managed Postgres cluster
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRole200Response"/></returns>
         /// <param name="body">The request body</param>
@@ -86,17 +86,17 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRole200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRole200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// list the instance&apos;s data table roles
+        /// list the data table roles of one Windmill-managed Postgres cluster
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder.Datatable_rolesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder.Datatable_rolesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -105,7 +105,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles
             return requestInfo;
         }
         /// <summary>
-        /// create a data table role on the instance&apos;s Postgres cluster
+        /// create a data table role on a Windmill-managed Postgres cluster
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -134,6 +134,17 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles
         public global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Windmill.OpenApiClient.Settings.Datatable_roles.Datatable_rolesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// list the data table roles of one Windmill-managed Postgres cluster
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Datatable_rolesRequestBuilderGetQueryParameters 
+        {
+            #pragma warning disable CS1591
+            [QueryParameter("cluster")]
+            public global::Soenneker.Windmill.OpenApiClient.Models.ListInstanceDatatableRolesClusterParameter? Cluster { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

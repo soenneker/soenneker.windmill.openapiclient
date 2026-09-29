@@ -56,6 +56,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_webhook;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Enable_datatable_migrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Encryption_key;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Export_pg_schema;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Fork_creation_status;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Generate_initial_datatable_migration;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_as_superadmin;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Get_copilot_info;
@@ -389,6 +390,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Export_pg_schema.Export_pg_schemaRequestBuilder Export_pg_schema
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Export_pg_schema.Export_pg_schemaRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The fork_creation_status property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Fork_creation_status.Fork_creation_statusRequestBuilder Fork_creation_status
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Fork_creation_status.Fork_creation_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The generate_initial_datatable_migration property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Generate_initial_datatable_migration.Generate_initial_datatable_migrationRequestBuilder Generate_initial_datatable_migration

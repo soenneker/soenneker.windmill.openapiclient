@@ -184,7 +184,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public int? Priority { get; set; }
         /// <summary>The restart_unless_cancelled property</summary>
         public bool? RestartUnlessCancelled { get; set; }
-        /// <summary>The schema property</summary>
+        /// <summary>JSON Schema of the arguments of `main`, which is what a run form and an MCP tool offer. Omitted (or `{}`), it is inferred from `content` for TypeScript, Python, Go, Bash, PowerShell, SQL, GraphQL and Ansible scripts. For other languages, or code that does not parse, a new script gets none. A new version of an existing script also keeps what the previous version&apos;s schema says about each argument, or that whole schema when nothing can be inferred. A dbt script always takes its schema from its descriptor, whatever is sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScriptRequestSchema? Schema { get; set; }

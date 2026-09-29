@@ -15,7 +15,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Color of the note (e.g., &quot;yellow&quot;, &quot;#ffff00&quot;)</summary>
+        /// <summary>Color of the note, one of: yellow, blue, green, purple, pink, orange, red, cyan, lime, gray. Any other value renders unstyled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Color { get; set; }
@@ -65,7 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Text { get; set; }
 #endif
-        /// <summary>Type of note - &apos;free&apos; for standalone notes, &apos;group&apos; for notes that group other nodes</summary>
+        /// <summary>Type of note - &apos;free&apos; for standalone notes. &apos;group&apos; notes are deprecated; segment a flow with FlowValue.groups instead.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueNotesItemType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowDependenciesAsyncRequestFlowValueNotesItem"/> and sets the default values.

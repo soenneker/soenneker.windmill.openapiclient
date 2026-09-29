@@ -17,7 +17,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, this group is collapsed by default in the flow editor. UI hint only.</summary>
         public bool? Autocollapse { get; set; }
-        /// <summary>Color for the group in the flow editor</summary>
+        /// <summary>Color for the group in the flow editor, one of: yellow, blue, green, purple, pink, orange, red, cyan, lime, gray. Omit it to let the editor pick one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Color { get; set; }

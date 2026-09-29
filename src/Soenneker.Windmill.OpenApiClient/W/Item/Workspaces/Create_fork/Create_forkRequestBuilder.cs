@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Create_forkRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/create_fork", pathParameters)
+        public Create_forkRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/create_fork{?background*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Create_forkRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/create_fork", rawUrl)
+        public Create_forkRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/create_fork{?background*}", rawUrl)
         {
         }
         /// <summary>
@@ -42,11 +42,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string?> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork.Create_forkRequestBuilder.Create_forkRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<string> PostAsync(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork.Create_forkRequestBuilder.Create_forkRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,11 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork.Create_forkRequestBuilder.Create_forkRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequest body, Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork.Create_forkRequestBuilder.Create_forkRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -83,6 +83,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork.Create_forkRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Create_fork.Create_forkRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// create forked workspace
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Create_forkRequestBuilderPostQueryParameters 
+        {
+            /// <summary>return once the request is validated and create the fork in the background, answeringwith the creation id getForkCreationStatus reads</summary>
+            [QueryParameter("background")]
+            public bool? Background { get; set; }
         }
     }
 }

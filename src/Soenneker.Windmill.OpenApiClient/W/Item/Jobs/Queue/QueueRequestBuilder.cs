@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Import;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List_filtered_uuids;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Run_now;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Scheduled_for;
 using System.Collections.Generic;
 using System.IO;
@@ -56,6 +57,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.PositionRequestBuilder Position
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Position.PositionRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The run_now property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Run_now.Run_nowRequestBuilder Run_now
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Run_now.Run_nowRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The scheduled_for property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.Scheduled_for.Scheduled_forRequestBuilder Scheduled_for

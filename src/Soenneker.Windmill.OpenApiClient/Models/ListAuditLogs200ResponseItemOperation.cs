@@ -60,6 +60,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         JobsForceCancel,
         #pragma warning restore CS1591
+        [EnumMember(Value = "jobs.run_now")]
+        #pragma warning disable CS1591
+        JobsRunNow,
+        #pragma warning restore CS1591
         [EnumMember(Value = "jobs.disapproval")]
         #pragma warning disable CS1591
         JobsDisapproval,

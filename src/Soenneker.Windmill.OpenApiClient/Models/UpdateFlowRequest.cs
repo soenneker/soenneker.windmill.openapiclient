@@ -32,6 +32,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>Scopes the token of every job of this runnable is restricted to (domain:action[:resource], e.g. oidc:write). Jobs it starts, flow steps and AI agent tools inherit the restriction. Unset, the job token carries the full permissions of the identity the job runs as; an empty list leaves it no API access beyond its own job. Omitting the field keeps the deployed value; null clears it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? JobTokenScopes { get; set; }
+#nullable restore
+#else
+        public List<string> JobTokenScopes { get; set; }
+#endif
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,6 +144,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "dedicated_worker", n => { DedicatedWorker = n.GetBoolValue(); } },
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
@@ -162,6 +171,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("dedicated_worker", DedicatedWorker);
             writer.WriteStringValue("deployment_message", DeploymentMessage);
             writer.WriteStringValue("description", Description);
+            writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);

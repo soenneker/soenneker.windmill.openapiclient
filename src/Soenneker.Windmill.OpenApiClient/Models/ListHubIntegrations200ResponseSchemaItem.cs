@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>whether the integration carries provider knowledge checked against the live API, on top of the resource type and example scripts /integrations/hub/{app}/meta returns for any integration. Absent on a hub predating the flag.</summary>
+        public bool? Documented { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,6 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
+                { "documented", n => { Documented = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "picks", n => { Picks = n.GetIntValue(); } },
             };
@@ -70,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("display_name", DisplayName);
+            writer.WriteBoolValue("documented", Documented);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("picks", Picks);
             writer.WriteAdditionalData(AdditionalData);

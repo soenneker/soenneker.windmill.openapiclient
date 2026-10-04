@@ -31,6 +31,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Scopes the token of this tool&apos;s jobs is restricted to, on top of the agent step&apos;s own restriction: a tool can only narrow it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? JobTokenScopes { get; set; }
+#nullable restore
+#else
+        public List<string> JobTokenScopes { get; set; }
+#endif
         /// <summary>The name the AI agent calls this tool by, not a human label. On a flowmodule tool it must match ^[a-zA-Z0-9_]+$ - letters, numbers and underscores only (e.g. &apos;search_documentation&apos;, not &apos;Search documentation&apos;) - and always be set; on an mcp or websearch tool it is a plain label. Put the human-readable explanation in &apos;description&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9ToolsItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9ToolsItemValue.CreateFromDiscriminatorValue); } },
             };
@@ -87,6 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
             writer.WriteStringValue("summary", Summary);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValuePreprocessorModuleValueOneOf9ToolsItemValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);

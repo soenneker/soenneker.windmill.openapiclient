@@ -24,6 +24,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The ask_id property</summary>
         public double? AskId { get; set; }
+        /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
         /// <summary>The id property</summary>
         public double? Id { get; set; }
         /// <summary>The kind property</summary>
@@ -69,6 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "app", n => { App = n.GetStringValue(); } },
                 { "ask_id", n => { AskId = n.GetDoubleValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetDoubleValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItemKind>(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
@@ -86,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("app", App);
             writer.WriteDoubleValue("ask_id", AskId);
+            writer.WriteStringValue("description", Description);
             writer.WriteDoubleValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItemKind>("kind", Kind);
             writer.WriteStringValue("summary", Summary);

@@ -16,6 +16,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public double? Account { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>For an `ai_agent` resource only, its `memory` setting: the one partof the value a listing returns, since it decides whether the agentkeeps a conversation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory? AgentMemory { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory AgentMemory { get; set; }
+#endif
         /// <summary>The created_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +58,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>True when this row is a per-user draft with no deployedresource at the same path. Frontend renders a &quot;Draft&quot; badge.</summary>
         public bool? DraftOnly { get; set; }
+        /// <summary>On a draft-only row, the path its editor has staged when itdiffers from the storage path (e.g. a never-deployed item parked at`u/{user}/draft_{uuid}`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DraftPath { get; set; }
+#nullable restore
+#else
+        public string DraftPath { get; set; }
+#endif
         /// <summary>The draft_saved_at property</summary>
         public DateTimeOffset? DraftSavedAt { get; set; }
         /// <summary>The edited_at property</summary>
@@ -166,11 +182,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account", n => { Account = n.GetDoubleValue(); } },
+                { "agent_memory", n => { AgentMemory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory>(global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft.CreateFromDiscriminatorValue); } },
                 { "draft_base", n => { DraftBase = n.GetStringValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
+                { "draft_path", n => { DraftPath = n.GetStringValue(); } },
                 { "draft_saved_at", n => { DraftSavedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
@@ -199,11 +217,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("account", Account);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory>("agent_memory", AgentMemory);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft>("draft", Draft);
             writer.WriteStringValue("draft_base", DraftBase);
             writer.WriteBoolValue("draft_only", DraftOnly);
+            writer.WriteStringValue("draft_path", DraftPath);
             writer.WriteDateTimeOffsetValue("draft_saved_at", DraftSavedAt);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseExtraPerms>("extra_perms", ExtraPerms);

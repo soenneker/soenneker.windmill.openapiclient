@@ -54,6 +54,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> InheritedLabels { get; set; }
 #endif
+        /// <summary>Scopes the token of every job of this runnable is restricted to (domain:action[:resource], e.g. oidc:write). Jobs it starts, flow steps and AI agent tools inherit the restriction. Unset, the job token carries the full permissions of the identity the job runs as; an empty list leaves it no API access beyond its own job.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? JobTokenScopes { get; set; }
+#nullable restore
+#else
+        public List<string> JobTokenScopes { get; set; }
+#endif
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -179,6 +187,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "lock_error_logs", n => { LockErrorLogs = n.GetStringValue(); } },
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
@@ -212,6 +221,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
+            writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("lock_error_logs", LockErrorLogs);
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);

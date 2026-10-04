@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Batch_rerun_jobs;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies_async;
@@ -25,6 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The agent property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent.AgentRequestBuilder Agent
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent.AgentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The batch_rerun_jobs property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Batch_rerun_jobs.Batch_rerun_jobsRequestBuilder Batch_rerun_jobs
         {

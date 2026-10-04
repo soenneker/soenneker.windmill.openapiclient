@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Integrations.Hub.Item;
 using Soenneker.Windmill.OpenApiClient.Integrations.Hub.List;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,18 @@ namespace Soenneker.Windmill.OpenApiClient.Integrations.Hub
         public global::Soenneker.Windmill.OpenApiClient.Integrations.Hub.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Integrations.Hub.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.integrations.hub.item collection</summary>
+        /// <param name="position">integration slug</param>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Integrations.Hub.Item.WithAppItemRequestBuilder"/></returns>
+        public global::Soenneker.Windmill.OpenApiClient.Integrations.Hub.Item.WithAppItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("app", position);
+                return new global::Soenneker.Windmill.OpenApiClient.Integrations.Hub.Item.WithAppItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Integrations.Hub.HubRequestBuilder"/> and sets the default values.

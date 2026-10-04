@@ -39,6 +39,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Scopes the token of this step&apos;s jobs is restricted to (domain:action[:resource], e.g. oidc:write), on top of the flow&apos;s own restriction: a step can only narrow it. Applies to everything the step runs (loop and branch bodies, AI agent tools).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? JobTokenScopes { get; set; }
+#nullable restore
+#else
+        public List<string> JobTokenScopes { get; set; }
+#endif
         /// <summary>Mock configuration for testing without executing the actual step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -152,6 +160,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "debouncing", n => { Debouncing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleDebouncing>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleDebouncing.CreateFromDiscriminatorValue); } },
                 { "delete_after_secs", n => { DeleteAfterSecs = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "mock", n => { Mock = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleMock>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleMock.CreateFromDiscriminatorValue); } },
                 { "priority", n => { Priority = n.GetDoubleValue(); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleRetry.CreateFromDiscriminatorValue); } },
@@ -178,6 +187,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleDebouncing>("debouncing", Debouncing);
             writer.WriteIntValue("delete_after_secs", DeleteAfterSecs);
             writer.WriteStringValue("id", Id);
+            writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleMock>("mock", Mock);
             writer.WriteDoubleValue("priority", Priority);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1RawFlowPreprocessorModuleRetry>("retry", Retry);

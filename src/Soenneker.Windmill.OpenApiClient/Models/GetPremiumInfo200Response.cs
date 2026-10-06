@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>the team plan was canceled this month; it stays premium until the month ends, capped at max_tolerated_executions</summary>
+        public bool? IsCanceled { get; set; }
         /// <summary>The is_past_due property</summary>
         public bool? IsPastDue { get; set; }
         /// <summary>The max_tolerated_executions property</summary>
@@ -63,6 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "is_canceled", n => { IsCanceled = n.GetBoolValue(); } },
                 { "is_past_due", n => { IsPastDue = n.GetBoolValue(); } },
                 { "max_tolerated_executions", n => { MaxToleratedExecutions = n.GetDoubleValue(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
@@ -78,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("is_canceled", IsCanceled);
             writer.WriteBoolValue("is_past_due", IsPastDue);
             writer.WriteDoubleValue("max_tolerated_executions", MaxToleratedExecutions);
             writer.WriteStringValue("owner", Owner);

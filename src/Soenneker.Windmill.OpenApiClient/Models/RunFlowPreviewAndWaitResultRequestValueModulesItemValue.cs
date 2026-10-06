@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf9"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunFlowPreviewAndWaitResultRequestValueModulesItemValue : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1 RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10? RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10 RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1.GetFieldDeserializers();
             }
+            else if(RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10 != null)
+            {
+                return RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10.GetFieldDeserializers();
+            }
             else if(RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf2 != null)
             {
                 return RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf2.GetFieldDeserializers();
@@ -151,6 +163,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1>(null, RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf1);
+            }
+            else if(RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10>(null, RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf10);
             }
             else if(RunFlowPreviewAndWaitResultRequestValueModulesItemValueOneOf2 != null)
             {

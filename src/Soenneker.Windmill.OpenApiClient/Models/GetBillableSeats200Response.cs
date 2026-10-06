@@ -20,6 +20,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public int? Operators { get; set; }
         /// <summary>The seats property</summary>
         public int? Seats { get; set; }
+        /// <summary>Enabled service accounts, half a seat each like operators. Omitted when the seats counted are another workspace&apos;s, as they are for a fork resolving to its billing root.</summary>
+        public int? ServiceAccounts { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetBillableSeats200Response"/> and sets the default values.
         /// </summary>
@@ -48,6 +50,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "developers", n => { Developers = n.GetIntValue(); } },
                 { "operators", n => { Operators = n.GetIntValue(); } },
                 { "seats", n => { Seats = n.GetIntValue(); } },
+                { "service_accounts", n => { ServiceAccounts = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -60,6 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("developers", Developers);
             writer.WriteIntValue("operators", Operators);
             writer.WriteIntValue("seats", Seats);
+            writer.WriteIntValue("service_accounts", ServiceAccounts);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

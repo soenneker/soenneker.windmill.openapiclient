@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf9"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf10"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFlowRequestValueFailureModuleValue : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf1 CreateFlowRequestValueFailureModuleValueOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf10? CreateFlowRequestValueFailureModuleValueOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf10 CreateFlowRequestValueFailureModuleValueOneOf10 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return CreateFlowRequestValueFailureModuleValueOneOf1.GetFieldDeserializers();
             }
+            else if(CreateFlowRequestValueFailureModuleValueOneOf10 != null)
+            {
+                return CreateFlowRequestValueFailureModuleValueOneOf10.GetFieldDeserializers();
+            }
             else if(CreateFlowRequestValueFailureModuleValueOneOf2 != null)
             {
                 return CreateFlowRequestValueFailureModuleValueOneOf2.GetFieldDeserializers();
@@ -151,6 +163,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(CreateFlowRequestValueFailureModuleValueOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf1>(null, CreateFlowRequestValueFailureModuleValueOneOf1);
+            }
+            else if(CreateFlowRequestValueFailureModuleValueOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleValueOneOf10>(null, CreateFlowRequestValueFailureModuleValueOneOf10);
             }
             else if(CreateFlowRequestValueFailureModuleValueOneOf2 != null)
             {

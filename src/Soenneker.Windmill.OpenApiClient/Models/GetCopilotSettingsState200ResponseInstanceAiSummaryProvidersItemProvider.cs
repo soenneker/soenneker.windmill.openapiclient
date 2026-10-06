@@ -56,5 +56,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         Customai,
         #pragma warning restore CS1591
+        [EnumMember(Value = "typesafe")]
+        #pragma warning disable CS1591
+        Typesafe,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cloudflare")]
+        #pragma warning disable CS1591
+        Cloudflare,
+        #pragma warning restore CS1591
     }
 }

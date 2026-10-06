@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf9"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf10"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFlowRequestValueModulesItemValue : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf1 CreateFlowRequestValueModulesItemValueOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf10? CreateFlowRequestValueModulesItemValueOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf10 CreateFlowRequestValueModulesItemValueOneOf10 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return CreateFlowRequestValueModulesItemValueOneOf1.GetFieldDeserializers();
             }
+            else if(CreateFlowRequestValueModulesItemValueOneOf10 != null)
+            {
+                return CreateFlowRequestValueModulesItemValueOneOf10.GetFieldDeserializers();
+            }
             else if(CreateFlowRequestValueModulesItemValueOneOf2 != null)
             {
                 return CreateFlowRequestValueModulesItemValueOneOf2.GetFieldDeserializers();
@@ -151,6 +163,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(CreateFlowRequestValueModulesItemValueOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf1>(null, CreateFlowRequestValueModulesItemValueOneOf1);
+            }
+            else if(CreateFlowRequestValueModulesItemValueOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueModulesItemValueOneOf10>(null, CreateFlowRequestValueModulesItemValueOneOf10);
             }
             else if(CreateFlowRequestValueModulesItemValueOneOf2 != null)
             {

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf10"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListQueue200ResponseItemRawFlowModulesItemValue : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf1 ListQueue200ResponseItemRawFlowModulesItemValueOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf10? ListQueue200ResponseItemRawFlowModulesItemValueOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf10 ListQueue200ResponseItemRawFlowModulesItemValueOneOf10 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return ListQueue200ResponseItemRawFlowModulesItemValueOneOf1.GetFieldDeserializers();
             }
+            else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf10 != null)
+            {
+                return ListQueue200ResponseItemRawFlowModulesItemValueOneOf10.GetFieldDeserializers();
+            }
             else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf2 != null)
             {
                 return ListQueue200ResponseItemRawFlowModulesItemValueOneOf2.GetFieldDeserializers();
@@ -151,6 +163,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf1>(null, ListQueue200ResponseItemRawFlowModulesItemValueOneOf1);
+            }
+            else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf10>(null, ListQueue200ResponseItemRawFlowModulesItemValueOneOf10);
             }
             else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf2 != null)
             {

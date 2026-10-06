@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf9"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf10"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListFlows200ResponseItemValueModulesItemValue : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf1 ListFlows200ResponseItemValueModulesItemValueOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf10? ListFlows200ResponseItemValueModulesItemValueOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf10 ListFlows200ResponseItemValueModulesItemValueOneOf10 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return ListFlows200ResponseItemValueModulesItemValueOneOf1.GetFieldDeserializers();
             }
+            else if(ListFlows200ResponseItemValueModulesItemValueOneOf10 != null)
+            {
+                return ListFlows200ResponseItemValueModulesItemValueOneOf10.GetFieldDeserializers();
+            }
             else if(ListFlows200ResponseItemValueModulesItemValueOneOf2 != null)
             {
                 return ListFlows200ResponseItemValueModulesItemValueOneOf2.GetFieldDeserializers();
@@ -151,6 +163,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ListFlows200ResponseItemValueModulesItemValueOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf1>(null, ListFlows200ResponseItemValueModulesItemValueOneOf1);
+            }
+            else if(ListFlows200ResponseItemValueModulesItemValueOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf10>(null, ListFlows200ResponseItemValueModulesItemValueOneOf10);
             }
             else if(ListFlows200ResponseItemValueModulesItemValueOneOf2 != null)
             {

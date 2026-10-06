@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf9"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf6"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf7"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf8"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetCompletedJob200ResponseRawFlowPreprocessorModuleValue : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1 GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10? GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10 GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1.GetFieldDeserializers();
             }
+            else if(GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10 != null)
+            {
+                return GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10.GetFieldDeserializers();
+            }
             else if(GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf2 != null)
             {
                 return GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf2.GetFieldDeserializers();
@@ -151,6 +163,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1>(null, GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf1);
+            }
+            else if(GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10>(null, GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf10);
             }
             else if(GetCompletedJob200ResponseRawFlowPreprocessorModuleValueOneOf2 != null)
             {

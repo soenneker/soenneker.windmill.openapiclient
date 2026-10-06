@@ -17,6 +17,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Job_view_token;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_filtered_uuids;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_selected_job_groups;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Oldest;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Result_by_id;
@@ -117,6 +118,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_selected_job_groups.List_selected_job_groupsRequestBuilder List_selected_job_groups
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_selected_job_groups.List_selected_job_groupsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oldest property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Oldest.OldestRequestBuilder Oldest
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Oldest.OldestRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The queue property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.QueueRequestBuilder Queue

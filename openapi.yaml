@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.825.0
+  version: 1.827.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -16133,13 +16133,14 @@ paths:
                                     - type: object
                                       description: >
                                         AI decision step: one call to a decision
-                                        model (TypeSafe's Jev, or Cloudflare's
+                                        model (TypeSafe's Jev, Cloudflare's
 
-                                        Jev-compatible Clef) that answers typed
-                                        questions about a state with calibrated
+                                        Jev-compatible Clef, or OpenAI's
+                                        Decisions API) that answers typed
+                                        questions about a
 
-                                        probabilities, instead of generating
-                                        text.
+                                        state with calibrated probabilities,
+                                        instead of generating text.
 
                                         Prefer it over an AI agent to classify,
                                         route, score or check something: it is
@@ -49040,13 +49041,13 @@ components:
           required: *ref_431
         - type: object
           description: >
-            AI decision step: one call to a decision model (TypeSafe's Jev, or
+            AI decision step: one call to a decision model (TypeSafe's Jev,
             Cloudflare's
 
-            Jev-compatible Clef) that answers typed questions about a state with
-            calibrated
+            Jev-compatible Clef, or OpenAI's Decisions API) that answers typed
+            questions about a
 
-            probabilities, instead of generating text.
+            state with calibrated probabilities, instead of generating text.
 
             Prefer it over an AI agent to classify, route, score or check
             something: it is fast,
@@ -49764,13 +49765,13 @@ components:
     AiDecision:
       type: object
       description: >
-        AI decision step: one call to a decision model (TypeSafe's Jev, or
+        AI decision step: one call to a decision model (TypeSafe's Jev,
         Cloudflare's
 
-        Jev-compatible Clef) that answers typed questions about a state with
-        calibrated
+        Jev-compatible Clef, or OpenAI's Decisions API) that answers typed
+        questions about a
 
-        probabilities, instead of generating text.
+        state with calibrated probabilities, instead of generating text.
 
         Prefer it over an AI agent to classify, route, score or check something:
         it is fast,
@@ -52252,13 +52253,13 @@ components:
     schemas-AiDecision:
       type: object
       description: >
-        AI decision step: one call to a decision model (TypeSafe's Jev, or
+        AI decision step: one call to a decision model (TypeSafe's Jev,
         Cloudflare's
 
-        Jev-compatible Clef) that answers typed questions about a state with
-        calibrated
+        Jev-compatible Clef, or OpenAI's Decisions API) that answers typed
+        questions about a
 
-        probabilities, instead of generating text.
+        state with calibrated probabilities, instead of generating text.
 
         Prefer it over an AI agent to classify, route, score or check something:
         it is fast,

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// AI decision step: one call to a decision model (TypeSafe&apos;s Jev, or Cloudflare&apos;sJev-compatible Clef) that answers typed questions about a state with calibratedprobabilities, instead of generating text.Prefer it over an AI agent to classify, route, score or check something: it is fast,cheap and its answers are structured. Its result is { output: { &lt;question name&gt;: answer },model, usage }, so a later step reads e.g. results.&lt;id&gt;.output.intent.choice. To route onthe answers, follow it with a branchone whose branch exprs readresults.&lt;id&gt;.output.&lt;question&gt;.choice. Usable as an AI agent tool, where the calling agentsupplies the state.
+    /// AI decision step: one call to a decision model (TypeSafe&apos;s Jev, Cloudflare&apos;sJev-compatible Clef, or OpenAI&apos;s Decisions API) that answers typed questions about astate with calibrated probabilities, instead of generating text.Prefer it over an AI agent to classify, route, score or check something: it is fast,cheap and its answers are structured. Its result is { output: { &lt;question name&gt;: answer },model, usage }, so a later step reads e.g. results.&lt;id&gt;.output.intent.choice. To route onthe answers, follow it with a branchone whose branch exprs readresults.&lt;id&gt;.output.&lt;question&gt;.choice. Usable as an AI agent tool, where the calling agentsupplies the state.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListQueue200ResponseItemRawFlowPreprocessorModuleValueOneOf10 : IAdditionalDataHolder, IParsable

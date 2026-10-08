@@ -23,7 +23,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemRetryConstant Constant { get; set; }
 #endif
-        /// <summary>Retry with exponential backoff (delay doubles each time)</summary>
+        /// <summary>Retry with exponential backoff: the n-th retry waits multiplier × seconds^n</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseRawFlowModulesItemRetryExponential? Exponential { get; set; }

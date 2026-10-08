@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.P.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/p/{path}{?cache_ttl*,invisible_to_owner*,job_id*,parent_job*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/p/{path}{?cache_ttl*,invisible_to_owner*,job_id*,parent_job*,retry*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.P.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/p/{path}{?cache_ttl*,invisible_to_owner*,job_id*,parent_job*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/p/{path}{?cache_ttl*,invisible_to_owner*,job_id*,parent_job*,retry*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*}", rawUrl)
         {
         }
         /// <summary>
@@ -109,6 +109,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.P.Item
             /// <summary>The parent job that is at the origin and responsible for the execution of this script if any</summary>
             [QueryParameter("parent_job")]
             public Guid? ParentJob { get; set; }
+            /// <summary>JSON-encoded retry policy (same shape as a schedule&apos;s retry) re-running the job when it fails. The returned id is the first attempt&apos;s; each retry is a job of its own, recorded as a child of the first attempt. Not supported for hub scripts, with invisible_to_owner, or for a script whose preprocessor would run.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("retry")]
+            public string? Retry { get; set; }
+#nullable restore
+#else
+            [QueryParameter("retry")]
+            public string Retry { get; set; }
+#endif
             /// <summary>when to schedule this job (leave empty for immediate run)</summary>
             [QueryParameter("scheduled_for")]
             public DateTimeOffset? ScheduledFor { get; set; }

@@ -24,6 +24,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>manage a Postgres role of that name that already exists on the cluster, replacing its password, instead of refusing it. A role with cluster-wide attributes or memberships is refused either way</summary>
+        public bool? TakeOver { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRoleRequest"/> and sets the default values.
         /// </summary>
@@ -51,6 +53,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "cluster", n => { Cluster = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRoleRequestCluster>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "take_over", n => { TakeOver = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -62,6 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateInstanceDatatableRoleRequestCluster>("cluster", Cluster);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("take_over", TakeOver);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

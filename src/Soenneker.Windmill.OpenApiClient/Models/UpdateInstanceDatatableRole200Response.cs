@@ -26,6 +26,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>Whether any data table, in any workspace, lets someone connect as this role. Only set in a data table&apos;s available_roles.</summary>
+        public bool? InUse { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +64,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "cluster", n => { Cluster = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateInstanceDatatableRole200ResponseCluster>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "in_use", n => { InUse = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -75,6 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateInstanceDatatableRole200ResponseCluster>("cluster", Cluster);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("id", Id);
+            writer.WriteBoolValue("in_use", InUse);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

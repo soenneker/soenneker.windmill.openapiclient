@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Retry with exponential backoff (delay doubles each time)
+    /// Retry with exponential backoff: the n-th retry waits multiplier × seconds^n
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateScheduleRequestRetryExponential : IAdditionalDataHolder, IParsable
@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public int? Multiplier { get; set; }
         /// <summary>Random jitter percentage (0-100) to avoid thundering herd</summary>
         public int? RandomFactor { get; set; }
-        /// <summary>Initial delay in seconds</summary>
+        /// <summary>Base of the exponential (seconds); the n-th retry waits multiplier × seconds^n, where n counts constant retries too</summary>
         public int? Seconds { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateScheduleRequestRetryExponential"/> and sets the default values.

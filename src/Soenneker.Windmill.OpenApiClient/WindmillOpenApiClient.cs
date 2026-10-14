@@ -26,6 +26,7 @@ using Soenneker.Windmill.OpenApiClient.Mcp;
 using Soenneker.Windmill.OpenApiClient.Min_keep_alive_version;
 using Soenneker.Windmill.OpenApiClient.Native_triggers;
 using Soenneker.Windmill.OpenApiClient.Oauth;
+using Soenneker.Windmill.OpenApiClient.Oidc;
 using Soenneker.Windmill.OpenApiClient.OpenapiYaml;
 using Soenneker.Windmill.OpenApiClient.Saml;
 using Soenneker.Windmill.OpenApiClient.Schedules;
@@ -155,6 +156,11 @@ namespace Soenneker.Windmill.OpenApiClient
         public global::Soenneker.Windmill.OpenApiClient.Oauth.OauthRequestBuilder Oauth
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Oauth.OauthRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The oidc property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Oidc.OidcRequestBuilder Oidc
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Oidc.OidcRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The openapiYaml property</summary>
         public global::Soenneker.Windmill.OpenApiClient.OpenapiYaml.OpenapiYamlRequestBuilder OpenapiYaml

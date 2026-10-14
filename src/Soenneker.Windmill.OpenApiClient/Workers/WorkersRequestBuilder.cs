@@ -12,6 +12,7 @@ using Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics_series;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts;
 using Soenneker.Windmill.OpenApiClient.Workers.Queue_status;
+using Soenneker.Windmill.OpenApiClient.Workers.Runnable_stats;
 using Soenneker.Windmill.OpenApiClient.Workers.Workspace_fairness_events;
 using System.Collections.Generic;
 using System.IO;
@@ -74,6 +75,11 @@ namespace Soenneker.Windmill.OpenApiClient.Workers
         public global::Soenneker.Windmill.OpenApiClient.Workers.Queue_status.Queue_statusRequestBuilder Queue_status
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Workers.Queue_status.Queue_statusRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The runnable_stats property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Workers.Runnable_stats.Runnable_statsRequestBuilder Runnable_stats
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Workers.Runnable_stats.Runnable_statsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workspace_fairness_events property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Workers.Workspace_fairness_events.Workspace_fairness_eventsRequestBuilder Workspace_fairness_events

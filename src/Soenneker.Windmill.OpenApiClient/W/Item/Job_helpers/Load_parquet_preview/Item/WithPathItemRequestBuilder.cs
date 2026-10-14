@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_parquet_previ
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_parquet_preview/{path}{?limit*,offset*,search_col*,search_term*,sort_col*,sort_desc*,storage*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_parquet_preview/{path}{?filters*,limit*,offset*,s3_resource_path*,search_col*,search_term*,sort_col*,sort_desc*,storage*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_parquet_previ
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_parquet_preview/{path}{?limit*,offset*,search_col*,search_term*,sort_col*,sort_desc*,storage*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_parquet_preview/{path}{?filters*,limit*,offset*,s3_resource_path*,search_col*,search_term*,sort_col*,sort_desc*,storage*}", rawUrl)
         {
         }
         /// <summary>
@@ -84,6 +84,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_parquet_previ
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>JSON object, column name to filter. A number column takes an optional comparison operator and a number (`&gt;=10`), a boolean column a boolean, and any other column a case-insensitive substring, or `=value` for an exact match. A `search_term` without a `search_col` matches any column, case-insensitively.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filters")]
+            public string? Filters { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filters")]
+            public string Filters { get; set; }
+#endif
             #pragma warning disable CS1591
             [QueryParameter("limit")]
             public double? Limit { get; set; }
@@ -92,6 +102,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_parquet_previ
             [QueryParameter("offset")]
             public double? Offset { get; set; }
             #pragma warning restore CS1591
+            /// <summary>Read the file from this object storage resource instead of the workspace storage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("s3_resource_path")]
+            public string? S3ResourcePath { get; set; }
+#nullable restore
+#else
+            [QueryParameter("s3_resource_path")]
+            public string S3ResourcePath { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             #pragma warning disable CS1591

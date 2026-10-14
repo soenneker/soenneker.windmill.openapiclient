@@ -14,7 +14,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The default_role property</summary>
+        /// <summary>The id of one of `roles`, `admin` (the default), or `$none` for no default role: a connection that names no role then holds its viewer&apos;s roles only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DefaultRole { get; set; }

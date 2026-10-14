@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_table_count.I
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_table_count/{path}{?search_col*,search_term*,storage*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_table_count/{path}{?csv_has_header*,csv_separator*,filters*,s3_resource_path*,search_col*,search_term*,storage*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_table_count.I
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_table_count/{path}{?search_col*,search_term*,storage*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/job_helpers/load_table_count/{path}{?csv_has_header*,csv_separator*,filters*,s3_resource_path*,search_col*,search_term*,storage*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,6 +85,42 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.Load_table_count.I
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>Whether the first CSV line names the columns. Defaults to true.</summary>
+            [QueryParameter("csv_has_header")]
+            public bool? CsvHasHeader { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("csv_separator")]
+            public string? CsvSeparator { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("csv_separator")]
+            public string CsvSeparator { get; set; }
+            #pragma warning restore CS1591
+#endif
+            /// <summary>JSON object, column name to filter. A number column takes an optional comparison operator and a number (`&gt;=10`), a boolean column a boolean, and any other column a case-insensitive substring, or `=value` for an exact match. A `search_term` without a `search_col` matches any column, case-insensitively.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filters")]
+            public string? Filters { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filters")]
+            public string Filters { get; set; }
+#endif
+            /// <summary>Read the file from this object storage resource instead of the workspace storage.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("s3_resource_path")]
+            public string? S3ResourcePath { get; set; }
+#nullable restore
+#else
+            [QueryParameter("s3_resource_path")]
+            public string S3ResourcePath { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             #pragma warning disable CS1591

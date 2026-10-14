@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The Windmill-managed Postgres cluster a data table role is a login on: Windmill&apos;s own (behind `instance` data tables) or the external instance cluster (behind `external_instance` ones). Defaults to `instance`.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster? Cluster { get; set; }
-        /// <summary>The default_role property</summary>
+        /// <summary>A role id, `admin`, or `$none` when the data table has no default role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DefaultRole { get; set; }

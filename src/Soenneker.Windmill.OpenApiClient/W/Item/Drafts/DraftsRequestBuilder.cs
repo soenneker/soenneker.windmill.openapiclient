@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Delete_for_user;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get_own;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List;
@@ -20,6 +21,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DraftsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The delete_for_user property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Delete_for_user.Delete_for_userRequestBuilder Delete_for_user
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Delete_for_user.Delete_for_userRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The get_own property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get_own.Get_ownRequestBuilder Get_own
         {

@@ -50,6 +50,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>on the instance database, the only kind that can be under roles or have its access edited</summary>
         public bool? Instance { get; set; }
+        /// <summary>whether its schema is kept as versioned migrations, which a change made with plain SQL would bypass</summary>
+        public bool? MigrationsEnabled { get; set; }
         /// <summary>The permissioned property</summary>
         public bool? Permissioned { get; set; }
         /// <summary>Hierarchical metadata: schema_name -&gt; table_names</summary>
@@ -99,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "default_role", n => { DefaultRole = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "instance", n => { Instance = n.GetBoolValue(); } },
+                { "migrations_enabled", n => { MigrationsEnabled = n.GetBoolValue(); } },
                 { "permissioned", n => { Permissioned = n.GetBoolValue(); } },
                 { "schemas", n => { Schemas = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas>(global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas.CreateFromDiscriminatorValue); } },
                 { "usable_roles", n => { UsableRoles = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -117,6 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("default_role", DefaultRole);
             writer.WriteStringValue("error", Error);
             writer.WriteBoolValue("instance", Instance);
+            writer.WriteBoolValue("migrations_enabled", MigrationsEnabled);
             writer.WriteBoolValue("permissioned", Permissioned);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas>("schemas", Schemas);
             writer.WriteCollectionOfPrimitiveValues<string>("usable_roles", UsableRoles);

@@ -18,6 +18,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? Assets { get; set; }
         /// <summary>Whether operators can view audit logs</summary>
         public bool? AuditLogs { get; set; }
+        /// <summary>Whether operators can compose full-code apps out of existing runnables (consumes a full seat). Omitting the field leaves the stored value unchanged.</summary>
+        public bool? BuilderApps { get; set; }
         /// <summary>Whether operators can compose flows out of existing runnables (consumes a full seat). Omitting the field leaves the stored value unchanged.</summary>
         public bool? BuilderFlows { get; set; }
         /// <summary>Whether operators can view folders page</summary>
@@ -67,6 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "assets", n => { Assets = n.GetBoolValue(); } },
                 { "audit_logs", n => { AuditLogs = n.GetBoolValue(); } },
+                { "builder_apps", n => { BuilderApps = n.GetBoolValue(); } },
                 { "builder_flows", n => { BuilderFlows = n.GetBoolValue(); } },
                 { "folders", n => { Folders = n.GetBoolValue(); } },
                 { "groups", n => { Groups = n.GetBoolValue(); } },
@@ -89,6 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("assets", Assets);
             writer.WriteBoolValue("audit_logs", AuditLogs);
+            writer.WriteBoolValue("builder_apps", BuilderApps);
             writer.WriteBoolValue("builder_flows", BuilderFlows);
             writer.WriteBoolValue("folders", Folders);
             writer.WriteBoolValue("groups", Groups);

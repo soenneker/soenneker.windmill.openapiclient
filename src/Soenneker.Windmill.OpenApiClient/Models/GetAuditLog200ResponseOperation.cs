@@ -104,6 +104,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         ResourceTypesDelete,
         #pragma warning restore CS1591
+        [EnumMember(Value = "resource_types.sync")]
+        #pragma warning disable CS1591
+        ResourceTypesSync,
+        #pragma warning restore CS1591
         [EnumMember(Value = "schedule.create")]
         #pragma warning disable CS1591
         ScheduleCreate,

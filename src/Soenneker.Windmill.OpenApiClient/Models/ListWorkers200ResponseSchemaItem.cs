@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> CustomTags { get; set; }
 #endif
+        /// <summary>the worker received its shutdown signal and exits once its current job is done</summary>
+        public bool? Draining { get; set; }
         /// <summary>The ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,6 +138,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "custom_tags", n => { CustomTags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "draining", n => { Draining = n.GetBoolValue(); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
                 { "job_isolation", n => { JobIsolation = n.GetStringValue(); } },
                 { "jobs_executed", n => { JobsExecuted = n.GetIntValue(); } },
@@ -166,6 +169,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("custom_tags", CustomTags);
+            writer.WriteBoolValue("draining", Draining);
             writer.WriteStringValue("ip", Ip);
             writer.WriteStringValue("job_isolation", JobIsolation);
             writer.WriteIntValue("jobs_executed", JobsExecuted);

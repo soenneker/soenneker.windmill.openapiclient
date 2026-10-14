@@ -35,6 +35,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Restart_worker_group;
 using Soenneker.Windmill.OpenApiClient.Settings.Run_log_cleanup;
 using Soenneker.Windmill.OpenApiClient.Settings.Send_stats;
 using Soenneker.Windmill.OpenApiClient.Settings.Setup_custom_instance_pg_database;
+using Soenneker.Windmill.OpenApiClient.Settings.Smtp_configured;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_aws_sm_backend;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_azure_kv_backend;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_critical_channels;
@@ -218,6 +219,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Setup_custom_instance_pg_database.Setup_custom_instance_pg_databaseRequestBuilder Setup_custom_instance_pg_database
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Setup_custom_instance_pg_database.Setup_custom_instance_pg_databaseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The smtp_configured property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Smtp_configured.Smtp_configuredRequestBuilder Smtp_configured
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Smtp_configured.Smtp_configuredRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The test_aws_sm_backend property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Test_aws_sm_backend.Test_aws_sm_backendRequestBuilder Test_aws_sm_backend

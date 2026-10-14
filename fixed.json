@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.831.0",
+    "version": "1.833.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -2801,6 +2801,28 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetLocal200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/settings/smtp_configured": {
+      "get": {
+        "tags": [
+          "setting"
+        ],
+        "summary": "whether instance SMTP is configured",
+        "description": "Readable by any authenticated user. True when this build can send email\nand SMTP is set, either in the smtp_settings instance setting or through\nthe SMTP_* environment variables.\n",
+        "operationId": "GetSmtpConfigured",
+        "responses": {
+          "200": {
+            "description": "whether email notifications can be sent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSmtpConfigured200ResponseSchema"
                 }
               }
             }
@@ -333049,6 +333071,9 @@
       "GetLocal200Response": {
         "type": "object"
       },
+      "GetSmtpConfigured200Response": {
+        "type": "boolean"
+      },
       "TestSmtpRequest": {
         "required": [
           "to",
@@ -351778,6 +351803,9 @@
       },
       "GetLocal200ResponseSchema": {
         "type": "object"
+      },
+      "GetSmtpConfigured200ResponseSchema": {
+        "type": "boolean"
       },
       "TestSmtp200PlainResponseSchema": {
         "type": "string"

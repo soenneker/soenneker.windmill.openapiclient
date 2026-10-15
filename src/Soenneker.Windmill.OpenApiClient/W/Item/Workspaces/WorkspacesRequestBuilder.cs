@@ -103,6 +103,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_teams_message_test_
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Seed_full_diff;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_environment_variable;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Settings_document;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Test_datatable_connection;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Threshold_alert;
@@ -625,6 +626,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific.Set_ws_specificRequestBuilder Set_ws_specific
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Set_ws_specific.Set_ws_specificRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The settings_document property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Settings_document.Settings_documentRequestBuilder Settings_document
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Settings_document.Settings_documentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The slack_oauth_config property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Slack_oauth_config.Slack_oauth_configRequestBuilder Slack_oauth_config

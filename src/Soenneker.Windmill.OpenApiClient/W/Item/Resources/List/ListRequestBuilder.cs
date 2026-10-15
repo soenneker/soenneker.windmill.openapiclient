@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/list{?broad_filter*,description*,include_draft_only*,label*,page*,path*,path_start*,per_page*,resource_type*,resource_type_exclude*,value*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/list{?broad_filter*,description*,include_draft_only*,label*,page*,path*,path_start*,per_page*,resource_type*,resource_type_exclude*,starred_only*,value*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/list{?broad_filter*,description*,include_draft_only*,label*,page*,path*,path_start*,per_page*,resource_type*,resource_type_exclude*,value*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/list{?broad_filter*,description*,include_draft_only*,label*,page*,path*,path_start*,per_page*,resource_type*,resource_type_exclude*,starred_only*,value*}", rawUrl)
         {
         }
         /// <summary>
@@ -165,6 +165,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.List
             [QueryParameter("resource_type_exclude")]
             public string ResourceTypeExclude { get; set; }
 #endif
+            /// <summary>Only the `ai_agent` resources the caller starred</summary>
+            [QueryParameter("starred_only")]
+            public bool? StarredOnly { get; set; }
             /// <summary>JSONB subset match filter using base64 encoded JSON</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

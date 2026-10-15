@@ -60,6 +60,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules Modules { get; set; }
 #endif
+        /// <summary>Run the preview as this identity (an email, `u/&lt;username&gt;` or `g/&lt;group&gt;`) instead of the caller. Naming anyone other than yourself requires being an admin or a member of wm_deployers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
         /// <summary>The path to the script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,6 +100,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs TempScriptRefs { get; set; }
 #endif
+        /// <summary>Data table and object storage access as the caller rather than as the job&apos;s identity, as a full-code app&apos;s inline runnable flagged viewer_data_access does for its viewer.</summary>
+        public bool? ViewerDataAccess { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequest"/> and sets the default values.
         /// </summary>
@@ -125,10 +135,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestLanguage>(); } },
                 { "lock", n => { Lock = n.GetStringValue(); } },
                 { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules>(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules.CreateFromDiscriminatorValue); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "script_hash", n => { ScriptHash = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "temp_script_refs", n => { TempScriptRefs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs>(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs.CreateFromDiscriminatorValue); } },
+                { "viewer_data_access", n => { ViewerDataAccess = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -146,10 +158,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestLanguage>("language", Language);
             writer.WriteStringValue("lock", Lock);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules>("modules", Modules);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("script_hash", ScriptHash);
             writer.WriteStringValue("tag", Tag);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs>("temp_script_refs", TempScriptRefs);
+            writer.WriteBoolValue("viewer_data_access", ViewerDataAccess);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

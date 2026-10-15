@@ -91,7 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.Counts
             /// <summary>include library scripts (no runnable main)</summary>
             [QueryParameter("include_without_main")]
             public bool? IncludeWithoutMain { get; set; }
-            /// <summary>comma-separated subset of script,flow,app (default all)</summary>
+            /// <summary>comma-separated subset of script,flow,app,agent (default all)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("kinds")]

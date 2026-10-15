@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Batch_rerun_jobs
         {
         }
         /// <summary>
-        /// re-run multiple jobs
+        /// Re-runs each job and marks every failed or canceled original that was re-run as resolved, with the new job&apos;s id in its note. Operators re-run without resolving.
         /// </summary>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -53,7 +53,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Batch_rerun_jobs
             await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// re-run multiple jobs
+        /// Re-runs each job and marks every failed or canceled original that was re-run as resolved, with the new job&apos;s id in its note. Operators re-run without resolving.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

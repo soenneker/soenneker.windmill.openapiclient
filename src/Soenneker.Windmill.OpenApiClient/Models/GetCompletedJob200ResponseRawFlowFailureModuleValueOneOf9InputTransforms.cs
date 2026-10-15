@@ -55,6 +55,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMemoryId MemoryId { get; set; }
 #endif
+        /// <summary>String. Only on a step linked to a saved agent (see `agent`): replaces the modelsaved on the agent for this step&apos;s runs, on the agent&apos;s own provider resource. Anempty value keeps the saved model. Set it to an expression such as`flow_input.model` to choose the model per run.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsModel? Model { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsModel Model { get; set; }
+#endif
         /// <summary>JSON Schema object defining structured output format. Used when you need the AI to return data in a specific shape.Supports standard JSON Schema properties: type, properties, required, items, enum, pattern, minLength, maxLength, minimum, maximum, etc.Example: { type: &apos;object&apos;, properties: { name: { type: &apos;string&apos; }, age: { type: &apos;integer&apos; } }, required: [&apos;name&apos;] }</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,6 +94,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsProvider Provider { get; set; }
+#endif
+        /// <summary>String. Only on a step linked to a saved agent (see `agent`): replaces the reasoningeffort saved on the agent for this step&apos;s runs, as a provider-native token (e.g.&apos;low&apos;, &apos;high&apos;, &apos;none&apos;). An empty value sends no effort, so the model runs at itsdefault. Leave the input out to keep the saved effort, which holds only while thestep runs the saved model. A step that is not linked sets both inside `provider`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsReasoningEffort? ReasoningEffort { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsReasoningEffort ReasoningEffort { get; set; }
 #endif
         /// <summary>Boolean. If true, stream the AI response incrementally.Streaming events include: token_delta, reasoning_token_delta, tool_call, tool_call_arguments, tool_execution, tool_result</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,10 +173,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "max_iterations", n => { MaxIterations = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMaxIterations>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMaxIterations.CreateFromDiscriminatorValue); } },
                 { "memory", n => { Memory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMemory>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMemory.CreateFromDiscriminatorValue); } },
                 { "memory_id", n => { MemoryId = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMemoryId>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMemoryId.CreateFromDiscriminatorValue); } },
+                { "model", n => { Model = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsModel.CreateFromDiscriminatorValue); } },
                 { "output_schema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsOutputSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsOutputSchema.CreateFromDiscriminatorValue); } },
                 { "output_type", n => { OutputType = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsOutputType>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsOutputType.CreateFromDiscriminatorValue); } },
                 { "previous_messages", n => { PreviousMessages = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsPreviousMessages>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsPreviousMessages.CreateFromDiscriminatorValue); } },
                 { "provider", n => { Provider = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsProvider>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsProvider.CreateFromDiscriminatorValue); } },
+                { "reasoning_effort", n => { ReasoningEffort = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsReasoningEffort>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsReasoningEffort.CreateFromDiscriminatorValue); } },
                 { "streaming", n => { Streaming = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsStreaming>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsStreaming.CreateFromDiscriminatorValue); } },
                 { "system_prompt", n => { SystemPrompt = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsSystemPrompt>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsSystemPrompt.CreateFromDiscriminatorValue); } },
                 { "temperature", n => { Temperature = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsTemperature>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsTemperature.CreateFromDiscriminatorValue); } },
@@ -180,10 +198,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMaxIterations>("max_iterations", MaxIterations);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMemory>("memory", Memory);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsMemoryId>("memory_id", MemoryId);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsModel>("model", Model);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsOutputSchema>("output_schema", OutputSchema);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsOutputType>("output_type", OutputType);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsPreviousMessages>("previous_messages", PreviousMessages);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsProvider>("provider", Provider);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsReasoningEffort>("reasoning_effort", ReasoningEffort);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsStreaming>("streaming", Streaming);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsSystemPrompt>("system_prompt", SystemPrompt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleValueOneOf9InputTransformsTemperature>("temperature", Temperature);

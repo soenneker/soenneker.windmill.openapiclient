@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestArgs Args { get; set; }
 #endif
+        /// <summary>Run the preview as this identity (an email, `u/&lt;username&gt;` or `g/&lt;group&gt;`) instead of the caller. Naming anyone other than yourself requires being an admin or a member of wm_deployers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -88,6 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestArgs>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestArgs.CreateFromDiscriminatorValue); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "restarted_from", n => { RestartedFrom = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFrom>(global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFrom.CreateFromDiscriminatorValue); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
@@ -103,6 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestArgs>("args", Args);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFrom>("restarted_from", RestartedFrom);
             writer.WriteStringValue("tag", Tag);

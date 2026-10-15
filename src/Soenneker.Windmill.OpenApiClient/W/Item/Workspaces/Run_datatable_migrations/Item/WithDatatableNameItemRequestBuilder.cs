@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_datatable_migra
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithDatatableNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/run_datatable_migrations/{datatableName}{?only*,up_to*}", pathParameters)
+        public WithDatatableNameItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/run_datatable_migrations/{datatableName}{?only*,schema*,up_to*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_datatable_migra
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithDatatableNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/run_datatable_migrations/{datatableName}{?only*,up_to*}", rawUrl)
+        public WithDatatableNameItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/workspaces/run_datatable_migrations/{datatableName}{?only*,schema*,up_to*}", rawUrl)
         {
         }
         /// <summary>
@@ -88,6 +88,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_datatable_migra
             /// <summary>apply only this specific migration version, ignoring others</summary>
             [QueryParameter("only")]
             public long? Only { get; set; }
+            /// <summary>apply only the pending migrations whose `-- schemas` annotation declares this schema</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("schema")]
+            public string? Schema { get; set; }
+#nullable restore
+#else
+            [QueryParameter("schema")]
+            public string Schema { get; set; }
+#endif
             /// <summary>only apply pending migrations up to and including this version</summary>
             [QueryParameter("up_to")]
             public long? UpTo { get; set; }

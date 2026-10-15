@@ -40,6 +40,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Lock { get; set; }
 #endif
+        /// <summary>Additional modules keyed by relative file path. Honored in preview only: a deployed app runs the modules stored with its runnable.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCodeModules? Modules { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCodeModules Modules { get; set; }
+#endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,6 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "lock", n => { Lock = n.GetStringValue(); } },
+                { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCodeModules>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCodeModules.CreateFromDiscriminatorValue); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
             };
@@ -100,6 +109,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("lock", Lock);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCodeModules>("modules", Modules);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("tag", Tag);
             writer.WriteAdditionalData(AdditionalData);

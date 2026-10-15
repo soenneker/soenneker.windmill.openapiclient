@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>when not run, the earliest pending migration that must be applied first; when run, the latest applied migration that must be rolled back first</summary>
+        public long? BlockedBy { get; set; }
         /// <summary>The code_down property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +39,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>the schemas its `-- schemas` annotation declares; absent when it applies to the whole database</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Schemas { get; set; }
+#nullable restore
+#else
+        public List<string> Schemas { get; set; }
 #endif
         /// <summary>The status property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableMigrationsStatus200ResponseMigrationsItemStatus? Status { get; set; }
@@ -67,9 +77,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "blocked_by", n => { BlockedBy = n.GetLongValue(); } },
                 { "code_down", n => { CodeDown = n.GetStringValue(); } },
                 { "code_up", n => { CodeUp = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "schemas", n => { Schemas = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableMigrationsStatus200ResponseMigrationsItemStatus>(); } },
                 { "timestamp", n => { Timestamp = n.GetLongValue(); } },
             };
@@ -81,9 +93,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteLongValue("blocked_by", BlockedBy);
             writer.WriteStringValue("code_down", CodeDown);
             writer.WriteStringValue("code_up", CodeUp);
             writer.WriteStringValue("name", Name);
+            writer.WriteCollectionOfPrimitiveValues<string>("schemas", Schemas);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableMigrationsStatus200ResponseMigrationsItemStatus>("status", Status);
             writer.WriteLongValue("timestamp", Timestamp);
             writer.WriteAdditionalData(AdditionalData);

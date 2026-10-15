@@ -8,13 +8,21 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// A row in the merged runnables listing. `type` is the discriminator;kind-specific fields (hash/language/kind for scripts, execution_mode/version for apps) are present only for that kind. `edited_at` is theunified last-updated time (a script&apos;s created_at, a flow/app&apos;s edittime).
+    /// A row in the merged runnables listing. `type` is the discriminator;kind-specific fields (hash/language/kind for scripts, execution_mode/version for apps, agent_memory/ws_specific for agents) are present onlyfor that kind. An agent is an `ai_agent` resource whose description isreported as `summary`. `edited_at` is the unified last-updated time (ascript&apos;s created_at, a flow/app/agent&apos;s edit time).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListRunnables200ResponseItemsItem : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>agent-only. The agent&apos;s `memory` setting.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory? AgentMemory { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory AgentMemory { get; set; }
+#endif
         /// <summary>The archived property</summary>
         public bool? Archived { get; set; }
         /// <summary>The auto_kind property</summary>
@@ -145,6 +153,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The ws_error_handler_muted property</summary>
         public bool? WsErrorHandlerMuted { get; set; }
+        /// <summary>agent-only. Whether the agent is workspace-specific, which keeps it out of deploys to other workspaces.</summary>
+        public bool? WsSpecific { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItem"/> and sets the default values.
         /// </summary>
@@ -170,6 +180,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "agent_memory", n => { AgentMemory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory>(global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory.CreateFromDiscriminatorValue); } },
                 { "archived", n => { Archived = n.GetBoolValue(); } },
                 { "auto_kind", n => { AutoKind = n.GetStringValue(); } },
                 { "chat_input_enabled", n => { ChatInputEnabled = n.GetBoolValue(); } },
@@ -196,6 +207,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "version", n => { Version = n.GetLongValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
                 { "ws_error_handler_muted", n => { WsErrorHandlerMuted = n.GetBoolValue(); } },
+                { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -205,6 +217,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory>("agent_memory", AgentMemory);
             writer.WriteBoolValue("archived", Archived);
             writer.WriteStringValue("auto_kind", AutoKind);
             writer.WriteBoolValue("chat_input_enabled", ChatInputEnabled);
@@ -231,6 +244,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteLongValue("version", Version);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteBoolValue("ws_error_handler_muted", WsErrorHandlerMuted);
+            writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

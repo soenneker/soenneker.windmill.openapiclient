@@ -66,6 +66,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
+        /// <summary>Preview mode (force_viewer_static_fields set) only: run as this identity (an email, `u/&lt;username&gt;` or `g/&lt;group&gt;`) instead of the caller. Naming anyone other than yourself requires being an admin or a member of wm_deployers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OnBehalfOf { get; set; }
+#nullable restore
+#else
+        public string OnBehalfOf { get; set; }
+#endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,6 +108,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The version property</summary>
         public int? Version { get; set; }
+        /// <summary>Preview mode only: the inline runnable&apos;s viewer_data_access policy setting (run mode reads it from the deployed policy).</summary>
+        public bool? ViewerDataAccess { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequest"/> and sets the default values.
         /// </summary>
@@ -133,11 +143,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "force_viewer_sensitive_inputs", n => { ForceViewerSensitiveInputs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "force_viewer_static_fields", n => { ForceViewerStaticFields = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetIntValue(); } },
+                { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "raw_code", n => { RawCode = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode.CreateFromDiscriminatorValue); } },
                 { "run_query_params", n => { RunQueryParams = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams.CreateFromDiscriminatorValue); } },
                 { "temp_script_refs", n => { TempScriptRefs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetIntValue(); } },
+                { "viewer_data_access", n => { ViewerDataAccess = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -155,11 +167,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("force_viewer_sensitive_inputs", ForceViewerSensitiveInputs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields>("force_viewer_static_fields", ForceViewerStaticFields);
             writer.WriteIntValue("id", Id);
+            writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode>("raw_code", RawCode);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams>("run_query_params", RunQueryParams);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs>("temp_script_refs", TempScriptRefs);
             writer.WriteIntValue("version", Version);
+            writer.WriteBoolValue("viewer_data_access", ViewerDataAccess);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

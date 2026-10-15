@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
         {
         }
         /// <summary>
-        /// list runnables (scripts, flows, apps) merged, ordered and keyset-paginated
+        /// list runnables (scripts, flows, apps, agents) merged, ordered and keyset-paginated
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -52,7 +52,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// list runnables (scripts, flows, apps) merged, ordered and keyset-paginated
+        /// list runnables (scripts, flows, apps, agents) merged, ordered and keyset-paginated
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,7 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             return new global::Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List.ListRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// list runnables (scripts, flows, apps) merged, ordered and keyset-paginated
+        /// list runnables (scripts, flows, apps, agents) merged, ordered and keyset-paginated
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ListRequestBuilderGetQueryParameters 
@@ -101,7 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             /// <summary>include library scripts (no runnable main)</summary>
             [QueryParameter("include_without_main")]
             public bool? IncludeWithoutMain { get; set; }
-            /// <summary>comma-separated subset of script,flow,app (default all)</summary>
+            /// <summary>comma-separated subset of script,flow,app,agent (default all)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("kinds")]

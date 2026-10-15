@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_filtered_uuids
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_filtered_uuidsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list_filtered_uuids{?all_workspaces*,args*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,page*,parent_job*,per_page*,resolved*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,suspended*,tag*,worker*}", pathParameters)
+        public List_filtered_uuidsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list_filtered_uuids{?all_workspaces*,args*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,resolved*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,suspended*,tag*,worker*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_filtered_uuids
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_filtered_uuidsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list_filtered_uuids{?all_workspaces*,args*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,page*,parent_job*,per_page*,resolved*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,suspended*,tag*,worker*}", rawUrl)
+        public List_filtered_uuidsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/list_filtered_uuids{?all_workspaces*,args*,completed_after*,completed_before*,created_after*,created_after_queue*,created_before*,created_before_queue*,created_by*,has_null_parent*,is_flow_step*,is_not_schedule*,is_skipped*,job_kinds*,label*,order_desc*,page*,parent_job*,per_page*,resolved*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,status*,success*,suspended*,tag*,worker*}", rawUrl)
         {
         }
         /// <summary>
@@ -159,6 +159,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_filtered_uuids
             [QueryParameter("label")]
             public string Label { get; set; }
 #endif
+            /// <summary>order by desc order (default true)</summary>
+            [QueryParameter("order_desc")]
+            public bool? OrderDesc { get; set; }
             /// <summary>which page to return (start at 1, default 1)</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
@@ -168,7 +171,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_filtered_uuids
             /// <summary>number of items to return for a given page (default 30, max 100)</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>filter on whether a failure has been marked as handled. true keeps only resolved failures, false hides them</summary>
+            /// <summary>filter on whether a failed or canceled run has been marked as handled. true keeps only resolved runs, false hides them</summary>
             [QueryParameter("resolved")]
             public bool? Resolved { get; set; }
             /// <summary>filter on jobs containing those result as a json subset (@&gt; in postgres)</summary>

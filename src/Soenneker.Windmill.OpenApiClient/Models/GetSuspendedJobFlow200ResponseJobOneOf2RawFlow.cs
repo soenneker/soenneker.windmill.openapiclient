@@ -53,7 +53,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>If set, delete the flow job&apos;s args, result and logs after this many seconds following job completion</summary>
         public int? DeleteAfterSecs { get; set; }
-        /// <summary>JavaScript expression to return early from the flow</summary>
+        /// <summary>Id of the step whose result a sync webhook returns as soon as that step completes, while the rest of the flow keeps running. When the step does not run, or fails while the flow has a failure module, the flow&apos;s final result is returned instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EarlyReturn { get; set; }

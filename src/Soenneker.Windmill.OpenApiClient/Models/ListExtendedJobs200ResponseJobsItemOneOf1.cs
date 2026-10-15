@@ -142,7 +142,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ResolutionNote { get; set; }
 #endif
-        /// <summary>whether this failure has been marked as handled</summary>
+        /// <summary>whether this failed or canceled run has been marked as handled</summary>
         public bool? Resolved { get; set; }
         /// <summary>The resolved_at property</summary>
         public DateTimeOffset? ResolvedAt { get; set; }

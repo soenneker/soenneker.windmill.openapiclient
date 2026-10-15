@@ -181,7 +181,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List
             /// <summary>number of items to return for a given page (default 30, max 100)</summary>
             [QueryParameter("per_page")]
             public int? PerPage { get; set; }
-            /// <summary>filter on whether a failure has been marked as handled. true keeps only resolved failures, false hides them</summary>
+            /// <summary>filter on whether a failed or canceled run has been marked as handled. true keeps only resolved runs, false hides them</summary>
             [QueryParameter("resolved")]
             public bool? Resolved { get; set; }
             /// <summary>filter on jobs containing those result as a json subset (@&gt; in postgres)</summary>

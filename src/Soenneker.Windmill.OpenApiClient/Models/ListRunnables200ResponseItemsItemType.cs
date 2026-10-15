@@ -20,5 +20,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         App,
         #pragma warning restore CS1591
+        [EnumMember(Value = "agent")]
+        #pragma warning disable CS1591
+        Agent,
+        #pragma warning restore CS1591
     }
 }

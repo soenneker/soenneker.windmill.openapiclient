@@ -38,6 +38,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
+        /// <summary>ai_agent only. Keep the identity `value.on_behalf_of` names (`u/&lt;username&gt;`, `g/&lt;group&gt;`) rather than the caller&apos;s own. Honoured for admins and members of wm_deployers; otherwise every write of an agent sets it to the caller.</summary>
+        public bool? PreserveOnBehalfOf { get; set; }
         /// <summary>The resource_type associated with the resource</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,6 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
+                { "preserve_on_behalf_of", n => { PreserveOnBehalfOf = n.GetBoolValue(); } },
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue>(global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue.CreateFromDiscriminatorValue); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
@@ -99,6 +102,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);
+            writer.WriteBoolValue("preserve_on_behalf_of", PreserveOnBehalfOf);
             writer.WriteStringValue("resource_type", ResourceType);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue>("value", Value);
             writer.WriteBoolValue("ws_specific", WsSpecific);

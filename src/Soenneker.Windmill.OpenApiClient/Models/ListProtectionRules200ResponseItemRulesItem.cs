@@ -32,5 +32,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         RestrictGuestAppDeployment,
         #pragma warning restore CS1591
+        [EnumMember(Value = "RequireIsolatedForks")]
+        #pragma warning disable CS1591
+        RequireIsolatedForks,
+        #pragma warning restore CS1591
     }
 }

@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.836.0
+  version: 1.839.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -2459,6 +2459,16 @@ paths:
                     the parent's lake directly). Every lake not listed gets the
                     default isolated fork namespace with read-defer to the
                     parent.
+                shared_storages:
+                  type: array
+                  items:
+                    type: string
+                  description: >-
+                    Workspace storages the fork SHARES with the parent
+                    (`_default_` for the primary one): it reads and writes the
+                    parent's objects directly. Every storage not listed is
+                    isolated: the fork writes under its own prefix and reads
+                    through to the parent's objects.
                 is_dev_workspace:
                   type: boolean
                   description: >-
@@ -8561,6 +8571,11 @@ paths:
                       type: string
                     governing_workspace_id:
                       type: string
+                    database_workspace_id:
+                      type: string
+                      description: >-
+                        The workspace owning the database this entry points at,
+                        when it is not this workspace.
                     permissioned:
                       type: boolean
   /w/{workspace}/workspaces/datatable_permissions/{datatable_name}:
@@ -12208,6 +12223,7 @@ paths:
                           - RestrictAnonymousAppDeployment
                           - RestrictPublicRunSharing
                           - RestrictGuestAppDeployment
+                          - RequireIsolatedForks
                     bypass_groups:
                       type: array
                       description: Groups that can bypass this ruleset
@@ -13466,6 +13482,13 @@ paths:
                     type: string
                 ws_specific:
                   type: boolean
+                preserve_on_behalf_of:
+                  type: boolean
+                  description: >-
+                    ai_agent only. Keep the identity `value.on_behalf_of` names
+                    (`u/<username>`, `g/<group>`) rather than the caller's own.
+                    Honoured for admins and members of wm_deployers; otherwise
+                    every write of an agent sets it to the caller.
               required: &ref_556
                 - path
                 - value
@@ -13574,6 +13597,13 @@ paths:
                     type: string
                 ws_specific:
                   type: boolean
+                preserve_on_behalf_of:
+                  type: boolean
+                  description: >-
+                    ai_agent only. Keep the identity `value.on_behalf_of` names
+                    (`u/<username>`, `g/<group>`) rather than the caller's own.
+                    Honoured for admins and members of wm_deployers; otherwise
+                    every write of an agent sets it to the caller.
       responses:
         '200':
           description: resource updated
@@ -19075,6 +19105,41 @@ paths:
             application/json:
               schema:
                 type: boolean
+  /workers/dev_workspace_isolation:
+    get:
+      summary: >-
+        get whether the jobs of dev workspaces and forks run on their own worker
+        groups
+      operationId: getDevWorkspaceIsolation
+      tags:
+        - worker
+      responses:
+        '200':
+          description: dev workspace isolation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  enabled:
+                    type: boolean
+                    description: >-
+                      whether new jobs of dev workspaces and forks are queued on
+                      suffixed tags
+                  suffix:
+                    type: string
+                    description: >-
+                      the suffix of those tags, which worker groups serving dev
+                      workspaces listen with
+                  skip_non_dev_forks:
+                    type: boolean
+                    description: >-
+                      whether forks of a workspace that is not a dev workspace,
+                      nor under one, run on their parent's workers instead
+                required:
+                  - enabled
+                  - suffix
+                  - skip_non_dev_forks
   /w/{workspace}/workspace_dependencies/create:
     post:
       summary: create workspace dependencies
@@ -28191,10 +28256,13 @@ paths:
         Runs the `ai_agent` resource at `path` as stored, for any caller who can
         read it
 
-        (operators included), as the caller, who needs access to the agent's AI
-        resource and to
+        (operators included). The run is the caller's, or the agent's
+        `on_behalf_of` when its
 
-        whatever its tools use. With `memory_id`, the run is a turn
+        `run_on_behalf_of` is set; the caller's inputs may then not reference
+        variables or
+
+        resources. With `memory_id`, the run is a turn
 
         of the caller's conversation with the agent; without, a single run.
       operationId: runAgent
@@ -44427,6 +44495,34 @@ paths:
                 type: object
                 properties: *ref_369
                 required: *ref_370
+  /w/{workspace}/job_helpers/v2/s3_proxy_bucket:
+    get:
+      summary: >-
+        Returns the bucket S3 clients name to reach a workspace storage through
+        the S3 proxy, or null when that storage is not S3
+      operationId: s3ProxyBucket
+      tags:
+        - helpers
+      parameters:
+        - name: workspace
+          in: path
+          required: true
+          schema: *ref_4
+        - name: storage
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The storage's bucket
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bucket:
+                    type: string
+                    nullable: true
   /w/{workspace}/job_helpers/test_connection:
     get:
       summary: Test connection to the workspace object storage

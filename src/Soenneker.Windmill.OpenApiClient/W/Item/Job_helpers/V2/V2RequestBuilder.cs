@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.Duckdb_connection_settings;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.Polars_connection_settings;
+using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.S3_proxy_bucket;
 using Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.S3_resource_info;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.Polars_connection_settings.Polars_connection_settingsRequestBuilder Polars_connection_settings
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.Polars_connection_settings.Polars_connection_settingsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The s3_proxy_bucket property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.S3_proxy_bucket.S3_proxy_bucketRequestBuilder S3_proxy_bucket
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.S3_proxy_bucket.S3_proxy_bucketRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The s3_resource_info property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Job_helpers.V2.S3_resource_info.S3_resource_infoRequestBuilder S3_resource_info

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Workers.Custom_tags;
+using Soenneker.Windmill.OpenApiClient.Workers.Dev_workspace_isolation;
 using Soenneker.Windmill.OpenApiClient.Workers.Exists_workers_with_tags;
 using Soenneker.Windmill.OpenApiClient.Workers.Get_default_tags;
 using Soenneker.Windmill.OpenApiClient.Workers.Is_default_tags_per_workspace;
@@ -30,6 +31,11 @@ namespace Soenneker.Windmill.OpenApiClient.Workers
         public global::Soenneker.Windmill.OpenApiClient.Workers.Custom_tags.Custom_tagsRequestBuilder Custom_tags
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Workers.Custom_tags.Custom_tagsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The dev_workspace_isolation property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Workers.Dev_workspace_isolation.Dev_workspace_isolationRequestBuilder Dev_workspace_isolation
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Workers.Dev_workspace_isolation.Dev_workspace_isolationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The exists_workers_with_tags property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Workers.Exists_workers_with_tags.Exists_workers_with_tagsRequestBuilder Exists_workers_with_tags

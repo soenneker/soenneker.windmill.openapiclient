@@ -64,6 +64,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> SharedDucklakes { get; set; }
 #endif
+        /// <summary>Workspace storages the fork SHARES with the parent (`_default_` for the primary one): it reads and writes the parent&apos;s objects directly. Every storage not listed is isolated: the fork writes under its own prefix and reads through to the parent&apos;s objects.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? SharedStorages { get; set; }
+#nullable restore
+#else
+        public List<string> SharedStorages { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkGitBranchRequest"/> and sets the default values.
         /// </summary>
@@ -99,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "lock_prod_forking", n => { LockProdForking = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "shared_ducklakes", n => { SharedDucklakes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "shared_storages", n => { SharedStorages = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -118,6 +127,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("lock_prod_forking", LockProdForking);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("shared_ducklakes", SharedDucklakes);
+            writer.WriteCollectionOfPrimitiveValues<string>("shared_storages", SharedStorages);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

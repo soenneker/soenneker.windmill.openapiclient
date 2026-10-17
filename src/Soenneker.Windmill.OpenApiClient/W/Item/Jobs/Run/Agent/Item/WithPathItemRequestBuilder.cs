@@ -34,7 +34,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent.Item
         {
         }
         /// <summary>
-        /// Runs the `ai_agent` resource at `path` as stored, for any caller who can read it(operators included), as the caller, who needs access to the agent&apos;s AI resource and towhatever its tools use. With `memory_id`, the run is a turnof the caller&apos;s conversation with the agent; without, a single run.
+        /// Runs the `ai_agent` resource at `path` as stored, for any caller who can read it(operators included). The run is the caller&apos;s, or the agent&apos;s `on_behalf_of` when its`run_on_behalf_of` is set; the caller&apos;s inputs may then not reference variables orresources. With `memory_id`, the run is a turnof the caller&apos;s conversation with the agent; without, a single run.
         /// </summary>
         /// <returns>A <see cref="Guid"/></returns>
         /// <param name="body">The request body</param>
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent.Item
             return await RequestAdapter.SendPrimitiveAsync<Guid?>(requestInfo, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Runs the `ai_agent` resource at `path` as stored, for any caller who can read it(operators included), as the caller, who needs access to the agent&apos;s AI resource and towhatever its tools use. With `memory_id`, the run is a turnof the caller&apos;s conversation with the agent; without, a single run.
+        /// Runs the `ai_agent` resource at `path` as stored, for any caller who can read it(operators included). The run is the caller&apos;s, or the agent&apos;s `on_behalf_of` when its`run_on_behalf_of` is set; the caller&apos;s inputs may then not reference variables orresources. With `memory_id`, the run is a turnof the caller&apos;s conversation with the agent; without, a single run.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent.Item
             return new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent.Item.WithPathItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Runs the `ai_agent` resource at `path` as stored, for any caller who can read it(operators included), as the caller, who needs access to the agent&apos;s AI resource and towhatever its tools use. With `memory_id`, the run is a turnof the caller&apos;s conversation with the agent; without, a single run.
+        /// Runs the `ai_agent` resource at `path` as stored, for any caller who can read it(operators included). The run is the caller&apos;s, or the agent&apos;s `on_behalf_of` when its`run_on_behalf_of` is set; the caller&apos;s inputs may then not reference variables orresources. With `memory_id`, the run is a turnof the caller&apos;s conversation with the agent; without, a single run.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPathItemRequestBuilderPostQueryParameters 

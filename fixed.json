@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.836.0",
+    "version": "1.839.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -14892,6 +14892,27 @@
         }
       }
     },
+    "/workers/dev_workspace_isolation": {
+      "get": {
+        "tags": [
+          "worker"
+        ],
+        "summary": "get whether the jobs of dev workspaces and forks run on their own worker groups",
+        "operationId": "GetDevWorkspaceIsolation",
+        "responses": {
+          "200": {
+            "description": "dev workspace isolation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDevWorkspaceIsolation200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/workspace_dependencies/create": {
       "post": {
         "tags": [
@@ -23745,7 +23766,7 @@
           "job"
         ],
         "summary": "run a saved AI agent",
-        "description": "Runs the \u0060ai_agent\u0060 resource at \u0060path\u0060 as stored, for any caller who can read it\n(operators included), as the caller, who needs access to the agent\u0027s AI resource and to\nwhatever its tools use. With \u0060memory_id\u0060, the run is a turn\nof the caller\u0027s conversation with the agent; without, a single run.\n",
+        "description": "Runs the \u0060ai_agent\u0060 resource at \u0060path\u0060 as stored, for any caller who can read it\n(operators included). The run is the caller\u0027s, or the agent\u0027s \u0060on_behalf_of\u0060 when its\n\u0060run_on_behalf_of\u0060 is set; the caller\u0027s inputs may then not reference variables or\nresources. With \u0060memory_id\u0060, the run is a turn\nof the caller\u0027s conversation with the agent; without, a single run.\n",
         "operationId": "RunAgent",
         "parameters": [
           {
@@ -38434,6 +38455,44 @@
         }
       }
     },
+    "/w/{workspace}/job_helpers/v2/s3_proxy_bucket": {
+      "get": {
+        "tags": [
+          "helpers"
+        ],
+        "summary": "Returns the bucket S3 clients name to reach a workspace storage through the S3 proxy, or null when that storage is not S3",
+        "operationId": "S3ProxyBucket",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "storage",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The storage\u0027s bucket",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/S3ProxyBucket200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/job_helpers/test_connection": {
       "get": {
         "tags": [
@@ -48804,6 +48863,10 @@
           },
           "ws_specific": {
             "type": "boolean"
+          },
+          "preserve_on_behalf_of": {
+            "type": "boolean",
+            "description": "ai_agent only. Keep the identity \u0060value.on_behalf_of\u0060 names (\u0060u/\u003Cusername\u003E\u0060, \u0060g/\u003Cgroup\u003E\u0060) rather than the caller\u0027s own. Honoured for admins and members of wm_deployers; otherwise every write of an agent sets it to the caller."
           }
         }
       },
@@ -48833,6 +48896,10 @@
           },
           "ws_specific": {
             "type": "boolean"
+          },
+          "preserve_on_behalf_of": {
+            "type": "boolean",
+            "description": "ai_agent only. Keep the identity \u0060value.on_behalf_of\u0060 names (\u0060u/\u003Cusername\u003E\u0060, \u0060g/\u003Cgroup\u003E\u0060) rather than the caller\u0027s own. Honoured for admins and members of wm_deployers; otherwise every write of an agent sets it to the caller."
           }
         }
       },
@@ -54703,6 +54770,13 @@
             },
             "description": "Lake names the fork SHARES with the parent (reads and writes the parent\u0027s lake directly). Every lake not listed gets the default isolated fork namespace with read-defer to the parent."
           },
+          "shared_storages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Workspace storages the fork SHARES with the parent (\u0060_default_\u0060 for the primary one): it reads and writes the parent\u0027s objects directly. Every storage not listed is isolated: the fork writes under its own prefix and reads through to the parent\u0027s objects."
+          },
           "is_dev_workspace": {
             "type": "boolean",
             "description": "Create the fork as a persistent dev workspace (id not required to carry the wm-fork- prefix; at most one per parent)"
@@ -57853,7 +57927,8 @@
           "RestrictDeployToDeployers",
           "RestrictAnonymousAppDeployment",
           "RestrictPublicRunSharing",
-          "RestrictGuestAppDeployment"
+          "RestrictGuestAppDeployment",
+          "RequireIsolatedForks"
         ],
         "type": "string",
         "additionalProperties": false
@@ -343778,6 +343853,13 @@
             },
             "description": "Lake names the fork SHARES with the parent (reads and writes the parent\u0027s lake directly). Every lake not listed gets the default isolated fork namespace with read-defer to the parent."
           },
+          "shared_storages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Workspace storages the fork SHARES with the parent (\u0060_default_\u0060 for the primary one): it reads and writes the parent\u0027s objects directly. Every storage not listed is isolated: the fork writes under its own prefix and reads through to the parent\u0027s objects."
+          },
           "is_dev_workspace": {
             "type": "boolean",
             "description": "Create the fork as a persistent dev workspace (id not required to carry the wm-fork- prefix; at most one per parent)"
@@ -343835,6 +343917,13 @@
               "type": "string"
             },
             "description": "Lake names the fork SHARES with the parent (reads and writes the parent\u0027s lake directly). Every lake not listed gets the default isolated fork namespace with read-defer to the parent."
+          },
+          "shared_storages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Workspace storages the fork SHARES with the parent (\u0060_default_\u0060 for the primary one): it reads and writes the parent\u0027s objects directly. Every storage not listed is isolated: the fork writes under its own prefix and reads through to the parent\u0027s objects."
           },
           "is_dev_workspace": {
             "type": "boolean",
@@ -349172,6 +349261,10 @@
           },
           "ws_specific": {
             "type": "boolean"
+          },
+          "preserve_on_behalf_of": {
+            "type": "boolean",
+            "description": "ai_agent only. Keep the identity \u0060value.on_behalf_of\u0060 names (\u0060u/\u003Cusername\u003E\u0060, \u0060g/\u003Cgroup\u003E\u0060) rather than the caller\u0027s own. Honoured for admins and members of wm_deployers; otherwise every write of an agent sets it to the caller."
           }
         }
       },
@@ -349227,6 +349320,10 @@
           },
           "ws_specific": {
             "type": "boolean"
+          },
+          "preserve_on_behalf_of": {
+            "type": "boolean",
+            "description": "ai_agent only. Keep the identity \u0060value.on_behalf_of\u0060 names (\u0060u/\u003Cusername\u003E\u0060, \u0060g/\u003Cgroup\u003E\u0060) rather than the caller\u0027s own. Honoured for admins and members of wm_deployers; otherwise every write of an agent sets it to the caller."
           }
         }
       },
@@ -350499,6 +350596,28 @@
       },
       "IsDefaultTagsPerWorkspace200Response": {
         "type": "boolean"
+      },
+      "GetDevWorkspaceIsolation200Response": {
+        "required": [
+          "enabled",
+          "suffix",
+          "skip_non_dev_forks"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "whether new jobs of dev workspaces and forks are queued on suffixed tags"
+          },
+          "suffix": {
+            "type": "string",
+            "description": "the suffix of those tags, which worker groups serving dev workspaces listen with"
+          },
+          "skip_non_dev_forks": {
+            "type": "boolean",
+            "description": "whether forks of a workspace that is not a dev workspace, nor under one, run on their parent\u0027s workers instead"
+          }
+        }
       },
       "CreateWorkspaceDependenciesRequest": {
         "required": [
@@ -361713,6 +361832,15 @@
           },
           "pathStyle": {
             "type": "boolean"
+          }
+        }
+      },
+      "S3ProxyBucket200Response": {
+        "type": "object",
+        "properties": {
+          "bucket": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -585500,6 +585628,10 @@
           "governing_workspace_id": {
             "type": "string"
           },
+          "database_workspace_id": {
+            "type": "string",
+            "description": "The workspace owning the database this entry points at, when it is not this workspace."
+          },
           "permissioned": {
             "type": "boolean"
           }
@@ -599936,6 +600068,10 @@
           },
           "governing_workspace_id": {
             "type": "string"
+          },
+          "database_workspace_id": {
+            "type": "string",
+            "description": "The workspace owning the database this entry points at, when it is not this workspace."
           },
           "permissioned": {
             "type": "boolean"
@@ -680931,7 +681067,8 @@
           "RestrictDeployToDeployers",
           "RestrictAnonymousAppDeployment",
           "RestrictPublicRunSharing",
-          "RestrictGuestAppDeployment"
+          "RestrictGuestAppDeployment",
+          "RequireIsolatedForks"
         ],
         "type": "string",
         "additionalProperties": false
@@ -680943,7 +681080,8 @@
           "RestrictDeployToDeployers",
           "RestrictAnonymousAppDeployment",
           "RestrictPublicRunSharing",
-          "RestrictGuestAppDeployment"
+          "RestrictGuestAppDeployment",
+          "RequireIsolatedForks"
         ],
         "type": "string",
         "additionalProperties": false
@@ -718674,7 +718812,8 @@
           "RestrictDeployToDeployers",
           "RestrictAnonymousAppDeployment",
           "RestrictPublicRunSharing",
-          "RestrictGuestAppDeployment"
+          "RestrictGuestAppDeployment",
+          "RequireIsolatedForks"
         ],
         "type": "string",
         "additionalProperties": false
@@ -718686,7 +718825,8 @@
           "RestrictDeployToDeployers",
           "RestrictAnonymousAppDeployment",
           "RestrictPublicRunSharing",
-          "RestrictGuestAppDeployment"
+          "RestrictGuestAppDeployment",
+          "RequireIsolatedForks"
         ],
         "type": "string",
         "additionalProperties": false
@@ -738120,7 +738260,8 @@
           "RestrictDeployToDeployers",
           "RestrictAnonymousAppDeployment",
           "RestrictPublicRunSharing",
-          "RestrictGuestAppDeployment"
+          "RestrictGuestAppDeployment",
+          "RequireIsolatedForks"
         ],
         "type": "string",
         "additionalProperties": false

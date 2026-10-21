@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.839.0",
+    "version": "1.845.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -5273,6 +5273,80 @@
               "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/UpdateOperatorSettings200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/workspaces/roles": {
+      "get": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "List the workspace\u0027s roles",
+        "description": "The roles members of this workspace can hold, as they apply here (instance definition with the workspace\u0027s override applied, then workspace-only roles), the stored overrides, and the caller\u0027s own role and capabilities.",
+        "operationId": "ListWorkspaceRoles",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "workspace roles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWorkspaceRoles200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/workspaces/role_overrides": {
+      "post": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Replace the workspace\u0027s role overrides",
+        "description": "Replaces the workspace\u0027s overrides of instance roles, and its workspace-only roles (EE). Refuses removing a workspace-only role still held or referenced, and a change exceeding an offline license\u0027s seat cap. Requires workspace admin privileges.",
+        "operationId": "UpdateWorkspaceRoleOverrides",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestRequestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "role overrides updated",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateWorkspaceRoleOverrides200PlainResponseSchema"
                 }
               }
             }
@@ -18996,6 +19070,239 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListFlowConversations200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/slack_agents/channels": {
+      "get": {
+        "tags": [
+          "slack_agents"
+        ],
+        "summary": "list the Slack channels this workspace\u0027s agents are shared in",
+        "operationId": "ListSlackAgentChannels",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "each agent shared in a channel, with whether it is the channel\u0027s default",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSlackAgentChannels200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/slack_agents/available_channels": {
+      "get": {
+        "tags": [
+          "slack_agents"
+        ],
+        "summary": "list the connected Slack workspace\u0027s public channels",
+        "operationId": "ListAvailableSlackChannels",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "the next_cursor of the previous page",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "a page of public channels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAvailableSlackChannels200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/slack_agents/status": {
+      "get": {
+        "tags": [
+          "slack_agents"
+        ],
+        "summary": "whether agents can answer in Slack on this instance",
+        "operationId": "GetSlackAgentsStatus",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the instance\u0027s readiness for agents in Slack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSlackAgentsStatus200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/slack_agents/agent_channels/{path}": {
+      "get": {
+        "tags": [
+          "slack_agents"
+        ],
+        "summary": "the Slack channels an agent is shared in, and whether the caller can share it",
+        "operationId": "GetAgentSlackChannels",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the agent\u0027s Slack channels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAgentSlackChannels200Response"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "slack_agents"
+        ],
+        "summary": "share an agent in a Slack channel, or change how it answers there",
+        "description": "the workspace members in the channel whose Slack email matches and who can read the agent can then ask it, or anyone there when its settings say so (slack_anyone, with run_on_behalf_of). Needs edit access to the agent; making it the channel\u0027s default takes an admin.",
+        "operationId": "ShareAgentInSlackChannel",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShareAgentInSlackChannelRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "agent shared",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareAgentInSlackChannel200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "slack_agents"
+        ],
+        "summary": "stop sharing an agent in a Slack channel",
+        "operationId": "UnshareAgentFromSlackChannel",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "channel_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "agent no longer shared there",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnshareAgentFromSlackChannel200PlainResponseSchema"
                 }
               }
             }
@@ -45281,6 +45588,30 @@
         },
         "description": "A column\u0027s summary. There is no single number for a dataset: averaging a judge with an exact match would invent one.\n"
       },
+      "SlackAgentChannel": {
+        "required": [
+          "channel_id",
+          "channel_name",
+          "agent_path",
+          "is_default"
+        ],
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string"
+          },
+          "channel_name": {
+            "type": "string"
+          },
+          "agent_path": {
+            "type": "string"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "whether the agent answers bot mentions in the channel that name no agent"
+          }
+        }
+      },
       "FlowConversation": {
         "required": [
           "id",
@@ -47732,7 +48063,12 @@
             "type": "boolean"
           },
           "operator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Legacy role selector, true for the \u0060operator\u0060 role and false for \u0060developer\u0060."
+          },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role, one of the workspace\u0027s roles. Wins over \u0060operator\u0060."
           },
           "disabled": {
             "type": "boolean"
@@ -54908,7 +55244,8 @@
           "workspace_id",
           "email",
           "is_admin",
-          "operator"
+          "operator",
+          "role"
         ],
         "type": "object",
         "properties": {
@@ -54923,6 +55260,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role the invite grants."
           },
           "parent_workspace_id": {
             "type": "string",
@@ -57099,6 +57440,232 @@
           }
         },
         "nullable": true
+      },
+      "AuthorLevel": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "AuthorLevel",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
+      "RoleCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/RoleCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/RoleCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/RoleCapabilitiesVisibility"
+          }
+        }
+      },
+      "RoleCapabilitiesPatch": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/RoleCapabilitiesPatchFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/RoleCapabilitiesPatchApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/RoleCapabilitiesPatchVisibilityProperty"
+          }
+        },
+        "description": "A partial RoleCapabilities; an unset key falls through to the layer below."
+      },
+      "RoleDefinition": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/RoleDefinitionCapabilities"
+          }
+        },
+        "description": "One entry of the \u0060workspace_roles\u0060 instance setting."
+      },
+      "RoleOverride": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/RoleOverrideCapabilities"
+          }
+        }
+      },
+      "RoleOverrides": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/RoleOverridesAdditionalProperties"
+        },
+        "description": "A workspace\u0027s overrides keyed by role name; a name the instance does not define adds a workspace-only role (EE)."
+      },
+      "EffectiveRole": {
+        "required": [
+          "name",
+          "label",
+          "capabilities",
+          "source",
+          "overridden"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/EffectiveRoleCapabilities"
+          },
+          "source": {
+            "$ref": "#/components/schemas/EffectiveRoleSource"
+          },
+          "overridden": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WorkspaceRoles": {
+        "required": [
+          "roles",
+          "overrides",
+          "custom_roles_enabled",
+          "my_capabilities"
+        ],
+        "type": "object",
+        "properties": {
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkspaceRolesRolesItem"
+            }
+          },
+          "overrides": {
+            "$ref": "#/components/schemas/WorkspaceRolesOverridesProperty"
+          },
+          "custom_roles_enabled": {
+            "type": "boolean",
+            "description": "Whether this workspace may add roles of its own."
+          },
+          "my_role": {
+            "type": "string",
+            "nullable": true
+          },
+          "my_capabilities": {
+            "$ref": "#/components/schemas/WorkspaceRolesMyCapabilities"
+          }
+        }
       },
       "WorkspaceComparison": {
         "required": [
@@ -283704,7 +284271,9 @@
           "username",
           "color",
           "is_dev_workspace",
-          "disabled"
+          "disabled",
+          "role",
+          "capabilities"
         ],
         "type": "object",
         "properties": {
@@ -283745,6 +284314,13 @@
           "is_service_account": {
             "type": "boolean",
             "description": "Whether this membership is a service account."
+          },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role."
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/UserWorkspaceListWorkspacesItemCapabilities"
           }
         }
       },
@@ -284429,6 +285005,217 @@
       },
       "ConfigConfig": {
         "type": "object"
+      },
+      "RoleCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
+      "RoleCapabilitiesPatchVisibility": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "RoleDefinitionCapabilities": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/RoleDefinitionCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/RoleDefinitionCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/RoleDefinitionCapabilitiesVisibilityProperty"
+          }
+        },
+        "description": "A partial RoleCapabilities; an unset key falls through to the layer below."
+      },
+      "RoleOverrideCapabilities": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/RoleOverrideCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/RoleOverrideCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/RoleOverrideCapabilitiesVisibilityProperty"
+          }
+        },
+        "description": "A partial RoleCapabilities; an unset key falls through to the layer below."
+      },
+      "RoleOverridesAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/RoleOverridesAdditionalPropertiesCapabilities"
+          }
+        }
+      },
+      "EffectiveRoleCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/EffectiveRoleCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/EffectiveRoleCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/EffectiveRoleCapabilitiesVisibility"
+          }
+        }
+      },
+      "WorkspaceRolesRolesItem": {
+        "required": [
+          "name",
+          "label",
+          "capabilities",
+          "source",
+          "overridden"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/WorkspaceRolesRolesItemCapabilities"
+          },
+          "source": {
+            "$ref": "#/components/schemas/WorkspaceRolesRolesItemSource"
+          },
+          "overridden": {
+            "type": "boolean"
+          }
+        }
+      },
+      "WorkspaceRolesOverrides": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/WorkspaceRolesOverridesAdditionalProperties"
+        },
+        "description": "A workspace\u0027s overrides keyed by role name; a name the instance does not define adds a workspace-only role (EE)."
+      },
+      "WorkspaceRolesMyCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/WorkspaceRolesMyCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/WorkspaceRolesMyCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/WorkspaceRolesMyCapabilitiesVisibility"
+          }
+        }
       },
       "WorkspaceComparisonDiffsItem": {
         "required": [
@@ -314763,6 +315550,38 @@
         },
         "nullable": true
       },
+      "UserWorkspaceListWorkspacesItemCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/UserWorkspaceListWorkspacesItemCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/UserWorkspaceListWorkspacesItemCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/UserWorkspaceListWorkspacesItemCapabilitiesVisibility"
+          }
+        }
+      },
       "FlowPreviewValueModulesItem": {
         "required": [
           "value",
@@ -315341,6 +316160,181 @@
       },
       "InstanceConfigWorkerConfigsAdditionalProperties": {
         "type": "object"
+      },
+      "RoleDefinitionCapabilitiesVisibility": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "RoleOverrideCapabilitiesVisibility": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "RoleOverridesAdditionalPropertiesCapabilities": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/RoleOverridesAdditionalPropertiesCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/RoleOverridesAdditionalPropertiesCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/RoleOverridesAdditionalPropertiesCapabilitiesVisibilityProperty"
+          }
+        },
+        "description": "A partial RoleCapabilities; an unset key falls through to the layer below."
+      },
+      "EffectiveRoleCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
+      "WorkspaceRolesRolesItemCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/WorkspaceRolesRolesItemCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/WorkspaceRolesRolesItemCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/WorkspaceRolesRolesItemCapabilitiesVisibility"
+          }
+        }
+      },
+      "WorkspaceRolesOverridesAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/WorkspaceRolesOverridesAdditionalPropertiesCapabilities"
+          }
+        }
+      },
+      "WorkspaceRolesMyCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
       },
       "WorkspaceComparisonHiddenAheadByKind": {
         "type": "object",
@@ -329281,6 +330275,54 @@
           }
         }
       },
+      "UserWorkspaceListWorkspacesItemCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
       "FlowPreviewValueModulesItemStopAfterIf": {
         "required": [
           "expr"
@@ -329957,6 +330999,84 @@
             "type": "string"
           }
         }
+      },
+      "RoleOverridesAdditionalPropertiesCapabilitiesVisibility": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "WorkspaceRolesRolesItemCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
+      "WorkspaceRolesOverridesAdditionalPropertiesCapabilities": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesVisibilityProperty"
+          }
+        },
+        "description": "A partial RoleCapabilities; an unset key falls through to the layer below."
       },
       "SchemasFlowModuleSuspendResumeFormSchema": {
         "type": "object",
@@ -340064,6 +341184,12 @@
         "type": "object",
         "description": "Schema snapshot at fork time"
       },
+      "WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesVisibility": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
       "SchemasForloopFlowModulesItemSuspendResumeFormSchema": {
         "type": "object",
         "description": "JSON Schema for the resume form"
@@ -343340,7 +344466,12 @@
             "type": "boolean"
           },
           "operator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Legacy role selector, true for the \u0060operator\u0060 role and false for \u0060developer\u0060."
+          },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role, one of the workspace\u0027s roles. Wins over \u0060operator\u0060."
           },
           "disabled": {
             "type": "boolean"
@@ -345710,8 +346841,7 @@
       "InviteUserRequest": {
         "required": [
           "email",
-          "is_admin",
-          "operator"
+          "is_admin"
         ],
         "type": "object",
         "properties": {
@@ -345722,7 +346852,12 @@
             "type": "boolean"
           },
           "operator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Legacy role selector, true for the \u0060operator\u0060 role."
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role to give, one of the workspace\u0027s roles. Wins over \u0060operator\u0060."
           },
           "parent_workspace_id": {
             "type": "string",
@@ -345736,8 +346871,7 @@
       "AddUserRequest": {
         "required": [
           "email",
-          "is_admin",
-          "operator"
+          "is_admin"
         ],
         "type": "object",
         "properties": {
@@ -345751,7 +346885,12 @@
             "type": "string"
           },
           "operator": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Legacy role selector, true for the \u0060operator\u0060 role."
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role to give, one of the workspace\u0027s roles. Wins over \u0060operator\u0060."
           }
         }
       },
@@ -346042,6 +347181,47 @@
         "nullable": true
       },
       "UpdateOperatorSettings200PlainResponse": {
+        "type": "string"
+      },
+      "ListWorkspaceRoles200Response": {
+        "required": [
+          "roles",
+          "overrides",
+          "custom_roles_enabled",
+          "my_capabilities"
+        ],
+        "type": "object",
+        "properties": {
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseRolesItem"
+            }
+          },
+          "overrides": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseOverrides"
+          },
+          "custom_roles_enabled": {
+            "type": "boolean",
+            "description": "Whether this workspace may add roles of its own."
+          },
+          "my_role": {
+            "type": "string",
+            "nullable": true
+          },
+          "my_capabilities": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseMyCapabilities"
+          }
+        }
+      },
+      "UpdateWorkspaceRoleOverridesRequest": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestAdditionalProperties"
+        },
+        "description": "A workspace\u0027s overrides keyed by role name; a name the instance does not define adds a workspace-only role (EE)."
+      },
+      "UpdateWorkspaceRoleOverrides200PlainResponse": {
         "type": "string"
       },
       "CompareWorkspaces200Response": {
@@ -346649,6 +347829,10 @@
         "properties": {
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role to give, one of the workspace\u0027s roles. Wins over \u0060operator\u0060."
           },
           "invite_all": {
             "type": "boolean"
@@ -352476,6 +353660,115 @@
         "items": {
           "$ref": "#/components/schemas/ListFlowConversations200ResponseItem"
         }
+      },
+      "ListSlackAgentChannels200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListSlackAgentChannels200ResponseItem"
+        }
+      },
+      "ListAvailableSlackChannels200Response": {
+        "required": [
+          "channels"
+        ],
+        "type": "object",
+        "properties": {
+          "channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListAvailableSlackChannels200ResponseChannelsItem"
+            }
+          },
+          "next_cursor": {
+            "type": "string"
+          }
+        }
+      },
+      "GetSlackAgentsStatus200Response": {
+        "required": [
+          "signing_secret_set"
+        ],
+        "type": "object",
+        "properties": {
+          "signing_secret_set": {
+            "type": "boolean",
+            "description": "agents answer in Slack only when the server has the Slack app\u0027s signing secret (SLACK_SIGNING_SECRET)"
+          }
+        }
+      },
+      "GetAgentSlackChannels200Response": {
+        "required": [
+          "channels",
+          "signing_secret_set",
+          "missing_scopes",
+          "anyone",
+          "can_share"
+        ],
+        "type": "object",
+        "properties": {
+          "slack_team_name": {
+            "type": "string",
+            "description": "the connected Slack workspace; absent when Slack is not connected"
+          },
+          "signing_secret_set": {
+            "type": "boolean",
+            "description": "agents answer in Slack only when the server has the Slack app\u0027s signing secret (SLACK_SIGNING_SECRET)"
+          },
+          "bot_name": {
+            "type": "string",
+            "description": "the bot\u0027s Slack handle; absent when Slack can\u0027t be reached"
+          },
+          "missing_scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "agent scopes the workspace\u0027s Slack connection lacks, so it must be reconnected with AI agents enabled"
+          },
+          "runs_as": {
+            "type": "string",
+            "description": "who the agent runs as (its on_behalf_of); absent unless it runs on behalf of someone"
+          },
+          "anyone": {
+            "type": "boolean",
+            "description": "whether anyone in its channels can ask it (its slack_anyone, kept only while it runs on behalf of someone), rather than workspace members only"
+          },
+          "can_share": {
+            "type": "boolean",
+            "description": "whether the caller can change the agent\u0027s channels, as anyone who can edit it can"
+          },
+          "channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetAgentSlackChannels200ResponseChannelsItem"
+            }
+          }
+        }
+      },
+      "ShareAgentInSlackChannelRequest": {
+        "required": [
+          "channel_id",
+          "channel_name"
+        ],
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string"
+          },
+          "channel_name": {
+            "type": "string"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "whether the agent answers bot mentions in the channel that name no agent"
+          }
+        }
+      },
+      "ShareAgentInSlackChannel200PlainResponse": {
+        "type": "string"
+      },
+      "UnshareAgentFromSlackChannel200PlainResponse": {
+        "type": "string"
       },
       "UpdateFlowConversationRequest": {
         "required": [
@@ -363493,6 +364786,16 @@
       "UpdateOperatorSettings200PlainResponseSchema": {
         "type": "string"
       },
+      "UpdateWorkspaceRoleOverridesRequestRequestBody": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestRequestBodyAdditionalProperties"
+        },
+        "description": "A workspace\u0027s overrides keyed by role name; a name the instance does not define adds a workspace-only role (EE)."
+      },
+      "UpdateWorkspaceRoleOverrides200PlainResponseSchema": {
+        "type": "string"
+      },
       "ResetDiffTally200ResponseSchema": {
         "type": "object"
       },
@@ -364377,6 +365680,18 @@
         "items": {
           "$ref": "#/components/schemas/ListFlowConversations200ResponseSchemaItem"
         }
+      },
+      "ListSlackAgentChannels200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListSlackAgentChannels200ResponseSchemaItem"
+        }
+      },
+      "ShareAgentInSlackChannel200PlainResponseSchema": {
+        "type": "string"
+      },
+      "UnshareAgentFromSlackChannel200PlainResponseSchema": {
+        "type": "string"
       },
       "UpdateFlowConversation200PlainResponseSchema": {
         "type": "string"
@@ -569273,6 +570588,19 @@
       "CaptureConfigTriggerConfig": {
         "type": "object"
       },
+      "RoleCapabilitiesPatchVisibilityProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "WorkspaceRolesOverridesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/WorkspaceRolesOverridesAdditionalProperties"
+        },
+        "description": "A workspace\u0027s overrides keyed by role name; a name the instance does not define adds a workspace-only role (EE)."
+      },
       "HiddenItemsSummaryByKindProperty": {
         "type": "object",
         "additionalProperties": {
@@ -578748,6 +580076,18 @@
       "InstanceConfigWorkerConfigsAdditionalPropertiesProperty": {
         "type": "object"
       },
+      "RoleDefinitionCapabilitiesVisibilityProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
+      "RoleOverrideCapabilitiesVisibilityProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
       "WorkspaceComparisonHiddenAheadByKindProperty": {
         "type": "object",
         "additionalProperties": {
@@ -581059,6 +582399,12 @@
           "type": "string"
         }
       },
+      "RoleOverridesAdditionalPropertiesCapabilitiesVisibilityProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
       "SchemasFlowModuleSuspendResumeFormSchemaProperty": {
         "type": "object",
         "description": "JSON Schema for the resume form"
@@ -582398,6 +583744,12 @@
         "type": "object",
         "description": "Schema snapshot at fork time"
       },
+      "WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesVisibilityProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
       "SchemasForloopFlowModulesItemSuspendResumeFormSchemaProperty": {
         "type": "object",
         "description": "JSON Schema for the resume form"
@@ -583674,7 +585026,9 @@
           "username",
           "color",
           "is_dev_workspace",
-          "disabled"
+          "disabled",
+          "role",
+          "capabilities"
         ],
         "type": "object",
         "properties": {
@@ -583715,6 +585069,13 @@
           "is_service_account": {
             "type": "boolean",
             "description": "Whether this membership is a service account."
+          },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role."
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/ListUserWorkspaces200ResponseWorkspacesItemCapabilities"
           }
         }
       },
@@ -584281,7 +585642,8 @@
           "workspace_id",
           "email",
           "is_admin",
-          "operator"
+          "operator",
+          "role"
         ],
         "type": "object",
         "properties": {
@@ -584296,6 +585658,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role the invite grants."
           },
           "parent_workspace_id": {
             "type": "string",
@@ -584382,6 +585748,83 @@
           "group": {
             "type": "string",
             "description": "The instance group name (when source is \u0027instance_group\u0027)"
+          }
+        }
+      },
+      "ListWorkspaceRoles200ResponseRolesItem": {
+        "required": [
+          "name",
+          "label",
+          "capabilities",
+          "source",
+          "overridden"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseRolesItemCapabilities"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseRolesItemSource"
+          },
+          "overridden": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ListWorkspaceRoles200ResponseOverrides": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseOverridesAdditionalProperties"
+        },
+        "description": "A workspace\u0027s overrides keyed by role name; a name the instance does not define adds a workspace-only role (EE)."
+      },
+      "ListWorkspaceRoles200ResponseMyCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseMyCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseMyCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseMyCapabilitiesVisibility"
+          }
+        }
+      },
+      "UpdateWorkspaceRoleOverridesRequestAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilities"
           }
         }
       },
@@ -584628,7 +586071,8 @@
           "workspace_id",
           "email",
           "is_admin",
-          "operator"
+          "operator",
+          "role"
         ],
         "type": "object",
         "properties": {
@@ -584643,6 +586087,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role the invite grants."
           },
           "parent_workspace_id": {
             "type": "string",
@@ -589152,6 +590600,69 @@
           },
           "running_turn": {
             "$ref": "#/components/schemas/ListFlowConversations200ResponseItemRunningTurn"
+          }
+        }
+      },
+      "ListSlackAgentChannels200ResponseItem": {
+        "required": [
+          "channel_id",
+          "channel_name",
+          "agent_path",
+          "is_default"
+        ],
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string"
+          },
+          "channel_name": {
+            "type": "string"
+          },
+          "agent_path": {
+            "type": "string"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "whether the agent answers bot mentions in the channel that name no agent"
+          }
+        }
+      },
+      "ListAvailableSlackChannels200ResponseChannelsItem": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "GetAgentSlackChannels200ResponseChannelsItem": {
+        "required": [
+          "channel_id",
+          "channel_name",
+          "agent_path",
+          "is_default"
+        ],
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string"
+          },
+          "channel_name": {
+            "type": "string"
+          },
+          "agent_path": {
+            "type": "string"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "whether the agent answers bot mentions in the channel that name no agent"
           }
         }
       },
@@ -599814,7 +601325,8 @@
           "workspace_id",
           "email",
           "is_admin",
-          "operator"
+          "operator",
+          "role"
         ],
         "type": "object",
         "properties": {
@@ -599829,6 +601341,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role the invite grants."
           },
           "parent_workspace_id": {
             "type": "string",
@@ -599877,6 +601393,17 @@
             "items": {
               "$ref": "#/components/schemas/DiscoverGhesInstallations200ResponseItemAssignedWorkspacesItem"
             }
+          }
+        }
+      },
+      "UpdateWorkspaceRoleOverridesRequestRequestBodyAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilities"
           }
         }
       },
@@ -599942,7 +601469,8 @@
           "workspace_id",
           "email",
           "is_admin",
-          "operator"
+          "operator",
+          "role"
         ],
         "type": "object",
         "properties": {
@@ -599957,6 +601485,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The workspace role the invite grants."
           },
           "parent_workspace_id": {
             "type": "string",
@@ -601573,6 +603105,30 @@
           },
           "running_turn": {
             "$ref": "#/components/schemas/ListFlowConversations200ResponseItemRunningTurn"
+          }
+        }
+      },
+      "ListSlackAgentChannels200ResponseSchemaItem": {
+        "required": [
+          "channel_id",
+          "channel_name",
+          "agent_path",
+          "is_default"
+        ],
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string"
+          },
+          "channel_name": {
+            "type": "string"
+          },
+          "agent_path": {
+            "type": "string"
+          },
+          "is_default": {
+            "type": "boolean",
+            "description": "whether the agent answers bot mentions in the channel that name no agent"
           }
         }
       },
@@ -633447,6 +635003,38 @@
         },
         "nullable": true
       },
+      "ListUserWorkspaces200ResponseWorkspacesItemCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesVisibility"
+          }
+        }
+      },
       "GetExternalInstancePgStatus200ResponseLastSetupStepsItem": {
         "required": [
           "name",
@@ -633553,6 +635141,121 @@
             "type": "boolean"
           }
         }
+      },
+      "ListWorkspaceRoles200ResponseRolesItemCapabilities": {
+        "required": [
+          "code",
+          "flows",
+          "apps",
+          "manage_schedules",
+          "manage_triggers",
+          "visibility"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean",
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          },
+          "flows": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseRolesItemCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseRolesItemCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseRolesItemCapabilitiesVisibility"
+          }
+        }
+      },
+      "ListWorkspaceRoles200ResponseOverridesAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilities"
+          }
+        }
+      },
+      "ListWorkspaceRoles200ResponseMyCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
+      "UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilities": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesVisibility"
+          }
+        },
+        "description": "A partial RoleCapabilities; an unset key falls through to the layer below."
       },
       "CompareWorkspaces200ResponseHiddenAheadByKind": {
         "type": "object",
@@ -649430,6 +651133,132 @@
           "expiration": {
             "type": "string"
           }
+        }
+      },
+      "ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
+      "ListWorkspaceRoles200ResponseRolesItemCapabilitiesVisibility": {
+        "required": [
+          "runs",
+          "schedules",
+          "resources",
+          "variables",
+          "assets",
+          "triggers",
+          "audit_logs",
+          "groups",
+          "folders",
+          "workers"
+        ],
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "boolean"
+          },
+          "schedules": {
+            "type": "boolean"
+          },
+          "resources": {
+            "type": "boolean"
+          },
+          "variables": {
+            "type": "boolean"
+          },
+          "assets": {
+            "type": "boolean"
+          },
+          "triggers": {
+            "type": "boolean"
+          },
+          "audit_logs": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "boolean"
+          },
+          "folders": {
+            "type": "boolean"
+          },
+          "workers": {
+            "type": "boolean"
+          }
+        },
+        "description": "Pages a role sees. Not enforced."
+      },
+      "ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilities": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "boolean"
+          },
+          "flows": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesFlows"
+          },
+          "apps": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesApps"
+          },
+          "manage_schedules": {
+            "type": "boolean"
+          },
+          "manage_triggers": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesVisibility"
+          }
+        },
+        "description": "A partial RoleCapabilities; an unset key falls through to the layer below."
+      },
+      "UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesVisibility": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
         }
       },
       "GetPublicSettings200ResponseLargeFileStorageSecondaryStorageAdditionalProperties": {
@@ -665546,6 +667375,12 @@
           }
         }
       },
+      "ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesVisibility": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "boolean"
+        }
+      },
       "GetPublicSettings200ResponseDatatableDatatablesAdditionalPropertiesDatabase": {
         "required": [
           "resource_type"
@@ -680554,6 +682389,140 @@
           ]
         }
       },
+      "RoleCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleCapabilitiesPatchFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleCapabilitiesPatchFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleCapabilitiesPatchApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleCapabilitiesPatchApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "EffectiveRoleSource": {
+        "enum": [
+          "instance",
+          "workspace"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "EffectiveRoleSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "instance",
+              "name": "Instance"
+            },
+            {
+              "value": "workspace",
+              "name": "Workspace"
+            }
+          ]
+        }
+      },
       "WorkspaceItemDiffKind": {
         "enum": [
           "script",
@@ -694254,6 +696223,252 @@
             {
               "value": "polling",
               "name": "Polling"
+            }
+          ]
+        }
+      },
+      "RoleDefinitionCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleDefinitionCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleDefinitionCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleDefinitionCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleOverrideCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleOverrideCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleOverrideCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleOverrideCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "EffectiveRoleCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "EffectiveRoleCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "EffectiveRoleCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "EffectiveRoleCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "WorkspaceRolesRolesItemSource": {
+        "enum": [
+          "instance",
+          "workspace"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "WorkspaceRolesRolesItemSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "instance",
+              "name": "Instance"
+            },
+            {
+              "value": "workspace",
+              "name": "Workspace"
+            }
+          ]
+        }
+      },
+      "WorkspaceRolesMyCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "WorkspaceRolesMyCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "WorkspaceRolesMyCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "WorkspaceRolesMyCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
             }
           ]
         }
@@ -715093,6 +717308,62 @@
           ]
         }
       },
+      "UserWorkspaceListWorkspacesItemCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "UserWorkspaceListWorkspacesItemCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "UserWorkspaceListWorkspacesItemCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "UserWorkspaceListWorkspacesItemCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
       "FlowPreviewValueNotesItemType": {
         "enum": [
           "free",
@@ -715287,6 +717558,118 @@
             {
               "value": "polling",
               "name": "Polling"
+            }
+          ]
+        }
+      },
+      "RoleOverridesAdditionalPropertiesCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleOverridesAdditionalPropertiesCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "RoleOverridesAdditionalPropertiesCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "RoleOverridesAdditionalPropertiesCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "WorkspaceRolesRolesItemCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "WorkspaceRolesRolesItemCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "WorkspaceRolesRolesItemCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "WorkspaceRolesRolesItemCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
             }
           ]
         }
@@ -716680,6 +719063,62 @@
             {
               "value": "external_instance",
               "name": "ExternalInstance"
+            }
+          ]
+        }
+      },
+      "WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "WorkspaceRolesOverridesAdditionalPropertiesCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
             }
           ]
         }
@@ -736843,6 +739282,84 @@
             {
               "value": "manual",
               "name": "Manual"
+            }
+          ]
+        }
+      },
+      "ListWorkspaceRoles200ResponseRolesItemSource": {
+        "enum": [
+          "instance",
+          "workspace"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ListWorkspaceRoles200ResponseRolesItemSource",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "instance",
+              "name": "Instance"
+            },
+            {
+              "value": "workspace",
+              "name": "Workspace"
+            }
+          ]
+        }
+      },
+      "ListWorkspaceRoles200ResponseMyCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListWorkspaceRoles200ResponseMyCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "ListWorkspaceRoles200ResponseMyCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListWorkspaceRoles200ResponseMyCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
             }
           ]
         }
@@ -763983,6 +766500,62 @@
           ]
         }
       },
+      "ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
       "GetExternalInstancePgStatus200ResponseLastSetupStepsItemStatus": {
         "enum": [
           "ok",
@@ -764438,6 +767011,118 @@
             {
               "value": "FAIL",
               "name": "Fail"
+            }
+          ]
+        }
+      },
+      "ListWorkspaceRoles200ResponseRolesItemCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListWorkspaceRoles200ResponseRolesItemCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "ListWorkspaceRoles200ResponseRolesItemCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListWorkspaceRoles200ResponseRolesItemCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
             }
           ]
         }
@@ -768228,6 +770913,62 @@
             {
               "value": "group",
               "name": "Group"
+            }
+          ]
+        }
+      },
+      "ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesFlows": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesFlows",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesApps": {
+        "enum": [
+          "none",
+          "compose",
+          "full"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "How much of a kind of runnable a role may author. \u0060compose\u0060 assembles already-deployed runnables with no code of one\u0027s own.",
+        "x-ms-enum": {
+          "name": "ListWorkspaceRoles200ResponseOverridesAdditionalPropertiesCapabilitiesApps",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "none",
+              "name": "None"
+            },
+            {
+              "value": "compose",
+              "name": "Compose"
+            },
+            {
+              "value": "full",
+              "name": "Full"
             }
           ]
         }

@@ -96,6 +96,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Prune_versions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Public_app_rate_limit;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Rebuild_dependency_map;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Role_overrides;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Roles;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Rollback_datatable_migrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_datatable_migrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Run_slack_message_test_job;
@@ -591,6 +593,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Reset_diff_tallyRequestBuilder Reset_diff_tally
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Reset_diff_tally.Reset_diff_tallyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The role_overrides property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Role_overrides.Role_overridesRequestBuilder Role_overrides
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Role_overrides.Role_overridesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The roles property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Roles.RolesRequestBuilder Roles
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Roles.RolesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The rollback_datatable_migrations property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Rollback_datatable_migrations.Rollback_datatable_migrationsRequestBuilder Rollback_datatable_migrations

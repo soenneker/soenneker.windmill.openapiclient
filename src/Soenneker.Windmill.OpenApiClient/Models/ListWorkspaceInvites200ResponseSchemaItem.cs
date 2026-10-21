@@ -34,6 +34,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ParentWorkspaceId { get; set; }
 #endif
+        /// <summary>The workspace role the invite grants.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Role { get; set; }
+#nullable restore
+#else
+        public string Role { get; set; }
+#endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_admin", n => { IsAdmin = n.GetBoolValue(); } },
                 { "operator", n => { Operator = n.GetBoolValue(); } },
                 { "parent_workspace_id", n => { ParentWorkspaceId = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -85,6 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_admin", IsAdmin);
             writer.WriteBoolValue("operator", Operator);
             writer.WriteStringValue("parent_workspace_id", ParentWorkspaceId);
+            writer.WriteStringValue("role", Role);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }

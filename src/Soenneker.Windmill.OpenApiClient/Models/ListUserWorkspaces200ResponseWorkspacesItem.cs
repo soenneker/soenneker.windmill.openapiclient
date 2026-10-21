@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The capabilities property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilities? Capabilities { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilities Capabilities { get; set; }
+#endif
         /// <summary>The color property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,6 +84,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string ParentWorkspaceId { get; set; }
 #endif
+        /// <summary>The member&apos;s workspace role.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Role { get; set; }
+#nullable restore
+#else
+        public string Role { get; set; }
+#endif
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,6 +125,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "capabilities", n => { Capabilities = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilities>(global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilities.CreateFromDiscriminatorValue); } },
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "dev_workspace_label", n => { DevWorkspaceLabel = n.GetStringValue(); } },
@@ -119,6 +136,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "operator_settings", n => { OperatorSettings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings>(global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings.CreateFromDiscriminatorValue); } },
                 { "parent_workspace_id", n => { ParentWorkspaceId = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -129,6 +147,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilities>("capabilities", Capabilities);
             writer.WriteStringValue("color", Color);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("dev_workspace_label", DevWorkspaceLabel);
@@ -139,6 +158,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemOperatorSettings>("operator_settings", OperatorSettings);
             writer.WriteStringValue("parent_workspace_id", ParentWorkspaceId);
+            writer.WriteStringValue("role", Role);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -24,7 +24,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The is_admin property</summary>
         public bool? IsAdmin { get; set; }
-        /// <summary>The operator property</summary>
+        /// <summary>Legacy role selector, true for the `operator` role.</summary>
         public bool? Operator { get; set; }
         /// <summary>The parent_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,6 +33,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public string ParentWorkspaceId { get; set; }
+#endif
+        /// <summary>The workspace role to give, one of the workspace&apos;s roles. Wins over `operator`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Role { get; set; }
+#nullable restore
+#else
+        public string Role { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.InviteUserRequest"/> and sets the default values.
@@ -63,6 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_admin", n => { IsAdmin = n.GetBoolValue(); } },
                 { "operator", n => { Operator = n.GetBoolValue(); } },
                 { "parent_workspace_id", n => { ParentWorkspaceId = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,6 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_admin", IsAdmin);
             writer.WriteBoolValue("operator", Operator);
             writer.WriteStringValue("parent_workspace_id", ParentWorkspaceId);
+            writer.WriteStringValue("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

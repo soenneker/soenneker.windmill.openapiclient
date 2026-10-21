@@ -24,8 +24,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #endif
         /// <summary>The is_admin property</summary>
         public bool? IsAdmin { get; set; }
-        /// <summary>The operator property</summary>
+        /// <summary>Legacy role selector, true for the `operator` role.</summary>
         public bool? Operator { get; set; }
+        /// <summary>The workspace role to give, one of the workspace&apos;s roles. Wins over `operator`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Role { get; set; }
+#nullable restore
+#else
+        public string Role { get; set; }
+#endif
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "is_admin", n => { IsAdmin = n.GetBoolValue(); } },
                 { "operator", n => { Operator = n.GetBoolValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -75,6 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("is_admin", IsAdmin);
             writer.WriteBoolValue("operator", Operator);
+            writer.WriteStringValue("role", Role);
             writer.WriteStringValue("username", Username);
             writer.WriteAdditionalData(AdditionalData);
         }

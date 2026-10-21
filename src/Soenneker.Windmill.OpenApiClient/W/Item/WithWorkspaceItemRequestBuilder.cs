@@ -54,6 +54,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Runnables;
 using Soenneker.Windmill.OpenApiClient.W.Item.Schedules;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui;
+using Soenneker.Windmill.OpenApiClient.W.Item.Slack_agents;
 using Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers;
 using Soenneker.Windmill.OpenApiClient.W.Item.Trash;
 using Soenneker.Windmill.OpenApiClient.W.Item.Trigger;
@@ -336,6 +337,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui.Shared_uiRequestBuilder Shared_ui
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Shared_ui.Shared_uiRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The slack_agents property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Slack_agents.Slack_agentsRequestBuilder Slack_agents
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Slack_agents.Slack_agentsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The sqs_triggers property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Sqs_triggers.Sqs_triggersRequestBuilder Sqs_triggers

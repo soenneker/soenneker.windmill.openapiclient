@@ -20,6 +20,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? InviteAll { get; set; }
         /// <summary>The operator property</summary>
         public bool? Operator { get; set; }
+        /// <summary>The workspace role to give, one of the workspace&apos;s roles. Wins over `operator`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Role { get; set; }
+#nullable restore
+#else
+        public string Role { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditAutoInviteRequest"/> and sets the default values.
         /// </summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "auto_add", n => { AutoAdd = n.GetBoolValue(); } },
                 { "invite_all", n => { InviteAll = n.GetBoolValue(); } },
                 { "operator", n => { Operator = n.GetBoolValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,6 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("auto_add", AutoAdd);
             writer.WriteBoolValue("invite_all", InviteAll);
             writer.WriteBoolValue("operator", Operator);
+            writer.WriteStringValue("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

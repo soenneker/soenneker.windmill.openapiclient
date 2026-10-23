@@ -30,14 +30,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string RedirectUri { get; set; }
 #endif
-        /// <summary>The resource_path property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ResourcePath { get; set; }
-#nullable restore
-#else
-        public string ResourcePath { get; set; }
-#endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +65,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
-                { "resource_path", n => { ResourcePath = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
             };
         }
@@ -86,7 +77,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("redirect_uri", RedirectUri);
-            writer.WriteStringValue("resource_path", ResourcePath);
             writer.WriteStringValue("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }

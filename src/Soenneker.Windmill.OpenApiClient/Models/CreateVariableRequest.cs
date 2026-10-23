@@ -12,7 +12,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     public partial class CreateVariableRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The account identifier</summary>
+        /// <summary>Ignored. A variable is linked to an OAuth account only when `createAccount` creates both.</summary>
+        [Obsolete("")]
         public int? Account { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

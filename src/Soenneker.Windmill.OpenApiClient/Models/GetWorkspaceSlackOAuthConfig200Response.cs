@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string SlackOauthClientSecret { get; set; }
 #endif
+        /// <summary>Masked with *** if set</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SlackSigningSecret { get; set; }
+#nullable restore
+#else
+        public string SlackSigningSecret { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceSlackOAuthConfig200Response"/> and sets the default values.
         /// </summary>
@@ -57,6 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "slack_oauth_client_id", n => { SlackOauthClientId = n.GetStringValue(); } },
                 { "slack_oauth_client_secret", n => { SlackOauthClientSecret = n.GetStringValue(); } },
+                { "slack_signing_secret", n => { SlackSigningSecret = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,6 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("slack_oauth_client_id", SlackOauthClientId);
             writer.WriteStringValue("slack_oauth_client_secret", SlackOauthClientSecret);
+            writer.WriteStringValue("slack_signing_secret", SlackSigningSecret);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

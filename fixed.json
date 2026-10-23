@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.846.1",
+    "version": "1.847.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -6317,6 +6317,48 @@
               "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/DeleteWorkspaceSlackOAuthConfig200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/workspaces/slack_signing_secret": {
+      "post": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "set the signing secret of the workspace\u0027s own slack app",
+        "operationId": "SetWorkspaceSlackSigningSecret",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Slack app\u0027s signing secret, null or empty to remove it",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetWorkspaceSlackSigningSecretRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "status",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetWorkspaceSlackSigningSecret200PlainResponseSchema"
                 }
               }
             }
@@ -31379,7 +31421,7 @@
           }
         ],
         "requestBody": {
-          "description": "redirect_uri",
+          "description": "redirect_uri, and where to save the connection (defaults to u/{caller}/native_{resource_type}). Uses the workspace OAuth client, or the instance one when the instance shares it.",
           "content": {
             "application/json": {
               "schema": {
@@ -31442,13 +31484,13 @@
         }
       }
     },
-    "/w/{workspace}/native_triggers/integrations/{serviceName}/generate_instance_connect_url": {
-      "post": {
+    "/w/{workspace}/native_triggers/integrations/{serviceName}/connections": {
+      "get": {
         "tags": [
           "workspace_integration"
         ],
-        "summary": "generate connect url using instance-level credentials",
-        "operationId": "GenerateInstanceConnectUrl",
+        "summary": "list the native trigger connections of a service the caller can use",
+        "operationId": "ListNativeTriggerConnections",
         "parameters": [
           {
             "name": "workspace",
@@ -31463,16 +31505,101 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/GenerateInstanceConnectUrlServiceNameParameter"
+              "$ref": "#/components/schemas/ListNativeTriggerConnectionsServiceNameParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "connections",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListNativeTriggerConnections200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/native_triggers/integrations/{serviceName}/connections/delete": {
+      "delete": {
+        "tags": [
+          "workspace_integration"
+        ],
+        "summary": "disconnect a native trigger connection and delete the triggers using it",
+        "operationId": "DeleteNativeTriggerConnection",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serviceName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/DeleteNativeTriggerConnectionServiceNameParameter"
+            }
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "connection deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteNativeTriggerConnection200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/native_triggers/integrations/{serviceName}/workspace_connection": {
+      "post": {
+        "tags": [
+          "workspace_integration"
+        ],
+        "summary": "share a connection of this service with every member of the workspace (admin only), or stop sharing",
+        "operationId": "SetNativeTriggerWorkspaceConnection",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serviceName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SetNativeTriggerWorkspaceConnectionServiceNameParameter"
             }
           }
         ],
         "requestBody": {
-          "description": "redirect_uri",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GenerateInstanceConnectUrlRequest"
+                "$ref": "#/components/schemas/SetNativeTriggerWorkspaceConnectionRequest"
               }
             }
           },
@@ -31480,11 +31607,11 @@
         },
         "responses": {
           "200": {
-            "description": "authorization URL using instance credentials",
+            "description": "workspace connection updated",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GenerateInstanceConnectUrl200ResponseSchema"
+                  "$ref": "#/components/schemas/SetNativeTriggerWorkspaceConnection200ResponseSchema"
                 }
               }
             }
@@ -31569,11 +31696,11 @@
         },
         "responses": {
           "200": {
-            "description": "native trigger service oauth completed",
+            "description": "path of the saved connection",
             "content": {
-              "text/plain": {
+              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NativeTriggerServiceCallback200PlainResponseSchema"
+                  "$ref": "#/components/schemas/NativeTriggerServiceCallback200ResponseSchema"
                 }
               }
             }
@@ -32034,6 +32161,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "connection_path",
+            "in": "query",
+            "description": "Connection to browse through; defaults to the caller\u0027s only usable one",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -32065,6 +32200,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "connection_path",
+            "in": "query",
+            "description": "Connection to browse through; defaults to the caller\u0027s only usable one",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -32093,6 +32236,14 @@
             "name": "workspace",
             "in": "path",
             "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connection_path",
+            "in": "query",
+            "description": "Connection to browse through; defaults to the caller\u0027s only usable one",
             "schema": {
               "type": "string"
             }
@@ -32160,6 +32311,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "connection_path",
+            "in": "query",
+            "description": "Connection to browse through; defaults to the caller\u0027s only usable one",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -32188,6 +32347,14 @@
             "name": "workspace",
             "in": "path",
             "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connection_path",
+            "in": "query",
+            "description": "Connection to browse through; defaults to the caller\u0027s only usable one",
             "schema": {
               "type": "string"
             }
@@ -48671,7 +48838,8 @@
           },
           "account": {
             "type": "integer",
-            "description": "The account identifier"
+            "description": "Ignored. A variable is linked to an OAuth account only when \u0060createAccount\u0060 creates both.",
+            "deprecated": true
           },
           "is_oauth": {
             "type": "boolean",
@@ -58734,6 +58902,11 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires"
+          },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through on the external service",
+            "nullable": true
           }
         },
         "description": "A native trigger stored in Windmill"
@@ -58787,6 +58960,11 @@
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires"
           },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through on the external service",
+            "nullable": true
+          },
           "external_data": {
             "$ref": "#/components/schemas/NativeTriggerWithExternalExternalDataProperty"
           },
@@ -58809,11 +58987,6 @@
           },
           "oauth_data": {
             "$ref": "#/components/schemas/WorkspaceIntegrationsOAuthData"
-          },
-          "resource_path": {
-            "type": "string",
-            "description": "Path to the resource storing the OAuth token",
-            "nullable": true
           }
         }
       },
@@ -58884,17 +59057,6 @@
           ]
         }
       },
-      "RedirectUri": {
-        "required": [
-          "redirect_uri"
-        ],
-        "type": "object",
-        "properties": {
-          "redirect_uri": {
-            "type": "string"
-          }
-        }
-      },
       "NativeTriggerData": {
         "required": [
           "script_path",
@@ -58922,9 +59084,37 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires. Honoured on create only, so a trigger can be registered already paused; an update ignores it and setenabled is the only way to change an existing trigger\u0027s state. Defaults to true."
+          },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through. Honoured on create only; an update keeps the trigger\u0027s connection. When omitted on create, the caller\u0027s only usable connection for the service is used.",
+            "nullable": true
           }
         },
         "description": "Data for creating or updating a native trigger"
+      },
+      "NativeTriggerConnection": {
+        "required": [
+          "path",
+          "workspace"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path of the resource and variable holding the connection"
+          },
+          "owner": {
+            "type": "string",
+            "description": "Username of whoever connected the account, when the caller can read its resource",
+            "nullable": true
+          },
+          "workspace": {
+            "type": "boolean",
+            "description": "Whether this is the workspace connection, which every member may use"
+          }
+        },
+        "description": "An account connected for native triggers, stored as an OAuth resource"
       },
       "CreateTriggerResponse": {
         "required": [
@@ -347673,6 +347863,11 @@
             "type": "string",
             "description": "Masked with *** if set",
             "nullable": true
+          },
+          "slack_signing_secret": {
+            "type": "string",
+            "description": "Masked with *** if set",
+            "nullable": true
           }
         }
       },
@@ -347695,6 +347890,18 @@
         "type": "string"
       },
       "DeleteWorkspaceSlackOAuthConfig200PlainResponse": {
+        "type": "string"
+      },
+      "SetWorkspaceSlackSigningSecretRequest": {
+        "type": "object",
+        "properties": {
+          "slack_signing_secret": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SetWorkspaceSlackSigningSecret200PlainResponse": {
         "type": "string"
       },
       "EditTeamsCommandRequest": {
@@ -349446,7 +349653,8 @@
           },
           "account": {
             "type": "integer",
-            "description": "The account identifier"
+            "description": "Ignored. A variable is linked to an OAuth account only when \u0060createAccount\u0060 creates both.",
+            "deprecated": true
           },
           "is_oauth": {
             "type": "boolean",
@@ -350256,6 +350464,9 @@
               "type": "string"
             },
             "description": "OAuth scopes to use for token refresh. Overrides instance-level scopes."
+          },
+          "variable": {
+            "$ref": "#/components/schemas/CreateAccountRequestVariable"
           }
         }
       },
@@ -355955,6 +356166,13 @@
             "items": {
               "$ref": "#/components/schemas/RunAgentRequestUserAttachmentsItem"
             }
+          },
+          "previous_messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RunAgentRequestPreviousMessagesItem"
+            },
+            "description": "The history to answer from, as chat messages, when the agent\u0027s memory is off.\nAn agent with managed memory reads its conversation instead and ignores this.\n"
           }
         }
       },
@@ -359682,6 +359900,9 @@
         "properties": {
           "redirect_uri": {
             "type": "string"
+          },
+          "resource_path": {
+            "type": "string"
           }
         }
       },
@@ -359691,18 +359912,26 @@
       "CheckInstanceSharingAvailable200Response": {
         "type": "boolean"
       },
-      "GenerateInstanceConnectUrlRequest": {
-        "required": [
-          "redirect_uri"
-        ],
+      "ListNativeTriggerConnections200Response": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListNativeTriggerConnections200ResponseItem"
+        }
+      },
+      "DeleteNativeTriggerConnection200Response": {
+        "type": "string"
+      },
+      "SetNativeTriggerWorkspaceConnectionRequest": {
         "type": "object",
         "properties": {
-          "redirect_uri": {
-            "type": "string"
+          "path": {
+            "type": "string",
+            "description": "The connection to share, or null to stop sharing",
+            "nullable": true
           }
         }
       },
-      "GenerateInstanceConnectUrl200Response": {
+      "SetNativeTriggerWorkspaceConnection200Response": {
         "type": "string"
       },
       "DeleteNativeTriggerService200PlainResponse": {
@@ -359724,13 +359953,10 @@
           },
           "redirect_uri": {
             "type": "string"
-          },
-          "resource_path": {
-            "type": "string"
           }
         }
       },
-      "NativeTriggerServiceCallback200PlainResponse": {
+      "NativeTriggerServiceCallback200Response": {
         "type": "string"
       },
       "CreateNativeTriggerRequest": {
@@ -359760,6 +359986,11 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires. Honoured on create only, so a trigger can be registered already paused; an update ignores it and setenabled is the only way to change an existing trigger\u0027s state. Defaults to true."
+          },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through. Honoured on create only; an update keeps the trigger\u0027s connection. When omitted on create, the caller\u0027s only usable connection for the service is used.",
+            "nullable": true
           }
         },
         "description": "Data for creating or updating a native trigger"
@@ -359804,6 +360035,11 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires. Honoured on create only, so a trigger can be registered already paused; an update ignores it and setenabled is the only way to change an existing trigger\u0027s state. Defaults to true."
+          },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through. Honoured on create only; an update keeps the trigger\u0027s connection. When omitted on create, the caller\u0027s only usable connection for the service is used.",
+            "nullable": true
           }
         },
         "description": "Data for creating or updating a native trigger"
@@ -359859,6 +360095,11 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires"
+          },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through on the external service",
+            "nullable": true
           },
           "external_data": {
             "$ref": "#/components/schemas/GetNativeTrigger200ResponseExternalData"
@@ -364868,6 +365109,9 @@
       "DeleteWorkspaceSlackOAuthConfig200PlainResponseSchema": {
         "type": "string"
       },
+      "SetWorkspaceSlackSigningSecret200PlainResponseSchema": {
+        "type": "string"
+      },
       "EditTeamsCommand200PlainResponseSchema": {
         "type": "string"
       },
@@ -366336,13 +366580,22 @@
       "CheckInstanceSharingAvailable200ResponseSchema": {
         "type": "boolean"
       },
-      "GenerateInstanceConnectUrl200ResponseSchema": {
+      "ListNativeTriggerConnections200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListNativeTriggerConnections200ResponseSchemaItem"
+        }
+      },
+      "DeleteNativeTriggerConnection200ResponseSchema": {
+        "type": "string"
+      },
+      "SetNativeTriggerWorkspaceConnection200ResponseSchema": {
         "type": "string"
       },
       "DeleteNativeTriggerService200PlainResponseSchema": {
         "type": "string"
       },
-      "NativeTriggerServiceCallback200PlainResponseSchema": {
+      "NativeTriggerServiceCallback200ResponseSchema": {
         "type": "string"
       },
       "UpdateNativeTrigger200PlainResponseSchema": {
@@ -588276,6 +588529,57 @@
           }
         }
       },
+      "CreateAccountRequestVariable": {
+        "required": [
+          "path",
+          "value",
+          "is_secret",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path to the variable"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the variable"
+          },
+          "is_secret": {
+            "type": "boolean",
+            "description": "Whether the variable is a secret"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the variable"
+          },
+          "account": {
+            "type": "integer",
+            "description": "Ignored. A variable is linked to an OAuth account only when \u0060createAccount\u0060 creates both.",
+            "deprecated": true
+          },
+          "is_oauth": {
+            "type": "boolean",
+            "description": "Whether the variable is an OAuth variable"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "The expiration date of the variable",
+            "format": "date-time"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ws_specific": {
+            "type": "boolean"
+          }
+        },
+        "description": "The variable holding this account\u0027s access token. It is created with the account, in one transaction and with the same checks as createVariable, and linked to it so it refreshes through it."
+      },
       "ListOAuthLogins200ResponseOAuthItem": {
         "required": [
           "type"
@@ -592789,6 +593093,9 @@
       "RunAgentRequestUserAttachmentsItem": {
         "type": "object"
       },
+      "RunAgentRequestPreviousMessagesItem": {
+        "type": "object"
+      },
       "RunFlowPreviewAndWaitResultRequestValue": {
         "required": [
           "modules"
@@ -596797,13 +597104,31 @@
           },
           "oauth_data": {
             "$ref": "#/components/schemas/ListNativeTriggerServices200ResponseItemOAuthData"
-          },
-          "resource_path": {
-            "type": "string",
-            "description": "Path to the resource storing the OAuth token",
-            "nullable": true
           }
         }
+      },
+      "ListNativeTriggerConnections200ResponseItem": {
+        "required": [
+          "path",
+          "workspace"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path of the resource and variable holding the connection"
+          },
+          "owner": {
+            "type": "string",
+            "description": "Username of whoever connected the account, when the caller can read its resource",
+            "nullable": true
+          },
+          "workspace": {
+            "type": "boolean",
+            "description": "Whether this is the workspace connection, which every member may use"
+          }
+        },
+        "description": "An account connected for native triggers, stored as an OAuth resource"
       },
       "CreateNativeTriggerRequestServiceConfig": {
         "type": "object",
@@ -596869,6 +597194,11 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires"
+          },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through on the external service",
+            "nullable": true
           }
         },
         "description": "A native trigger stored in Windmill"
@@ -605726,13 +606056,31 @@
           },
           "oauth_data": {
             "$ref": "#/components/schemas/ListNativeTriggerServices200ResponseItemOAuthData"
-          },
-          "resource_path": {
-            "type": "string",
-            "description": "Path to the resource storing the OAuth token",
-            "nullable": true
           }
         }
+      },
+      "ListNativeTriggerConnections200ResponseSchemaItem": {
+        "required": [
+          "path",
+          "workspace"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path of the resource and variable holding the connection"
+          },
+          "owner": {
+            "type": "string",
+            "description": "Username of whoever connected the account, when the caller can read its resource",
+            "nullable": true
+          },
+          "workspace": {
+            "type": "boolean",
+            "description": "Whether this is the workspace connection, which every member may use"
+          }
+        },
+        "description": "An account connected for native triggers, stored as an OAuth resource"
       },
       "ListNativeTriggers200ResponseSchemaItem": {
         "required": [
@@ -605781,6 +606129,11 @@
           "enabled": {
             "type": "boolean",
             "description": "Whether the trigger starts a job when it fires"
+          },
+          "connection_path": {
+            "type": "string",
+            "description": "Path of the connection the trigger acts through on the external service",
+            "nullable": true
           }
         },
         "description": "A native trigger stored in Windmill"
@@ -777380,7 +777733,7 @@
           ]
         }
       },
-      "GenerateInstanceConnectUrlServiceNameParameter": {
+      "ListNativeTriggerConnectionsServiceNameParameter": {
         "enum": [
           "nextcloud",
           "google",
@@ -777389,7 +777742,61 @@
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "GenerateInstanceConnectUrlServiceNameParameter",
+          "name": "ListNativeTriggerConnectionsServiceNameParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "nextcloud",
+              "name": "Nextcloud"
+            },
+            {
+              "value": "google",
+              "name": "Google"
+            },
+            {
+              "value": "github",
+              "name": "Github"
+            }
+          ]
+        }
+      },
+      "DeleteNativeTriggerConnectionServiceNameParameter": {
+        "enum": [
+          "nextcloud",
+          "google",
+          "github"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DeleteNativeTriggerConnectionServiceNameParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "nextcloud",
+              "name": "Nextcloud"
+            },
+            {
+              "value": "google",
+              "name": "Google"
+            },
+            {
+              "value": "github",
+              "name": "Github"
+            }
+          ]
+        }
+      },
+      "SetNativeTriggerWorkspaceConnectionServiceNameParameter": {
+        "enum": [
+          "nextcloud",
+          "google",
+          "github"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SetNativeTriggerWorkspaceConnectionServiceNameParameter",
           "modelAsString": false,
           "values": [
             {

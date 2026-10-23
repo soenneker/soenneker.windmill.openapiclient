@@ -3,12 +3,13 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Callback;
+using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Connections;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Create;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Exists;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Generate_connect_url;
-using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Generate_instance_connect_url;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Instance_sharing_available;
+using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Workspace_connection;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,6 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Callback.CallbackRequestBuilder Callback
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Callback.CallbackRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The connections property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Connections.ConnectionsRequestBuilder Connections
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Connections.ConnectionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The create property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Create.CreateRequestBuilder Create
@@ -46,15 +52,15 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Generate_connect_url.Generate_connect_urlRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The generate_instance_connect_url property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Generate_instance_connect_url.Generate_instance_connect_urlRequestBuilder Generate_instance_connect_url
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Generate_instance_connect_url.Generate_instance_connect_urlRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The instance_sharing_available property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Instance_sharing_available.Instance_sharing_availableRequestBuilder Instance_sharing_available
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Instance_sharing_available.Instance_sharing_availableRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workspace_connection property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Workspace_connection.Workspace_connectionRequestBuilder Workspace_connection
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Workspace_connection.Workspace_connectionRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.WithServiceNameItemRequestBuilder"/> and sets the default values.

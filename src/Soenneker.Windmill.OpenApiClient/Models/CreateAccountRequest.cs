@@ -88,6 +88,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> Scopes { get; set; }
 #endif
+        /// <summary>The variable holding this account&apos;s access token. It is created with the account, in one transaction and with the same checks as createVariable, and linked to it so it refreshes through it.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable? Variable { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable Variable { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequest"/> and sets the default values.
         /// </summary>
@@ -124,6 +132,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "mcp_server_url", n => { McpServerUrl = n.GetStringValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "variable", n => { Variable = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable>(global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -143,6 +152,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("mcp_server_url", McpServerUrl);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable>("variable", Variable);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

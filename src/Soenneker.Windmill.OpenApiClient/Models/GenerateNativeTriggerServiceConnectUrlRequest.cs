@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string RedirectUri { get; set; }
 #endif
+        /// <summary>The resource_path property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ResourcePath { get; set; }
+#nullable restore
+#else
+        public string ResourcePath { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GenerateNativeTriggerServiceConnectUrlRequest"/> and sets the default values.
         /// </summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
+                { "resource_path", n => { ResourcePath = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,6 +67,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("redirect_uri", RedirectUri);
+            writer.WriteStringValue("resource_path", ResourcePath);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

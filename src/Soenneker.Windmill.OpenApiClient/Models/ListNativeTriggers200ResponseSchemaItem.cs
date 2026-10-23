@@ -15,6 +15,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Path of the connection the trigger acts through on the external service</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ConnectionPath { get; set; }
+#nullable restore
+#else
+        public string ConnectionPath { get; set; }
+#endif
         /// <summary>Whether the trigger starts a job when it fires</summary>
         public bool? Enabled { get; set; }
         /// <summary>Error message if the trigger is in an error state</summary>
@@ -94,6 +102,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "connection_path", n => { ConnectionPath = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "external_id", n => { ExternalId = n.GetStringValue(); } },
@@ -112,6 +121,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("connection_path", ConnectionPath);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("external_id", ExternalId);

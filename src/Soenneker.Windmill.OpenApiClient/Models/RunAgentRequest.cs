@@ -14,6 +14,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The history to answer from, as chat messages, when the agent&apos;s memory is off.An agent with managed memory reads its conversation instead and ignores this.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestPreviousMessagesItem>? PreviousMessages { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestPreviousMessagesItem> PreviousMessages { get; set; }
+#endif
         /// <summary>The user_attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,6 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "previous_messages", n => { PreviousMessages = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestPreviousMessagesItem>(global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestPreviousMessagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "user_attachments", n => { UserAttachments = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestUserAttachmentsItem>(global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestUserAttachmentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "user_message", n => { UserMessage = n.GetStringValue(); } },
             };
@@ -66,6 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestPreviousMessagesItem>("previous_messages", PreviousMessages);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RunAgentRequestUserAttachmentsItem>("user_attachments", UserAttachments);
             writer.WriteStringValue("user_message", UserMessage);
             writer.WriteAdditionalData(AdditionalData);

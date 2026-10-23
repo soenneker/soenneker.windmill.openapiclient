@@ -22,14 +22,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData OauthData { get; set; }
 #endif
-        /// <summary>Path to the resource storing the OAuth token</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ResourcePath { get; set; }
-#nullable restore
-#else
-        public string ResourcePath { get; set; }
-#endif
         /// <summary>The service_name property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName? ServiceName { get; set; }
         /// <summary>
@@ -58,7 +50,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "oauth_data", n => { OauthData = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData>(global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData.CreateFromDiscriminatorValue); } },
-                { "resource_path", n => { ResourcePath = n.GetStringValue(); } },
                 { "service_name", n => { ServiceName = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName>(); } },
             };
         }
@@ -70,7 +61,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData>("oauth_data", OauthData);
-            writer.WriteStringValue("resource_path", ResourcePath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName>("service_name", ServiceName);
             writer.WriteAdditionalData(AdditionalData);
         }

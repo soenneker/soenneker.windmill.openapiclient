@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.S
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Shared_drivesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/google/drive/shared_drives", pathParameters)
+        public Shared_drivesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/google/drive/shared_drives{?connection_path*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.S
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Shared_drivesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/google/drive/shared_drives", rawUrl)
+        public Shared_drivesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/native_triggers/google/drive/shared_drives{?connection_path*}", rawUrl)
         {
         }
         /// <summary>
@@ -41,11 +41,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.S
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListGoogleSharedDrives200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListGoogleSharedDrives200ResponseSchemaItem>?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.Shared_drives.Shared_drivesRequestBuilder.Shared_drivesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListGoogleSharedDrives200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<global::Soenneker.Windmill.OpenApiClient.Models.ListGoogleSharedDrives200ResponseSchemaItem>> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.Shared_drives.Shared_drivesRequestBuilder.Shared_drivesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -59,11 +59,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.S
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.Shared_drives.Shared_drivesRequestBuilder.Shared_drivesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.Shared_drives.Shared_drivesRequestBuilder.Shared_drivesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -79,6 +79,23 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.S
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.Shared_drives.Shared_drivesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Google.Drive.Shared_drives.Shared_drivesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// list shared drives accessible to the user
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Shared_drivesRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Connection to browse through; defaults to the caller&apos;s only usable one</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("connection_path")]
+            public string? ConnectionPath { get; set; }
+#nullable restore
+#else
+            [QueryParameter("connection_path")]
+            public string ConnectionPath { get; set; }
+#endif
         }
     }
 }

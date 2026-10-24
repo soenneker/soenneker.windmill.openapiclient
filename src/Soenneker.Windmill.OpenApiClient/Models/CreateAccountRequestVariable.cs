@@ -26,7 +26,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The expiration date of the variable</summary>
+        /// <summary>When to garbage-collect the variable. Used for ephemeral secrets; the variable is deleted once this is reached. Not the value&apos;s expiry — see value_valid_until.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>Whether the variable is an OAuth variable</summary>
         public bool? IsOauth { get; set; }
@@ -56,6 +56,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Value { get; set; }
 #endif
+        /// <summary>When the value stored in this variable stops working. Triggers the workspace&apos;s variable expiration handler ahead of it, by the handler&apos;s `notify_before_secs` (1 day by default); never causes the variable to be deleted.</summary>
+        public DateTimeOffset? ValueValidUntil { get; set; }
         /// <summary>The ws_specific property</summary>
         public bool? WsSpecific { get; set; }
         /// <summary>
@@ -91,6 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
+                { "value_valid_until", n => { ValueValidUntil = n.GetDateTimeOffsetValue(); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
@@ -109,6 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("value", Value);
+            writer.WriteDateTimeOffsetValue("value_valid_until", ValueValidUntil);
             writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -25,10 +25,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Draft content to save. `null` (or omitted) signals a delete — the row is removed under the same conflict rules.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraftRequestValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraftRequestValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraftRequest"/> and sets the default values.
@@ -59,7 +59,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "force", n => { Force = n.GetBoolValue(); } },
                 { "last_sync", n => { LastSync = n.GetDateTimeOffsetValue(); } },
                 { "legacy", n => { Legacy = n.GetBoolValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraftRequestValue>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraftRequestValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("force", Force);
             writer.WriteDateTimeOffsetValue("last_sync", LastSync);
             writer.WriteBoolValue("legacy", Legacy);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateDraftRequestValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

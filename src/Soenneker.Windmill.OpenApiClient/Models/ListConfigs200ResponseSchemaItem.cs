@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseItemConfig? Config { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseSchemaItemConfig? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseItemConfig Config { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseSchemaItemConfig Config { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseItemConfig>(global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseItemConfig.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseSchemaItemConfig>(global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseSchemaItemConfig.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseItemConfig>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListConfigs200ResponseSchemaItemConfig>("config", Config);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

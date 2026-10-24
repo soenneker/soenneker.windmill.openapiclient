@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Reference output a scorer compares a rerun against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemExpected? Expected { get; set; }
+        public UntypedNode? Expected { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemExpected Expected { get; set; }
+        public UntypedNode Expected { get; set; }
 #endif
         /// <summary>The inputs a standalone run feeds the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expected", n => { Expected = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemExpected>(global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemExpected.CreateFromDiscriminatorValue); } },
+                { "expected", n => { Expected = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemInput>(global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemInput.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemExpected>("expected", Expected);
+            writer.WriteObjectValue<UntypedNode>("expected", Expected);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateEvalDatasetRequestCasesItemInput>("input", Input);
             writer.WriteAdditionalData(AdditionalData);
         }

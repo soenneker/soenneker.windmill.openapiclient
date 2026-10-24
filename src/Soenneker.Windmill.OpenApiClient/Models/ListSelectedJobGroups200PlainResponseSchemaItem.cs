@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The latest_schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemLatestSchema? LatestSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseSchemaItemLatestSchema? LatestSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemLatestSchema LatestSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseSchemaItemLatestSchema LatestSchema { get; set; }
 #endif
         /// <summary>The schemas property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemKind>(); } },
-                { "latest_schema", n => { LatestSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemLatestSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemLatestSchema.CreateFromDiscriminatorValue); } },
+                { "latest_schema", n => { LatestSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseSchemaItemLatestSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseSchemaItemLatestSchema.CreateFromDiscriminatorValue); } },
                 { "schemas", n => { Schemas = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemKind>("kind", Kind);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemLatestSchema>("latest_schema", LatestSchema);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseSchemaItemLatestSchema>("latest_schema", LatestSchema);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItem>("schemas", Schemas);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteAdditionalData(AdditionalData);

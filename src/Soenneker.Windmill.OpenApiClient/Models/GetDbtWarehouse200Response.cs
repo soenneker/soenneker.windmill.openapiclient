@@ -33,10 +33,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>the resolved resource, rendered into profiles.yml</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200Response"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
                 { "target", n => { Target = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("resource_type", ResourceType);
             writer.WriteStringValue("target", Target);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtWarehouse200ResponseValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

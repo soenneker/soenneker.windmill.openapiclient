@@ -159,10 +159,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>For large results, this may be the placeholder string &apos;WINDMILL_TOO_BIG&apos;.Use the completed job result endpoint to retrieve the full result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1Result? Result { get; set; }
+        public UntypedNode? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1Result Result { get; set; }
+        public UntypedNode Result { get; set; }
 #endif
         /// <summary>The schedule_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -289,7 +289,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "resolved_at", n => { ResolvedAt = n.GetDateTimeOffsetValue(); } },
                 { "resolved_automatically", n => { ResolvedAutomatically = n.GetBoolValue(); } },
                 { "resolved_by", n => { ResolvedBy = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1Result>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1Result.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "schedule_path", n => { SchedulePath = n.GetStringValue(); } },
                 { "script_hash", n => { ScriptHash = n.GetStringValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
@@ -344,7 +344,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("resolved_at", ResolvedAt);
             writer.WriteBoolValue("resolved_automatically", ResolvedAutomatically);
             writer.WriteStringValue("resolved_by", ResolvedBy);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1Result>("result", Result);
+            writer.WriteObjectValue<UntypedNode>("result", Result);
             writer.WriteStringValue("schedule_path", SchedulePath);
             writer.WriteStringValue("script_hash", ScriptHash);
             writer.WriteStringValue("script_path", ScriptPath);

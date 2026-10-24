@@ -20,10 +20,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Full job arguments without size restrictions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemArgs? Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemArgs? Args { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemArgs Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemArgs Args { get; set; }
 #endif
         /// <summary>The cache_ttl property</summary>
         public int? CacheTtl { get; set; }
@@ -70,10 +70,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Flow status from v2_job_status table</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemFlowStatus? FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemFlowStatus? FlowStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemFlowStatus FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemFlowStatus FlowStatus { get; set; }
 #endif
         /// <summary>The flow_step_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -142,10 +142,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The raw_flow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemRawFlow? RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemRawFlow? RawFlow { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemRawFlow RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemRawFlow RawFlow { get; set; }
 #endif
         /// <summary>The raw_lock property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -208,10 +208,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The workflow_as_code_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItem"/> and sets the default values.
@@ -239,7 +239,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "aggregate_wait_time_ms", n => { AggregateWaitTimeMs = n.GetIntValue(); } },
-                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemArgs.CreateFromDiscriminatorValue); } },
+                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemArgs.CreateFromDiscriminatorValue); } },
                 { "cache_ttl", n => { CacheTtl = n.GetIntValue(); } },
                 { "canceled_by", n => { CanceledBy = n.GetStringValue(); } },
                 { "canceled_reason", n => { CanceledReason = n.GetStringValue(); } },
@@ -249,7 +249,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "flow_innermost_root_job", n => { FlowInnermostRootJob = n.GetGuidValue(); } },
-                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemFlowStatus.CreateFromDiscriminatorValue); } },
+                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemFlowStatus.CreateFromDiscriminatorValue); } },
                 { "flow_step_id", n => { FlowStepId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_flow_step", n => { IsFlowStep = n.GetBoolValue(); } },
@@ -264,7 +264,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preprocessed", n => { Preprocessed = n.GetBoolValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "raw_code", n => { RawCode = n.GetStringValue(); } },
-                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemRawFlow.CreateFromDiscriminatorValue); } },
+                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemRawFlow.CreateFromDiscriminatorValue); } },
                 { "raw_lock", n => { RawLock = n.GetStringValue(); } },
                 { "same_worker", n => { SameWorker = n.GetBoolValue(); } },
                 { "scheduled_for", n => { ScheduledFor = n.GetDateTimeOffsetValue(); } },
@@ -279,7 +279,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "trigger", n => { Trigger = n.GetStringValue(); } },
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemTriggerKind>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
-                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
+                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -290,7 +290,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("aggregate_wait_time_ms", AggregateWaitTimeMs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemArgs>("args", Args);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemArgs>("args", Args);
             writer.WriteIntValue("cache_ttl", CacheTtl);
             writer.WriteStringValue("canceled_by", CanceledBy);
             writer.WriteStringValue("canceled_reason", CanceledReason);
@@ -300,7 +300,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("email", Email);
             writer.WriteGuidValue("flow_innermost_root_job", FlowInnermostRootJob);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemFlowStatus>("flow_status", FlowStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemFlowStatus>("flow_status", FlowStatus);
             writer.WriteStringValue("flow_step_id", FlowStepId);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_flow_step", IsFlowStep);
@@ -315,7 +315,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("preprocessed", Preprocessed);
             writer.WriteIntValue("priority", Priority);
             writer.WriteStringValue("raw_code", RawCode);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemRawFlow>("raw_flow", RawFlow);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemRawFlow>("raw_flow", RawFlow);
             writer.WriteStringValue("raw_lock", RawLock);
             writer.WriteBoolValue("same_worker", SameWorker);
             writer.WriteDateTimeOffsetValue("scheduled_for", ScheduledFor);
@@ -330,7 +330,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("trigger", Trigger);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemTriggerKind>("trigger_kind", TriggerKind);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportQueuedJobsRequestRequestBodyItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

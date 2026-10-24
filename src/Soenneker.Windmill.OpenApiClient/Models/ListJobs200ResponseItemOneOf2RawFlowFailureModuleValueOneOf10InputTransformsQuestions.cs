@@ -8,20 +8,35 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Object mapping each question name to { type, instructions, criteria }, where type is:- &apos;choice&apos;: criteria maps each option to its description (up to 255); the answer  has choice, probabilities and confidence- &apos;score&apos;: criteria is an ordered array of 2 to 10 level descriptions; the answer  has score, legend, probabilities and confidence- &apos;noul&apos;: yes/no, criteria optionally { true, false } descriptions; the answer has  noul, the probability of yes (0 to 1)Example: { intent: { type: &apos;choice&apos;, instructions: &apos;What does the customer want?&apos;,criteria: { refund: &apos;Money back&apos;, bug: &apos;Something is broken&apos; } } }
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestions : IAdditionalDataHolder, IParsable
+    public partial class ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestions : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestions"/> and sets the default values.
-        /// </summary>
-        public ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestions()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1? ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1 ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2? ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2 ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3? ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3 ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +45,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestions();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestions();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +55,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1 != null)
             {
-            };
+                return ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1.GetFieldDeserializers();
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2 != null)
+            {
+                return ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2.GetFieldDeserializers();
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3 != null)
+            {
+                return ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +76,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1>(null, ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf1);
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2>(null, ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf2);
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3>(null, ListJobs200ResponseItemOneOf2RawFlowFailureModuleValueOneOf10InputTransformsQuestionsAllOf1OneOf3);
+            }
         }
     }
 }

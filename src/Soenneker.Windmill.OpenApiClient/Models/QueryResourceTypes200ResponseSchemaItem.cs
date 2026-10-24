@@ -25,10 +25,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.QueryResourceTypes200ResponseItemSchema? Schema { get; set; }
+        public UntypedNode? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.QueryResourceTypes200ResponseItemSchema Schema { get; set; }
+        public UntypedNode Schema { get; set; }
 #endif
         /// <summary>The score property</summary>
         public double? Score { get; set; }
@@ -58,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.QueryResourceTypes200ResponseItemSchema>(global::Soenneker.Windmill.OpenApiClient.Models.QueryResourceTypes200ResponseItemSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "score", n => { Score = n.GetDoubleValue(); } },
             };
         }
@@ -70,7 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.QueryResourceTypes200ResponseItemSchema>("schema", Schema);
+            writer.WriteObjectValue<UntypedNode>("schema", Schema);
             writer.WriteDoubleValue("score", Score);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -7,42 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class RunDynamicSelectRequestRunnableRef : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class RunDynamicSelectRequestRunnableRef : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Code content for inline execution</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Code { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1? RunDynamicSelectRequestRunnableRefOneOf1 { get; set; }
 #nullable restore
 #else
-        public string Code { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1 RunDynamicSelectRequestRunnableRefOneOf1 { get; set; }
 #endif
-        /// <summary>The language property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefLanguage? Language { get; set; }
-        /// <summary>Path to the deployed script or flow</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2? RunDynamicSelectRequestRunnableRefOneOf2 { get; set; }
 #nullable restore
 #else
-        public string Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2 RunDynamicSelectRequestRunnableRefOneOf2 { get; set; }
 #endif
-        /// <summary>The runnable_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefRunnableKind? RunnableKind { get; set; }
-        /// <summary>The source property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefSource? Source { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef"/> and sets the default values.
-        /// </summary>
-        public RunDynamicSelectRequestRunnableRef()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -51,7 +37,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef();
+            var mappingValue = parseNode.GetChildNode("source")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef();
+            if("deployed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RunDynamicSelectRequestRunnableRefOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1();
+            }
+            else if("inline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RunDynamicSelectRequestRunnableRefOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,14 +55,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(RunDynamicSelectRequestRunnableRefOneOf1 != null)
             {
-                { "code", n => { Code = n.GetStringValue(); } },
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefLanguage>(); } },
-                { "path", n => { Path = n.GetStringValue(); } },
-                { "runnable_kind", n => { RunnableKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefRunnableKind>(); } },
-                { "source", n => { Source = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefSource>(); } },
-            };
+                return RunDynamicSelectRequestRunnableRefOneOf1.GetFieldDeserializers();
+            }
+            else if(RunDynamicSelectRequestRunnableRefOneOf2 != null)
+            {
+                return RunDynamicSelectRequestRunnableRefOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -75,12 +72,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("code", Code);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefLanguage>("language", Language);
-            writer.WriteStringValue("path", Path);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefRunnableKind>("runnable_kind", RunnableKind);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefSource>("source", Source);
-            writer.WriteAdditionalData(AdditionalData);
+            if(RunDynamicSelectRequestRunnableRefOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1>(null, RunDynamicSelectRequestRunnableRefOneOf1);
+            }
+            else if(RunDynamicSelectRequestRunnableRefOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2>(null, RunDynamicSelectRequestRunnableRefOneOf2);
+            }
         }
     }
 }

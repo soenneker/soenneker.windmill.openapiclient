@@ -240,6 +240,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string TeamsTeamName { get; set; }
 #endif
+        /// <summary>Workspace variable expiration handler configuration</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler? VariableExpirationHandler { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler VariableExpirationHandler { get; set; }
+#endif
         /// <summary>The webhook property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -313,6 +321,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "teams_team_guid", n => { TeamsTeamGuid = n.GetStringValue(); } },
                 { "teams_team_id", n => { TeamsTeamId = n.GetStringValue(); } },
                 { "teams_team_name", n => { TeamsTeamName = n.GetStringValue(); } },
+                { "variable_expiration_handler", n => { VariableExpirationHandler = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler.CreateFromDiscriminatorValue); } },
                 { "webhook", n => { Webhook = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -356,6 +365,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("teams_team_guid", TeamsTeamGuid);
             writer.WriteStringValue("teams_team_id", TeamsTeamId);
             writer.WriteStringValue("teams_team_name", TeamsTeamName);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler>("variable_expiration_handler", VariableExpirationHandler);
             writer.WriteStringValue("webhook", Webhook);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);

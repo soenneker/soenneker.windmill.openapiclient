@@ -35,20 +35,20 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.It
         /// <summary>
         /// Load a preview of a parquet file on-behalf of the app author (deployed app)
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathGetResponse"/></returns>
+        /// <returns>A <see cref="UntypedNode"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<UntypedNode> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathItemRequestBuilder.WithPathItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathGetResponse>(requestInfo, global::Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Load_parquet_preview.Item.WithPathGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<UntypedNode>(requestInfo, UntypedNode.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Load a preview of a parquet file on-behalf of the app author (deployed app)

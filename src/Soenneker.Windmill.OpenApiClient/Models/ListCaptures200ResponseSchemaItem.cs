@@ -21,18 +21,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The main_args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemMainArgs? MainArgs { get; set; }
+        public UntypedNode? MainArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemMainArgs MainArgs { get; set; }
+        public UntypedNode MainArgs { get; set; }
 #endif
         /// <summary>The preprocessor_args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemPreprocessorArgs? PreprocessorArgs { get; set; }
+        public UntypedNode? PreprocessorArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemPreprocessorArgs PreprocessorArgs { get; set; }
+        public UntypedNode PreprocessorArgs { get; set; }
 #endif
         /// <summary>The trigger_kind property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemTriggerKind? TriggerKind { get; set; }
@@ -63,8 +63,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
-                { "main_args", n => { MainArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemMainArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemMainArgs.CreateFromDiscriminatorValue); } },
-                { "preprocessor_args", n => { PreprocessorArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemPreprocessorArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemPreprocessorArgs.CreateFromDiscriminatorValue); } },
+                { "main_args", n => { MainArgs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "preprocessor_args", n => { PreprocessorArgs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemTriggerKind>(); } },
             };
         }
@@ -77,8 +77,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteIntValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemMainArgs>("main_args", MainArgs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemPreprocessorArgs>("preprocessor_args", PreprocessorArgs);
+            writer.WriteObjectValue<UntypedNode>("main_args", MainArgs);
+            writer.WriteObjectValue<UntypedNode>("preprocessor_args", PreprocessorArgs);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCaptures200ResponseItemTriggerKind>("trigger_kind", TriggerKind);
             writer.WriteAdditionalData(AdditionalData);
         }

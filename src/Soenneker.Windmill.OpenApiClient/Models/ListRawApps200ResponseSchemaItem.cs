@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,7 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -112,7 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRawApps200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);

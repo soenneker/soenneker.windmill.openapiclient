@@ -61,10 +61,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceTypeRequestSchema? Schema { get; set; }
+        public UntypedNode? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceTypeRequestSchema Schema { get; set; }
+        public UntypedNode Schema { get; set; }
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,7 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "format_extension", n => { FormatExtension = n.GetStringValue(); } },
                 { "is_fileset", n => { IsFileset = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceTypeRequestSchema>(global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceTypeRequestSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -124,7 +124,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("format_extension", FormatExtension);
             writer.WriteBoolValue("is_fileset", IsFileset);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceTypeRequestSchema>("schema", Schema);
+            writer.WriteObjectValue<UntypedNode>("schema", Schema);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -10,6 +10,7 @@ using Soenneker.Windmill.OpenApiClient.Configs.List_autoscaling_events;
 using Soenneker.Windmill.OpenApiClient.Configs.List_available_python_versions;
 using Soenneker.Windmill.OpenApiClient.Configs.List_worker_groups;
 using Soenneker.Windmill.OpenApiClient.Configs.Native_kubernetes_autoscaling_healthcheck;
+using Soenneker.Windmill.OpenApiClient.Configs.Test_autoscaling;
 using Soenneker.Windmill.OpenApiClient.Configs.Update;
 using System.Collections.Generic;
 using System.IO;
@@ -62,6 +63,11 @@ namespace Soenneker.Windmill.OpenApiClient.Configs
         public global::Soenneker.Windmill.OpenApiClient.Configs.Native_kubernetes_autoscaling_healthcheck.Native_kubernetes_autoscaling_healthcheckRequestBuilder Native_kubernetes_autoscaling_healthcheck
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Configs.Native_kubernetes_autoscaling_healthcheck.Native_kubernetes_autoscaling_healthcheckRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The test_autoscaling property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Configs.Test_autoscaling.Test_autoscalingRequestBuilder Test_autoscaling
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Configs.Test_autoscaling.Test_autoscalingRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Configs.Update.UpdateRequestBuilder Update

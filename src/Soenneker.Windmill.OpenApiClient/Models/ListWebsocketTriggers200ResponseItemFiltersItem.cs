@@ -8,68 +8,51 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) — addressed by `key` for a top-level field or `path` for a dotted path into nested objects — or a group nesting sub-filters under a boolean operator (`none_of` matches when none of its sub-filters do).
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListWebsocketTriggers200ResponseItemFiltersItem : IAdditionalDataHolder, IParsable
+    public partial class ListWebsocketTriggers200ResponseItemFiltersItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The all_of property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAllOfItem>? AllOf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf1? ListWebsocketTriggers200ResponseItemFiltersItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAllOfItem> AllOf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf1 ListWebsocketTriggers200ResponseItemFiltersItemOneOf1 { get; set; }
 #endif
-        /// <summary>The any_of property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAnyOfItem>? AnyOf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf2? ListWebsocketTriggers200ResponseItemFiltersItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAnyOfItem> AnyOf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf2 ListWebsocketTriggers200ResponseItemFiltersItemOneOf2 { get; set; }
 #endif
-        /// <summary>The key property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Key { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf3? ListWebsocketTriggers200ResponseItemFiltersItemOneOf3 { get; set; }
 #nullable restore
 #else
-        public string Key { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf3 ListWebsocketTriggers200ResponseItemFiltersItemOneOf3 { get; set; }
 #endif
-        /// <summary>The none_of property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemNoneOfItem>? NoneOf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf4? ListWebsocketTriggers200ResponseItemFiltersItemOneOf4 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemNoneOfItem> NoneOf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf4 ListWebsocketTriggers200ResponseItemFiltersItemOneOf4 { get; set; }
 #endif
-        /// <summary>Dotted path into nested objects, e.g. `a.b.c`. Does not traverse arrays.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf5? ListWebsocketTriggers200ResponseItemFiltersItemOneOf5 { get; set; }
 #nullable restore
 #else
-        public string Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf5 ListWebsocketTriggers200ResponseItemFiltersItemOneOf5 { get; set; }
 #endif
-        /// <summary>The value property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemValue? Value { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemValue Value { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem"/> and sets the default values.
-        /// </summary>
-        public ListWebsocketTriggers200ResponseItemFiltersItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -78,7 +61,29 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem();
+            if("ListWebsocketTriggers200ResponseItemFiltersItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ListWebsocketTriggers200ResponseItemFiltersItemOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf1();
+            }
+            else if("ListWebsocketTriggers200ResponseItemFiltersItemOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ListWebsocketTriggers200ResponseItemFiltersItemOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf2();
+            }
+            else if("ListWebsocketTriggers200ResponseItemFiltersItemOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ListWebsocketTriggers200ResponseItemFiltersItemOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf3();
+            }
+            else if("ListWebsocketTriggers200ResponseItemFiltersItemOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ListWebsocketTriggers200ResponseItemFiltersItemOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf4();
+            }
+            else if("ListWebsocketTriggers200ResponseItemFiltersItemOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ListWebsocketTriggers200ResponseItemFiltersItemOneOf5 = new global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf5();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,15 +91,27 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf1 != null)
             {
-                { "all_of", n => { AllOf = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAllOfItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAllOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "any_of", n => { AnyOf = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAnyOfItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAnyOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "key", n => { Key = n.GetStringValue(); } },
-                { "none_of", n => { NoneOf = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemNoneOfItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemNoneOfItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "path", n => { Path = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemValue.CreateFromDiscriminatorValue); } },
-            };
+                return ListWebsocketTriggers200ResponseItemFiltersItemOneOf1.GetFieldDeserializers();
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf2 != null)
+            {
+                return ListWebsocketTriggers200ResponseItemFiltersItemOneOf2.GetFieldDeserializers();
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf3 != null)
+            {
+                return ListWebsocketTriggers200ResponseItemFiltersItemOneOf3.GetFieldDeserializers();
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf4 != null)
+            {
+                return ListWebsocketTriggers200ResponseItemFiltersItemOneOf4.GetFieldDeserializers();
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf5 != null)
+            {
+                return ListWebsocketTriggers200ResponseItemFiltersItemOneOf5.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -103,13 +120,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAllOfItem>("all_of", AllOf);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemAnyOfItem>("any_of", AnyOf);
-            writer.WriteStringValue("key", Key);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemNoneOfItem>("none_of", NoneOf);
-            writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemValue>("value", Value);
-            writer.WriteAdditionalData(AdditionalData);
+            if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf1>(null, ListWebsocketTriggers200ResponseItemFiltersItemOneOf1);
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf2>(null, ListWebsocketTriggers200ResponseItemFiltersItemOneOf2);
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf3>(null, ListWebsocketTriggers200ResponseItemFiltersItemOneOf3);
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf4>(null, ListWebsocketTriggers200ResponseItemFiltersItemOneOf4);
+            }
+            else if(ListWebsocketTriggers200ResponseItemFiltersItemOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItemOneOf5>(null, ListWebsocketTriggers200ResponseItemFiltersItemOneOf5);
+            }
         }
     }
 }

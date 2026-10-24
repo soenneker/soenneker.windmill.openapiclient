@@ -22,6 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Code { get; set; }
 #endif
+        /// <summary>The callback URL&apos;s other query params, which the provider&apos;s `connect_fields` may read (QuickBooks&apos; `realmId`)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallbackRequestParams? Params { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallbackRequestParams Params { get; set; }
+#endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
+                { "params", n => { Params = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallbackRequestParams>(global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallbackRequestParams.CreateFromDiscriminatorValue); } },
                 { "state", n => { State = n.GetStringValue(); } },
             };
         }
@@ -67,6 +76,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallbackRequestParams>("params", Params);
             writer.WriteStringValue("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }

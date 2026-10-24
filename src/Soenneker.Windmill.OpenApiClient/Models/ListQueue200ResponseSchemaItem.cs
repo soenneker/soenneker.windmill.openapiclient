@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemArgs? Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemArgs? Args { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemArgs Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemArgs Args { get; set; }
 #endif
         /// <summary>The canceled property</summary>
         public bool? Canceled { get; set; }
@@ -63,10 +63,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The flow_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus? FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemFlowStatus? FlowStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemFlowStatus FlowStatus { get; set; }
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
@@ -115,10 +115,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The flow structure containing modules and optional preprocessor/failure handlers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlow? RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemRawFlow? RawFlow { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlow RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemRawFlow RawFlow { get; set; }
 #endif
         /// <summary>The running property</summary>
         public bool? Running { get; set; }
@@ -177,10 +177,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The workflow_as_code_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -216,14 +216,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "aggregate_wait_time_ms", n => { AggregateWaitTimeMs = n.GetDoubleValue(); } },
-                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemArgs.CreateFromDiscriminatorValue); } },
+                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemArgs.CreateFromDiscriminatorValue); } },
                 { "canceled", n => { Canceled = n.GetBoolValue(); } },
                 { "canceled_by", n => { CanceledBy = n.GetStringValue(); } },
                 { "canceled_reason", n => { CanceledReason = n.GetStringValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus.CreateFromDiscriminatorValue); } },
+                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemFlowStatus.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_flow_step", n => { IsFlowStep = n.GetBoolValue(); } },
                 { "is_retry", n => { IsRetry = n.GetBoolValue(); } },
@@ -237,7 +237,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preprocessed", n => { Preprocessed = n.GetBoolValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "raw_code", n => { RawCode = n.GetStringValue(); } },
-                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlow.CreateFromDiscriminatorValue); } },
+                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemRawFlow.CreateFromDiscriminatorValue); } },
                 { "running", n => { Running = n.GetBoolValue(); } },
                 { "schedule_path", n => { SchedulePath = n.GetStringValue(); } },
                 { "scheduled_for", n => { ScheduledFor = n.GetDateTimeOffsetValue(); } },
@@ -250,7 +250,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemTriggerKind>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
                 { "worker", n => { Worker = n.GetStringValue(); } },
-                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
+                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -262,14 +262,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("aggregate_wait_time_ms", AggregateWaitTimeMs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemArgs>("args", Args);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemArgs>("args", Args);
             writer.WriteBoolValue("canceled", Canceled);
             writer.WriteStringValue("canceled_by", CanceledBy);
             writer.WriteStringValue("canceled_reason", CanceledReason);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("email", Email);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatus>("flow_status", FlowStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemFlowStatus>("flow_status", FlowStatus);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_flow_step", IsFlowStep);
             writer.WriteBoolValue("is_retry", IsRetry);
@@ -283,7 +283,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("preprocessed", Preprocessed);
             writer.WriteIntValue("priority", Priority);
             writer.WriteStringValue("raw_code", RawCode);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlow>("raw_flow", RawFlow);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemRawFlow>("raw_flow", RawFlow);
             writer.WriteBoolValue("running", Running);
             writer.WriteDateTimeOffsetValue("scheduled_for", ScheduledFor);
             writer.WriteStringValue("schedule_path", SchedulePath);
@@ -296,7 +296,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemTriggerKind>("trigger_kind", TriggerKind);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
             writer.WriteStringValue("worker", Worker);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseSchemaItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }

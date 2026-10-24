@@ -41,10 +41,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
 #endif
         /// <summary>Path to a script to run when the triggered job fails. A bare path, without the script/ or flow/ prefix a schedule error handler takes; it cannot be a flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,10 +57,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Additional permissions for this trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Logic to apply when evaluating the top-level filters. &apos;and&apos; requires all of them to match, &apos;or&apos; requires any of them to match. Nested `any_of`/`all_of`/`none_of` groups carry their own logic.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFilterLogic? FilterLogic { get; set; }
@@ -75,10 +75,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Optional periodic heartbeat message configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat? Heartbeat { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemHeartbeat? Heartbeat { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat Heartbeat { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemHeartbeat Heartbeat { get; set; }
 #endif
         /// <summary>Messages to send immediately after connecting (can be raw strings or computed by runnables)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,10 +123,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemRetry? Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemRetry? Retry { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemRetry Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemRetry Retry { get; set; }
 #endif
         /// <summary>Path to the script or flow to execute when triggered</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -155,10 +155,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemUrlRunnableArgs? UrlRunnableArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemUrlRunnableArgs? UrlRunnableArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemUrlRunnableArgs UrlRunnableArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemUrlRunnableArgs UrlRunnableArgs { get; set; }
 #endif
         /// <summary>The workspace this trigger belongs to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -199,12 +199,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
+                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "filter_logic", n => { FilterLogic = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFilterLogic>(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "heartbeat", n => { Heartbeat = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat.CreateFromDiscriminatorValue); } },
+                { "heartbeat", n => { Heartbeat = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemHeartbeat>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemHeartbeat.CreateFromDiscriminatorValue); } },
                 { "initial_messages", n => { InitialMessages = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemInitialMessagesItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemInitialMessagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
@@ -213,11 +213,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemMode>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
-                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemRetry.CreateFromDiscriminatorValue); } },
+                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemRetry.CreateFromDiscriminatorValue); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "server_id", n => { ServerId = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "url_runnable_args", n => { UrlRunnableArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemUrlRunnableArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemUrlRunnableArgs.CreateFromDiscriminatorValue); } },
+                { "url_runnable_args", n => { UrlRunnableArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemUrlRunnableArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemUrlRunnableArgs.CreateFromDiscriminatorValue); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -234,12 +234,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFilterLogic>("filter_logic", FilterLogic);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemFiltersItem>("filters", Filters);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemHeartbeat>("heartbeat", Heartbeat);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemHeartbeat>("heartbeat", Heartbeat);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemInitialMessagesItem>("initial_messages", InitialMessages);
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
@@ -248,11 +248,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemMode>("mode", Mode);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemRetry>("retry", Retry);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemRetry>("retry", Retry);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("server_id", ServerId);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseItemUrlRunnableArgs>("url_runnable_args", UrlRunnableArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWebsocketTriggers200ResponseSchemaItemUrlRunnableArgs>("url_runnable_args", UrlRunnableArgs);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }

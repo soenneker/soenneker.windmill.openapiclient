@@ -59,10 +59,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -127,10 +127,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>JSON Schema for flow inputs. Use this to define input parameters, their types, defaults, and validation. For resource inputs, set type to &apos;object&apos; and format to &apos;resource-&lt;type&gt;&apos; (e.g., &apos;resource-stripe&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemSchema? Schema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemSchema? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemSchema Schema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemSchema Schema { get; set; }
 #endif
         /// <summary>The starred property</summary>
         public bool? Starred { get; set; }
@@ -155,10 +155,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The flow structure containing modules and optional preprocessor/failure handlers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValue? Value { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemValue? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValue Value { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemValue Value { get; set; }
 #endif
         /// <summary>The version_id property</summary>
         public double? VersionId { get; set; }
@@ -208,7 +208,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "draft_users", n => { DraftUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemDraftUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemDraftUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -218,12 +218,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemSchema.CreateFromDiscriminatorValue); } },
                 { "starred", n => { Starred = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "timeout", n => { Timeout = n.GetDoubleValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemValue.CreateFromDiscriminatorValue); } },
                 { "version_id", n => { VersionId = n.GetDoubleValue(); } },
                 { "visible_to_runner_only", n => { VisibleToRunnerOnly = n.GetBoolValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -246,7 +246,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemDraftUsersItem>("draft_users", DraftUsers);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
@@ -256,12 +256,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteStringValue("path", Path);
             writer.WriteIntValue("priority", Priority);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemSchema>("schema", Schema);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemSchema>("schema", Schema);
             writer.WriteBoolValue("starred", Starred);
             writer.WriteStringValue("summary", Summary);
             writer.WriteStringValue("tag", Tag);
             writer.WriteDoubleValue("timeout", Timeout);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseSchemaItemValue>("value", Value);
             writer.WriteDoubleValue("version_id", VersionId);
             writer.WriteBoolValue("visible_to_runner_only", VisibleToRunnerOnly);
             writer.WriteStringValue("workspace_id", WorkspaceId);

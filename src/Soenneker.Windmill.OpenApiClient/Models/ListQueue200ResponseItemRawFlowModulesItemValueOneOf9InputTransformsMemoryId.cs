@@ -8,20 +8,35 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// String. Names the memory this step reads and writes, overriding the memory id the runwas started with (the chat conversation, an app chat session or the `memory_id` runparameter). Leave unset to use the run&apos;s memory id. A fixed value shares one memoryacross every run; an expression such as `flow_input.customer_id` keeps one memory perkey. When it evaluates to an empty value the agent runs without memory. Read onlywhile `memory` is `window` or `compaction`: it is ignored when memory is off, and anolder `auto` or `manual` memory reads neither history input.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryId : IAdditionalDataHolder, IParsable
+    public partial class ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryId : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryId"/> and sets the default values.
-        /// </summary>
-        public ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryId()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1? ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1 ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2? ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2 ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3? ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3 ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +45,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryId CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryId();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryId();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +55,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1 != null)
             {
-            };
+                return ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1.GetFieldDeserializers();
+            }
+            else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2 != null)
+            {
+                return ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2.GetFieldDeserializers();
+            }
+            else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3 != null)
+            {
+                return ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +76,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1>(null, ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf1);
+            }
+            else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2>(null, ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf2);
+            }
+            else if(ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3>(null, ListQueue200ResponseItemRawFlowModulesItemValueOneOf9InputTransformsMemoryIdAllOf1OneOf3);
+            }
         }
     }
 }

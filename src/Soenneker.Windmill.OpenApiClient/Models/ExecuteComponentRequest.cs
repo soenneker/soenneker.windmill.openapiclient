@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestArgs? Args { get; set; }
+        public UntypedNode? Args { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestArgs Args { get; set; }
+        public UntypedNode Args { get; set; }
 #endif
         /// <summary>The component property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,7 +135,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestArgs.CreateFromDiscriminatorValue); } },
+                { "args", n => { Args = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "component", n => { Component = n.GetStringValue(); } },
                 { "force_viewer_allow_user_resources", n => { ForceViewerAllowUserResources = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "force_viewer_delete_after_secs", n => { ForceViewerDeleteAfterSecs = n.GetIntValue(); } },
@@ -159,7 +159,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestArgs>("args", Args);
+            writer.WriteObjectValue<UntypedNode>("args", Args);
             writer.WriteStringValue("component", Component);
             writer.WriteCollectionOfPrimitiveValues<string>("force_viewer_allow_user_resources", ForceViewerAllowUserResources);
             writer.WriteIntValue("force_viewer_delete_after_secs", ForceViewerDeleteAfterSecs);

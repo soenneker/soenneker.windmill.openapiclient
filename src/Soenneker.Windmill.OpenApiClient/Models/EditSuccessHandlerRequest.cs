@@ -8,52 +8,27 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for editing the workspace success handler. Accepts both new grouped format and legacy flat format for backward compatibility.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EditSuccessHandlerRequest : IAdditionalDataHolder, IParsable
+    public partial class EditSuccessHandlerRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The arguments to pass to the script or flow</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestExtraArgs? ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf1? EditSuccessHandlerRequestOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestExtraArgs ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf1 EditSuccessHandlerRequestOneOf1 { get; set; }
 #endif
-        /// <summary>Path to the success handler script or flow</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2? EditSuccessHandlerRequestOneOf2 { get; set; }
 #nullable restore
 #else
-        public string Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2 EditSuccessHandlerRequestOneOf2 { get; set; }
 #endif
-        /// <summary>Path to the success handler script or flow</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SuccessHandler { get; set; }
-#nullable restore
-#else
-        public string SuccessHandler { get; set; }
-#endif
-        /// <summary>The arguments to pass to the script or flow</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestSuccessHandlerExtraArgs? SuccessHandlerExtraArgs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestSuccessHandlerExtraArgs SuccessHandlerExtraArgs { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequest"/> and sets the default values.
-        /// </summary>
-        public EditSuccessHandlerRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -62,7 +37,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequest();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequest();
+            if("EditSuccessHandlerRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.EditSuccessHandlerRequestOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf1();
+            }
+            else if("EditSuccessHandlerRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.EditSuccessHandlerRequestOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,13 +55,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(EditSuccessHandlerRequestOneOf1 != null)
             {
-                { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestExtraArgs.CreateFromDiscriminatorValue); } },
-                { "path", n => { Path = n.GetStringValue(); } },
-                { "success_handler", n => { SuccessHandler = n.GetStringValue(); } },
-                { "success_handler_extra_args", n => { SuccessHandlerExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestSuccessHandlerExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestSuccessHandlerExtraArgs.CreateFromDiscriminatorValue); } },
-            };
+                return EditSuccessHandlerRequestOneOf1.GetFieldDeserializers();
+            }
+            else if(EditSuccessHandlerRequestOneOf2 != null)
+            {
+                return EditSuccessHandlerRequestOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -85,11 +72,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestExtraArgs>("extra_args", ExtraArgs);
-            writer.WriteStringValue("path", Path);
-            writer.WriteStringValue("success_handler", SuccessHandler);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestSuccessHandlerExtraArgs>("success_handler_extra_args", SuccessHandlerExtraArgs);
-            writer.WriteAdditionalData(AdditionalData);
+            if(EditSuccessHandlerRequestOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf1>(null, EditSuccessHandlerRequestOneOf1);
+            }
+            else if(EditSuccessHandlerRequestOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2>(null, EditSuccessHandlerRequestOneOf2);
+            }
         }
     }
 }

@@ -25,10 +25,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseItemParameters? Parameters { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseSchemaItemParameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseItemParameters Parameters { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseSchemaItemParameters Parameters { get; set; }
 #endif
         /// <summary>The timestamp property</summary>
         public DateTimeOffset? Timestamp { get; set; }
@@ -66,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "operation", n => { Operation = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseItemParameters>(global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseItemParameters.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseSchemaItemParameters>(global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseSchemaItemParameters.CreateFromDiscriminatorValue); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -79,7 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("operation", Operation);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseItemParameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetWorkspaceFairnessEvents200ResponseSchemaItemParameters>("parameters", Parameters);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);

@@ -7,58 +7,44 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The arguments property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemArguments? Arguments { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1? GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemArguments Arguments { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1 GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1 { get; set; }
 #endif
-        /// <summary>The call_id property</summary>
-        public Guid? CallId { get; set; }
-        /// <summary>The function_name property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FunctionName { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2? GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public string FunctionName { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2 GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2 { get; set; }
 #endif
-        /// <summary>The job_id property</summary>
-        public Guid? JobId { get; set; }
-        /// <summary>The module_id property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ModuleId { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3? GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3 { get; set; }
 #nullable restore
 #else
-        public string ModuleId { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3 GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3 { get; set; }
 #endif
-        /// <summary>The resource_path property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourcePath { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4? GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4 { get; set; }
 #nullable restore
 #else
-        public string ResourcePath { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4 GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4 { get; set; }
 #endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemType? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItem"/> and sets the default values.
-        /// </summary>
-        public GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,7 +53,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItem();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItem();
+            if("tool_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1();
+            }
+            else if("mcp_tool_call".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2();
+            }
+            else if("web_search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3();
+            }
+            else if("message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,16 +79,23 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1 != null)
             {
-                { "arguments", n => { Arguments = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemArguments>(global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemArguments.CreateFromDiscriminatorValue); } },
-                { "call_id", n => { CallId = n.GetGuidValue(); } },
-                { "function_name", n => { FunctionName = n.GetStringValue(); } },
-                { "job_id", n => { JobId = n.GetGuidValue(); } },
-                { "module_id", n => { ModuleId = n.GetStringValue(); } },
-                { "resource_path", n => { ResourcePath = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemType>(); } },
-            };
+                return GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1.GetFieldDeserializers();
+            }
+            else if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2 != null)
+            {
+                return GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2.GetFieldDeserializers();
+            }
+            else if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3 != null)
+            {
+                return GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3.GetFieldDeserializers();
+            }
+            else if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4 != null)
+            {
+                return GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -93,14 +104,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemArguments>("arguments", Arguments);
-            writer.WriteGuidValue("call_id", CallId);
-            writer.WriteStringValue("function_name", FunctionName);
-            writer.WriteGuidValue("job_id", JobId);
-            writer.WriteStringValue("module_id", ModuleId);
-            writer.WriteStringValue("resource_path", ResourcePath);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1>(null, GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf1);
+            }
+            else if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2>(null, GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf2);
+            }
+            else if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3>(null, GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf3);
+            }
+            else if(GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4>(null, GetJobUpdates200ResponseFlowStatusModulesItemAgentActionsItemOneOf4);
+            }
         }
     }
 }

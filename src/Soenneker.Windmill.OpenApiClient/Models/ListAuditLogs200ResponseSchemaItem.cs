@@ -23,10 +23,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The parameters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemParameters? Parameters { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters? Parameters { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemParameters Parameters { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters Parameters { get; set; }
 #endif
         /// <summary>The resource property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,7 +90,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "action_kind", n => { ActionKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemActionKind>(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemOperation>(); } },
-                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemParameters>(global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemParameters.CreateFromDiscriminatorValue); } },
+                { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters>(global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters.CreateFromDiscriminatorValue); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
                 { "span", n => { Span = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
@@ -108,7 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemActionKind>("action_kind", ActionKind);
             writer.WriteIntValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemOperation>("operation", Operation);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseItemParameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters>("parameters", Parameters);
             writer.WriteStringValue("resource", Resource);
             writer.WriteStringValue("span", Span);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);

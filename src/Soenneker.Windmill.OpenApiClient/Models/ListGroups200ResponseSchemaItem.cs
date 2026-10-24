@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>The members property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "members", n => { Members = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGroups200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("members", Members);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("summary", Summary);

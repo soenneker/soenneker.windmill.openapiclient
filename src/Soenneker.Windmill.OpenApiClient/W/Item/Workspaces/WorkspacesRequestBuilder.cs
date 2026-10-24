@@ -52,6 +52,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_slack_command;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_success_handler;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_teams_command;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_variable_expiration_handler;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_webhook;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Enable_datatable_migrations;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Encryption_key;
@@ -374,6 +375,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_teams_command.Edit_teams_commandRequestBuilder Edit_teams_command
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_teams_command.Edit_teams_commandRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The edit_variable_expiration_handler property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_variable_expiration_handler.Edit_variable_expiration_handlerRequestBuilder Edit_variable_expiration_handler
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_variable_expiration_handler.Edit_variable_expiration_handlerRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The edit_webhook property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_webhook.Edit_webhookRequestBuilder Edit_webhook

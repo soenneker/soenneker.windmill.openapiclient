@@ -57,10 +57,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Hierarchical metadata: schema_name -&gt; table_names</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas? Schemas { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas? Schemas { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas Schemas { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas Schemas { get; set; }
 #endif
         /// <summary>the roles the caller may connect as, by name; empty when not under roles</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,7 +103,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "instance", n => { Instance = n.GetBoolValue(); } },
                 { "migrations_enabled", n => { MigrationsEnabled = n.GetBoolValue(); } },
                 { "permissioned", n => { Permissioned = n.GetBoolValue(); } },
-                { "schemas", n => { Schemas = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas>(global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas.CreateFromDiscriminatorValue); } },
+                { "schemas", n => { Schemas = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas>(global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas.CreateFromDiscriminatorValue); } },
                 { "usable_roles", n => { UsableRoles = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -122,7 +122,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("instance", Instance);
             writer.WriteBoolValue("migrations_enabled", MigrationsEnabled);
             writer.WriteBoolValue("permissioned", Permissioned);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseItemSchemas>("schemas", Schemas);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas>("schemas", Schemas);
             writer.WriteCollectionOfPrimitiveValues<string>("usable_roles", UsableRoles);
             writer.WriteAdditionalData(AdditionalData);
         }

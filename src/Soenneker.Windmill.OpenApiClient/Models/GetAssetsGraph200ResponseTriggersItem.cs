@@ -7,50 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class GetAssetsGraph200ResponseTriggersItem : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class GetAssetsGraph200ResponseTriggersItem : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The asset_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemAssetKind? AssetKind { get; set; }
-        /// <summary>The asset_path property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssetPath { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1? GetAssetsGraph200ResponseTriggersItemOneOf1 { get; set; }
 #nullable restore
 #else
-        public string AssetPath { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1 GetAssetsGraph200ResponseTriggersItemOneOf1 { get; set; }
 #endif
-        /// <summary>The path property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2? GetAssetsGraph200ResponseTriggersItemOneOf2 { get; set; }
 #nullable restore
 #else
-        public string Path { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2 GetAssetsGraph200ResponseTriggersItemOneOf2 { get; set; }
 #endif
-        /// <summary>The runnable_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemRunnableKind? RunnableKind { get; set; }
-        /// <summary>The runnable_path property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? RunnablePath { get; set; }
-#nullable restore
-#else
-        public string RunnablePath { get; set; }
-#endif
-        /// <summary>The trigger_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemTriggerKind? TriggerKind { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem"/> and sets the default values.
-        /// </summary>
-        public GetAssetsGraph200ResponseTriggersItem()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -59,7 +37,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem();
+            if("GetAssetsGraph200ResponseTriggersItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetAssetsGraph200ResponseTriggersItemOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1();
+            }
+            else if("GetAssetsGraph200ResponseTriggersItemOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.GetAssetsGraph200ResponseTriggersItemOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,15 +55,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(GetAssetsGraph200ResponseTriggersItemOneOf1 != null)
             {
-                { "asset_kind", n => { AssetKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemAssetKind>(); } },
-                { "asset_path", n => { AssetPath = n.GetStringValue(); } },
-                { "path", n => { Path = n.GetStringValue(); } },
-                { "runnable_kind", n => { RunnableKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemRunnableKind>(); } },
-                { "runnable_path", n => { RunnablePath = n.GetStringValue(); } },
-                { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemTriggerKind>(); } },
-            };
+                return GetAssetsGraph200ResponseTriggersItemOneOf1.GetFieldDeserializers();
+            }
+            else if(GetAssetsGraph200ResponseTriggersItemOneOf2 != null)
+            {
+                return GetAssetsGraph200ResponseTriggersItemOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -84,13 +72,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemAssetKind>("asset_kind", AssetKind);
-            writer.WriteStringValue("asset_path", AssetPath);
-            writer.WriteStringValue("path", Path);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemRunnableKind>("runnable_kind", RunnableKind);
-            writer.WriteStringValue("runnable_path", RunnablePath);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemTriggerKind>("trigger_kind", TriggerKind);
-            writer.WriteAdditionalData(AdditionalData);
+            if(GetAssetsGraph200ResponseTriggersItemOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1>(null, GetAssetsGraph200ResponseTriggersItemOneOf1);
+            }
+            else if(GetAssetsGraph200ResponseTriggersItemOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2>(null, GetAssetsGraph200ResponseTriggersItemOneOf2);
+            }
         }
     }
 }

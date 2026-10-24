@@ -18,10 +18,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>agent-only. The agent&apos;s `memory` setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory? AgentMemory { get; set; }
+        public UntypedNode? AgentMemory { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory AgentMemory { get; set; }
+        public UntypedNode AgentMemory { get; set; }
 #endif
         /// <summary>The archived property</summary>
         public bool? Archived { get; set; }
@@ -180,7 +180,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "agent_memory", n => { AgentMemory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory>(global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory.CreateFromDiscriminatorValue); } },
+                { "agent_memory", n => { AgentMemory = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "archived", n => { Archived = n.GetBoolValue(); } },
                 { "auto_kind", n => { AutoKind = n.GetStringValue(); } },
                 { "chat_input_enabled", n => { ChatInputEnabled = n.GetBoolValue(); } },
@@ -217,7 +217,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListRunnables200ResponseItemsItemAgentMemory>("agent_memory", AgentMemory);
+            writer.WriteObjectValue<UntypedNode>("agent_memory", AgentMemory);
             writer.WriteBoolValue("archived", Archived);
             writer.WriteStringValue("auto_kind", AutoKind);
             writer.WriteBoolValue("chat_input_enabled", ChatInputEnabled);

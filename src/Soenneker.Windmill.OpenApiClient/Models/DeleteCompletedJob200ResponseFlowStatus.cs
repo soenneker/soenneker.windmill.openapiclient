@@ -51,10 +51,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The user_states property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusUserStates? UserStates { get; set; }
+        public UntypedNode? UserStates { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusUserStates UserStates { get; set; }
+        public UntypedNode UserStates { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatus"/> and sets the default values.
@@ -86,7 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preprocessor_module", n => { PreprocessorModule = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusPreprocessorModule>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusPreprocessorModule.CreateFromDiscriminatorValue); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusRetry>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusRetry.CreateFromDiscriminatorValue); } },
                 { "step", n => { Step = n.GetIntValue(); } },
-                { "user_states", n => { UserStates = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusUserStates>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusUserStates.CreateFromDiscriminatorValue); } },
+                { "user_states", n => { UserStates = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -101,7 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusPreprocessorModule>("preprocessor_module", PreprocessorModule);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusRetry>("retry", Retry);
             writer.WriteIntValue("step", Step);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusUserStates>("user_states", UserStates);
+            writer.WriteObjectValue<UntypedNode>("user_states", UserStates);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -27,10 +27,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>The file_count property</summary>
         public int? FileCount { get; set; }
@@ -75,7 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "file_count", n => { FileCount = n.GetIntValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -92,7 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVolumes200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteIntValue("file_count", FileCount);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);

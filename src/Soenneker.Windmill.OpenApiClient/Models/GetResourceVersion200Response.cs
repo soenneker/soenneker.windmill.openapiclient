@@ -37,10 +37,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>Which version of this resource it is, counted from its first. What a version is called.</summary>
         public long? Version { get; set; }
@@ -73,7 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "missing_references", n => { MissingReferences = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetLongValue(); } },
             };
         }
@@ -88,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteLongValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("missing_references", MissingReferences);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResourceVersion200ResponseValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteLongValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -20,10 +20,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItemChecks? Checks { get; set; }
+        public UntypedNode? Checks { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItemChecks Checks { get; set; }
+        public UntypedNode Checks { get; set; }
 #endif
         /// <summary>The baseline&apos;s score came from a different definition of this scorer, so the delta is a change of scorer as much as a change of agent.</summary>
         public bool? DefinitionChanged { get; set; }
@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "baseline", n => { Baseline = n.GetDoubleValue(); } },
-                { "checks", n => { Checks = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItemChecks>(global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItemChecks.CreateFromDiscriminatorValue); } },
+                { "checks", n => { Checks = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "definition_changed", n => { DefinitionChanged = n.GetBoolValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "not_applicable", n => { NotApplicable = n.GetBoolValue(); } },
@@ -104,7 +104,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("baseline", Baseline);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItemChecks>("checks", Checks);
+            writer.WriteObjectValue<UntypedNode>("checks", Checks);
             writer.WriteBoolValue("definition_changed", DefinitionChanged);
             writer.WriteStringValue("error", Error);
             writer.WriteBoolValue("not_applicable", NotApplicable);

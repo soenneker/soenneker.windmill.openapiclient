@@ -89,10 +89,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponseValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponseValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>The versions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -147,7 +147,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "policy", n => { Policy = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponsePolicy>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponsePolicy.CreateFromDiscriminatorValue); } },
                 { "raw_app", n => { RawApp = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponseValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponseValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "versions", n => { Versions = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -171,7 +171,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponsePolicy>("policy", Policy);
             writer.WriteBoolValue("raw_app", RawApp);
             writer.WriteStringValue("summary", Summary);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicAppBySecret200ResponseValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteCollectionOfPrimitiveValues<int?>("versions", Versions);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);

@@ -27,10 +27,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Reference output a scorer compares a rerun against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemExpected? Expected { get; set; }
+        public UntypedNode? Expected { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemExpected Expected { get; set; }
+        public UntypedNode Expected { get; set; }
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
@@ -69,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
-                { "expected", n => { Expected = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemExpected>(global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemExpected.CreateFromDiscriminatorValue); } },
+                { "expected", n => { Expected = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemInput>(global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemInput.CreateFromDiscriminatorValue); } },
             };
@@ -83,7 +83,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("created_by", CreatedBy);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemExpected>("expected", Expected);
+            writer.WriteObjectValue<UntypedNode>("expected", Expected);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListEvalCases200ResponseCasesItemInput>("input", Input);
             writer.WriteAdditionalData(AdditionalData);

@@ -15,10 +15,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The added_via property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseItemAddedVia? AddedVia { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseSchemaItemAddedVia? AddedVia { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseItemAddedVia AddedVia { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseSchemaItemAddedVia AddedVia { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -117,7 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "added_via", n => { AddedVia = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseItemAddedVia>(global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseItemAddedVia.CreateFromDiscriminatorValue); } },
+                { "added_via", n => { AddedVia = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseSchemaItemAddedVia>(global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseSchemaItemAddedVia.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
@@ -141,7 +141,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseItemAddedVia>("added_via", AddedVia);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUsers200ResponseSchemaItemAddedVia>("added_via", AddedVia);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteBoolValue("disabled", Disabled);
             writer.WriteStringValue("email", Email);

@@ -17,20 +17,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorArgs? Args { get; set; }
+        public UntypedNode? Args { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorArgs Args { get; set; }
+        public UntypedNode Args { get; set; }
 #endif
         /// <summary>The index property</summary>
         public int? Index { get; set; }
         /// <summary>The itered property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorIteredItem>? Itered { get; set; }
+        public UntypedNode? Itered { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorIteredItem> Itered { get; set; }
+        public UntypedNode Itered { get; set; }
 #endif
         /// <summary>The itered_len property</summary>
         public int? IteredLen { get; set; }
@@ -59,9 +59,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorArgs.CreateFromDiscriminatorValue); } },
+                { "args", n => { Args = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "index", n => { Index = n.GetIntValue(); } },
-                { "itered", n => { Itered = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorIteredItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorIteredItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "itered", n => { Itered = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "itered_len", n => { IteredLen = n.GetIntValue(); } },
             };
         }
@@ -72,9 +72,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorArgs>("args", Args);
+            writer.WriteObjectValue<UntypedNode>("args", Args);
             writer.WriteIntValue("index", Index);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf2FlowStatusFailureModuleIteratorIteredItem>("itered", Itered);
+            writer.WriteObjectValue<UntypedNode>("itered", Itered);
             writer.WriteIntValue("itered_len", IteredLen);
             writer.WriteAdditionalData(AdditionalData);
         }

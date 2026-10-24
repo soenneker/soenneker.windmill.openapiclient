@@ -39,10 +39,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The turn the conversation is still answering, set by the list endpoint: its newest user message, while the flow run it started is queued or running. A run into this conversation is refused with 409 until the turn ends.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseItemRunningTurn? RunningTurn { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItemRunningTurn? RunningTurn { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseItemRunningTurn RunningTurn { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItemRunningTurn RunningTurn { get; set; }
 #endif
         /// <summary>Optional title for the conversation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,7 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "flow_path", n => { FlowPath = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_test", n => { IsTest = n.GetBoolValue(); } },
-                { "running_turn", n => { RunningTurn = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseItemRunningTurn>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseItemRunningTurn.CreateFromDiscriminatorValue); } },
+                { "running_turn", n => { RunningTurn = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItemRunningTurn>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItemRunningTurn.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -110,7 +110,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("flow_path", FlowPath);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_test", IsTest);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseItemRunningTurn>("running_turn", RunningTurn);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItemRunningTurn>("running_turn", RunningTurn);
             writer.WriteStringValue("title", Title);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
             writer.WriteStringValue("workspace_id", WorkspaceId);

@@ -126,6 +126,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Value { get; set; }
 #endif
+        /// <summary>The value_valid_until property</summary>
+        public DateTimeOffset? ValueValidUntil { get; set; }
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -184,6 +186,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "refresh_error", n => { RefreshError = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
+                { "value_valid_until", n => { ValueValidUntil = n.GetDateTimeOffsetValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
@@ -218,6 +221,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("refresh_error", RefreshError);
             writer.WriteStringValue("value", Value);
+            writer.WriteDateTimeOffsetValue("value_valid_until", ValueValidUntil);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);

@@ -348,6 +348,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         WorkspacesEditErrorHandler,
         #pragma warning restore CS1591
+        [EnumMember(Value = "workspaces.edit_variable_expiration_handler")]
+        #pragma warning disable CS1591
+        WorkspacesEditVariableExpirationHandler,
+        #pragma warning restore CS1591
         [EnumMember(Value = "workspaces.create")]
         #pragma warning disable CS1591
         WorkspacesCreate,

@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The expected property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemExpected? Expected { get; set; }
+        public UntypedNode? Expected { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemExpected Expected { get; set; }
+        public UntypedNode Expected { get; set; }
 #endif
         /// <summary>The inputs a standalone run feeds the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "case_id", n => { CaseId = n.GetGuidValue(); } },
-                { "expected", n => { Expected = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemExpected>(global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemExpected.CreateFromDiscriminatorValue); } },
+                { "expected", n => { Expected = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "input", n => { Input = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput>(global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput.CreateFromDiscriminatorValue); } },
                 { "job_id", n => { JobId = n.GetGuidValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
@@ -106,7 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("case_id", CaseId);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemExpected>("expected", Expected);
+            writer.WriteObjectValue<UntypedNode>("expected", Expected);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput>("input", Input);
             writer.WriteGuidValue("job_id", JobId);
             writer.WriteStringValue("output", Output);

@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemArgs? Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemArgs? Args { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemArgs Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemArgs Args { get; set; }
 #endif
         /// <summary>Cron parser version. Use &apos;v2&apos; for extended syntax with additional features</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,10 +79,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Additional permissions for this schedule</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,10 +119,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnFailureExtraArgs? OnFailureExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnFailureExtraArgs? OnFailureExtraArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnFailureExtraArgs OnFailureExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnFailureExtraArgs OnFailureExtraArgs { get; set; }
 #endif
         /// <summary>Number of consecutive failures before the on_failure handler is triggered (default 1)</summary>
         public double? OnFailureTimes { get; set; }
@@ -137,10 +137,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnRecoveryExtraArgs? OnRecoveryExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnRecoveryExtraArgs? OnRecoveryExtraArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnRecoveryExtraArgs OnRecoveryExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnRecoveryExtraArgs OnRecoveryExtraArgs { get; set; }
 #endif
         /// <summary>Number of consecutive successes before the on_recovery handler is triggered (default 1)</summary>
         public double? OnRecoveryTimes { get; set; }
@@ -155,10 +155,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnSuccessExtraArgs? OnSuccessExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnSuccessExtraArgs? OnSuccessExtraArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnSuccessExtraArgs OnSuccessExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnSuccessExtraArgs OnSuccessExtraArgs { get; set; }
 #endif
         /// <summary>The unique Windmill path for this schedule. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -181,10 +181,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemRetry? Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemRetry? Retry { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemRetry Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemRetry Retry { get; set; }
 #endif
         /// <summary>Cron expression with 6 fields (seconds, minutes, hours, day of month, month, day of week). Example &apos;0 0 12 * * *&apos; for daily at noon</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -253,7 +253,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemArgs.CreateFromDiscriminatorValue); } },
+                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemArgs.CreateFromDiscriminatorValue); } },
                 { "cron_version", n => { CronVersion = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
@@ -263,7 +263,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
@@ -271,17 +271,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "no_flow_overlap", n => { NoFlowOverlap = n.GetBoolValue(); } },
                 { "on_failure", n => { OnFailure = n.GetStringValue(); } },
                 { "on_failure_exact", n => { OnFailureExact = n.GetBoolValue(); } },
-                { "on_failure_extra_args", n => { OnFailureExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnFailureExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnFailureExtraArgs.CreateFromDiscriminatorValue); } },
+                { "on_failure_extra_args", n => { OnFailureExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnFailureExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnFailureExtraArgs.CreateFromDiscriminatorValue); } },
                 { "on_failure_times", n => { OnFailureTimes = n.GetDoubleValue(); } },
                 { "on_recovery", n => { OnRecovery = n.GetStringValue(); } },
-                { "on_recovery_extra_args", n => { OnRecoveryExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnRecoveryExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnRecoveryExtraArgs.CreateFromDiscriminatorValue); } },
+                { "on_recovery_extra_args", n => { OnRecoveryExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnRecoveryExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnRecoveryExtraArgs.CreateFromDiscriminatorValue); } },
                 { "on_recovery_times", n => { OnRecoveryTimes = n.GetDoubleValue(); } },
                 { "on_success", n => { OnSuccess = n.GetStringValue(); } },
-                { "on_success_extra_args", n => { OnSuccessExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnSuccessExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnSuccessExtraArgs.CreateFromDiscriminatorValue); } },
+                { "on_success_extra_args", n => { OnSuccessExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnSuccessExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnSuccessExtraArgs.CreateFromDiscriminatorValue); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "paused_until", n => { PausedUntil = n.GetDateTimeOffsetValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
-                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemRetry.CreateFromDiscriminatorValue); } },
+                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemRetry.CreateFromDiscriminatorValue); } },
                 { "schedule", n => { Schedule = n.GetStringValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
@@ -297,7 +297,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemArgs>("args", Args);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemArgs>("args", Args);
             writer.WriteStringValue("cron_version", CronVersion);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("draft_only", DraftOnly);
@@ -307,7 +307,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
@@ -315,17 +315,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("no_flow_overlap", NoFlowOverlap);
             writer.WriteStringValue("on_failure", OnFailure);
             writer.WriteBoolValue("on_failure_exact", OnFailureExact);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnFailureExtraArgs>("on_failure_extra_args", OnFailureExtraArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnFailureExtraArgs>("on_failure_extra_args", OnFailureExtraArgs);
             writer.WriteDoubleValue("on_failure_times", OnFailureTimes);
             writer.WriteStringValue("on_recovery", OnRecovery);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnRecoveryExtraArgs>("on_recovery_extra_args", OnRecoveryExtraArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnRecoveryExtraArgs>("on_recovery_extra_args", OnRecoveryExtraArgs);
             writer.WriteDoubleValue("on_recovery_times", OnRecoveryTimes);
             writer.WriteStringValue("on_success", OnSuccess);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemOnSuccessExtraArgs>("on_success_extra_args", OnSuccessExtraArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemOnSuccessExtraArgs>("on_success_extra_args", OnSuccessExtraArgs);
             writer.WriteStringValue("path", Path);
             writer.WriteDateTimeOffsetValue("paused_until", PausedUntil);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseItemRetry>("retry", Retry);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListSchedules200ResponseSchemaItemRetry>("retry", Retry);
             writer.WriteStringValue("schedule", Schedule);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("summary", Summary);

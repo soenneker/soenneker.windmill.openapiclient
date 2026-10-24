@@ -33,10 +33,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Hierarchical schema: schema_name -&gt; table_name -&gt; column_name -&gt; compact_type (e.g. &apos;int4&apos;, &apos;text?&apos;, &apos;int4?=0&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseItemSchemas? Schemas { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseSchemaItemSchemas? Schemas { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseItemSchemas Schemas { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseSchemaItemSchemas Schemas { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseSchemaItem"/> and sets the default values.
@@ -65,7 +65,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "datatable_name", n => { DatatableName = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "schemas", n => { Schemas = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseItemSchemas>(global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseItemSchemas.CreateFromDiscriminatorValue); } },
+                { "schemas", n => { Schemas = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseSchemaItemSchemas>(global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseSchemaItemSchemas.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("datatable_name", DatatableName);
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseItemSchemas>("schemas", Schemas);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableSchemas200ResponseSchemaItemSchemas>("schemas", Schemas);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

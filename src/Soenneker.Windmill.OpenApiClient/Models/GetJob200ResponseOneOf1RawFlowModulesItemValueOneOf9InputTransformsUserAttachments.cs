@@ -8,20 +8,35 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Array of file references (images or PDFs) for the AI agent.Format: Array&lt;{ bucket: string, key: string }&gt; - S3 object referencesExample: [{ bucket: &apos;my-bucket&apos;, key: &apos;documents/report.pdf&apos; }]
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachments : IAdditionalDataHolder, IParsable
+    public partial class GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachments : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachments"/> and sets the default values.
-        /// </summary>
-        public GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachments()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1? GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1 GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2? GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2 GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3? GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3 GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +45,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachments CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachments();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachments();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +55,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1 != null)
             {
-            };
+                return GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1.GetFieldDeserializers();
+            }
+            else if(GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2 != null)
+            {
+                return GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2.GetFieldDeserializers();
+            }
+            else if(GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3 != null)
+            {
+                return GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +76,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1>(null, GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf1);
+            }
+            else if(GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2>(null, GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf2);
+            }
+            else if(GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3>(null, GetJob200ResponseOneOf1RawFlowModulesItemValueOneOf9InputTransformsUserAttachmentsAllOf1OneOf3);
+            }
         }
     }
 }

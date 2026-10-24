@@ -39,10 +39,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>The id property</summary>
         public int? Id { get; set; }
@@ -124,7 +124,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "draft_users", n => { DraftUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemDraftUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemDraftUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "execution_mode", n => { ExecutionMode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemExecutionMode>(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
@@ -149,7 +149,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemDraftUsersItem>("draft_users", DraftUsers);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemExecutionMode>("execution_mode", ExecutionMode);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListApps200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteIntValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
             writer.WriteBoolValue("is_draft", IsDraft);

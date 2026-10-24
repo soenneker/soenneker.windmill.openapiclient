@@ -41,10 +41,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubScriptByPath200ResponseSchema? Schema { get; set; }
+        public UntypedNode? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubScriptByPath200ResponseSchema Schema { get; set; }
+        public UntypedNode Schema { get; set; }
 #endif
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "lockfile", n => { Lockfile = n.GetStringValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubScriptByPath200ResponseSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubScriptByPath200ResponseSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
             };
         }
@@ -96,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("lockfile", Lockfile);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubScriptByPath200ResponseSchema>("schema", Schema);
+            writer.WriteObjectValue<UntypedNode>("schema", Schema);
             writer.WriteStringValue("summary", Summary);
             writer.WriteAdditionalData(AdditionalData);
         }

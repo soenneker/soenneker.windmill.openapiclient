@@ -35,10 +35,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>description of the approval step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription? Description { get; set; }
+        public UntypedNode? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription Description { get; set; }
+        public UntypedNode Description { get; set; }
 #endif
         /// <summary>The flow_id property</summary>
         public Guid? FlowId { get; set; }
@@ -53,10 +53,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>form schema for the approval step</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema? FormSchema { get; set; }
+        public UntypedNode? FormSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema FormSchema { get; set; }
+        public UntypedNode FormSchema { get; set; }
 #endif
         /// <summary>whether to hide the cancel button in the UI</summary>
         public bool? HideCancel { get; set; }
@@ -108,10 +108,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "approval_conditions", n => { ApprovalConditions = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions.CreateFromDiscriminatorValue); } },
                 { "approvers", n => { Approvers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApproversItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApproversItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "can_approve", n => { CanApprove = n.GetBoolValue(); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "flow_id", n => { FlowId = n.GetGuidValue(); } },
                 { "flow_summary", n => { FlowSummary = n.GetStringValue(); } },
-                { "form_schema", n => { FormSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema.CreateFromDiscriminatorValue); } },
+                { "form_schema", n => { FormSchema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "hide_cancel", n => { HideCancel = n.GetBoolValue(); } },
                 { "skin", n => { Skin = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin>(); } },
                 { "step_summary", n => { StepSummary = n.GetStringValue(); } },
@@ -129,10 +129,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions>("approval_conditions", ApprovalConditions);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApproversItem>("approvers", Approvers);
             writer.WriteBoolValue("can_approve", CanApprove);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseDescription>("description", Description);
+            writer.WriteObjectValue<UntypedNode>("description", Description);
             writer.WriteGuidValue("flow_id", FlowId);
             writer.WriteStringValue("flow_summary", FlowSummary);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseFormSchema>("form_schema", FormSchema);
+            writer.WriteObjectValue<UntypedNode>("form_schema", FormSchema);
             writer.WriteBoolValue("hide_cancel", HideCancel);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin>("skin", Skin);
             writer.WriteStringValue("step_summary", StepSummary);

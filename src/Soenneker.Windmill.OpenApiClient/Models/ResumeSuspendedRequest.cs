@@ -27,10 +27,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>payload to send to the resumed job</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ResumeSuspendedRequestPayload? Payload { get; set; }
+        public UntypedNode? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ResumeSuspendedRequestPayload Payload { get; set; }
+        public UntypedNode Payload { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ResumeSuspendedRequest"/> and sets the default values.
@@ -60,7 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "approval_token", n => { ApprovalToken = n.GetStringValue(); } },
                 { "approved", n => { Approved = n.GetBoolValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ResumeSuspendedRequestPayload>(global::Soenneker.Windmill.OpenApiClient.Models.ResumeSuspendedRequestPayload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("approval_token", ApprovalToken);
             writer.WriteBoolValue("approved", Approved);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ResumeSuspendedRequestPayload>("payload", Payload);
+            writer.WriteObjectValue<UntypedNode>("payload", Payload);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

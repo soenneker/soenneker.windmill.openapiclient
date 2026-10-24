@@ -45,10 +45,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
 #endif
         /// <summary>Path to a script to run when the triggered job fails. A bare path, without the script/ or flow/ prefix a schedule error handler takes; it cannot be a flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,18 +61,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Optional exchange binding for the consumed queue</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExchange? Exchange { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExchange? Exchange { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExchange Exchange { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExchange Exchange { get; set; }
 #endif
         /// <summary>Additional permissions for this trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>True when the authed user has a per-user draft at this path(over a deployed row or a synthesized draft-only row).Frontend appends a `*` to the displayed name.</summary>
         public bool? IsDraft { get; set; }
@@ -93,10 +93,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Optional consumer options (queue declaration, prefetch)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemOptions? Options { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemOptions? Options { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemOptions Options { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemOptions Options { get; set; }
 #endif
         /// <summary>The unique Windmill path for this trigger. Must be of the form `u/&lt;user&gt;/&lt;path&gt;` or `f/&lt;folder&gt;/&lt;path&gt;`. This is the trigger object path, not the HTTP route path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,10 +125,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemRetry? Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemRetry? Retry { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemRetry Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemRetry Retry { get; set; }
 #endif
         /// <summary>Path to the script or flow to execute when triggered</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -184,20 +184,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
+                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
-                { "exchange", n => { Exchange = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExchange>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExchange.CreateFromDiscriminatorValue); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "exchange", n => { Exchange = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExchange>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExchange.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "last_server_ping", n => { LastServerPing = n.GetDateTimeOffsetValue(); } },
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemMode>(); } },
-                { "options", n => { Options = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemOptions>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemOptions.CreateFromDiscriminatorValue); } },
+                { "options", n => { Options = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemOptions>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemOptions.CreateFromDiscriminatorValue); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "queue_name", n => { QueueName = n.GetStringValue(); } },
-                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemRetry.CreateFromDiscriminatorValue); } },
+                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemRetry.CreateFromDiscriminatorValue); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "server_id", n => { ServerId = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -215,20 +215,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExchange>("exchange", Exchange);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExchange>("exchange", Exchange);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteDateTimeOffsetValue("last_server_ping", LastServerPing);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemMode>("mode", Mode);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemOptions>("options", Options);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemOptions>("options", Options);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteStringValue("queue_name", QueueName);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseItemRetry>("retry", Retry);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAmqpTriggers200ResponseSchemaItemRetry>("retry", Retry);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("server_id", ServerId);
             writer.WriteStringValue("workspace_id", WorkspaceId);

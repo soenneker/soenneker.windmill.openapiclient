@@ -20,10 +20,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The static value. For resources, use format &apos;$res:path/to/resource&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowModulesItemSleepOneOf1Value? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowModulesItemSleepOneOf1Value Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowModulesItemSleepOneOf1"/> and sets the default values.
@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.StaticValueType>(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowModulesItemSleepOneOf1Value>(global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowModulesItemSleepOneOf1Value.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.StaticValueType>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowModulesItemSleepOneOf1Value>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

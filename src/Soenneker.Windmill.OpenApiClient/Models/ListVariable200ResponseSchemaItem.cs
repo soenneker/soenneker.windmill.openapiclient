@@ -41,10 +41,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,6 +98,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Value { get; set; }
 #endif
+        /// <summary>The value_valid_until property</summary>
+        public DateTimeOffset? ValueValidUntil { get; set; }
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -139,7 +141,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_expired", n => { IsExpired = n.GetBoolValue(); } },
@@ -151,6 +153,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "refresh_error", n => { RefreshError = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
+                { "value_valid_until", n => { ValueValidUntil = n.GetDateTimeOffsetValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
@@ -168,7 +171,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListVariable200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_expired", IsExpired);
@@ -180,6 +183,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("refresh_error", RefreshError);
             writer.WriteStringValue("value", Value);
+            writer.WriteDateTimeOffsetValue("value_valid_until", ValueValidUntil);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);

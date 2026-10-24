@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>For an `ai_agent` resource only, its `memory` setting: the one partof the value a listing returns, since it decides whether the agentkeeps a conversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemAgentMemory? AgentMemory { get; set; }
+        public UntypedNode? AgentMemory { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemAgentMemory AgentMemory { get; set; }
+        public UntypedNode AgentMemory { get; set; }
 #endif
         /// <summary>The created_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,10 +55,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Labels inherited from the parent folder, computed at read time. Read-only — edit them on the folder.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,10 +113,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -154,13 +154,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account", n => { Account = n.GetDoubleValue(); } },
-                { "agent_memory", n => { AgentMemory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemAgentMemory>(global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemAgentMemory.CreateFromDiscriminatorValue); } },
+                { "agent_memory", n => { AgentMemory = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "draft_path", n => { DraftPath = n.GetStringValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_expired", n => { IsExpired = n.GetBoolValue(); } },
@@ -171,7 +171,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "refresh_error", n => { RefreshError = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
@@ -184,13 +184,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("account", Account);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemAgentMemory>("agent_memory", AgentMemory);
+            writer.WriteObjectValue<UntypedNode>("agent_memory", AgentMemory);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteStringValue("draft_path", DraftPath);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_expired", IsExpired);
@@ -201,7 +201,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("refresh_error", RefreshError);
             writer.WriteStringValue("resource_type", ResourceType);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListResource200ResponseItemValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);

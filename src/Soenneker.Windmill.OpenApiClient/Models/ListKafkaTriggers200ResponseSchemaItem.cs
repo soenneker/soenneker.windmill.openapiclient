@@ -41,10 +41,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
 #endif
         /// <summary>Path to a script to run when the triggered job fails. A bare path, without the script/ or flow/ prefix a schedule error handler takes; it cannot be a flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,10 +57,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Additional permissions for this trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Logic to apply when evaluating the top-level filters. &apos;and&apos; requires all of them to match, &apos;or&apos; requires any of them to match. Nested `any_of`/`all_of`/`none_of` groups carry their own logic.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFilterLogic? FilterLogic { get; set; }
@@ -123,10 +123,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemRetry? Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemRetry? Retry { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemRetry Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemRetry Retry { get; set; }
 #endif
         /// <summary>Path to the script or flow to execute when triggered</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -192,9 +192,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
+                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "filter_logic", n => { FilterLogic = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFilterLogic>(); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFiltersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFiltersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "group_id", n => { GroupId = n.GetStringValue(); } },
@@ -206,7 +206,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemMode>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
-                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemRetry.CreateFromDiscriminatorValue); } },
+                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemRetry.CreateFromDiscriminatorValue); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "server_id", n => { ServerId = n.GetStringValue(); } },
                 { "topics", n => { Topics = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -226,9 +226,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFilterLogic>("filter_logic", FilterLogic);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemFiltersItem>("filters", Filters);
             writer.WriteStringValue("group_id", GroupId);
@@ -240,7 +240,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemMode>("mode", Mode);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseItemRetry>("retry", Retry);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListKafkaTriggers200ResponseSchemaItemRetry>("retry", Retry);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("server_id", ServerId);
             writer.WriteCollectionOfPrimitiveValues<string>("topics", Topics);

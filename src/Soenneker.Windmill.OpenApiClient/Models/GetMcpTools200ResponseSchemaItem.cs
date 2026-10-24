@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The annotations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations? Annotations { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemAnnotations? Annotations { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations Annotations { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemAnnotations Annotations { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,10 +33,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The inputSchema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema? InputSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemInputSchema? InputSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema InputSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemInputSchema InputSchema { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,9 +71,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations>(global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations.CreateFromDiscriminatorValue); } },
+                { "annotations", n => { Annotations = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemAnnotations>(global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemAnnotations.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema.CreateFromDiscriminatorValue); } },
+                { "inputSchema", n => { InputSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemInputSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemInputSchema.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -84,9 +84,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemAnnotations>("annotations", Annotations);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemAnnotations>("annotations", Annotations);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseItemInputSchema>("inputSchema", InputSchema);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetMcpTools200ResponseSchemaItemInputSchema>("inputSchema", InputSchema);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

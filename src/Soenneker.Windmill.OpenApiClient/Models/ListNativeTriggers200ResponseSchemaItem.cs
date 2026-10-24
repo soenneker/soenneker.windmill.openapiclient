@@ -54,10 +54,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Configuration for the trigger including event_type and service_config</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceConfig? ServiceConfig { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseSchemaItemServiceConfig? ServiceConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceConfig ServiceConfig { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseSchemaItemServiceConfig ServiceConfig { get; set; }
 #endif
         /// <summary>The service_name property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceName? ServiceName { get; set; }
@@ -108,7 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "external_id", n => { ExternalId = n.GetStringValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
-                { "service_config", n => { ServiceConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceConfig>(global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceConfig.CreateFromDiscriminatorValue); } },
+                { "service_config", n => { ServiceConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseSchemaItemServiceConfig>(global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseSchemaItemServiceConfig.CreateFromDiscriminatorValue); } },
                 { "service_name", n => { ServiceName = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceName>(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
@@ -127,7 +127,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("external_id", ExternalId);
             writer.WriteBoolValue("is_flow", IsFlow);
             writer.WriteStringValue("script_path", ScriptPath);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceConfig>("service_config", ServiceConfig);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseSchemaItemServiceConfig>("service_config", ServiceConfig);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggers200ResponseItemServiceName>("service_name", ServiceName);
             writer.WriteStringValue("summary", Summary);
             writer.WriteStringValue("workspace_id", WorkspaceId);

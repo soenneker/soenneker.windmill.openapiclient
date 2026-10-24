@@ -32,6 +32,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string DeploymentMessage { get; set; }
 #endif
+        /// <summary>Changes who may open the app and leaves the rest of the deployed policy, its run-as user included, as it is. Applied under the same lock as a deploy, so neither overwrites the other. Cannot be sent with `policy`, which states its own mode. When the app runs as another user, refused to a caller who is neither an admin nor in &apos;wm_deployers&apos;, and to an operator with builder rights even in &apos;wm_deployers&apos;; they change the mode by deploying.</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestExecutionMode? ExecutionMode { get; set; }
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,10 +73,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequest"/> and sets the default values.
@@ -104,13 +106,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "allow_kind_change", n => { AllowKindChange = n.GetBoolValue(); } },
                 { "custom_path", n => { CustomPath = n.GetStringValue(); } },
                 { "deployment_message", n => { DeploymentMessage = n.GetStringValue(); } },
+                { "execution_mode", n => { ExecutionMode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestExecutionMode>(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "policy", n => { Policy = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestPolicy>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestPolicy.CreateFromDiscriminatorValue); } },
                 { "preserve_on_behalf_of", n => { PreserveOnBehalfOf = n.GetBoolValue(); } },
                 { "skip_draft_deletion", n => { SkipDraftDeletion = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestValue>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -123,13 +126,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("allow_kind_change", AllowKindChange);
             writer.WriteStringValue("custom_path", CustomPath);
             writer.WriteStringValue("deployment_message", DeploymentMessage);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestExecutionMode>("execution_mode", ExecutionMode);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestPolicy>("policy", Policy);
             writer.WriteBoolValue("preserve_on_behalf_of", PreserveOnBehalfOf);
             writer.WriteBoolValue("skip_draft_deletion", SkipDraftDeletion);
             writer.WriteStringValue("summary", Summary);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRequestValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

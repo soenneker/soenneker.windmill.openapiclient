@@ -35,10 +35,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>the resource type&apos;s JSON schema; the hub stores it as text and returns it as a JSON string, so a client must be ready for either that or an object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItemSchema? Schema { get; set; }
+        public UntypedNode? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItemSchema Schema { get; set; }
+        public UntypedNode Schema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem"/> and sets the default values.
@@ -68,7 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetDoubleValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItemSchema>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItemSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteDoubleValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItemSchema>("schema", Schema);
+            writer.WriteObjectValue<UntypedNode>("schema", Schema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -8,63 +8,27 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Request body for editing the workspace error handler. Accepts both new grouped format and legacy flat format for backward compatibility.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EditErrorHandlerRequest : IAdditionalDataHolder, IParsable
+    public partial class EditErrorHandlerRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Path to the error handler script or flow</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorHandler { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1? EditErrorHandlerRequestOneOf1 { get; set; }
 #nullable restore
 #else
-        public string ErrorHandler { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1 EditErrorHandlerRequestOneOf1 { get; set; }
 #endif
-        /// <summary>The arguments to pass to the script or flow</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestErrorHandlerExtraArgs? ErrorHandlerExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2? EditErrorHandlerRequestOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestErrorHandlerExtraArgs ErrorHandlerExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2 EditErrorHandlerRequestOneOf2 { get; set; }
 #endif
-        /// <summary>The error_handler_muted_on_cancel property</summary>
-        public bool? ErrorHandlerMutedOnCancel { get; set; }
-        /// <summary>The arguments to pass to the script or flow</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestExtraArgs? ExtraArgs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestExtraArgs ExtraArgs { get; set; }
-#endif
-        /// <summary>Report failed jobs to the instance critical alert channels when no workspace error handler is set. Omit to leave the stored value untouched.</summary>
-        public bool? FallbackToInstanceAlerts { get; set; }
-        /// <summary>The muted_on_cancel property</summary>
-        public bool? MutedOnCancel { get; set; }
-        /// <summary>The muted_on_user_path property</summary>
-        public bool? MutedOnUserPath { get; set; }
-        /// <summary>Path to the error handler script or flow</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Path { get; set; }
-#nullable restore
-#else
-        public string Path { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequest"/> and sets the default values.
-        /// </summary>
-        public EditErrorHandlerRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-            ErrorHandlerMutedOnCancel = false;
-            MutedOnCancel = false;
-            MutedOnUserPath = false;
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -73,7 +37,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequest();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequest();
+            if("EditErrorHandlerRequestOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.EditErrorHandlerRequestOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1();
+            }
+            else if("EditErrorHandlerRequestOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.EditErrorHandlerRequestOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,17 +55,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(EditErrorHandlerRequestOneOf1 != null)
             {
-                { "error_handler", n => { ErrorHandler = n.GetStringValue(); } },
-                { "error_handler_extra_args", n => { ErrorHandlerExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestErrorHandlerExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestErrorHandlerExtraArgs.CreateFromDiscriminatorValue); } },
-                { "error_handler_muted_on_cancel", n => { ErrorHandlerMutedOnCancel = n.GetBoolValue(); } },
-                { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestExtraArgs.CreateFromDiscriminatorValue); } },
-                { "fallback_to_instance_alerts", n => { FallbackToInstanceAlerts = n.GetBoolValue(); } },
-                { "muted_on_cancel", n => { MutedOnCancel = n.GetBoolValue(); } },
-                { "muted_on_user_path", n => { MutedOnUserPath = n.GetBoolValue(); } },
-                { "path", n => { Path = n.GetStringValue(); } },
-            };
+                return EditErrorHandlerRequestOneOf1.GetFieldDeserializers();
+            }
+            else if(EditErrorHandlerRequestOneOf2 != null)
+            {
+                return EditErrorHandlerRequestOneOf2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -100,15 +72,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("error_handler", ErrorHandler);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestErrorHandlerExtraArgs>("error_handler_extra_args", ErrorHandlerExtraArgs);
-            writer.WriteBoolValue("error_handler_muted_on_cancel", ErrorHandlerMutedOnCancel);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestExtraArgs>("extra_args", ExtraArgs);
-            writer.WriteBoolValue("fallback_to_instance_alerts", FallbackToInstanceAlerts);
-            writer.WriteBoolValue("muted_on_cancel", MutedOnCancel);
-            writer.WriteBoolValue("muted_on_user_path", MutedOnUserPath);
-            writer.WriteStringValue("path", Path);
-            writer.WriteAdditionalData(AdditionalData);
+            if(EditErrorHandlerRequestOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1>(null, EditErrorHandlerRequestOneOf1);
+            }
+            else if(EditErrorHandlerRequestOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2>(null, EditErrorHandlerRequestOneOf2);
+            }
         }
     }
 }

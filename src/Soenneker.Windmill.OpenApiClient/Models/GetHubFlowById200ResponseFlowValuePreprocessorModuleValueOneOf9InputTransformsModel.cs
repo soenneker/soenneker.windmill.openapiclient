@@ -8,20 +8,35 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// String. Only on a step linked to a saved agent (see `agent`): replaces the modelsaved on the agent for this step&apos;s runs, on the agent&apos;s own provider resource. Anempty value keeps the saved model. Set it to an expression such as`flow_input.model` to choose the model per run.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModel : IAdditionalDataHolder, IParsable
+    public partial class GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModel : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModel"/> and sets the default values.
-        /// </summary>
-        public GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModel()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1? GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1 GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2? GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2 GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3? GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3 GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +45,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModel();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModel();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +55,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1 != null)
             {
-            };
+                return GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1.GetFieldDeserializers();
+            }
+            else if(GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2 != null)
+            {
+                return GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2.GetFieldDeserializers();
+            }
+            else if(GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3 != null)
+            {
+                return GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +76,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1>(null, GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf1);
+            }
+            else if(GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2>(null, GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf2);
+            }
+            else if(GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3>(null, GetHubFlowById200ResponseFlowValuePreprocessorModuleValueOneOf9InputTransformsModelAllOf1OneOf3);
+            }
         }
     }
 }

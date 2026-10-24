@@ -17,18 +17,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The after property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemAfter? After { get; set; }
+        public UntypedNode? After { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemAfter After { get; set; }
+        public UntypedNode After { get; set; }
 #endif
         /// <summary>The before property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemBefore? Before { get; set; }
+        public UntypedNode? Before { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemBefore Before { get; set; }
+        public UntypedNode Before { get; set; }
 #endif
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,8 +63,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "after", n => { After = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemAfter>(global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemAfter.CreateFromDiscriminatorValue); } },
-                { "before", n => { Before = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemBefore>(global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemBefore.CreateFromDiscriminatorValue); } },
+                { "after", n => { After = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "before", n => { Before = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "key", n => { Key = n.GetStringValue(); } },
             };
         }
@@ -75,8 +75,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemAfter>("after", After);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ApplyWorkspaceSettingsDocument200ResponseChangesItemBefore>("before", Before);
+            writer.WriteObjectValue<UntypedNode>("after", After);
+            writer.WriteObjectValue<UntypedNode>("before", Before);
             writer.WriteStringValue("key", Key);
             writer.WriteAdditionalData(AdditionalData);
         }

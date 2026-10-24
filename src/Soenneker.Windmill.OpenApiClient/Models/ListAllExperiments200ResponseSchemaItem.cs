@@ -54,10 +54,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>What an eval run is executed against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemSubject? Subject { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseSchemaItemSubject? Subject { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemSubject Subject { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseSchemaItemSubject Subject { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseSchemaItem"/> and sets the default values.
@@ -93,7 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "run_number", n => { RunNumber = n.GetIntValue(); } },
                 { "running", n => { Running = n.GetBoolValue(); } },
                 { "scores", n => { Scores = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemScoresItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemScoresItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "subject", n => { Subject = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemSubject>(global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemSubject.CreateFromDiscriminatorValue); } },
+                { "subject", n => { Subject = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseSchemaItemSubject>(global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseSchemaItemSubject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -112,7 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("running", Running);
             writer.WriteIntValue("run_number", RunNumber);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemScoresItem>("scores", Scores);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseItemSubject>("subject", Subject);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAllExperiments200ResponseSchemaItemSubject>("subject", Subject);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

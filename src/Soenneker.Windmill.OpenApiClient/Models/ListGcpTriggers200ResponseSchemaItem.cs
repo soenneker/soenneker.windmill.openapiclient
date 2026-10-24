@@ -18,10 +18,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Configuration for push delivery mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryConfig? DeliveryConfig { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemDeliveryConfig? DeliveryConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryConfig DeliveryConfig { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemDeliveryConfig DeliveryConfig { get; set; }
 #endif
         /// <summary>Delivery mode for messages. &apos;push&apos; for HTTP push delivery where messages are sent to a webhook endpoint, &apos;pull&apos; for polling where the trigger actively fetches messages.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryType? DeliveryType { get; set; }
@@ -48,10 +48,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
 #endif
         /// <summary>Path to a script or flow to run when the triggered job fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,10 +64,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Additional permissions for this trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Path to the GCP resource containing service account credentials for authentication. Omit to authenticate with the instance&apos;s application default credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,10 +120,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemRetry? Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemRetry? Retry { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemRetry Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemRetry Retry { get; set; }
 #endif
         /// <summary>Path to the script or flow to execute when triggered</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -192,15 +192,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "delivery_config", n => { DeliveryConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryConfig>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryConfig.CreateFromDiscriminatorValue); } },
+                { "delivery_config", n => { DeliveryConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemDeliveryConfig>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemDeliveryConfig.CreateFromDiscriminatorValue); } },
                 { "delivery_type", n => { DeliveryType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryType>(); } },
                 { "draft_only", n => { DraftOnly = n.GetBoolValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "edited_by", n => { EditedBy = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
+                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "gcp_resource_path", n => { GcpResourcePath = n.GetStringValue(); } },
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
@@ -210,7 +210,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
-                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemRetry.CreateFromDiscriminatorValue); } },
+                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemRetry.CreateFromDiscriminatorValue); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "server_id", n => { ServerId = n.GetStringValue(); } },
                 { "subscription_id", n => { SubscriptionId = n.GetStringValue(); } },
@@ -226,15 +226,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryConfig>("delivery_config", DeliveryConfig);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemDeliveryConfig>("delivery_config", DeliveryConfig);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemDeliveryType>("delivery_type", DeliveryType);
             writer.WriteBoolValue("draft_only", DraftOnly);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteStringValue("edited_by", EditedBy);
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteStringValue("gcp_resource_path", GcpResourcePath);
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_flow", IsFlow);
@@ -244,7 +244,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteStringValue("project_id", ProjectId);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseItemRetry>("retry", Retry);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGcpTriggers200ResponseSchemaItemRetry>("retry", Retry);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("server_id", ServerId);
             writer.WriteStringValue("subscription_id", SubscriptionId);

@@ -27,10 +27,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The trigger_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerConfig? TriggerConfig { get; set; }
+        public UntypedNode? TriggerConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerConfig TriggerConfig { get; set; }
+        public UntypedNode TriggerConfig { get; set; }
 #endif
         /// <summary>The trigger_kind property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerKind? TriggerKind { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "last_server_ping", n => { LastServerPing = n.GetDateTimeOffsetValue(); } },
-                { "trigger_config", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerConfig>(global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerConfig.CreateFromDiscriminatorValue); } },
+                { "trigger_config", n => { TriggerConfig = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerKind>(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
             writer.WriteDateTimeOffsetValue("last_server_ping", LastServerPing);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerConfig>("trigger_config", TriggerConfig);
+            writer.WriteObjectValue<UntypedNode>("trigger_config", TriggerConfig);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCaptureConfigs200ResponseItemTriggerKind>("trigger_kind", TriggerKind);
             writer.WriteAdditionalData(AdditionalData);
         }

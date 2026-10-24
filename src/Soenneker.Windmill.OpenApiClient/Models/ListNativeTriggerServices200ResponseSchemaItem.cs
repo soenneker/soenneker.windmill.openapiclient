@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The oauth_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData? OauthData { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData? OauthData { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData OauthData { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData OauthData { get; set; }
 #endif
         /// <summary>The service_name property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName? ServiceName { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "oauth_data", n => { OauthData = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData>(global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData.CreateFromDiscriminatorValue); } },
+                { "oauth_data", n => { OauthData = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData>(global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData.CreateFromDiscriminatorValue); } },
                 { "service_name", n => { ServiceName = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemOAuthData>("oauth_data", OauthData);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData>("oauth_data", OauthData);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName>("service_name", ServiceName);
             writer.WriteAdditionalData(AdditionalData);
         }

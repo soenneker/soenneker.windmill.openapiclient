@@ -35,10 +35,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>Labels set on the folder. Items inside the folder inherit them, exposed as `inherited_labels` on scripts and flows and stamped into job labels at run time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,7 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemDefaultPermissionedAsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemDefaultPermissionedAsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owners", n => { Owners = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -117,7 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemDefaultPermissionedAsItem>("default_permissioned_as", DefaultPermissionedAs);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFolders200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("owners", Owners);

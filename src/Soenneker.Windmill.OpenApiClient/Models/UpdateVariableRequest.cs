@@ -48,6 +48,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Value { get; set; }
 #endif
+        /// <summary>When the value stored in this variable stops working. Omit to leave it unchanged; send null to clear it. Changing it re-arms the workspace&apos;s variable expiration handler.</summary>
+        public DateTimeOffset? ValueValidUntil { get; set; }
         /// <summary>The ws_specific property</summary>
         public bool? WsSpecific { get; set; }
         /// <summary>
@@ -80,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
+                { "value_valid_until", n => { ValueValidUntil = n.GetDateTimeOffsetValue(); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
@@ -95,6 +98,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("value", Value);
+            writer.WriteDateTimeOffsetValue("value_valid_until", ValueValidUntil);
             writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }

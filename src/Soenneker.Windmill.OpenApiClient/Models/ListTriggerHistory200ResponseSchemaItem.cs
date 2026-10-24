@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>{field: {old, new}} for the fields that actually changed. Unset for a delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemChanges? Changes { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseSchemaItemChanges? Changes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemChanges Changes { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseSchemaItemChanges Changes { get; set; }
 #endif
         /// <summary>The created_at property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "changes", n => { Changes = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemChanges>(global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemChanges.CreateFromDiscriminatorValue); } },
+                { "changes", n => { Changes = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseSchemaItemChanges>(global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseSchemaItemChanges.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemOperation>(); } },
@@ -96,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemChanges>("changes", Changes);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseSchemaItemChanges>("changes", Changes);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteLongValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListTriggerHistory200ResponseItemOperation>("operation", Operation);

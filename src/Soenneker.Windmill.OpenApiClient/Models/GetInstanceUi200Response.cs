@@ -15,28 +15,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The accent_color property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseAccentColor? AccentColor { get; set; }
+        public UntypedNode? AccentColor { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseAccentColor AccentColor { get; set; }
+        public UntypedNode AccentColor { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The api_base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseApiBaseUrl? ApiBaseUrl { get; set; }
+        public UntypedNode? ApiBaseUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseApiBaseUrl ApiBaseUrl { get; set; }
+        public UntypedNode ApiBaseUrl { get; set; }
 #endif
         /// <summary>The instance_banner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseInstanceBanner? InstanceBanner { get; set; }
+        public UntypedNode? InstanceBanner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseInstanceBanner InstanceBanner { get; set; }
+        public UntypedNode InstanceBanner { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200Response"/> and sets the default values.
@@ -63,9 +63,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accent_color", n => { AccentColor = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseAccentColor>(global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseAccentColor.CreateFromDiscriminatorValue); } },
-                { "api_base_url", n => { ApiBaseUrl = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseApiBaseUrl>(global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseApiBaseUrl.CreateFromDiscriminatorValue); } },
-                { "instance_banner", n => { InstanceBanner = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseInstanceBanner>(global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseInstanceBanner.CreateFromDiscriminatorValue); } },
+                { "accent_color", n => { AccentColor = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "api_base_url", n => { ApiBaseUrl = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "instance_banner", n => { InstanceBanner = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,9 +75,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseAccentColor>("accent_color", AccentColor);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseApiBaseUrl>("api_base_url", ApiBaseUrl);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200ResponseInstanceBanner>("instance_banner", InstanceBanner);
+            writer.WriteObjectValue<UntypedNode>("accent_color", AccentColor);
+            writer.WriteObjectValue<UntypedNode>("api_base_url", ApiBaseUrl);
+            writer.WriteObjectValue<UntypedNode>("instance_banner", InstanceBanner);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

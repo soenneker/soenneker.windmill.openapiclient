@@ -20,10 +20,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Full job arguments without size restrictions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemArgs? Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemArgs? Args { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemArgs Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemArgs Args { get; set; }
 #endif
         /// <summary>The cache_ttl property</summary>
         public int? CacheTtl { get; set; }
@@ -70,10 +70,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Flow status from v2_job_status table</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemFlowStatus? FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemFlowStatus? FlowStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemFlowStatus FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemFlowStatus FlowStatus { get; set; }
 #endif
         /// <summary>The flow_step_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -142,10 +142,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The raw_flow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemRawFlow? RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemRawFlow? RawFlow { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemRawFlow RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemRawFlow RawFlow { get; set; }
 #endif
         /// <summary>The raw_lock property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -208,10 +208,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The workflow_as_code_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItem"/> and sets the default values.
@@ -239,7 +239,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "aggregate_wait_time_ms", n => { AggregateWaitTimeMs = n.GetIntValue(); } },
-                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemArgs.CreateFromDiscriminatorValue); } },
+                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemArgs.CreateFromDiscriminatorValue); } },
                 { "cache_ttl", n => { CacheTtl = n.GetIntValue(); } },
                 { "canceled_by", n => { CanceledBy = n.GetStringValue(); } },
                 { "canceled_reason", n => { CanceledReason = n.GetStringValue(); } },
@@ -249,7 +249,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "flow_innermost_root_job", n => { FlowInnermostRootJob = n.GetGuidValue(); } },
-                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemFlowStatus.CreateFromDiscriminatorValue); } },
+                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemFlowStatus.CreateFromDiscriminatorValue); } },
                 { "flow_step_id", n => { FlowStepId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_flow_step", n => { IsFlowStep = n.GetBoolValue(); } },
@@ -264,7 +264,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preprocessed", n => { Preprocessed = n.GetBoolValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "raw_code", n => { RawCode = n.GetStringValue(); } },
-                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemRawFlow.CreateFromDiscriminatorValue); } },
+                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemRawFlow.CreateFromDiscriminatorValue); } },
                 { "raw_lock", n => { RawLock = n.GetStringValue(); } },
                 { "same_worker", n => { SameWorker = n.GetBoolValue(); } },
                 { "scheduled_for", n => { ScheduledFor = n.GetDateTimeOffsetValue(); } },
@@ -279,7 +279,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "trigger", n => { Trigger = n.GetStringValue(); } },
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemTriggerKind>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
-                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
+                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -290,7 +290,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("aggregate_wait_time_ms", AggregateWaitTimeMs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemArgs>("args", Args);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemArgs>("args", Args);
             writer.WriteIntValue("cache_ttl", CacheTtl);
             writer.WriteStringValue("canceled_by", CanceledBy);
             writer.WriteStringValue("canceled_reason", CanceledReason);
@@ -300,7 +300,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("email", Email);
             writer.WriteGuidValue("flow_innermost_root_job", FlowInnermostRootJob);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemFlowStatus>("flow_status", FlowStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemFlowStatus>("flow_status", FlowStatus);
             writer.WriteStringValue("flow_step_id", FlowStepId);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_flow_step", IsFlowStep);
@@ -315,7 +315,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("preprocessed", Preprocessed);
             writer.WriteIntValue("priority", Priority);
             writer.WriteStringValue("raw_code", RawCode);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemRawFlow>("raw_flow", RawFlow);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemRawFlow>("raw_flow", RawFlow);
             writer.WriteStringValue("raw_lock", RawLock);
             writer.WriteBoolValue("same_worker", SameWorker);
             writer.WriteDateTimeOffsetValue("scheduled_for", ScheduledFor);
@@ -330,7 +330,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("trigger", Trigger);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemTriggerKind>("trigger_kind", TriggerKind);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExportQueuedJobs200ResponseSchemaItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

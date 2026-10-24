@@ -40,6 +40,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string RefreshToken { get; set; }
 #endif
+        /// <summary>Resource fields the provider&apos;s `connect_fields` picked on connect (Salesforce&apos;s instance_url, Docusign&apos;s account_id and base_uri, QuickBooks&apos; realmId), for the connect dialog to prefill.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallback200ResponseResourceFields? ResourceFields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallback200ResponseResourceFields ResourceFields { get; set; }
+#endif
         /// <summary>The scope property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,6 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "expires_in", n => { ExpiresIn = n.GetIntValue(); } },
                 { "grant_type", n => { GrantType = n.GetStringValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
+                { "resource_fields", n => { ResourceFields = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallback200ResponseResourceFields>(global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallback200ResponseResourceFields.CreateFromDiscriminatorValue); } },
                 { "scope", n => { Scope = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -91,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("expires_in", ExpiresIn);
             writer.WriteStringValue("grant_type", GrantType);
             writer.WriteStringValue("refresh_token", RefreshToken);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ConnectCallback200ResponseResourceFields>("resource_fields", ResourceFields);
             writer.WriteCollectionOfPrimitiveValues<string>("scope", Scope);
             writer.WriteAdditionalData(AdditionalData);
         }

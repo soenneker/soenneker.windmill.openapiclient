@@ -43,10 +43,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema? Schema { get; set; }
+        public UntypedNode? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema Schema { get; set; }
+        public UntypedNode Schema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequest"/> and sets the default values.
@@ -77,7 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "format_extension", n => { FormatExtension = n.GetStringValue(); } },
                 { "is_fileset", n => { IsFileset = n.GetBoolValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("display_name", DisplayName);
             writer.WriteStringValue("format_extension", FormatExtension);
             writer.WriteBoolValue("is_fileset", IsFileset);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateResourceTypeRequestSchema>("schema", Schema);
+            writer.WriteObjectValue<UntypedNode>("schema", Schema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

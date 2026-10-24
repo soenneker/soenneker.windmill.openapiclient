@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>For an `ai_agent` resource only, its `memory` setting: the one partof the value a listing returns, since it decides whether the agentkeeps a conversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory? AgentMemory { get; set; }
+        public UntypedNode? AgentMemory { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory AgentMemory { get; set; }
+        public UntypedNode AgentMemory { get; set; }
 #endif
         /// <summary>The created_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,10 +141,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -182,7 +182,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account", n => { Account = n.GetDoubleValue(); } },
-                { "agent_memory", n => { AgentMemory = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory>(global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory.CreateFromDiscriminatorValue); } },
+                { "agent_memory", n => { AgentMemory = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft.CreateFromDiscriminatorValue); } },
@@ -204,7 +204,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "refresh_error", n => { RefreshError = n.GetStringValue(); } },
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
@@ -217,7 +217,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("account", Account);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseAgentMemory>("agent_memory", AgentMemory);
+            writer.WriteObjectValue<UntypedNode>("agent_memory", AgentMemory);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft>("draft", Draft);
@@ -239,7 +239,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("refresh_error", RefreshError);
             writer.WriteStringValue("resource_type", ResourceType);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);

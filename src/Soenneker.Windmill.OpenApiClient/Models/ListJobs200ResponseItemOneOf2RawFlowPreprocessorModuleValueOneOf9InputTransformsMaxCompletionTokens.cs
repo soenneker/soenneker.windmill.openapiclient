@@ -8,20 +8,35 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Integer. Maximum number of tokens the AI will generate in its response.Range: 1 to 4,294,967,295. Typical values: 256-4096 for most use cases.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokens : IAdditionalDataHolder, IParsable
+    public partial class ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokens : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokens"/> and sets the default values.
-        /// </summary>
-        public ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokens()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1? ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1 ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2? ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2 ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3? ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3 ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +45,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokens CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokens();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokens();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +55,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1 != null)
             {
-            };
+                return ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1.GetFieldDeserializers();
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2 != null)
+            {
+                return ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2.GetFieldDeserializers();
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3 != null)
+            {
+                return ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +76,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1>(null, ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf1);
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2>(null, ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf2);
+            }
+            else if(ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3>(null, ListJobs200ResponseItemOneOf2RawFlowPreprocessorModuleValueOneOf9InputTransformsMaxCompletionTokensAllOf1OneOf3);
+            }
         }
     }
 }

@@ -127,10 +127,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemExtraPerms? ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemExtraPerms? ExtraPerms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemExtraPerms ExtraPerms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemExtraPerms ExtraPerms { get; set; }
 #endif
         /// <summary>The hash property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -197,10 +197,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Additional script modules keyed by relative file path</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemModules? Modules { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules? Modules { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemModules Modules { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules Modules { get; set; }
 #endif
         /// <summary>Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -241,10 +241,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemSchema? Schema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemSchema Schema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema Schema { get; set; }
 #endif
         /// <summary>The starred property</summary>
         public bool? Starred { get; set; }
@@ -325,7 +325,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "draft_path", n => { DraftPath = n.GetStringValue(); } },
                 { "draft_users", n => { DraftUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemDraftUsersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemDraftUsersItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "envs", n => { Envs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemExtraPerms.CreateFromDiscriminatorValue); } },
+                { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemExtraPerms.CreateFromDiscriminatorValue); } },
                 { "has_preprocessor", n => { HasPreprocessor = n.GetBoolValue(); } },
                 { "hash", n => { Hash = n.GetStringValue(); } },
                 { "inherited_labels", n => { InheritedLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -339,14 +339,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "lock_error_logs", n => { LockErrorLogs = n.GetStringValue(); } },
                 { "max_total_debounces_amount", n => { MaxTotalDebouncesAmount = n.GetIntValue(); } },
                 { "max_total_debouncing_time", n => { MaxTotalDebouncingTime = n.GetIntValue(); } },
-                { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemModules>(global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemModules.CreateFromDiscriminatorValue); } },
+                { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules>(global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules.CreateFromDiscriminatorValue); } },
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
                 { "parent_hashes", n => { ParentHashes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "restart_unless_cancelled", n => { RestartUnlessCancelled = n.GetBoolValue(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema.CreateFromDiscriminatorValue); } },
                 { "starred", n => { Starred = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
@@ -385,7 +385,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("draft_path", DraftPath);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemDraftUsersItem>("draft_users", DraftUsers);
             writer.WriteCollectionOfPrimitiveValues<string>("envs", Envs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemExtraPerms>("extra_perms", ExtraPerms);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteStringValue("hash", Hash);
             writer.WriteBoolValue("has_preprocessor", HasPreprocessor);
             writer.WriteCollectionOfPrimitiveValues<string>("inherited_labels", InheritedLabels);
@@ -399,14 +399,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("lock_error_logs", LockErrorLogs);
             writer.WriteIntValue("max_total_debounces_amount", MaxTotalDebouncesAmount);
             writer.WriteIntValue("max_total_debouncing_time", MaxTotalDebouncingTime);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemModules>("modules", Modules);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules>("modules", Modules);
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
             writer.WriteCollectionOfPrimitiveValues<string>("parent_hashes", ParentHashes);
             writer.WriteStringValue("path", Path);
             writer.WriteIntValue("priority", Priority);
             writer.WriteBoolValue("restart_unless_cancelled", RestartUnlessCancelled);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseItemSchema>("schema", Schema);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema>("schema", Schema);
             writer.WriteBoolValue("starred", Starred);
             writer.WriteStringValue("summary", Summary);
             writer.WriteStringValue("tag", Tag);

@@ -43,10 +43,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemErrorHandlerArgs? ErrorHandlerArgs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemErrorHandlerArgs ErrorHandlerArgs { get; set; }
 #endif
         /// <summary>Path to a script to run when the triggered job fails. A bare path, without the script/ or flow/ prefix a schedule error handler takes; it cannot be a flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,10 +99,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemRetry? Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemRetry? Retry { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemRetry Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemRetry Retry { get; set; }
 #endif
         /// <summary>The URL route path that will trigger this endpoint (e.g., &apos;api/myendpoint&apos;). Must NOT start with a /.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,10 +123,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Configuration for serving static assets (s3 bucket, storage path, filename)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemStaticAssetConfig? StaticAssetConfig { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemStaticAssetConfig? StaticAssetConfig { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemStaticAssetConfig StaticAssetConfig { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemStaticAssetConfig StaticAssetConfig { get; set; }
 #endif
         /// <summary>Short summary describing the purpose of this trigger</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -169,7 +169,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "authentication_method", n => { AuthenticationMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemAuthenticationMethod>(); } },
                 { "authentication_resource_path", n => { AuthenticationResourcePath = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
+                { "error_handler_args", n => { ErrorHandlerArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemErrorHandlerArgs>(global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemErrorHandlerArgs.CreateFromDiscriminatorValue); } },
                 { "error_handler_path", n => { ErrorHandlerPath = n.GetStringValue(); } },
                 { "http_method", n => { HttpMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemHttpMethod>(); } },
                 { "is_async", n => { IsAsync = n.GetBoolValue(); } },
@@ -182,10 +182,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preserve_permissioned_as", n => { PreservePermissionedAs = n.GetBoolValue(); } },
                 { "raw_string", n => { RawString = n.GetBoolValue(); } },
                 { "request_type", n => { RequestType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemRequestType>(); } },
-                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemRetry.CreateFromDiscriminatorValue); } },
+                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemRetry>(global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemRetry.CreateFromDiscriminatorValue); } },
                 { "route_path", n => { RoutePath = n.GetStringValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
-                { "static_asset_config", n => { StaticAssetConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemStaticAssetConfig>(global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemStaticAssetConfig.CreateFromDiscriminatorValue); } },
+                { "static_asset_config", n => { StaticAssetConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemStaticAssetConfig>(global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemStaticAssetConfig.CreateFromDiscriminatorValue); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "workspaced_route", n => { WorkspacedRoute = n.GetBoolValue(); } },
                 { "wrap_body", n => { WrapBody = n.GetBoolValue(); } },
@@ -202,7 +202,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemAuthenticationMethod>("authentication_method", AuthenticationMethod);
             writer.WriteStringValue("authentication_resource_path", AuthenticationResourcePath);
             writer.WriteStringValue("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemErrorHandlerArgs>("error_handler_args", ErrorHandlerArgs);
             writer.WriteStringValue("error_handler_path", ErrorHandlerPath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemHttpMethod>("http_method", HttpMethod);
             writer.WriteBoolValue("is_async", IsAsync);
@@ -215,10 +215,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("preserve_permissioned_as", PreservePermissionedAs);
             writer.WriteBoolValue("raw_string", RawString);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemRequestType>("request_type", RequestType);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemRetry>("retry", Retry);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemRetry>("retry", Retry);
             writer.WriteStringValue("route_path", RoutePath);
             writer.WriteStringValue("script_path", ScriptPath);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestItemStaticAssetConfig>("static_asset_config", StaticAssetConfig);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateHttpTriggersRequestRequestBodyItemStaticAssetConfig>("static_asset_config", StaticAssetConfig);
             writer.WriteStringValue("summary", Summary);
             writer.WriteBoolValue("workspaced_route", WorkspacedRoute);
             writer.WriteBoolValue("wrap_body", WrapBody);

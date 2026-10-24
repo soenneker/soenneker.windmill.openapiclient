@@ -51,10 +51,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>The ws_specific property</summary>
         public bool? WsSpecific { get; set; }
@@ -88,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "preserve_on_behalf_of", n => { PreserveOnBehalfOf = n.GetBoolValue(); } },
                 { "resource_type", n => { ResourceType = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue>(global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
             };
         }
@@ -104,7 +104,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteBoolValue("preserve_on_behalf_of", PreserveOnBehalfOf);
             writer.WriteStringValue("resource_type", ResourceType);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateResourceRequestValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteBoolValue("ws_specific", WsSpecific);
             writer.WriteAdditionalData(AdditionalData);
         }

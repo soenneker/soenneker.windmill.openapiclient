@@ -17,10 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>JSON schema for request body</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemBodySchema? BodySchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemBodySchema? BodySchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemBodySchema BodySchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemBodySchema BodySchema { get; set; }
 #endif
         /// <summary>Short description of the tool</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,18 +65,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>JSON schema for path parameters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemPathParamsSchema? PathParamsSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemPathParamsSchema? PathParamsSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemPathParamsSchema PathParamsSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemPathParamsSchema PathParamsSchema { get; set; }
 #endif
         /// <summary>JSON schema for query parameters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemQueryParamsSchema? QueryParamsSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemQueryParamsSchema? QueryParamsSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemQueryParamsSchema QueryParamsSchema { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemQueryParamsSchema QueryParamsSchema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItem"/> and sets the default values.
@@ -103,14 +103,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "body_schema", n => { BodySchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemBodySchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemBodySchema.CreateFromDiscriminatorValue); } },
+                { "body_schema", n => { BodySchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemBodySchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemBodySchema.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetStringValue(); } },
                 { "method", n => { Method = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "path_params_schema", n => { PathParamsSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemPathParamsSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemPathParamsSchema.CreateFromDiscriminatorValue); } },
-                { "query_params_schema", n => { QueryParamsSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemQueryParamsSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemQueryParamsSchema.CreateFromDiscriminatorValue); } },
+                { "path_params_schema", n => { PathParamsSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemPathParamsSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemPathParamsSchema.CreateFromDiscriminatorValue); } },
+                { "query_params_schema", n => { QueryParamsSchema = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemQueryParamsSchema>(global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemQueryParamsSchema.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -120,14 +120,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemBodySchema>("body_schema", BodySchema);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemBodySchema>("body_schema", BodySchema);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("instructions", Instructions);
             writer.WriteStringValue("method", Method);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemPathParamsSchema>("path_params_schema", PathParamsSchema);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseItemQueryParamsSchema>("query_params_schema", QueryParamsSchema);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemPathParamsSchema>("path_params_schema", PathParamsSchema);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListMcpTools200ResponseSchemaItemQueryParamsSchema>("query_params_schema", QueryParamsSchema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -71,10 +71,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawFormDataRequestAppValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawFormDataRequestAppValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawFormDataRequestApp"/> and sets the default values.
@@ -110,7 +110,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preserve_on_behalf_of", n => { PreserveOnBehalfOf = n.GetBoolValue(); } },
                 { "skip_draft_deletion", n => { SkipDraftDeletion = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawFormDataRequestAppValue>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawFormDataRequestAppValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -129,7 +129,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("preserve_on_behalf_of", PreserveOnBehalfOf);
             writer.WriteBoolValue("skip_draft_deletion", SkipDraftDeletion);
             writer.WriteStringValue("summary", Summary);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawFormDataRequestAppValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

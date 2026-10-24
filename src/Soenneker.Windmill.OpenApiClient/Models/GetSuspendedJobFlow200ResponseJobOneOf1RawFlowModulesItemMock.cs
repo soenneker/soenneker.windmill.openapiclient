@@ -20,10 +20,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Value to return when mocked</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowModulesItemMockReturnValue? ReturnValue { get; set; }
+        public UntypedNode? ReturnValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowModulesItemMockReturnValue ReturnValue { get; set; }
+        public UntypedNode ReturnValue { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowModulesItemMock"/> and sets the default values.
@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "return_value", n => { ReturnValue = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowModulesItemMockReturnValue>(global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowModulesItemMockReturnValue.CreateFromDiscriminatorValue); } },
+                { "return_value", n => { ReturnValue = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJobOneOf1RawFlowModulesItemMockReturnValue>("return_value", ReturnValue);
+            writer.WriteObjectValue<UntypedNode>("return_value", ReturnValue);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

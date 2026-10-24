@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJobResultMaybe200ResponseResult? Result { get; set; }
+        public UntypedNode? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJobResultMaybe200ResponseResult Result { get; set; }
+        public UntypedNode Result { get; set; }
 #endif
         /// <summary>The started property</summary>
         public bool? Started { get; set; }
@@ -54,7 +54,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "completed", n => { Completed = n.GetBoolValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJobResultMaybe200ResponseResult>(global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJobResultMaybe200ResponseResult.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "started", n => { Started = n.GetBoolValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
             };
@@ -67,7 +67,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("completed", Completed);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJobResultMaybe200ResponseResult>("result", Result);
+            writer.WriteObjectValue<UntypedNode>("result", Result);
             writer.WriteBoolValue("started", Started);
             writer.WriteBoolValue("success", Success);
             writer.WriteAdditionalData(AdditionalData);

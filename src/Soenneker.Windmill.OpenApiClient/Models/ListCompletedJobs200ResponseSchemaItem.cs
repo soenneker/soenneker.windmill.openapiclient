@@ -19,10 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemArgs? Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemArgs? Args { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemArgs Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemArgs Args { get; set; }
 #endif
         /// <summary>The canceled property</summary>
         public bool? Canceled { get; set; }
@@ -69,10 +69,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The flow_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemFlowStatus? FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemFlowStatus? FlowStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemFlowStatus FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemFlowStatus FlowStatus { get; set; }
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
@@ -129,10 +129,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The flow structure containing modules and optional preprocessor/failure handlers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlow? RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow? RawFlow { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlow RawFlow { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow RawFlow { get; set; }
 #endif
         /// <summary>The resolution_note property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -159,10 +159,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>For large results, this may be the placeholder string &apos;WINDMILL_TOO_BIG&apos;.Use the completed job result endpoint to retrieve the full result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemResult? Result { get; set; }
+        public UntypedNode? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemResult Result { get; set; }
+        public UntypedNode Result { get; set; }
 #endif
         /// <summary>The schedule_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -217,10 +217,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The workflow_as_code_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -256,7 +256,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "aggregate_wait_time_ms", n => { AggregateWaitTimeMs = n.GetDoubleValue(); } },
-                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemArgs.CreateFromDiscriminatorValue); } },
+                { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemArgs>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemArgs.CreateFromDiscriminatorValue); } },
                 { "canceled", n => { Canceled = n.GetBoolValue(); } },
                 { "canceled_by", n => { CanceledBy = n.GetStringValue(); } },
                 { "canceled_reason", n => { CanceledReason = n.GetStringValue(); } },
@@ -266,7 +266,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "deleted", n => { Deleted = n.GetBoolValue(); } },
                 { "duration_ms", n => { DurationMs = n.GetIntValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemFlowStatus.CreateFromDiscriminatorValue); } },
+                { "flow_status", n => { FlowStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemFlowStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemFlowStatus.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_flow_step", n => { IsFlowStep = n.GetBoolValue(); } },
                 { "is_retry", n => { IsRetry = n.GetBoolValue(); } },
@@ -281,13 +281,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "preprocessed", n => { Preprocessed = n.GetBoolValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "raw_code", n => { RawCode = n.GetStringValue(); } },
-                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlow.CreateFromDiscriminatorValue); } },
+                { "raw_flow", n => { RawFlow = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow.CreateFromDiscriminatorValue); } },
                 { "resolution_note", n => { ResolutionNote = n.GetStringValue(); } },
                 { "resolved", n => { Resolved = n.GetBoolValue(); } },
                 { "resolved_at", n => { ResolvedAt = n.GetDateTimeOffsetValue(); } },
                 { "resolved_automatically", n => { ResolvedAutomatically = n.GetBoolValue(); } },
                 { "resolved_by", n => { ResolvedBy = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemResult>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemResult.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "schedule_path", n => { SchedulePath = n.GetStringValue(); } },
                 { "script_hash", n => { ScriptHash = n.GetStringValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
@@ -298,7 +298,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemTriggerKind>(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
                 { "worker", n => { Worker = n.GetStringValue(); } },
-                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
+                { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemWorkflowAsCodeStatus>(global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemWorkflowAsCodeStatus.CreateFromDiscriminatorValue); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -310,7 +310,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("aggregate_wait_time_ms", AggregateWaitTimeMs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemArgs>("args", Args);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemArgs>("args", Args);
             writer.WriteBoolValue("canceled", Canceled);
             writer.WriteStringValue("canceled_by", CanceledBy);
             writer.WriteStringValue("canceled_reason", CanceledReason);
@@ -320,7 +320,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("deleted", Deleted);
             writer.WriteIntValue("duration_ms", DurationMs);
             writer.WriteStringValue("email", Email);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemFlowStatus>("flow_status", FlowStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemFlowStatus>("flow_status", FlowStatus);
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_flow_step", IsFlowStep);
             writer.WriteBoolValue("is_retry", IsRetry);
@@ -335,13 +335,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("preprocessed", Preprocessed);
             writer.WriteIntValue("priority", Priority);
             writer.WriteStringValue("raw_code", RawCode);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlow>("raw_flow", RawFlow);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow>("raw_flow", RawFlow);
             writer.WriteStringValue("resolution_note", ResolutionNote);
             writer.WriteBoolValue("resolved", Resolved);
             writer.WriteDateTimeOffsetValue("resolved_at", ResolvedAt);
             writer.WriteBoolValue("resolved_automatically", ResolvedAutomatically);
             writer.WriteStringValue("resolved_by", ResolvedBy);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemResult>("result", Result);
+            writer.WriteObjectValue<UntypedNode>("result", Result);
             writer.WriteStringValue("schedule_path", SchedulePath);
             writer.WriteStringValue("script_hash", ScriptHash);
             writer.WriteStringValue("script_path", ScriptPath);
@@ -352,7 +352,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemTriggerKind>("trigger_kind", TriggerKind);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
             writer.WriteStringValue("worker", Worker);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             writer.WriteAdditionalData(AdditionalData);
         }

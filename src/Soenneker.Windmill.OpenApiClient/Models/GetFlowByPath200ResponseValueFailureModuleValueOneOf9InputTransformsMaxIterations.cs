@@ -8,20 +8,35 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Number. Limits how many times the agent can loop through reasoning and tool use.Range: 1-1000.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations : IAdditionalDataHolder, IParsable
+    public partial class GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations"/> and sets the default values.
-        /// </summary>
-        public GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1? GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1 GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2? GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2 GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3? GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3 GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +45,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterations();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +55,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1 != null)
             {
-            };
+                return GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1.GetFieldDeserializers();
+            }
+            else if(GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2 != null)
+            {
+                return GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2.GetFieldDeserializers();
+            }
+            else if(GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3 != null)
+            {
+                return GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,7 +76,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            if(GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1>(null, GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf1);
+            }
+            else if(GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2>(null, GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf2);
+            }
+            else if(GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3>(null, GetFlowByPath200ResponseValueFailureModuleValueOneOf9InputTransformsMaxIterationsAllOf1OneOf3);
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/hub/projects/{slug}/export{?folder*}", pathParameters)
+        public ExportRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/hub/projects/{slug}/export{?folder*,version*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/hub/projects/{slug}/export{?folder*}", rawUrl)
+        public ExportRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/hub/projects/{slug}/export{?folder*,version*}", rawUrl)
         {
         }
         /// <summary>
@@ -94,6 +94,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects.Item.Export
             [QueryParameter("folder")]
             public string Folder { get; set; }
 #endif
+            /// <summary>id of a reviewed project version to export instead of the current one (see the hub&apos;s `/projects/{slug}/versions`)</summary>
+            [QueryParameter("version")]
+            public int? Version { get; set; }
         }
     }
 }

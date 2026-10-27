@@ -14,8 +14,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The call_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallId { get; set; }
+#nullable restore
+#else
+        public string CallId { get; set; }
+#endif
+        /// <summary>The calls property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusModulesItemAgentActionsItemOneOf4CallsItem>? Calls { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusModulesItemAgentActionsItemOneOf4CallsItem> Calls { get; set; }
+#endif
+        /// <summary>The expires_at property</summary>
+        public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.MessageType? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ApprovalType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusModulesItemAgentActionsItemOneOf4"/> and sets the default values.
         /// </summary>
@@ -41,7 +59,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.MessageType>(); } },
+                { "call_id", n => { CallId = n.GetStringValue(); } },
+                { "calls", n => { Calls = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusModulesItemAgentActionsItemOneOf4CallsItem>(global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusModulesItemAgentActionsItemOneOf4CallsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ApprovalType>(); } },
             };
         }
         /// <summary>
@@ -51,7 +72,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.MessageType>("type", Type);
+            writer.WriteStringValue("call_id", CallId);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.DeleteCompletedJob200ResponseFlowStatusModulesItemAgentActionsItemOneOf4CallsItem>("calls", Calls);
+            writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ApprovalType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

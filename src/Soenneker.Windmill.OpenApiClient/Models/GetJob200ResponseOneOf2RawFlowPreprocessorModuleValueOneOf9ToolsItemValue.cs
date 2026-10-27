@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValue : IComposedTypeWrapper, IParsable
@@ -36,6 +36,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3 GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4? GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4 GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -67,6 +75,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3.GetFieldDeserializers();
             }
+            else if(GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4 != null)
+            {
+                return GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -87,6 +99,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if(GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3>(null, GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf3);
+            }
+            else if(GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4>(null, GetJob200ResponseOneOf2RawFlowPreprocessorModuleValueOneOf9ToolsItemValueOneOf4);
             }
         }
     }

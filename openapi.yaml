@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.848.2
+  version: 1.850.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -3351,7 +3351,9 @@ paths:
         - setting
       responses:
         '200':
-          description: the instance_banner, accent_color and api_base_url settings
+          description: >-
+            the instance_banner, accent_color, api_base_url and
+            api_base_url_applies_to settings
           content:
             application/json:
               schema:
@@ -3360,6 +3362,7 @@ paths:
                   instance_banner: {}
                   accent_color: {}
                   api_base_url: {}
+                  api_base_url_applies_to: {}
   /settings_u/ruff_config:
     get:
       summary: get instance ruff config (unauthenticated)
@@ -15530,7 +15533,7 @@ paths:
                         description: >-
                           The flow structure containing modules and optional
                           preprocessor/failure handlers
-                        properties: &ref_845
+                        properties: &ref_847
                           modules:
                             type: array
                             description: >-
@@ -16702,9 +16705,10 @@ paths:
                                                   letters, numbers and underscores only
                                                   (e.g. 'search_documentation', not
                                                   'Search documentation') - and always be
-                                                  set; on an mcp or websearch tool it is a
-                                                  plain label. Put the human-readable
-                                                  explanation in 'description'.
+                                                  set; on an mcp, websearch or question
+                                                  tool it is a plain label. Put the
+                                                  human-readable explanation in
+                                                  'description'.
                                               description:
                                                 type: string
                                                 description: >-
@@ -16722,12 +16726,24 @@ paths:
                                                   restricted to, on top of the agent
                                                   step's own restriction: a tool can only
                                                   narrow it.
+                                              requires_approval:
+                                                type: boolean
+                                                description: >-
+                                                  Flowmodule and mcp tools only. Each call
+                                                  waits for a person to approve or reject
+                                                  it from the flow's run page or chat,
+                                                  without the agent holding a worker.
+                                                  Calls in the same turn that do not
+                                                  require approval run right away. A
+                                                  rejected call, or one nobody answers
+                                                  within 30 minutes, is reported to the AI
+                                                  as not run.
                                               value:
                                                 description: >-
                                                   The implementation of a tool. Can be a
                                                   flow module (script/flow) or an MCP tool
                                                   reference
-                                                oneOf: &ref_843
+                                                oneOf: &ref_845
                                                   - description: >-
                                                       A tool implemented as a flow module
                                                       (script, flow, etc.). The AI can call
@@ -16805,12 +16821,34 @@ paths:
                                                           - websearch
                                                     required: &ref_842
                                                       - tool_type
-                                                discriminator: &ref_844
+                                                  - type: object
+                                                    description: >-
+                                                      Built-in tool the AI calls as
+                                                      ask_question: the agent stops, releasing
+                                                      its worker, until someone answers from
+                                                      the flow's run page or chat or the
+                                                      question times out, then resumes with
+                                                      the answer as the tool result.
+                                                    properties: &ref_843
+                                                      tool_type:
+                                                        type: string
+                                                        enum:
+                                                          - question
+                                                      timeout:
+                                                        type: integer
+                                                        description: >-
+                                                          Seconds to wait for an answer before the
+                                                          question is reported to the AI as timed
+                                                          out. Defaults to 1800.
+                                                    required: &ref_844
+                                                      - tool_type
+                                                discriminator: &ref_846
                                                   propertyName: tool_type
                                                   mapping:
                                                     flowmodule: '#/components/schemas/FlowModuleTool'
                                                     mcp: '#/components/schemas/McpToolValue'
                                                     websearch: '#/components/schemas/WebsearchToolValue'
+                                                    question: '#/components/schemas/QuestionToolValue'
                                             required: &ref_449
                                               - id
                                               - value
@@ -17510,7 +17548,7 @@ paths:
                               required: &ref_223
                                 - start_id
                                 - end_id
-                        required: &ref_846
+                        required: &ref_848
                           - modules
                       schema:
                         type: object
@@ -29484,6 +29522,63 @@ paths:
                                             - web_search
                                       required:
                                         - type
+                                    - type: object
+                                      properties:
+                                        type:
+                                          type: string
+                                          enum:
+                                            - approval
+                                        call_id:
+                                          type: string
+                                        calls:
+                                          type: array
+                                          items:
+                                            type: object
+                                            properties:
+                                              function_name:
+                                                type: string
+                                              arguments: {}
+                                            required:
+                                              - function_name
+                                              - arguments
+                                        expires_at:
+                                          type: string
+                                          format: date-time
+                                      required:
+                                        - type
+                                        - call_id
+                                        - calls
+                                        - expires_at
+                                    - type: object
+                                      properties:
+                                        type:
+                                          type: string
+                                          enum:
+                                            - question
+                                        call_id:
+                                          type: string
+                                        question:
+                                          type: string
+                                        choices:
+                                          type: array
+                                          items:
+                                            type: string
+                                          description: >-
+                                            answers the model proposes; a free-text
+                                            answer is always possible
+                                        multi_select:
+                                          type: boolean
+                                          description: >-
+                                            whether several choices can be picked
+                                            together
+                                        expires_at:
+                                          type: string
+                                          format: date-time
+                                      required:
+                                        - type
+                                        - call_id
+                                        - question
+                                        - expires_at
                                     - type: object
                                       properties:
                                         type:
@@ -49668,6 +49763,15 @@ paths:
           description: folder scoping the Hub project source (`{workspace}:{folder}`)
           schema:
             type: string
+        - name: version
+          in: query
+          required: false
+          description: >-
+            id of a reviewed project version to export instead of the current
+            one (see the hub's `/projects/{slug}/versions`)
+          schema:
+            type: integer
+            minimum: 1
       responses:
         '200':
           description: raw Hub response body (status code is passed through from the Hub)
@@ -51949,6 +52053,61 @@ components:
                       - web_search
                 required:
                   - type
+              - type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - approval
+                  call_id:
+                    type: string
+                  calls:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        function_name:
+                          type: string
+                        arguments: {}
+                      required:
+                        - function_name
+                        - arguments
+                  expires_at:
+                    type: string
+                    format: date-time
+                required:
+                  - type
+                  - call_id
+                  - calls
+                  - expires_at
+              - type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - question
+                  call_id:
+                    type: string
+                  question:
+                    type: string
+                  choices:
+                    type: array
+                    items:
+                      type: string
+                    description: >-
+                      answers the model proposes; a free-text answer is always
+                      possible
+                  multi_select:
+                    type: boolean
+                    description: whether several choices can be picked together
+                  expires_at:
+                    type: string
+                    format: date-time
+                required:
+                  - type
+                  - call_id
+                  - question
+                  - expires_at
               - type: object
                 properties:
                   type:
@@ -54242,12 +54401,20 @@ components:
         other websearch tool
       properties: *ref_841
       required: *ref_842
+    QuestionToolValue:
+      type: object
+      description: >-
+        Built-in tool the AI calls as ask_question: the agent stops, releasing
+        its worker, until someone answers from the flow's run page or chat or
+        the question times out, then resumes with the answer as the tool result.
+      properties: *ref_843
+      required: *ref_844
     ToolValue:
       description: >-
         The implementation of a tool. Can be a flow module (script/flow) or an
         MCP tool reference
-      oneOf: *ref_843
-      discriminator: *ref_844
+      oneOf: *ref_845
+      discriminator: *ref_846
     AgentTool:
       type: object
       description: >-
@@ -54324,8 +54491,8 @@ components:
       description: >-
         The flow structure containing modules and optional preprocessor/failure
         handlers
-      properties: *ref_845
-      required: *ref_846
+      properties: *ref_847
+      required: *ref_848
     schemas-FlowStatusModule:
       type: object
       properties: *ref_229

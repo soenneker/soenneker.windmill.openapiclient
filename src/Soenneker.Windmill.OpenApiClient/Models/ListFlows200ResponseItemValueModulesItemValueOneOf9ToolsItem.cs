@@ -39,7 +39,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> JobTokenScopes { get; set; }
 #endif
-        /// <summary>The name the AI agent calls this tool by, not a human label. On a flowmodule tool it must match ^[a-zA-Z0-9_]+$ - letters, numbers and underscores only (e.g. &apos;search_documentation&apos;, not &apos;Search documentation&apos;) - and always be set; on an mcp or websearch tool it is a plain label. Put the human-readable explanation in &apos;description&apos;.</summary>
+        /// <summary>Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow&apos;s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run.</summary>
+        public bool? RequiresApproval { get; set; }
+        /// <summary>The name the AI agent calls this tool by, not a human label. On a flowmodule tool it must match ^[a-zA-Z0-9_]+$ - letters, numbers and underscores only (e.g. &apos;search_documentation&apos;, not &apos;Search documentation&apos;) - and always be set; on an mcp, websearch or question tool it is a plain label. Put the human-readable explanation in &apos;description&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Summary { get; set; }
@@ -83,6 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "requires_approval", n => { RequiresApproval = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf9ToolsItemValue>(global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf9ToolsItemValue.CreateFromDiscriminatorValue); } },
             };
@@ -97,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
+            writer.WriteBoolValue("requires_approval", RequiresApproval);
             writer.WriteStringValue("summary", Summary);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListFlows200ResponseItemValueModulesItemValueOneOf9ToolsItemValue>("value", Value);
             writer.WriteAdditionalData(AdditionalData);

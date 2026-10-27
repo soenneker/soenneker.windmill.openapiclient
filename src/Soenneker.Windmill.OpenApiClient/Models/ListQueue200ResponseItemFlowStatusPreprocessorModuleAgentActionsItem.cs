@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf1"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf2"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf3"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItem : IComposedTypeWrapper, IParsable
@@ -45,6 +45,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4 ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5? ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5 ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6? ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6 ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,9 +83,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 result.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf3();
             }
-            else if("message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("approval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4();
+            }
+            else if("question".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5 = new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5();
+            }
+            else if("message".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6 = new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6();
             }
             return result;
         }
@@ -95,6 +119,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 return ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4.GetFieldDeserializers();
             }
+            else if(ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5 != null)
+            {
+                return ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5.GetFieldDeserializers();
+            }
+            else if(ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6 != null)
+            {
+                return ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -119,6 +151,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if(ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4>(null, ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf4);
+            }
+            else if(ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5>(null, ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf5);
+            }
+            else if(ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6>(null, ListQueue200ResponseItemFlowStatusPreprocessorModuleAgentActionsItemOneOf6);
             }
         }
     }

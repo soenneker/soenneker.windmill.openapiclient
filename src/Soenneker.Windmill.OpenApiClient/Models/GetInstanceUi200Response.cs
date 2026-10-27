@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public UntypedNode ApiBaseUrl { get; set; }
 #endif
+        /// <summary>The api_base_url_applies_to property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? ApiBaseUrlAppliesTo { get; set; }
+#nullable restore
+#else
+        public UntypedNode ApiBaseUrlAppliesTo { get; set; }
+#endif
         /// <summary>The instance_banner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "accent_color", n => { AccentColor = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "api_base_url", n => { ApiBaseUrl = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "api_base_url_applies_to", n => { ApiBaseUrlAppliesTo = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "instance_banner", n => { InstanceBanner = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,6 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<UntypedNode>("accent_color", AccentColor);
             writer.WriteObjectValue<UntypedNode>("api_base_url", ApiBaseUrl);
+            writer.WriteObjectValue<UntypedNode>("api_base_url_applies_to", ApiBaseUrlAppliesTo);
             writer.WriteObjectValue<UntypedNode>("instance_banner", InstanceBanner);
             writer.WriteAdditionalData(AdditionalData);
         }

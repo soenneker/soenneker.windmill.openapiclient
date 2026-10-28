@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Complete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Sessions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions;
@@ -18,6 +19,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AiRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The complete property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Complete.CompleteRequestBuilder Complete
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Complete.CompleteRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The sessions property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Sessions.SessionsRequestBuilder Sessions
         {

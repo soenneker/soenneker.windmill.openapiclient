@@ -20,6 +20,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public bool? Code { get; set; }
         /// <summary>How much of a kind of runnable a role may author. `compose` assembles already-deployed runnables with no code of one&apos;s own.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesFlows? Flows { get; set; }
+        /// <summary>Fork the workspace.</summary>
+        public bool? Fork { get; set; }
         /// <summary>The manage_schedules property</summary>
         public bool? ManageSchedules { get; set; }
         /// <summary>The manage_triggers property</summary>
@@ -60,6 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "apps", n => { Apps = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesApps>(); } },
                 { "code", n => { Code = n.GetBoolValue(); } },
                 { "flows", n => { Flows = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesFlows>(); } },
+                { "fork", n => { Fork = n.GetBoolValue(); } },
                 { "manage_schedules", n => { ManageSchedules = n.GetBoolValue(); } },
                 { "manage_triggers", n => { ManageTriggers = n.GetBoolValue(); } },
                 { "visibility", n => { Visibility = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesVisibility>(global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesVisibility.CreateFromDiscriminatorValue); } },
@@ -75,6 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesApps>("apps", Apps);
             writer.WriteBoolValue("code", Code);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesFlows>("flows", Flows);
+            writer.WriteBoolValue("fork", Fork);
             writer.WriteBoolValue("manage_schedules", ManageSchedules);
             writer.WriteBoolValue("manage_triggers", ManageTriggers);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesVisibility>("visibility", Visibility);

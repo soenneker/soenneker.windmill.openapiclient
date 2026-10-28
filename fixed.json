@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.850.0",
+    "version": "1.851.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -19545,6 +19545,48 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ListConversationMessages200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/ai/complete": {
+      "post": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "one text completion with the workspace\u0027s AI config",
+        "description": "Sends a system and a user message to the configured provider and returns the text of the answer, with no tools and no streaming. For callers that do not speak a provider\u0027s own API through the proxy, such as the CLI and jobs.\n",
+        "operationId": "CompleteAi",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteAiRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the answer, and the model that wrote it",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompleteAi200Response"
                 }
               }
             }
@@ -56618,6 +56660,10 @@
           "fork_open_prs": {
             "type": "boolean"
           },
+          "ai_review_prs": {
+            "type": "boolean",
+            "description": "review every pull request against the tracked branch with the workspace\u0027s AI"
+          },
           "open_pr_error": {
             "type": "string",
             "description": "server-owned, last failure opening a PR for a deploy branch of this repo"
@@ -57390,6 +57436,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -57409,6 +57456,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/RoleCapabilitiesVisibility"
@@ -57431,6 +57482,9 @@
             "type": "boolean"
           },
           "manage_triggers": {
+            "type": "boolean"
+          },
+          "fork": {
             "type": "boolean"
           },
           "visibility": {
@@ -58321,9 +58375,19 @@
               "type": "string"
             },
             "description": "Users that can bypass this ruleset"
+          },
+          "fork_role_mapping": {
+            "$ref": "#/components/schemas/ProtectionRulesetForkRoleMappingProperty"
           }
         },
         "description": "A workspace protection rule defining restrictions and bypass permissions"
+      },
+      "ForkRoleMapping": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged."
       },
       "ProtectionRules": {
         "type": "array",
@@ -269609,6 +269673,10 @@
           "fork_open_prs": {
             "type": "boolean"
           },
+          "ai_review_prs": {
+            "type": "boolean",
+            "description": "review every pull request against the tracked branch with the workspace\u0027s AI"
+          },
           "open_pr_error": {
             "type": "string",
             "description": "server-owned, last failure opening a PR for a deploy branch of this repo"
@@ -269924,6 +269992,9 @@
           "manage_triggers": {
             "type": "boolean"
           },
+          "fork": {
+            "type": "boolean"
+          },
           "visibility": {
             "$ref": "#/components/schemas/RoleDefinitionCapabilitiesVisibilityProperty"
           }
@@ -269946,6 +270017,9 @@
             "type": "boolean"
           },
           "manage_triggers": {
+            "type": "boolean"
+          },
+          "fork": {
             "type": "boolean"
           },
           "visibility": {
@@ -269972,6 +270046,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -269991,6 +270066,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/EffectiveRoleCapabilitiesVisibility"
@@ -270038,6 +270117,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -270057,6 +270137,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/WorkspaceRolesMyCapabilitiesVisibility"
@@ -270331,6 +270415,13 @@
       },
       "VolumeExtraPerms": {
         "type": "object"
+      },
+      "ProtectionRulesetForkRoleMapping": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged."
       },
       "DeploymentRequestAssigneesItem": {
         "required": [
@@ -300799,6 +300890,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -300818,6 +300910,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/UserWorkspaceListWorkspacesItemCapabilitiesVisibility"
@@ -301431,6 +301527,9 @@
           "manage_triggers": {
             "type": "boolean"
           },
+          "fork": {
+            "type": "boolean"
+          },
           "visibility": {
             "$ref": "#/components/schemas/RoleOverridesAdditionalPropertiesCapabilitiesVisibilityProperty"
           }
@@ -301492,6 +301591,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -301511,6 +301611,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/WorkspaceRolesRolesItemCapabilitiesVisibility"
@@ -316240,6 +316344,9 @@
             "type": "boolean"
           },
           "manage_triggers": {
+            "type": "boolean"
+          },
+          "fork": {
             "type": "boolean"
           },
           "visibility": {
@@ -334901,6 +335008,9 @@
               "type": "string"
             },
             "description": "Users that can bypass this ruleset"
+          },
+          "fork_role_mapping": {
+            "$ref": "#/components/schemas/CreateProtectionRuleRequestForkRoleMapping"
           }
         }
       },
@@ -334939,6 +335049,9 @@
               "type": "string"
             },
             "description": "Users that can bypass this ruleset"
+          },
+          "fork_role_mapping": {
+            "$ref": "#/components/schemas/UpdateProtectionRuleRequestForkRoleMapping"
           }
         }
       },
@@ -338917,6 +339030,42 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/ListConversationMessages200ResponseItem"
+        }
+      },
+      "CompleteAiRequest": {
+        "required": [
+          "system",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "system": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "model": {
+            "$ref": "#/components/schemas/CompleteAiRequestModel"
+          },
+          "max_tokens": {
+            "type": "integer"
+          }
+        }
+      },
+      "CompleteAi200Response": {
+        "required": [
+          "text",
+          "model"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "model": {
+            "$ref": "#/components/schemas/CompleteAi200ResponseModel"
+          }
         }
       },
       "ListEvalDatasets200Response": {
@@ -540943,6 +541092,13 @@
       "VolumeExtraPermsProperty": {
         "type": "object"
       },
+      "ProtectionRulesetForkRoleMappingProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged."
+      },
       "NativeTriggerServiceConfigProperty": {
         "type": "object",
         "description": "Configuration for the trigger including event_type and service_config"
@@ -547692,6 +547848,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -547711,6 +547868,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseMyCapabilitiesVisibility"
@@ -549408,6 +549569,10 @@
           "fork_open_prs": {
             "type": "boolean"
           },
+          "ai_review_prs": {
+            "type": "boolean",
+            "description": "review every pull request against the tracked branch with the workspace\u0027s AI"
+          },
           "open_pr_error": {
             "type": "string",
             "description": "server-owned, last failure opening a PR for a deploy branch of this repo"
@@ -549884,9 +550049,26 @@
               "type": "string"
             },
             "description": "Users that can bypass this ruleset"
+          },
+          "fork_role_mapping": {
+            "$ref": "#/components/schemas/ListProtectionRules200ResponseItemForkRoleMapping"
           }
         },
         "description": "A workspace protection rule defining restrictions and bypass permissions"
+      },
+      "CreateProtectionRuleRequestForkRoleMapping": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged."
+      },
+      "UpdateProtectionRuleRequestForkRoleMapping": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged."
       },
       "ListDeploymentRequestEligibleDeployers200ResponseItem": {
         "required": [
@@ -552663,6 +552845,37 @@
             },
             "description": "The files a user message carried, as object-storage references: every flow input other than user_message that held one or a list of them, at most 20. Never file bytes or a presigned URL.",
             "nullable": true
+          }
+        }
+      },
+      "CompleteAiRequestModel": {
+        "required": [
+          "model",
+          "provider"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "provider": {
+            "$ref": "#/components/schemas/CompleteAiRequestModelProvider"
+          }
+        },
+        "description": "defaults to the AI config\u0027s default model"
+      },
+      "CompleteAi200ResponseModel": {
+        "required": [
+          "model",
+          "provider"
+        ],
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "provider": {
+            "$ref": "#/components/schemas/CompleteAi200ResponseModelProvider"
           }
         }
       },
@@ -563601,6 +563814,9 @@
               "type": "string"
             },
             "description": "Users that can bypass this ruleset"
+          },
+          "fork_role_mapping": {
+            "$ref": "#/components/schemas/ListProtectionRules200ResponseSchemaItemForkRoleMapping"
           }
         },
         "description": "A workspace protection rule defining restrictions and bypass permissions"
@@ -590918,6 +591134,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -590937,6 +591154,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/ListUserWorkspaces200ResponseWorkspacesItemCapabilitiesVisibility"
@@ -591054,6 +591275,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "fork",
           "visibility"
         ],
         "type": "object",
@@ -591073,6 +591295,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "fork": {
+            "type": "boolean",
+            "description": "Fork the workspace."
           },
           "visibility": {
             "$ref": "#/components/schemas/ListWorkspaceRoles200ResponseRolesItemCapabilitiesVisibility"
@@ -591154,6 +591380,9 @@
             "type": "boolean"
           },
           "manage_triggers": {
+            "type": "boolean"
+          },
+          "fork": {
             "type": "boolean"
           },
           "visibility": {
@@ -591438,6 +591667,10 @@
           },
           "fork_open_prs": {
             "type": "boolean"
+          },
+          "ai_review_prs": {
+            "type": "boolean",
+            "description": "review every pull request against the tracked branch with the workspace\u0027s AI"
           },
           "open_pr_error": {
             "type": "string",
@@ -591955,6 +592188,10 @@
           "fork_open_prs": {
             "type": "boolean"
           },
+          "ai_review_prs": {
+            "type": "boolean",
+            "description": "review every pull request against the tracked branch with the workspace\u0027s AI"
+          },
           "open_pr_error": {
             "type": "string",
             "description": "server-owned, last failure opening a PR for a deploy branch of this repo"
@@ -592123,6 +592360,13 @@
         "additionalProperties": {
           "type": "boolean"
         }
+      },
+      "ListProtectionRules200ResponseItemForkRoleMapping": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged."
       },
       "ListResource200ResponseItemExtraPerms": {
         "type": "object",
@@ -600710,6 +600954,9 @@
           "manage_triggers": {
             "type": "boolean"
           },
+          "fork": {
+            "type": "boolean"
+          },
           "visibility": {
             "$ref": "#/components/schemas/UpdateWorkspaceRoleOverridesRequestAdditionalPropertiesCapabilitiesVisibility"
           }
@@ -600785,6 +601032,13 @@
         "additionalProperties": {
           "type": "boolean"
         }
+      },
+      "ListProtectionRules200ResponseSchemaItemForkRoleMapping": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged."
       },
       "ListResource200ResponseSchemaItemExtraPerms": {
         "type": "object",
@@ -608191,6 +608445,9 @@
             "type": "boolean"
           },
           "manage_triggers": {
+            "type": "boolean"
+          },
+          "fork": {
             "type": "boolean"
           },
           "visibility": {
@@ -696131,6 +696388,168 @@
             {
               "value": "tool",
               "name": "Tool"
+            }
+          ]
+        }
+      },
+      "CompleteAiRequestModelProvider": {
+        "enum": [
+          "openai",
+          "azure_openai",
+          "azure_foundry",
+          "anthropic",
+          "mistral",
+          "deepseek",
+          "googleai",
+          "groq",
+          "openrouter",
+          "togetherai",
+          "aws_bedrock",
+          "customai",
+          "typesafe",
+          "cloudflare"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CompleteAiRequestModelProvider",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "openai",
+              "name": "Openai"
+            },
+            {
+              "value": "azure_openai",
+              "name": "AzureOpenai"
+            },
+            {
+              "value": "azure_foundry",
+              "name": "AzureFoundry"
+            },
+            {
+              "value": "anthropic",
+              "name": "Anthropic"
+            },
+            {
+              "value": "mistral",
+              "name": "Mistral"
+            },
+            {
+              "value": "deepseek",
+              "name": "Deepseek"
+            },
+            {
+              "value": "googleai",
+              "name": "Googleai"
+            },
+            {
+              "value": "groq",
+              "name": "Groq"
+            },
+            {
+              "value": "openrouter",
+              "name": "Openrouter"
+            },
+            {
+              "value": "togetherai",
+              "name": "Togetherai"
+            },
+            {
+              "value": "aws_bedrock",
+              "name": "AwsBedrock"
+            },
+            {
+              "value": "customai",
+              "name": "Customai"
+            },
+            {
+              "value": "typesafe",
+              "name": "Typesafe"
+            },
+            {
+              "value": "cloudflare",
+              "name": "Cloudflare"
+            }
+          ]
+        }
+      },
+      "CompleteAi200ResponseModelProvider": {
+        "enum": [
+          "openai",
+          "azure_openai",
+          "azure_foundry",
+          "anthropic",
+          "mistral",
+          "deepseek",
+          "googleai",
+          "groq",
+          "openrouter",
+          "togetherai",
+          "aws_bedrock",
+          "customai",
+          "typesafe",
+          "cloudflare"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CompleteAi200ResponseModelProvider",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "openai",
+              "name": "Openai"
+            },
+            {
+              "value": "azure_openai",
+              "name": "AzureOpenai"
+            },
+            {
+              "value": "azure_foundry",
+              "name": "AzureFoundry"
+            },
+            {
+              "value": "anthropic",
+              "name": "Anthropic"
+            },
+            {
+              "value": "mistral",
+              "name": "Mistral"
+            },
+            {
+              "value": "deepseek",
+              "name": "Deepseek"
+            },
+            {
+              "value": "googleai",
+              "name": "Googleai"
+            },
+            {
+              "value": "groq",
+              "name": "Groq"
+            },
+            {
+              "value": "openrouter",
+              "name": "Openrouter"
+            },
+            {
+              "value": "togetherai",
+              "name": "Togetherai"
+            },
+            {
+              "value": "aws_bedrock",
+              "name": "AwsBedrock"
+            },
+            {
+              "value": "customai",
+              "name": "Customai"
+            },
+            {
+              "value": "typesafe",
+              "name": "Typesafe"
+            },
+            {
+              "value": "cloudflare",
+              "name": "Cloudflare"
             }
           ]
         }

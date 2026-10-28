@@ -30,6 +30,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<string> BypassUsers { get; set; }
 #endif
+        /// <summary>Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequestForkRoleMapping? ForkRoleMapping { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequestForkRoleMapping ForkRoleMapping { get; set; }
+#endif
         /// <summary>Unique name for the protection rule</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "bypass_groups", n => { BypassGroups = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "bypass_users", n => { BypassUsers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "fork_role_mapping", n => { ForkRoleMapping = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequestForkRoleMapping>(global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequestForkRoleMapping.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "rules", n => { Rules = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequestRulesItem>()?.AsList(); } },
             };
@@ -86,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("bypass_groups", BypassGroups);
             writer.WriteCollectionOfPrimitiveValues<string>("bypass_users", BypassUsers);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequestForkRoleMapping>("fork_role_mapping", ForkRoleMapping);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateProtectionRuleRequestRulesItem>("rules", Rules);
             writer.WriteAdditionalData(AdditionalData);

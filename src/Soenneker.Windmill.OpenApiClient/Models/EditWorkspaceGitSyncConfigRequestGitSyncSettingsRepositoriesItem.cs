@@ -14,6 +14,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>review every pull request against the tracked branch with the workspace&apos;s AI</summary>
+        public bool? AiReviewPrs { get; set; }
         /// <summary>The auto_pull property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ai_review_prs", n => { AiReviewPrs = n.GetBoolValue(); } },
                 { "auto_pull", n => { AutoPull = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemAutoPull>(global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemAutoPull.CreateFromDiscriminatorValue); } },
                 { "collapsed", n => { Collapsed = n.GetBoolValue(); } },
                 { "credential", n => { Credential = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential>(global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential.CreateFromDiscriminatorValue); } },
@@ -126,6 +129,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("ai_review_prs", AiReviewPrs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemAutoPull>("auto_pull", AutoPull);
             writer.WriteBoolValue("collapsed", Collapsed);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemCredential>("credential", Credential);

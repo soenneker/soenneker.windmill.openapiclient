@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Guests are free up to `free_allowance` distinct emails over the trailing `window_days`. Past that an Enterprise plan meters them (`metered`, four guests to one seat: `billable_guests`, `guest_seats`); every other plan and build admits no new email until the count drops. `instance_enabled` is the superadmin switch (`guest_access_disabled` global setting) every workspace switch sits under. `available` is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field and switch is then moot.
+    /// Guests are free up to `free_allowance` distinct emails over the trailing `window_days`. Past that an Enterprise plan meters them (`metered`, four guests to one seat: `billable_guests`, `guest_seats`); every other plan and build admits no new email until the count drops. `available` is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field is then moot.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListGuests200ResponseUsage : IAdditionalDataHolder, IParsable
@@ -25,8 +25,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public long? GuestCount { get; set; }
         /// <summary>The guest_seats property</summary>
         public long? GuestSeats { get; set; }
-        /// <summary>The instance_enabled property</summary>
-        public bool? InstanceEnabled { get; set; }
         /// <summary>The metered property</summary>
         public bool? Metered { get; set; }
         /// <summary>The window_days property</summary>
@@ -61,7 +59,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "free_allowance", n => { FreeAllowance = n.GetLongValue(); } },
                 { "guest_count", n => { GuestCount = n.GetLongValue(); } },
                 { "guest_seats", n => { GuestSeats = n.GetLongValue(); } },
-                { "instance_enabled", n => { InstanceEnabled = n.GetBoolValue(); } },
                 { "metered", n => { Metered = n.GetBoolValue(); } },
                 { "window_days", n => { WindowDays = n.GetIntValue(); } },
             };
@@ -78,7 +75,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteLongValue("free_allowance", FreeAllowance);
             writer.WriteLongValue("guest_count", GuestCount);
             writer.WriteLongValue("guest_seats", GuestSeats);
-            writer.WriteBoolValue("instance_enabled", InstanceEnabled);
             writer.WriteBoolValue("metered", Metered);
             writer.WriteIntValue("window_days", WindowDays);
             writer.WriteAdditionalData(AdditionalData);

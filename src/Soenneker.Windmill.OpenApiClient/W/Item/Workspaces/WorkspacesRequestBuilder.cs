@@ -45,7 +45,6 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_ducklake_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_error_handler;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_git_sync_config;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_git_sync_repository;
-using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_instance_groups;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_large_file_storage_config;
@@ -340,11 +339,6 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_git_sync_repository.Edit_git_sync_repositoryRequestBuilder Edit_git_sync_repository
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_git_sync_repository.Edit_git_sync_repositoryRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The edit_guest_access property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access.Edit_guest_accessRequestBuilder Edit_guest_access
-        {
-            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_access.Edit_guest_accessRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The edit_guest_jwt_key property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key.Edit_guest_jwt_keyRequestBuilder Edit_guest_jwt_key

@@ -32,8 +32,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDeployUi DeployUi { get; set; }
 #endif
-        /// <summary>Whether this workspace admits guest sessions. An app&apos;s own `guest` execution mode is inert while this is false.</summary>
-        public bool? GuestAccessEnabled { get; set; }
         /// <summary>The large_file_storage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,7 +118,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "add_admins_and_developers_to_forks", n => { AddAdminsAndDevelopersToForks = n.GetBoolValue(); } },
                 { "datatable", n => { Datatable = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable.CreateFromDiscriminatorValue); } },
                 { "deploy_ui", n => { DeployUi = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDeployUi>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDeployUi.CreateFromDiscriminatorValue); } },
-                { "guest_access_enabled", n => { GuestAccessEnabled = n.GetBoolValue(); } },
                 { "large_file_storage", n => { LargeFileStorage = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseLargeFileStorage>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseLargeFileStorage.CreateFromDiscriminatorValue); } },
                 { "mute_critical_alerts", n => { MuteCriticalAlerts = n.GetBoolValue(); } },
                 { "slack_name", n => { SlackName = n.GetStringValue(); } },
@@ -141,7 +138,6 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("add_admins_and_developers_to_forks", AddAdminsAndDevelopersToForks);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable>("datatable", Datatable);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDeployUi>("deploy_ui", DeployUi);
-            writer.WriteBoolValue("guest_access_enabled", GuestAccessEnabled);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseLargeFileStorage>("large_file_storage", LargeFileStorage);
             writer.WriteBoolValue("mute_critical_alerts", MuteCriticalAlerts);
             writer.WriteStringValue("slack_name", SlackName);

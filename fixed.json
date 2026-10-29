@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.851.0",
+    "version": "1.853.1",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -8964,49 +8964,6 @@
         }
       }
     },
-    "/w/{workspace}/workspaces/edit_guest_access": {
-      "post": {
-        "tags": [
-          "workspace"
-        ],
-        "summary": "enable or disable guest sessions for this workspace",
-        "description": "Guests are people the identity provider authenticates who have no Windmill account; the \u0060guest\u0060 app execution mode admits them. Off by default. Re-read where a guest session is minted and at the auth door on every guest request, so turning it off takes effect immediately, for sessions already issued and for apps whose policy already says \u0060guest\u0060. Turning it *on* is refused with a 400 where guests are unavailable (the shared cloud); turning it off always works.",
-        "operationId": "EditGuestAccess",
-        "parameters": [
-          {
-            "name": "workspace",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Whether guest sessions are admitted",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EditGuestAccessRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "status",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/EditGuestAccess200PlainResponseSchema"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/w/{workspace}/workspaces/edit_add_admins_and_developers_to_forks": {
       "post": {
         "tags": [
@@ -9056,7 +9013,7 @@
           "workspace"
         ],
         "summary": "set the key guest JWTs are verified against for this workspace",
-        "description": "A guest JWT (\u0060jwt_guest_\u0060) is minted by the embedding customer\u0027s own backend and verified against this key: a PEM public key (RS/ES family, HS* refused) or a JWKS URL, at most one. Both empty clears the workspace key; off cloud, verification then falls back to the instance issuer (\u0060JWT_EXT_JWKS_URL\u0060) if one is set, else no guest JWT is accepted (\u0060guest_access_enabled\u0060 is the on/off switch). Workspace-admin gated. The key is validated before it is stored. Setting a key is refused with a 400 where guests are unavailable (the shared cloud); clearing one always works.",
+        "description": "A guest JWT (\u0060jwt_guest_\u0060) is minted by the embedding customer\u0027s own backend and verified against this key: a PEM public key (RS/ES family, HS* refused) or a JWKS URL, at most one. Both empty clears the workspace key; off cloud, verification then falls back to the instance issuer (\u0060JWT_EXT_JWKS_URL\u0060) if one is set, else no guest JWT is accepted. Workspace-admin gated. The key is validated before it is stored. Setting a key is refused with a 400 where guests are unavailable (the shared cloud); clearing one always works.",
         "operationId": "EditGuestJwtKey",
         "parameters": [
           {
@@ -13839,7 +13796,7 @@
           "app"
         ],
         "summary": "whether the app behind a custom path admits guests",
-        "description": "The custom-path counterpart of \u0060getGuestEntry\u0060. Unauthenticated; 404 unless the app\u0027s execution mode is \u0060guest\u0060 AND its workspace has \u0060guest_access_enabled\u0060 AND the instance has not set \u0060guest_access_disabled\u0060, and never on a deployment where guests are unavailable (the shared cloud). Returns the workspace too, since a custom URL may not carry it.",
+        "description": "The custom-path counterpart of \u0060getGuestEntry\u0060. Unauthenticated; 404 unless the app\u0027s execution mode is \u0060guest\u0060, and never on a deployment where guests are unavailable (the shared cloud). Returns the workspace too, since a custom URL may not carry it.",
         "operationId": "GetGuestEntryByCustomPath",
         "parameters": [
           {
@@ -21753,7 +21710,7 @@
           "app"
         ],
         "summary": "whether the app behind a share secret admits guests",
-        "description": "Unauthenticated: what a signed-out visitor reads to learn that signing in would let them in. 404 unless the app\u0027s execution mode is \u0060guest\u0060 AND the workspace has \u0060guest_access_enabled\u0060 AND the instance has not set the \u0060guest_access_disabled\u0060 global setting, and never on a deployment where guests are unavailable (the shared cloud), so it says nothing about apps that are not open to guests. Discloses only the app path, to a caller already holding the share secret.",
+        "description": "Unauthenticated: what a signed-out visitor reads to learn that signing in would let them in. 404 unless the app\u0027s execution mode is \u0060guest\u0060, and never on a deployment where guests are unavailable (the shared cloud), so it says nothing about apps that are not open to guests. Discloses only the app path, to a caller already holding the share secret.",
         "operationId": "GetGuestEntry",
         "parameters": [
           {
@@ -48402,7 +48359,6 @@
       "GuestUsage": {
         "required": [
           "available",
-          "instance_enabled",
           "guest_count",
           "window_days",
           "free_allowance",
@@ -48413,9 +48369,6 @@
         "type": "object",
         "properties": {
           "available": {
-            "type": "boolean"
-          },
-          "instance_enabled": {
             "type": "boolean"
           },
           "guest_count": {
@@ -48441,7 +48394,7 @@
             "format": "int64"
           }
         },
-        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060instance_enabled\u0060 is the superadmin switch (\u0060guest_access_disabled\u0060 global setting) every workspace switch sits under. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field and switch is then moot."
+        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field is then moot."
       },
       "GuestActivity": {
         "required": [
@@ -267359,7 +267312,6 @@
       "GuestListUsage": {
         "required": [
           "available",
-          "instance_enabled",
           "guest_count",
           "window_days",
           "free_allowance",
@@ -267370,9 +267322,6 @@
         "type": "object",
         "properties": {
           "available": {
-            "type": "boolean"
-          },
-          "instance_enabled": {
             "type": "boolean"
           },
           "guest_count": {
@@ -267398,7 +267347,7 @@
             "format": "int64"
           }
         },
-        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060instance_enabled\u0060 is the superadmin switch (\u0060guest_access_disabled\u0060 global setting) every workspace switch sits under. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field and switch is then moot."
+        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field is then moot."
       },
       "GuestListGuestsItem": {
         "required": [
@@ -332553,7 +332502,6 @@
       "GetPublicSettings200Response": {
         "required": [
           "workspace_id",
-          "guest_access_enabled",
           "add_admins_and_developers_to_forks"
         ],
         "type": "object",
@@ -332587,10 +332535,6 @@
           },
           "mute_critical_alerts": {
             "type": "boolean"
-          },
-          "guest_access_enabled": {
-            "type": "boolean",
-            "description": "Whether this workspace admits guest sessions. An app\u0027s own \u0060guest\u0060 execution mode is inert while this is false."
           },
           "add_admins_and_developers_to_forks": {
             "type": "boolean",
@@ -332695,10 +332639,6 @@
           "error_handler_fallback_to_instance_alerts": {
             "type": "boolean",
             "description": "Report failed jobs to the instance critical alert channels when no workspace error handler is set."
-          },
-          "guest_access_enabled": {
-            "type": "boolean",
-            "description": "Whether this workspace admits guest sessions. An app\u0027s own \u0060guest\u0060 execution mode is inert while this is false."
           },
           "guest_jwt_public_key": {
             "type": "string",
@@ -334158,20 +334098,6 @@
       "EditWorkspaceDefaultApp200PlainResponse": {
         "type": "string"
       },
-      "EditGuestAccessRequest": {
-        "required": [
-          "guest_access_enabled"
-        ],
-        "type": "object",
-        "properties": {
-          "guest_access_enabled": {
-            "type": "boolean"
-          }
-        }
-      },
-      "EditGuestAccess200PlainResponse": {
-        "type": "string"
-      },
       "EditAddAdminsAndDevelopersToForksRequest": {
         "required": [
           "add_admins_and_developers_to_forks"
@@ -334205,7 +334131,6 @@
       "GetGuestUsage200Response": {
         "required": [
           "available",
-          "instance_enabled",
           "guest_count",
           "window_days",
           "free_allowance",
@@ -334216,9 +334141,6 @@
         "type": "object",
         "properties": {
           "available": {
-            "type": "boolean"
-          },
-          "instance_enabled": {
             "type": "boolean"
           },
           "guest_count": {
@@ -334244,7 +334166,7 @@
             "format": "int64"
           }
         },
-        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060instance_enabled\u0060 is the superadmin switch (\u0060guest_access_disabled\u0060 global setting) every workspace switch sits under. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field and switch is then moot."
+        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field is then moot."
       },
       "EditDefaultScriptsRequest": {
         "type": "object",
@@ -350078,9 +350000,6 @@
       "DeleteGitSyncRepository200ResponseSchema": {},
       "EditWorkspaceDeployUiSettings200ResponseSchema": {},
       "EditWorkspaceDefaultApp200PlainResponseSchema": {
-        "type": "string"
-      },
-      "EditGuestAccess200PlainResponseSchema": {
         "type": "string"
       },
       "EditAddAdminsAndDevelopersToForks200PlainResponseSchema": {
@@ -546670,7 +546589,6 @@
       "ListGuests200ResponseUsage": {
         "required": [
           "available",
-          "instance_enabled",
           "guest_count",
           "window_days",
           "free_allowance",
@@ -546681,9 +546599,6 @@
         "type": "object",
         "properties": {
           "available": {
-            "type": "boolean"
-          },
-          "instance_enabled": {
             "type": "boolean"
           },
           "guest_count": {
@@ -546709,7 +546624,7 @@
             "format": "int64"
           }
         },
-        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060instance_enabled\u0060 is the superadmin switch (\u0060guest_access_disabled\u0060 global setting) every workspace switch sits under. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field and switch is then moot."
+        "description": "Guests are free up to \u0060free_allowance\u0060 distinct emails over the trailing \u0060window_days\u0060. Past that an Enterprise plan meters them (\u0060metered\u0060, four guests to one seat: \u0060billable_guests\u0060, \u0060guest_seats\u0060); every other plan and build admits no new email until the count drops. \u0060available\u0060 is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field is then moot."
       },
       "ListGuests200ResponseGuestsItem": {
         "required": [
@@ -636623,7 +636538,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "PolicyExecutionMode",
           "modelAsString": false,
@@ -650943,7 +650858,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "AppWithLastVersionPolicyExecutionMode",
           "modelAsString": false,
@@ -695247,7 +695162,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "GetPublicAppByCustomPath200ResponsePolicyExecutionMode",
           "modelAsString": false,
@@ -696869,7 +696784,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "CreateAppRequestPolicyExecutionMode",
           "modelAsString": false,
@@ -696901,7 +696816,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "GetAppByPath200ResponsePolicyExecutionMode",
           "modelAsString": false,
@@ -696933,7 +696848,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "GetAppLiteByPath200ResponsePolicyExecutionMode",
           "modelAsString": false,
@@ -696965,7 +696880,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "GetPublicAppBySecret200ResponsePolicyExecutionMode",
           "modelAsString": false,
@@ -696997,7 +696912,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "GetAppByVersion200ResponsePolicyExecutionMode",
           "modelAsString": false,
@@ -697029,7 +696944,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "UpdateAppRequestPolicyExecutionMode",
           "modelAsString": false,
@@ -697061,7 +696976,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "CreateAppRawSourceRequestPolicyExecutionMode",
           "modelAsString": false,
@@ -697093,7 +697008,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "UpdateAppRawSourceRequestPolicyExecutionMode",
           "modelAsString": false,
@@ -723303,7 +723218,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "CreateAppRawFormDataRequestAppPolicyExecutionMode",
           "modelAsString": false,
@@ -723335,7 +723250,7 @@
           "anonymous"
         ],
         "type": "string",
-        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has \u0060guest_access_enabled\u0060, which is checked when the session is minted and again on every guest request",
+        "description": "Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to \u0060publisher\u0060 (runs on behalf of the app\u0027s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither \u0060anonymous\u0060, which makes the app publicly executable, nor \u0060guest\u0060, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to \u0060guest\u0060 is gated by the \u0060RestrictGuestAppDeployment\u0060 protection rule",
         "x-ms-enum": {
           "name": "UpdateAppRawFormDataRequestAppPolicyExecutionMode",
           "modelAsString": false,

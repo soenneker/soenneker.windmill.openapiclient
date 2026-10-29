@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to `publisher` (runs on behalf of the app&apos;s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither `anonymous`, which makes the app publicly executable, nor `guest`, which opens it to anyone the identity provider authenticates, is ever assumed. A guest is only admitted where the workspace also has `guest_access_enabled`, which is checked when the session is minted and again on every guest request</summary>
+    /// <summary>Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to `publisher` (runs on behalf of the app&apos;s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither `anonymous`, which makes the app publicly executable, nor `guest`, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to `guest` is gated by the `RestrictGuestAppDeployment` protection rule</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CreateAppRawFormDataRequestAppPolicyExecutionMode
     {

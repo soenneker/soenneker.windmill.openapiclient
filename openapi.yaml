@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.851.0
+  version: 1.853.1
   title: Windmill API
   contact:
     name: Windmill Team
@@ -1585,16 +1585,12 @@ paths:
                       plan meters them (`metered`, four guests to one seat:
                       `billable_guests`, `guest_seats`); every other plan and
                       build admits no new email until the count drops.
-                      `instance_enabled` is the superadmin switch
-                      (`guest_access_disabled` global setting) every workspace
-                      switch sits under. `available` is whether this deployment
-                      can have guests at all: false on the shared cloud, where
-                      guest access requires a self-hosted or dedicated
-                      deployment, and every other field and switch is then moot.
+                      `available` is whether this deployment can have guests at
+                      all: false on the shared cloud, where guest access
+                      requires a self-hosted or dedicated deployment, and every
+                      other field is then moot.
                     properties: &ref_90
                       available:
-                        type: boolean
-                      instance_enabled:
                         type: boolean
                       guest_count:
                         type: integer
@@ -1614,7 +1610,6 @@ paths:
                         format: int64
                     required: &ref_91
                       - available
-                      - instance_enabled
                       - guest_count
                       - window_days
                       - free_allowance
@@ -6610,11 +6605,6 @@ paths:
                             - datatablemigration
                   mute_critical_alerts:
                     type: boolean
-                  guest_access_enabled:
-                    type: boolean
-                    description: >-
-                      Whether this workspace admits guest sessions. An app's own
-                      `guest` execution mode is inert while this is false.
                   add_admins_and_developers_to_forks:
                     type: boolean
                     description: >-
@@ -6622,7 +6612,6 @@ paths:
                       admins and developers as members, keeping their role.
                 required:
                   - workspace_id
-                  - guest_access_enabled
                   - add_admins_and_developers_to_forks
   /w/{workspace}/workspaces/get_settings:
     get:
@@ -7177,11 +7166,6 @@ paths:
                     description: >-
                       Report failed jobs to the instance critical alert channels
                       when no workspace error handler is set.
-                  guest_access_enabled:
-                    type: boolean
-                    description: >-
-                      Whether this workspace admits guest sessions. An app's own
-                      `guest` execution mode is inert while this is false.
                   guest_jwt_public_key:
                     type: string
                     description: >-
@@ -10725,44 +10709,6 @@ paths:
             text/plain:
               schema:
                 type: string
-  /w/{workspace}/workspaces/edit_guest_access:
-    post:
-      summary: enable or disable guest sessions for this workspace
-      description: >-
-        Guests are people the identity provider authenticates who have no
-        Windmill account; the `guest` app execution mode admits them. Off by
-        default. Re-read where a guest session is minted and at the auth door on
-        every guest request, so turning it off takes effect immediately, for
-        sessions already issued and for apps whose policy already says `guest`.
-        Turning it *on* is refused with a 400 where guests are unavailable (the
-        shared cloud); turning it off always works.
-      operationId: editGuestAccess
-      tags:
-        - workspace
-      parameters:
-        - name: workspace
-          in: path
-          required: true
-          schema: *ref_4
-      requestBody:
-        description: Whether guest sessions are admitted
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                guest_access_enabled:
-                  type: boolean
-              required:
-                - guest_access_enabled
-      responses:
-        '200':
-          description: status
-          content:
-            text/plain:
-              schema:
-                type: string
   /w/{workspace}/workspaces/edit_add_admins_and_developers_to_forks:
     post:
       summary: >-
@@ -10809,11 +10755,10 @@ paths:
         backend and verified against this key: a PEM public key (RS/ES family,
         HS* refused) or a JWKS URL, at most one. Both empty clears the workspace
         key; off cloud, verification then falls back to the instance issuer
-        (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted
-        (`guest_access_enabled` is the on/off switch). Workspace-admin gated.
-        The key is validated before it is stored. Setting a key is refused with
-        a 400 where guests are unavailable (the shared cloud); clearing one
-        always works.
+        (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted.
+        Workspace-admin gated. The key is validated before it is stored. Setting
+        a key is refused with a 400 where guests are unavailable (the shared
+        cloud); clearing one always works.
       operationId: editGuestJwtKey
       tags:
         - workspace
@@ -10871,13 +10816,10 @@ paths:
                   the trailing `window_days`. Past that an Enterprise plan
                   meters them (`metered`, four guests to one seat:
                   `billable_guests`, `guest_seats`); every other plan and build
-                  admits no new email until the count drops. `instance_enabled`
-                  is the superadmin switch (`guest_access_disabled` global
-                  setting) every workspace switch sits under. `available` is
+                  admits no new email until the count drops. `available` is
                   whether this deployment can have guests at all: false on the
                   shared cloud, where guest access requires a self-hosted or
-                  dedicated deployment, and every other field and switch is then
-                  moot.
+                  dedicated deployment, and every other field is then moot.
                 properties: *ref_90
                 required: *ref_91
   /w/{workspace}/workspaces/default_scripts:
@@ -17719,11 +17661,9 @@ paths:
       summary: whether the app behind a custom path admits guests
       description: >-
         The custom-path counterpart of `getGuestEntry`. Unauthenticated; 404
-        unless the app's execution mode is `guest` AND its workspace has
-        `guest_access_enabled` AND the instance has not set
-        `guest_access_disabled`, and never on a deployment where guests are
-        unavailable (the shared cloud). Returns the workspace too, since a
-        custom URL may not carry it.
+        unless the app's execution mode is `guest`, and never on a deployment
+        where guests are unavailable (the shared cloud). Returns the workspace
+        too, since a custom URL may not carry it.
       operationId: getGuestEntryByCustomPath
       tags:
         - app
@@ -17828,10 +17768,9 @@ paths:
                               already deployed under. Neither `anonymous`, which
                               makes the app publicly executable, nor `guest`,
                               which opens it to anyone the identity provider
-                              authenticates, is ever assumed. A guest is only
-                              admitted where the workspace also has
-                              `guest_access_enabled`, which is checked when the
-                              session is minted and again on every guest request
+                              authenticates, is ever assumed. Widening an app to
+                              `guest` is gated by the
+                              `RestrictGuestAppDeployment` protection rule
                           on_behalf_of:
                             type: string
                             description: >-
@@ -26617,12 +26556,11 @@ paths:
       summary: whether the app behind a share secret admits guests
       description: >-
         Unauthenticated: what a signed-out visitor reads to learn that signing
-        in would let them in. 404 unless the app's execution mode is `guest` AND
-        the workspace has `guest_access_enabled` AND the instance has not set
-        the `guest_access_disabled` global setting, and never on a deployment
-        where guests are unavailable (the shared cloud), so it says nothing
-        about apps that are not open to guests. Discloses only the app path, to
-        a caller already holding the share secret.
+        in would let them in. 404 unless the app's execution mode is `guest`,
+        and never on a deployment where guests are unavailable (the shared
+        cloud), so it says nothing about apps that are not open to guests.
+        Discloses only the app path, to a caller already holding the share
+        secret.
       operationId: getGuestEntry
       tags:
         - app
@@ -52724,12 +52662,10 @@ components:
         Guests are free up to `free_allowance` distinct emails over the trailing
         `window_days`. Past that an Enterprise plan meters them (`metered`, four
         guests to one seat: `billable_guests`, `guest_seats`); every other plan
-        and build admits no new email until the count drops. `instance_enabled`
-        is the superadmin switch (`guest_access_disabled` global setting) every
-        workspace switch sits under. `available` is whether this deployment can
-        have guests at all: false on the shared cloud, where guest access
-        requires a self-hosted or dedicated deployment, and every other field
-        and switch is then moot.
+        and build admits no new email until the count drops. `available` is
+        whether this deployment can have guests at all: false on the shared
+        cloud, where guest access requires a self-hosted or dedicated
+        deployment, and every other field is then moot.
       properties: *ref_90
       required: *ref_91
     GuestActivity:

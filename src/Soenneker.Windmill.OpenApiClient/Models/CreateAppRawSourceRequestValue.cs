@@ -12,32 +12,48 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateAppRawSourceRequestValue : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("files") is { } nullNodeFiles && nullNodeFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Files = null;
+            if (parseNode.GetChildNode("runnables") is { } nullNodeRunnables && nullNodeRunnables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runnables = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueData? Data { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueData? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueData? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueData Data { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueData Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueData _explicitNullValueData = default!;
 #endif
         /// <summary>The files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueFiles? Files { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueFiles? Files { get => _explicitNullValueFiles; set { _explicitNullValueFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("files"); else _explicitNullProperties?.Remove("files"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueFiles? _explicitNullValueFiles = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueFiles Files { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueFiles Files { get => _explicitNullValueFiles; set { _explicitNullValueFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("files"); else _explicitNullProperties?.Remove("files"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueFiles _explicitNullValueFiles = default!;
 #endif
         /// <summary>The runnables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueRunnables? Runnables { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueRunnables? Runnables { get => _explicitNullValueRunnables; set { _explicitNullValueRunnables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnables"); else _explicitNullProperties?.Remove("runnables"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueRunnables? _explicitNullValueRunnables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueRunnables Runnables { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueRunnables Runnables { get => _explicitNullValueRunnables; set { _explicitNullValueRunnables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnables"); else _explicitNullProperties?.Remove("runnables"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueRunnables _explicitNullValueRunnables = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValue"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValue();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValue(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueData>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueFiles>("files", Files);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAppRawSourceRequestValueRunnables>("runnables", Runnables);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

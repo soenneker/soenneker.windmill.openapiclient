@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Assets.Partitions_in_range
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// List expected partitions of a ducklake asset in a date range with their materialization status (enterprise)

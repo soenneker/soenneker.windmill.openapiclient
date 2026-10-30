@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Path_autocomplete.List_paths
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListPathAutocompletePaths200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListPathAutocompletePaths200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListPathAutocompletePaths200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListPathAutocompletePaths200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the flat list of all item paths visible to the caller acrossscripts, flows, apps, raw apps, variables, and resources. Intended tofeed an entirely client-side path autocomplete UI: the frontend fetchesonce (server caches per caller for 60s) and performs all prefix/segmentcomputation locally. Capped at 20,000 paths (5,000 per table).

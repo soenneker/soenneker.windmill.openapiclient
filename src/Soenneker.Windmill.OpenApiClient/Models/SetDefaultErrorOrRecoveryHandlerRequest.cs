@@ -11,35 +11,58 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SetDefaultErrorOrRecoveryHandlerRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("extra_args") is { } nullNodeExtraArgs && nullNodeExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraArgs = null;
+            if (parseNode.GetChildNode("handler_type") is { } nullNodeHandlerType && nullNodeHandlerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HandlerType = null;
+            if (parseNode.GetChildNode("number_of_occurence") is { } nullNodeNumberOfOccurence && nullNodeNumberOfOccurence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfOccurence = null;
+            if (parseNode.GetChildNode("number_of_occurence_exact") is { } nullNodeNumberOfOccurenceExact && nullNodeNumberOfOccurenceExact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfOccurenceExact = null;
+            if (parseNode.GetChildNode("override_existing") is { } nullNodeOverrideExisting && nullNodeOverrideExisting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverrideExisting = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("workspace_handler_muted") is { } nullNodeWorkspaceHandlerMuted && nullNodeWorkspaceHandlerMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceHandlerMuted = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The extra_args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs? ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs? ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs? _explicitNullValueExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs _explicitNullValueExtraArgs = default!;
 #endif
         /// <summary>The handler_type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType? HandlerType { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType? HandlerType { get => _explicitNullValueHandlerType; set { _explicitNullValueHandlerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handler_type"); else _explicitNullProperties?.Remove("handler_type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType? _explicitNullValueHandlerType = default!;
         /// <summary>The number_of_occurence property</summary>
-        public int? NumberOfOccurence { get; set; }
+        public int? NumberOfOccurence { get => _explicitNullValueNumberOfOccurence; set { _explicitNullValueNumberOfOccurence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_occurence"); else _explicitNullProperties?.Remove("number_of_occurence"); } }
+        private int? _explicitNullValueNumberOfOccurence = default!;
         /// <summary>The number_of_occurence_exact property</summary>
-        public bool? NumberOfOccurenceExact { get; set; }
+        public bool? NumberOfOccurenceExact { get => _explicitNullValueNumberOfOccurenceExact; set { _explicitNullValueNumberOfOccurenceExact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_occurence_exact"); else _explicitNullProperties?.Remove("number_of_occurence_exact"); } }
+        private bool? _explicitNullValueNumberOfOccurenceExact = default!;
         /// <summary>The override_existing property</summary>
-        public bool? OverrideExisting { get; set; }
+        public bool? OverrideExisting { get => _explicitNullValueOverrideExisting; set { _explicitNullValueOverrideExisting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("override_existing"); else _explicitNullProperties?.Remove("override_existing"); } }
+        private bool? _explicitNullValueOverrideExisting = default!;
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The workspace_handler_muted property</summary>
-        public bool? WorkspaceHandlerMuted { get; set; }
+        public bool? WorkspaceHandlerMuted { get => _explicitNullValueWorkspaceHandlerMuted; set { _explicitNullValueWorkspaceHandlerMuted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_handler_muted"); else _explicitNullProperties?.Remove("workspace_handler_muted"); } }
+        private bool? _explicitNullValueWorkspaceHandlerMuted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequest"/> and sets the default values.
         /// </summary>
@@ -55,7 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +111,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("override_existing", OverrideExisting);
             writer.WriteStringValue("path", Path);
             writer.WriteBoolValue("workspace_handler_muted", WorkspaceHandlerMuted);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

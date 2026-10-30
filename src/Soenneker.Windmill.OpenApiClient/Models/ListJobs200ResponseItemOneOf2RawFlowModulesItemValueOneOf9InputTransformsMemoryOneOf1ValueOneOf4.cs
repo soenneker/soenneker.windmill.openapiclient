@@ -13,20 +13,34 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListJobs200ResponseItemOneOf2RawFlowModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("context_length") is { } nullNodeContextLength && nullNodeContextLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContextLength = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("memory_id") is { } nullNodeMemoryId && nullNodeMemoryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemoryId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Maximum number of messages to retain in context</summary>
-        public int? ContextLength { get; set; }
+        public int? ContextLength { get => _explicitNullValueContextLength; set { _explicitNullValueContextLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context_length"); else _explicitNullProperties?.Remove("context_length"); } }
+        private int? _explicitNullValueContextLength = default!;
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.AutoKind? Kind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.AutoKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AutoKind? _explicitNullValueKind = default!;
         /// <summary>Identifier for persistent memory across agent invocations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MemoryId { get; set; }
+        public string? MemoryId { get => _explicitNullValueMemoryId; set { _explicitNullValueMemoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_id"); else _explicitNullProperties?.Remove("memory_id"); } }
+        private string? _explicitNullValueMemoryId = default!;
 #nullable restore
 #else
-        public string MemoryId { get; set; }
+        public string MemoryId { get => _explicitNullValueMemoryId; set { _explicitNullValueMemoryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_id"); else _explicitNullProperties?.Remove("memory_id"); } }
+        private string _explicitNullValueMemoryId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4"/> and sets the default values.
@@ -43,7 +57,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseItemOneOf2RawFlowModulesItemValueOneOf9InputTransformsMemoryOneOf1ValueOneOf4(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("context_length", ContextLength);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AutoKind>("kind", Kind);
             writer.WriteStringValue("memory_id", MemoryId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,38 +12,65 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetCompletedJob200ResponseRawFlowFailureModuleSuspend : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("continue_on_disapprove_timeout") is { } nullNodeContinueOnDisapproveTimeout && nullNodeContinueOnDisapproveTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContinueOnDisapproveTimeout = null;
+            if (parseNode.GetChildNode("hide_cancel") is { } nullNodeHideCancel && nullNodeHideCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HideCancel = null;
+            if (parseNode.GetChildNode("required_events") is { } nullNodeRequiredEvents && nullNodeRequiredEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredEvents = null;
+            if (parseNode.GetChildNode("resume_form") is { } nullNodeResumeForm && nullNodeResumeForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeForm = null;
+            if (parseNode.GetChildNode("self_approval_disabled") is { } nullNodeSelfApprovalDisabled && nullNodeSelfApprovalDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfApprovalDisabled = null;
+            if (parseNode.GetChildNode("skin") is { } nullNodeSkin && nullNodeSkin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skin = null;
+            if (parseNode.GetChildNode("timeout") is { } nullNodeTimeout && nullNodeTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout = null;
+            if (parseNode.GetChildNode("user_auth_required") is { } nullNodeUserAuthRequired && nullNodeUserAuthRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAuthRequired = null;
+            if (parseNode.GetChildNode("user_groups_required") is { } nullNodeUserGroupsRequired && nullNodeUserGroupsRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserGroupsRequired = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, continue flow on timeout instead of canceling</summary>
-        public bool? ContinueOnDisapproveTimeout { get; set; }
+        public bool? ContinueOnDisapproveTimeout { get => _explicitNullValueContinueOnDisapproveTimeout; set { _explicitNullValueContinueOnDisapproveTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("continue_on_disapprove_timeout"); else _explicitNullProperties?.Remove("continue_on_disapprove_timeout"); } }
+        private bool? _explicitNullValueContinueOnDisapproveTimeout = default!;
         /// <summary>If true, hide the cancel button on the approval form</summary>
-        public bool? HideCancel { get; set; }
+        public bool? HideCancel { get => _explicitNullValueHideCancel; set { _explicitNullValueHideCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hide_cancel"); else _explicitNullProperties?.Remove("hide_cancel"); } }
+        private bool? _explicitNullValueHideCancel = default!;
         /// <summary>Number of approvals required before continuing</summary>
-        public int? RequiredEvents { get; set; }
+        public int? RequiredEvents { get => _explicitNullValueRequiredEvents; set { _explicitNullValueRequiredEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_events"); else _explicitNullProperties?.Remove("required_events"); } }
+        private int? _explicitNullValueRequiredEvents = default!;
         /// <summary>Form schema for collecting input when resuming</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendResumeForm? ResumeForm { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendResumeForm? ResumeForm { get => _explicitNullValueResumeForm; set { _explicitNullValueResumeForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume_form"); else _explicitNullProperties?.Remove("resume_form"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendResumeForm? _explicitNullValueResumeForm = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendResumeForm ResumeForm { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendResumeForm ResumeForm { get => _explicitNullValueResumeForm; set { _explicitNullValueResumeForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume_form"); else _explicitNullProperties?.Remove("resume_form"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendResumeForm _explicitNullValueResumeForm = default!;
 #endif
         /// <summary>If true, the user who started the flow cannot approve</summary>
-        public bool? SelfApprovalDisabled { get; set; }
+        public bool? SelfApprovalDisabled { get => _explicitNullValueSelfApprovalDisabled; set { _explicitNullValueSelfApprovalDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self_approval_disabled"); else _explicitNullProperties?.Remove("self_approval_disabled"); } }
+        private bool? _explicitNullValueSelfApprovalDisabled = default!;
         /// <summary>How the approval request is presented, on the approval page and in Slack/Teams approval messages. &apos;detailed&apos; (used when unset) shows the flow details (arguments, graph, approvers); &apos;minimal&apos; shows only the request: the step description, form and approve/reject actions</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendSkin? Skin { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendSkin? Skin { get => _explicitNullValueSkin; set { _explicitNullValueSkin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skin"); else _explicitNullProperties?.Remove("skin"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendSkin? _explicitNullValueSkin = default!;
         /// <summary>Timeout in seconds before auto-continuing or canceling</summary>
-        public int? Timeout { get; set; }
+        public int? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
+        private int? _explicitNullValueTimeout = default!;
         /// <summary>If true, only authenticated users can approve</summary>
-        public bool? UserAuthRequired { get; set; }
+        public bool? UserAuthRequired { get => _explicitNullValueUserAuthRequired; set { _explicitNullValueUserAuthRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_auth_required"); else _explicitNullProperties?.Remove("user_auth_required"); } }
+        private bool? _explicitNullValueUserAuthRequired = default!;
         /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendUserGroupsRequired? UserGroupsRequired { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendUserGroupsRequired? UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendUserGroupsRequired? _explicitNullValueUserGroupsRequired = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendUserGroupsRequired UserGroupsRequired { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendUserGroupsRequired UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendUserGroupsRequired _explicitNullValueUserGroupsRequired = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspend"/> and sets the default values.
@@ -60,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspend CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspend();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspend(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,6 +124,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("timeout", Timeout);
             writer.WriteBoolValue("user_auth_required", UserAuthRequired);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseRawFlowFailureModuleSuspendUserGroupsRequired>("user_groups_required", UserGroupsRequired);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

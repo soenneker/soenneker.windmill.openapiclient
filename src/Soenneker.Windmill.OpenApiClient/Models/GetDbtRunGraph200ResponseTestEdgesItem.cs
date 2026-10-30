@@ -11,38 +11,60 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDbtRunGraph200ResponseTestEdgesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("asset_kind") is { } nullNodeAssetKind && nullNodeAssetKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetKind = null;
+            if (parseNode.GetChildNode("asset_path") is { } nullNodeAssetPath && nullNodeAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetPath = null;
+            if (parseNode.GetChildNode("producer_kind") is { } nullNodeProducerKind && nullNodeProducerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProducerKind = null;
+            if (parseNode.GetChildNode("producer_path") is { } nullNodeProducerPath && nullNodeProducerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProducerPath = null;
+            if (parseNode.GetChildNode("runnable_kind") is { } nullNodeRunnableKind && nullNodeRunnableKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnableKind = null;
+            if (parseNode.GetChildNode("runnable_path") is { } nullNodeRunnablePath && nullNodeRunnablePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnablePath = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The asset_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemAssetKind? AssetKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemAssetKind? AssetKind { get => _explicitNullValueAssetKind; set { _explicitNullValueAssetKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_kind"); else _explicitNullProperties?.Remove("asset_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemAssetKind? _explicitNullValueAssetKind = default!;
         /// <summary>The asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssetPath { get; set; }
+        public string? AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        private string? _explicitNullValueAssetPath = default!;
 #nullable restore
 #else
-        public string AssetPath { get; set; }
+        public string AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        private string _explicitNullValueAssetPath = default!;
 #endif
         /// <summary>The producer_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemProducerKind? ProducerKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemProducerKind? ProducerKind { get => _explicitNullValueProducerKind; set { _explicitNullValueProducerKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_kind"); else _explicitNullProperties?.Remove("producer_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemProducerKind? _explicitNullValueProducerKind = default!;
         /// <summary>The producer_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProducerPath { get; set; }
+        public string? ProducerPath { get => _explicitNullValueProducerPath; set { _explicitNullValueProducerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_path"); else _explicitNullProperties?.Remove("producer_path"); } }
+        private string? _explicitNullValueProducerPath = default!;
 #nullable restore
 #else
-        public string ProducerPath { get; set; }
+        public string ProducerPath { get => _explicitNullValueProducerPath; set { _explicitNullValueProducerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_path"); else _explicitNullProperties?.Remove("producer_path"); } }
+        private string _explicitNullValueProducerPath = default!;
 #endif
         /// <summary>The runnable_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemRunnableKind? RunnableKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemRunnableKind? RunnableKind { get => _explicitNullValueRunnableKind; set { _explicitNullValueRunnableKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_kind"); else _explicitNullProperties?.Remove("runnable_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemRunnableKind? _explicitNullValueRunnableKind = default!;
         /// <summary>The runnable_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnablePath { get; set; }
+        public string? RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        private string? _explicitNullValueRunnablePath = default!;
 #nullable restore
 #else
-        public string RunnablePath { get; set; }
+        public string RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        private string _explicitNullValueRunnablePath = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItem"/> and sets the default values.
@@ -59,7 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("producer_path", ProducerPath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseTestEdgesItemRunnableKind>("runnable_kind", RunnableKind);
             writer.WriteStringValue("runnable_path", RunnablePath);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

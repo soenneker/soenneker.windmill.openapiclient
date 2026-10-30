@@ -11,48 +11,70 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConnectClientCredentialsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cc_client_id") is { } nullNodeCcClientId && nullNodeCcClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcClientId = null;
+            if (parseNode.GetChildNode("cc_client_secret") is { } nullNodeCcClientSecret && nullNodeCcClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcClientSecret = null;
+            if (parseNode.GetChildNode("cc_instance") is { } nullNodeCcInstance && nullNodeCcInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcInstance = null;
+            if (parseNode.GetChildNode("cc_token_url") is { } nullNodeCcTokenUrl && nullNodeCcTokenUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcTokenUrl = null;
+            if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>OAuth client ID. Omit to use the credentials configured on the provider&apos;s instance OAuth entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcClientId { get; set; }
+        public string? CcClientId { get => _explicitNullValueCcClientId; set { _explicitNullValueCcClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_id"); else _explicitNullProperties?.Remove("cc_client_id"); } }
+        private string? _explicitNullValueCcClientId = default!;
 #nullable restore
 #else
-        public string CcClientId { get; set; }
+        public string CcClientId { get => _explicitNullValueCcClientId; set { _explicitNullValueCcClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_id"); else _explicitNullProperties?.Remove("cc_client_id"); } }
+        private string _explicitNullValueCcClientId = default!;
 #endif
         /// <summary>OAuth client secret. Omit to use the credentials configured on the provider&apos;s instance OAuth entry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcClientSecret { get; set; }
+        public string? CcClientSecret { get => _explicitNullValueCcClientSecret; set { _explicitNullValueCcClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_secret"); else _explicitNullProperties?.Remove("cc_client_secret"); } }
+        private string? _explicitNullValueCcClientSecret = default!;
 #nullable restore
 #else
-        public string CcClientSecret { get; set; }
+        public string CcClientSecret { get => _explicitNullValueCcClientSecret; set { _explicitNullValueCcClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_secret"); else _explicitNullProperties?.Remove("cc_client_secret"); } }
+        private string _explicitNullValueCcClientSecret = default!;
 #endif
         /// <summary>Instance name for built-in providers whose client-credentials token URL is instance-templated; substituted into the fixed-host registry template server-side. The token URL is never caller-supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcInstance { get; set; }
+        public string? CcInstance { get => _explicitNullValueCcInstance; set { _explicitNullValueCcInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_instance"); else _explicitNullProperties?.Remove("cc_instance"); } }
+        private string? _explicitNullValueCcInstance = default!;
 #nullable restore
 #else
-        public string CcInstance { get; set; }
+        public string CcInstance { get => _explicitNullValueCcInstance; set { _explicitNullValueCcInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_instance"); else _explicitNullProperties?.Remove("cc_instance"); } }
+        private string _explicitNullValueCcInstance = default!;
 #endif
         /// <summary>Bring-your-own token endpoint override. Only honored together with cc_client_id/cc_client_secret and mutually exclusive with cc_instance; rejected on the shared-instance path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcTokenUrl { get; set; }
+        public string? CcTokenUrl { get => _explicitNullValueCcTokenUrl; set { _explicitNullValueCcTokenUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_token_url"); else _explicitNullProperties?.Remove("cc_token_url"); } }
+        private string? _explicitNullValueCcTokenUrl = default!;
 #nullable restore
 #else
-        public string CcTokenUrl { get; set; }
+        public string CcTokenUrl { get => _explicitNullValueCcTokenUrl; set { _explicitNullValueCcTokenUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_token_url"); else _explicitNullProperties?.Remove("cc_token_url"); } }
+        private string _explicitNullValueCcTokenUrl = default!;
 #endif
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Scopes { get; set; }
+        public List<string>? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private List<string>? _explicitNullValueScopes = default!;
 #nullable restore
 #else
-        public List<string> Scopes { get; set; }
+        public List<string> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        private List<string> _explicitNullValueScopes = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ConnectClientCredentialsRequest"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ConnectClientCredentialsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ConnectClientCredentialsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ConnectClientCredentialsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("cc_instance", CcInstance);
             writer.WriteStringValue("cc_token_url", CcTokenUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

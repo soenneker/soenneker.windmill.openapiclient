@@ -12,27 +12,42 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CompareWorkspaces200ResponseHiddenAhead : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("by_kind") is { } nullNodeByKind && nullNodeByKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ByKind = null;
+            if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
+            if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Count of hidden items keyed by item kind (always populated)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadByKind? ByKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadByKind? ByKind { get => _explicitNullValueByKind; set { _explicitNullValueByKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by_kind"); else _explicitNullProperties?.Remove("by_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadByKind? _explicitNullValueByKind = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadByKind ByKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadByKind ByKind { get => _explicitNullValueByKind; set { _explicitNullValueByKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("by_kind"); else _explicitNullProperties?.Remove("by_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadByKind _explicitNullValueByKind = default!;
 #endif
         /// <summary>Kind and path of each hidden item; only populated when the caller is an admin of the relevant side (empty otherwise)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadItemsItem>? Items { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadItemsItem>? Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadItemsItem>? _explicitNullValueItems = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadItemsItem> Items { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadItemsItem> Items { get => _explicitNullValueItems; set { _explicitNullValueItems = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("items"); else _explicitNullProperties?.Remove("items"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadItemsItem> _explicitNullValueItems = default!;
 #endif
         /// <summary>Total number of hidden items on this side</summary>
-        public int? Total { get; set; }
+        public int? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        private int? _explicitNullValueTotal = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadByKind>("by_kind", ByKind);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAheadItemsItem>("items", Items);
             writer.WriteIntValue("total", Total);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

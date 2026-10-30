@@ -11,40 +11,59 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("exclude_path") is { } nullNodeExcludePath && nullNodeExcludePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludePath = null;
+            if (parseNode.GetChildNode("extra_include_path") is { } nullNodeExtraIncludePath && nullNodeExtraIncludePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraIncludePath = null;
+            if (parseNode.GetChildNode("include_path") is { } nullNodeIncludePath && nullNodeIncludePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludePath = null;
+            if (parseNode.GetChildNode("include_type") is { } nullNodeIncludeType && nullNodeIncludeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The exclude_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludePath { get; set; }
+        public List<string>? ExcludePath { get => _explicitNullValueExcludePath; set { _explicitNullValueExcludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_path"); else _explicitNullProperties?.Remove("exclude_path"); } }
+        private List<string>? _explicitNullValueExcludePath = default!;
 #nullable restore
 #else
-        public List<string> ExcludePath { get; set; }
+        public List<string> ExcludePath { get => _explicitNullValueExcludePath; set { _explicitNullValueExcludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_path"); else _explicitNullProperties?.Remove("exclude_path"); } }
+        private List<string> _explicitNullValueExcludePath = default!;
 #endif
         /// <summary>The extra_include_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExtraIncludePath { get; set; }
+        public List<string>? ExtraIncludePath { get => _explicitNullValueExtraIncludePath; set { _explicitNullValueExtraIncludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_include_path"); else _explicitNullProperties?.Remove("extra_include_path"); } }
+        private List<string>? _explicitNullValueExtraIncludePath = default!;
 #nullable restore
 #else
-        public List<string> ExtraIncludePath { get; set; }
+        public List<string> ExtraIncludePath { get => _explicitNullValueExtraIncludePath; set { _explicitNullValueExtraIncludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_include_path"); else _explicitNullProperties?.Remove("extra_include_path"); } }
+        private List<string> _explicitNullValueExtraIncludePath = default!;
 #endif
         /// <summary>The include_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IncludePath { get; set; }
+        public List<string>? IncludePath { get => _explicitNullValueIncludePath; set { _explicitNullValueIncludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_path"); else _explicitNullProperties?.Remove("include_path"); } }
+        private List<string>? _explicitNullValueIncludePath = default!;
 #nullable restore
 #else
-        public List<string> IncludePath { get; set; }
+        public List<string> IncludePath { get => _explicitNullValueIncludePath; set { _explicitNullValueIncludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_path"); else _explicitNullProperties?.Remove("include_path"); } }
+        private List<string> _explicitNullValueIncludePath = default!;
 #endif
         /// <summary>The include_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettingsIncludeTypeItem?>? IncludeType { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettingsIncludeTypeItem?>? IncludeType { get => _explicitNullValueIncludeType; set { _explicitNullValueIncludeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_type"); else _explicitNullProperties?.Remove("include_type"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettingsIncludeTypeItem?>? _explicitNullValueIncludeType = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettingsIncludeTypeItem?> IncludeType { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettingsIncludeTypeItem?> IncludeType { get => _explicitNullValueIncludeType; set { _explicitNullValueIncludeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_type"); else _explicitNullProperties?.Remove("include_type"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettingsIncludeTypeItem?> _explicitNullValueIncludeType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettings"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("extra_include_path", ExtraIncludePath);
             writer.WriteCollectionOfPrimitiveValues<string>("include_path", IncludePath);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItemSettingsIncludeTypeItem>("include_type", IncludeType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Check_schema_contracts
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.CheckSchemaContracts200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CheckSchemaContracts200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.CheckSchemaContracts200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CheckSchemaContracts200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Save-time schema-contract check for data pipelines: validates the givenscript content&apos;s asset references (body column reads, `// column` lineage,`// data_test relationships`) against the latest captured producer schemasand returns warnings. Warnings never block a save/deploy; an asset whoseproducer declares `on_schema_change=ignore` is suppressed to a singleinformational entry.

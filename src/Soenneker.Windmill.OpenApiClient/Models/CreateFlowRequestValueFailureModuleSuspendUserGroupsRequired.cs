@@ -12,7 +12,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFlowRequestValueFailureModuleSuspendUserGroupsRequired : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,9 +50,30 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequired CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequired();
-            return result;
+            if("CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("static".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("expr") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("javascript".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("ai".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1(), parseNode);
+            if (result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2(), parseNode);
+            if (result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3(), parseNode);
+            if (result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 == null && result.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,17 +101,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 == null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 == null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 != null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 == null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 == null) { if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1); return; }
+            if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 != null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 == null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 == null) { if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2); return; }
+            if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 != null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 == null && CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 == null) { if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 != null)
             {
+                if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1>(null, CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf1);
             }
             else if(CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 != null)
             {
+                if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2>(null, CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf2);
             }
             else if(CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 != null)
             {
+                if (CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3>(null, CreateFlowRequestValueFailureModuleSuspendUserGroupsRequiredOneOf3);
             }
         }

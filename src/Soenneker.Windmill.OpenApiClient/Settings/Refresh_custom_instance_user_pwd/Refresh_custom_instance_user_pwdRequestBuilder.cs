@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Refresh_custom_instance_user
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.RefreshCustomInstanceUserPwd200ResponseSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Refreshes the passwords for the custom_instance_user and the custom_instance_replication_user (used by postgres triggers)

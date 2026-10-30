@@ -11,28 +11,50 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListWorkspaceRoles200ResponseMyCapabilities : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("apps") is { } nullNodeApps && nullNodeApps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Apps = null;
+            if (parseNode.GetChildNode("code") is { } nullNodeCode && nullNodeCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Code = null;
+            if (parseNode.GetChildNode("flows") is { } nullNodeFlows && nullNodeFlows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Flows = null;
+            if (parseNode.GetChildNode("fork") is { } nullNodeFork && nullNodeFork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fork = null;
+            if (parseNode.GetChildNode("manage_schedules") is { } nullNodeManageSchedules && nullNodeManageSchedules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManageSchedules = null;
+            if (parseNode.GetChildNode("manage_triggers") is { } nullNodeManageTriggers && nullNodeManageTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManageTriggers = null;
+            if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>How much of a kind of runnable a role may author. `compose` assembles already-deployed runnables with no code of one&apos;s own.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesApps? Apps { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesApps? Apps { get => _explicitNullValueApps; set { _explicitNullValueApps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps"); else _explicitNullProperties?.Remove("apps"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesApps? _explicitNullValueApps = default!;
         /// <summary>Author scripts and run code of one&apos;s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by `full` flows or apps.</summary>
-        public bool? Code { get; set; }
+        public bool? Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
+        private bool? _explicitNullValueCode = default!;
         /// <summary>How much of a kind of runnable a role may author. `compose` assembles already-deployed runnables with no code of one&apos;s own.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesFlows? Flows { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesFlows? Flows { get => _explicitNullValueFlows; set { _explicitNullValueFlows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flows"); else _explicitNullProperties?.Remove("flows"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesFlows? _explicitNullValueFlows = default!;
         /// <summary>Fork the workspace.</summary>
-        public bool? Fork { get; set; }
+        public bool? Fork { get => _explicitNullValueFork; set { _explicitNullValueFork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork"); else _explicitNullProperties?.Remove("fork"); } }
+        private bool? _explicitNullValueFork = default!;
         /// <summary>The manage_schedules property</summary>
-        public bool? ManageSchedules { get; set; }
+        public bool? ManageSchedules { get => _explicitNullValueManageSchedules; set { _explicitNullValueManageSchedules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manage_schedules"); else _explicitNullProperties?.Remove("manage_schedules"); } }
+        private bool? _explicitNullValueManageSchedules = default!;
         /// <summary>The manage_triggers property</summary>
-        public bool? ManageTriggers { get; set; }
+        public bool? ManageTriggers { get => _explicitNullValueManageTriggers; set { _explicitNullValueManageTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manage_triggers"); else _explicitNullProperties?.Remove("manage_triggers"); } }
+        private bool? _explicitNullValueManageTriggers = default!;
         /// <summary>Pages a role sees. Not enforced.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesVisibility? Visibility { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesVisibility? Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesVisibility? _explicitNullValueVisibility = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesVisibility Visibility { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesVisibility Visibility { get => _explicitNullValueVisibility; set { _explicitNullValueVisibility = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visibility"); else _explicitNullProperties?.Remove("visibility"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesVisibility _explicitNullValueVisibility = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities"/> and sets the default values.
@@ -49,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +104,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("manage_schedules", ManageSchedules);
             writer.WriteBoolValue("manage_triggers", ManageTriggers);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilitiesVisibility>("visibility", Visibility);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

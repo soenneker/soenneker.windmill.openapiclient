@@ -12,27 +12,42 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetFlowByPath200ResponseValueFailureModuleValueOneOf10 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("input_transforms") is { } nullNodeInputTransforms && nullNodeInputTransforms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTransforms = null;
+            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Input parameters for the decision mapped to their values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10InputTransforms? InputTransforms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10InputTransforms? InputTransforms { get => _explicitNullValueInputTransforms; set { _explicitNullValueInputTransforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_transforms"); else _explicitNullProperties?.Remove("input_transforms"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10InputTransforms? _explicitNullValueInputTransforms = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10InputTransforms InputTransforms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10InputTransforms InputTransforms { get => _explicitNullValueInputTransforms; set { _explicitNullValueInputTransforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_transforms"); else _explicitNullProperties?.Remove("input_transforms"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10InputTransforms _explicitNullValueInputTransforms = default!;
 #endif
         /// <summary>Worker group tag for execution routing. If not set, the step runs on the flow&apos;s tag (default `flow`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tag { get; set; }
+        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string? _explicitNullValueTag = default!;
 #nullable restore
 #else
-        public string Tag { get; set; }
+        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string _explicitNullValueTag = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.AidecisionType? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.AidecisionType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AidecisionType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowByPath200ResponseValueFailureModuleValueOneOf10InputTransforms>("input_transforms", InputTransforms);
             writer.WriteStringValue("tag", Tag);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AidecisionType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

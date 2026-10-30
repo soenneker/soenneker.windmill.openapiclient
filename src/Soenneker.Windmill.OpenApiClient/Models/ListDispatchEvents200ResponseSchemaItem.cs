@@ -11,54 +11,87 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListDispatchEvents200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("asset_kind") is { } nullNodeAssetKind && nullNodeAssetKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetKind = null;
+            if (parseNode.GetChildNode("asset_path") is { } nullNodeAssetPath && nullNodeAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetPath = null;
+            if (parseNode.GetChildNode("child_job_id") is { } nullNodeChildJobId && nullNodeChildJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildJobId = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("debounce_s") is { } nullNodeDebounceS && nullNodeDebounceS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DebounceS = null;
+            if (parseNode.GetChildNode("outcome") is { } nullNodeOutcome && nullNodeOutcome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outcome = null;
+            if (parseNode.GetChildNode("partition") is { } nullNodePartition && nullNodePartition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Partition = null;
+            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("received_inputs") is { } nullNodeReceivedInputs && nullNodeReceivedInputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceivedInputs = null;
+            if (parseNode.GetChildNode("required_inputs") is { } nullNodeRequiredInputs && nullNodeRequiredInputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredInputs = null;
+            if (parseNode.GetChildNode("subscriber_path") is { } nullNodeSubscriberPath && nullNodeSubscriberPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriberPath = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The asset_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseItemAssetKind? AssetKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseItemAssetKind? AssetKind { get => _explicitNullValueAssetKind; set { _explicitNullValueAssetKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_kind"); else _explicitNullProperties?.Remove("asset_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseItemAssetKind? _explicitNullValueAssetKind = default!;
         /// <summary>The asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssetPath { get; set; }
+        public string? AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        private string? _explicitNullValueAssetPath = default!;
 #nullable restore
 #else
-        public string AssetPath { get; set; }
+        public string AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        private string _explicitNullValueAssetPath = default!;
 #endif
         /// <summary>The child_job_id property</summary>
-        public Guid? ChildJobId { get; set; }
+        public Guid? ChildJobId { get => _explicitNullValueChildJobId; set { _explicitNullValueChildJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_job_id"); else _explicitNullProperties?.Remove("child_job_id"); } }
+        private Guid? _explicitNullValueChildJobId = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The debounce_s property</summary>
-        public int? DebounceS { get; set; }
+        public int? DebounceS { get => _explicitNullValueDebounceS; set { _explicitNullValueDebounceS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_s"); else _explicitNullProperties?.Remove("debounce_s"); } }
+        private int? _explicitNullValueDebounceS = default!;
         /// <summary>The outcome property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseItemOutcome? Outcome { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseItemOutcome? Outcome { get => _explicitNullValueOutcome; set { _explicitNullValueOutcome = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcome"); else _explicitNullProperties?.Remove("outcome"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseItemOutcome? _explicitNullValueOutcome = default!;
         /// <summary>The partition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Partition { get; set; }
+        public string? Partition { get => _explicitNullValuePartition; set { _explicitNullValuePartition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition"); else _explicitNullProperties?.Remove("partition"); } }
+        private string? _explicitNullValuePartition = default!;
 #nullable restore
 #else
-        public string Partition { get; set; }
+        public string Partition { get => _explicitNullValuePartition; set { _explicitNullValuePartition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition"); else _explicitNullProperties?.Remove("partition"); } }
+        private string _explicitNullValuePartition = default!;
 #endif
         /// <summary>The reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Reason { get; set; }
+        public string? Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string? _explicitNullValueReason = default!;
 #nullable restore
 #else
-        public string Reason { get; set; }
+        public string Reason { get => _explicitNullValueReason; set { _explicitNullValueReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reason"); else _explicitNullProperties?.Remove("reason"); } }
+        private string _explicitNullValueReason = default!;
 #endif
         /// <summary>The received_inputs property</summary>
-        public int? ReceivedInputs { get; set; }
+        public int? ReceivedInputs { get => _explicitNullValueReceivedInputs; set { _explicitNullValueReceivedInputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("received_inputs"); else _explicitNullProperties?.Remove("received_inputs"); } }
+        private int? _explicitNullValueReceivedInputs = default!;
         /// <summary>The required_inputs property</summary>
-        public int? RequiredInputs { get; set; }
+        public int? RequiredInputs { get => _explicitNullValueRequiredInputs; set { _explicitNullValueRequiredInputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_inputs"); else _explicitNullProperties?.Remove("required_inputs"); } }
+        private int? _explicitNullValueRequiredInputs = default!;
         /// <summary>The subscriber_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriberPath { get; set; }
+        public string? SubscriberPath { get => _explicitNullValueSubscriberPath; set { _explicitNullValueSubscriberPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_path"); else _explicitNullProperties?.Remove("subscriber_path"); } }
+        private string? _explicitNullValueSubscriberPath = default!;
 #nullable restore
 #else
-        public string SubscriberPath { get; set; }
+        public string SubscriberPath { get => _explicitNullValueSubscriberPath; set { _explicitNullValueSubscriberPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_path"); else _explicitNullProperties?.Remove("subscriber_path"); } }
+        private string _explicitNullValueSubscriberPath = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseSchemaItem"/> and sets the default values.
@@ -75,7 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseSchemaItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListDispatchEvents200ResponseSchemaItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,6 +149,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("received_inputs", ReceivedInputs);
             writer.WriteIntValue("required_inputs", RequiredInputs);
             writer.WriteStringValue("subscriber_path", SubscriberPath);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

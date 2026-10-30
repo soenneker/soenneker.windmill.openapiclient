@@ -11,105 +11,153 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ExecuteComponentRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("args") is { } nullNodeArgs && nullNodeArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Args = null;
+            if (parseNode.GetChildNode("component") is { } nullNodeComponent && nullNodeComponent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Component = null;
+            if (parseNode.GetChildNode("force_viewer_allow_user_resources") is { } nullNodeForceViewerAllowUserResources && nullNodeForceViewerAllowUserResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceViewerAllowUserResources = null;
+            if (parseNode.GetChildNode("force_viewer_delete_after_secs") is { } nullNodeForceViewerDeleteAfterSecs && nullNodeForceViewerDeleteAfterSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceViewerDeleteAfterSecs = null;
+            if (parseNode.GetChildNode("force_viewer_one_of_fields") is { } nullNodeForceViewerOneOfFields && nullNodeForceViewerOneOfFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceViewerOneOfFields = null;
+            if (parseNode.GetChildNode("force_viewer_sensitive_inputs") is { } nullNodeForceViewerSensitiveInputs && nullNodeForceViewerSensitiveInputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceViewerSensitiveInputs = null;
+            if (parseNode.GetChildNode("force_viewer_static_fields") is { } nullNodeForceViewerStaticFields && nullNodeForceViewerStaticFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForceViewerStaticFields = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("on_behalf_of") is { } nullNodeOnBehalfOf && nullNodeOnBehalfOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBehalfOf = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("raw_code") is { } nullNodeRawCode && nullNodeRawCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RawCode = null;
+            if (parseNode.GetChildNode("run_query_params") is { } nullNodeRunQueryParams && nullNodeRunQueryParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunQueryParams = null;
+            if (parseNode.GetChildNode("temp_script_refs") is { } nullNodeTempScriptRefs && nullNodeTempScriptRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TempScriptRefs = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+            if (parseNode.GetChildNode("viewer_data_access") is { } nullNodeViewerDataAccess && nullNodeViewerDataAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewerDataAccess = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Args { get; set; }
+        public UntypedNode? Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        private UntypedNode? _explicitNullValueArgs = default!;
 #nullable restore
 #else
-        public UntypedNode Args { get; set; }
+        public UntypedNode Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        private UntypedNode _explicitNullValueArgs = default!;
 #endif
         /// <summary>The component property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Component { get; set; }
+        public string? Component { get => _explicitNullValueComponent; set { _explicitNullValueComponent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component"); else _explicitNullProperties?.Remove("component"); } }
+        private string? _explicitNullValueComponent = default!;
 #nullable restore
 #else
-        public string Component { get; set; }
+        public string Component { get => _explicitNullValueComponent; set { _explicitNullValueComponent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component"); else _explicitNullProperties?.Remove("component"); } }
+        private string _explicitNullValueComponent = default!;
 #endif
         /// <summary>The force_viewer_allow_user_resources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ForceViewerAllowUserResources { get; set; }
+        public List<string>? ForceViewerAllowUserResources { get => _explicitNullValueForceViewerAllowUserResources; set { _explicitNullValueForceViewerAllowUserResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_allow_user_resources"); else _explicitNullProperties?.Remove("force_viewer_allow_user_resources"); } }
+        private List<string>? _explicitNullValueForceViewerAllowUserResources = default!;
 #nullable restore
 #else
-        public List<string> ForceViewerAllowUserResources { get; set; }
+        public List<string> ForceViewerAllowUserResources { get => _explicitNullValueForceViewerAllowUserResources; set { _explicitNullValueForceViewerAllowUserResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_allow_user_resources"); else _explicitNullProperties?.Remove("force_viewer_allow_user_resources"); } }
+        private List<string> _explicitNullValueForceViewerAllowUserResources = default!;
 #endif
         /// <summary>The force_viewer_delete_after_secs property</summary>
-        public int? ForceViewerDeleteAfterSecs { get; set; }
+        public int? ForceViewerDeleteAfterSecs { get => _explicitNullValueForceViewerDeleteAfterSecs; set { _explicitNullValueForceViewerDeleteAfterSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_delete_after_secs"); else _explicitNullProperties?.Remove("force_viewer_delete_after_secs"); } }
+        private int? _explicitNullValueForceViewerDeleteAfterSecs = default!;
         /// <summary>The force_viewer_one_of_fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerOneOfFields? ForceViewerOneOfFields { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerOneOfFields? ForceViewerOneOfFields { get => _explicitNullValueForceViewerOneOfFields; set { _explicitNullValueForceViewerOneOfFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_one_of_fields"); else _explicitNullProperties?.Remove("force_viewer_one_of_fields"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerOneOfFields? _explicitNullValueForceViewerOneOfFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerOneOfFields ForceViewerOneOfFields { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerOneOfFields ForceViewerOneOfFields { get => _explicitNullValueForceViewerOneOfFields; set { _explicitNullValueForceViewerOneOfFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_one_of_fields"); else _explicitNullProperties?.Remove("force_viewer_one_of_fields"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerOneOfFields _explicitNullValueForceViewerOneOfFields = default!;
 #endif
         /// <summary>The force_viewer_sensitive_inputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ForceViewerSensitiveInputs { get; set; }
+        public List<string>? ForceViewerSensitiveInputs { get => _explicitNullValueForceViewerSensitiveInputs; set { _explicitNullValueForceViewerSensitiveInputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_sensitive_inputs"); else _explicitNullProperties?.Remove("force_viewer_sensitive_inputs"); } }
+        private List<string>? _explicitNullValueForceViewerSensitiveInputs = default!;
 #nullable restore
 #else
-        public List<string> ForceViewerSensitiveInputs { get; set; }
+        public List<string> ForceViewerSensitiveInputs { get => _explicitNullValueForceViewerSensitiveInputs; set { _explicitNullValueForceViewerSensitiveInputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_sensitive_inputs"); else _explicitNullProperties?.Remove("force_viewer_sensitive_inputs"); } }
+        private List<string> _explicitNullValueForceViewerSensitiveInputs = default!;
 #endif
         /// <summary>The force_viewer_static_fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields? ForceViewerStaticFields { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields? ForceViewerStaticFields { get => _explicitNullValueForceViewerStaticFields; set { _explicitNullValueForceViewerStaticFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_static_fields"); else _explicitNullProperties?.Remove("force_viewer_static_fields"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields? _explicitNullValueForceViewerStaticFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields ForceViewerStaticFields { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields ForceViewerStaticFields { get => _explicitNullValueForceViewerStaticFields; set { _explicitNullValueForceViewerStaticFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("force_viewer_static_fields"); else _explicitNullProperties?.Remove("force_viewer_static_fields"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestForceViewerStaticFields _explicitNullValueForceViewerStaticFields = default!;
 #endif
         /// <summary>The id property</summary>
-        public int? Id { get; set; }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private int? _explicitNullValueId = default!;
         /// <summary>Preview mode (force_viewer_static_fields set) only: run as this identity (an email, `u/&lt;username&gt;` or `g/&lt;group&gt;`) instead of the caller. Naming anyone other than yourself requires being an admin or a member of wm_deployers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnBehalfOf { get; set; }
+        public string? OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
+        private string? _explicitNullValueOnBehalfOf = default!;
 #nullable restore
 #else
-        public string OnBehalfOf { get; set; }
+        public string OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
+        private string _explicitNullValueOnBehalfOf = default!;
 #endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The raw_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode? RawCode { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode? RawCode { get => _explicitNullValueRawCode; set { _explicitNullValueRawCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_code"); else _explicitNullProperties?.Remove("raw_code"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode? _explicitNullValueRawCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode RawCode { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode RawCode { get => _explicitNullValueRawCode; set { _explicitNullValueRawCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_code"); else _explicitNullProperties?.Remove("raw_code"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRawCode _explicitNullValueRawCode = default!;
 #endif
         /// <summary>Runnable query parameters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams? RunQueryParams { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams? RunQueryParams { get => _explicitNullValueRunQueryParams; set { _explicitNullValueRunQueryParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_query_params"); else _explicitNullProperties?.Remove("run_query_params"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams? _explicitNullValueRunQueryParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams RunQueryParams { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams RunQueryParams { get => _explicitNullValueRunQueryParams; set { _explicitNullValueRunQueryParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_query_params"); else _explicitNullProperties?.Remove("run_query_params"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestRunQueryParams _explicitNullValueRunQueryParams = default!;
 #endif
         /// <summary>Map of relative-import script path -&gt; temp storage hash. Only honored for inline-script (raw_code) execution so app dev resolves those imports from not-yet-deployed local content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs? TempScriptRefs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs? TempScriptRefs { get => _explicitNullValueTempScriptRefs; set { _explicitNullValueTempScriptRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_script_refs"); else _explicitNullProperties?.Remove("temp_script_refs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs? _explicitNullValueTempScriptRefs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs TempScriptRefs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs TempScriptRefs { get => _explicitNullValueTempScriptRefs; set { _explicitNullValueTempScriptRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_script_refs"); else _explicitNullProperties?.Remove("temp_script_refs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs _explicitNullValueTempScriptRefs = default!;
 #endif
         /// <summary>The version property</summary>
-        public int? Version { get; set; }
+        public int? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private int? _explicitNullValueVersion = default!;
         /// <summary>Preview mode only: the inline runnable&apos;s viewer_data_access policy setting (run mode reads it from the deployed policy).</summary>
-        public bool? ViewerDataAccess { get; set; }
+        public bool? ViewerDataAccess { get => _explicitNullValueViewerDataAccess; set { _explicitNullValueViewerDataAccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("viewer_data_access"); else _explicitNullProperties?.Remove("viewer_data_access"); } }
+        private bool? _explicitNullValueViewerDataAccess = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequest"/> and sets the default values.
         /// </summary>
@@ -125,7 +173,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -174,6 +222,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExecuteComponentRequestTempScriptRefs>("temp_script_refs", TempScriptRefs);
             writer.WriteIntValue("version", Version);
             writer.WriteBoolValue("viewer_data_access", ViewerDataAccess);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

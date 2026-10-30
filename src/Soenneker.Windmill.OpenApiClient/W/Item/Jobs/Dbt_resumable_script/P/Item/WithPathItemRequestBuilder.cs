@@ -48,7 +48,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_resumable_script.P.It
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Guid?>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Guid?>(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// A `retry` requires `dbt_retry_job`, and the run form has no job id to hand. Returns the one the caller&apos;s own retry would land on — the saved failure for the principal the run would execute as, which is the script&apos;s author for an `on_behalf_of` script and the caller otherwise — and only when that run is one the caller may read. Null when there is nothing to resume, or nothing this caller may be told about.

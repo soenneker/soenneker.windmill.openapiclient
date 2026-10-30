@@ -11,115 +11,168 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModule : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_actions") is { } nullNodeAgentActions && nullNodeAgentActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentActions = null;
+            if (parseNode.GetChildNode("agent_actions_success") is { } nullNodeAgentActionsSuccess && nullNodeAgentActionsSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentActionsSuccess = null;
+            if (parseNode.GetChildNode("approvers") is { } nullNodeApprovers && nullNodeApprovers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Approvers = null;
+            if (parseNode.GetChildNode("branchall") is { } nullNodeBranchall && nullNodeBranchall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Branchall = null;
+            if (parseNode.GetChildNode("branch_chosen") is { } nullNodeBranchChosen && nullNodeBranchChosen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchChosen = null;
+            if (parseNode.GetChildNode("count") is { } nullNodeCount && nullNodeCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Count = null;
+            if (parseNode.GetChildNode("failed_retries") is { } nullNodeFailedRetries && nullNodeFailedRetries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedRetries = null;
+            if (parseNode.GetChildNode("flow_jobs") is { } nullNodeFlowJobs && nullNodeFlowJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobs = null;
+            if (parseNode.GetChildNode("flow_jobs_duration") is { } nullNodeFlowJobsDuration && nullNodeFlowJobsDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobsDuration = null;
+            if (parseNode.GetChildNode("flow_jobs_success") is { } nullNodeFlowJobsSuccess && nullNodeFlowJobsSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobsSuccess = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("iterator") is { } nullNodeIterator && nullNodeIterator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Iterator = null;
+            if (parseNode.GetChildNode("job") is { } nullNodeJob && nullNodeJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Job = null;
+            if (parseNode.GetChildNode("parent_module") is { } nullNodeParentModule && nullNodeParentModule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParentModule = null;
+            if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
+            if (parseNode.GetChildNode("skipped") is { } nullNodeSkipped && nullNodeSkipped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skipped = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_actions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleAgentActionsItem>? AgentActions { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleAgentActionsItem>? AgentActions { get => _explicitNullValueAgentActions; set { _explicitNullValueAgentActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_actions"); else _explicitNullProperties?.Remove("agent_actions"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleAgentActionsItem>? _explicitNullValueAgentActions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleAgentActionsItem> AgentActions { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleAgentActionsItem> AgentActions { get => _explicitNullValueAgentActions; set { _explicitNullValueAgentActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_actions"); else _explicitNullProperties?.Remove("agent_actions"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleAgentActionsItem> _explicitNullValueAgentActions = default!;
 #endif
         /// <summary>The agent_actions_success property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<bool?>? AgentActionsSuccess { get; set; }
+        public List<bool?>? AgentActionsSuccess { get => _explicitNullValueAgentActionsSuccess; set { _explicitNullValueAgentActionsSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_actions_success"); else _explicitNullProperties?.Remove("agent_actions_success"); } }
+        private List<bool?>? _explicitNullValueAgentActionsSuccess = default!;
 #nullable restore
 #else
-        public List<bool?> AgentActionsSuccess { get; set; }
+        public List<bool?> AgentActionsSuccess { get => _explicitNullValueAgentActionsSuccess; set { _explicitNullValueAgentActionsSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_actions_success"); else _explicitNullProperties?.Remove("agent_actions_success"); } }
+        private List<bool?> _explicitNullValueAgentActionsSuccess = default!;
 #endif
         /// <summary>The approvers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleApproversItem>? Approvers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleApproversItem>? Approvers { get => _explicitNullValueApprovers; set { _explicitNullValueApprovers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvers"); else _explicitNullProperties?.Remove("approvers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleApproversItem>? _explicitNullValueApprovers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleApproversItem> Approvers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleApproversItem> Approvers { get => _explicitNullValueApprovers; set { _explicitNullValueApprovers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvers"); else _explicitNullProperties?.Remove("approvers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleApproversItem> _explicitNullValueApprovers = default!;
 #endif
         /// <summary>The branchall property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchall? Branchall { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchall? Branchall { get => _explicitNullValueBranchall; set { _explicitNullValueBranchall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branchall"); else _explicitNullProperties?.Remove("branchall"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchall? _explicitNullValueBranchall = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchall Branchall { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchall Branchall { get => _explicitNullValueBranchall; set { _explicitNullValueBranchall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branchall"); else _explicitNullProperties?.Remove("branchall"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchall _explicitNullValueBranchall = default!;
 #endif
         /// <summary>The branch_chosen property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchChosen? BranchChosen { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchChosen? BranchChosen { get => _explicitNullValueBranchChosen; set { _explicitNullValueBranchChosen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_chosen"); else _explicitNullProperties?.Remove("branch_chosen"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchChosen? _explicitNullValueBranchChosen = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchChosen BranchChosen { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchChosen BranchChosen { get => _explicitNullValueBranchChosen; set { _explicitNullValueBranchChosen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_chosen"); else _explicitNullProperties?.Remove("branch_chosen"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleBranchChosen _explicitNullValueBranchChosen = default!;
 #endif
         /// <summary>The count property</summary>
-        public int? Count { get; set; }
+        public int? Count { get => _explicitNullValueCount; set { _explicitNullValueCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count"); else _explicitNullProperties?.Remove("count"); } }
+        private int? _explicitNullValueCount = default!;
         /// <summary>The failed_retries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? FailedRetries { get; set; }
+        public List<Guid?>? FailedRetries { get => _explicitNullValueFailedRetries; set { _explicitNullValueFailedRetries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_retries"); else _explicitNullProperties?.Remove("failed_retries"); } }
+        private List<Guid?>? _explicitNullValueFailedRetries = default!;
 #nullable restore
 #else
-        public List<Guid?> FailedRetries { get; set; }
+        public List<Guid?> FailedRetries { get => _explicitNullValueFailedRetries; set { _explicitNullValueFailedRetries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_retries"); else _explicitNullProperties?.Remove("failed_retries"); } }
+        private List<Guid?> _explicitNullValueFailedRetries = default!;
 #endif
         /// <summary>The flow_jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FlowJobs { get; set; }
+        public List<string>? FlowJobs { get => _explicitNullValueFlowJobs; set { _explicitNullValueFlowJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs"); else _explicitNullProperties?.Remove("flow_jobs"); } }
+        private List<string>? _explicitNullValueFlowJobs = default!;
 #nullable restore
 #else
-        public List<string> FlowJobs { get; set; }
+        public List<string> FlowJobs { get => _explicitNullValueFlowJobs; set { _explicitNullValueFlowJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs"); else _explicitNullProperties?.Remove("flow_jobs"); } }
+        private List<string> _explicitNullValueFlowJobs = default!;
 #endif
         /// <summary>The flow_jobs_duration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleFlowJobsDuration? FlowJobsDuration { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleFlowJobsDuration? FlowJobsDuration { get => _explicitNullValueFlowJobsDuration; set { _explicitNullValueFlowJobsDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs_duration"); else _explicitNullProperties?.Remove("flow_jobs_duration"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleFlowJobsDuration? _explicitNullValueFlowJobsDuration = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleFlowJobsDuration FlowJobsDuration { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleFlowJobsDuration FlowJobsDuration { get => _explicitNullValueFlowJobsDuration; set { _explicitNullValueFlowJobsDuration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs_duration"); else _explicitNullProperties?.Remove("flow_jobs_duration"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleFlowJobsDuration _explicitNullValueFlowJobsDuration = default!;
 #endif
         /// <summary>The flow_jobs_success property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<bool?>? FlowJobsSuccess { get; set; }
+        public List<bool?>? FlowJobsSuccess { get => _explicitNullValueFlowJobsSuccess; set { _explicitNullValueFlowJobsSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs_success"); else _explicitNullProperties?.Remove("flow_jobs_success"); } }
+        private List<bool?>? _explicitNullValueFlowJobsSuccess = default!;
 #nullable restore
 #else
-        public List<bool?> FlowJobsSuccess { get; set; }
+        public List<bool?> FlowJobsSuccess { get => _explicitNullValueFlowJobsSuccess; set { _explicitNullValueFlowJobsSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs_success"); else _explicitNullProperties?.Remove("flow_jobs_success"); } }
+        private List<bool?> _explicitNullValueFlowJobsSuccess = default!;
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The iterator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleIterator? Iterator { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleIterator? Iterator { get => _explicitNullValueIterator; set { _explicitNullValueIterator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterator"); else _explicitNullProperties?.Remove("iterator"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleIterator? _explicitNullValueIterator = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleIterator Iterator { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleIterator Iterator { get => _explicitNullValueIterator; set { _explicitNullValueIterator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iterator"); else _explicitNullProperties?.Remove("iterator"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleIterator _explicitNullValueIterator = default!;
 #endif
         /// <summary>The job property</summary>
-        public Guid? Job { get; set; }
+        public Guid? Job { get => _explicitNullValueJob; set { _explicitNullValueJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job"); else _explicitNullProperties?.Remove("job"); } }
+        private Guid? _explicitNullValueJob = default!;
         /// <summary>The parent_module property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ParentModule { get; set; }
+        public string? ParentModule { get => _explicitNullValueParentModule; set { _explicitNullValueParentModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_module"); else _explicitNullProperties?.Remove("parent_module"); } }
+        private string? _explicitNullValueParentModule = default!;
 #nullable restore
 #else
-        public string ParentModule { get; set; }
+        public string ParentModule { get => _explicitNullValueParentModule; set { _explicitNullValueParentModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parent_module"); else _explicitNullProperties?.Remove("parent_module"); } }
+        private string _explicitNullValueParentModule = default!;
 #endif
         /// <summary>The progress property</summary>
-        public int? Progress { get; set; }
+        public int? Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        private int? _explicitNullValueProgress = default!;
         /// <summary>The skipped property</summary>
-        public bool? Skipped { get; set; }
+        public bool? Skipped { get => _explicitNullValueSkipped; set { _explicitNullValueSkipped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped"); else _explicitNullProperties?.Remove("skipped"); } }
+        private bool? _explicitNullValueSkipped = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleType? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModule"/> and sets the default values.
         /// </summary>
@@ -135,7 +188,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModule();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModule(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -188,6 +241,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("progress", Progress);
             writer.WriteBoolValue("skipped", Skipped);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItemOneOf1FlowStatusFailureModuleType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

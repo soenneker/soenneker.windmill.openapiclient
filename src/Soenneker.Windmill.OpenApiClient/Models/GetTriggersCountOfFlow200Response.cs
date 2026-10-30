@@ -11,51 +11,95 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetTriggersCountOfFlow200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amqp_count") is { } nullNodeAmqpCount && nullNodeAmqpCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmqpCount = null;
+            if (parseNode.GetChildNode("azure_count") is { } nullNodeAzureCount && nullNodeAzureCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureCount = null;
+            if (parseNode.GetChildNode("default_email_count") is { } nullNodeDefaultEmailCount && nullNodeDefaultEmailCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultEmailCount = null;
+            if (parseNode.GetChildNode("email_count") is { } nullNodeEmailCount && nullNodeEmailCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailCount = null;
+            if (parseNode.GetChildNode("gcp_count") is { } nullNodeGcpCount && nullNodeGcpCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GcpCount = null;
+            if (parseNode.GetChildNode("github_count") is { } nullNodeGithubCount && nullNodeGithubCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubCount = null;
+            if (parseNode.GetChildNode("google_count") is { } nullNodeGoogleCount && nullNodeGoogleCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoogleCount = null;
+            if (parseNode.GetChildNode("http_routes_count") is { } nullNodeHttpRoutesCount && nullNodeHttpRoutesCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpRoutesCount = null;
+            if (parseNode.GetChildNode("kafka_count") is { } nullNodeKafkaCount && nullNodeKafkaCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KafkaCount = null;
+            if (parseNode.GetChildNode("mqtt_count") is { } nullNodeMqttCount && nullNodeMqttCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MqttCount = null;
+            if (parseNode.GetChildNode("nats_count") is { } nullNodeNatsCount && nullNodeNatsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NatsCount = null;
+            if (parseNode.GetChildNode("nextcloud_count") is { } nullNodeNextcloudCount && nullNodeNextcloudCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextcloudCount = null;
+            if (parseNode.GetChildNode("postgres_count") is { } nullNodePostgresCount && nullNodePostgresCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostgresCount = null;
+            if (parseNode.GetChildNode("primary_schedule") is { } nullNodePrimarySchedule && nullNodePrimarySchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimarySchedule = null;
+            if (parseNode.GetChildNode("schedule_count") is { } nullNodeScheduleCount && nullNodeScheduleCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScheduleCount = null;
+            if (parseNode.GetChildNode("sqs_count") is { } nullNodeSqsCount && nullNodeSqsCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SqsCount = null;
+            if (parseNode.GetChildNode("webhook_count") is { } nullNodeWebhookCount && nullNodeWebhookCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookCount = null;
+            if (parseNode.GetChildNode("websocket_count") is { } nullNodeWebsocketCount && nullNodeWebsocketCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebsocketCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amqp_count property</summary>
-        public double? AmqpCount { get; set; }
+        public double? AmqpCount { get => _explicitNullValueAmqpCount; set { _explicitNullValueAmqpCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amqp_count"); else _explicitNullProperties?.Remove("amqp_count"); } }
+        private double? _explicitNullValueAmqpCount = default!;
         /// <summary>The azure_count property</summary>
-        public double? AzureCount { get; set; }
+        public double? AzureCount { get => _explicitNullValueAzureCount; set { _explicitNullValueAzureCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_count"); else _explicitNullProperties?.Remove("azure_count"); } }
+        private double? _explicitNullValueAzureCount = default!;
         /// <summary>The default_email_count property</summary>
-        public double? DefaultEmailCount { get; set; }
+        public double? DefaultEmailCount { get => _explicitNullValueDefaultEmailCount; set { _explicitNullValueDefaultEmailCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_email_count"); else _explicitNullProperties?.Remove("default_email_count"); } }
+        private double? _explicitNullValueDefaultEmailCount = default!;
         /// <summary>The email_count property</summary>
-        public double? EmailCount { get; set; }
+        public double? EmailCount { get => _explicitNullValueEmailCount; set { _explicitNullValueEmailCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_count"); else _explicitNullProperties?.Remove("email_count"); } }
+        private double? _explicitNullValueEmailCount = default!;
         /// <summary>The gcp_count property</summary>
-        public double? GcpCount { get; set; }
+        public double? GcpCount { get => _explicitNullValueGcpCount; set { _explicitNullValueGcpCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gcp_count"); else _explicitNullProperties?.Remove("gcp_count"); } }
+        private double? _explicitNullValueGcpCount = default!;
         /// <summary>The github_count property</summary>
-        public double? GithubCount { get; set; }
+        public double? GithubCount { get => _explicitNullValueGithubCount; set { _explicitNullValueGithubCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_count"); else _explicitNullProperties?.Remove("github_count"); } }
+        private double? _explicitNullValueGithubCount = default!;
         /// <summary>The google_count property</summary>
-        public double? GoogleCount { get; set; }
+        public double? GoogleCount { get => _explicitNullValueGoogleCount; set { _explicitNullValueGoogleCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google_count"); else _explicitNullProperties?.Remove("google_count"); } }
+        private double? _explicitNullValueGoogleCount = default!;
         /// <summary>The http_routes_count property</summary>
-        public double? HttpRoutesCount { get; set; }
+        public double? HttpRoutesCount { get => _explicitNullValueHttpRoutesCount; set { _explicitNullValueHttpRoutesCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_routes_count"); else _explicitNullProperties?.Remove("http_routes_count"); } }
+        private double? _explicitNullValueHttpRoutesCount = default!;
         /// <summary>The kafka_count property</summary>
-        public double? KafkaCount { get; set; }
+        public double? KafkaCount { get => _explicitNullValueKafkaCount; set { _explicitNullValueKafkaCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka_count"); else _explicitNullProperties?.Remove("kafka_count"); } }
+        private double? _explicitNullValueKafkaCount = default!;
         /// <summary>The mqtt_count property</summary>
-        public double? MqttCount { get; set; }
+        public double? MqttCount { get => _explicitNullValueMqttCount; set { _explicitNullValueMqttCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mqtt_count"); else _explicitNullProperties?.Remove("mqtt_count"); } }
+        private double? _explicitNullValueMqttCount = default!;
         /// <summary>The nats_count property</summary>
-        public double? NatsCount { get; set; }
+        public double? NatsCount { get => _explicitNullValueNatsCount; set { _explicitNullValueNatsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nats_count"); else _explicitNullProperties?.Remove("nats_count"); } }
+        private double? _explicitNullValueNatsCount = default!;
         /// <summary>The nextcloud_count property</summary>
-        public double? NextcloudCount { get; set; }
+        public double? NextcloudCount { get => _explicitNullValueNextcloudCount; set { _explicitNullValueNextcloudCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextcloud_count"); else _explicitNullProperties?.Remove("nextcloud_count"); } }
+        private double? _explicitNullValueNextcloudCount = default!;
         /// <summary>The postgres_count property</summary>
-        public double? PostgresCount { get; set; }
+        public double? PostgresCount { get => _explicitNullValuePostgresCount; set { _explicitNullValuePostgresCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_count"); else _explicitNullProperties?.Remove("postgres_count"); } }
+        private double? _explicitNullValuePostgresCount = default!;
         /// <summary>The primary_schedule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200ResponsePrimarySchedule? PrimarySchedule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200ResponsePrimarySchedule? PrimarySchedule { get => _explicitNullValuePrimarySchedule; set { _explicitNullValuePrimarySchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_schedule"); else _explicitNullProperties?.Remove("primary_schedule"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200ResponsePrimarySchedule? _explicitNullValuePrimarySchedule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200ResponsePrimarySchedule PrimarySchedule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200ResponsePrimarySchedule PrimarySchedule { get => _explicitNullValuePrimarySchedule; set { _explicitNullValuePrimarySchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_schedule"); else _explicitNullProperties?.Remove("primary_schedule"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200ResponsePrimarySchedule _explicitNullValuePrimarySchedule = default!;
 #endif
         /// <summary>The schedule_count property</summary>
-        public double? ScheduleCount { get; set; }
+        public double? ScheduleCount { get => _explicitNullValueScheduleCount; set { _explicitNullValueScheduleCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule_count"); else _explicitNullProperties?.Remove("schedule_count"); } }
+        private double? _explicitNullValueScheduleCount = default!;
         /// <summary>The sqs_count property</summary>
-        public double? SqsCount { get; set; }
+        public double? SqsCount { get => _explicitNullValueSqsCount; set { _explicitNullValueSqsCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sqs_count"); else _explicitNullProperties?.Remove("sqs_count"); } }
+        private double? _explicitNullValueSqsCount = default!;
         /// <summary>The webhook_count property</summary>
-        public double? WebhookCount { get; set; }
+        public double? WebhookCount { get => _explicitNullValueWebhookCount; set { _explicitNullValueWebhookCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_count"); else _explicitNullProperties?.Remove("webhook_count"); } }
+        private double? _explicitNullValueWebhookCount = default!;
         /// <summary>The websocket_count property</summary>
-        public double? WebsocketCount { get; set; }
+        public double? WebsocketCount { get => _explicitNullValueWebsocketCount; set { _explicitNullValueWebsocketCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("websocket_count"); else _explicitNullProperties?.Remove("websocket_count"); } }
+        private double? _explicitNullValueWebsocketCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200Response"/> and sets the default values.
         /// </summary>
@@ -71,7 +115,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetTriggersCountOfFlow200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -126,6 +170,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("sqs_count", SqsCount);
             writer.WriteDoubleValue("webhook_count", WebhookCount);
             writer.WriteDoubleValue("websocket_count", WebsocketCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

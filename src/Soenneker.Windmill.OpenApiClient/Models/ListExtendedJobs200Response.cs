@@ -11,27 +11,42 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListExtendedJobs200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("jobs") is { } nullNodeJobs && nullNodeJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jobs = null;
+            if (parseNode.GetChildNode("obscured_jobs") is { } nullNodeObscuredJobs && nullNodeObscuredJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObscuredJobs = null;
+            if (parseNode.GetChildNode("omitted_obscured_jobs") is { } nullNodeOmittedObscuredJobs && nullNodeOmittedObscuredJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OmittedObscuredJobs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>? Jobs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>? Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>? _explicitNullValueJobs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem> Jobs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem> Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem> _explicitNullValueJobs = default!;
 #endif
         /// <summary>The obscured_jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>? ObscuredJobs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>? ObscuredJobs { get => _explicitNullValueObscuredJobs; set { _explicitNullValueObscuredJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("obscured_jobs"); else _explicitNullProperties?.Remove("obscured_jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>? _explicitNullValueObscuredJobs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem> ObscuredJobs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem> ObscuredJobs { get => _explicitNullValueObscuredJobs; set { _explicitNullValueObscuredJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("obscured_jobs"); else _explicitNullProperties?.Remove("obscured_jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem> _explicitNullValueObscuredJobs = default!;
 #endif
         /// <summary>Obscured jobs omitted for security because of too specific filtering</summary>
-        public bool? OmittedObscuredJobs { get; set; }
+        public bool? OmittedObscuredJobs { get => _explicitNullValueOmittedObscuredJobs; set { _explicitNullValueOmittedObscuredJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omitted_obscured_jobs"); else _explicitNullProperties?.Remove("omitted_obscured_jobs"); } }
+        private bool? _explicitNullValueOmittedObscuredJobs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200Response"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>("jobs", Jobs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>("obscured_jobs", ObscuredJobs);
             writer.WriteBoolValue("omitted_obscured_jobs", OmittedObscuredJobs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

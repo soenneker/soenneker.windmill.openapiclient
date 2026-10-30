@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Seed_full_diff.Item
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.SeedFullDiffScan200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.SeedFullDiffScan200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.SeedFullDiffScan200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.SeedFullDiffScan200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Enumerates every item of both workspaces as an undecided diff candidate so `compareWorkspaces` can compare a pair the fork lineage does not track. Requires being an admin of both workspaces, and is rejected for a pair already linked by the lineage (whose diff is tallied continuously). The comparison itself is what compares the candidates, and is the expensive step.

@@ -11,42 +11,63 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListWorkspaceRoles200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("custom_roles_enabled") is { } nullNodeCustomRolesEnabled && nullNodeCustomRolesEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomRolesEnabled = null;
+            if (parseNode.GetChildNode("my_capabilities") is { } nullNodeMyCapabilities && nullNodeMyCapabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MyCapabilities = null;
+            if (parseNode.GetChildNode("my_role") is { } nullNodeMyRole && nullNodeMyRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MyRole = null;
+            if (parseNode.GetChildNode("overrides") is { } nullNodeOverrides && nullNodeOverrides.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Overrides = null;
+            if (parseNode.GetChildNode("roles") is { } nullNodeRoles && nullNodeRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Roles = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether this workspace may add roles of its own.</summary>
-        public bool? CustomRolesEnabled { get; set; }
+        public bool? CustomRolesEnabled { get => _explicitNullValueCustomRolesEnabled; set { _explicitNullValueCustomRolesEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_roles_enabled"); else _explicitNullProperties?.Remove("custom_roles_enabled"); } }
+        private bool? _explicitNullValueCustomRolesEnabled = default!;
         /// <summary>The my_capabilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities? MyCapabilities { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities? MyCapabilities { get => _explicitNullValueMyCapabilities; set { _explicitNullValueMyCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("my_capabilities"); else _explicitNullProperties?.Remove("my_capabilities"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities? _explicitNullValueMyCapabilities = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities MyCapabilities { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities MyCapabilities { get => _explicitNullValueMyCapabilities; set { _explicitNullValueMyCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("my_capabilities"); else _explicitNullProperties?.Remove("my_capabilities"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseMyCapabilities _explicitNullValueMyCapabilities = default!;
 #endif
         /// <summary>The my_role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MyRole { get; set; }
+        public string? MyRole { get => _explicitNullValueMyRole; set { _explicitNullValueMyRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("my_role"); else _explicitNullProperties?.Remove("my_role"); } }
+        private string? _explicitNullValueMyRole = default!;
 #nullable restore
 #else
-        public string MyRole { get; set; }
+        public string MyRole { get => _explicitNullValueMyRole; set { _explicitNullValueMyRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("my_role"); else _explicitNullProperties?.Remove("my_role"); } }
+        private string _explicitNullValueMyRole = default!;
 #endif
         /// <summary>A workspace&apos;s overrides keyed by role name; a name the instance does not define adds a workspace-only role (EE).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseOverrides? Overrides { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseOverrides? Overrides { get => _explicitNullValueOverrides; set { _explicitNullValueOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overrides"); else _explicitNullProperties?.Remove("overrides"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseOverrides? _explicitNullValueOverrides = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseOverrides Overrides { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseOverrides Overrides { get => _explicitNullValueOverrides; set { _explicitNullValueOverrides = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("overrides"); else _explicitNullProperties?.Remove("overrides"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseOverrides _explicitNullValueOverrides = default!;
 #endif
         /// <summary>The roles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseRolesItem>? Roles { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseRolesItem>? Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseRolesItem>? _explicitNullValueRoles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseRolesItem> Roles { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseRolesItem> Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseRolesItem> _explicitNullValueRoles = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200Response"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("my_role", MyRole);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseOverrides>("overrides", Overrides);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListWorkspaceRoles200ResponseRolesItem>("roles", Roles);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

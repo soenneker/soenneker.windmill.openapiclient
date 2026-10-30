@@ -11,45 +11,68 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListDataTables200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("database_workspace_id") is { } nullNodeDatabaseWorkspaceId && nullNodeDatabaseWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseWorkspaceId = null;
+            if (parseNode.GetChildNode("governing_workspace_id") is { } nullNodeGoverningWorkspaceId && nullNodeGoverningWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoverningWorkspaceId = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("permissioned") is { } nullNodePermissioned && nullNodePermissioned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissioned = null;
+            if (parseNode.GetChildNode("resource_path") is { } nullNodeResourcePath && nullNodeResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcePath = null;
+            if (parseNode.GetChildNode("resource_type") is { } nullNodeResourceType && nullNodeResourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The workspace owning the database this entry points at, when it is not this workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatabaseWorkspaceId { get; set; }
+        public string? DatabaseWorkspaceId { get => _explicitNullValueDatabaseWorkspaceId; set { _explicitNullValueDatabaseWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_workspace_id"); else _explicitNullProperties?.Remove("database_workspace_id"); } }
+        private string? _explicitNullValueDatabaseWorkspaceId = default!;
 #nullable restore
 #else
-        public string DatabaseWorkspaceId { get; set; }
+        public string DatabaseWorkspaceId { get => _explicitNullValueDatabaseWorkspaceId; set { _explicitNullValueDatabaseWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_workspace_id"); else _explicitNullProperties?.Remove("database_workspace_id"); } }
+        private string _explicitNullValueDatabaseWorkspaceId = default!;
 #endif
         /// <summary>The governing_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GoverningWorkspaceId { get; set; }
+        public string? GoverningWorkspaceId { get => _explicitNullValueGoverningWorkspaceId; set { _explicitNullValueGoverningWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("governing_workspace_id"); else _explicitNullProperties?.Remove("governing_workspace_id"); } }
+        private string? _explicitNullValueGoverningWorkspaceId = default!;
 #nullable restore
 #else
-        public string GoverningWorkspaceId { get; set; }
+        public string GoverningWorkspaceId { get => _explicitNullValueGoverningWorkspaceId; set { _explicitNullValueGoverningWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("governing_workspace_id"); else _explicitNullProperties?.Remove("governing_workspace_id"); } }
+        private string _explicitNullValueGoverningWorkspaceId = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The permissioned property</summary>
-        public bool? Permissioned { get; set; }
+        public bool? Permissioned { get => _explicitNullValuePermissioned; set { _explicitNullValuePermissioned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned"); else _explicitNullProperties?.Remove("permissioned"); } }
+        private bool? _explicitNullValuePermissioned = default!;
         /// <summary>The resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourcePath { get; set; }
+        public string? ResourcePath { get => _explicitNullValueResourcePath; set { _explicitNullValueResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_path"); else _explicitNullProperties?.Remove("resource_path"); } }
+        private string? _explicitNullValueResourcePath = default!;
 #nullable restore
 #else
-        public string ResourcePath { get; set; }
+        public string ResourcePath { get => _explicitNullValueResourcePath; set { _explicitNullValueResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_path"); else _explicitNullProperties?.Remove("resource_path"); } }
+        private string _explicitNullValueResourcePath = default!;
 #endif
         /// <summary>The resource_type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseItemResourceType? ResourceType { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseItemResourceType? ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_type"); else _explicitNullProperties?.Remove("resource_type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseItemResourceType? _explicitNullValueResourceType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -65,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseSchemaItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseSchemaItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +119,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("permissioned", Permissioned);
             writer.WriteStringValue("resource_path", ResourcePath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTables200ResponseItemResourceType>("resource_type", ResourceType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

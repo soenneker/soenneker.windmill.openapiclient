@@ -11,24 +11,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetAssetsGraph200ResponseDbtEdgesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("from_asset_path") is { } nullNodeFromAssetPath && nullNodeFromAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromAssetPath = null;
+            if (parseNode.GetChildNode("to_asset_path") is { } nullNodeToAssetPath && nullNodeToAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToAssetPath = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The from_asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromAssetPath { get; set; }
+        public string? FromAssetPath { get => _explicitNullValueFromAssetPath; set { _explicitNullValueFromAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_asset_path"); else _explicitNullProperties?.Remove("from_asset_path"); } }
+        private string? _explicitNullValueFromAssetPath = default!;
 #nullable restore
 #else
-        public string FromAssetPath { get; set; }
+        public string FromAssetPath { get => _explicitNullValueFromAssetPath; set { _explicitNullValueFromAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_asset_path"); else _explicitNullProperties?.Remove("from_asset_path"); } }
+        private string _explicitNullValueFromAssetPath = default!;
 #endif
         /// <summary>The to_asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToAssetPath { get; set; }
+        public string? ToAssetPath { get => _explicitNullValueToAssetPath; set { _explicitNullValueToAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_asset_path"); else _explicitNullProperties?.Remove("to_asset_path"); } }
+        private string? _explicitNullValueToAssetPath = default!;
 #nullable restore
 #else
-        public string ToAssetPath { get; set; }
+        public string ToAssetPath { get => _explicitNullValueToAssetPath; set { _explicitNullValueToAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_asset_path"); else _explicitNullProperties?.Remove("to_asset_path"); } }
+        private string _explicitNullValueToAssetPath = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("from_asset_path", FromAssetPath);
             writer.WriteStringValue("to_asset_path", ToAssetPath);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

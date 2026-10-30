@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai.Complete
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.CompleteAi200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CompleteAi200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.CompleteAi200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.CompleteAi200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sends a system and a user message to the configured provider and returns the text of the answer, with no tools and no streaming. For callers that do not speak a provider&apos;s own API through the proxy, such as the CLI and jobs.

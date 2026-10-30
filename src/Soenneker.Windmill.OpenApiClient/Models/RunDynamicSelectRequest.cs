@@ -11,32 +11,48 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RunDynamicSelectRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("args") is { } nullNodeArgs && nullNodeArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Args = null;
+            if (parseNode.GetChildNode("entrypoint_function") is { } nullNodeEntrypointFunction && nullNodeEntrypointFunction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntrypointFunction = null;
+            if (parseNode.GetChildNode("runnable_ref") is { } nullNodeRunnableRef && nullNodeRunnableRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnableRef = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Arguments to pass to the function</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestArgs? Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestArgs? Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestArgs? _explicitNullValueArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestArgs Args { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestArgs Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestArgs _explicitNullValueArgs = default!;
 #endif
         /// <summary>Name of the function to execute for dynamic select</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntrypointFunction { get; set; }
+        public string? EntrypointFunction { get => _explicitNullValueEntrypointFunction; set { _explicitNullValueEntrypointFunction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entrypoint_function"); else _explicitNullProperties?.Remove("entrypoint_function"); } }
+        private string? _explicitNullValueEntrypointFunction = default!;
 #nullable restore
 #else
-        public string EntrypointFunction { get; set; }
+        public string EntrypointFunction { get => _explicitNullValueEntrypointFunction; set { _explicitNullValueEntrypointFunction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entrypoint_function"); else _explicitNullProperties?.Remove("entrypoint_function"); } }
+        private string _explicitNullValueEntrypointFunction = default!;
 #endif
         /// <summary>The runnable_ref property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef? RunnableRef { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef? RunnableRef { get => _explicitNullValueRunnableRef; set { _explicitNullValueRunnableRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_ref"); else _explicitNullProperties?.Remove("runnable_ref"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef? _explicitNullValueRunnableRef = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef RunnableRef { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef RunnableRef { get => _explicitNullValueRunnableRef; set { _explicitNullValueRunnableRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_ref"); else _explicitNullProperties?.Remove("runnable_ref"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef _explicitNullValueRunnableRef = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestArgs>("args", Args);
             writer.WriteStringValue("entrypoint_function", EntrypointFunction);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef>("runnable_ref", RunnableRef);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

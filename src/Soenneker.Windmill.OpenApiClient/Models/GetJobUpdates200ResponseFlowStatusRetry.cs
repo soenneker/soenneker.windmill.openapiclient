@@ -11,18 +11,30 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetJobUpdates200ResponseFlowStatusRetry : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("fail_count") is { } nullNodeFailCount && nullNodeFailCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailCount = null;
+            if (parseNode.GetChildNode("failed_jobs") is { } nullNodeFailedJobs && nullNodeFailedJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedJobs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fail_count property</summary>
-        public int? FailCount { get; set; }
+        public int? FailCount { get => _explicitNullValueFailCount; set { _explicitNullValueFailCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fail_count"); else _explicitNullProperties?.Remove("fail_count"); } }
+        private int? _explicitNullValueFailCount = default!;
         /// <summary>The failed_jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? FailedJobs { get; set; }
+        public List<Guid?>? FailedJobs { get => _explicitNullValueFailedJobs; set { _explicitNullValueFailedJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_jobs"); else _explicitNullProperties?.Remove("failed_jobs"); } }
+        private List<Guid?>? _explicitNullValueFailedJobs = default!;
 #nullable restore
 #else
-        public List<Guid?> FailedJobs { get; set; }
+        public List<Guid?> FailedJobs { get => _explicitNullValueFailedJobs; set { _explicitNullValueFailedJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_jobs"); else _explicitNullProperties?.Remove("failed_jobs"); } }
+        private List<Guid?> _explicitNullValueFailedJobs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusRetry"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusRetry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusRetry();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusRetry(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("fail_count", FailCount);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("failed_jobs", FailedJobs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

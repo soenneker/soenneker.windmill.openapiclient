@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Edit_guest_jwt_key
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// A guest JWT (`jwt_guest_`) is minted by the embedding customer&apos;s own backend and verified against this key: a PEM public key (RS/ES family, HS* refused) or a JWKS URL, at most one. Both empty clears the workspace key; off cloud, verification then falls back to the instance issuer (`JWT_EXT_JWKS_URL`) if one is set, else no guest JWT is accepted. Workspace-admin gated. The key is validated before it is stored. Setting a key is refused with a 400 where guests are unavailable (the shared cloud); clearing one always works.

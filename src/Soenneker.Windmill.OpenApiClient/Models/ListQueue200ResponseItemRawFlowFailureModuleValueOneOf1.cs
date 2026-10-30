@@ -12,75 +12,113 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assets") is { } nullNodeAssets && nullNodeAssets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assets = null;
+            if (parseNode.GetChildNode("concurrency_time_window_s") is { } nullNodeConcurrencyTimeWindowS && nullNodeConcurrencyTimeWindowS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrencyTimeWindowS = null;
+            if (parseNode.GetChildNode("concurrent_limit") is { } nullNodeConcurrentLimit && nullNodeConcurrentLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrentLimit = null;
+            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("custom_concurrency_key") is { } nullNodeCustomConcurrencyKey && nullNodeCustomConcurrencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomConcurrencyKey = null;
+            if (parseNode.GetChildNode("input_transforms") is { } nullNodeInputTransforms && nullNodeInputTransforms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTransforms = null;
+            if (parseNode.GetChildNode("is_trigger") is { } nullNodeIsTrigger && nullNodeIsTrigger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsTrigger = null;
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("lock") is { } nullNodeLock && nullNodeLock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lock = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>External resources this script accesses (S3 objects, resources, etc.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1AssetsItem>? Assets { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1AssetsItem>? Assets { get => _explicitNullValueAssets; set { _explicitNullValueAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assets"); else _explicitNullProperties?.Remove("assets"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1AssetsItem>? _explicitNullValueAssets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1AssetsItem> Assets { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1AssetsItem> Assets { get => _explicitNullValueAssets; set { _explicitNullValueAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assets"); else _explicitNullProperties?.Remove("assets"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1AssetsItem> _explicitNullValueAssets = default!;
 #endif
         /// <summary>Time window for concurrent_limit</summary>
-        public double? ConcurrencyTimeWindowS { get; set; }
+        public double? ConcurrencyTimeWindowS { get => _explicitNullValueConcurrencyTimeWindowS; set { _explicitNullValueConcurrencyTimeWindowS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_time_window_s"); else _explicitNullProperties?.Remove("concurrency_time_window_s"); } }
+        private double? _explicitNullValueConcurrencyTimeWindowS = default!;
         /// <summary>Maximum concurrent executions of this script</summary>
-        public double? ConcurrentLimit { get; set; }
+        public double? ConcurrentLimit { get => _explicitNullValueConcurrentLimit; set { _explicitNullValueConcurrentLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrent_limit"); else _explicitNullProperties?.Remove("concurrent_limit"); } }
+        private double? _explicitNullValueConcurrentLimit = default!;
         /// <summary>The script source code. Should export a &apos;main&apos; function</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Content { get; set; }
+        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private string? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public string Content { get; set; }
+        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        private string _explicitNullValueContent = default!;
 #endif
         /// <summary>Custom key for grouping concurrent executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomConcurrencyKey { get; set; }
+        public string? CustomConcurrencyKey { get => _explicitNullValueCustomConcurrencyKey; set { _explicitNullValueCustomConcurrencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_concurrency_key"); else _explicitNullProperties?.Remove("custom_concurrency_key"); } }
+        private string? _explicitNullValueCustomConcurrencyKey = default!;
 #nullable restore
 #else
-        public string CustomConcurrencyKey { get; set; }
+        public string CustomConcurrencyKey { get => _explicitNullValueCustomConcurrencyKey; set { _explicitNullValueCustomConcurrencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_concurrency_key"); else _explicitNullProperties?.Remove("custom_concurrency_key"); } }
+        private string _explicitNullValueCustomConcurrencyKey = default!;
 #endif
         /// <summary>Map of parameter names to their values (static or JavaScript expressions). These become the script&apos;s input arguments</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1InputTransforms? InputTransforms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1InputTransforms? InputTransforms { get => _explicitNullValueInputTransforms; set { _explicitNullValueInputTransforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_transforms"); else _explicitNullProperties?.Remove("input_transforms"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1InputTransforms? _explicitNullValueInputTransforms = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1InputTransforms InputTransforms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1InputTransforms InputTransforms { get => _explicitNullValueInputTransforms; set { _explicitNullValueInputTransforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_transforms"); else _explicitNullProperties?.Remove("input_transforms"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1InputTransforms _explicitNullValueInputTransforms = default!;
 #endif
         /// <summary>If true, this script is a trigger that can start the flow</summary>
-        public bool? IsTrigger { get; set; }
+        public bool? IsTrigger { get => _explicitNullValueIsTrigger; set { _explicitNullValueIsTrigger = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_trigger"); else _explicitNullProperties?.Remove("is_trigger"); } }
+        private bool? _explicitNullValueIsTrigger = default!;
         /// <summary>Programming language for this script</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1Language? Language { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1Language? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1Language? _explicitNullValueLanguage = default!;
         /// <summary>Lock file content for dependencies</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Lock { get; set; }
+        public string? Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
+        private string? _explicitNullValueLock = default!;
 #nullable restore
 #else
-        public string Lock { get; set; }
+        public string Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
+        private string _explicitNullValueLock = default!;
 #endif
         /// <summary>Optional path for saving this script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>Worker group tag for execution routing</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tag { get; set; }
+        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string? _explicitNullValueTag = default!;
 #nullable restore
 #else
-        public string Tag { get; set; }
+        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string _explicitNullValueTag = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RawscriptType? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RawscriptType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RawscriptType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1"/> and sets the default values.
         /// </summary>
@@ -96,7 +134,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -139,6 +177,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("tag", Tag);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RawscriptType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

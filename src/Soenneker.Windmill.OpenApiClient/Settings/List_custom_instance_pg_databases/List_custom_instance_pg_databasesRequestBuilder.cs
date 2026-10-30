@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.List_custom_instance_pg_data
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListCustomInstanceDbs200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListCustomInstanceDbs200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListCustomInstanceDbs200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListCustomInstanceDbs200ResponseSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the set-up statuses of custom instance pg databases

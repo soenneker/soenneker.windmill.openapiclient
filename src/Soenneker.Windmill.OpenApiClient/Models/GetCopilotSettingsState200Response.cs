@@ -11,21 +11,35 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetCopilotSettingsState200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("has_instance_ai_config") is { } nullNodeHasInstanceAiConfig && nullNodeHasInstanceAiConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasInstanceAiConfig = null;
+            if (parseNode.GetChildNode("instance_ai_summary") is { } nullNodeInstanceAiSummary && nullNodeInstanceAiSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceAiSummary = null;
+            if (parseNode.GetChildNode("uses_instance_ai_config") is { } nullNodeUsesInstanceAiConfig && nullNodeUsesInstanceAiConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsesInstanceAiConfig = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The has_instance_ai_config property</summary>
-        public bool? HasInstanceAiConfig { get; set; }
+        public bool? HasInstanceAiConfig { get => _explicitNullValueHasInstanceAiConfig; set { _explicitNullValueHasInstanceAiConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_instance_ai_config"); else _explicitNullProperties?.Remove("has_instance_ai_config"); } }
+        private bool? _explicitNullValueHasInstanceAiConfig = default!;
         /// <summary>The instance_ai_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary? InstanceAiSummary { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary? InstanceAiSummary { get => _explicitNullValueInstanceAiSummary; set { _explicitNullValueInstanceAiSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_ai_summary"); else _explicitNullProperties?.Remove("instance_ai_summary"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary? _explicitNullValueInstanceAiSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary InstanceAiSummary { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary InstanceAiSummary { get => _explicitNullValueInstanceAiSummary; set { _explicitNullValueInstanceAiSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_ai_summary"); else _explicitNullProperties?.Remove("instance_ai_summary"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary _explicitNullValueInstanceAiSummary = default!;
 #endif
         /// <summary>The uses_instance_ai_config property</summary>
-        public bool? UsesInstanceAiConfig { get; set; }
+        public bool? UsesInstanceAiConfig { get => _explicitNullValueUsesInstanceAiConfig; set { _explicitNullValueUsesInstanceAiConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uses_instance_ai_config"); else _explicitNullProperties?.Remove("uses_instance_ai_config"); } }
+        private bool? _explicitNullValueUsesInstanceAiConfig = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200Response"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("has_instance_ai_config", HasInstanceAiConfig);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary>("instance_ai_summary", InstanceAiSummary);
             writer.WriteBoolValue("uses_instance_ai_config", UsesInstanceAiConfig);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,20 +11,34 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetApprovalInfo200ResponseApprovalConditions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("self_approval_disabled") is { } nullNodeSelfApprovalDisabled && nullNodeSelfApprovalDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfApprovalDisabled = null;
+            if (parseNode.GetChildNode("user_auth_required") is { } nullNodeUserAuthRequired && nullNodeUserAuthRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAuthRequired = null;
+            if (parseNode.GetChildNode("user_groups_required") is { } nullNodeUserGroupsRequired && nullNodeUserGroupsRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserGroupsRequired = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The self_approval_disabled property</summary>
-        public bool? SelfApprovalDisabled { get; set; }
+        public bool? SelfApprovalDisabled { get => _explicitNullValueSelfApprovalDisabled; set { _explicitNullValueSelfApprovalDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self_approval_disabled"); else _explicitNullProperties?.Remove("self_approval_disabled"); } }
+        private bool? _explicitNullValueSelfApprovalDisabled = default!;
         /// <summary>The user_auth_required property</summary>
-        public bool? UserAuthRequired { get; set; }
+        public bool? UserAuthRequired { get => _explicitNullValueUserAuthRequired; set { _explicitNullValueUserAuthRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_auth_required"); else _explicitNullProperties?.Remove("user_auth_required"); } }
+        private bool? _explicitNullValueUserAuthRequired = default!;
         /// <summary>The user_groups_required property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UserGroupsRequired { get; set; }
+        public List<string>? UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
+        private List<string>? _explicitNullValueUserGroupsRequired = default!;
 #nullable restore
 #else
-        public List<string> UserGroupsRequired { get; set; }
+        public List<string> UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
+        private List<string> _explicitNullValueUserGroupsRequired = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions"/> and sets the default values.
@@ -41,7 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("self_approval_disabled", SelfApprovalDisabled);
             writer.WriteBoolValue("user_auth_required", UserAuthRequired);
             writer.WriteCollectionOfPrimitiveValues<string>("user_groups_required", UserGroupsRequired);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

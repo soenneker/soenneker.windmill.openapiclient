@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Apps_u.Guest_entry_by_custom_path.Ite
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntryByCustomPath200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntryByCustomPath200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntryByCustomPath200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntryByCustomPath200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The custom-path counterpart of `getGuestEntry`. Unauthenticated; 404 unless the app&apos;s execution mode is `guest`, and never on a deployment where guests are unavailable (the shared cloud). Returns the workspace too, since a custom URL may not carry it.

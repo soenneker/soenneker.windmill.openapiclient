@@ -48,7 +48,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Delete_for_user.Item.It
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete the draft a given user holds at a path, or, without `username`, every draft at that path (the legacy ownerless one and the caller&apos;s own included). Workspace admins / superadmins only, and only for script, flow, app and raw_app drafts. Unlike a discard of one&apos;s own draft through `drafts/update`, this returns 404 when nothing was deleted.

@@ -11,68 +11,100 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetAssetsGraph200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assets") is { } nullNodeAssets && nullNodeAssets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assets = null;
+            if (parseNode.GetChildNode("dbt_edges") is { } nullNodeDbtEdges && nullNodeDbtEdges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbtEdges = null;
+            if (parseNode.GetChildNode("dbt_graph_ingested_at") is { } nullNodeDbtGraphIngestedAt && nullNodeDbtGraphIngestedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbtGraphIngestedAt = null;
+            if (parseNode.GetChildNode("dbt_snapshot_job") is { } nullNodeDbtSnapshotJob && nullNodeDbtSnapshotJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbtSnapshotJob = null;
+            if (parseNode.GetChildNode("edges") is { } nullNodeEdges && nullNodeEdges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Edges = null;
+            if (parseNode.GetChildNode("macro_edges") is { } nullNodeMacroEdges && nullNodeMacroEdges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MacroEdges = null;
+            if (parseNode.GetChildNode("runnables") is { } nullNodeRunnables && nullNodeRunnables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Runnables = null;
+            if (parseNode.GetChildNode("test_edges") is { } nullNodeTestEdges && nullNodeTestEdges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestEdges = null;
+            if (parseNode.GetChildNode("triggers") is { } nullNodeTriggers && nullNodeTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triggers = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The assets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem>? Assets { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem>? Assets { get => _explicitNullValueAssets; set { _explicitNullValueAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assets"); else _explicitNullProperties?.Remove("assets"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem>? _explicitNullValueAssets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem> Assets { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem> Assets { get => _explicitNullValueAssets; set { _explicitNullValueAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assets"); else _explicitNullProperties?.Remove("assets"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItem> _explicitNullValueAssets = default!;
 #endif
         /// <summary>`ref()` lineage BETWEEN two dbt models, in the terms the canvas draws — the relations, not dbt&apos;s node ids. Without it every model hangs off the one dbt runnable and the project reads as a flat fan-out. Omitted when empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem>? DbtEdges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem>? DbtEdges { get => _explicitNullValueDbtEdges; set { _explicitNullValueDbtEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_edges"); else _explicitNullProperties?.Remove("dbt_edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem>? _explicitNullValueDbtEdges = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem> DbtEdges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem> DbtEdges { get => _explicitNullValueDbtEdges; set { _explicitNullValueDbtEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_edges"); else _explicitNullProperties?.Remove("dbt_edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseDbtEdgesItem> _explicitNullValueDbtEdges = default!;
 #endif
         /// <summary>When the dbt half on screen was parsed, for a graph pinned to a job. What the dbt editor labels its provenance with — &quot;parsed from the editor at 14:32&quot; against &quot;as of last deploy&quot; — since the two are drawn identically and the ambiguity would otherwise just move into the editor. Omitted for the unpinned workspace graph, which spans every project and so has no one time.</summary>
-        public DateTimeOffset? DbtGraphIngestedAt { get; set; }
+        public DateTimeOffset? DbtGraphIngestedAt { get => _explicitNullValueDbtGraphIngestedAt; set { _explicitNullValueDbtGraphIngestedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_graph_ingested_at"); else _explicitNullProperties?.Remove("dbt_graph_ingested_at"); } }
+        private DateTimeOffset? _explicitNullValueDbtGraphIngestedAt = default!;
         /// <summary>The job whose own snapshot the dbt half was resolved from, when one was asked for and found. A run page polls the graph while its job runs, because a dynamic descriptor&apos;s snapshot is written mid-run, and this is what tells it to stop. Omitted when the answer came from the version&apos;s deployed graph.</summary>
-        public Guid? DbtSnapshotJob { get; set; }
+        public Guid? DbtSnapshotJob { get => _explicitNullValueDbtSnapshotJob; set { _explicitNullValueDbtSnapshotJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_snapshot_job"); else _explicitNullProperties?.Remove("dbt_snapshot_job"); } }
+        private Guid? _explicitNullValueDbtSnapshotJob = default!;
         /// <summary>The edges property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem>? Edges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem>? Edges { get => _explicitNullValueEdges; set { _explicitNullValueEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edges"); else _explicitNullProperties?.Remove("edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem>? _explicitNullValueEdges = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem> Edges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem> Edges { get => _explicitNullValueEdges; set { _explicitNullValueEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edges"); else _explicitNullProperties?.Remove("edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseEdgesItem> _explicitNullValueEdges = default!;
 #endif
         /// <summary>Macro-library → consumer edges (deploy-recorded call detection plus `// use`). Omitted when empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem>? MacroEdges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem>? MacroEdges { get => _explicitNullValueMacroEdges; set { _explicitNullValueMacroEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("macro_edges"); else _explicitNullProperties?.Remove("macro_edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem>? _explicitNullValueMacroEdges = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem> MacroEdges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem> MacroEdges { get => _explicitNullValueMacroEdges; set { _explicitNullValueMacroEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("macro_edges"); else _explicitNullProperties?.Remove("macro_edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseMacroEdgesItem> _explicitNullValueMacroEdges = default!;
 #endif
         /// <summary>The runnables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>? Runnables { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>? Runnables { get => _explicitNullValueRunnables; set { _explicitNullValueRunnables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnables"); else _explicitNullProperties?.Remove("runnables"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>? _explicitNullValueRunnables = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem> Runnables { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem> Runnables { get => _explicitNullValueRunnables; set { _explicitNullValueRunnables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnables"); else _explicitNullProperties?.Remove("runnables"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem> _explicitNullValueRunnables = default!;
 #endif
         /// <summary>Ordering-only &quot;must-run-after&quot; edges — a `// data_test relationships` (or custom test reading a pipeline asset) requires the referenced asset&apos;s producer to run before the tested script. Not a data-consumption edge; fed into the cascade topo-sort so cold runs order correctly. Omitted when empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem>? TestEdges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem>? TestEdges { get => _explicitNullValueTestEdges; set { _explicitNullValueTestEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_edges"); else _explicitNullProperties?.Remove("test_edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem>? _explicitNullValueTestEdges = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem> TestEdges { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem> TestEdges { get => _explicitNullValueTestEdges; set { _explicitNullValueTestEdges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_edges"); else _explicitNullProperties?.Remove("test_edges"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem> _explicitNullValueTestEdges = default!;
 #endif
         /// <summary>The triggers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem>? Triggers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem>? Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem>? _explicitNullValueTriggers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem> Triggers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem> Triggers { get => _explicitNullValueTriggers; set { _explicitNullValueTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers"); else _explicitNullProperties?.Remove("triggers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem> _explicitNullValueTriggers = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200Response"/> and sets the default values.
@@ -89,7 +121,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -126,6 +158,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseRunnablesItem>("runnables", Runnables);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTestEdgesItem>("test_edges", TestEdges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem>("triggers", Triggers);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

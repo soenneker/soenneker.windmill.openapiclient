@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Agent.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<Guid?>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<Guid?>(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Runs the `ai_agent` resource at `path` as stored, for any caller who can read it(operators included). The run is the caller&apos;s, or the agent&apos;s `on_behalf_of` when its`run_on_behalf_of` is set; the caller&apos;s inputs may then not reference variables orresources. With `memory_id`, the run is a turnof the caller&apos;s conversation with the agent; without, a single run.

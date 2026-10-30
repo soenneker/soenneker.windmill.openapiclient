@@ -12,120 +12,184 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListCompletedJobs200ResponseSchemaItemRawFlow : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cache_ignore_s3_path") is { } nullNodeCacheIgnoreS3Path && nullNodeCacheIgnoreS3Path.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheIgnoreS3Path = null;
+            if (parseNode.GetChildNode("cache_ttl") is { } nullNodeCacheTtl && nullNodeCacheTtl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheTtl = null;
+            if (parseNode.GetChildNode("chat_input_enabled") is { } nullNodeChatInputEnabled && nullNodeChatInputEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChatInputEnabled = null;
+            if (parseNode.GetChildNode("concurrency_key") is { } nullNodeConcurrencyKey && nullNodeConcurrencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrencyKey = null;
+            if (parseNode.GetChildNode("concurrency_time_window_s") is { } nullNodeConcurrencyTimeWindowS && nullNodeConcurrencyTimeWindowS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrencyTimeWindowS = null;
+            if (parseNode.GetChildNode("concurrent_limit") is { } nullNodeConcurrentLimit && nullNodeConcurrentLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrentLimit = null;
+            if (parseNode.GetChildNode("debounce_args_to_accumulate") is { } nullNodeDebounceArgsToAccumulate && nullNodeDebounceArgsToAccumulate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DebounceArgsToAccumulate = null;
+            if (parseNode.GetChildNode("debounce_delay_s") is { } nullNodeDebounceDelayS && nullNodeDebounceDelayS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DebounceDelayS = null;
+            if (parseNode.GetChildNode("debounce_key") is { } nullNodeDebounceKey && nullNodeDebounceKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DebounceKey = null;
+            if (parseNode.GetChildNode("delete_after_secs") is { } nullNodeDeleteAfterSecs && nullNodeDeleteAfterSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeleteAfterSecs = null;
+            if (parseNode.GetChildNode("early_return") is { } nullNodeEarlyReturn && nullNodeEarlyReturn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EarlyReturn = null;
+            if (parseNode.GetChildNode("failure_module") is { } nullNodeFailureModule && nullNodeFailureModule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureModule = null;
+            if (parseNode.GetChildNode("flow_env") is { } nullNodeFlowEnv && nullNodeFlowEnv.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowEnv = null;
+            if (parseNode.GetChildNode("groups") is { } nullNodeGroups && nullNodeGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Groups = null;
+            if (parseNode.GetChildNode("max_total_debounces_amount") is { } nullNodeMaxTotalDebouncesAmount && nullNodeMaxTotalDebouncesAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTotalDebouncesAmount = null;
+            if (parseNode.GetChildNode("max_total_debouncing_time") is { } nullNodeMaxTotalDebouncingTime && nullNodeMaxTotalDebouncingTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTotalDebouncingTime = null;
+            if (parseNode.GetChildNode("modules") is { } nullNodeModules && nullNodeModules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Modules = null;
+            if (parseNode.GetChildNode("notes") is { } nullNodeNotes && nullNodeNotes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Notes = null;
+            if (parseNode.GetChildNode("preprocessor_module") is { } nullNodePreprocessorModule && nullNodePreprocessorModule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreprocessorModule = null;
+            if (parseNode.GetChildNode("preserve_step_tags") is { } nullNodePreserveStepTags && nullNodePreserveStepTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreserveStepTags = null;
+            if (parseNode.GetChildNode("priority") is { } nullNodePriority && nullNodePriority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Priority = null;
+            if (parseNode.GetChildNode("same_worker") is { } nullNodeSameWorker && nullNodeSameWorker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SameWorker = null;
+            if (parseNode.GetChildNode("skip_expr") is { } nullNodeSkipExpr && nullNodeSkipExpr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipExpr = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The cache_ignore_s3_path property</summary>
-        public bool? CacheIgnoreS3Path { get; set; }
+        public bool? CacheIgnoreS3Path { get => _explicitNullValueCacheIgnoreS3Path; set { _explicitNullValueCacheIgnoreS3Path = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_ignore_s3_path"); else _explicitNullProperties?.Remove("cache_ignore_s3_path"); } }
+        private bool? _explicitNullValueCacheIgnoreS3Path = default!;
         /// <summary>Cache duration in seconds for flow results</summary>
-        public double? CacheTtl { get; set; }
+        public double? CacheTtl { get => _explicitNullValueCacheTtl; set { _explicitNullValueCacheTtl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache_ttl"); else _explicitNullProperties?.Remove("cache_ttl"); } }
+        private double? _explicitNullValueCacheTtl = default!;
         /// <summary>Whether this flow accepts chat-style input</summary>
-        public bool? ChatInputEnabled { get; set; }
+        public bool? ChatInputEnabled { get => _explicitNullValueChatInputEnabled; set { _explicitNullValueChatInputEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chat_input_enabled"); else _explicitNullProperties?.Remove("chat_input_enabled"); } }
+        private bool? _explicitNullValueChatInputEnabled = default!;
         /// <summary>Expression to group concurrent executions (e.g., by user ID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConcurrencyKey { get; set; }
+        public string? ConcurrencyKey { get => _explicitNullValueConcurrencyKey; set { _explicitNullValueConcurrencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_key"); else _explicitNullProperties?.Remove("concurrency_key"); } }
+        private string? _explicitNullValueConcurrencyKey = default!;
 #nullable restore
 #else
-        public string ConcurrencyKey { get; set; }
+        public string ConcurrencyKey { get => _explicitNullValueConcurrencyKey; set { _explicitNullValueConcurrencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_key"); else _explicitNullProperties?.Remove("concurrency_key"); } }
+        private string _explicitNullValueConcurrencyKey = default!;
 #endif
         /// <summary>Time window in seconds for concurrent_limit</summary>
-        public double? ConcurrencyTimeWindowS { get; set; }
+        public double? ConcurrencyTimeWindowS { get => _explicitNullValueConcurrencyTimeWindowS; set { _explicitNullValueConcurrencyTimeWindowS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_time_window_s"); else _explicitNullProperties?.Remove("concurrency_time_window_s"); } }
+        private double? _explicitNullValueConcurrencyTimeWindowS = default!;
         /// <summary>Maximum number of concurrent executions of this flow</summary>
-        public double? ConcurrentLimit { get; set; }
+        public double? ConcurrentLimit { get => _explicitNullValueConcurrentLimit; set { _explicitNullValueConcurrentLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrent_limit"); else _explicitNullProperties?.Remove("concurrent_limit"); } }
+        private double? _explicitNullValueConcurrentLimit = default!;
         /// <summary>Arguments to accumulate across debounced executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DebounceArgsToAccumulate { get; set; }
+        public List<string>? DebounceArgsToAccumulate { get => _explicitNullValueDebounceArgsToAccumulate; set { _explicitNullValueDebounceArgsToAccumulate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_args_to_accumulate"); else _explicitNullProperties?.Remove("debounce_args_to_accumulate"); } }
+        private List<string>? _explicitNullValueDebounceArgsToAccumulate = default!;
 #nullable restore
 #else
-        public List<string> DebounceArgsToAccumulate { get; set; }
+        public List<string> DebounceArgsToAccumulate { get => _explicitNullValueDebounceArgsToAccumulate; set { _explicitNullValueDebounceArgsToAccumulate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_args_to_accumulate"); else _explicitNullProperties?.Remove("debounce_args_to_accumulate"); } }
+        private List<string> _explicitNullValueDebounceArgsToAccumulate = default!;
 #endif
         /// <summary>Delay in seconds to debounce flow executions</summary>
-        public int? DebounceDelayS { get; set; }
+        public int? DebounceDelayS { get => _explicitNullValueDebounceDelayS; set { _explicitNullValueDebounceDelayS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_delay_s"); else _explicitNullProperties?.Remove("debounce_delay_s"); } }
+        private int? _explicitNullValueDebounceDelayS = default!;
         /// <summary>Expression to group debounced executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DebounceKey { get; set; }
+        public string? DebounceKey { get => _explicitNullValueDebounceKey; set { _explicitNullValueDebounceKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_key"); else _explicitNullProperties?.Remove("debounce_key"); } }
+        private string? _explicitNullValueDebounceKey = default!;
 #nullable restore
 #else
-        public string DebounceKey { get; set; }
+        public string DebounceKey { get => _explicitNullValueDebounceKey; set { _explicitNullValueDebounceKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_key"); else _explicitNullProperties?.Remove("debounce_key"); } }
+        private string _explicitNullValueDebounceKey = default!;
 #endif
         /// <summary>If set, delete the flow job&apos;s args, result and logs after this many seconds following job completion</summary>
-        public int? DeleteAfterSecs { get; set; }
+        public int? DeleteAfterSecs { get => _explicitNullValueDeleteAfterSecs; set { _explicitNullValueDeleteAfterSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delete_after_secs"); else _explicitNullProperties?.Remove("delete_after_secs"); } }
+        private int? _explicitNullValueDeleteAfterSecs = default!;
         /// <summary>Id of the step whose result a sync webhook returns as soon as that step completes, while the rest of the flow keeps running. When the step does not run, or fails while the flow has a failure module, the flow&apos;s final result is returned instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EarlyReturn { get; set; }
+        public string? EarlyReturn { get => _explicitNullValueEarlyReturn; set { _explicitNullValueEarlyReturn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("early_return"); else _explicitNullProperties?.Remove("early_return"); } }
+        private string? _explicitNullValueEarlyReturn = default!;
 #nullable restore
 #else
-        public string EarlyReturn { get; set; }
+        public string EarlyReturn { get => _explicitNullValueEarlyReturn; set { _explicitNullValueEarlyReturn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("early_return"); else _explicitNullProperties?.Remove("early_return"); } }
+        private string _explicitNullValueEarlyReturn = default!;
 #endif
         /// <summary>A single step in a flow. Can be a script, subflow, loop, or branch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFailureModule? FailureModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFailureModule? FailureModule { get => _explicitNullValueFailureModule; set { _explicitNullValueFailureModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_module"); else _explicitNullProperties?.Remove("failure_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFailureModule? _explicitNullValueFailureModule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFailureModule FailureModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFailureModule FailureModule { get => _explicitNullValueFailureModule; set { _explicitNullValueFailureModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_module"); else _explicitNullProperties?.Remove("failure_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFailureModule _explicitNullValueFailureModule = default!;
 #endif
         /// <summary>Environment variables available to all steps. Values can be strings, JSON values, or special references: &apos;$var:path&apos; (workspace variable) or &apos;$res:path&apos; (resource).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFlowEnv? FlowEnv { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFlowEnv? FlowEnv { get => _explicitNullValueFlowEnv; set { _explicitNullValueFlowEnv = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_env"); else _explicitNullProperties?.Remove("flow_env"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFlowEnv? _explicitNullValueFlowEnv = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFlowEnv FlowEnv { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFlowEnv FlowEnv { get => _explicitNullValueFlowEnv; set { _explicitNullValueFlowEnv = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_env"); else _explicitNullProperties?.Remove("flow_env"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowFlowEnv _explicitNullValueFlowEnv = default!;
 #endif
         /// <summary>Semantic groups of modules for organizational purposes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowGroupsItem>? Groups { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowGroupsItem>? Groups { get => _explicitNullValueGroups; set { _explicitNullValueGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups"); else _explicitNullProperties?.Remove("groups"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowGroupsItem>? _explicitNullValueGroups = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowGroupsItem> Groups { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowGroupsItem> Groups { get => _explicitNullValueGroups; set { _explicitNullValueGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("groups"); else _explicitNullProperties?.Remove("groups"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowGroupsItem> _explicitNullValueGroups = default!;
 #endif
         /// <summary>Maximum number of times a job can be debounced</summary>
-        public int? MaxTotalDebouncesAmount { get; set; }
+        public int? MaxTotalDebouncesAmount { get => _explicitNullValueMaxTotalDebouncesAmount; set { _explicitNullValueMaxTotalDebouncesAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_total_debounces_amount"); else _explicitNullProperties?.Remove("max_total_debounces_amount"); } }
+        private int? _explicitNullValueMaxTotalDebouncesAmount = default!;
         /// <summary>Maximum total time in seconds that a job can be debounced</summary>
-        public int? MaxTotalDebouncingTime { get; set; }
+        public int? MaxTotalDebouncingTime { get => _explicitNullValueMaxTotalDebouncingTime; set { _explicitNullValueMaxTotalDebouncingTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_total_debouncing_time"); else _explicitNullProperties?.Remove("max_total_debouncing_time"); } }
+        private int? _explicitNullValueMaxTotalDebouncingTime = default!;
         /// <summary>Array of steps that execute in sequence. Each step can be a script, subflow, loop, or branch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowModulesItem>? Modules { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowModulesItem>? Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowModulesItem>? _explicitNullValueModules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowModulesItem> Modules { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowModulesItem> Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowModulesItem> _explicitNullValueModules = default!;
 #endif
         /// <summary>Sticky notes attached to the flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowNotesItem>? Notes { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowNotesItem>? Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowNotesItem>? _explicitNullValueNotes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowNotesItem> Notes { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowNotesItem> Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowNotesItem> _explicitNullValueNotes = default!;
 #endif
         /// <summary>A single step in a flow. Can be a script, subflow, loop, or branch</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowPreprocessorModule? PreprocessorModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowPreprocessorModule? PreprocessorModule { get => _explicitNullValuePreprocessorModule; set { _explicitNullValuePreprocessorModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_module"); else _explicitNullProperties?.Remove("preprocessor_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowPreprocessorModule? _explicitNullValuePreprocessorModule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowPreprocessorModule PreprocessorModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowPreprocessorModule PreprocessorModule { get => _explicitNullValuePreprocessorModule; set { _explicitNullValuePreprocessorModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_module"); else _explicitNullProperties?.Remove("preprocessor_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseItemRawFlowPreprocessorModule _explicitNullValuePreprocessorModule = default!;
 #endif
         /// <summary>If true and the flow runs on a custom worker tag, steps that declare their own non-empty tag run on it instead of inheriting the flow tag. Steps without their own tag still inherit the flow tag.</summary>
-        public bool? PreserveStepTags { get; set; }
+        public bool? PreserveStepTags { get => _explicitNullValuePreserveStepTags; set { _explicitNullValuePreserveStepTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_step_tags"); else _explicitNullProperties?.Remove("preserve_step_tags"); } }
+        private bool? _explicitNullValuePreserveStepTags = default!;
         /// <summary>Execution priority (higher numbers run first)</summary>
-        public double? Priority { get; set; }
+        public double? Priority { get => _explicitNullValuePriority; set { _explicitNullValuePriority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("priority"); else _explicitNullProperties?.Remove("priority"); } }
+        private double? _explicitNullValuePriority = default!;
         /// <summary>If true, all steps run on the same worker for better performance</summary>
-        public bool? SameWorker { get; set; }
+        public bool? SameWorker { get => _explicitNullValueSameWorker; set { _explicitNullValueSameWorker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("same_worker"); else _explicitNullProperties?.Remove("same_worker"); } }
+        private bool? _explicitNullValueSameWorker = default!;
         /// <summary>JavaScript expression to conditionally skip the entire flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SkipExpr { get; set; }
+        public string? SkipExpr { get => _explicitNullValueSkipExpr; set { _explicitNullValueSkipExpr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_expr"); else _explicitNullProperties?.Remove("skip_expr"); } }
+        private string? _explicitNullValueSkipExpr = default!;
 #nullable restore
 #else
-        public string SkipExpr { get; set; }
+        public string SkipExpr { get => _explicitNullValueSkipExpr; set { _explicitNullValueSkipExpr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_expr"); else _explicitNullProperties?.Remove("skip_expr"); } }
+        private string _explicitNullValueSkipExpr = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow"/> and sets the default values.
@@ -142,7 +206,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListCompletedJobs200ResponseSchemaItemRawFlow(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -207,6 +271,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("priority", Priority);
             writer.WriteBoolValue("same_worker", SameWorker);
             writer.WriteStringValue("skip_expr", SkipExpr);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

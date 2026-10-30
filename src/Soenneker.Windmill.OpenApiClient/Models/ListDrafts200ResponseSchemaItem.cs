@@ -11,55 +11,88 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListDrafts200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("can_write") is { } nullNodeCanWrite && nullNodeCanWrite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanWrite = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("draft_only") is { } nullNodeDraftOnly && nullNodeDraftOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DraftOnly = null;
+            if (parseNode.GetChildNode("draft_path") is { } nullNodeDraftPath && nullNodeDraftPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DraftPath = null;
+            if (parseNode.GetChildNode("draft_users") is { } nullNodeDraftUsers && nullNodeDraftUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DraftUsers = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("legacy_draft") is { } nullNodeLegacyDraft && nullNodeLegacyDraft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegacyDraft = null;
+            if (parseNode.GetChildNode("mine") is { } nullNodeMine && nullNodeMine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mine = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+            if (parseNode.GetChildNode("unchanged_from_parent") is { } nullNodeUnchangedFromParent && nullNodeUnchangedFromParent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnchangedFromParent = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the current user may deploy/discard this draft (same check the deploy/discard endpoints enforce).</summary>
-        public bool? CanWrite { get; set; }
+        public bool? CanWrite { get => _explicitNullValueCanWrite; set { _explicitNullValueCanWrite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_write"); else _explicitNullProperties?.Remove("can_write"); } }
+        private bool? _explicitNullValueCanWrite = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>No deployed counterpart exists at this path — the draft is the whole item.</summary>
-        public bool? DraftOnly { get; set; }
+        public bool? DraftOnly { get => _explicitNullValueDraftOnly; set { _explicitNullValueDraftOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft_only"); else _explicitNullProperties?.Remove("draft_only"); } }
+        private bool? _explicitNullValueDraftOnly = default!;
         /// <summary>User-typed friendly path from the draft JSON&apos;s `draft_path`, when set and different from the storage path (e.g. a never-deployed item parked at `u/{user}/draft_{uuid}`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DraftPath { get; set; }
+        public string? DraftPath { get => _explicitNullValueDraftPath; set { _explicitNullValueDraftPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft_path"); else _explicitNullProperties?.Remove("draft_path"); } }
+        private string? _explicitNullValueDraftPath = default!;
 #nullable restore
 #else
-        public string DraftPath { get; set; }
+        public string DraftPath { get => _explicitNullValueDraftPath; set { _explicitNullValueDraftPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft_path"); else _explicitNullProperties?.Remove("draft_path"); } }
+        private string _explicitNullValueDraftPath = default!;
 #endif
         /// <summary>Draft authors at this (path, kind) — the legacy NULL-email row surfaced as a null username.Populated only for the shared full-page-editor kinds (script/flow/app/raw_app); omitted fordrawer kinds, which keep their drafts private. Feeds the Draft badge&apos;s owner-avatar circles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem>? DraftUsers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem>? DraftUsers { get => _explicitNullValueDraftUsers; set { _explicitNullValueDraftUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft_users"); else _explicitNullProperties?.Remove("draft_users"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem>? _explicitNullValueDraftUsers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem> DraftUsers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem> DraftUsers { get => _explicitNullValueDraftUsers; set { _explicitNullValueDraftUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft_users"); else _explicitNullProperties?.Remove("draft_users"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemDraftUsersItem> _explicitNullValueDraftUsers = default!;
 #endif
         /// <summary>Closed set of item kinds a user can autosave as a draft. Mirrors thePostgres `DRAFT_KIND` enum and the backend `UserDraftItemKind`.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind? Kind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseItemKind? _explicitNullValueKind = default!;
         /// <summary>The listed draft is a legacy workspace-level row (email NULL) predating the per-user drafts migration. Only true when no per-user draft exists at this path.</summary>
-        public bool? LegacyDraft { get; set; }
+        public bool? LegacyDraft { get => _explicitNullValueLegacyDraft; set { _explicitNullValueLegacyDraft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legacy_draft"); else _explicitNullProperties?.Remove("legacy_draft"); } }
+        private bool? _explicitNullValueLegacyDraft = default!;
         /// <summary>The row belongs to the current user (own draft or the legacy no-owner row) and is therefore actionable. Always true in the default listing; with `all_users=true`, other users&apos; rows are false (view-only).</summary>
-        public bool? Mine { get; set; }
+        public bool? Mine { get => _explicitNullValueMine; set { _explicitNullValueMine = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mine"); else _explicitNullProperties?.Remove("mine"); } }
+        private bool? _explicitNullValueMine = default!;
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>Best-effort, read from the draft JSON&apos;s `summary` field when the editor shape carries one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Summary { get; set; }
+        public string? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private string? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public string Summary { get; set; }
+        public string Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private string _explicitNullValueSummary = default!;
 #endif
         /// <summary>Only present when `compare_to_workspace` was passed. True when this draft is identical to the parent&apos;s draft at the same path/kind/owner (cloned in on fork and never edited here).</summary>
-        public bool? UnchangedFromParent { get; set; }
+        public bool? UnchangedFromParent { get => _explicitNullValueUnchangedFromParent; set { _explicitNullValueUnchangedFromParent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unchanged_from_parent"); else _explicitNullProperties?.Remove("unchanged_from_parent"); } }
+        private bool? _explicitNullValueUnchangedFromParent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -75,7 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseSchemaItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListDrafts200ResponseSchemaItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,6 +149,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("summary", Summary);
             writer.WriteBoolValue("unchanged_from_parent", UnchangedFromParent);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,42 +11,63 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GenerateOpenApiSpecRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("http_route_filters") is { } nullNodeHttpRouteFilters && nullNodeHttpRouteFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpRouteFilters = null;
+            if (parseNode.GetChildNode("info") is { } nullNodeInfo && nullNodeInfo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Info = null;
+            if (parseNode.GetChildNode("openapi_spec_format") is { } nullNodeOpenapiSpecFormat && nullNodeOpenapiSpecFormat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenapiSpecFormat = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("webhook_filters") is { } nullNodeWebhookFilters && nullNodeWebhookFilters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookFilters = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The http_route_filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestHttpRouteFiltersItem>? HttpRouteFilters { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestHttpRouteFiltersItem>? HttpRouteFilters { get => _explicitNullValueHttpRouteFilters; set { _explicitNullValueHttpRouteFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_route_filters"); else _explicitNullProperties?.Remove("http_route_filters"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestHttpRouteFiltersItem>? _explicitNullValueHttpRouteFilters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestHttpRouteFiltersItem> HttpRouteFilters { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestHttpRouteFiltersItem> HttpRouteFilters { get => _explicitNullValueHttpRouteFilters; set { _explicitNullValueHttpRouteFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_route_filters"); else _explicitNullProperties?.Remove("http_route_filters"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestHttpRouteFiltersItem> _explicitNullValueHttpRouteFilters = default!;
 #endif
         /// <summary>The info property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestInfo? Info { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestInfo? Info { get => _explicitNullValueInfo; set { _explicitNullValueInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("info"); else _explicitNullProperties?.Remove("info"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestInfo? _explicitNullValueInfo = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestInfo Info { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestInfo Info { get => _explicitNullValueInfo; set { _explicitNullValueInfo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("info"); else _explicitNullProperties?.Remove("info"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestInfo _explicitNullValueInfo = default!;
 #endif
         /// <summary>The openapi_spec_format property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestOpenApiSpecFormat? OpenapiSpecFormat { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestOpenApiSpecFormat? OpenapiSpecFormat { get => _explicitNullValueOpenapiSpecFormat; set { _explicitNullValueOpenapiSpecFormat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("openapi_spec_format"); else _explicitNullProperties?.Remove("openapi_spec_format"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestOpenApiSpecFormat? _explicitNullValueOpenapiSpecFormat = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>The webhook_filters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestWebhookFiltersItem>? WebhookFilters { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestWebhookFiltersItem>? WebhookFilters { get => _explicitNullValueWebhookFilters; set { _explicitNullValueWebhookFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_filters"); else _explicitNullProperties?.Remove("webhook_filters"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestWebhookFiltersItem>? _explicitNullValueWebhookFilters = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestWebhookFiltersItem> WebhookFilters { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestWebhookFiltersItem> WebhookFilters { get => _explicitNullValueWebhookFilters; set { _explicitNullValueWebhookFilters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_filters"); else _explicitNullProperties?.Remove("webhook_filters"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestWebhookFiltersItem> _explicitNullValueWebhookFilters = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequest"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestOpenApiSpecFormat>("openapi_spec_format", OpenapiSpecFormat);
             writer.WriteStringValue("url", Url);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GenerateOpenApiSpecRequestWebhookFiltersItem>("webhook_filters", WebhookFilters);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_graph.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The workspace asset graph with its dbt half pinned to what a single run built. Only a dynamic descriptor (a `{{ }}` placeholder in `vars`) leaves a per-run snapshot; without one for this job the pinned version&apos;s own graph answers, so a run page may use this route unconditionally. Authorized through the job, the same gate as `run_progress` — pinning to a run is job-scoped, which is why `assets/graph` cannot do it.

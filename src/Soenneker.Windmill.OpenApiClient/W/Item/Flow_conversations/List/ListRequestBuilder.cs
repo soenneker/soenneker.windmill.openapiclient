@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,kind*,page*,per_page*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,kind*,mine*,page*,per_page*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,kind*,page*,per_page*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/flow_conversations/list{?flow_path*,kind*,mine*,page*,per_page*}", rawUrl)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItem.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItem>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversations200ResponseSchemaItem.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
             return collectionResult?.AsList();
         }
         /// <summary>
@@ -99,6 +99,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Flow_conversations.List
             /// <summary>which conversations to list - the flow editor&apos;s test chats, the deployed flow&apos;s own (the default), or both</summary>
             [QueryParameter("kind")]
             public global::Soenneker.Windmill.OpenApiClient.Models.ListFlowConversationsKindParameter? Kind { get; set; }
+            /// <summary>only list the caller&apos;s own conversations (an admin otherwise lists every user&apos;s)</summary>
+            [QueryParameter("mine")]
+            public bool? Mine { get; set; }
             /// <summary>which page to return (start at 1, default 1)</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }

@@ -12,31 +12,50 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetSettings200ResponseVariableExpirationHandler : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("extra_args") is { } nullNodeExtraArgs && nullNodeExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraArgs = null;
+            if (parseNode.GetChildNode("muted_on_user_path") is { } nullNodeMutedOnUserPath && nullNodeMutedOnUserPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnUserPath = null;
+            if (parseNode.GetChildNode("notify_before_secs") is { } nullNodeNotifyBeforeSecs && nullNodeNotifyBeforeSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotifyBeforeSecs = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("remind_every_secs") is { } nullNodeRemindEverySecs && nullNodeRemindEverySecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemindEverySecs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs? ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs? ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs? _explicitNullValueExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs _explicitNullValueExtraArgs = default!;
 #endif
         /// <summary>The muted_on_user_path property</summary>
-        public bool? MutedOnUserPath { get; set; }
+        public bool? MutedOnUserPath { get => _explicitNullValueMutedOnUserPath; set { _explicitNullValueMutedOnUserPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_user_path"); else _explicitNullProperties?.Remove("muted_on_user_path"); } }
+        private bool? _explicitNullValueMutedOnUserPath = default!;
         /// <summary>The notify_before_secs property</summary>
-        public int? NotifyBeforeSecs { get; set; }
+        public int? NotifyBeforeSecs { get => _explicitNullValueNotifyBeforeSecs; set { _explicitNullValueNotifyBeforeSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notify_before_secs"); else _explicitNullProperties?.Remove("notify_before_secs"); } }
+        private int? _explicitNullValueNotifyBeforeSecs = default!;
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The remind_every_secs property</summary>
-        public int? RemindEverySecs { get; set; }
+        public int? RemindEverySecs { get => _explicitNullValueRemindEverySecs; set { _explicitNullValueRemindEverySecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remind_every_secs"); else _explicitNullProperties?.Remove("remind_every_secs"); } }
+        private int? _explicitNullValueRemindEverySecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler"/> and sets the default values.
         /// </summary>
@@ -52,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("notify_before_secs", NotifyBeforeSecs);
             writer.WriteStringValue("path", Path);
             writer.WriteIntValue("remind_every_secs", RemindEverySecs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

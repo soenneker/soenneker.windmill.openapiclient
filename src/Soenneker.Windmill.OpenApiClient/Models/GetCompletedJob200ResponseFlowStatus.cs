@@ -11,50 +11,74 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetCompletedJob200ResponseFlowStatus : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("failure_module") is { } nullNodeFailureModule && nullNodeFailureModule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureModule = null;
+            if (parseNode.GetChildNode("modules") is { } nullNodeModules && nullNodeModules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Modules = null;
+            if (parseNode.GetChildNode("preprocessor_module") is { } nullNodePreprocessorModule && nullNodePreprocessorModule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreprocessorModule = null;
+            if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
+            if (parseNode.GetChildNode("step") is { } nullNodeStep && nullNodeStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Step = null;
+            if (parseNode.GetChildNode("user_states") is { } nullNodeUserStates && nullNodeUserStates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserStates = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The failure_module property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusFailureModule? FailureModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusFailureModule? FailureModule { get => _explicitNullValueFailureModule; set { _explicitNullValueFailureModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_module"); else _explicitNullProperties?.Remove("failure_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusFailureModule? _explicitNullValueFailureModule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusFailureModule FailureModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusFailureModule FailureModule { get => _explicitNullValueFailureModule; set { _explicitNullValueFailureModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_module"); else _explicitNullProperties?.Remove("failure_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusFailureModule _explicitNullValueFailureModule = default!;
 #endif
         /// <summary>The modules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusModulesItem>? Modules { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusModulesItem>? Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusModulesItem>? _explicitNullValueModules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusModulesItem> Modules { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusModulesItem> Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusModulesItem> _explicitNullValueModules = default!;
 #endif
         /// <summary>The preprocessor_module property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusPreprocessorModule? PreprocessorModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusPreprocessorModule? PreprocessorModule { get => _explicitNullValuePreprocessorModule; set { _explicitNullValuePreprocessorModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_module"); else _explicitNullProperties?.Remove("preprocessor_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusPreprocessorModule? _explicitNullValuePreprocessorModule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusPreprocessorModule PreprocessorModule { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusPreprocessorModule PreprocessorModule { get => _explicitNullValuePreprocessorModule; set { _explicitNullValuePreprocessorModule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_module"); else _explicitNullProperties?.Remove("preprocessor_module"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusPreprocessorModule _explicitNullValuePreprocessorModule = default!;
 #endif
         /// <summary>The retry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusRetry? Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusRetry? Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusRetry? _explicitNullValueRetry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusRetry Retry { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusRetry Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusRetry _explicitNullValueRetry = default!;
 #endif
         /// <summary>The step property</summary>
-        public int? Step { get; set; }
+        public int? Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
+        private int? _explicitNullValueStep = default!;
         /// <summary>The user_states property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? UserStates { get; set; }
+        public UntypedNode? UserStates { get => _explicitNullValueUserStates; set { _explicitNullValueUserStates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_states"); else _explicitNullProperties?.Remove("user_states"); } }
+        private UntypedNode? _explicitNullValueUserStates = default!;
 #nullable restore
 #else
-        public UntypedNode UserStates { get; set; }
+        public UntypedNode UserStates { get => _explicitNullValueUserStates; set { _explicitNullValueUserStates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_states"); else _explicitNullProperties?.Remove("user_states"); } }
+        private UntypedNode _explicitNullValueUserStates = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatus"/> and sets the default values.
@@ -71,7 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,6 +126,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedJob200ResponseFlowStatusRetry>("retry", Retry);
             writer.WriteIntValue("step", Step);
             writer.WriteObjectValue<UntypedNode>("user_states", UserStates);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

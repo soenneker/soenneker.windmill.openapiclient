@@ -11,66 +11,96 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MigrateSecretsToVaultRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("jwt_mount_path") is { } nullNodeJwtMountPath && nullNodeJwtMountPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtMountPath = null;
+            if (parseNode.GetChildNode("jwt_role") is { } nullNodeJwtRole && nullNodeJwtRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtRole = null;
+            if (parseNode.GetChildNode("kv_secret_path_prefix") is { } nullNodeKvSecretPathPrefix && nullNodeKvSecretPathPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KvSecretPathPrefix = null;
+            if (parseNode.GetChildNode("mount_path") is { } nullNodeMountPath && nullNodeMountPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MountPath = null;
+            if (parseNode.GetChildNode("namespace") is { } nullNodeNamespace && nullNodeNamespace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Namespace = null;
+            if (parseNode.GetChildNode("skip_ssl_verify") is { } nullNodeSkipSslVerify && nullNodeSkipSslVerify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipSslVerify = null;
+            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>HashiCorp Vault server address (e.g., https://vault.company.com:8200)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Address { get; set; }
+        public string? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public string Address { get; set; }
+        public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string _explicitNullValueAddress = default!;
 #endif
         /// <summary>Mount path for the JWT auth method in Vault (optional, defaults to &quot;jwt&quot;). Set this when the JWT auth method is mounted at a non-default path, e.g. via `vault auth enable -path=&lt;mount&gt; jwt`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JwtMountPath { get; set; }
+        public string? JwtMountPath { get => _explicitNullValueJwtMountPath; set { _explicitNullValueJwtMountPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_mount_path"); else _explicitNullProperties?.Remove("jwt_mount_path"); } }
+        private string? _explicitNullValueJwtMountPath = default!;
 #nullable restore
 #else
-        public string JwtMountPath { get; set; }
+        public string JwtMountPath { get => _explicitNullValueJwtMountPath; set { _explicitNullValueJwtMountPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_mount_path"); else _explicitNullProperties?.Remove("jwt_mount_path"); } }
+        private string _explicitNullValueJwtMountPath = default!;
 #endif
         /// <summary>Vault JWT auth role name for Windmill (optional, if not provided token auth is used)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JwtRole { get; set; }
+        public string? JwtRole { get => _explicitNullValueJwtRole; set { _explicitNullValueJwtRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_role"); else _explicitNullProperties?.Remove("jwt_role"); } }
+        private string? _explicitNullValueJwtRole = default!;
 #nullable restore
 #else
-        public string JwtRole { get; set; }
+        public string JwtRole { get => _explicitNullValueJwtRole; set { _explicitNullValueJwtRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_role"); else _explicitNullProperties?.Remove("jwt_role"); } }
+        private string _explicitNullValueJwtRole = default!;
 #endif
         /// <summary>Optional path prefix inserted between the KV data/metadata segment and the workspace id (e.g., &quot;apps/windmill&quot;). When set, secrets are stored at `&lt;mount&gt;/data/&lt;prefix&gt;/&lt;workspace&gt;/&lt;secret&gt;`, allowing a Vault policy scoped to exactly `&lt;mount&gt;/data/&lt;prefix&gt;/*`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KvSecretPathPrefix { get; set; }
+        public string? KvSecretPathPrefix { get => _explicitNullValueKvSecretPathPrefix; set { _explicitNullValueKvSecretPathPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kv_secret_path_prefix"); else _explicitNullProperties?.Remove("kv_secret_path_prefix"); } }
+        private string? _explicitNullValueKvSecretPathPrefix = default!;
 #nullable restore
 #else
-        public string KvSecretPathPrefix { get; set; }
+        public string KvSecretPathPrefix { get => _explicitNullValueKvSecretPathPrefix; set { _explicitNullValueKvSecretPathPrefix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kv_secret_path_prefix"); else _explicitNullProperties?.Remove("kv_secret_path_prefix"); } }
+        private string _explicitNullValueKvSecretPathPrefix = default!;
 #endif
         /// <summary>KV v2 secrets engine mount path (e.g., windmill)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MountPath { get; set; }
+        public string? MountPath { get => _explicitNullValueMountPath; set { _explicitNullValueMountPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_path"); else _explicitNullProperties?.Remove("mount_path"); } }
+        private string? _explicitNullValueMountPath = default!;
 #nullable restore
 #else
-        public string MountPath { get; set; }
+        public string MountPath { get => _explicitNullValueMountPath; set { _explicitNullValueMountPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_path"); else _explicitNullProperties?.Remove("mount_path"); } }
+        private string _explicitNullValueMountPath = default!;
 #endif
         /// <summary>Vault Enterprise namespace (optional)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Namespace { get; set; }
+        public string? Namespace { get => _explicitNullValueNamespace; set { _explicitNullValueNamespace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("namespace"); else _explicitNullProperties?.Remove("namespace"); } }
+        private string? _explicitNullValueNamespace = default!;
 #nullable restore
 #else
-        public string Namespace { get; set; }
+        public string Namespace { get => _explicitNullValueNamespace; set { _explicitNullValueNamespace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("namespace"); else _explicitNullProperties?.Remove("namespace"); } }
+        private string _explicitNullValueNamespace = default!;
 #endif
         /// <summary>Skip TLS certificate verification when connecting to Vault. Only use for self-signed certificates in development environments.</summary>
-        public bool? SkipSslVerify { get; set; }
+        public bool? SkipSslVerify { get => _explicitNullValueSkipSslVerify; set { _explicitNullValueSkipSslVerify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_ssl_verify"); else _explicitNullProperties?.Remove("skip_ssl_verify"); } }
+        private bool? _explicitNullValueSkipSslVerify = default!;
         /// <summary>Static Vault token for testing/development (optional, if provided this is used instead of JWT authentication)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string? _explicitNullValueToken = default!;
 #nullable restore
 #else
-        public string Token { get; set; }
+        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string _explicitNullValueToken = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToVaultRequest"/> and sets the default values.
@@ -87,7 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToVaultRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToVaultRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToVaultRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,6 +152,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("namespace", Namespace);
             writer.WriteBoolValue("skip_ssl_verify", SkipSslVerify);
             writer.WriteStringValue("token", Token);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

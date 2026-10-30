@@ -12,31 +12,50 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetJob200ResponseOneOf2RawFlowPreprocessorModuleDebouncing : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("debounce_args_to_accumulate") is { } nullNodeDebounceArgsToAccumulate && nullNodeDebounceArgsToAccumulate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DebounceArgsToAccumulate = null;
+            if (parseNode.GetChildNode("debounce_delay_s") is { } nullNodeDebounceDelayS && nullNodeDebounceDelayS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DebounceDelayS = null;
+            if (parseNode.GetChildNode("debounce_key") is { } nullNodeDebounceKey && nullNodeDebounceKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DebounceKey = null;
+            if (parseNode.GetChildNode("max_total_debounces_amount") is { } nullNodeMaxTotalDebouncesAmount && nullNodeMaxTotalDebouncesAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTotalDebouncesAmount = null;
+            if (parseNode.GetChildNode("max_total_debouncing_time") is { } nullNodeMaxTotalDebouncingTime && nullNodeMaxTotalDebouncingTime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTotalDebouncingTime = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Array-type arguments to accumulate across debounced executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DebounceArgsToAccumulate { get; set; }
+        public List<string>? DebounceArgsToAccumulate { get => _explicitNullValueDebounceArgsToAccumulate; set { _explicitNullValueDebounceArgsToAccumulate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_args_to_accumulate"); else _explicitNullProperties?.Remove("debounce_args_to_accumulate"); } }
+        private List<string>? _explicitNullValueDebounceArgsToAccumulate = default!;
 #nullable restore
 #else
-        public List<string> DebounceArgsToAccumulate { get; set; }
+        public List<string> DebounceArgsToAccumulate { get => _explicitNullValueDebounceArgsToAccumulate; set { _explicitNullValueDebounceArgsToAccumulate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_args_to_accumulate"); else _explicitNullProperties?.Remove("debounce_args_to_accumulate"); } }
+        private List<string> _explicitNullValueDebounceArgsToAccumulate = default!;
 #endif
         /// <summary>Delay in seconds to debounce this step&apos;s executions across flow runs</summary>
-        public int? DebounceDelayS { get; set; }
+        public int? DebounceDelayS { get => _explicitNullValueDebounceDelayS; set { _explicitNullValueDebounceDelayS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_delay_s"); else _explicitNullProperties?.Remove("debounce_delay_s"); } }
+        private int? _explicitNullValueDebounceDelayS = default!;
         /// <summary>Expression to group debounced executions. Supports $workspace and $args[name]. Default: $workspace/flow/&lt;flow_path&gt;-&lt;step_id&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DebounceKey { get; set; }
+        public string? DebounceKey { get => _explicitNullValueDebounceKey; set { _explicitNullValueDebounceKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_key"); else _explicitNullProperties?.Remove("debounce_key"); } }
+        private string? _explicitNullValueDebounceKey = default!;
 #nullable restore
 #else
-        public string DebounceKey { get; set; }
+        public string DebounceKey { get => _explicitNullValueDebounceKey; set { _explicitNullValueDebounceKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debounce_key"); else _explicitNullProperties?.Remove("debounce_key"); } }
+        private string _explicitNullValueDebounceKey = default!;
 #endif
         /// <summary>Maximum number of debounces before forced execution</summary>
-        public int? MaxTotalDebouncesAmount { get; set; }
+        public int? MaxTotalDebouncesAmount { get => _explicitNullValueMaxTotalDebouncesAmount; set { _explicitNullValueMaxTotalDebouncesAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_total_debounces_amount"); else _explicitNullProperties?.Remove("max_total_debounces_amount"); } }
+        private int? _explicitNullValueMaxTotalDebouncesAmount = default!;
         /// <summary>Maximum total time in seconds before forced execution</summary>
-        public int? MaxTotalDebouncingTime { get; set; }
+        public int? MaxTotalDebouncingTime { get => _explicitNullValueMaxTotalDebouncingTime; set { _explicitNullValueMaxTotalDebouncingTime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_total_debouncing_time"); else _explicitNullProperties?.Remove("max_total_debouncing_time"); } }
+        private int? _explicitNullValueMaxTotalDebouncingTime = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleDebouncing"/> and sets the default values.
         /// </summary>
@@ -52,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleDebouncing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleDebouncing();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetJob200ResponseOneOf2RawFlowPreprocessorModuleDebouncing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("debounce_key", DebounceKey);
             writer.WriteIntValue("max_total_debounces_amount", MaxTotalDebouncesAmount);
             writer.WriteIntValue("max_total_debouncing_time", MaxTotalDebouncingTime);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

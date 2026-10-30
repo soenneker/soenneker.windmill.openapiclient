@@ -11,18 +11,30 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SignS3ObjectsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("expiry_secs") is { } nullNodeExpirySecs && nullNodeExpirySecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirySecs = null;
+            if (parseNode.GetChildNode("s3_objects") is { } nullNodeS3Objects && nullNodeS3Objects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3Objects = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>how long the signature stays valid, in seconds. Defaults to 43200 (12h) and is clamped server-side to [60, 604800] (1 minute to 7 days).</summary>
-        public long? ExpirySecs { get; set; }
+        public long? ExpirySecs { get => _explicitNullValueExpirySecs; set { _explicitNullValueExpirySecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiry_secs"); else _explicitNullProperties?.Remove("expiry_secs"); } }
+        private long? _explicitNullValueExpirySecs = default!;
         /// <summary>The s3_objects property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem>? S3Objects { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem>? S3Objects { get => _explicitNullValueS3Objects; set { _explicitNullValueS3Objects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_objects"); else _explicitNullProperties?.Remove("s3_objects"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem>? _explicitNullValueS3Objects = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem> S3Objects { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem> S3Objects { get => _explicitNullValueS3Objects; set { _explicitNullValueS3Objects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_objects"); else _explicitNullProperties?.Remove("s3_objects"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem> _explicitNullValueS3Objects = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("expiry_secs", ExpirySecs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.SignS3ObjectsRequestS3ObjectsItem>("s3_objects", S3Objects);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

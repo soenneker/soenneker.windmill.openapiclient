@@ -12,20 +12,34 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetHealthDetailed503ResponseChecksDatabase : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("healthy") is { } nullNodeHealthy && nullNodeHealthy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Healthy = null;
+            if (parseNode.GetChildNode("latency_ms") is { } nullNodeLatencyMs && nullNodeLatencyMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatencyMs = null;
+            if (parseNode.GetChildNode("pool") is { } nullNodePool && nullNodePool.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pool = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the database is reachable</summary>
-        public bool? Healthy { get; set; }
+        public bool? Healthy { get => _explicitNullValueHealthy; set { _explicitNullValueHealthy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthy"); else _explicitNullProperties?.Remove("healthy"); } }
+        private bool? _explicitNullValueHealthy = default!;
         /// <summary>Database query latency in milliseconds</summary>
-        public long? LatencyMs { get; set; }
+        public long? LatencyMs { get => _explicitNullValueLatencyMs; set { _explicitNullValueLatencyMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latency_ms"); else _explicitNullProperties?.Remove("latency_ms"); } }
+        private long? _explicitNullValueLatencyMs = default!;
         /// <summary>Database connection pool statistics</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabasePool? Pool { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabasePool? Pool { get => _explicitNullValuePool; set { _explicitNullValuePool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool"); else _explicitNullProperties?.Remove("pool"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabasePool? _explicitNullValuePool = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabasePool Pool { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabasePool Pool { get => _explicitNullValuePool; set { _explicitNullValuePool = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pool"); else _explicitNullProperties?.Remove("pool"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabasePool _explicitNullValuePool = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabase"/> and sets the default values.
@@ -42,7 +56,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabase();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabase(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("healthy", Healthy);
             writer.WriteLongValue("latency_ms", LatencyMs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed503ResponseChecksDatabasePool>("pool", Pool);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

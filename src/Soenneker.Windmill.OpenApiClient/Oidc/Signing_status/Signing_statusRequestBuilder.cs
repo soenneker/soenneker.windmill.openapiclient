@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Oidc.Signing_status
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// what signs OIDC tokens and the keys the JWKS serves (ee only, superadmin)

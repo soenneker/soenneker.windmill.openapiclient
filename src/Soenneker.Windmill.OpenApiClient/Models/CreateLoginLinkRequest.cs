@@ -11,34 +11,52 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateLoginLinkRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("expires_in_s") is { } nullNodeExpiresInS && nullNodeExpiresInS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInS = null;
+            if (parseNode.GetChildNode("rd") is { } nullNodeRd && nullNodeRd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rd = null;
+            if (parseNode.GetChildNode("require_login_type") is { } nullNodeRequireLoginType && nullNodeRequireLoginType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireLoginType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>link lifetime in seconds, at most 900 (default 600)</summary>
-        public int? ExpiresInS { get; set; }
+        public int? ExpiresInS { get => _explicitNullValueExpiresInS; set { _explicitNullValueExpiresInS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in_s"); else _explicitNullProperties?.Remove("expires_in_s"); } }
+        private int? _explicitNullValueExpiresInS = default!;
         /// <summary>same-origin path the browser lands on after login (default /user/workspaces)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rd { get; set; }
+        public string? Rd { get => _explicitNullValueRd; set { _explicitNullValueRd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rd"); else _explicitNullProperties?.Remove("rd"); } }
+        private string? _explicitNullValueRd = default!;
 #nullable restore
 #else
-        public string Rd { get; set; }
+        public string Rd { get => _explicitNullValueRd; set { _explicitNullValueRd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rd"); else _explicitNullProperties?.Remove("rd"); } }
+        private string _explicitNullValueRd = default!;
 #endif
         /// <summary>mint only while the account still has this login type (for example pending_oauth), so a link stops working once the owner has set a password or signed in with a provider</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequireLoginType { get; set; }
+        public string? RequireLoginType { get => _explicitNullValueRequireLoginType; set { _explicitNullValueRequireLoginType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_login_type"); else _explicitNullProperties?.Remove("require_login_type"); } }
+        private string? _explicitNullValueRequireLoginType = default!;
 #nullable restore
 #else
-        public string RequireLoginType { get; set; }
+        public string RequireLoginType { get => _explicitNullValueRequireLoginType; set { _explicitNullValueRequireLoginType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_login_type"); else _explicitNullProperties?.Remove("require_login_type"); } }
+        private string _explicitNullValueRequireLoginType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateLoginLinkRequest"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CreateLoginLinkRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CreateLoginLinkRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateLoginLinkRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("expires_in_s", ExpiresInS);
             writer.WriteStringValue("rd", Rd);
             writer.WriteStringValue("require_login_type", RequireLoginType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

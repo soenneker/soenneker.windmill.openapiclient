@@ -11,52 +11,83 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetJobUpdates200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("completed") is { } nullNodeCompleted && nullNodeCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed = null;
+            if (parseNode.GetChildNode("flow_status") is { } nullNodeFlowStatus && nullNodeFlowStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowStatus = null;
+            if (parseNode.GetChildNode("log_offset") is { } nullNodeLogOffset && nullNodeLogOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogOffset = null;
+            if (parseNode.GetChildNode("mem_peak") is { } nullNodeMemPeak && nullNodeMemPeak.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemPeak = null;
+            if (parseNode.GetChildNode("new_logs") is { } nullNodeNewLogs && nullNodeNewLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewLogs = null;
+            if (parseNode.GetChildNode("new_result_stream") is { } nullNodeNewResultStream && nullNodeNewResultStream.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewResultStream = null;
+            if (parseNode.GetChildNode("progress") is { } nullNodeProgress && nullNodeProgress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Progress = null;
+            if (parseNode.GetChildNode("running") is { } nullNodeRunning && nullNodeRunning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Running = null;
+            if (parseNode.GetChildNode("stream_offset") is { } nullNodeStreamOffset && nullNodeStreamOffset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StreamOffset = null;
+            if (parseNode.GetChildNode("workflow_as_code_status") is { } nullNodeWorkflowAsCodeStatus && nullNodeWorkflowAsCodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowAsCodeStatus = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The completed property</summary>
-        public bool? Completed { get; set; }
+        public bool? Completed { get => _explicitNullValueCompleted; set { _explicitNullValueCompleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed"); else _explicitNullProperties?.Remove("completed"); } }
+        private bool? _explicitNullValueCompleted = default!;
         /// <summary>The flow_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatus? FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatus? FlowStatus { get => _explicitNullValueFlowStatus; set { _explicitNullValueFlowStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_status"); else _explicitNullProperties?.Remove("flow_status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatus? _explicitNullValueFlowStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatus FlowStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatus FlowStatus { get => _explicitNullValueFlowStatus; set { _explicitNullValueFlowStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_status"); else _explicitNullProperties?.Remove("flow_status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatus _explicitNullValueFlowStatus = default!;
 #endif
         /// <summary>The log_offset property</summary>
-        public int? LogOffset { get; set; }
+        public int? LogOffset { get => _explicitNullValueLogOffset; set { _explicitNullValueLogOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_offset"); else _explicitNullProperties?.Remove("log_offset"); } }
+        private int? _explicitNullValueLogOffset = default!;
         /// <summary>The mem_peak property</summary>
-        public int? MemPeak { get; set; }
+        public int? MemPeak { get => _explicitNullValueMemPeak; set { _explicitNullValueMemPeak = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mem_peak"); else _explicitNullProperties?.Remove("mem_peak"); } }
+        private int? _explicitNullValueMemPeak = default!;
         /// <summary>The new_logs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewLogs { get; set; }
+        public string? NewLogs { get => _explicitNullValueNewLogs; set { _explicitNullValueNewLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_logs"); else _explicitNullProperties?.Remove("new_logs"); } }
+        private string? _explicitNullValueNewLogs = default!;
 #nullable restore
 #else
-        public string NewLogs { get; set; }
+        public string NewLogs { get => _explicitNullValueNewLogs; set { _explicitNullValueNewLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_logs"); else _explicitNullProperties?.Remove("new_logs"); } }
+        private string _explicitNullValueNewLogs = default!;
 #endif
         /// <summary>The new_result_stream property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewResultStream { get; set; }
+        public string? NewResultStream { get => _explicitNullValueNewResultStream; set { _explicitNullValueNewResultStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_result_stream"); else _explicitNullProperties?.Remove("new_result_stream"); } }
+        private string? _explicitNullValueNewResultStream = default!;
 #nullable restore
 #else
-        public string NewResultStream { get; set; }
+        public string NewResultStream { get => _explicitNullValueNewResultStream; set { _explicitNullValueNewResultStream = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_result_stream"); else _explicitNullProperties?.Remove("new_result_stream"); } }
+        private string _explicitNullValueNewResultStream = default!;
 #endif
         /// <summary>The progress property</summary>
-        public int? Progress { get; set; }
+        public int? Progress { get => _explicitNullValueProgress; set { _explicitNullValueProgress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("progress"); else _explicitNullProperties?.Remove("progress"); } }
+        private int? _explicitNullValueProgress = default!;
         /// <summary>The running property</summary>
-        public bool? Running { get; set; }
+        public bool? Running { get => _explicitNullValueRunning; set { _explicitNullValueRunning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("running"); else _explicitNullProperties?.Remove("running"); } }
+        private bool? _explicitNullValueRunning = default!;
         /// <summary>The stream_offset property</summary>
-        public int? StreamOffset { get; set; }
+        public int? StreamOffset { get => _explicitNullValueStreamOffset; set { _explicitNullValueStreamOffset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stream_offset"); else _explicitNullProperties?.Remove("stream_offset"); } }
+        private int? _explicitNullValueStreamOffset = default!;
         /// <summary>The workflow_as_code_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseWorkflowAsCodeStatus? WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseWorkflowAsCodeStatus? WorkflowAsCodeStatus { get => _explicitNullValueWorkflowAsCodeStatus; set { _explicitNullValueWorkflowAsCodeStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_as_code_status"); else _explicitNullProperties?.Remove("workflow_as_code_status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseWorkflowAsCodeStatus? _explicitNullValueWorkflowAsCodeStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseWorkflowAsCodeStatus WorkflowAsCodeStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseWorkflowAsCodeStatus WorkflowAsCodeStatus { get => _explicitNullValueWorkflowAsCodeStatus; set { _explicitNullValueWorkflowAsCodeStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow_as_code_status"); else _explicitNullProperties?.Remove("workflow_as_code_status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseWorkflowAsCodeStatus _explicitNullValueWorkflowAsCodeStatus = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200Response"/> and sets the default values.
@@ -73,7 +104,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +143,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("running", Running);
             writer.WriteIntValue("stream_offset", StreamOffset);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseWorkflowAsCodeStatus>("workflow_as_code_status", WorkflowAsCodeStatus);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

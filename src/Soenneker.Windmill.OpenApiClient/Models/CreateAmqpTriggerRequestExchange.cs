@@ -12,24 +12,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateAmqpTriggerRequestExchange : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("exchange_name") is { } nullNodeExchangeName && nullNodeExchangeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExchangeName = null;
+            if (parseNode.GetChildNode("routing_keys") is { } nullNodeRoutingKeys && nullNodeRoutingKeys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingKeys = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Name of the exchange to bind the consumed queue to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExchangeName { get; set; }
+        public string? ExchangeName { get => _explicitNullValueExchangeName; set { _explicitNullValueExchangeName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_name"); else _explicitNullProperties?.Remove("exchange_name"); } }
+        private string? _explicitNullValueExchangeName = default!;
 #nullable restore
 #else
-        public string ExchangeName { get; set; }
+        public string ExchangeName { get => _explicitNullValueExchangeName; set { _explicitNullValueExchangeName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_name"); else _explicitNullProperties?.Remove("exchange_name"); } }
+        private string _explicitNullValueExchangeName = default!;
 #endif
         /// <summary>Routing keys used to bind the queue to the exchange</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RoutingKeys { get; set; }
+        public List<string>? RoutingKeys { get => _explicitNullValueRoutingKeys; set { _explicitNullValueRoutingKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_keys"); else _explicitNullProperties?.Remove("routing_keys"); } }
+        private List<string>? _explicitNullValueRoutingKeys = default!;
 #nullable restore
 #else
-        public List<string> RoutingKeys { get; set; }
+        public List<string> RoutingKeys { get => _explicitNullValueRoutingKeys; set { _explicitNullValueRoutingKeys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routing_keys"); else _explicitNullProperties?.Remove("routing_keys"); } }
+        private List<string> _explicitNullValueRoutingKeys = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateAmqpTriggerRequestExchange"/> and sets the default values.
@@ -46,7 +59,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CreateAmqpTriggerRequestExchange CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CreateAmqpTriggerRequestExchange();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateAmqpTriggerRequestExchange(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("exchange_name", ExchangeName);
             writer.WriteCollectionOfPrimitiveValues<string>("routing_keys", RoutingKeys);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

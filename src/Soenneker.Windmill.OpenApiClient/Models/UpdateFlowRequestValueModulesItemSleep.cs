@@ -12,7 +12,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateFlowRequestValueModulesItemSleep : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleepOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,9 +50,30 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleep CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleep();
-            return result;
+            if("UpdateFlowRequestValueModulesItemSleepOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("UpdateFlowRequestValueModulesItemSleepOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("UpdateFlowRequestValueModulesItemSleepOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("static".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("expr") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("javascript".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("ai".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.UpdateFlowRequestValueModulesItemSleepOneOf1 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf2 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.UpdateFlowRequestValueModulesItemSleepOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleepOneOf1(), parseNode);
+            if (result.UpdateFlowRequestValueModulesItemSleepOneOf1 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf2 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.UpdateFlowRequestValueModulesItemSleepOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleepOneOf2(), parseNode);
+            if (result.UpdateFlowRequestValueModulesItemSleepOneOf1 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf2 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.UpdateFlowRequestValueModulesItemSleepOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleepOneOf3(), parseNode);
+            if (result.UpdateFlowRequestValueModulesItemSleepOneOf1 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf2 == null && result.UpdateFlowRequestValueModulesItemSleepOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,17 +101,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (UpdateFlowRequestValueModulesItemSleepOneOf1 == null && UpdateFlowRequestValueModulesItemSleepOneOf2 == null && UpdateFlowRequestValueModulesItemSleepOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (UpdateFlowRequestValueModulesItemSleepOneOf1 != null && UpdateFlowRequestValueModulesItemSleepOneOf2 == null && UpdateFlowRequestValueModulesItemSleepOneOf3 == null) { if (UpdateFlowRequestValueModulesItemSleepOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateFlowRequestValueModulesItemSleepOneOf1); return; }
+            if (UpdateFlowRequestValueModulesItemSleepOneOf2 != null && UpdateFlowRequestValueModulesItemSleepOneOf1 == null && UpdateFlowRequestValueModulesItemSleepOneOf3 == null) { if (UpdateFlowRequestValueModulesItemSleepOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateFlowRequestValueModulesItemSleepOneOf2); return; }
+            if (UpdateFlowRequestValueModulesItemSleepOneOf3 != null && UpdateFlowRequestValueModulesItemSleepOneOf1 == null && UpdateFlowRequestValueModulesItemSleepOneOf2 == null) { if (UpdateFlowRequestValueModulesItemSleepOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateFlowRequestValueModulesItemSleepOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(UpdateFlowRequestValueModulesItemSleepOneOf1 != null)
             {
+                if (UpdateFlowRequestValueModulesItemSleepOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleepOneOf1>(null, UpdateFlowRequestValueModulesItemSleepOneOf1);
             }
             else if(UpdateFlowRequestValueModulesItemSleepOneOf2 != null)
             {
+                if (UpdateFlowRequestValueModulesItemSleepOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleepOneOf2>(null, UpdateFlowRequestValueModulesItemSleepOneOf2);
             }
             else if(UpdateFlowRequestValueModulesItemSleepOneOf3 != null)
             {
+                if (UpdateFlowRequestValueModulesItemSleepOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFlowRequestValueModulesItemSleepOneOf3>(null, UpdateFlowRequestValueModulesItemSleepOneOf3);
             }
         }

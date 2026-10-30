@@ -11,37 +11,67 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CompareWorkspaces200ResponseDiffsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ahead") is { } nullNodeAhead && nullNodeAhead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ahead = null;
+            if (parseNode.GetChildNode("behind") is { } nullNodeBehind && nullNodeBehind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Behind = null;
+            if (parseNode.GetChildNode("exists_in_fork") is { } nullNodeExistsInFork && nullNodeExistsInFork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistsInFork = null;
+            if (parseNode.GetChildNode("exists_in_source") is { } nullNodeExistsInSource && nullNodeExistsInSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistsInSource = null;
+            if (parseNode.GetChildNode("fork_last_event_kind") is { } nullNodeForkLastEventKind && nullNodeForkLastEventKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkLastEventKind = null;
+            if (parseNode.GetChildNode("fork_last_event_origin") is { } nullNodeForkLastEventOrigin && nullNodeForkLastEventOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkLastEventOrigin = null;
+            if (parseNode.GetChildNode("has_changes") is { } nullNodeHasChanges && nullNodeHasChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasChanges = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("source_last_event_kind") is { } nullNodeSourceLastEventKind && nullNodeSourceLastEventKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceLastEventKind = null;
+            if (parseNode.GetChildNode("source_last_event_origin") is { } nullNodeSourceLastEventOrigin && nullNodeSourceLastEventOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceLastEventOrigin = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of versions source is ahead of target</summary>
-        public int? Ahead { get; set; }
+        public int? Ahead { get => _explicitNullValueAhead; set { _explicitNullValueAhead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ahead"); else _explicitNullProperties?.Remove("ahead"); } }
+        private int? _explicitNullValueAhead = default!;
         /// <summary>Number of versions source is behind target</summary>
-        public int? Behind { get; set; }
+        public int? Behind { get => _explicitNullValueBehind; set { _explicitNullValueBehind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("behind"); else _explicitNullProperties?.Remove("behind"); } }
+        private int? _explicitNullValueBehind = default!;
         /// <summary>If the item exists in the fork workspace</summary>
-        public bool? ExistsInFork { get; set; }
+        public bool? ExistsInFork { get => _explicitNullValueExistsInFork; set { _explicitNullValueExistsInFork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exists_in_fork"); else _explicitNullProperties?.Remove("exists_in_fork"); } }
+        private bool? _explicitNullValueExistsInFork = default!;
         /// <summary>If the item exists in the source workspace</summary>
-        public bool? ExistsInSource { get; set; }
+        public bool? ExistsInSource { get => _explicitNullValueExistsInSource; set { _explicitNullValueExistsInSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exists_in_source"); else _explicitNullProperties?.Remove("exists_in_source"); } }
+        private bool? _explicitNullValueExistsInSource = default!;
         /// <summary>What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventKind? ForkLastEventKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventKind? ForkLastEventKind { get => _explicitNullValueForkLastEventKind; set { _explicitNullValueForkLastEventKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_last_event_kind"); else _explicitNullProperties?.Remove("fork_last_event_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventKind? _explicitNullValueForkLastEventKind = default!;
         /// <summary>Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin? ForkLastEventOrigin { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin? ForkLastEventOrigin { get => _explicitNullValueForkLastEventOrigin; set { _explicitNullValueForkLastEventOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_last_event_origin"); else _explicitNullProperties?.Remove("fork_last_event_origin"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemForkLastEventOrigin? _explicitNullValueForkLastEventOrigin = default!;
         /// <summary>Whether the item has any differences</summary>
-        public bool? HasChanges { get; set; }
+        public bool? HasChanges { get => _explicitNullValueHasChanges; set { _explicitNullValueHasChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_changes"); else _explicitNullProperties?.Remove("has_changes"); } }
+        private bool? _explicitNullValueHasChanges = default!;
         /// <summary>Type of the item</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemKind? Kind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemKind? _explicitNullValueKind = default!;
         /// <summary>Path of the item in the workspace</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>What a deploy event did to the path it is recorded against: `write` (the path holds an itemafter the event), `delete` (it does not), or `rename_from` (the path was vacated by a renameto another path). Create and update are not distinguished. Omitted when no such event hasbeen recorded for that side, which counts as no evidence.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind? SourceLastEventKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind? SourceLastEventKind { get => _explicitNullValueSourceLastEventKind; set { _explicitNullValueSourceLastEventKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_last_event_kind"); else _explicitNullProperties?.Remove("source_last_event_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind? _explicitNullValueSourceLastEventKind = default!;
         /// <summary>Who caused a deploy event: `authored` (written in that workspace by the requester) or `sync`(applied there by a git-sync pull or a workspace-to-workspace deploy). Only an authoredremoval is evidence that the workspace dropped the item on purpose. Omitted when no suchevent has been recorded for that side.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin? SourceLastEventOrigin { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin? SourceLastEventOrigin { get => _explicitNullValueSourceLastEventOrigin; set { _explicitNullValueSourceLastEventOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_last_event_origin"); else _explicitNullProperties?.Remove("source_last_event_origin"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin? _explicitNullValueSourceLastEventOrigin = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem"/> and sets the default values.
         /// </summary>
@@ -57,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +128,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventKind>("source_last_event_kind", SourceLastEventKind);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItemSourceLastEventOrigin>("source_last_event_origin", SourceLastEventOrigin);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

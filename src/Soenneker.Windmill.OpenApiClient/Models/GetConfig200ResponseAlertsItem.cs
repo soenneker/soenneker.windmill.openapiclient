@@ -11,30 +11,49 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetConfig200ResponseAlertsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("alert_cooldown_seconds") is { } nullNodeAlertCooldownSeconds && nullNodeAlertCooldownSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertCooldownSeconds = null;
+            if (parseNode.GetChildNode("alert_time_threshold_seconds") is { } nullNodeAlertTimeThresholdSeconds && nullNodeAlertTimeThresholdSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlertTimeThresholdSeconds = null;
+            if (parseNode.GetChildNode("jobs_num_threshold") is { } nullNodeJobsNumThreshold && nullNodeJobsNumThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobsNumThreshold = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("tags_to_monitor") is { } nullNodeTagsToMonitor && nullNodeTagsToMonitor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagsToMonitor = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The alert_cooldown_seconds property</summary>
-        public int? AlertCooldownSeconds { get; set; }
+        public int? AlertCooldownSeconds { get => _explicitNullValueAlertCooldownSeconds; set { _explicitNullValueAlertCooldownSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_cooldown_seconds"); else _explicitNullProperties?.Remove("alert_cooldown_seconds"); } }
+        private int? _explicitNullValueAlertCooldownSeconds = default!;
         /// <summary>The alert_time_threshold_seconds property</summary>
-        public int? AlertTimeThresholdSeconds { get; set; }
+        public int? AlertTimeThresholdSeconds { get => _explicitNullValueAlertTimeThresholdSeconds; set { _explicitNullValueAlertTimeThresholdSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alert_time_threshold_seconds"); else _explicitNullProperties?.Remove("alert_time_threshold_seconds"); } }
+        private int? _explicitNullValueAlertTimeThresholdSeconds = default!;
         /// <summary>The jobs_num_threshold property</summary>
-        public int? JobsNumThreshold { get; set; }
+        public int? JobsNumThreshold { get => _explicitNullValueJobsNumThreshold; set { _explicitNullValueJobsNumThreshold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs_num_threshold"); else _explicitNullProperties?.Remove("jobs_num_threshold"); } }
+        private int? _explicitNullValueJobsNumThreshold = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The tags_to_monitor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TagsToMonitor { get; set; }
+        public List<string>? TagsToMonitor { get => _explicitNullValueTagsToMonitor; set { _explicitNullValueTagsToMonitor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags_to_monitor"); else _explicitNullProperties?.Remove("tags_to_monitor"); } }
+        private List<string>? _explicitNullValueTagsToMonitor = default!;
 #nullable restore
 #else
-        public List<string> TagsToMonitor { get; set; }
+        public List<string> TagsToMonitor { get => _explicitNullValueTagsToMonitor; set { _explicitNullValueTagsToMonitor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags_to_monitor"); else _explicitNullProperties?.Remove("tags_to_monitor"); } }
+        private List<string> _explicitNullValueTagsToMonitor = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetConfig200ResponseAlertsItem"/> and sets the default values.
@@ -51,7 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetConfig200ResponseAlertsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetConfig200ResponseAlertsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetConfig200ResponseAlertsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +99,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("jobs_num_threshold", JobsNumThreshold);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("tags_to_monitor", TagsToMonitor);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

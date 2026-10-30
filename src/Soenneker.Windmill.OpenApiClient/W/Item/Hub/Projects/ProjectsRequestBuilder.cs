@@ -61,7 +61,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Hub.Projects
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendPrimitiveAsync<string>(requestInfo, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Forwards to the configured Hub&apos;s public project catalogue and returns itsstatus code and raw response body. Readable by any workspace member: thelisting is not workspace-scoped, and it is proxied only because the Hub&apos;slisting endpoint sends no CORS header. Refused with 400 when the instancehas the Hub disabled, in which case no outbound request is made.

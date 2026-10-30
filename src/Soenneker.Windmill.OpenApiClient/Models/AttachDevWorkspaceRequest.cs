@@ -11,23 +11,39 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AttachDevWorkspaceRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dev_workspace_id") is { } nullNodeDevWorkspaceId && nullNodeDevWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceId = null;
+            if (parseNode.GetChildNode("dev_workspace_label") is { } nullNodeDevWorkspaceLabel && nullNodeDevWorkspaceLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceLabel = null;
+            if (parseNode.GetChildNode("lock_prod_deploy") is { } nullNodeLockProdDeploy && nullNodeLockProdDeploy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdDeploy = null;
+            if (parseNode.GetChildNode("lock_prod_forking") is { } nullNodeLockProdForking && nullNodeLockProdForking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdForking = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The dev_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevWorkspaceId { get; set; }
+        public string? DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
+        private string? _explicitNullValueDevWorkspaceId = default!;
 #nullable restore
 #else
-        public string DevWorkspaceId { get; set; }
+        public string DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
+        private string _explicitNullValueDevWorkspaceId = default!;
 #endif
         /// <summary>Environment label; also names the branch the dev workspace deploys to. Omitted defaults to &apos;dev&apos;</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? DevWorkspaceLabel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? DevWorkspaceLabel { get => _explicitNullValueDevWorkspaceLabel; set { _explicitNullValueDevWorkspaceLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_label"); else _explicitNullProperties?.Remove("dev_workspace_label"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? _explicitNullValueDevWorkspaceLabel = default!;
         /// <summary>The lock_prod_deploy property</summary>
-        public bool? LockProdDeploy { get; set; }
+        public bool? LockProdDeploy { get => _explicitNullValueLockProdDeploy; set { _explicitNullValueLockProdDeploy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_deploy"); else _explicitNullProperties?.Remove("lock_prod_deploy"); } }
+        private bool? _explicitNullValueLockProdDeploy = default!;
         /// <summary>The lock_prod_forking property</summary>
-        public bool? LockProdForking { get; set; }
+        public bool? LockProdForking { get => _explicitNullValueLockProdForking; set { _explicitNullValueLockProdForking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_forking"); else _explicitNullProperties?.Remove("lock_prod_forking"); } }
+        private bool? _explicitNullValueLockProdForking = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequest"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel>("dev_workspace_label", DevWorkspaceLabel);
             writer.WriteBoolValue("lock_prod_deploy", LockProdDeploy);
             writer.WriteBoolValue("lock_prod_forking", LockProdForking);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

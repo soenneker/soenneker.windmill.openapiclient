@@ -11,60 +11,89 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ExperimentResults200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("baseline") is { } nullNodeBaseline && nullNodeBaseline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Baseline = null;
+            if (parseNode.GetChildNode("experiment") is { } nullNodeExperiment && nullNodeExperiment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Experiment = null;
+            if (parseNode.GetChildNode("means") is { } nullNodeMeans && nullNodeMeans.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Means = null;
+            if (parseNode.GetChildNode("regressed") is { } nullNodeRegressed && nullNodeRegressed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Regressed = null;
+            if (parseNode.GetChildNode("rows") is { } nullNodeRows && nullNodeRows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rows = null;
+            if (parseNode.GetChildNode("scorers") is { } nullNodeScorers && nullNodeScorers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scorers = null;
+            if (parseNode.GetChildNode("subject_current_version") is { } nullNodeSubjectCurrentVersion && nullNodeSubjectCurrentVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectCurrentVersion = null;
+            if (parseNode.GetChildNode("subject_deployed_hash") is { } nullNodeSubjectDeployedHash && nullNodeSubjectDeployedHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectDeployedHash = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>One run of a dataset: written once when the dataset is run, and only ever read afterwards. The case set it executed is returned by the results endpoint, not here: a listing would otherwise send the whole dataset back once per experiment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseBaseline? Baseline { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseBaseline? Baseline { get => _explicitNullValueBaseline; set { _explicitNullValueBaseline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("baseline"); else _explicitNullProperties?.Remove("baseline"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseBaseline? _explicitNullValueBaseline = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseBaseline Baseline { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseBaseline Baseline { get => _explicitNullValueBaseline; set { _explicitNullValueBaseline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("baseline"); else _explicitNullProperties?.Remove("baseline"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseBaseline _explicitNullValueBaseline = default!;
 #endif
         /// <summary>One run of a dataset: written once when the dataset is run, and only ever read afterwards. The case set it executed is returned by the results endpoint, not here: a listing would otherwise send the whole dataset back once per experiment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperiment? Experiment { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperiment? Experiment { get => _explicitNullValueExperiment; set { _explicitNullValueExperiment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experiment"); else _explicitNullProperties?.Remove("experiment"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperiment? _explicitNullValueExperiment = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperiment Experiment { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperiment Experiment { get => _explicitNullValueExperiment; set { _explicitNullValueExperiment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("experiment"); else _explicitNullProperties?.Remove("experiment"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperiment _explicitNullValueExperiment = default!;
 #endif
         /// <summary>The means property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem>? Means { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem>? Means { get => _explicitNullValueMeans; set { _explicitNullValueMeans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("means"); else _explicitNullProperties?.Remove("means"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem>? _explicitNullValueMeans = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem> Means { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem> Means { get => _explicitNullValueMeans; set { _explicitNullValueMeans = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("means"); else _explicitNullProperties?.Remove("means"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem> _explicitNullValueMeans = default!;
 #endif
         /// <summary>Cells scoring lower than the baseline, across every column.</summary>
-        public int? Regressed { get; set; }
+        public int? Regressed { get => _explicitNullValueRegressed; set { _explicitNullValueRegressed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("regressed"); else _explicitNullProperties?.Remove("regressed"); } }
+        private int? _explicitNullValueRegressed = default!;
         /// <summary>The rows property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItem>? Rows { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItem>? Rows { get => _explicitNullValueRows; set { _explicitNullValueRows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows"); else _explicitNullProperties?.Remove("rows"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItem>? _explicitNullValueRows = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItem> Rows { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItem> Rows { get => _explicitNullValueRows; set { _explicitNullValueRows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows"); else _explicitNullProperties?.Remove("rows"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItem> _explicitNullValueRows = default!;
 #endif
         /// <summary>The columns, which belong to the dataset rather than the experiment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseScorersItem>? Scorers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseScorersItem>? Scorers { get => _explicitNullValueScorers; set { _explicitNullValueScorers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scorers"); else _explicitNullProperties?.Remove("scorers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseScorersItem>? _explicitNullValueScorers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseScorersItem> Scorers { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseScorersItem> Scorers { get => _explicitNullValueScorers; set { _explicitNullValueScorers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scorers"); else _explicitNullProperties?.Remove("scorers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseScorersItem> _explicitNullValueScorers = default!;
 #endif
         /// <summary>The version the subject is on now. A row that ran against an earlier one describes an agent that no longer exists.</summary>
-        public long? SubjectCurrentVersion { get; set; }
+        public long? SubjectCurrentVersion { get => _explicitNullValueSubjectCurrentVersion; set { _explicitNullValueSubjectCurrentVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_current_version"); else _explicitNullProperties?.Remove("subject_current_version"); } }
+        private long? _explicitNullValueSubjectCurrentVersion = default!;
         /// <summary>What the agent hashes to as deployed. A run of unsaved edits carrying this hash ran exactly what is deployed now — the edits were saved — so it is a run of that version rather than of edits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubjectDeployedHash { get; set; }
+        public string? SubjectDeployedHash { get => _explicitNullValueSubjectDeployedHash; set { _explicitNullValueSubjectDeployedHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_deployed_hash"); else _explicitNullProperties?.Remove("subject_deployed_hash"); } }
+        private string? _explicitNullValueSubjectDeployedHash = default!;
 #nullable restore
 #else
-        public string SubjectDeployedHash { get; set; }
+        public string SubjectDeployedHash { get => _explicitNullValueSubjectDeployedHash; set { _explicitNullValueSubjectDeployedHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_deployed_hash"); else _explicitNullProperties?.Remove("subject_deployed_hash"); } }
+        private string _explicitNullValueSubjectDeployedHash = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200Response"/> and sets the default values.
@@ -81,7 +110,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,6 +145,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseScorersItem>("scorers", Scorers);
             writer.WriteLongValue("subject_current_version", SubjectCurrentVersion);
             writer.WriteStringValue("subject_deployed_hash", SubjectDeployedHash);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,27 +12,42 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EditErrorHandlerRequestOneOf2 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("error_handler") is { } nullNodeErrorHandler && nullNodeErrorHandler.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorHandler = null;
+            if (parseNode.GetChildNode("error_handler_extra_args") is { } nullNodeErrorHandlerExtraArgs && nullNodeErrorHandlerExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorHandlerExtraArgs = null;
+            if (parseNode.GetChildNode("error_handler_muted_on_cancel") is { } nullNodeErrorHandlerMutedOnCancel && nullNodeErrorHandlerMutedOnCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorHandlerMutedOnCancel = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Path to the error handler script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorHandler { get; set; }
+        public string? ErrorHandler { get => _explicitNullValueErrorHandler; set { _explicitNullValueErrorHandler = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_handler"); else _explicitNullProperties?.Remove("error_handler"); } }
+        private string? _explicitNullValueErrorHandler = default!;
 #nullable restore
 #else
-        public string ErrorHandler { get; set; }
+        public string ErrorHandler { get => _explicitNullValueErrorHandler; set { _explicitNullValueErrorHandler = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_handler"); else _explicitNullProperties?.Remove("error_handler"); } }
+        private string _explicitNullValueErrorHandler = default!;
 #endif
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2ErrorHandlerExtraArgs? ErrorHandlerExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2ErrorHandlerExtraArgs? ErrorHandlerExtraArgs { get => _explicitNullValueErrorHandlerExtraArgs; set { _explicitNullValueErrorHandlerExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_handler_extra_args"); else _explicitNullProperties?.Remove("error_handler_extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2ErrorHandlerExtraArgs? _explicitNullValueErrorHandlerExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2ErrorHandlerExtraArgs ErrorHandlerExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2ErrorHandlerExtraArgs ErrorHandlerExtraArgs { get => _explicitNullValueErrorHandlerExtraArgs; set { _explicitNullValueErrorHandlerExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_handler_extra_args"); else _explicitNullProperties?.Remove("error_handler_extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2ErrorHandlerExtraArgs _explicitNullValueErrorHandlerExtraArgs = default!;
 #endif
         /// <summary>The error_handler_muted_on_cancel property</summary>
-        public bool? ErrorHandlerMutedOnCancel { get; set; }
+        public bool? ErrorHandlerMutedOnCancel { get => _explicitNullValueErrorHandlerMutedOnCancel; set { _explicitNullValueErrorHandlerMutedOnCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error_handler_muted_on_cancel"); else _explicitNullProperties?.Remove("error_handler_muted_on_cancel"); } }
+        private bool? _explicitNullValueErrorHandlerMutedOnCancel = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2"/> and sets the default values.
         /// </summary>
@@ -49,7 +64,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,6 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("error_handler", ErrorHandler);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf2ErrorHandlerExtraArgs>("error_handler_extra_args", ErrorHandlerExtraArgs);
             writer.WriteBoolValue("error_handler_muted_on_cancel", ErrorHandlerMutedOnCancel);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

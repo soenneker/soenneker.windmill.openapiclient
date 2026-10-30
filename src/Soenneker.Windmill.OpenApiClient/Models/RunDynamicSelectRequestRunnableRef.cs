@@ -12,7 +12,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunDynamicSelectRequestRunnableRef : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRef();
             if("deployed".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RunDynamicSelectRequestRunnableRefOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1();
+                
             }
             else if("inline".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.RunDynamicSelectRequestRunnableRefOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("source") != null && (parseNode.GetChildNode("source")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("deployed".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("path") != null && parseNode.GetChildNode("runnable_kind") != null && (parseNode.GetChildNode("runnable_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag4 && ("script".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal) || "flow".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("source") != null && (parseNode.GetChildNode("source")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("inline".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("code") != null && (parseNode.GetChildNode("language") == null || (parseNode.GetChildNode("language")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString optionalTag3 && ("python3".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "deno".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "go".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "bash".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "powershell".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "postgresql".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "mysql".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "bigquery".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "snowflake".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "mssql".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "oracledb".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "graphql".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "nativets".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "bun".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "php".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "rust".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "ansible".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "csharp".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "nu".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "java".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "ruby".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "rlang".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "duckdb".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "bunnative".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal) || "dbt".Equals(optionalTag3.GetValue(), global::System.StringComparison.Ordinal))))))();
+            if (result.RunDynamicSelectRequestRunnableRefOneOf1 == null && result.RunDynamicSelectRequestRunnableRefOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.RunDynamicSelectRequestRunnableRefOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1(), parseNode);
+            if (result.RunDynamicSelectRequestRunnableRefOneOf1 == null && result.RunDynamicSelectRequestRunnableRefOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.RunDynamicSelectRequestRunnableRefOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2(), parseNode);
+            if (result.RunDynamicSelectRequestRunnableRefOneOf1 == null && result.RunDynamicSelectRequestRunnableRefOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (RunDynamicSelectRequestRunnableRefOneOf1 == null && RunDynamicSelectRequestRunnableRefOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (RunDynamicSelectRequestRunnableRefOneOf1 != null && RunDynamicSelectRequestRunnableRefOneOf2 == null) { if (RunDynamicSelectRequestRunnableRefOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RunDynamicSelectRequestRunnableRefOneOf1); return; }
+            if (RunDynamicSelectRequestRunnableRefOneOf2 != null && RunDynamicSelectRequestRunnableRefOneOf1 == null) { if (RunDynamicSelectRequestRunnableRefOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RunDynamicSelectRequestRunnableRefOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(RunDynamicSelectRequestRunnableRefOneOf1 != null)
             {
+                if (RunDynamicSelectRequestRunnableRefOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf1>(null, RunDynamicSelectRequestRunnableRefOneOf1);
             }
             else if(RunDynamicSelectRequestRunnableRefOneOf2 != null)
             {
+                if (RunDynamicSelectRequestRunnableRefOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunDynamicSelectRequestRunnableRefOneOf2>(null, RunDynamicSelectRequestRunnableRefOneOf2);
             }
         }

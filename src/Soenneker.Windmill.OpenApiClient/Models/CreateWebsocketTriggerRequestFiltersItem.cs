@@ -12,7 +12,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateWebsocketTriggerRequestFiltersItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,25 +70,38 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItem();
             if("CreateWebsocketTriggerRequestFiltersItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateWebsocketTriggerRequestFiltersItemOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf1();
+                
             }
             else if("CreateWebsocketTriggerRequestFiltersItemOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateWebsocketTriggerRequestFiltersItemOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf2();
+                
             }
             else if("CreateWebsocketTriggerRequestFiltersItemOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateWebsocketTriggerRequestFiltersItemOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf3();
+                
             }
             else if("CreateWebsocketTriggerRequestFiltersItemOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateWebsocketTriggerRequestFiltersItemOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf4();
+                
             }
             else if("CreateWebsocketTriggerRequestFiltersItemOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.CreateWebsocketTriggerRequestFiltersItemOneOf5 = new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf5();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("key") != null && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("path") != null && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("any_of") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("all_of") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("none_of") != null))();
+            if (result.CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.CreateWebsocketTriggerRequestFiltersItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf1(), parseNode);
+            if (result.CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.CreateWebsocketTriggerRequestFiltersItemOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf2(), parseNode);
+            if (result.CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4) result.CreateWebsocketTriggerRequestFiltersItemOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf3(), parseNode);
+            if (result.CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4) result.CreateWebsocketTriggerRequestFiltersItemOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf4(), parseNode);
+            if (result.CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.CreateWebsocketTriggerRequestFiltersItemOneOf5 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf5(), parseNode);
+            if (result.CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && result.CreateWebsocketTriggerRequestFiltersItemOneOf5 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,25 +137,38 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && CreateWebsocketTriggerRequestFiltersItemOneOf5 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (CreateWebsocketTriggerRequestFiltersItemOneOf1 != null && CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && CreateWebsocketTriggerRequestFiltersItemOneOf5 == null) { if (CreateWebsocketTriggerRequestFiltersItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateWebsocketTriggerRequestFiltersItemOneOf1); return; }
+            if (CreateWebsocketTriggerRequestFiltersItemOneOf2 != null && CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && CreateWebsocketTriggerRequestFiltersItemOneOf5 == null) { if (CreateWebsocketTriggerRequestFiltersItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateWebsocketTriggerRequestFiltersItemOneOf2); return; }
+            if (CreateWebsocketTriggerRequestFiltersItemOneOf3 != null && CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && CreateWebsocketTriggerRequestFiltersItemOneOf4 == null && CreateWebsocketTriggerRequestFiltersItemOneOf5 == null) { if (CreateWebsocketTriggerRequestFiltersItemOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateWebsocketTriggerRequestFiltersItemOneOf3); return; }
+            if (CreateWebsocketTriggerRequestFiltersItemOneOf4 != null && CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && CreateWebsocketTriggerRequestFiltersItemOneOf5 == null) { if (CreateWebsocketTriggerRequestFiltersItemOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateWebsocketTriggerRequestFiltersItemOneOf4); return; }
+            if (CreateWebsocketTriggerRequestFiltersItemOneOf5 != null && CreateWebsocketTriggerRequestFiltersItemOneOf1 == null && CreateWebsocketTriggerRequestFiltersItemOneOf2 == null && CreateWebsocketTriggerRequestFiltersItemOneOf3 == null && CreateWebsocketTriggerRequestFiltersItemOneOf4 == null) { if (CreateWebsocketTriggerRequestFiltersItemOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateWebsocketTriggerRequestFiltersItemOneOf5); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(CreateWebsocketTriggerRequestFiltersItemOneOf1 != null)
             {
+                if (CreateWebsocketTriggerRequestFiltersItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf1>(null, CreateWebsocketTriggerRequestFiltersItemOneOf1);
             }
             else if(CreateWebsocketTriggerRequestFiltersItemOneOf2 != null)
             {
+                if (CreateWebsocketTriggerRequestFiltersItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf2>(null, CreateWebsocketTriggerRequestFiltersItemOneOf2);
             }
             else if(CreateWebsocketTriggerRequestFiltersItemOneOf3 != null)
             {
+                if (CreateWebsocketTriggerRequestFiltersItemOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf3>(null, CreateWebsocketTriggerRequestFiltersItemOneOf3);
             }
             else if(CreateWebsocketTriggerRequestFiltersItemOneOf4 != null)
             {
+                if (CreateWebsocketTriggerRequestFiltersItemOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf4>(null, CreateWebsocketTriggerRequestFiltersItemOneOf4);
             }
             else if(CreateWebsocketTriggerRequestFiltersItemOneOf5 != null)
             {
+                if (CreateWebsocketTriggerRequestFiltersItemOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWebsocketTriggerRequestFiltersItemOneOf5>(null, CreateWebsocketTriggerRequestFiltersItemOneOf5);
             }
         }

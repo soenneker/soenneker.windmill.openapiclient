@@ -11,66 +11,101 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EditGitSyncRepositoryRequestRepositoryAutoPull : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("enabled_by") is { } nullNodeEnabledBy && nullNodeEnabledBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledBy = null;
+            if (parseNode.GetChildNode("last_pull_status") is { } nullNodeLastPullStatus && nullNodeLastPullStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastPullStatus = null;
+            if (parseNode.GetChildNode("last_synced_sha") is { } nullNodeLastSyncedSha && nullNodeLastSyncedSha.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastSyncedSha = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("poll_interval_s") is { } nullNodePollIntervalS && nullNodePollIntervalS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PollIntervalS = null;
+            if (parseNode.GetChildNode("sync_forks") is { } nullNodeSyncForks && nullNodeSyncForks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncForks = null;
+            if (parseNode.GetChildNode("webhook_error") is { } nullNodeWebhookError && nullNodeWebhookError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookError = null;
+            if (parseNode.GetChildNode("webhook_id") is { } nullNodeWebhookId && nullNodeWebhookId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookId = null;
+            if (parseNode.GetChildNode("webhook_secret") is { } nullNodeWebhookSecret && nullNodeWebhookSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookSecret = null;
+            if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The enabled property</summary>
-        public bool? Enabled { get; set; }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        private bool? _explicitNullValueEnabled = default!;
         /// <summary>Email of the admin automatic pulls apply changes as. Set by the server when the settings are saved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EnabledBy { get; set; }
+        public string? EnabledBy { get => _explicitNullValueEnabledBy; set { _explicitNullValueEnabledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_by"); else _explicitNullProperties?.Remove("enabled_by"); } }
+        private string? _explicitNullValueEnabledBy = default!;
 #nullable restore
 #else
-        public string EnabledBy { get; set; }
+        public string EnabledBy { get => _explicitNullValueEnabledBy; set { _explicitNullValueEnabledBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled_by"); else _explicitNullProperties?.Remove("enabled_by"); } }
+        private string _explicitNullValueEnabledBy = default!;
 #endif
         /// <summary>The last_pull_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus? LastPullStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus? LastPullStatus { get => _explicitNullValueLastPullStatus; set { _explicitNullValueLastPullStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_pull_status"); else _explicitNullProperties?.Remove("last_pull_status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus? _explicitNullValueLastPullStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus LastPullStatus { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus LastPullStatus { get => _explicitNullValueLastPullStatus; set { _explicitNullValueLastPullStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_pull_status"); else _explicitNullProperties?.Remove("last_pull_status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastPullStatus _explicitNullValueLastPullStatus = default!;
 #endif
         /// <summary>The last_synced_sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha? LastSyncedSha { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha? LastSyncedSha { get => _explicitNullValueLastSyncedSha; set { _explicitNullValueLastSyncedSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_synced_sha"); else _explicitNullProperties?.Remove("last_synced_sha"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha? _explicitNullValueLastSyncedSha = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha LastSyncedSha { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha LastSyncedSha { get => _explicitNullValueLastSyncedSha; set { _explicitNullValueLastSyncedSha = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_synced_sha"); else _explicitNullProperties?.Remove("last_synced_sha"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullLastSyncedSha _explicitNullValueLastSyncedSha = default!;
 #endif
         /// <summary>The mode property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullMode? Mode { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPullMode? _explicitNullValueMode = default!;
         /// <summary>The poll_interval_s property</summary>
-        public int? PollIntervalS { get; set; }
+        public int? PollIntervalS { get => _explicitNullValuePollIntervalS; set { _explicitNullValuePollIntervalS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("poll_interval_s"); else _explicitNullProperties?.Remove("poll_interval_s"); } }
+        private int? _explicitNullValuePollIntervalS = default!;
         /// <summary>The sync_forks property</summary>
-        public bool? SyncForks { get; set; }
+        public bool? SyncForks { get => _explicitNullValueSyncForks; set { _explicitNullValueSyncForks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sync_forks"); else _explicitNullProperties?.Remove("sync_forks"); } }
+        private bool? _explicitNullValueSyncForks = default!;
         /// <summary>The webhook_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookError { get; set; }
+        public string? WebhookError { get => _explicitNullValueWebhookError; set { _explicitNullValueWebhookError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_error"); else _explicitNullProperties?.Remove("webhook_error"); } }
+        private string? _explicitNullValueWebhookError = default!;
 #nullable restore
 #else
-        public string WebhookError { get; set; }
+        public string WebhookError { get => _explicitNullValueWebhookError; set { _explicitNullValueWebhookError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_error"); else _explicitNullProperties?.Remove("webhook_error"); } }
+        private string _explicitNullValueWebhookError = default!;
 #endif
         /// <summary>The webhook_id property</summary>
-        public long? WebhookId { get; set; }
+        public long? WebhookId { get => _explicitNullValueWebhookId; set { _explicitNullValueWebhookId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_id"); else _explicitNullProperties?.Remove("webhook_id"); } }
+        private long? _explicitNullValueWebhookId = default!;
         /// <summary>The webhook_secret property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookSecret { get; set; }
+        public string? WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        private string? _explicitNullValueWebhookSecret = default!;
 #nullable restore
 #else
-        public string WebhookSecret { get; set; }
+        public string WebhookSecret { get => _explicitNullValueWebhookSecret; set { _explicitNullValueWebhookSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_secret"); else _explicitNullProperties?.Remove("webhook_secret"); } }
+        private string _explicitNullValueWebhookSecret = default!;
 #endif
         /// <summary>The webhook_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WebhookUrl { get; set; }
+        public string? WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string? _explicitNullValueWebhookUrl = default!;
 #nullable restore
 #else
-        public string WebhookUrl { get; set; }
+        public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
+        private string _explicitNullValueWebhookUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull"/> and sets the default values.
@@ -87,7 +122,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,6 +163,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteLongValue("webhook_id", WebhookId);
             writer.WriteStringValue("webhook_secret", WebhookSecret);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Workers.Queue_metrics_series
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetQueueMetricsSeries200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetQueueMetricsSeries200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetQueueMetricsSeries200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetQueueMetricsSeries200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// get the queue metrics of a time window, as a bounded line per tag

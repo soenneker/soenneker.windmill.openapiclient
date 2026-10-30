@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.External_instance_pg.Setup
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.SetupExternalInstancePg200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.SetupExternalInstancePg200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.SetupExternalInstancePg200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.SetupExternalInstancePg200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sets up the external instance cluster with its saved admin login, optionally rotating the passwords Windmill manages on it (enterprise edition only)

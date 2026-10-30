@@ -23,6 +23,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Local;
 using Soenneker.Windmill.OpenApiClient.Settings.Log_cleanup_status;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_aws_sm;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_azure_kv;
+using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_http_store;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_aws_sm;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_azure_kv;
 using Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_database;
@@ -39,6 +40,7 @@ using Soenneker.Windmill.OpenApiClient.Settings.Smtp_configured;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_aws_sm_backend;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_azure_kv_backend;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_critical_channels;
+using Soenneker.Windmill.OpenApiClient.Settings.Test_http_store_backend;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_license_key;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_object_storage_config;
 using Soenneker.Windmill.OpenApiClient.Settings.Test_secret_backend;
@@ -160,6 +162,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_azure_kv.Migrate_secrets_from_azure_kvRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The migrate_secrets_from_http_store property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_http_store.Migrate_secrets_from_http_storeRequestBuilder Migrate_secrets_from_http_store
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_from_http_store.Migrate_secrets_from_http_storeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The migrate_secrets_to_aws_sm property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_aws_sm.Migrate_secrets_to_aws_smRequestBuilder Migrate_secrets_to_aws_sm
         {
@@ -239,6 +246,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings
         public global::Soenneker.Windmill.OpenApiClient.Settings.Test_critical_channels.Test_critical_channelsRequestBuilder Test_critical_channels
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Settings.Test_critical_channels.Test_critical_channelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The test_http_store_backend property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Settings.Test_http_store_backend.Test_http_store_backendRequestBuilder Test_http_store_backend
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Settings.Test_http_store_backend.Test_http_store_backendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The test_license_key property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Settings.Test_license_key.Test_license_keyRequestBuilder Test_license_key

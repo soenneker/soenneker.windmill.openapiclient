@@ -11,33 +11,59 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SetupCustomInstanceDb200ResponseLogs : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created_database") is { } nullNodeCreatedDatabase && nullNodeCreatedDatabase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedDatabase = null;
+            if (parseNode.GetChildNode("database_credentials") is { } nullNodeDatabaseCredentials && nullNodeDatabaseCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseCredentials = null;
+            if (parseNode.GetChildNode("db_connect") is { } nullNodeDbConnect && nullNodeDbConnect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbConnect = null;
+            if (parseNode.GetChildNode("grant_permissions") is { } nullNodeGrantPermissions && nullNodeGrantPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantPermissions = null;
+            if (parseNode.GetChildNode("replication_user") is { } nullNodeReplicationUser && nullNodeReplicationUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplicationUser = null;
+            if (parseNode.GetChildNode("replication_user_error") is { } nullNodeReplicationUserError && nullNodeReplicationUserError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReplicationUserError = null;
+            if (parseNode.GetChildNode("super_admin") is { } nullNodeSuperAdmin && nullNodeSuperAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuperAdmin = null;
+            if (parseNode.GetChildNode("user_connect") is { } nullNodeUserConnect && nullNodeUserConnect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserConnect = null;
+            if (parseNode.GetChildNode("valid_dbname") is { } nullNodeValidDbname && nullNodeValidDbname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidDbname = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The created_database property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsCreatedDatabase? CreatedDatabase { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsCreatedDatabase? CreatedDatabase { get => _explicitNullValueCreatedDatabase; set { _explicitNullValueCreatedDatabase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_database"); else _explicitNullProperties?.Remove("created_database"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsCreatedDatabase? _explicitNullValueCreatedDatabase = default!;
         /// <summary>The database_credentials property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDatabaseCredentials? DatabaseCredentials { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDatabaseCredentials? DatabaseCredentials { get => _explicitNullValueDatabaseCredentials; set { _explicitNullValueDatabaseCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_credentials"); else _explicitNullProperties?.Remove("database_credentials"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDatabaseCredentials? _explicitNullValueDatabaseCredentials = default!;
         /// <summary>The db_connect property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDbConnect? DbConnect { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDbConnect? DbConnect { get => _explicitNullValueDbConnect; set { _explicitNullValueDbConnect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("db_connect"); else _explicitNullProperties?.Remove("db_connect"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsDbConnect? _explicitNullValueDbConnect = default!;
         /// <summary>The grant_permissions property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsGrantPermissions? GrantPermissions { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsGrantPermissions? GrantPermissions { get => _explicitNullValueGrantPermissions; set { _explicitNullValueGrantPermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_permissions"); else _explicitNullProperties?.Remove("grant_permissions"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsGrantPermissions? _explicitNullValueGrantPermissions = default!;
         /// <summary>The replication_user property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser? ReplicationUser { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser? ReplicationUser { get => _explicitNullValueReplicationUser; set { _explicitNullValueReplicationUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replication_user"); else _explicitNullProperties?.Remove("replication_user"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsReplicationUser? _explicitNullValueReplicationUser = default!;
         /// <summary>The replication_user_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReplicationUserError { get; set; }
+        public string? ReplicationUserError { get => _explicitNullValueReplicationUserError; set { _explicitNullValueReplicationUserError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replication_user_error"); else _explicitNullProperties?.Remove("replication_user_error"); } }
+        private string? _explicitNullValueReplicationUserError = default!;
 #nullable restore
 #else
-        public string ReplicationUserError { get; set; }
+        public string ReplicationUserError { get => _explicitNullValueReplicationUserError; set { _explicitNullValueReplicationUserError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replication_user_error"); else _explicitNullProperties?.Remove("replication_user_error"); } }
+        private string _explicitNullValueReplicationUserError = default!;
 #endif
         /// <summary>The super_admin property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin? SuperAdmin { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin? SuperAdmin { get => _explicitNullValueSuperAdmin; set { _explicitNullValueSuperAdmin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("super_admin"); else _explicitNullProperties?.Remove("super_admin"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin? _explicitNullValueSuperAdmin = default!;
         /// <summary>The user_connect property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsUserConnect? UserConnect { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsUserConnect? UserConnect { get => _explicitNullValueUserConnect; set { _explicitNullValueUserConnect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_connect"); else _explicitNullProperties?.Remove("user_connect"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsUserConnect? _explicitNullValueUserConnect = default!;
         /// <summary>The valid_dbname property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname? ValidDbname { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname? ValidDbname { get => _explicitNullValueValidDbname; set { _explicitNullValueValidDbname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid_dbname"); else _explicitNullProperties?.Remove("valid_dbname"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname? _explicitNullValueValidDbname = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs"/> and sets the default values.
         /// </summary>
@@ -53,7 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +116,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsSuperAdmin>("super_admin", SuperAdmin);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsUserConnect>("user_connect", UserConnect);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogsValidDbname>("valid_dbname", ValidDbname);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

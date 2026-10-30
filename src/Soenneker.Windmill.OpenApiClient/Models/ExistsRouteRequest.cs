@@ -11,29 +11,46 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ExistsRouteRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("http_method") is { } nullNodeHttpMethod && nullNodeHttpMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMethod = null;
+            if (parseNode.GetChildNode("route_path") is { } nullNodeRoutePath && nullNodeRoutePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutePath = null;
+            if (parseNode.GetChildNode("trigger_path") is { } nullNodeTriggerPath && nullNodeTriggerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerPath = null;
+            if (parseNode.GetChildNode("workspaced_route") is { } nullNodeWorkspacedRoute && nullNodeWorkspacedRoute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspacedRoute = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The http_method property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod? HttpMethod { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod? HttpMethod { get => _explicitNullValueHttpMethod; set { _explicitNullValueHttpMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_method"); else _explicitNullProperties?.Remove("http_method"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod? _explicitNullValueHttpMethod = default!;
         /// <summary>The route_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutePath { get; set; }
+        public string? RoutePath { get => _explicitNullValueRoutePath; set { _explicitNullValueRoutePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path"); else _explicitNullProperties?.Remove("route_path"); } }
+        private string? _explicitNullValueRoutePath = default!;
 #nullable restore
 #else
-        public string RoutePath { get; set; }
+        public string RoutePath { get => _explicitNullValueRoutePath; set { _explicitNullValueRoutePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path"); else _explicitNullProperties?.Remove("route_path"); } }
+        private string _explicitNullValueRoutePath = default!;
 #endif
         /// <summary>The trigger_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerPath { get; set; }
+        public string? TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        private string? _explicitNullValueTriggerPath = default!;
 #nullable restore
 #else
-        public string TriggerPath { get; set; }
+        public string TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        private string _explicitNullValueTriggerPath = default!;
 #endif
         /// <summary>The workspaced_route property</summary>
-        public bool? WorkspacedRoute { get; set; }
+        public bool? WorkspacedRoute { get => _explicitNullValueWorkspacedRoute; set { _explicitNullValueWorkspacedRoute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaced_route"); else _explicitNullProperties?.Remove("workspaced_route"); } }
+        private bool? _explicitNullValueWorkspacedRoute = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequest"/> and sets the default values.
         /// </summary>
@@ -49,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("route_path", RoutePath);
             writer.WriteStringValue("trigger_path", TriggerPath);
             writer.WriteBoolValue("workspaced_route", WorkspacedRoute);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

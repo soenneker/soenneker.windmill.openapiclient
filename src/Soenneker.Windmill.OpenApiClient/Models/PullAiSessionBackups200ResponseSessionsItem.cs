@@ -11,66 +11,96 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PullAiSessionBackups200ResponseSessionsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("artifacts") is { } nullNodeArtifacts && nullNodeArtifacts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Artifacts = null;
+            if (parseNode.GetChildNode("chats") is { } nullNodeChats && nullNodeChats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Chats = null;
+            if (parseNode.GetChildNode("head") is { } nullNodeHead && nullNodeHead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Head = null;
+            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("images") is { } nullNodeImages && nullNodeImages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Images = null;
+            if (parseNode.GetChildNode("listing") is { } nullNodeListing && nullNodeListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Listing = null;
+            if (parseNode.GetChildNode("moved") is { } nullNodeMoved && nullNodeMoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Moved = null;
+            if (parseNode.GetChildNode("next") is { } nullNodeNext && nullNodeNext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Next = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The artifacts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts? Artifacts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts? Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts? _explicitNullValueArtifacts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts Artifacts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts _explicitNullValueArtifacts = default!;
 #endif
         /// <summary>The chats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem>? Chats { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem>? Chats { get => _explicitNullValueChats; set { _explicitNullValueChats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chats"); else _explicitNullProperties?.Remove("chats"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem>? _explicitNullValueChats = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem> Chats { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem> Chats { get => _explicitNullValueChats; set { _explicitNullValueChats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chats"); else _explicitNullProperties?.Remove("chats"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem> _explicitNullValueChats = default!;
 #endif
         /// <summary>The head property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead? Head { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead? Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead? _explicitNullValueHead = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead Head { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead _explicitNullValueHead = default!;
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private string _explicitNullValueId = default!;
 #endif
         /// <summary>The images property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem>? Images { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem>? Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem>? _explicitNullValueImages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem> Images { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem> Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem> _explicitNullValueImages = default!;
 #endif
         /// <summary>a fingerprint of the session&apos;s listing; pages of one session whose fingerprints differ do not belong together</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Listing { get; set; }
+        public string? Listing { get => _explicitNullValueListing; set { _explicitNullValueListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listing"); else _explicitNullProperties?.Remove("listing"); } }
+        private string? _explicitNullValueListing = default!;
 #nullable restore
 #else
-        public string Listing { get; set; }
+        public string Listing { get => _explicitNullValueListing; set { _explicitNullValueListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listing"); else _explicitNullProperties?.Remove("listing"); } }
+        private string _explicitNullValueListing = default!;
 #endif
         /// <summary>the backup kept changing while this page was read, so it may mix two versions; the browser starts the session over</summary>
-        public bool? Moved { get; set; }
+        public bool? Moved { get => _explicitNullValueMoved; set { _explicitNullValueMoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved"); else _explicitNullProperties?.Remove("moved"); } }
+        private bool? _explicitNullValueMoved = default!;
         /// <summary>where a pull of a session that did not fit one answer whole picks up; the rest of the session follows a pull naming that session alone with this as `resume`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext? Next { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext? Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext? _explicitNullValueNext = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext Next { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext _explicitNullValueNext = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItem"/> and sets the default values.
@@ -87,7 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,6 +152,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("listing", Listing);
             writer.WriteBoolValue("moved", Moved);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext>("next", Next);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

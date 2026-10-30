@@ -12,37 +12,72 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CompareWorkspaces200ResponseSummary : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("apps_changed") is { } nullNodeAppsChanged && nullNodeAppsChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppsChanged = null;
+            if (parseNode.GetChildNode("conflicts") is { } nullNodeConflicts && nullNodeConflicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conflicts = null;
+            if (parseNode.GetChildNode("datatable_migrations_changed") is { } nullNodeDatatableMigrationsChanged && nullNodeDatatableMigrationsChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatatableMigrationsChanged = null;
+            if (parseNode.GetChildNode("flows_changed") is { } nullNodeFlowsChanged && nullNodeFlowsChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowsChanged = null;
+            if (parseNode.GetChildNode("folders_changed") is { } nullNodeFoldersChanged && nullNodeFoldersChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FoldersChanged = null;
+            if (parseNode.GetChildNode("resources_changed") is { } nullNodeResourcesChanged && nullNodeResourcesChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcesChanged = null;
+            if (parseNode.GetChildNode("resource_types_changed") is { } nullNodeResourceTypesChanged && nullNodeResourceTypesChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceTypesChanged = null;
+            if (parseNode.GetChildNode("schedules_changed") is { } nullNodeSchedulesChanged && nullNodeSchedulesChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchedulesChanged = null;
+            if (parseNode.GetChildNode("scripts_changed") is { } nullNodeScriptsChanged && nullNodeScriptsChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptsChanged = null;
+            if (parseNode.GetChildNode("total_ahead") is { } nullNodeTotalAhead && nullNodeTotalAhead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalAhead = null;
+            if (parseNode.GetChildNode("total_behind") is { } nullNodeTotalBehind && nullNodeTotalBehind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBehind = null;
+            if (parseNode.GetChildNode("total_diffs") is { } nullNodeTotalDiffs && nullNodeTotalDiffs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDiffs = null;
+            if (parseNode.GetChildNode("triggers_changed") is { } nullNodeTriggersChanged && nullNodeTriggersChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggersChanged = null;
+            if (parseNode.GetChildNode("variables_changed") is { } nullNodeVariablesChanged && nullNodeVariablesChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariablesChanged = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of apps with differences</summary>
-        public int? AppsChanged { get; set; }
+        public int? AppsChanged { get => _explicitNullValueAppsChanged; set { _explicitNullValueAppsChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps_changed"); else _explicitNullProperties?.Remove("apps_changed"); } }
+        private int? _explicitNullValueAppsChanged = default!;
         /// <summary>Number of items that are both ahead and behind (conflicts)</summary>
-        public int? Conflicts { get; set; }
+        public int? Conflicts { get => _explicitNullValueConflicts; set { _explicitNullValueConflicts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conflicts"); else _explicitNullProperties?.Remove("conflicts"); } }
+        private int? _explicitNullValueConflicts = default!;
         /// <summary>Number of data table migrations with differences</summary>
-        public int? DatatableMigrationsChanged { get; set; }
+        public int? DatatableMigrationsChanged { get => _explicitNullValueDatatableMigrationsChanged; set { _explicitNullValueDatatableMigrationsChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatable_migrations_changed"); else _explicitNullProperties?.Remove("datatable_migrations_changed"); } }
+        private int? _explicitNullValueDatatableMigrationsChanged = default!;
         /// <summary>Number of flows with differences</summary>
-        public int? FlowsChanged { get; set; }
+        public int? FlowsChanged { get => _explicitNullValueFlowsChanged; set { _explicitNullValueFlowsChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flows_changed"); else _explicitNullProperties?.Remove("flows_changed"); } }
+        private int? _explicitNullValueFlowsChanged = default!;
         /// <summary>Number of folders with differences</summary>
-        public int? FoldersChanged { get; set; }
+        public int? FoldersChanged { get => _explicitNullValueFoldersChanged; set { _explicitNullValueFoldersChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("folders_changed"); else _explicitNullProperties?.Remove("folders_changed"); } }
+        private int? _explicitNullValueFoldersChanged = default!;
         /// <summary>Number of resources with differences</summary>
-        public int? ResourcesChanged { get; set; }
+        public int? ResourcesChanged { get => _explicitNullValueResourcesChanged; set { _explicitNullValueResourcesChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_changed"); else _explicitNullProperties?.Remove("resources_changed"); } }
+        private int? _explicitNullValueResourcesChanged = default!;
         /// <summary>Number of resource types with differences</summary>
-        public int? ResourceTypesChanged { get; set; }
+        public int? ResourceTypesChanged { get => _explicitNullValueResourceTypesChanged; set { _explicitNullValueResourceTypesChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_types_changed"); else _explicitNullProperties?.Remove("resource_types_changed"); } }
+        private int? _explicitNullValueResourceTypesChanged = default!;
         /// <summary>Number of schedules with differences</summary>
-        public int? SchedulesChanged { get; set; }
+        public int? SchedulesChanged { get => _explicitNullValueSchedulesChanged; set { _explicitNullValueSchedulesChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedules_changed"); else _explicitNullProperties?.Remove("schedules_changed"); } }
+        private int? _explicitNullValueSchedulesChanged = default!;
         /// <summary>Number of scripts with differences</summary>
-        public int? ScriptsChanged { get; set; }
+        public int? ScriptsChanged { get => _explicitNullValueScriptsChanged; set { _explicitNullValueScriptsChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts_changed"); else _explicitNullProperties?.Remove("scripts_changed"); } }
+        private int? _explicitNullValueScriptsChanged = default!;
         /// <summary>Total number of ahead changes</summary>
-        public int? TotalAhead { get; set; }
+        public int? TotalAhead { get => _explicitNullValueTotalAhead; set { _explicitNullValueTotalAhead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_ahead"); else _explicitNullProperties?.Remove("total_ahead"); } }
+        private int? _explicitNullValueTotalAhead = default!;
         /// <summary>Total number of behind changes</summary>
-        public int? TotalBehind { get; set; }
+        public int? TotalBehind { get => _explicitNullValueTotalBehind; set { _explicitNullValueTotalBehind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_behind"); else _explicitNullProperties?.Remove("total_behind"); } }
+        private int? _explicitNullValueTotalBehind = default!;
         /// <summary>Total number of items with differences</summary>
-        public int? TotalDiffs { get; set; }
+        public int? TotalDiffs { get => _explicitNullValueTotalDiffs; set { _explicitNullValueTotalDiffs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_diffs"); else _explicitNullProperties?.Remove("total_diffs"); } }
+        private int? _explicitNullValueTotalDiffs = default!;
         /// <summary>Number of triggers with differences (sum across all trigger kinds)</summary>
-        public int? TriggersChanged { get; set; }
+        public int? TriggersChanged { get => _explicitNullValueTriggersChanged; set { _explicitNullValueTriggersChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers_changed"); else _explicitNullProperties?.Remove("triggers_changed"); } }
+        private int? _explicitNullValueTriggersChanged = default!;
         /// <summary>Number of variables with differences</summary>
-        public int? VariablesChanged { get; set; }
+        public int? VariablesChanged { get => _explicitNullValueVariablesChanged; set { _explicitNullValueVariablesChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables_changed"); else _explicitNullProperties?.Remove("variables_changed"); } }
+        private int? _explicitNullValueVariablesChanged = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary"/> and sets the default values.
         /// </summary>
@@ -58,7 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,6 +140,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("total_diffs", TotalDiffs);
             writer.WriteIntValue("triggers_changed", TriggersChanged);
             writer.WriteIntValue("variables_changed", VariablesChanged);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

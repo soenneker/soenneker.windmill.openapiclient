@@ -11,32 +11,48 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EditDataTableConfigRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("deleted_datatables") is { } nullNodeDeletedDatatables && nullNodeDeletedDatatables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeletedDatatables = null;
+            if (parseNode.GetChildNode("renames") is { } nullNodeRenames && nullNodeRenames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Renames = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>data tables removed in this save, so their migrations are deleted</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DeletedDatatables { get; set; }
+        public List<string>? DeletedDatatables { get => _explicitNullValueDeletedDatatables; set { _explicitNullValueDeletedDatatables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted_datatables"); else _explicitNullProperties?.Remove("deleted_datatables"); } }
+        private List<string>? _explicitNullValueDeletedDatatables = default!;
 #nullable restore
 #else
-        public List<string> DeletedDatatables { get; set; }
+        public List<string> DeletedDatatables { get => _explicitNullValueDeletedDatatables; set { _explicitNullValueDeletedDatatables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deleted_datatables"); else _explicitNullProperties?.Remove("deleted_datatables"); } }
+        private List<string> _explicitNullValueDeletedDatatables = default!;
 #endif
         /// <summary>data tables renamed in this save, so their migrations cascade</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem>? Renames { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem>? Renames { get => _explicitNullValueRenames; set { _explicitNullValueRenames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("renames"); else _explicitNullProperties?.Remove("renames"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem>? _explicitNullValueRenames = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem> Renames { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem> Renames { get => _explicitNullValueRenames; set { _explicitNullValueRenames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("renames"); else _explicitNullProperties?.Remove("renames"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem> _explicitNullValueRenames = default!;
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings? Settings { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings Settings { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings _explicitNullValueSettings = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("deleted_datatables", DeletedDatatables);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestRenamesItem>("renames", Renames);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettings>("settings", Settings);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

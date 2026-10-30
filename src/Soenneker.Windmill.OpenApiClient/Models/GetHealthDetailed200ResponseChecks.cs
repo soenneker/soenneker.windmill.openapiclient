@@ -12,40 +12,59 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetHealthDetailed200ResponseChecks : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("database") is { } nullNodeDatabase && nullNodeDatabase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Database = null;
+            if (parseNode.GetChildNode("queue") is { } nullNodeQueue && nullNodeQueue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Queue = null;
+            if (parseNode.GetChildNode("readiness") is { } nullNodeReadiness && nullNodeReadiness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Readiness = null;
+            if (parseNode.GetChildNode("workers") is { } nullNodeWorkers && nullNodeWorkers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workers = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Database health status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksDatabase? Database { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksDatabase? Database { get => _explicitNullValueDatabase; set { _explicitNullValueDatabase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database"); else _explicitNullProperties?.Remove("database"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksDatabase? _explicitNullValueDatabase = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksDatabase Database { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksDatabase Database { get => _explicitNullValueDatabase; set { _explicitNullValueDatabase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database"); else _explicitNullProperties?.Remove("database"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksDatabase _explicitNullValueDatabase = default!;
 #endif
         /// <summary>Job queue status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksQueue? Queue { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksQueue? Queue { get => _explicitNullValueQueue; set { _explicitNullValueQueue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queue"); else _explicitNullProperties?.Remove("queue"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksQueue? _explicitNullValueQueue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksQueue Queue { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksQueue Queue { get => _explicitNullValueQueue; set { _explicitNullValueQueue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("queue"); else _explicitNullProperties?.Remove("queue"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksQueue _explicitNullValueQueue = default!;
 #endif
         /// <summary>Server readiness status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksReadiness? Readiness { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksReadiness? Readiness { get => _explicitNullValueReadiness; set { _explicitNullValueReadiness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readiness"); else _explicitNullProperties?.Remove("readiness"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksReadiness? _explicitNullValueReadiness = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksReadiness Readiness { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksReadiness Readiness { get => _explicitNullValueReadiness; set { _explicitNullValueReadiness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("readiness"); else _explicitNullProperties?.Remove("readiness"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksReadiness _explicitNullValueReadiness = default!;
 #endif
         /// <summary>Workers health status</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksWorkers? Workers { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksWorkers? Workers { get => _explicitNullValueWorkers; set { _explicitNullValueWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workers"); else _explicitNullProperties?.Remove("workers"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksWorkers? _explicitNullValueWorkers = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksWorkers Workers { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksWorkers Workers { get => _explicitNullValueWorkers; set { _explicitNullValueWorkers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workers"); else _explicitNullProperties?.Remove("workers"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksWorkers _explicitNullValueWorkers = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecks"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecks();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecks(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksQueue>("queue", Queue);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksReadiness>("readiness", Readiness);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthDetailed200ResponseChecksWorkers>("workers", Workers);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,24 +11,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListAssets200ResponseAssetsItemUsagesItemMetadata : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("job_kind") is { } nullNodeJobKind && nullNodeJobKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobKind = null;
+            if (parseNode.GetChildNode("runnable_path") is { } nullNodeRunnablePath && nullNodeRunnablePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnablePath = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The kind of job (script, flow, preview, etc.) (only present when kind is &apos;job&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JobKind { get; set; }
+        public string? JobKind { get => _explicitNullValueJobKind; set { _explicitNullValueJobKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_kind"); else _explicitNullProperties?.Remove("job_kind"); } }
+        private string? _explicitNullValueJobKind = default!;
 #nullable restore
 #else
-        public string JobKind { get; set; }
+        public string JobKind { get => _explicitNullValueJobKind; set { _explicitNullValueJobKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_kind"); else _explicitNullProperties?.Remove("job_kind"); } }
+        private string _explicitNullValueJobKind = default!;
 #endif
         /// <summary>The path of the script/flow that was run (only present when kind is &apos;job&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnablePath { get; set; }
+        public string? RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        private string? _explicitNullValueRunnablePath = default!;
 #nullable restore
 #else
-        public string RunnablePath { get; set; }
+        public string RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        private string _explicitNullValueRunnablePath = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListAssets200ResponseAssetsItemUsagesItemMetadata"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListAssets200ResponseAssetsItemUsagesItemMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListAssets200ResponseAssetsItemUsagesItemMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListAssets200ResponseAssetsItemUsagesItemMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("job_kind", JobKind);
             writer.WriteStringValue("runnable_path", RunnablePath);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

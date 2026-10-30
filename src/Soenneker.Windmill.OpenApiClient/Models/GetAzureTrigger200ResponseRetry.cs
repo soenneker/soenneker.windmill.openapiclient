@@ -12,32 +12,48 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetAzureTrigger200ResponseRetry : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("constant") is { } nullNodeConstant && nullNodeConstant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Constant = null;
+            if (parseNode.GetChildNode("exponential") is { } nullNodeExponential && nullNodeExponential.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exponential = null;
+            if (parseNode.GetChildNode("retry_if") is { } nullNodeRetryIf && nullNodeRetryIf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetryIf = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Retry with constant delay between attempts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryConstant? Constant { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryConstant? Constant { get => _explicitNullValueConstant; set { _explicitNullValueConstant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("constant"); else _explicitNullProperties?.Remove("constant"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryConstant? _explicitNullValueConstant = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryConstant Constant { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryConstant Constant { get => _explicitNullValueConstant; set { _explicitNullValueConstant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("constant"); else _explicitNullProperties?.Remove("constant"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryConstant _explicitNullValueConstant = default!;
 #endif
         /// <summary>Retry with exponential backoff: the n-th retry waits multiplier × seconds^n</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryExponential? Exponential { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryExponential? Exponential { get => _explicitNullValueExponential; set { _explicitNullValueExponential = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exponential"); else _explicitNullProperties?.Remove("exponential"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryExponential? _explicitNullValueExponential = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryExponential Exponential { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryExponential Exponential { get => _explicitNullValueExponential; set { _explicitNullValueExponential = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exponential"); else _explicitNullProperties?.Remove("exponential"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryExponential _explicitNullValueExponential = default!;
 #endif
         /// <summary>Conditional retry based on error or result</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryRetryIf? RetryIf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryRetryIf? RetryIf { get => _explicitNullValueRetryIf; set { _explicitNullValueRetryIf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry_if"); else _explicitNullProperties?.Remove("retry_if"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryRetryIf? _explicitNullValueRetryIf = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryRetryIf RetryIf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryRetryIf RetryIf { get => _explicitNullValueRetryIf; set { _explicitNullValueRetryIf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry_if"); else _explicitNullProperties?.Remove("retry_if"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryRetryIf _explicitNullValueRetryIf = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetry"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetry();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetry(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryConstant>("constant", Constant);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryExponential>("exponential", Exponential);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAzureTrigger200ResponseRetryRetryIf>("retry_if", RetryIf);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

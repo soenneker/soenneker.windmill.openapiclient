@@ -11,35 +11,53 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDbtRunGraph200ResponseMacroEdgesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("consumer_path") is { } nullNodeConsumerPath && nullNodeConsumerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumerPath = null;
+            if (parseNode.GetChildNode("lib_path") is { } nullNodeLibPath && nullNodeLibPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LibPath = null;
+            if (parseNode.GetChildNode("macro_names") is { } nullNodeMacroNames && nullNodeMacroNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MacroNames = null;
+            if (parseNode.GetChildNode("via_use") is { } nullNodeViaUse && nullNodeViaUse.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViaUse = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The consumer_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConsumerPath { get; set; }
+        public string? ConsumerPath { get => _explicitNullValueConsumerPath; set { _explicitNullValueConsumerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_path"); else _explicitNullProperties?.Remove("consumer_path"); } }
+        private string? _explicitNullValueConsumerPath = default!;
 #nullable restore
 #else
-        public string ConsumerPath { get; set; }
+        public string ConsumerPath { get => _explicitNullValueConsumerPath; set { _explicitNullValueConsumerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_path"); else _explicitNullProperties?.Remove("consumer_path"); } }
+        private string _explicitNullValueConsumerPath = default!;
 #endif
         /// <summary>The lib_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LibPath { get; set; }
+        public string? LibPath { get => _explicitNullValueLibPath; set { _explicitNullValueLibPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lib_path"); else _explicitNullProperties?.Remove("lib_path"); } }
+        private string? _explicitNullValueLibPath = default!;
 #nullable restore
 #else
-        public string LibPath { get; set; }
+        public string LibPath { get => _explicitNullValueLibPath; set { _explicitNullValueLibPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lib_path"); else _explicitNullProperties?.Remove("lib_path"); } }
+        private string _explicitNullValueLibPath = default!;
 #endif
         /// <summary>The macro_names property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MacroNames { get; set; }
+        public List<string>? MacroNames { get => _explicitNullValueMacroNames; set { _explicitNullValueMacroNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("macro_names"); else _explicitNullProperties?.Remove("macro_names"); } }
+        private List<string>? _explicitNullValueMacroNames = default!;
 #nullable restore
 #else
-        public List<string> MacroNames { get; set; }
+        public List<string> MacroNames { get => _explicitNullValueMacroNames; set { _explicitNullValueMacroNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("macro_names"); else _explicitNullProperties?.Remove("macro_names"); } }
+        private List<string> _explicitNullValueMacroNames = default!;
 #endif
         /// <summary>The via_use property</summary>
-        public bool? ViaUse { get; set; }
+        public bool? ViaUse { get => _explicitNullValueViaUse; set { _explicitNullValueViaUse = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("via_use"); else _explicitNullProperties?.Remove("via_use"); } }
+        private bool? _explicitNullValueViaUse = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseMacroEdgesItem"/> and sets the default values.
         /// </summary>
@@ -55,7 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseMacroEdgesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseMacroEdgesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseMacroEdgesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("lib_path", LibPath);
             writer.WriteCollectionOfPrimitiveValues<string>("macro_names", MacroNames);
             writer.WriteBoolValue("via_use", ViaUse);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

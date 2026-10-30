@@ -11,48 +11,75 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CompareWorkspaces200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("all_ahead_items_visible") is { } nullNodeAllAheadItemsVisible && nullNodeAllAheadItemsVisible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllAheadItemsVisible = null;
+            if (parseNode.GetChildNode("all_behind_items_visible") is { } nullNodeAllBehindItemsVisible && nullNodeAllBehindItemsVisible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllBehindItemsVisible = null;
+            if (parseNode.GetChildNode("diffs") is { } nullNodeDiffs && nullNodeDiffs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Diffs = null;
+            if (parseNode.GetChildNode("full_scan_at") is { } nullNodeFullScanAt && nullNodeFullScanAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullScanAt = null;
+            if (parseNode.GetChildNode("hidden_ahead") is { } nullNodeHiddenAhead && nullNodeHiddenAhead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HiddenAhead = null;
+            if (parseNode.GetChildNode("hidden_behind") is { } nullNodeHiddenBehind && nullNodeHiddenBehind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HiddenBehind = null;
+            if (parseNode.GetChildNode("skipped_comparison") is { } nullNodeSkippedComparison && nullNodeSkippedComparison.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkippedComparison = null;
+            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>All items with changes ahead are visible by the user of the request.</summary>
-        public bool? AllAheadItemsVisible { get; set; }
+        public bool? AllAheadItemsVisible { get => _explicitNullValueAllAheadItemsVisible; set { _explicitNullValueAllAheadItemsVisible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("all_ahead_items_visible"); else _explicitNullProperties?.Remove("all_ahead_items_visible"); } }
+        private bool? _explicitNullValueAllAheadItemsVisible = default!;
         /// <summary>All items with changes behind are visible by the user of the request.</summary>
-        public bool? AllBehindItemsVisible { get; set; }
+        public bool? AllBehindItemsVisible { get => _explicitNullValueAllBehindItemsVisible; set { _explicitNullValueAllBehindItemsVisible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("all_behind_items_visible"); else _explicitNullProperties?.Remove("all_behind_items_visible"); } }
+        private bool? _explicitNullValueAllBehindItemsVisible = default!;
         /// <summary>List of differences found between workspaces</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem>? Diffs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem>? Diffs { get => _explicitNullValueDiffs; set { _explicitNullValueDiffs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("diffs"); else _explicitNullProperties?.Remove("diffs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem>? _explicitNullValueDiffs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem> Diffs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem> Diffs { get => _explicitNullValueDiffs; set { _explicitNullValueDiffs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("diffs"); else _explicitNullProperties?.Remove("diffs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseDiffsItem> _explicitNullValueDiffs = default!;
 #endif
         /// <summary>For a pair outside the fork lineage, when its candidate set was last seeded by an explicit full scan. Absent when the pair has never been scanned (an empty `diffs` then says nothing about whether the workspaces agree) or when the pair is a lineage pair, which the tally keeps current.</summary>
-        public DateTimeOffset? FullScanAt { get; set; }
+        public DateTimeOffset? FullScanAt { get => _explicitNullValueFullScanAt; set { _explicitNullValueFullScanAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_scan_at"); else _explicitNullProperties?.Remove("full_scan_at"); } }
+        private DateTimeOffset? _explicitNullValueFullScanAt = default!;
         /// <summary>Ahead items excluded from `diffs` because they are not visible to the caller</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead? HiddenAhead { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead? HiddenAhead { get => _explicitNullValueHiddenAhead; set { _explicitNullValueHiddenAhead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hidden_ahead"); else _explicitNullProperties?.Remove("hidden_ahead"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead? _explicitNullValueHiddenAhead = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead HiddenAhead { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead HiddenAhead { get => _explicitNullValueHiddenAhead; set { _explicitNullValueHiddenAhead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hidden_ahead"); else _explicitNullProperties?.Remove("hidden_ahead"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenAhead _explicitNullValueHiddenAhead = default!;
 #endif
         /// <summary>Behind items excluded from `diffs` because they are not visible to the caller</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind? HiddenBehind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind? HiddenBehind { get => _explicitNullValueHiddenBehind; set { _explicitNullValueHiddenBehind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hidden_behind"); else _explicitNullProperties?.Remove("hidden_behind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind? _explicitNullValueHiddenBehind = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind HiddenBehind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind HiddenBehind { get => _explicitNullValueHiddenBehind; set { _explicitNullValueHiddenBehind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hidden_behind"); else _explicitNullProperties?.Remove("hidden_behind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind _explicitNullValueHiddenBehind = default!;
 #endif
         /// <summary>Whether the comparison was skipped. This happens with old forks that where not being kept track of</summary>
-        public bool? SkippedComparison { get; set; }
+        public bool? SkippedComparison { get => _explicitNullValueSkippedComparison; set { _explicitNullValueSkippedComparison = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped_comparison"); else _explicitNullProperties?.Remove("skipped_comparison"); } }
+        private bool? _explicitNullValueSkippedComparison = default!;
         /// <summary>Summary statistics of the comparison</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary? Summary { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary Summary { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary _explicitNullValueSummary = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200Response"/> and sets the default values.
@@ -69,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,6 +131,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseHiddenBehind>("hidden_behind", HiddenBehind);
             writer.WriteBoolValue("skipped_comparison", SkippedComparison);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CompareWorkspaces200ResponseSummary>("summary", Summary);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

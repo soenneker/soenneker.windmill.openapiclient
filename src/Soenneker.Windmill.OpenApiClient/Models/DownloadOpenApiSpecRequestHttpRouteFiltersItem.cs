@@ -11,32 +11,48 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DownloadOpenApiSpecRequestHttpRouteFiltersItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("folder_regex") is { } nullNodeFolderRegex && nullNodeFolderRegex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FolderRegex = null;
+            if (parseNode.GetChildNode("path_regex") is { } nullNodePathRegex && nullNodePathRegex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathRegex = null;
+            if (parseNode.GetChildNode("route_path_regex") is { } nullNodeRoutePathRegex && nullNodeRoutePathRegex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutePathRegex = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The folder_regex property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FolderRegex { get; set; }
+        public string? FolderRegex { get => _explicitNullValueFolderRegex; set { _explicitNullValueFolderRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("folder_regex"); else _explicitNullProperties?.Remove("folder_regex"); } }
+        private string? _explicitNullValueFolderRegex = default!;
 #nullable restore
 #else
-        public string FolderRegex { get; set; }
+        public string FolderRegex { get => _explicitNullValueFolderRegex; set { _explicitNullValueFolderRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("folder_regex"); else _explicitNullProperties?.Remove("folder_regex"); } }
+        private string _explicitNullValueFolderRegex = default!;
 #endif
         /// <summary>The path_regex property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PathRegex { get; set; }
+        public string? PathRegex { get => _explicitNullValuePathRegex; set { _explicitNullValuePathRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path_regex"); else _explicitNullProperties?.Remove("path_regex"); } }
+        private string? _explicitNullValuePathRegex = default!;
 #nullable restore
 #else
-        public string PathRegex { get; set; }
+        public string PathRegex { get => _explicitNullValuePathRegex; set { _explicitNullValuePathRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path_regex"); else _explicitNullProperties?.Remove("path_regex"); } }
+        private string _explicitNullValuePathRegex = default!;
 #endif
         /// <summary>The route_path_regex property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutePathRegex { get; set; }
+        public string? RoutePathRegex { get => _explicitNullValueRoutePathRegex; set { _explicitNullValueRoutePathRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path_regex"); else _explicitNullProperties?.Remove("route_path_regex"); } }
+        private string? _explicitNullValueRoutePathRegex = default!;
 #nullable restore
 #else
-        public string RoutePathRegex { get; set; }
+        public string RoutePathRegex { get => _explicitNullValueRoutePathRegex; set { _explicitNullValueRoutePathRegex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path_regex"); else _explicitNullProperties?.Remove("route_path_regex"); } }
+        private string _explicitNullValueRoutePathRegex = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DownloadOpenApiSpecRequestHttpRouteFiltersItem"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.DownloadOpenApiSpecRequestHttpRouteFiltersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.DownloadOpenApiSpecRequestHttpRouteFiltersItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.DownloadOpenApiSpecRequestHttpRouteFiltersItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("folder_regex", FolderRegex);
             writer.WriteStringValue("path_regex", PathRegex);
             writer.WriteStringValue("route_path_regex", RoutePathRegex);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

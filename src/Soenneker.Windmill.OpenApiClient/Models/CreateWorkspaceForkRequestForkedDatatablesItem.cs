@@ -11,26 +11,41 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateWorkspaceForkRequestForkedDatatablesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("fork_behavior") is { } nullNodeForkBehavior && nullNodeForkBehavior.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkBehavior = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("new_dbname") is { } nullNodeNewDbname && nullNodeNewDbname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewDbname = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>What the fork request copies into `new_dbname`, which it creates — with the owners and grants of a data table under roles. This server refuses an entry without it; servers predating it expect `new_dbname` created and filled beforehand.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItemForkBehavior? ForkBehavior { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItemForkBehavior? ForkBehavior { get => _explicitNullValueForkBehavior; set { _explicitNullValueForkBehavior = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_behavior"); else _explicitNullProperties?.Remove("fork_behavior"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItemForkBehavior? _explicitNullValueForkBehavior = default!;
         /// <summary>Datatable name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>New database name for the fork</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewDbname { get; set; }
+        public string? NewDbname { get => _explicitNullValueNewDbname; set { _explicitNullValueNewDbname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_dbname"); else _explicitNullProperties?.Remove("new_dbname"); } }
+        private string? _explicitNullValueNewDbname = default!;
 #nullable restore
 #else
-        public string NewDbname { get; set; }
+        public string NewDbname { get => _explicitNullValueNewDbname; set { _explicitNullValueNewDbname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_dbname"); else _explicitNullProperties?.Remove("new_dbname"); } }
+        private string _explicitNullValueNewDbname = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem"/> and sets the default values.
@@ -47,7 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItemForkBehavior>("fork_behavior", ForkBehavior);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("new_dbname", NewDbname);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

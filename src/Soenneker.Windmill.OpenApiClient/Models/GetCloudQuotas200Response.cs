@@ -11,56 +11,81 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetCloudQuotas200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("apps") is { } nullNodeApps && nullNodeApps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Apps = null;
+            if (parseNode.GetChildNode("flows") is { } nullNodeFlows && nullNodeFlows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Flows = null;
+            if (parseNode.GetChildNode("forks") is { } nullNodeForks && nullNodeForks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Forks = null;
+            if (parseNode.GetChildNode("resources") is { } nullNodeResources && nullNodeResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resources = null;
+            if (parseNode.GetChildNode("scripts") is { } nullNodeScripts && nullNodeScripts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scripts = null;
+            if (parseNode.GetChildNode("variables") is { } nullNodeVariables && nullNodeVariables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Variables = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The apps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps? Apps { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps? Apps { get => _explicitNullValueApps; set { _explicitNullValueApps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps"); else _explicitNullProperties?.Remove("apps"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps? _explicitNullValueApps = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps Apps { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps Apps { get => _explicitNullValueApps; set { _explicitNullValueApps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps"); else _explicitNullProperties?.Remove("apps"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps _explicitNullValueApps = default!;
 #endif
         /// <summary>The flows property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows? Flows { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows? Flows { get => _explicitNullValueFlows; set { _explicitNullValueFlows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flows"); else _explicitNullProperties?.Remove("flows"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows? _explicitNullValueFlows = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows Flows { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows Flows { get => _explicitNullValueFlows; set { _explicitNullValueFlows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flows"); else _explicitNullProperties?.Remove("flows"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows _explicitNullValueFlows = default!;
 #endif
         /// <summary>The forks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks? Forks { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks? Forks { get => _explicitNullValueForks; set { _explicitNullValueForks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forks"); else _explicitNullProperties?.Remove("forks"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks? _explicitNullValueForks = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks Forks { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks Forks { get => _explicitNullValueForks; set { _explicitNullValueForks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forks"); else _explicitNullProperties?.Remove("forks"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseForks _explicitNullValueForks = default!;
 #endif
         /// <summary>The resources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources? Resources { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources? Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources? _explicitNullValueResources = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources Resources { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources _explicitNullValueResources = default!;
 #endif
         /// <summary>The scripts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts? Scripts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts? Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts? _explicitNullValueScripts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts Scripts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts _explicitNullValueScripts = default!;
 #endif
         /// <summary>The variables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables? Variables { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables? Variables { get => _explicitNullValueVariables; set { _explicitNullValueVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables"); else _explicitNullProperties?.Remove("variables"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables? _explicitNullValueVariables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables Variables { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables Variables { get => _explicitNullValueVariables; set { _explicitNullValueVariables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables"); else _explicitNullProperties?.Remove("variables"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables _explicitNullValueVariables = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200Response"/> and sets the default values.
@@ -77,7 +102,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,6 +133,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseResources>("resources", Resources);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseScripts>("scripts", Scripts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseVariables>("variables", Variables);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Guests
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// The set the guest allowance is counted on: every distinct email that held a guest session in the last `window_days`, with the workspaces it opened and the days it was first and last seen, most recently seen first. `usage` is the instance&apos;s standing against the allowance and the meter.

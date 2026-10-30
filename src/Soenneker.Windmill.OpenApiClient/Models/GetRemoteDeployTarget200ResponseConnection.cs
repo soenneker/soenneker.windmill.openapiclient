@@ -11,26 +11,41 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetRemoteDeployTarget200ResponseConnection : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connected_at") is { } nullNodeConnectedAt && nullNodeConnectedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectedAt = null;
+            if (parseNode.GetChildNode("proxy_key") is { } nullNodeProxyKey && nullNodeProxyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProxyKey = null;
+            if (parseNode.GetChildNode("remote_email") is { } nullNodeRemoteEmail && nullNodeRemoteEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoteEmail = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The connected_at property</summary>
-        public DateTimeOffset? ConnectedAt { get; set; }
+        public DateTimeOffset? ConnectedAt { get => _explicitNullValueConnectedAt; set { _explicitNullValueConnectedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connected_at"); else _explicitNullProperties?.Remove("connected_at"); } }
+        private DateTimeOffset? _explicitNullValueConnectedAt = default!;
         /// <summary>goes in every proxy URL, `/w/{workspace}/remote_deploy/proxy/{proxy_key}/{route}`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProxyKey { get; set; }
+        public string? ProxyKey { get => _explicitNullValueProxyKey; set { _explicitNullValueProxyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_key"); else _explicitNullProperties?.Remove("proxy_key"); } }
+        private string? _explicitNullValueProxyKey = default!;
 #nullable restore
 #else
-        public string ProxyKey { get; set; }
+        public string ProxyKey { get => _explicitNullValueProxyKey; set { _explicitNullValueProxyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("proxy_key"); else _explicitNullProperties?.Remove("proxy_key"); } }
+        private string _explicitNullValueProxyKey = default!;
 #endif
         /// <summary>identity the stored token has on the remote instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RemoteEmail { get; set; }
+        public string? RemoteEmail { get => _explicitNullValueRemoteEmail; set { _explicitNullValueRemoteEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remote_email"); else _explicitNullProperties?.Remove("remote_email"); } }
+        private string? _explicitNullValueRemoteEmail = default!;
 #nullable restore
 #else
-        public string RemoteEmail { get; set; }
+        public string RemoteEmail { get => _explicitNullValueRemoteEmail; set { _explicitNullValueRemoteEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("remote_email"); else _explicitNullProperties?.Remove("remote_email"); } }
+        private string _explicitNullValueRemoteEmail = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetRemoteDeployTarget200ResponseConnection"/> and sets the default values.
@@ -47,7 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetRemoteDeployTarget200ResponseConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetRemoteDeployTarget200ResponseConnection();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetRemoteDeployTarget200ResponseConnection(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("connected_at", ConnectedAt);
             writer.WriteStringValue("proxy_key", ProxyKey);
             writer.WriteStringValue("remote_email", RemoteEmail);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

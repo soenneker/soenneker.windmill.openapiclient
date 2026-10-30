@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Concurrency_groups.Prune.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DeleteConcurrencyGroup200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DeleteConcurrencyGroup200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.DeleteConcurrencyGroup200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.DeleteConcurrencyGroup200ResponseSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Delete concurrency group

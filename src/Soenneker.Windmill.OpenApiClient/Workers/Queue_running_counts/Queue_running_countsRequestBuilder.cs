@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Workers.Queue_running_counts
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetCountsOfRunningJobsPerTag200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetCountsOfRunningJobsPerTag200ResponseSchema.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetCountsOfRunningJobsPerTag200ResponseSchema>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetCountsOfRunningJobsPerTag200ResponseSchema.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// get counts of currently running jobs per tag

@@ -11,46 +11,71 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TestDataTableConnection200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("can_create_schema") is { } nullNodeCanCreateSchema && nullNodeCanCreateSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanCreateSchema = null;
+            if (parseNode.GetChildNode("can_create_table") is { } nullNodeCanCreateTable && nullNodeCanCreateTable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanCreateTable = null;
+            if (parseNode.GetChildNode("migrations_table_exists") is { } nullNodeMigrationsTableExists && nullNodeMigrationsTableExists.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MigrationsTableExists = null;
+            if (parseNode.GetChildNode("schema") is { } nullNodeSchema && nullNodeSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schema = null;
+            if (parseNode.GetChildNode("suggested_grants") is { } nullNodeSuggestedGrants && nullNodeSuggestedGrants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuggestedGrants = null;
+            if (parseNode.GetChildNode("suggested_search_path") is { } nullNodeSuggestedSearchPath && nullNodeSuggestedSearchPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuggestedSearchPath = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The can_create_schema property</summary>
-        public bool? CanCreateSchema { get; set; }
+        public bool? CanCreateSchema { get => _explicitNullValueCanCreateSchema; set { _explicitNullValueCanCreateSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_create_schema"); else _explicitNullProperties?.Remove("can_create_schema"); } }
+        private bool? _explicitNullValueCanCreateSchema = default!;
         /// <summary>The can_create_table property</summary>
-        public bool? CanCreateTable { get; set; }
+        public bool? CanCreateTable { get => _explicitNullValueCanCreateTable; set { _explicitNullValueCanCreateTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_create_table"); else _explicitNullProperties?.Remove("can_create_table"); } }
+        private bool? _explicitNullValueCanCreateTable = default!;
         /// <summary>The migrations_table_exists property</summary>
-        public bool? MigrationsTableExists { get; set; }
+        public bool? MigrationsTableExists { get => _explicitNullValueMigrationsTableExists; set { _explicitNullValueMigrationsTableExists = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("migrations_table_exists"); else _explicitNullProperties?.Remove("migrations_table_exists"); } }
+        private bool? _explicitNullValueMigrationsTableExists = default!;
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Schema { get; set; }
+        public string? Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
+        private string? _explicitNullValueSchema = default!;
 #nullable restore
 #else
-        public string Schema { get; set; }
+        public string Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
+        private string _explicitNullValueSchema = default!;
 #endif
         /// <summary>The suggested_grants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SuggestedGrants { get; set; }
+        public List<string>? SuggestedGrants { get => _explicitNullValueSuggestedGrants; set { _explicitNullValueSuggestedGrants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggested_grants"); else _explicitNullProperties?.Remove("suggested_grants"); } }
+        private List<string>? _explicitNullValueSuggestedGrants = default!;
 #nullable restore
 #else
-        public List<string> SuggestedGrants { get; set; }
+        public List<string> SuggestedGrants { get => _explicitNullValueSuggestedGrants; set { _explicitNullValueSuggestedGrants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggested_grants"); else _explicitNullProperties?.Remove("suggested_grants"); } }
+        private List<string> _explicitNullValueSuggestedGrants = default!;
 #endif
         /// <summary>The suggested_search_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SuggestedSearchPath { get; set; }
+        public string? SuggestedSearchPath { get => _explicitNullValueSuggestedSearchPath; set { _explicitNullValueSuggestedSearchPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggested_search_path"); else _explicitNullProperties?.Remove("suggested_search_path"); } }
+        private string? _explicitNullValueSuggestedSearchPath = default!;
 #nullable restore
 #else
-        public string SuggestedSearchPath { get; set; }
+        public string SuggestedSearchPath { get => _explicitNullValueSuggestedSearchPath; set { _explicitNullValueSuggestedSearchPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suggested_search_path"); else _explicitNullProperties?.Remove("suggested_search_path"); } }
+        private string _explicitNullValueSuggestedSearchPath = default!;
 #endif
         /// <summary>The user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get; set; }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get; set; }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.TestDataTableConnection200Response"/> and sets the default values.
@@ -67,7 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.TestDataTableConnection200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.TestDataTableConnection200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.TestDataTableConnection200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,6 +125,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("suggested_grants", SuggestedGrants);
             writer.WriteStringValue("suggested_search_path", SuggestedSearchPath);
             writer.WriteStringValue("user", User);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

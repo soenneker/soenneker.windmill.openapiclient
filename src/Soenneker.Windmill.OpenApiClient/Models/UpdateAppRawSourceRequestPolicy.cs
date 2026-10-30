@@ -11,68 +11,100 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UpdateAppRawSourceRequestPolicy : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowed_s3_keys") is { } nullNodeAllowedS3Keys && nullNodeAllowedS3Keys.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedS3Keys = null;
+            if (parseNode.GetChildNode("execution_mode") is { } nullNodeExecutionMode && nullNodeExecutionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionMode = null;
+            if (parseNode.GetChildNode("frontend_sdk_scopes") is { } nullNodeFrontendSdkScopes && nullNodeFrontendSdkScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrontendSdkScopes = null;
+            if (parseNode.GetChildNode("on_behalf_of") is { } nullNodeOnBehalfOf && nullNodeOnBehalfOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBehalfOf = null;
+            if (parseNode.GetChildNode("on_behalf_of_email") is { } nullNodeOnBehalfOfEmail && nullNodeOnBehalfOfEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBehalfOfEmail = null;
+            if (parseNode.GetChildNode("s3_inputs") is { } nullNodeS3Inputs && nullNodeS3Inputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3Inputs = null;
+            if (parseNode.GetChildNode("sandbox") is { } nullNodeSandbox && nullNodeSandbox.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sandbox = null;
+            if (parseNode.GetChildNode("triggerables") is { } nullNodeTriggerables && nullNodeTriggerables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Triggerables = null;
+            if (parseNode.GetChildNode("triggerables_v2") is { } nullNodeTriggerablesV2 && nullNodeTriggerablesV2.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerablesV2 = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The allowed_s3_keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyAllowedS3KeysItem>? AllowedS3Keys { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyAllowedS3KeysItem>? AllowedS3Keys { get => _explicitNullValueAllowedS3Keys; set { _explicitNullValueAllowedS3Keys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_s3_keys"); else _explicitNullProperties?.Remove("allowed_s3_keys"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyAllowedS3KeysItem>? _explicitNullValueAllowedS3Keys = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyAllowedS3KeysItem> AllowedS3Keys { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyAllowedS3KeysItem> AllowedS3Keys { get => _explicitNullValueAllowedS3Keys; set { _explicitNullValueAllowedS3Keys = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowed_s3_keys"); else _explicitNullProperties?.Remove("allowed_s3_keys"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyAllowedS3KeysItem> _explicitNullValueAllowedS3Keys = default!;
 #endif
         /// <summary>Who may open the app, and who its runnables execute as. Optional, and what omitting it means depends on the operation: creating an app defaults it to `publisher` (runs on behalf of the app&apos;s publisher and requires an authenticated viewer), while updating one keeps the mode the app is already deployed under. Neither `anonymous`, which makes the app publicly executable, nor `guest`, which opens it to anyone the identity provider authenticates, is ever assumed. Widening an app to `guest` is gated by the `RestrictGuestAppDeployment` protection rule</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyExecutionMode? ExecutionMode { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyExecutionMode? ExecutionMode { get => _explicitNullValueExecutionMode; set { _explicitNullValueExecutionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execution_mode"); else _explicitNullProperties?.Remove("execution_mode"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyExecutionMode? _explicitNullValueExecutionMode = default!;
         /// <summary>Raw apps: author-declared scopes for the frontend SDK token. Takes effect only when `sandbox` is also true — an unsandboxed bundle runs with the viewer&apos;s own session, so no token is advertised or minted for it and this list stays inert. On a sandboxed app a non-empty list lets viewers mint (after consenting) a short-lived token carrying their own identity restricted to these scopes, handed to the app bundle so `windmill-client` calls run as the viewer. Must be a subset of the server&apos;s curated allowlist (jobs:run, jobs:read, users:read, resources:read, variables:read, flow_conversations:read, flow_conversations:write). Every such token can call whoami without consent, whether `users:read` is declared or not.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? FrontendSdkScopes { get; set; }
+        public List<string>? FrontendSdkScopes { get => _explicitNullValueFrontendSdkScopes; set { _explicitNullValueFrontendSdkScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frontend_sdk_scopes"); else _explicitNullProperties?.Remove("frontend_sdk_scopes"); } }
+        private List<string>? _explicitNullValueFrontendSdkScopes = default!;
 #nullable restore
 #else
-        public List<string> FrontendSdkScopes { get; set; }
+        public List<string> FrontendSdkScopes { get => _explicitNullValueFrontendSdkScopes; set { _explicitNullValueFrontendSdkScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frontend_sdk_scopes"); else _explicitNullProperties?.Remove("frontend_sdk_scopes"); } }
+        private List<string> _explicitNullValueFrontendSdkScopes = default!;
 #endif
         /// <summary>The user or group the app runs as in anonymous or publisher mode (e.g. &apos;u/admin&apos; or &apos;g/mygroup&apos;). The authority for the app&apos;s identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnBehalfOf { get; set; }
+        public string? OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
+        private string? _explicitNullValueOnBehalfOf = default!;
 #nullable restore
 #else
-        public string OnBehalfOf { get; set; }
+        public string OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
+        private string _explicitNullValueOnBehalfOf = default!;
 #endif
         /// <summary>Address of `on_behalf_of`, written through from it on every save and returned as stored. Optional; when absent it is derived from `on_behalf_of`. Sending it is optional too; it must name the same account as `on_behalf_of`, and a pair that disagrees is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnBehalfOfEmail { get; set; }
+        public string? OnBehalfOfEmail { get => _explicitNullValueOnBehalfOfEmail; set { _explicitNullValueOnBehalfOfEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of_email"); else _explicitNullProperties?.Remove("on_behalf_of_email"); } }
+        private string? _explicitNullValueOnBehalfOfEmail = default!;
 #nullable restore
 #else
-        public string OnBehalfOfEmail { get; set; }
+        public string OnBehalfOfEmail { get => _explicitNullValueOnBehalfOfEmail; set { _explicitNullValueOnBehalfOfEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of_email"); else _explicitNullProperties?.Remove("on_behalf_of_email"); } }
+        private string _explicitNullValueOnBehalfOfEmail = default!;
 #endif
         /// <summary>The s3_inputs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyS3InputsItem>? S3Inputs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyS3InputsItem>? S3Inputs { get => _explicitNullValueS3Inputs; set { _explicitNullValueS3Inputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_inputs"); else _explicitNullProperties?.Remove("s3_inputs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyS3InputsItem>? _explicitNullValueS3Inputs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyS3InputsItem> S3Inputs { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyS3InputsItem> S3Inputs { get => _explicitNullValueS3Inputs; set { _explicitNullValueS3Inputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_inputs"); else _explicitNullProperties?.Remove("s3_inputs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyS3InputsItem> _explicitNullValueS3Inputs = default!;
 #endif
         /// <summary>Publisher opt-in to app sandbox isolation (alpha). When true the app is isolated from each viewer&apos;s Windmill session. When false/absent the app runs same-origin with the viewer&apos;s full session (the default, pre-isolation behavior).</summary>
-        public bool? Sandbox { get; set; }
+        public bool? Sandbox { get => _explicitNullValueSandbox; set { _explicitNullValueSandbox = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox"); else _explicitNullProperties?.Remove("sandbox"); } }
+        private bool? _explicitNullValueSandbox = default!;
         /// <summary>The triggerables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerables? Triggerables { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerables? Triggerables { get => _explicitNullValueTriggerables; set { _explicitNullValueTriggerables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerables"); else _explicitNullProperties?.Remove("triggerables"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerables? _explicitNullValueTriggerables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerables Triggerables { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerables Triggerables { get => _explicitNullValueTriggerables; set { _explicitNullValueTriggerables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerables"); else _explicitNullProperties?.Remove("triggerables"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerables _explicitNullValueTriggerables = default!;
 #endif
         /// <summary>The triggerables_v2 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerablesV2? TriggerablesV2 { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerablesV2? TriggerablesV2 { get => _explicitNullValueTriggerablesV2; set { _explicitNullValueTriggerablesV2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerables_v2"); else _explicitNullProperties?.Remove("triggerables_v2"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerablesV2? _explicitNullValueTriggerablesV2 = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerablesV2 TriggerablesV2 { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerablesV2 TriggerablesV2 { get => _explicitNullValueTriggerablesV2; set { _explicitNullValueTriggerablesV2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggerables_v2"); else _explicitNullProperties?.Remove("triggerables_v2"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerablesV2 _explicitNullValueTriggerablesV2 = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicy"/> and sets the default values.
@@ -89,7 +121,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicy();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicy(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -126,6 +158,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("sandbox", Sandbox);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerables>("triggerables", Triggerables);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateAppRawSourceRequestPolicyTriggerablesV2>("triggerables_v2", TriggerablesV2);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

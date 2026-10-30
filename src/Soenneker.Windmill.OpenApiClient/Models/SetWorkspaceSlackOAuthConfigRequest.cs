@@ -11,24 +11,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SetWorkspaceSlackOAuthConfigRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("slack_oauth_client_id") is { } nullNodeSlackOauthClientId && nullNodeSlackOauthClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackOauthClientId = null;
+            if (parseNode.GetChildNode("slack_oauth_client_secret") is { } nullNodeSlackOauthClientSecret && nullNodeSlackOauthClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackOauthClientSecret = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The slack_oauth_client_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackOauthClientId { get; set; }
+        public string? SlackOauthClientId { get => _explicitNullValueSlackOauthClientId; set { _explicitNullValueSlackOauthClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_id"); else _explicitNullProperties?.Remove("slack_oauth_client_id"); } }
+        private string? _explicitNullValueSlackOauthClientId = default!;
 #nullable restore
 #else
-        public string SlackOauthClientId { get; set; }
+        public string SlackOauthClientId { get => _explicitNullValueSlackOauthClientId; set { _explicitNullValueSlackOauthClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_id"); else _explicitNullProperties?.Remove("slack_oauth_client_id"); } }
+        private string _explicitNullValueSlackOauthClientId = default!;
 #endif
         /// <summary>The slack_oauth_client_secret property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackOauthClientSecret { get; set; }
+        public string? SlackOauthClientSecret { get => _explicitNullValueSlackOauthClientSecret; set { _explicitNullValueSlackOauthClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_secret"); else _explicitNullProperties?.Remove("slack_oauth_client_secret"); } }
+        private string? _explicitNullValueSlackOauthClientSecret = default!;
 #nullable restore
 #else
-        public string SlackOauthClientSecret { get; set; }
+        public string SlackOauthClientSecret { get => _explicitNullValueSlackOauthClientSecret; set { _explicitNullValueSlackOauthClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_secret"); else _explicitNullProperties?.Remove("slack_oauth_client_secret"); } }
+        private string _explicitNullValueSlackOauthClientSecret = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceSlackOAuthConfigRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("slack_oauth_client_id", SlackOauthClientId);
             writer.WriteStringValue("slack_oauth_client_secret", SlackOauthClientSecret);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

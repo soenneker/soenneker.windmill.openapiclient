@@ -11,48 +11,70 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDatatableAcl200ResponseGrantsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("future") is { } nullNodeFuture && nullNodeFuture.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Future = null;
+            if (parseNode.GetChildNode("grantee") is { } nullNodeGrantee && nullNodeGrantee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grantee = null;
+            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+            if (parseNode.GetChildNode("privileges") is { } nullNodePrivileges && nullNodePrivileges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Privileges = null;
+            if (parseNode.GetChildNode("sources") is { } nullNodeSources && nullNodeSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sources = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>set for a default privilege, naming the kind of object it covers (TABLES, SEQUENCES, FUNCTIONS, TYPES, or SCHEMAS). On a schema, the defaults set in that schema; on the database, the ones set database-wide, which apply in every schema and which no schema&apos;s own defaults take back.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Future { get; set; }
+        public string? Future { get => _explicitNullValueFuture; set { _explicitNullValueFuture = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("future"); else _explicitNullProperties?.Remove("future"); } }
+        private string? _explicitNullValueFuture = default!;
 #nullable restore
 #else
-        public string Future { get; set; }
+        public string Future { get => _explicitNullValueFuture; set { _explicitNullValueFuture = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("future"); else _explicitNullProperties?.Remove("future"); } }
+        private string _explicitNullValueFuture = default!;
 #endif
         /// <summary>The grantee property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Grantee { get; set; }
+        public string? Grantee { get => _explicitNullValueGrantee; set { _explicitNullValueGrantee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grantee"); else _explicitNullProperties?.Remove("grantee"); } }
+        private string? _explicitNullValueGrantee = default!;
 #nullable restore
 #else
-        public string Grantee { get; set; }
+        public string Grantee { get => _explicitNullValueGrantee; set { _explicitNullValueGrantee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grantee"); else _explicitNullProperties?.Remove("grantee"); } }
+        private string _explicitNullValueGrantee = default!;
 #endif
         /// <summary>The object property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemObject? Object { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemObject? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemObject? _explicitNullValueObject = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemObject Object { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemObject Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemObject _explicitNullValueObject = default!;
 #endif
         /// <summary>The privileges property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Privileges { get; set; }
+        public List<string>? Privileges { get => _explicitNullValuePrivileges; set { _explicitNullValuePrivileges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privileges"); else _explicitNullProperties?.Remove("privileges"); } }
+        private List<string>? _explicitNullValuePrivileges = default!;
 #nullable restore
 #else
-        public List<string> Privileges { get; set; }
+        public List<string> Privileges { get => _explicitNullValuePrivileges; set { _explicitNullValuePrivileges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("privileges"); else _explicitNullProperties?.Remove("privileges"); } }
+        private List<string> _explicitNullValuePrivileges = default!;
 #endif
         /// <summary>the roles the grant comes from, each once — who granted it, or for a default privilege the role whose future objects it covers. A revoke of some of the grant&apos;s privileges takes them back from every source that gave them.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemSourcesItem>? Sources { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemSourcesItem>? Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemSourcesItem>? _explicitNullValueSources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemSourcesItem> Sources { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemSourcesItem> Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemSourcesItem> _explicitNullValueSources = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemObject>("object", Object);
             writer.WriteCollectionOfPrimitiveValues<string>("privileges", Privileges);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItemSourcesItem>("sources", Sources);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,37 +11,57 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDbtRunGraph200ResponseRunnablesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dbt") is { } nullNodeDbt && nullNodeDbt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dbt = null;
+            if (parseNode.GetChildNode("in_pipeline") is { } nullNodeInPipeline && nullNodeInPipeline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InPipeline = null;
+            if (parseNode.GetChildNode("macros") is { } nullNodeMacros && nullNodeMacros.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Macros = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("usage_kind") is { } nullNodeUsageKind && nullNodeUsageKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsageKind = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Set on a `dbt` script, which owns a whole project rather than a single output. Omitted otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemDbt? Dbt { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemDbt? Dbt { get => _explicitNullValueDbt; set { _explicitNullValueDbt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt"); else _explicitNullProperties?.Remove("dbt"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemDbt? _explicitNullValueDbt = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemDbt Dbt { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemDbt Dbt { get => _explicitNullValueDbt; set { _explicitNullValueDbt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt"); else _explicitNullProperties?.Remove("dbt"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemDbt _explicitNullValueDbt = default!;
 #endif
         /// <summary>True iff the script is a pipeline member (deployed with `// pipeline`). Omitted when false.</summary>
-        public bool? InPipeline { get; set; }
+        public bool? InPipeline { get => _explicitNullValueInPipeline; set { _explicitNullValueInPipeline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("in_pipeline"); else _explicitNullProperties?.Remove("in_pipeline"); } }
+        private bool? _explicitNullValueInPipeline = default!;
         /// <summary>Macros this script provides to the workspace registry (deployed `// macros` library). Omitted when empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemMacrosItem>? Macros { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemMacrosItem>? Macros { get => _explicitNullValueMacros; set { _explicitNullValueMacros = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("macros"); else _explicitNullProperties?.Remove("macros"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemMacrosItem>? _explicitNullValueMacros = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemMacrosItem> Macros { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemMacrosItem> Macros { get => _explicitNullValueMacros; set { _explicitNullValueMacros = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("macros"); else _explicitNullProperties?.Remove("macros"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemMacrosItem> _explicitNullValueMacros = default!;
 #endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The usage_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemUsageKind? UsageKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemUsageKind? UsageKind { get => _explicitNullValueUsageKind; set { _explicitNullValueUsageKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage_kind"); else _explicitNullProperties?.Remove("usage_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemUsageKind? _explicitNullValueUsageKind = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItem"/> and sets the default values.
         /// </summary>
@@ -57,7 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemMacrosItem>("macros", Macros);
             writer.WriteStringValue("path", Path);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseRunnablesItemUsageKind>("usage_kind", UsageKind);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

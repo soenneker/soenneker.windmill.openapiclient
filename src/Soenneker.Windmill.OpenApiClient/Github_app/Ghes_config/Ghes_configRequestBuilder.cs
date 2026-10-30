@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Github_app.Ghes_config
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGhesConfig200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGhesConfig200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGhesConfig200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGhesConfig200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns the GitHub Enterprise Server app configuration (without private key) for constructing the installation URL

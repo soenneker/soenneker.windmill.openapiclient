@@ -12,15 +12,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchJobsIndex200ResponseIndexMetadata : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("indexed_until") is { } nullNodeIndexedUntil && nullNodeIndexedUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexedUntil = null;
+            if (parseNode.GetChildNode("lost_lock_ownership") is { } nullNodeLostLockOwnership && nullNodeLostLockOwnership.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LostLockOwnership = null;
+            if (parseNode.GetChildNode("max_index_time_window_secs") is { } nullNodeMaxIndexTimeWindowSecs && nullNodeMaxIndexTimeWindowSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIndexTimeWindowSecs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Datetime of the most recently indexed job</summary>
-        public DateTimeOffset? IndexedUntil { get; set; }
+        public DateTimeOffset? IndexedUntil { get => _explicitNullValueIndexedUntil; set { _explicitNullValueIndexedUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indexed_until"); else _explicitNullProperties?.Remove("indexed_until"); } }
+        private DateTimeOffset? _explicitNullValueIndexedUntil = default!;
         /// <summary>Is the current indexer service being replaced</summary>
-        public bool? LostLockOwnership { get; set; }
+        public bool? LostLockOwnership { get => _explicitNullValueLostLockOwnership; set { _explicitNullValueLostLockOwnership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lost_lock_ownership"); else _explicitNullProperties?.Remove("lost_lock_ownership"); } }
+        private bool? _explicitNullValueLostLockOwnership = default!;
         /// <summary>Maximum time window in seconds for indexing</summary>
-        public double? MaxIndexTimeWindowSecs { get; set; }
+        public double? MaxIndexTimeWindowSecs { get => _explicitNullValueMaxIndexTimeWindowSecs; set { _explicitNullValueMaxIndexTimeWindowSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_index_time_window_secs"); else _explicitNullProperties?.Remove("max_index_time_window_secs"); } }
+        private double? _explicitNullValueMaxIndexTimeWindowSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("indexed_until", IndexedUntil);
             writer.WriteBoolValue("lost_lock_ownership", LostLockOwnership);
             writer.WriteDoubleValue("max_index_time_window_secs", MaxIndexTimeWindowSecs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

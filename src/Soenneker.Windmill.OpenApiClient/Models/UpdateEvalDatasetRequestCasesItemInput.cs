@@ -12,24 +12,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateEvalDatasetRequestCasesItemInput : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("user_attachments") is { } nullNodeUserAttachments && nullNodeUserAttachments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAttachments = null;
+            if (parseNode.GetChildNode("user_message") is { } nullNodeUserMessage && nullNodeUserMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserMessage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The user_attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInputUserAttachmentsItem>? UserAttachments { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInputUserAttachmentsItem>? UserAttachments { get => _explicitNullValueUserAttachments; set { _explicitNullValueUserAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_attachments"); else _explicitNullProperties?.Remove("user_attachments"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInputUserAttachmentsItem>? _explicitNullValueUserAttachments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInputUserAttachmentsItem> UserAttachments { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInputUserAttachmentsItem> UserAttachments { get => _explicitNullValueUserAttachments; set { _explicitNullValueUserAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_attachments"); else _explicitNullProperties?.Remove("user_attachments"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInputUserAttachmentsItem> _explicitNullValueUserAttachments = default!;
 #endif
         /// <summary>The user_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserMessage { get; set; }
+        public string? UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
+        private string? _explicitNullValueUserMessage = default!;
 #nullable restore
 #else
-        public string UserMessage { get; set; }
+        public string UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
+        private string _explicitNullValueUserMessage = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInput"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdateEvalDatasetRequestCasesItemInputUserAttachmentsItem>("user_attachments", UserAttachments);
             writer.WriteStringValue("user_message", UserMessage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

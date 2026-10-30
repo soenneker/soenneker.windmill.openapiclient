@@ -11,24 +11,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DiffRawScriptsWithDeployedRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("scripts") is { } nullNodeScripts && nullNodeScripts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scripts = null;
+            if (parseNode.GetChildNode("workspace_deps") is { } nullNodeWorkspaceDeps && nullNodeWorkspaceDeps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceDeps = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>map of script path to SHA256 content hash</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts? Scripts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts? Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts? _explicitNullValueScripts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts Scripts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts _explicitNullValueScripts = default!;
 #endif
         /// <summary>workspace dependencies to diff</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem>? WorkspaceDeps { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem>? WorkspaceDeps { get => _explicitNullValueWorkspaceDeps; set { _explicitNullValueWorkspaceDeps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_deps"); else _explicitNullProperties?.Remove("workspace_deps"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem>? _explicitNullValueWorkspaceDeps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem> WorkspaceDeps { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem> WorkspaceDeps { get => _explicitNullValueWorkspaceDeps; set { _explicitNullValueWorkspaceDeps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_deps"); else _explicitNullProperties?.Remove("workspace_deps"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem> _explicitNullValueWorkspaceDeps = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequest"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts>("scripts", Scripts);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem>("workspace_deps", WorkspaceDeps);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

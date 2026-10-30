@@ -12,37 +12,57 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExperimentResults200ResponseExperimentSubject : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("draft") is { } nullNodeDraft && nullNodeDraft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Draft = null;
+            if (parseNode.GetChildNode("draft_hash") is { } nullNodeDraftHash && nullNodeDraftHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DraftHash = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The brain and tools of an agent, as the flow editor holds them. Carried by the request and present exactly when the subject kind is `agent_draft` — the edits exist only in the editor — where it is the whole definition of what ran: the run goes through the same unlinked branch of the agent executor the editor&apos;s own test uses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectDraft? Draft { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectDraft? Draft { get => _explicitNullValueDraft; set { _explicitNullValueDraft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft"); else _explicitNullProperties?.Remove("draft"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectDraft? _explicitNullValueDraft = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectDraft Draft { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectDraft Draft { get => _explicitNullValueDraft; set { _explicitNullValueDraft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft"); else _explicitNullProperties?.Remove("draft"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectDraft _explicitNullValueDraft = default!;
 #endif
         /// <summary>Hash of the configuration a draft run executed, stamped server-side. A draft moves without the version moving, so this is what dates a run of one. It is also what recognises a draft run whose configuration was later deployed: when it matches the agent as deployed, the run&apos;s kind and version are rewritten to that version, once, and the hash is kept as what the resolution rests on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DraftHash { get; set; }
+        public string? DraftHash { get => _explicitNullValueDraftHash; set { _explicitNullValueDraftHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft_hash"); else _explicitNullProperties?.Remove("draft_hash"); } }
+        private string? _explicitNullValueDraftHash = default!;
 #nullable restore
 #else
-        public string DraftHash { get; set; }
+        public string DraftHash { get => _explicitNullValueDraftHash; set { _explicitNullValueDraftHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("draft_hash"); else _explicitNullProperties?.Remove("draft_hash"); } }
+        private string _explicitNullValueDraftHash = default!;
 #endif
         /// <summary>`agent` runs the ai_agent resource as it is deployed when the run opens, `agent_draft` the caller&apos;s unsaved edits of it as the editor holds them (carried in `draft`), and `agent_version` one past version named by `version`. The first and last are read server-side; all three are inlined into the run, so every case of a run executes one configuration: a deploy part-way through changes what the next run measures, never this one.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectKind? Kind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectKind? _explicitNullValueKind = default!;
         /// <summary>Path of the ai_agent resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The agent&apos;s per-path version number when the run opened: how many times the resource had been saved, not a resource_version row id. For `agent` and `agent_draft` it names the configuration the run read and every case executed. For `agent_version` it is the request&apos;s own, says which version to inline, and is required.</summary>
-        public long? Version { get; set; }
+        public long? Version { get => _explicitNullValueVersion; set { _explicitNullValueVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version"); else _explicitNullProperties?.Remove("version"); } }
+        private long? _explicitNullValueVersion = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubject"/> and sets the default values.
         /// </summary>
@@ -58,7 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubject();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubject(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseExperimentSubjectKind>("kind", Kind);
             writer.WriteStringValue("path", Path);
             writer.WriteLongValue("version", Version);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

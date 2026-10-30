@@ -12,30 +12,49 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EditErrorHandlerRequestOneOf1 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("extra_args") is { } nullNodeExtraArgs && nullNodeExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraArgs = null;
+            if (parseNode.GetChildNode("fallback_to_instance_alerts") is { } nullNodeFallbackToInstanceAlerts && nullNodeFallbackToInstanceAlerts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackToInstanceAlerts = null;
+            if (parseNode.GetChildNode("muted_on_cancel") is { } nullNodeMutedOnCancel && nullNodeMutedOnCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnCancel = null;
+            if (parseNode.GetChildNode("muted_on_user_path") is { } nullNodeMutedOnUserPath && nullNodeMutedOnUserPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnUserPath = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs? ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs? ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs? _explicitNullValueExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs ExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1ExtraArgs _explicitNullValueExtraArgs = default!;
 #endif
         /// <summary>Report failed jobs to the instance critical alert channels when no workspace error handler is set. Omit to leave the stored value untouched.</summary>
-        public bool? FallbackToInstanceAlerts { get; set; }
+        public bool? FallbackToInstanceAlerts { get => _explicitNullValueFallbackToInstanceAlerts; set { _explicitNullValueFallbackToInstanceAlerts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fallback_to_instance_alerts"); else _explicitNullProperties?.Remove("fallback_to_instance_alerts"); } }
+        private bool? _explicitNullValueFallbackToInstanceAlerts = default!;
         /// <summary>The muted_on_cancel property</summary>
-        public bool? MutedOnCancel { get; set; }
+        public bool? MutedOnCancel { get => _explicitNullValueMutedOnCancel; set { _explicitNullValueMutedOnCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_cancel"); else _explicitNullProperties?.Remove("muted_on_cancel"); } }
+        private bool? _explicitNullValueMutedOnCancel = default!;
         /// <summary>The muted_on_user_path property</summary>
-        public bool? MutedOnUserPath { get; set; }
+        public bool? MutedOnUserPath { get => _explicitNullValueMutedOnUserPath; set { _explicitNullValueMutedOnUserPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_user_path"); else _explicitNullProperties?.Remove("muted_on_user_path"); } }
+        private bool? _explicitNullValueMutedOnUserPath = default!;
         /// <summary>Path to the error handler script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1"/> and sets the default values.
@@ -54,7 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.EditErrorHandlerRequestOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +102,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("muted_on_cancel", MutedOnCancel);
             writer.WriteBoolValue("muted_on_user_path", MutedOnUserPath);
             writer.WriteStringValue("path", Path);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

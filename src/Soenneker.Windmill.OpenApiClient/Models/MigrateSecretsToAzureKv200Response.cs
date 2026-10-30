@@ -11,23 +11,39 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MigrateSecretsToAzureKv200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("failed_count") is { } nullNodeFailedCount && nullNodeFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedCount = null;
+            if (parseNode.GetChildNode("failures") is { } nullNodeFailures && nullNodeFailures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failures = null;
+            if (parseNode.GetChildNode("migrated_count") is { } nullNodeMigratedCount && nullNodeMigratedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MigratedCount = null;
+            if (parseNode.GetChildNode("total_secrets") is { } nullNodeTotalSecrets && nullNodeTotalSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSecrets = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of secrets that failed to migrate</summary>
-        public long? FailedCount { get; set; }
+        public long? FailedCount { get => _explicitNullValueFailedCount; set { _explicitNullValueFailedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_count"); else _explicitNullProperties?.Remove("failed_count"); } }
+        private long? _explicitNullValueFailedCount = default!;
         /// <summary>Details of any failures encountered during migration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200ResponseFailuresItem>? Failures { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200ResponseFailuresItem>? Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200ResponseFailuresItem>? _explicitNullValueFailures = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200ResponseFailuresItem> Failures { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200ResponseFailuresItem> Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200ResponseFailuresItem> _explicitNullValueFailures = default!;
 #endif
         /// <summary>Number of secrets successfully migrated</summary>
-        public long? MigratedCount { get; set; }
+        public long? MigratedCount { get => _explicitNullValueMigratedCount; set { _explicitNullValueMigratedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("migrated_count"); else _explicitNullProperties?.Remove("migrated_count"); } }
+        private long? _explicitNullValueMigratedCount = default!;
         /// <summary>Total number of secrets found</summary>
-        public long? TotalSecrets { get; set; }
+        public long? TotalSecrets { get => _explicitNullValueTotalSecrets; set { _explicitNullValueTotalSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_secrets"); else _explicitNullProperties?.Remove("total_secrets"); } }
+        private long? _explicitNullValueTotalSecrets = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response"/> and sets the default values.
         /// </summary>
@@ -43,7 +59,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,6 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200ResponseFailuresItem>("failures", Failures);
             writer.WriteLongValue("migrated_count", MigratedCount);
             writer.WriteLongValue("total_secrets", TotalSecrets);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

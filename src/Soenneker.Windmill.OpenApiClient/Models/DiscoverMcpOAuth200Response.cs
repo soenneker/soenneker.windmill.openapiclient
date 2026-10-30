@@ -11,42 +11,63 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DiscoverMcpOAuth200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authorization_endpoint") is { } nullNodeAuthorizationEndpoint && nullNodeAuthorizationEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizationEndpoint = null;
+            if (parseNode.GetChildNode("registration_endpoint") is { } nullNodeRegistrationEndpoint && nullNodeRegistrationEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationEndpoint = null;
+            if (parseNode.GetChildNode("scopes_supported") is { } nullNodeScopesSupported && nullNodeScopesSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopesSupported = null;
+            if (parseNode.GetChildNode("supports_dynamic_registration") is { } nullNodeSupportsDynamicRegistration && nullNodeSupportsDynamicRegistration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsDynamicRegistration = null;
+            if (parseNode.GetChildNode("token_endpoint") is { } nullNodeTokenEndpoint && nullNodeTokenEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenEndpoint = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The authorization_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthorizationEndpoint { get; set; }
+        public string? AuthorizationEndpoint { get => _explicitNullValueAuthorizationEndpoint; set { _explicitNullValueAuthorizationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization_endpoint"); else _explicitNullProperties?.Remove("authorization_endpoint"); } }
+        private string? _explicitNullValueAuthorizationEndpoint = default!;
 #nullable restore
 #else
-        public string AuthorizationEndpoint { get; set; }
+        public string AuthorizationEndpoint { get => _explicitNullValueAuthorizationEndpoint; set { _explicitNullValueAuthorizationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization_endpoint"); else _explicitNullProperties?.Remove("authorization_endpoint"); } }
+        private string _explicitNullValueAuthorizationEndpoint = default!;
 #endif
         /// <summary>The registration_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegistrationEndpoint { get; set; }
+        public string? RegistrationEndpoint { get => _explicitNullValueRegistrationEndpoint; set { _explicitNullValueRegistrationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_endpoint"); else _explicitNullProperties?.Remove("registration_endpoint"); } }
+        private string? _explicitNullValueRegistrationEndpoint = default!;
 #nullable restore
 #else
-        public string RegistrationEndpoint { get; set; }
+        public string RegistrationEndpoint { get => _explicitNullValueRegistrationEndpoint; set { _explicitNullValueRegistrationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_endpoint"); else _explicitNullProperties?.Remove("registration_endpoint"); } }
+        private string _explicitNullValueRegistrationEndpoint = default!;
 #endif
         /// <summary>The scopes_supported property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ScopesSupported { get; set; }
+        public List<string>? ScopesSupported { get => _explicitNullValueScopesSupported; set { _explicitNullValueScopesSupported = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes_supported"); else _explicitNullProperties?.Remove("scopes_supported"); } }
+        private List<string>? _explicitNullValueScopesSupported = default!;
 #nullable restore
 #else
-        public List<string> ScopesSupported { get; set; }
+        public List<string> ScopesSupported { get => _explicitNullValueScopesSupported; set { _explicitNullValueScopesSupported = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes_supported"); else _explicitNullProperties?.Remove("scopes_supported"); } }
+        private List<string> _explicitNullValueScopesSupported = default!;
 #endif
         /// <summary>The supports_dynamic_registration property</summary>
-        public bool? SupportsDynamicRegistration { get; set; }
+        public bool? SupportsDynamicRegistration { get => _explicitNullValueSupportsDynamicRegistration; set { _explicitNullValueSupportsDynamicRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_dynamic_registration"); else _explicitNullProperties?.Remove("supports_dynamic_registration"); } }
+        private bool? _explicitNullValueSupportsDynamicRegistration = default!;
         /// <summary>The token_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenEndpoint { get; set; }
+        public string? TokenEndpoint { get => _explicitNullValueTokenEndpoint; set { _explicitNullValueTokenEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_endpoint"); else _explicitNullProperties?.Remove("token_endpoint"); } }
+        private string? _explicitNullValueTokenEndpoint = default!;
 #nullable restore
 #else
-        public string TokenEndpoint { get; set; }
+        public string TokenEndpoint { get => _explicitNullValueTokenEndpoint; set { _explicitNullValueTokenEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_endpoint"); else _explicitNullProperties?.Remove("token_endpoint"); } }
+        private string _explicitNullValueTokenEndpoint = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DiscoverMcpOAuth200Response"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.DiscoverMcpOAuth200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.DiscoverMcpOAuth200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.DiscoverMcpOAuth200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("scopes_supported", ScopesSupported);
             writer.WriteBoolValue("supports_dynamic_registration", SupportsDynamicRegistration);
             writer.WriteStringValue("token_endpoint", TokenEndpoint);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,19 +12,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PublishHubProjectLogoRequestLogo : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("b64") is { } nullNodeB64 && nullNodeB64.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) B64 = null;
+            if (parseNode.GetChildNode("mime") is { } nullNodeMime && nullNodeMime.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mime = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>base64-encoded image bytes (decoded size max 512KB)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? B64 { get; set; }
+        public string? B64 { get => _explicitNullValueB64; set { _explicitNullValueB64 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("b64"); else _explicitNullProperties?.Remove("b64"); } }
+        private string? _explicitNullValueB64 = default!;
 #nullable restore
 #else
-        public string B64 { get; set; }
+        public string B64 { get => _explicitNullValueB64; set { _explicitNullValueB64 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("b64"); else _explicitNullProperties?.Remove("b64"); } }
+        private string _explicitNullValueB64 = default!;
 #endif
         /// <summary>The mime property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogoMime? Mime { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogoMime? Mime { get => _explicitNullValueMime; set { _explicitNullValueMime = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mime"); else _explicitNullProperties?.Remove("mime"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogoMime? _explicitNullValueMime = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogo"/> and sets the default values.
         /// </summary>
@@ -40,7 +52,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogo();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogo(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +77,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("b64", B64);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.PublishHubProjectLogoRequestLogoMime>("mime", Mime);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

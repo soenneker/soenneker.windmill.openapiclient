@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_assets.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListRunAssets200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListRunAssets200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.ListRunAssets200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.ListRunAssets200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Assets detected while the run executed (SDK S3 calls, resources passed as arguments), aggregated over the job and all of its child jobs so a flow or workflow-as-code run reports what its steps and tasks touched. Authorized through the job, the same gate as `run_progress`. Recording is asynchronous, so an asset can take a few minutes after the run to appear, and only the most recent runs that touched an asset keep that record. A run that fans out can touch more assets than one response should carry, so the list is capped and `truncated` says when it was cut.

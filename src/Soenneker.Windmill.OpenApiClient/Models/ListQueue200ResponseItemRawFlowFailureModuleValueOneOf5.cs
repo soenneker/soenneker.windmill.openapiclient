@@ -12,33 +12,54 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("modules") is { } nullNodeModules && nullNodeModules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Modules = null;
+            if (parseNode.GetChildNode("parallel") is { } nullNodeParallel && nullNodeParallel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parallel = null;
+            if (parseNode.GetChildNode("parallelism") is { } nullNodeParallelism && nullNodeParallelism.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parallelism = null;
+            if (parseNode.GetChildNode("skip_failures") is { } nullNodeSkipFailures && nullNodeSkipFailures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipFailures = null;
+            if (parseNode.GetChildNode("squash") is { } nullNodeSquash && nullNodeSquash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Squash = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Steps to execute in each iteration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5ModulesItem>? Modules { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5ModulesItem>? Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5ModulesItem>? _explicitNullValueModules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5ModulesItem> Modules { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5ModulesItem> Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5ModulesItem> _explicitNullValueModules = default!;
 #endif
         /// <summary>If true, iterations run concurrently (use with caution in while loops)</summary>
-        public bool? Parallel { get; set; }
+        public bool? Parallel { get => _explicitNullValueParallel; set { _explicitNullValueParallel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parallel"); else _explicitNullProperties?.Remove("parallel"); } }
+        private bool? _explicitNullValueParallel = default!;
         /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5Parallelism? Parallelism { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5Parallelism? Parallelism { get => _explicitNullValueParallelism; set { _explicitNullValueParallelism = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parallelism"); else _explicitNullProperties?.Remove("parallelism"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5Parallelism? _explicitNullValueParallelism = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5Parallelism Parallelism { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5Parallelism Parallelism { get => _explicitNullValueParallelism; set { _explicitNullValueParallelism = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parallelism"); else _explicitNullProperties?.Remove("parallelism"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5Parallelism _explicitNullValueParallelism = default!;
 #endif
         /// <summary>If true, iteration failures don&apos;t stop the loop. Failed iterations return null</summary>
-        public bool? SkipFailures { get; set; }
+        public bool? SkipFailures { get => _explicitNullValueSkipFailures; set { _explicitNullValueSkipFailures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_failures"); else _explicitNullProperties?.Remove("skip_failures"); } }
+        private bool? _explicitNullValueSkipFailures = default!;
         /// <summary>The squash property</summary>
-        public bool? Squash { get; set; }
+        public bool? Squash { get => _explicitNullValueSquash; set { _explicitNullValueSquash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("squash"); else _explicitNullProperties?.Remove("squash"); } }
+        private bool? _explicitNullValueSquash = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.WhileloopflowType? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.WhileloopflowType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.WhileloopflowType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5"/> and sets the default values.
         /// </summary>
@@ -54,7 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf5(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,6 +106,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("skip_failures", SkipFailures);
             writer.WriteBoolValue("squash", Squash);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.WhileloopflowType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

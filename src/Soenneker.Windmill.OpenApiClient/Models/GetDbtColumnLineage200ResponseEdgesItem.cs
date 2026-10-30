@@ -11,48 +11,70 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDbtColumnLineage200ResponseEdgesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("from_asset_path") is { } nullNodeFromAssetPath && nullNodeFromAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromAssetPath = null;
+            if (parseNode.GetChildNode("from_column") is { } nullNodeFromColumn && nullNodeFromColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromColumn = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("to_asset_path") is { } nullNodeToAssetPath && nullNodeToAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToAssetPath = null;
+            if (parseNode.GetChildNode("to_column") is { } nullNodeToColumn && nullNodeToColumn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToColumn = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The from_asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromAssetPath { get; set; }
+        public string? FromAssetPath { get => _explicitNullValueFromAssetPath; set { _explicitNullValueFromAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_asset_path"); else _explicitNullProperties?.Remove("from_asset_path"); } }
+        private string? _explicitNullValueFromAssetPath = default!;
 #nullable restore
 #else
-        public string FromAssetPath { get; set; }
+        public string FromAssetPath { get => _explicitNullValueFromAssetPath; set { _explicitNullValueFromAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_asset_path"); else _explicitNullProperties?.Remove("from_asset_path"); } }
+        private string _explicitNullValueFromAssetPath = default!;
 #endif
         /// <summary>The from_column property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromColumn { get; set; }
+        public string? FromColumn { get => _explicitNullValueFromColumn; set { _explicitNullValueFromColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_column"); else _explicitNullProperties?.Remove("from_column"); } }
+        private string? _explicitNullValueFromColumn = default!;
 #nullable restore
 #else
-        public string FromColumn { get; set; }
+        public string FromColumn { get => _explicitNullValueFromColumn; set { _explicitNullValueFromColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_column"); else _explicitNullProperties?.Remove("from_column"); } }
+        private string _explicitNullValueFromColumn = default!;
 #endif
         /// <summary>dbt&apos;s own word for how the value travelled — `copy` (passthrough) or `mod` (transformed). Not an enum: the engine treats the set as open.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Kind { get; set; }
+        public string? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private string? _explicitNullValueKind = default!;
 #nullable restore
 #else
-        public string Kind { get; set; }
+        public string Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private string _explicitNullValueKind = default!;
 #endif
         /// <summary>The to_asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToAssetPath { get; set; }
+        public string? ToAssetPath { get => _explicitNullValueToAssetPath; set { _explicitNullValueToAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_asset_path"); else _explicitNullProperties?.Remove("to_asset_path"); } }
+        private string? _explicitNullValueToAssetPath = default!;
 #nullable restore
 #else
-        public string ToAssetPath { get; set; }
+        public string ToAssetPath { get => _explicitNullValueToAssetPath; set { _explicitNullValueToAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_asset_path"); else _explicitNullProperties?.Remove("to_asset_path"); } }
+        private string _explicitNullValueToAssetPath = default!;
 #endif
         /// <summary>The to_column property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToColumn { get; set; }
+        public string? ToColumn { get => _explicitNullValueToColumn; set { _explicitNullValueToColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_column"); else _explicitNullProperties?.Remove("to_column"); } }
+        private string? _explicitNullValueToColumn = default!;
 #nullable restore
 #else
-        public string ToColumn { get; set; }
+        public string ToColumn { get => _explicitNullValueToColumn; set { _explicitNullValueToColumn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_column"); else _explicitNullProperties?.Remove("to_column"); } }
+        private string _explicitNullValueToColumn = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDbtColumnLineage200ResponseEdgesItem"/> and sets the default values.
@@ -69,7 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetDbtColumnLineage200ResponseEdgesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtColumnLineage200ResponseEdgesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtColumnLineage200ResponseEdgesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,6 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("kind", Kind);
             writer.WriteStringValue("to_asset_path", ToAssetPath);
             writer.WriteStringValue("to_column", ToColumn);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

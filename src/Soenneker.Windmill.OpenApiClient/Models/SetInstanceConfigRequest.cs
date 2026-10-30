@@ -12,24 +12,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SetInstanceConfigRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("global_settings") is { } nullNodeGlobalSettings && nullNodeGlobalSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalSettings = null;
+            if (parseNode.GetChildNode("worker_configs") is { } nullNodeWorkerConfigs && nullNodeWorkerConfigs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkerConfigs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Global settings keyed by setting name. Known fields include base_url, license_key, retention_period_secs, smtp_settings, otel, etc. Unknown fields are preserved as-is.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestGlobalSettings? GlobalSettings { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestGlobalSettings? GlobalSettings { get => _explicitNullValueGlobalSettings; set { _explicitNullValueGlobalSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_settings"); else _explicitNullProperties?.Remove("global_settings"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestGlobalSettings? _explicitNullValueGlobalSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestGlobalSettings GlobalSettings { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestGlobalSettings GlobalSettings { get => _explicitNullValueGlobalSettings; set { _explicitNullValueGlobalSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_settings"); else _explicitNullProperties?.Remove("global_settings"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestGlobalSettings _explicitNullValueGlobalSettings = default!;
 #endif
         /// <summary>Worker group configurations keyed by group name (e.g. &quot;default&quot;, &quot;gpu&quot;). Each value contains worker_tags, init_bash, autoscaling, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestWorkerConfigs? WorkerConfigs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestWorkerConfigs? WorkerConfigs { get => _explicitNullValueWorkerConfigs; set { _explicitNullValueWorkerConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_configs"); else _explicitNullProperties?.Remove("worker_configs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestWorkerConfigs? _explicitNullValueWorkerConfigs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestWorkerConfigs WorkerConfigs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestWorkerConfigs WorkerConfigs { get => _explicitNullValueWorkerConfigs; set { _explicitNullValueWorkerConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_configs"); else _explicitNullProperties?.Remove("worker_configs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestWorkerConfigs _explicitNullValueWorkerConfigs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequest"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestGlobalSettings>("global_settings", GlobalSettings);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.SetInstanceConfigRequestWorkerConfigs>("worker_configs", WorkerConfigs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

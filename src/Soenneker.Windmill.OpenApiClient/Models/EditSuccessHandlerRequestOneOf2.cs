@@ -12,24 +12,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EditSuccessHandlerRequestOneOf2 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("success_handler") is { } nullNodeSuccessHandler && nullNodeSuccessHandler.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessHandler = null;
+            if (parseNode.GetChildNode("success_handler_extra_args") is { } nullNodeSuccessHandlerExtraArgs && nullNodeSuccessHandlerExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessHandlerExtraArgs = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Path to the success handler script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SuccessHandler { get; set; }
+        public string? SuccessHandler { get => _explicitNullValueSuccessHandler; set { _explicitNullValueSuccessHandler = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_handler"); else _explicitNullProperties?.Remove("success_handler"); } }
+        private string? _explicitNullValueSuccessHandler = default!;
 #nullable restore
 #else
-        public string SuccessHandler { get; set; }
+        public string SuccessHandler { get => _explicitNullValueSuccessHandler; set { _explicitNullValueSuccessHandler = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_handler"); else _explicitNullProperties?.Remove("success_handler"); } }
+        private string _explicitNullValueSuccessHandler = default!;
 #endif
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2SuccessHandlerExtraArgs? SuccessHandlerExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2SuccessHandlerExtraArgs? SuccessHandlerExtraArgs { get => _explicitNullValueSuccessHandlerExtraArgs; set { _explicitNullValueSuccessHandlerExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_handler_extra_args"); else _explicitNullProperties?.Remove("success_handler_extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2SuccessHandlerExtraArgs? _explicitNullValueSuccessHandlerExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2SuccessHandlerExtraArgs SuccessHandlerExtraArgs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2SuccessHandlerExtraArgs SuccessHandlerExtraArgs { get => _explicitNullValueSuccessHandlerExtraArgs; set { _explicitNullValueSuccessHandlerExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success_handler_extra_args"); else _explicitNullProperties?.Remove("success_handler_extra_args"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2SuccessHandlerExtraArgs _explicitNullValueSuccessHandlerExtraArgs = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("success_handler", SuccessHandler);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditSuccessHandlerRequestOneOf2SuccessHandlerExtraArgs>("success_handler_extra_args", SuccessHandlerExtraArgs);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,38 +11,60 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RunFlowPreviewRequestRestartedFrom : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("branch_chosen") is { } nullNodeBranchChosen && nullNodeBranchChosen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchChosen = null;
+            if (parseNode.GetChildNode("branch_or_iteration_n") is { } nullNodeBranchOrIterationN && nullNodeBranchOrIterationN.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchOrIterationN = null;
+            if (parseNode.GetChildNode("flow_job_id") is { } nullNodeFlowJobId && nullNodeFlowJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobId = null;
+            if (parseNode.GetChildNode("flow_version") is { } nullNodeFlowVersion && nullNodeFlowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowVersion = null;
+            if (parseNode.GetChildNode("nested") is { } nullNodeNested && nullNodeNested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Nested = null;
+            if (parseNode.GetChildNode("step_id") is { } nullNodeStepId && nullNodeStepId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>For BranchOne nested restart — the branch that was originally chosen, used to lock branch evaluation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromBranchChosen? BranchChosen { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromBranchChosen? BranchChosen { get => _explicitNullValueBranchChosen; set { _explicitNullValueBranchChosen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_chosen"); else _explicitNullProperties?.Remove("branch_chosen"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromBranchChosen? _explicitNullValueBranchChosen = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromBranchChosen BranchChosen { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromBranchChosen BranchChosen { get => _explicitNullValueBranchChosen; set { _explicitNullValueBranchChosen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_chosen"); else _explicitNullProperties?.Remove("branch_chosen"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromBranchChosen _explicitNullValueBranchChosen = default!;
 #endif
         /// <summary>0-based iteration index for ForLoop / branch index for BranchAll. Iterations 0..n-1 are preserved; iteration n is restarted.</summary>
-        public int? BranchOrIterationN { get; set; }
+        public int? BranchOrIterationN { get => _explicitNullValueBranchOrIterationN; set { _explicitNullValueBranchOrIterationN = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_or_iteration_n"); else _explicitNullProperties?.Remove("branch_or_iteration_n"); } }
+        private int? _explicitNullValueBranchOrIterationN = default!;
         /// <summary>The flow_job_id property</summary>
-        public Guid? FlowJobId { get; set; }
+        public Guid? FlowJobId { get => _explicitNullValueFlowJobId; set { _explicitNullValueFlowJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_job_id"); else _explicitNullProperties?.Remove("flow_job_id"); } }
+        private Guid? _explicitNullValueFlowJobId = default!;
         /// <summary>The flow_version property</summary>
-        public int? FlowVersion { get; set; }
+        public int? FlowVersion { get => _explicitNullValueFlowVersion; set { _explicitNullValueFlowVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_version"); else _explicitNullProperties?.Remove("flow_version"); } }
+        private int? _explicitNullValueFlowVersion = default!;
         /// <summary>When set, the worker spawns the child for `step_id` as a `RestartedFlow` against `nested.flow_job_id` instead of fresh-launching it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromNested? Nested { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromNested? Nested { get => _explicitNullValueNested; set { _explicitNullValueNested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested"); else _explicitNullProperties?.Remove("nested"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromNested? _explicitNullValueNested = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromNested Nested { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromNested Nested { get => _explicitNullValueNested; set { _explicitNullValueNested = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested"); else _explicitNullProperties?.Remove("nested"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromNested _explicitNullValueNested = default!;
 #endif
         /// <summary>The step_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StepId { get; set; }
+        public string? StepId { get => _explicitNullValueStepId; set { _explicitNullValueStepId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_id"); else _explicitNullProperties?.Remove("step_id"); } }
+        private string? _explicitNullValueStepId = default!;
 #nullable restore
 #else
-        public string StepId { get; set; }
+        public string StepId { get => _explicitNullValueStepId; set { _explicitNullValueStepId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_id"); else _explicitNullProperties?.Remove("step_id"); } }
+        private string _explicitNullValueStepId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFrom"/> and sets the default values.
@@ -59,7 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFrom CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFrom();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFrom(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("flow_version", FlowVersion);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunFlowPreviewRequestRestartedFromNested>("nested", Nested);
             writer.WriteStringValue("step_id", StepId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

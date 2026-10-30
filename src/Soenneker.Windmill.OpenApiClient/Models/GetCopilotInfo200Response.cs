@@ -11,87 +11,127 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetCopilotInfo200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("code_completion_model") is { } nullNodeCodeCompletionModel && nullNodeCodeCompletionModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeCompletionModel = null;
+            if (parseNode.GetChildNode("context_window_per_model") is { } nullNodeContextWindowPerModel && nullNodeContextWindowPerModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContextWindowPerModel = null;
+            if (parseNode.GetChildNode("copilot_disabled") is { } nullNodeCopilotDisabled && nullNodeCopilotDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopilotDisabled = null;
+            if (parseNode.GetChildNode("custom_prompts") is { } nullNodeCustomPrompts && nullNodeCustomPrompts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomPrompts = null;
+            if (parseNode.GetChildNode("default_model") is { } nullNodeDefaultModel && nullNodeDefaultModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultModel = null;
+            if (parseNode.GetChildNode("free_tier") is { } nullNodeFreeTier && nullNodeFreeTier.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FreeTier = null;
+            if (parseNode.GetChildNode("max_tokens_per_model") is { } nullNodeMaxTokensPerModel && nullNodeMaxTokensPerModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTokensPerModel = null;
+            if (parseNode.GetChildNode("metadata_model") is { } nullNodeMetadataModel && nullNodeMetadataModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetadataModel = null;
+            if (parseNode.GetChildNode("model_pricing") is { } nullNodeModelPricing && nullNodeModelPricing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ModelPricing = null;
+            if (parseNode.GetChildNode("providers") is { } nullNodeProviders && nullNodeProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Providers = null;
+            if (parseNode.GetChildNode("sessions_retention_days") is { } nullNodeSessionsRetentionDays && nullNodeSessionsRetentionDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionsRetentionDays = null;
+            if (parseNode.GetChildNode("sessions_storage_disabled") is { } nullNodeSessionsStorageDisabled && nullNodeSessionsStorageDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionsStorageDisabled = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code_completion_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCodeCompletionModel? CodeCompletionModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCodeCompletionModel? CodeCompletionModel { get => _explicitNullValueCodeCompletionModel; set { _explicitNullValueCodeCompletionModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_completion_model"); else _explicitNullProperties?.Remove("code_completion_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCodeCompletionModel? _explicitNullValueCodeCompletionModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCodeCompletionModel CodeCompletionModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCodeCompletionModel CodeCompletionModel { get => _explicitNullValueCodeCompletionModel; set { _explicitNullValueCodeCompletionModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_completion_model"); else _explicitNullProperties?.Remove("code_completion_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCodeCompletionModel _explicitNullValueCodeCompletionModel = default!;
 #endif
         /// <summary>Context window in tokens per `provider:model`, overriding the built-in table the AI chat uses to decide when to compact its history.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel? ContextWindowPerModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel? ContextWindowPerModel { get => _explicitNullValueContextWindowPerModel; set { _explicitNullValueContextWindowPerModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context_window_per_model"); else _explicitNullProperties?.Remove("context_window_per_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel? _explicitNullValueContextWindowPerModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel ContextWindowPerModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel ContextWindowPerModel { get => _explicitNullValueContextWindowPerModel; set { _explicitNullValueContextWindowPerModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context_window_per_model"); else _explicitNullProperties?.Remove("context_window_per_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel _explicitNullValueContextWindowPerModel = default!;
 #endif
         /// <summary>Hides the Windmill AI assistant (chat, sessions, code generation, completion, fixes) from the workspace UI. Read from the workspace&apos;s own settings even when the providers served fall back to the instance config. AI agent steps and the AI sandbox in flows are unaffected.</summary>
-        public bool? CopilotDisabled { get; set; }
+        public bool? CopilotDisabled { get => _explicitNullValueCopilotDisabled; set { _explicitNullValueCopilotDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copilot_disabled"); else _explicitNullProperties?.Remove("copilot_disabled"); } }
+        private bool? _explicitNullValueCopilotDisabled = default!;
         /// <summary>The custom_prompts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts? CustomPrompts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts? CustomPrompts { get => _explicitNullValueCustomPrompts; set { _explicitNullValueCustomPrompts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_prompts"); else _explicitNullProperties?.Remove("custom_prompts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts? _explicitNullValueCustomPrompts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts CustomPrompts { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts CustomPrompts { get => _explicitNullValueCustomPrompts; set { _explicitNullValueCustomPrompts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom_prompts"); else _explicitNullProperties?.Remove("custom_prompts"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseCustomPrompts _explicitNullValueCustomPrompts = default!;
 #endif
         /// <summary>The default_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel? DefaultModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel? DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel? _explicitNullValueDefaultModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel DefaultModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseDefaultModel _explicitNullValueDefaultModel = default!;
 #endif
         /// <summary>Read-only. Present when the workspace has no AI provider of its own and is running on Windmill&apos;s free tier. Ignored on write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseFreeTier? FreeTier { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseFreeTier? FreeTier { get => _explicitNullValueFreeTier; set { _explicitNullValueFreeTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("free_tier"); else _explicitNullProperties?.Remove("free_tier"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseFreeTier? _explicitNullValueFreeTier = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseFreeTier FreeTier { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseFreeTier FreeTier { get => _explicitNullValueFreeTier; set { _explicitNullValueFreeTier = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("free_tier"); else _explicitNullProperties?.Remove("free_tier"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseFreeTier _explicitNullValueFreeTier = default!;
 #endif
         /// <summary>The max_tokens_per_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel? MaxTokensPerModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel? MaxTokensPerModel { get => _explicitNullValueMaxTokensPerModel; set { _explicitNullValueMaxTokensPerModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tokens_per_model"); else _explicitNullProperties?.Remove("max_tokens_per_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel? _explicitNullValueMaxTokensPerModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel MaxTokensPerModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel MaxTokensPerModel { get => _explicitNullValueMaxTokensPerModel; set { _explicitNullValueMaxTokensPerModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tokens_per_model"); else _explicitNullProperties?.Remove("max_tokens_per_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMaxTokensPerModel _explicitNullValueMaxTokensPerModel = default!;
 #endif
         /// <summary>The metadata_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel? MetadataModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel? MetadataModel { get => _explicitNullValueMetadataModel; set { _explicitNullValueMetadataModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_model"); else _explicitNullProperties?.Remove("metadata_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel? _explicitNullValueMetadataModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel MetadataModel { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel MetadataModel { get => _explicitNullValueMetadataModel; set { _explicitNullValueMetadataModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_model"); else _explicitNullProperties?.Remove("metadata_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseMetadataModel _explicitNullValueMetadataModel = default!;
 #endif
         /// <summary>The model_pricing property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing? ModelPricing { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing? ModelPricing { get => _explicitNullValueModelPricing; set { _explicitNullValueModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_pricing"); else _explicitNullProperties?.Remove("model_pricing"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing? _explicitNullValueModelPricing = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing ModelPricing { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing ModelPricing { get => _explicitNullValueModelPricing; set { _explicitNullValueModelPricing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model_pricing"); else _explicitNullProperties?.Remove("model_pricing"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseModelPricing _explicitNullValueModelPricing = default!;
 #endif
         /// <summary>The providers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders? Providers { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders? Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders? _explicitNullValueProviders = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders Providers { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders _explicitNullValueProviders = default!;
 #endif
         /// <summary>The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace&apos;s own settings like `copilot_disabled`.</summary>
-        public int? SessionsRetentionDays { get; set; }
+        public int? SessionsRetentionDays { get => _explicitNullValueSessionsRetentionDays; set { _explicitNullValueSessionsRetentionDays = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sessions_retention_days"); else _explicitNullProperties?.Remove("sessions_retention_days"); } }
+        private int? _explicitNullValueSessionsRetentionDays = default!;
         /// <summary>Stops browsers from backing their AI sessions up to the workspace&apos;s object storage. Read from the workspace&apos;s own settings like `copilot_disabled`.</summary>
-        public bool? SessionsStorageDisabled { get; set; }
+        public bool? SessionsStorageDisabled { get => _explicitNullValueSessionsStorageDisabled; set { _explicitNullValueSessionsStorageDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sessions_storage_disabled"); else _explicitNullProperties?.Remove("sessions_storage_disabled"); } }
+        private bool? _explicitNullValueSessionsStorageDisabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200Response"/> and sets the default values.
         /// </summary>
@@ -107,7 +147,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -150,6 +190,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseProviders>("providers", Providers);
             writer.WriteIntValue("sessions_retention_days", SessionsRetentionDays);
             writer.WriteBoolValue("sessions_storage_disabled", SessionsStorageDisabled);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

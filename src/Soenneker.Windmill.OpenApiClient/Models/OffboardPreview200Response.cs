@@ -11,44 +11,67 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OffboardPreview200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("email_triggers") is { } nullNodeEmailTriggers && nullNodeEmailTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailTriggers = null;
+            if (parseNode.GetChildNode("executing_on_behalf") is { } nullNodeExecutingOnBehalf && nullNodeExecutingOnBehalf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutingOnBehalf = null;
+            if (parseNode.GetChildNode("http_triggers") is { } nullNodeHttpTriggers && nullNodeHttpTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpTriggers = null;
+            if (parseNode.GetChildNode("owned") is { } nullNodeOwned && nullNodeOwned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owned = null;
+            if (parseNode.GetChildNode("referencing") is { } nullNodeReferencing && nullNodeReferencing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Referencing = null;
+            if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Email triggers under the user&apos;s path (email addresses will change)</summary>
-        public int? EmailTriggers { get; set; }
+        public int? EmailTriggers { get => _explicitNullValueEmailTriggers; set { _explicitNullValueEmailTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_triggers"); else _explicitNullProperties?.Remove("email_triggers"); } }
+        private int? _explicitNullValueEmailTriggers = default!;
         /// <summary>Objects not under the user&apos;s path but that execute on behalf of this user (permissioned_as/on_behalf_of will be updated)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf? ExecutingOnBehalf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf? ExecutingOnBehalf { get => _explicitNullValueExecutingOnBehalf; set { _explicitNullValueExecutingOnBehalf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executing_on_behalf"); else _explicitNullProperties?.Remove("executing_on_behalf"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf? _explicitNullValueExecutingOnBehalf = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf ExecutingOnBehalf { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf ExecutingOnBehalf { get => _explicitNullValueExecutingOnBehalf; set { _explicitNullValueExecutingOnBehalf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executing_on_behalf"); else _explicitNullProperties?.Remove("executing_on_behalf"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf _explicitNullValueExecutingOnBehalf = default!;
 #endif
         /// <summary>HTTP triggers under the user&apos;s path (webhook URLs will change)</summary>
-        public int? HttpTriggers { get; set; }
+        public int? HttpTriggers { get => _explicitNullValueHttpTriggers; set { _explicitNullValueHttpTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_triggers"); else _explicitNullProperties?.Remove("http_triggers"); } }
+        private int? _explicitNullValueHttpTriggers = default!;
         /// <summary>Objects under u/{username}/ that will be reassigned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned? Owned { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned? Owned { get => _explicitNullValueOwned; set { _explicitNullValueOwned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owned"); else _explicitNullProperties?.Remove("owned"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned? _explicitNullValueOwned = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned Owned { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned Owned { get => _explicitNullValueOwned; set { _explicitNullValueOwned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owned"); else _explicitNullProperties?.Remove("owned"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned _explicitNullValueOwned = default!;
 #endif
         /// <summary>Scripts/flows/apps/resources whose content or value references this user&apos;s paths (may break after reassignment)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing? Referencing { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing? Referencing { get => _explicitNullValueReferencing; set { _explicitNullValueReferencing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referencing"); else _explicitNullProperties?.Remove("referencing"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing? _explicitNullValueReferencing = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing Referencing { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing Referencing { get => _explicitNullValueReferencing; set { _explicitNullValueReferencing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referencing"); else _explicitNullProperties?.Remove("referencing"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing _explicitNullValueReferencing = default!;
 #endif
         /// <summary>Tokens owned by this user (will be deleted)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>? Tokens { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>? _explicitNullValueTokens = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem> Tokens { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem> Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem> _explicitNullValueTokens = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200Response"/> and sets the default values.
@@ -65,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +119,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned>("owned", Owned);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing>("referencing", Referencing);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>("tokens", Tokens);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

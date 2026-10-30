@@ -11,15 +11,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetJobMetricsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("from_timestamp") is { } nullNodeFromTimestamp && nullNodeFromTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromTimestamp = null;
+            if (parseNode.GetChildNode("timeseries_max_datapoints") is { } nullNodeTimeseriesMaxDatapoints && nullNodeTimeseriesMaxDatapoints.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeseriesMaxDatapoints = null;
+            if (parseNode.GetChildNode("to_timestamp") is { } nullNodeToTimestamp && nullNodeToTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToTimestamp = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The from_timestamp property</summary>
-        public DateTimeOffset? FromTimestamp { get; set; }
+        public DateTimeOffset? FromTimestamp { get => _explicitNullValueFromTimestamp; set { _explicitNullValueFromTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_timestamp"); else _explicitNullProperties?.Remove("from_timestamp"); } }
+        private DateTimeOffset? _explicitNullValueFromTimestamp = default!;
         /// <summary>The timeseries_max_datapoints property</summary>
-        public int? TimeseriesMaxDatapoints { get; set; }
+        public int? TimeseriesMaxDatapoints { get => _explicitNullValueTimeseriesMaxDatapoints; set { _explicitNullValueTimeseriesMaxDatapoints = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeseries_max_datapoints"); else _explicitNullProperties?.Remove("timeseries_max_datapoints"); } }
+        private int? _explicitNullValueTimeseriesMaxDatapoints = default!;
         /// <summary>The to_timestamp property</summary>
-        public DateTimeOffset? ToTimestamp { get; set; }
+        public DateTimeOffset? ToTimestamp { get => _explicitNullValueToTimestamp; set { _explicitNullValueToTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to_timestamp"); else _explicitNullProperties?.Remove("to_timestamp"); } }
+        private DateTimeOffset? _explicitNullValueToTimestamp = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetricsRequest"/> and sets the default values.
         /// </summary>
@@ -35,7 +48,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetricsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetricsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetricsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,6 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("from_timestamp", FromTimestamp);
             writer.WriteIntValue("timeseries_max_datapoints", TimeseriesMaxDatapoints);
             writer.WriteDateTimeOffsetValue("to_timestamp", ToTimestamp);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

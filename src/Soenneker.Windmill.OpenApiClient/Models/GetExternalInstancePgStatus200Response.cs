@@ -11,20 +11,34 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetExternalInstancePgStatus200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("configured") is { } nullNodeConfigured && nullNodeConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Configured = null;
+            if (parseNode.GetChildNode("database_count") is { } nullNodeDatabaseCount && nullNodeDatabaseCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseCount = null;
+            if (parseNode.GetChildNode("last_setup") is { } nullNodeLastSetup && nullNodeLastSetup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastSetup = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The configured property</summary>
-        public bool? Configured { get; set; }
+        public bool? Configured { get => _explicitNullValueConfigured; set { _explicitNullValueConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("configured"); else _explicitNullProperties?.Remove("configured"); } }
+        private bool? _explicitNullValueConfigured = default!;
         /// <summary>The database_count property</summary>
-        public int? DatabaseCount { get; set; }
+        public int? DatabaseCount { get => _explicitNullValueDatabaseCount; set { _explicitNullValueDatabaseCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_count"); else _explicitNullProperties?.Remove("database_count"); } }
+        private int? _explicitNullValueDatabaseCount = default!;
         /// <summary>The last_setup property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200ResponseLastSetup? LastSetup { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200ResponseLastSetup? LastSetup { get => _explicitNullValueLastSetup; set { _explicitNullValueLastSetup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_setup"); else _explicitNullProperties?.Remove("last_setup"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200ResponseLastSetup? _explicitNullValueLastSetup = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200ResponseLastSetup LastSetup { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200ResponseLastSetup LastSetup { get => _explicitNullValueLastSetup; set { _explicitNullValueLastSetup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_setup"); else _explicitNullProperties?.Remove("last_setup"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200ResponseLastSetup _explicitNullValueLastSetup = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200Response"/> and sets the default values.
@@ -41,7 +55,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("configured", Configured);
             writer.WriteIntValue("database_count", DatabaseCount);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetExternalInstancePgStatus200ResponseLastSetup>("last_setup", LastSetup);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

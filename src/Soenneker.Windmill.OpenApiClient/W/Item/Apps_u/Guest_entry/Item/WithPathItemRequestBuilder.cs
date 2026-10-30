@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Apps_u.Guest_entry.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntry200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntry200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntry200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetGuestEntry200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Unauthenticated: what a signed-out visitor reads to learn that signing in would let them in. 404 unless the app&apos;s execution mode is `guest`, and never on a deployment where guests are unavailable (the shared cloud), so it says nothing about apps that are not open to guests. Discloses only the app path, to a caller already holding the share secret.

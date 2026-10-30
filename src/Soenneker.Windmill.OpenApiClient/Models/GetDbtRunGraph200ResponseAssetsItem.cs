@@ -11,28 +11,45 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetDbtRunGraph200ResponseAssetsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dbt") is { } nullNodeDbt && nullNodeDbt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dbt = null;
+            if (parseNode.GetChildNode("fork_materialization") is { } nullNodeForkMaterialization && nullNodeForkMaterialization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkMaterialization = null;
+            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>What dbt says about the model, snapshot, seed or source that produces (or, for a source, is read at) this relation. A dbt project is one runnable node with many model assets, so per-model metadata belongs here rather than on the script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemDbt? Dbt { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemDbt? Dbt { get => _explicitNullValueDbt; set { _explicitNullValueDbt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt"); else _explicitNullProperties?.Remove("dbt"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemDbt? _explicitNullValueDbt = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemDbt Dbt { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemDbt Dbt { get => _explicitNullValueDbt; set { _explicitNullValueDbt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt"); else _explicitNullProperties?.Remove("dbt"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemDbt _explicitNullValueDbt = default!;
 #endif
         /// <summary>Fork workspaces only — &apos;fork&apos; when this ducklake asset was materialized in the fork itself, &apos;deferred&apos; when reads fall back to the parent workspace&apos;s current table via a defer view. Omitted otherwise.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemForkMaterialization? ForkMaterialization { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemForkMaterialization? ForkMaterialization { get => _explicitNullValueForkMaterialization; set { _explicitNullValueForkMaterialization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_materialization"); else _explicitNullProperties?.Remove("fork_materialization"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemForkMaterialization? _explicitNullValueForkMaterialization = default!;
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemKind? Kind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemKind? _explicitNullValueKind = default!;
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItem"/> and sets the default values.
@@ -49,7 +66,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemForkMaterialization>("fork_materialization", ForkMaterialization);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDbtRunGraph200ResponseAssetsItemKind>("kind", Kind);
             writer.WriteStringValue("path", Path);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

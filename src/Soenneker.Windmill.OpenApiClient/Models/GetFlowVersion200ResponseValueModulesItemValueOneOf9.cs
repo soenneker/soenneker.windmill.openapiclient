@@ -12,55 +12,83 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetFlowVersion200ResponseValueModulesItemValueOneOf9 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent") is { } nullNodeAgent && nullNodeAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agent = null;
+            if (parseNode.GetChildNode("input_transforms") is { } nullNodeInputTransforms && nullNodeInputTransforms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTransforms = null;
+            if (parseNode.GetChildNode("omit_output_from_conversation") is { } nullNodeOmitOutputFromConversation && nullNodeOmitOutputFromConversation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OmitOutputFromConversation = null;
+            if (parseNode.GetChildNode("parallel") is { } nullNodeParallel && nullNodeParallel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parallel = null;
+            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("tool_inputs") is { } nullNodeToolInputs && nullNodeToolInputs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolInputs = null;
+            if (parseNode.GetChildNode("tools") is { } nullNodeTools && nullNodeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tools = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Path of a reusable `ai_agent` resource (hybrid linking). When set, the agent brainconfig (provider/model/system prompt/etc.) and tool set are resolved at runtime fromthat resource; the module&apos;s input_transforms then only carry the flow-local inputs(user_message, user_attachments, enabled_tools and the history inputs memory_id and previous_messages)and, optionally, the `model` and `reasoning_effort` overrides of what the agent saved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Agent { get; set; }
+        public string? Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private string? _explicitNullValueAgent = default!;
 #nullable restore
 #else
-        public string Agent { get; set; }
+        public string Agent { get => _explicitNullValueAgent; set { _explicitNullValueAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent"); else _explicitNullProperties?.Remove("agent"); } }
+        private string _explicitNullValueAgent = default!;
 #endif
         /// <summary>Input parameters for the AI agent mapped to their values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9InputTransforms? InputTransforms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9InputTransforms? InputTransforms { get => _explicitNullValueInputTransforms; set { _explicitNullValueInputTransforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_transforms"); else _explicitNullProperties?.Remove("input_transforms"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9InputTransforms? _explicitNullValueInputTransforms = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9InputTransforms InputTransforms { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9InputTransforms InputTransforms { get => _explicitNullValueInputTransforms; set { _explicitNullValueInputTransforms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input_transforms"); else _explicitNullProperties?.Remove("input_transforms"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9InputTransforms _explicitNullValueInputTransforms = default!;
 #endif
         /// <summary>If true, this AI agent step does not persist its assistant or tool messages to the flow conversation when chat mode is enabled.</summary>
-        public bool? OmitOutputFromConversation { get; set; }
+        public bool? OmitOutputFromConversation { get => _explicitNullValueOmitOutputFromConversation; set { _explicitNullValueOmitOutputFromConversation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omit_output_from_conversation"); else _explicitNullProperties?.Remove("omit_output_from_conversation"); } }
+        private bool? _explicitNullValueOmitOutputFromConversation = default!;
         /// <summary>If true, the agent can execute multiple tool calls in parallel</summary>
-        public bool? Parallel { get; set; }
+        public bool? Parallel { get => _explicitNullValueParallel; set { _explicitNullValueParallel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parallel"); else _explicitNullProperties?.Remove("parallel"); } }
+        private bool? _explicitNullValueParallel = default!;
         /// <summary>Worker group tag for execution routing. If not set, the AI agent step runs on the flow&apos;s tag (default `flow`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tag { get; set; }
+        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string? _explicitNullValueTag = default!;
 #nullable restore
 #else
-        public string Tag { get; set; }
+        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private string _explicitNullValueTag = default!;
 #endif
         /// <summary>Host-local wiring for an agent&apos;s tool inputs, keyed by tool id then input key. Binds thereferenced agent&apos;s tools to this flow&apos;s context (flow_input/results) without mutating theshared resource; overlaid onto the tools&apos; input_transforms at runtime — including when`agent` is unset, since a step forked for editing keeps these overrides until it is savedback or unlinked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolInputs? ToolInputs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolInputs? ToolInputs { get => _explicitNullValueToolInputs; set { _explicitNullValueToolInputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_inputs"); else _explicitNullProperties?.Remove("tool_inputs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolInputs? _explicitNullValueToolInputs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolInputs ToolInputs { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolInputs ToolInputs { get => _explicitNullValueToolInputs; set { _explicitNullValueToolInputs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_inputs"); else _explicitNullProperties?.Remove("tool_inputs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolInputs _explicitNullValueToolInputs = default!;
 #endif
         /// <summary>Array of tools the agent can use. The agent decides which tools to call based on the task</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolsItem>? Tools { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolsItem>? Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolsItem>? _explicitNullValueTools = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolsItem> Tools { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolsItem> Tools { get => _explicitNullValueTools; set { _explicitNullValueTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tools"); else _explicitNullProperties?.Remove("tools"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolsItem> _explicitNullValueTools = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.AiagentType? Type { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiagentType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiagentType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9"/> and sets the default values.
         /// </summary>
@@ -77,7 +105,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +140,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolInputs>("tool_inputs", ToolInputs);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowVersion200ResponseValueModulesItemValueOneOf9ToolsItem>("tools", Tools);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AiagentType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

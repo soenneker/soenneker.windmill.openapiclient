@@ -11,26 +11,41 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateTemplateScriptRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("postgres_resource_path") is { } nullNodePostgresResourcePath && nullNodePostgresResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostgresResourcePath = null;
+            if (parseNode.GetChildNode("relations") is { } nullNodeRelations && nullNodeRelations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relations = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The language property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage? Language { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage? _explicitNullValueLanguage = default!;
         /// <summary>The postgres_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PostgresResourcePath { get; set; }
+        public string? PostgresResourcePath { get => _explicitNullValuePostgresResourcePath; set { _explicitNullValuePostgresResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_resource_path"); else _explicitNullProperties?.Remove("postgres_resource_path"); } }
+        private string? _explicitNullValuePostgresResourcePath = default!;
 #nullable restore
 #else
-        public string PostgresResourcePath { get; set; }
+        public string PostgresResourcePath { get => _explicitNullValuePostgresResourcePath; set { _explicitNullValuePostgresResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_resource_path"); else _explicitNullProperties?.Remove("postgres_resource_path"); } }
+        private string _explicitNullValuePostgresResourcePath = default!;
 #endif
         /// <summary>The relations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>? Relations { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>? Relations { get => _explicitNullValueRelations; set { _explicitNullValueRelations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relations"); else _explicitNullProperties?.Remove("relations"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>? _explicitNullValueRelations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem> Relations { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem> Relations { get => _explicitNullValueRelations; set { _explicitNullValueRelations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relations"); else _explicitNullProperties?.Remove("relations"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem> _explicitNullValueRelations = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequest"/> and sets the default values.
@@ -47,7 +62,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage>("language", Language);
             writer.WriteStringValue("postgres_resource_path", PostgresResourcePath);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>("relations", Relations);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

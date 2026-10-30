@@ -11,37 +11,72 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetUsedTriggers200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amqp_used") is { } nullNodeAmqpUsed && nullNodeAmqpUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmqpUsed = null;
+            if (parseNode.GetChildNode("azure_used") is { } nullNodeAzureUsed && nullNodeAzureUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureUsed = null;
+            if (parseNode.GetChildNode("email_used") is { } nullNodeEmailUsed && nullNodeEmailUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailUsed = null;
+            if (parseNode.GetChildNode("gcp_used") is { } nullNodeGcpUsed && nullNodeGcpUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GcpUsed = null;
+            if (parseNode.GetChildNode("github_used") is { } nullNodeGithubUsed && nullNodeGithubUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GithubUsed = null;
+            if (parseNode.GetChildNode("google_used") is { } nullNodeGoogleUsed && nullNodeGoogleUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoogleUsed = null;
+            if (parseNode.GetChildNode("http_routes_used") is { } nullNodeHttpRoutesUsed && nullNodeHttpRoutesUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpRoutesUsed = null;
+            if (parseNode.GetChildNode("kafka_used") is { } nullNodeKafkaUsed && nullNodeKafkaUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KafkaUsed = null;
+            if (parseNode.GetChildNode("mqtt_used") is { } nullNodeMqttUsed && nullNodeMqttUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MqttUsed = null;
+            if (parseNode.GetChildNode("nats_used") is { } nullNodeNatsUsed && nullNodeNatsUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NatsUsed = null;
+            if (parseNode.GetChildNode("nextcloud_used") is { } nullNodeNextcloudUsed && nullNodeNextcloudUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextcloudUsed = null;
+            if (parseNode.GetChildNode("postgres_used") is { } nullNodePostgresUsed && nullNodePostgresUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostgresUsed = null;
+            if (parseNode.GetChildNode("sqs_used") is { } nullNodeSqsUsed && nullNodeSqsUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SqsUsed = null;
+            if (parseNode.GetChildNode("websocket_used") is { } nullNodeWebsocketUsed && nullNodeWebsocketUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebsocketUsed = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amqp_used property</summary>
-        public bool? AmqpUsed { get; set; }
+        public bool? AmqpUsed { get => _explicitNullValueAmqpUsed; set { _explicitNullValueAmqpUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amqp_used"); else _explicitNullProperties?.Remove("amqp_used"); } }
+        private bool? _explicitNullValueAmqpUsed = default!;
         /// <summary>The azure_used property</summary>
-        public bool? AzureUsed { get; set; }
+        public bool? AzureUsed { get => _explicitNullValueAzureUsed; set { _explicitNullValueAzureUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_used"); else _explicitNullProperties?.Remove("azure_used"); } }
+        private bool? _explicitNullValueAzureUsed = default!;
         /// <summary>The email_used property</summary>
-        public bool? EmailUsed { get; set; }
+        public bool? EmailUsed { get => _explicitNullValueEmailUsed; set { _explicitNullValueEmailUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_used"); else _explicitNullProperties?.Remove("email_used"); } }
+        private bool? _explicitNullValueEmailUsed = default!;
         /// <summary>The gcp_used property</summary>
-        public bool? GcpUsed { get; set; }
+        public bool? GcpUsed { get => _explicitNullValueGcpUsed; set { _explicitNullValueGcpUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gcp_used"); else _explicitNullProperties?.Remove("gcp_used"); } }
+        private bool? _explicitNullValueGcpUsed = default!;
         /// <summary>The github_used property</summary>
-        public bool? GithubUsed { get; set; }
+        public bool? GithubUsed { get => _explicitNullValueGithubUsed; set { _explicitNullValueGithubUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("github_used"); else _explicitNullProperties?.Remove("github_used"); } }
+        private bool? _explicitNullValueGithubUsed = default!;
         /// <summary>The google_used property</summary>
-        public bool? GoogleUsed { get; set; }
+        public bool? GoogleUsed { get => _explicitNullValueGoogleUsed; set { _explicitNullValueGoogleUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("google_used"); else _explicitNullProperties?.Remove("google_used"); } }
+        private bool? _explicitNullValueGoogleUsed = default!;
         /// <summary>The http_routes_used property</summary>
-        public bool? HttpRoutesUsed { get; set; }
+        public bool? HttpRoutesUsed { get => _explicitNullValueHttpRoutesUsed; set { _explicitNullValueHttpRoutesUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_routes_used"); else _explicitNullProperties?.Remove("http_routes_used"); } }
+        private bool? _explicitNullValueHttpRoutesUsed = default!;
         /// <summary>The kafka_used property</summary>
-        public bool? KafkaUsed { get; set; }
+        public bool? KafkaUsed { get => _explicitNullValueKafkaUsed; set { _explicitNullValueKafkaUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kafka_used"); else _explicitNullProperties?.Remove("kafka_used"); } }
+        private bool? _explicitNullValueKafkaUsed = default!;
         /// <summary>The mqtt_used property</summary>
-        public bool? MqttUsed { get; set; }
+        public bool? MqttUsed { get => _explicitNullValueMqttUsed; set { _explicitNullValueMqttUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mqtt_used"); else _explicitNullProperties?.Remove("mqtt_used"); } }
+        private bool? _explicitNullValueMqttUsed = default!;
         /// <summary>The nats_used property</summary>
-        public bool? NatsUsed { get; set; }
+        public bool? NatsUsed { get => _explicitNullValueNatsUsed; set { _explicitNullValueNatsUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nats_used"); else _explicitNullProperties?.Remove("nats_used"); } }
+        private bool? _explicitNullValueNatsUsed = default!;
         /// <summary>The nextcloud_used property</summary>
-        public bool? NextcloudUsed { get; set; }
+        public bool? NextcloudUsed { get => _explicitNullValueNextcloudUsed; set { _explicitNullValueNextcloudUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextcloud_used"); else _explicitNullProperties?.Remove("nextcloud_used"); } }
+        private bool? _explicitNullValueNextcloudUsed = default!;
         /// <summary>The postgres_used property</summary>
-        public bool? PostgresUsed { get; set; }
+        public bool? PostgresUsed { get => _explicitNullValuePostgresUsed; set { _explicitNullValuePostgresUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_used"); else _explicitNullProperties?.Remove("postgres_used"); } }
+        private bool? _explicitNullValuePostgresUsed = default!;
         /// <summary>The sqs_used property</summary>
-        public bool? SqsUsed { get; set; }
+        public bool? SqsUsed { get => _explicitNullValueSqsUsed; set { _explicitNullValueSqsUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sqs_used"); else _explicitNullProperties?.Remove("sqs_used"); } }
+        private bool? _explicitNullValueSqsUsed = default!;
         /// <summary>The websocket_used property</summary>
-        public bool? WebsocketUsed { get; set; }
+        public bool? WebsocketUsed { get => _explicitNullValueWebsocketUsed; set { _explicitNullValueWebsocketUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("websocket_used"); else _explicitNullProperties?.Remove("websocket_used"); } }
+        private bool? _explicitNullValueWebsocketUsed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetUsedTriggers200Response"/> and sets the default values.
         /// </summary>
@@ -57,7 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetUsedTriggers200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetUsedTriggers200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetUsedTriggers200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,6 +139,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("postgres_used", PostgresUsed);
             writer.WriteBoolValue("sqs_used", SqsUsed);
             writer.WriteBoolValue("websocket_used", WebsocketUsed);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

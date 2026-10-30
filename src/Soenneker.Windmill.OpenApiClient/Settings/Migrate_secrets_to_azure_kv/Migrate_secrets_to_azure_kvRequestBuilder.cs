@@ -51,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Migrate_secrets_to_azure_kv
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAzureKv200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// migrate secrets from database to Azure Key Vault

@@ -11,40 +11,59 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetInstanceUi200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accent_color") is { } nullNodeAccentColor && nullNodeAccentColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccentColor = null;
+            if (parseNode.GetChildNode("api_base_url") is { } nullNodeApiBaseUrl && nullNodeApiBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiBaseUrl = null;
+            if (parseNode.GetChildNode("api_base_url_applies_to") is { } nullNodeApiBaseUrlAppliesTo && nullNodeApiBaseUrlAppliesTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiBaseUrlAppliesTo = null;
+            if (parseNode.GetChildNode("instance_banner") is { } nullNodeInstanceBanner && nullNodeInstanceBanner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceBanner = null;
+        }
+
         /// <summary>The accent_color property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? AccentColor { get; set; }
+        public UntypedNode? AccentColor { get => _explicitNullValueAccentColor; set { _explicitNullValueAccentColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent_color"); else _explicitNullProperties?.Remove("accent_color"); } }
+        private UntypedNode? _explicitNullValueAccentColor = default!;
 #nullable restore
 #else
-        public UntypedNode AccentColor { get; set; }
+        public UntypedNode AccentColor { get => _explicitNullValueAccentColor; set { _explicitNullValueAccentColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accent_color"); else _explicitNullProperties?.Remove("accent_color"); } }
+        private UntypedNode _explicitNullValueAccentColor = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The api_base_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ApiBaseUrl { get; set; }
+        public UntypedNode? ApiBaseUrl { get => _explicitNullValueApiBaseUrl; set { _explicitNullValueApiBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_base_url"); else _explicitNullProperties?.Remove("api_base_url"); } }
+        private UntypedNode? _explicitNullValueApiBaseUrl = default!;
 #nullable restore
 #else
-        public UntypedNode ApiBaseUrl { get; set; }
+        public UntypedNode ApiBaseUrl { get => _explicitNullValueApiBaseUrl; set { _explicitNullValueApiBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_base_url"); else _explicitNullProperties?.Remove("api_base_url"); } }
+        private UntypedNode _explicitNullValueApiBaseUrl = default!;
 #endif
         /// <summary>The api_base_url_applies_to property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? ApiBaseUrlAppliesTo { get; set; }
+        public UntypedNode? ApiBaseUrlAppliesTo { get => _explicitNullValueApiBaseUrlAppliesTo; set { _explicitNullValueApiBaseUrlAppliesTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_base_url_applies_to"); else _explicitNullProperties?.Remove("api_base_url_applies_to"); } }
+        private UntypedNode? _explicitNullValueApiBaseUrlAppliesTo = default!;
 #nullable restore
 #else
-        public UntypedNode ApiBaseUrlAppliesTo { get; set; }
+        public UntypedNode ApiBaseUrlAppliesTo { get => _explicitNullValueApiBaseUrlAppliesTo; set { _explicitNullValueApiBaseUrlAppliesTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_base_url_applies_to"); else _explicitNullProperties?.Remove("api_base_url_applies_to"); } }
+        private UntypedNode _explicitNullValueApiBaseUrlAppliesTo = default!;
 #endif
         /// <summary>The instance_banner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? InstanceBanner { get; set; }
+        public UntypedNode? InstanceBanner { get => _explicitNullValueInstanceBanner; set { _explicitNullValueInstanceBanner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_banner"); else _explicitNullProperties?.Remove("instance_banner"); } }
+        private UntypedNode? _explicitNullValueInstanceBanner = default!;
 #nullable restore
 #else
-        public UntypedNode InstanceBanner { get; set; }
+        public UntypedNode InstanceBanner { get => _explicitNullValueInstanceBanner; set { _explicitNullValueInstanceBanner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_banner"); else _explicitNullProperties?.Remove("instance_banner"); } }
+        private UntypedNode _explicitNullValueInstanceBanner = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200Response"/> and sets the default values.
@@ -61,7 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceUi200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +107,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<UntypedNode>("api_base_url", ApiBaseUrl);
             writer.WriteObjectValue<UntypedNode>("api_base_url_applies_to", ApiBaseUrlAppliesTo);
             writer.WriteObjectValue<UntypedNode>("instance_banner", InstanceBanner);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

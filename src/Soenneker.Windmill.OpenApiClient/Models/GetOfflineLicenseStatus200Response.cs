@@ -11,23 +11,44 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GetOfflineLicenseStatus200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("author_count") is { } nullNodeAuthorCount && nullNodeAuthorCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorCount = null;
+            if (parseNode.GetChildNode("cu_cap") is { } nullNodeCuCap && nullNodeCuCap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CuCap = null;
+            if (parseNode.GetChildNode("cu_over_cap") is { } nullNodeCuOverCap && nullNodeCuOverCap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CuOverCap = null;
+            if (parseNode.GetChildNode("current_cu") is { } nullNodeCurrentCu && nullNodeCurrentCu.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentCu = null;
+            if (parseNode.GetChildNode("operator_count") is { } nullNodeOperatorCount && nullNodeOperatorCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OperatorCount = null;
+            if (parseNode.GetChildNode("seats_cap") is { } nullNodeSeatsCap && nullNodeSeatsCap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatsCap = null;
+            if (parseNode.GetChildNode("seats_used") is { } nullNodeSeatsUsed && nullNodeSeatsUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SeatsUsed = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The author_count property</summary>
-        public int? AuthorCount { get; set; }
+        public int? AuthorCount { get => _explicitNullValueAuthorCount; set { _explicitNullValueAuthorCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("author_count"); else _explicitNullProperties?.Remove("author_count"); } }
+        private int? _explicitNullValueAuthorCount = default!;
         /// <summary>The cu_cap property</summary>
-        public double? CuCap { get; set; }
+        public double? CuCap { get => _explicitNullValueCuCap; set { _explicitNullValueCuCap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cu_cap"); else _explicitNullProperties?.Remove("cu_cap"); } }
+        private double? _explicitNullValueCuCap = default!;
         /// <summary>The cu_over_cap property</summary>
-        public bool? CuOverCap { get; set; }
+        public bool? CuOverCap { get => _explicitNullValueCuOverCap; set { _explicitNullValueCuOverCap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cu_over_cap"); else _explicitNullProperties?.Remove("cu_over_cap"); } }
+        private bool? _explicitNullValueCuOverCap = default!;
         /// <summary>Sum of CU rate across workers that pinged in the last 2 minutes.</summary>
-        public double? CurrentCu { get; set; }
+        public double? CurrentCu { get => _explicitNullValueCurrentCu; set { _explicitNullValueCurrentCu = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_cu"); else _explicitNullProperties?.Remove("current_cu"); } }
+        private double? _explicitNullValueCurrentCu = default!;
         /// <summary>The operator_count property</summary>
-        public int? OperatorCount { get; set; }
+        public int? OperatorCount { get => _explicitNullValueOperatorCount; set { _explicitNullValueOperatorCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operator_count"); else _explicitNullProperties?.Remove("operator_count"); } }
+        private int? _explicitNullValueOperatorCount = default!;
         /// <summary>The seats_cap property</summary>
-        public int? SeatsCap { get; set; }
+        public int? SeatsCap { get => _explicitNullValueSeatsCap; set { _explicitNullValueSeatsCap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats_cap"); else _explicitNullProperties?.Remove("seats_cap"); } }
+        private int? _explicitNullValueSeatsCap = default!;
         /// <summary>Author-equivalent seats consumed (authors + 0.5 × operators)</summary>
-        public double? SeatsUsed { get; set; }
+        public double? SeatsUsed { get => _explicitNullValueSeatsUsed; set { _explicitNullValueSeatsUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats_used"); else _explicitNullProperties?.Remove("seats_used"); } }
+        private double? _explicitNullValueSeatsUsed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetOfflineLicenseStatus200Response"/> and sets the default values.
         /// </summary>
@@ -43,7 +64,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetOfflineLicenseStatus200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetOfflineLicenseStatus200Response();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetOfflineLicenseStatus200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +99,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("operator_count", OperatorCount);
             writer.WriteIntValue("seats_cap", SeatsCap);
             writer.WriteDoubleValue("seats_used", SeatsUsed);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,15 +12,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetMqttTrigger200ResponseV5Config : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("clean_start") is { } nullNodeCleanStart && nullNodeCleanStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CleanStart = null;
+            if (parseNode.GetChildNode("session_expiry_interval") is { } nullNodeSessionExpiryInterval && nullNodeSessionExpiryInterval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionExpiryInterval = null;
+            if (parseNode.GetChildNode("topic_alias_maximum") is { } nullNodeTopicAliasMaximum && nullNodeTopicAliasMaximum.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopicAliasMaximum = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The clean_start property</summary>
-        public bool? CleanStart { get; set; }
+        public bool? CleanStart { get => _explicitNullValueCleanStart; set { _explicitNullValueCleanStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clean_start"); else _explicitNullProperties?.Remove("clean_start"); } }
+        private bool? _explicitNullValueCleanStart = default!;
         /// <summary>The session_expiry_interval property</summary>
-        public double? SessionExpiryInterval { get; set; }
+        public double? SessionExpiryInterval { get => _explicitNullValueSessionExpiryInterval; set { _explicitNullValueSessionExpiryInterval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("session_expiry_interval"); else _explicitNullProperties?.Remove("session_expiry_interval"); } }
+        private double? _explicitNullValueSessionExpiryInterval = default!;
         /// <summary>The topic_alias_maximum property</summary>
-        public double? TopicAliasMaximum { get; set; }
+        public double? TopicAliasMaximum { get => _explicitNullValueTopicAliasMaximum; set { _explicitNullValueTopicAliasMaximum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_alias_maximum"); else _explicitNullProperties?.Remove("topic_alias_maximum"); } }
+        private double? _explicitNullValueTopicAliasMaximum = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetMqttTrigger200ResponseV5Config"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetMqttTrigger200ResponseV5Config CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetMqttTrigger200ResponseV5Config();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetMqttTrigger200ResponseV5Config(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +76,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("clean_start", CleanStart);
             writer.WriteDoubleValue("session_expiry_interval", SessionExpiryInterval);
             writer.WriteDoubleValue("topic_alias_maximum", TopicAliasMaximum);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

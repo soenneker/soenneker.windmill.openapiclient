@@ -12,7 +12,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApplyDatatableAclRequestChange : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChangeOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,9 +50,30 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChange CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChange();
-            return result;
+            if("ApplyDatatableAclRequestChangeOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("ApplyDatatableAclRequestChangeOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("ApplyDatatableAclRequestChangeOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("set_owner".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("role") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("grant".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("role") != null && parseNode.GetChildNode("privileges") != null && parseNode.GetChildNode("scope") != null && (parseNode.GetChildNode("scope")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag5 && ("target".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "all_tables".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "all_sequences".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "all_functions".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "future_tables".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "future_sequences".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "future_functions".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("revoke".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("role") != null && parseNode.GetChildNode("privileges") != null && parseNode.GetChildNode("scope") != null && (parseNode.GetChildNode("scope")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag5 && ("target".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "all_tables".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "all_sequences".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "all_functions".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "future_tables".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "future_sequences".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal) || "future_functions".Equals(tag5.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.ApplyDatatableAclRequestChangeOneOf1 == null && result.ApplyDatatableAclRequestChangeOneOf2 == null && result.ApplyDatatableAclRequestChangeOneOf3 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ApplyDatatableAclRequestChangeOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChangeOneOf1(), parseNode);
+            if (result.ApplyDatatableAclRequestChangeOneOf1 == null && result.ApplyDatatableAclRequestChangeOneOf2 == null && result.ApplyDatatableAclRequestChangeOneOf3 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.ApplyDatatableAclRequestChangeOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChangeOneOf2(), parseNode);
+            if (result.ApplyDatatableAclRequestChangeOneOf1 == null && result.ApplyDatatableAclRequestChangeOneOf2 == null && result.ApplyDatatableAclRequestChangeOneOf3 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ApplyDatatableAclRequestChangeOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChangeOneOf3(), parseNode);
+            if (result.ApplyDatatableAclRequestChangeOneOf1 == null && result.ApplyDatatableAclRequestChangeOneOf2 == null && result.ApplyDatatableAclRequestChangeOneOf3 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,17 +101,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ApplyDatatableAclRequestChangeOneOf1 == null && ApplyDatatableAclRequestChangeOneOf2 == null && ApplyDatatableAclRequestChangeOneOf3 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ApplyDatatableAclRequestChangeOneOf1 != null && ApplyDatatableAclRequestChangeOneOf2 == null && ApplyDatatableAclRequestChangeOneOf3 == null) { if (ApplyDatatableAclRequestChangeOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ApplyDatatableAclRequestChangeOneOf1); return; }
+            if (ApplyDatatableAclRequestChangeOneOf2 != null && ApplyDatatableAclRequestChangeOneOf1 == null && ApplyDatatableAclRequestChangeOneOf3 == null) { if (ApplyDatatableAclRequestChangeOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ApplyDatatableAclRequestChangeOneOf2); return; }
+            if (ApplyDatatableAclRequestChangeOneOf3 != null && ApplyDatatableAclRequestChangeOneOf1 == null && ApplyDatatableAclRequestChangeOneOf2 == null) { if (ApplyDatatableAclRequestChangeOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ApplyDatatableAclRequestChangeOneOf3); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ApplyDatatableAclRequestChangeOneOf1 != null)
             {
+                if (ApplyDatatableAclRequestChangeOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChangeOneOf1>(null, ApplyDatatableAclRequestChangeOneOf1);
             }
             else if(ApplyDatatableAclRequestChangeOneOf2 != null)
             {
+                if (ApplyDatatableAclRequestChangeOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChangeOneOf2>(null, ApplyDatatableAclRequestChangeOneOf2);
             }
             else if(ApplyDatatableAclRequestChangeOneOf3 != null)
             {
+                if (ApplyDatatableAclRequestChangeOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ApplyDatatableAclRequestChangeOneOf3>(null, ApplyDatatableAclRequestChangeOneOf3);
             }
         }

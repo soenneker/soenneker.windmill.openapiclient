@@ -11,26 +11,41 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OffboardWorkspaceUserRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("delete_user") is { } nullNodeDeleteUser && nullNodeDeleteUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeleteUser = null;
+            if (parseNode.GetChildNode("new_on_behalf_of_user") is { } nullNodeNewOnBehalfOfUser && nullNodeNewOnBehalfOfUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewOnBehalfOfUser = null;
+            if (parseNode.GetChildNode("reassign_to") is { } nullNodeReassignTo && nullNodeReassignTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReassignTo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to also remove the user from the workspace</summary>
-        public bool? DeleteUser { get; set; }
+        public bool? DeleteUser { get => _explicitNullValueDeleteUser; set { _explicitNullValueDeleteUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delete_user"); else _explicitNullProperties?.Remove("delete_user"); } }
+        private bool? _explicitNullValueDeleteUser = default!;
         /// <summary>Required when reassign_to is a folder. The username whose identity will be used as permissioned_as for schedules and triggers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewOnBehalfOfUser { get; set; }
+        public string? NewOnBehalfOfUser { get => _explicitNullValueNewOnBehalfOfUser; set { _explicitNullValueNewOnBehalfOfUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_on_behalf_of_user"); else _explicitNullProperties?.Remove("new_on_behalf_of_user"); } }
+        private string? _explicitNullValueNewOnBehalfOfUser = default!;
 #nullable restore
 #else
-        public string NewOnBehalfOfUser { get; set; }
+        public string NewOnBehalfOfUser { get => _explicitNullValueNewOnBehalfOfUser; set { _explicitNullValueNewOnBehalfOfUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_on_behalf_of_user"); else _explicitNullProperties?.Remove("new_on_behalf_of_user"); } }
+        private string _explicitNullValueNewOnBehalfOfUser = default!;
 #endif
         /// <summary>Target for reassignment: &apos;u/{username}&apos; or &apos;f/{folder}&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReassignTo { get; set; }
+        public string? ReassignTo { get => _explicitNullValueReassignTo; set { _explicitNullValueReassignTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassign_to"); else _explicitNullProperties?.Remove("reassign_to"); } }
+        private string? _explicitNullValueReassignTo = default!;
 #nullable restore
 #else
-        public string ReassignTo { get; set; }
+        public string ReassignTo { get => _explicitNullValueReassignTo; set { _explicitNullValueReassignTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reassign_to"); else _explicitNullProperties?.Remove("reassign_to"); } }
+        private string _explicitNullValueReassignTo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.OffboardWorkspaceUserRequest"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.OffboardWorkspaceUserRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.OffboardWorkspaceUserRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.OffboardWorkspaceUserRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("delete_user", DeleteUser);
             writer.WriteStringValue("new_on_behalf_of_user", NewOnBehalfOfUser);
             writer.WriteStringValue("reassign_to", ReassignTo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

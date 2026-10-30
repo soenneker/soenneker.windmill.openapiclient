@@ -12,29 +12,46 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetAssetsGraph200ResponseTriggersItemOneOf2 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("runnable_kind") is { } nullNodeRunnableKind && nullNodeRunnableKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnableKind = null;
+            if (parseNode.GetChildNode("runnable_path") is { } nullNodeRunnablePath && nullNodeRunnablePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnablePath = null;
+            if (parseNode.GetChildNode("trigger_kind") is { } nullNodeTriggerKind && nullNodeTriggerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerKind = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The runnable_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2RunnableKind? RunnableKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2RunnableKind? RunnableKind { get => _explicitNullValueRunnableKind; set { _explicitNullValueRunnableKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_kind"); else _explicitNullProperties?.Remove("runnable_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2RunnableKind? _explicitNullValueRunnableKind = default!;
         /// <summary>The runnable_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnablePath { get; set; }
+        public string? RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        private string? _explicitNullValueRunnablePath = default!;
 #nullable restore
 #else
-        public string RunnablePath { get; set; }
+        public string RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        private string _explicitNullValueRunnablePath = default!;
 #endif
         /// <summary>The trigger_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2TriggerKind? TriggerKind { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2TriggerKind? TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2TriggerKind? _explicitNullValueTriggerKind = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2"/> and sets the default values.
         /// </summary>
@@ -50,7 +67,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,6 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2RunnableKind>("runnable_kind", RunnableKind);
             writer.WriteStringValue("runnable_path", RunnablePath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2TriggerKind>("trigger_kind", TriggerKind);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

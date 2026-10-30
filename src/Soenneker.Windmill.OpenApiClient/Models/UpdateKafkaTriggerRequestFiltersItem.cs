@@ -12,7 +12,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateKafkaTriggerRequestFiltersItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,25 +70,38 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItem();
             if("UpdateKafkaTriggerRequestFiltersItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.UpdateKafkaTriggerRequestFiltersItemOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf1();
+                
             }
             else if("UpdateKafkaTriggerRequestFiltersItemOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.UpdateKafkaTriggerRequestFiltersItemOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf2();
+                
             }
             else if("UpdateKafkaTriggerRequestFiltersItemOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.UpdateKafkaTriggerRequestFiltersItemOneOf3 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf3();
+                
             }
             else if("UpdateKafkaTriggerRequestFiltersItemOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.UpdateKafkaTriggerRequestFiltersItemOneOf4 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf4();
+                
             }
             else if("UpdateKafkaTriggerRequestFiltersItemOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.UpdateKafkaTriggerRequestFiltersItemOneOf5 = new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf5();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("key") != null && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("path") != null && parseNode.GetChildNode("value") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("any_of") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("all_of") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("none_of") != null))();
+            if (result.UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.UpdateKafkaTriggerRequestFiltersItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf1(), parseNode);
+            if (result.UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.UpdateKafkaTriggerRequestFiltersItemOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf2(), parseNode);
+            if (result.UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4) result.UpdateKafkaTriggerRequestFiltersItemOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf3(), parseNode);
+            if (result.UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4) result.UpdateKafkaTriggerRequestFiltersItemOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf4(), parseNode);
+            if (result.UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf5 == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.UpdateKafkaTriggerRequestFiltersItemOneOf5 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf5(), parseNode);
+            if (result.UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && result.UpdateKafkaTriggerRequestFiltersItemOneOf5 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,25 +137,38 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && UpdateKafkaTriggerRequestFiltersItemOneOf5 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (UpdateKafkaTriggerRequestFiltersItemOneOf1 != null && UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && UpdateKafkaTriggerRequestFiltersItemOneOf5 == null) { if (UpdateKafkaTriggerRequestFiltersItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateKafkaTriggerRequestFiltersItemOneOf1); return; }
+            if (UpdateKafkaTriggerRequestFiltersItemOneOf2 != null && UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && UpdateKafkaTriggerRequestFiltersItemOneOf5 == null) { if (UpdateKafkaTriggerRequestFiltersItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateKafkaTriggerRequestFiltersItemOneOf2); return; }
+            if (UpdateKafkaTriggerRequestFiltersItemOneOf3 != null && UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && UpdateKafkaTriggerRequestFiltersItemOneOf4 == null && UpdateKafkaTriggerRequestFiltersItemOneOf5 == null) { if (UpdateKafkaTriggerRequestFiltersItemOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateKafkaTriggerRequestFiltersItemOneOf3); return; }
+            if (UpdateKafkaTriggerRequestFiltersItemOneOf4 != null && UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && UpdateKafkaTriggerRequestFiltersItemOneOf5 == null) { if (UpdateKafkaTriggerRequestFiltersItemOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateKafkaTriggerRequestFiltersItemOneOf4); return; }
+            if (UpdateKafkaTriggerRequestFiltersItemOneOf5 != null && UpdateKafkaTriggerRequestFiltersItemOneOf1 == null && UpdateKafkaTriggerRequestFiltersItemOneOf2 == null && UpdateKafkaTriggerRequestFiltersItemOneOf3 == null && UpdateKafkaTriggerRequestFiltersItemOneOf4 == null) { if (UpdateKafkaTriggerRequestFiltersItemOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, UpdateKafkaTriggerRequestFiltersItemOneOf5); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(UpdateKafkaTriggerRequestFiltersItemOneOf1 != null)
             {
+                if (UpdateKafkaTriggerRequestFiltersItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf1>(null, UpdateKafkaTriggerRequestFiltersItemOneOf1);
             }
             else if(UpdateKafkaTriggerRequestFiltersItemOneOf2 != null)
             {
+                if (UpdateKafkaTriggerRequestFiltersItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf2>(null, UpdateKafkaTriggerRequestFiltersItemOneOf2);
             }
             else if(UpdateKafkaTriggerRequestFiltersItemOneOf3 != null)
             {
+                if (UpdateKafkaTriggerRequestFiltersItemOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf3>(null, UpdateKafkaTriggerRequestFiltersItemOneOf3);
             }
             else if(UpdateKafkaTriggerRequestFiltersItemOneOf4 != null)
             {
+                if (UpdateKafkaTriggerRequestFiltersItemOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf4>(null, UpdateKafkaTriggerRequestFiltersItemOneOf4);
             }
             else if(UpdateKafkaTriggerRequestFiltersItemOneOf5 != null)
             {
+                if (UpdateKafkaTriggerRequestFiltersItemOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateKafkaTriggerRequestFiltersItemOneOf5>(null, UpdateKafkaTriggerRequestFiltersItemOneOf5);
             }
         }

@@ -11,16 +11,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DuckdbConnectionSettingsRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("s3_resource") is { } nullNodeS3Resource && nullNodeS3Resource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3Resource = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The s3_resource property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequestS3Resource? S3Resource { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequestS3Resource? S3Resource { get => _explicitNullValueS3Resource; set { _explicitNullValueS3Resource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource"); else _explicitNullProperties?.Remove("s3_resource"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequestS3Resource? _explicitNullValueS3Resource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequestS3Resource S3Resource { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequestS3Resource S3Resource { get => _explicitNullValueS3Resource; set { _explicitNullValueS3Resource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource"); else _explicitNullProperties?.Remove("s3_resource"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequestS3Resource _explicitNullValueS3Resource = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequest"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.DuckdbConnectionSettingsRequestS3Resource>("s3_resource", S3Resource);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

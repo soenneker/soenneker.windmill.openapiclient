@@ -12,98 +12,140 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetAssetsGraph200ResponseAssetsItemDbt : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("columns") is { } nullNodeColumns && nullNodeColumns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Columns = null;
+            if (parseNode.GetChildNode("column_schema") is { } nullNodeColumnSchema && nullNodeColumnSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColumnSchema = null;
+            if (parseNode.GetChildNode("data_tests") is { } nullNodeDataTests && nullNodeDataTests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataTests = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("freshness") is { } nullNodeFreshness && nullNodeFreshness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Freshness = null;
+            if (parseNode.GetChildNode("materialized") is { } nullNodeMaterialized && nullNodeMaterialized.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Materialized = null;
+            if (parseNode.GetChildNode("materialize_strategy") is { } nullNodeMaterializeStrategy && nullNodeMaterializeStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaterializeStrategy = null;
+            if (parseNode.GetChildNode("original_file_path") is { } nullNodeOriginalFilePath && nullNodeOriginalFilePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginalFilePath = null;
+            if (parseNode.GetChildNode("raw_code") is { } nullNodeRawCode && nullNodeRawCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RawCode = null;
+            if (parseNode.GetChildNode("resource_type") is { } nullNodeResourceType && nullNodeResourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceType = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("unique_id") is { } nullNodeUniqueId && nullNodeUniqueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UniqueId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Declared column metadata (name -&gt; description) — what `manifest.json` carries, which is only the columns an author wrote down. Omitted when the caller cannot read the script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns? Columns { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns? Columns { get => _explicitNullValueColumns; set { _explicitNullValueColumns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columns"); else _explicitNullProperties?.Remove("columns"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns? _explicitNullValueColumns = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns Columns { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns Columns { get => _explicitNullValueColumns; set { _explicitNullValueColumns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columns"); else _explicitNullProperties?.Remove("columns"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumns _explicitNullValueColumns = default!;
 #endif
         /// <summary>Every column of the relation, typed and in the order the model produces them, from the engine&apos;s static analysis. Present only for a project that opted into it, and gated like `columns` and the model&apos;s SQL: a full column list is the shape of what the author wrote.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem>? ColumnSchema { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem>? ColumnSchema { get => _explicitNullValueColumnSchema; set { _explicitNullValueColumnSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("column_schema"); else _explicitNullProperties?.Remove("column_schema"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem>? _explicitNullValueColumnSchema = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem> ColumnSchema { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem> ColumnSchema { get => _explicitNullValueColumnSchema; set { _explicitNullValueColumnSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("column_schema"); else _explicitNullProperties?.Remove("column_schema"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtColumnSchemaItem> _explicitNullValueColumnSchema = default!;
 #endif
         /// <summary>The data_tests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem>? DataTests { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem>? DataTests { get => _explicitNullValueDataTests; set { _explicitNullValueDataTests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_tests"); else _explicitNullProperties?.Remove("data_tests"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem>? _explicitNullValueDataTests = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem> DataTests { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem> DataTests { get => _explicitNullValueDataTests; set { _explicitNullValueDataTests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data_tests"); else _explicitNullProperties?.Remove("data_tests"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtDataTestsItem> _explicitNullValueDataTests = default!;
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>A source&apos;s declared freshness policy, for the staleness chip.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtFreshness? Freshness { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtFreshness? Freshness { get => _explicitNullValueFreshness; set { _explicitNullValueFreshness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("freshness"); else _explicitNullProperties?.Remove("freshness"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtFreshness? _explicitNullValueFreshness = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtFreshness Freshness { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtFreshness Freshness { get => _explicitNullValueFreshness; set { _explicitNullValueFreshness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("freshness"); else _explicitNullProperties?.Remove("freshness"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtFreshness _explicitNullValueFreshness = default!;
 #endif
         /// <summary>dbt&apos;s own word (`table`, `view`, `incremental`, `snapshot`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Materialized { get; set; }
+        public string? Materialized { get => _explicitNullValueMaterialized; set { _explicitNullValueMaterialized = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("materialized"); else _explicitNullProperties?.Remove("materialized"); } }
+        private string? _explicitNullValueMaterialized = default!;
 #nullable restore
 #else
-        public string Materialized { get; set; }
+        public string Materialized { get => _explicitNullValueMaterialized; set { _explicitNullValueMaterialized = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("materialized"); else _explicitNullProperties?.Remove("materialized"); } }
+        private string _explicitNullValueMaterialized = default!;
 #endif
         /// <summary>The Windmill write strategy it maps to, absent for `view` and `ephemeral`, which have none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaterializeStrategy { get; set; }
+        public string? MaterializeStrategy { get => _explicitNullValueMaterializeStrategy; set { _explicitNullValueMaterializeStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("materialize_strategy"); else _explicitNullProperties?.Remove("materialize_strategy"); } }
+        private string? _explicitNullValueMaterializeStrategy = default!;
 #nullable restore
 #else
-        public string MaterializeStrategy { get; set; }
+        public string MaterializeStrategy { get => _explicitNullValueMaterializeStrategy; set { _explicitNullValueMaterializeStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("materialize_strategy"); else _explicitNullProperties?.Remove("materialize_strategy"); } }
+        private string _explicitNullValueMaterializeStrategy = default!;
 #endif
         /// <summary>Its path inside the dbt project, e.g. `models/staging/stg_orders.sql`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OriginalFilePath { get; set; }
+        public string? OriginalFilePath { get => _explicitNullValueOriginalFilePath; set { _explicitNullValueOriginalFilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_file_path"); else _explicitNullProperties?.Remove("original_file_path"); } }
+        private string? _explicitNullValueOriginalFilePath = default!;
 #nullable restore
 #else
-        public string OriginalFilePath { get; set; }
+        public string OriginalFilePath { get => _explicitNullValueOriginalFilePath; set { _explicitNullValueOriginalFilePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("original_file_path"); else _explicitNullProperties?.Remove("original_file_path"); } }
+        private string _explicitNullValueOriginalFilePath = default!;
 #endif
         /// <summary>The model&apos;s SQL as written, at the deploy this graph belongs to. Omitted when the caller cannot read the script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RawCode { get; set; }
+        public string? RawCode { get => _explicitNullValueRawCode; set { _explicitNullValueRawCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_code"); else _explicitNullProperties?.Remove("raw_code"); } }
+        private string? _explicitNullValueRawCode = default!;
 #nullable restore
 #else
-        public string RawCode { get; set; }
+        public string RawCode { get => _explicitNullValueRawCode; set { _explicitNullValueRawCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("raw_code"); else _explicitNullProperties?.Remove("raw_code"); } }
+        private string _explicitNullValueRawCode = default!;
 #endif
         /// <summary>The resource_type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtResourceType? ResourceType { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtResourceType? ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_type"); else _explicitNullProperties?.Remove("resource_type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtResourceType? _explicitNullValueResourceType = default!;
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>dbt&apos;s own node id, e.g. `model.jaffle_shop.customers`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UniqueId { get; set; }
+        public string? UniqueId { get => _explicitNullValueUniqueId; set { _explicitNullValueUniqueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unique_id"); else _explicitNullProperties?.Remove("unique_id"); } }
+        private string? _explicitNullValueUniqueId = default!;
 #nullable restore
 #else
-        public string UniqueId { get; set; }
+        public string UniqueId { get => _explicitNullValueUniqueId; set { _explicitNullValueUniqueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unique_id"); else _explicitNullProperties?.Remove("unique_id"); } }
+        private string _explicitNullValueUniqueId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt"/> and sets the default values.
@@ -120,7 +162,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbt(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -163,6 +205,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseAssetsItemDbtResourceType>("resource_type", ResourceType);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("unique_id", UniqueId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -5,12 +5,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum CompletedJobType
+    public enum ListJobs200ResponseSchemaItemOneOf2_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "CompletedJob")]
+        [EnumMember(Value = "QueuedJob")]
         #pragma warning disable CS1591
-        CompletedJob,
+        QueuedJob,
         #pragma warning restore CS1591
     }
 }

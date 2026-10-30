@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals.Run_payload
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Called by the step a run&apos;s flow places between the agent and its scorers. Every tool call is enriched with the arguments, result, status and duration of the job that ran it, and with the schema of the script version it ran, none of which the flow itself can read.

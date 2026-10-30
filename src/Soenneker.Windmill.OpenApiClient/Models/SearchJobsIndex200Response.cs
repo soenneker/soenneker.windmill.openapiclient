@@ -11,34 +11,52 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SearchJobsIndex200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("hit_count") is { } nullNodeHitCount && nullNodeHitCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HitCount = null;
+            if (parseNode.GetChildNode("hits") is { } nullNodeHits && nullNodeHits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hits = null;
+            if (parseNode.GetChildNode("index_metadata") is { } nullNodeIndexMetadata && nullNodeIndexMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexMetadata = null;
+            if (parseNode.GetChildNode("query_parse_errors") is { } nullNodeQueryParseErrors && nullNodeQueryParseErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryParseErrors = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>how many jobs matched in total</summary>
-        public double? HitCount { get; set; }
+        public double? HitCount { get => _explicitNullValueHitCount; set { _explicitNullValueHitCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hit_count"); else _explicitNullProperties?.Remove("hit_count"); } }
+        private double? _explicitNullValueHitCount = default!;
         /// <summary>the jobs that matched the query</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem>? Hits { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem>? Hits { get => _explicitNullValueHits; set { _explicitNullValueHits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hits"); else _explicitNullProperties?.Remove("hits"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem>? _explicitNullValueHits = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem> Hits { get; set; }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem> Hits { get => _explicitNullValueHits; set { _explicitNullValueHits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hits"); else _explicitNullProperties?.Remove("hits"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem> _explicitNullValueHits = default!;
 #endif
         /// <summary>Metadata about the index current state</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata? IndexMetadata { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata? IndexMetadata { get => _explicitNullValueIndexMetadata; set { _explicitNullValueIndexMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_metadata"); else _explicitNullProperties?.Remove("index_metadata"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata? _explicitNullValueIndexMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata IndexMetadata { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata IndexMetadata { get => _explicitNullValueIndexMetadata; set { _explicitNullValueIndexMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_metadata"); else _explicitNullProperties?.Remove("index_metadata"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata _explicitNullValueIndexMetadata = default!;
 #endif
         /// <summary>a list of the terms that couldn&apos;t be parsed (and thus ignored)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? QueryParseErrors { get; set; }
+        public List<string>? QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
+        private List<string>? _explicitNullValueQueryParseErrors = default!;
 #nullable restore
 #else
-        public List<string> QueryParseErrors { get; set; }
+        public List<string> QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
+        private List<string> _explicitNullValueQueryParseErrors = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200Response"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem>("hits", Hits);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata>("index_metadata", IndexMetadata);
             writer.WriteCollectionOfPrimitiveValues<string>("query_parse_errors", QueryParseErrors);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

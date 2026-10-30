@@ -12,30 +12,54 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ExperimentResults200ResponseMeansItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("baseline_mean") is { } nullNodeBaselineMean && nullNodeBaselineMean.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaselineMean = null;
+            if (parseNode.GetChildNode("baseline_pass_rate") is { } nullNodeBaselinePassRate && nullNodeBaselinePassRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaselinePassRate = null;
+            if (parseNode.GetChildNode("definition_changed") is { } nullNodeDefinitionChanged && nullNodeDefinitionChanged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefinitionChanged = null;
+            if (parseNode.GetChildNode("mean") is { } nullNodeMean && nullNodeMean.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mean = null;
+            if (parseNode.GetChildNode("missing_in_baseline") is { } nullNodeMissingInBaseline && nullNodeMissingInBaseline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MissingInBaseline = null;
+            if (parseNode.GetChildNode("pass_rate") is { } nullNodePassRate && nullNodePassRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassRate = null;
+            if (parseNode.GetChildNode("scored") is { } nullNodeScored && nullNodeScored.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scored = null;
+            if (parseNode.GetChildNode("scorer_id") is { } nullNodeScorerId && nullNodeScorerId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScorerId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The baseline_mean property</summary>
-        public double? BaselineMean { get; set; }
+        public double? BaselineMean { get => _explicitNullValueBaselineMean; set { _explicitNullValueBaselineMean = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("baseline_mean"); else _explicitNullProperties?.Remove("baseline_mean"); } }
+        private double? _explicitNullValueBaselineMean = default!;
         /// <summary>The baseline_pass_rate property</summary>
-        public double? BaselinePassRate { get; set; }
+        public double? BaselinePassRate { get => _explicitNullValueBaselinePassRate; set { _explicitNullValueBaselinePassRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("baseline_pass_rate"); else _explicitNullProperties?.Remove("baseline_pass_rate"); } }
+        private double? _explicitNullValueBaselinePassRate = default!;
         /// <summary>The definition_changed property</summary>
-        public bool? DefinitionChanged { get; set; }
+        public bool? DefinitionChanged { get => _explicitNullValueDefinitionChanged; set { _explicitNullValueDefinitionChanged = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("definition_changed"); else _explicitNullProperties?.Remove("definition_changed"); } }
+        private bool? _explicitNullValueDefinitionChanged = default!;
         /// <summary>The mean property</summary>
-        public double? Mean { get; set; }
+        public double? Mean { get => _explicitNullValueMean; set { _explicitNullValueMean = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mean"); else _explicitNullProperties?.Remove("mean"); } }
+        private double? _explicitNullValueMean = default!;
         /// <summary>Cells the baseline has no score for, so a column the baseline never ran shows as unscored rather than as a spurious difference.</summary>
-        public int? MissingInBaseline { get; set; }
+        public int? MissingInBaseline { get => _explicitNullValueMissingInBaseline; set { _explicitNullValueMissingInBaseline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("missing_in_baseline"); else _explicitNullProperties?.Remove("missing_in_baseline"); } }
+        private int? _explicitNullValueMissingInBaseline = default!;
         /// <summary>The share of scored cells that passed, for a column with a threshold. Reported beside the mean rather than instead of it: a pass rate says how many cases are good enough, a mean says by how much, and neither answers the other&apos;s question.</summary>
-        public double? PassRate { get; set; }
+        public double? PassRate { get => _explicitNullValuePassRate; set { _explicitNullValuePassRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pass_rate"); else _explicitNullProperties?.Remove("pass_rate"); } }
+        private double? _explicitNullValuePassRate = default!;
         /// <summary>The scored property</summary>
-        public int? Scored { get; set; }
+        public int? Scored { get => _explicitNullValueScored; set { _explicitNullValueScored = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scored"); else _explicitNullProperties?.Remove("scored"); } }
+        private int? _explicitNullValueScored = default!;
         /// <summary>The scorer_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScorerId { get; set; }
+        public string? ScorerId { get => _explicitNullValueScorerId; set { _explicitNullValueScorerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scorer_id"); else _explicitNullProperties?.Remove("scorer_id"); } }
+        private string? _explicitNullValueScorerId = default!;
 #nullable restore
 #else
-        public string ScorerId { get; set; }
+        public string ScorerId { get => _explicitNullValueScorerId; set { _explicitNullValueScorerId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scorer_id"); else _explicitNullProperties?.Remove("scorer_id"); } }
+        private string _explicitNullValueScorerId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem"/> and sets the default values.
@@ -52,7 +76,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseMeansItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,6 +111,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("pass_rate", PassRate);
             writer.WriteIntValue("scored", Scored);
             writer.WriteStringValue("scorer_id", ScorerId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

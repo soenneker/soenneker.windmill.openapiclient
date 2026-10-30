@@ -12,35 +12,53 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListQueue200ResponseItemRawFlowFailureModuleValueOneOf9ToolsItemValueOneOf2 : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("exclude_tools") is { } nullNodeExcludeTools && nullNodeExcludeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeTools = null;
+            if (parseNode.GetChildNode("include_tools") is { } nullNodeIncludeTools && nullNodeIncludeTools.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeTools = null;
+            if (parseNode.GetChildNode("resource_path") is { } nullNodeResourcePath && nullNodeResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcePath = null;
+            if (parseNode.GetChildNode("tool_type") is { } nullNodeToolType && nullNodeToolType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToolType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Blacklist of tools to exclude from this MCP server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ExcludeTools { get; set; }
+        public List<string>? ExcludeTools { get => _explicitNullValueExcludeTools; set { _explicitNullValueExcludeTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_tools"); else _explicitNullProperties?.Remove("exclude_tools"); } }
+        private List<string>? _explicitNullValueExcludeTools = default!;
 #nullable restore
 #else
-        public List<string> ExcludeTools { get; set; }
+        public List<string> ExcludeTools { get => _explicitNullValueExcludeTools; set { _explicitNullValueExcludeTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_tools"); else _explicitNullProperties?.Remove("exclude_tools"); } }
+        private List<string> _explicitNullValueExcludeTools = default!;
 #endif
         /// <summary>Whitelist of specific tools to include from this MCP server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IncludeTools { get; set; }
+        public List<string>? IncludeTools { get => _explicitNullValueIncludeTools; set { _explicitNullValueIncludeTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_tools"); else _explicitNullProperties?.Remove("include_tools"); } }
+        private List<string>? _explicitNullValueIncludeTools = default!;
 #nullable restore
 #else
-        public List<string> IncludeTools { get; set; }
+        public List<string> IncludeTools { get => _explicitNullValueIncludeTools; set { _explicitNullValueIncludeTools = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_tools"); else _explicitNullProperties?.Remove("include_tools"); } }
+        private List<string> _explicitNullValueIncludeTools = default!;
 #endif
         /// <summary>Path to the MCP resource/server configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourcePath { get; set; }
+        public string? ResourcePath { get => _explicitNullValueResourcePath; set { _explicitNullValueResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_path"); else _explicitNullProperties?.Remove("resource_path"); } }
+        private string? _explicitNullValueResourcePath = default!;
 #nullable restore
 #else
-        public string ResourcePath { get; set; }
+        public string ResourcePath { get => _explicitNullValueResourcePath; set { _explicitNullValueResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_path"); else _explicitNullProperties?.Remove("resource_path"); } }
+        private string _explicitNullValueResourcePath = default!;
 #endif
         /// <summary>The tool_type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.McpToolType? ToolType { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.McpToolType? ToolType { get => _explicitNullValueToolType; set { _explicitNullValueToolType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tool_type"); else _explicitNullProperties?.Remove("tool_type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.McpToolType? _explicitNullValueToolType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf9ToolsItemValueOneOf2"/> and sets the default values.
         /// </summary>
@@ -56,7 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf9ToolsItemValueOneOf2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf9ToolsItemValueOneOf2();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListQueue200ResponseItemRawFlowFailureModuleValueOneOf9ToolsItemValueOneOf2(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("include_tools", IncludeTools);
             writer.WriteStringValue("resource_path", ResourcePath);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.McpToolType>("tool_type", ToolType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

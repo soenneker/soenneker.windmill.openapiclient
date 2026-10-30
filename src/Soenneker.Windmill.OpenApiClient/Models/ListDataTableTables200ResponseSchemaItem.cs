@@ -11,64 +11,97 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ListDataTableTables200ResponseSchemaItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("can_create_schema") is { } nullNodeCanCreateSchema && nullNodeCanCreateSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanCreateSchema = null;
+            if (parseNode.GetChildNode("creatable_schemas") is { } nullNodeCreatableSchemas && nullNodeCreatableSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatableSchemas = null;
+            if (parseNode.GetChildNode("datatable_name") is { } nullNodeDatatableName && nullNodeDatatableName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatatableName = null;
+            if (parseNode.GetChildNode("default_role") is { } nullNodeDefaultRole && nullNodeDefaultRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRole = null;
+            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("instance") is { } nullNodeInstance && nullNodeInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instance = null;
+            if (parseNode.GetChildNode("migrations_enabled") is { } nullNodeMigrationsEnabled && nullNodeMigrationsEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MigrationsEnabled = null;
+            if (parseNode.GetChildNode("permissioned") is { } nullNodePermissioned && nullNodePermissioned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissioned = null;
+            if (parseNode.GetChildNode("schemas") is { } nullNodeSchemas && nullNodeSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schemas = null;
+            if (parseNode.GetChildNode("usable_roles") is { } nullNodeUsableRoles && nullNodeUsableRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsableRoles = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>whether the role the listing connected as may create schemas</summary>
-        public bool? CanCreateSchema { get; set; }
+        public bool? CanCreateSchema { get => _explicitNullValueCanCreateSchema; set { _explicitNullValueCanCreateSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_create_schema"); else _explicitNullProperties?.Remove("can_create_schema"); } }
+        private bool? _explicitNullValueCanCreateSchema = default!;
         /// <summary>the schemas the role the listing connected as may create in</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? CreatableSchemas { get; set; }
+        public List<string>? CreatableSchemas { get => _explicitNullValueCreatableSchemas; set { _explicitNullValueCreatableSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creatable_schemas"); else _explicitNullProperties?.Remove("creatable_schemas"); } }
+        private List<string>? _explicitNullValueCreatableSchemas = default!;
 #nullable restore
 #else
-        public List<string> CreatableSchemas { get; set; }
+        public List<string> CreatableSchemas { get => _explicitNullValueCreatableSchemas; set { _explicitNullValueCreatableSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creatable_schemas"); else _explicitNullProperties?.Remove("creatable_schemas"); } }
+        private List<string> _explicitNullValueCreatableSchemas = default!;
 #endif
         /// <summary>The datatable_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DatatableName { get; set; }
+        public string? DatatableName { get => _explicitNullValueDatatableName; set { _explicitNullValueDatatableName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatable_name"); else _explicitNullProperties?.Remove("datatable_name"); } }
+        private string? _explicitNullValueDatatableName = default!;
 #nullable restore
 #else
-        public string DatatableName { get; set; }
+        public string DatatableName { get => _explicitNullValueDatatableName; set { _explicitNullValueDatatableName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatable_name"); else _explicitNullProperties?.Remove("datatable_name"); } }
+        private string _explicitNullValueDatatableName = default!;
 #endif
         /// <summary>The default_role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultRole { get; set; }
+        public string? DefaultRole { get => _explicitNullValueDefaultRole; set { _explicitNullValueDefaultRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_role"); else _explicitNullProperties?.Remove("default_role"); } }
+        private string? _explicitNullValueDefaultRole = default!;
 #nullable restore
 #else
-        public string DefaultRole { get; set; }
+        public string DefaultRole { get => _explicitNullValueDefaultRole; set { _explicitNullValueDefaultRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_role"); else _explicitNullProperties?.Remove("default_role"); } }
+        private string _explicitNullValueDefaultRole = default!;
 #endif
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get; set; }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get; set; }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private string _explicitNullValueError = default!;
 #endif
         /// <summary>on the instance database, the only kind that can be under roles or have its access edited</summary>
-        public bool? Instance { get; set; }
+        public bool? Instance { get => _explicitNullValueInstance; set { _explicitNullValueInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance"); else _explicitNullProperties?.Remove("instance"); } }
+        private bool? _explicitNullValueInstance = default!;
         /// <summary>whether its schema is kept as versioned migrations, which a change made with plain SQL would bypass</summary>
-        public bool? MigrationsEnabled { get; set; }
+        public bool? MigrationsEnabled { get => _explicitNullValueMigrationsEnabled; set { _explicitNullValueMigrationsEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("migrations_enabled"); else _explicitNullProperties?.Remove("migrations_enabled"); } }
+        private bool? _explicitNullValueMigrationsEnabled = default!;
         /// <summary>The permissioned property</summary>
-        public bool? Permissioned { get; set; }
+        public bool? Permissioned { get => _explicitNullValuePermissioned; set { _explicitNullValuePermissioned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned"); else _explicitNullProperties?.Remove("permissioned"); } }
+        private bool? _explicitNullValuePermissioned = default!;
         /// <summary>Hierarchical metadata: schema_name -&gt; table_names</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas? Schemas { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas? Schemas { get => _explicitNullValueSchemas; set { _explicitNullValueSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schemas"); else _explicitNullProperties?.Remove("schemas"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas? _explicitNullValueSchemas = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas Schemas { get; set; }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas Schemas { get => _explicitNullValueSchemas; set { _explicitNullValueSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schemas"); else _explicitNullProperties?.Remove("schemas"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas _explicitNullValueSchemas = default!;
 #endif
         /// <summary>the roles the caller may connect as, by name; empty when not under roles</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UsableRoles { get; set; }
+        public List<string>? UsableRoles { get => _explicitNullValueUsableRoles; set { _explicitNullValueUsableRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usable_roles"); else _explicitNullProperties?.Remove("usable_roles"); } }
+        private List<string>? _explicitNullValueUsableRoles = default!;
 #nullable restore
 #else
-        public List<string> UsableRoles { get; set; }
+        public List<string> UsableRoles { get => _explicitNullValueUsableRoles; set { _explicitNullValueUsableRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usable_roles"); else _explicitNullProperties?.Remove("usable_roles"); } }
+        private List<string> _explicitNullValueUsableRoles = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem"/> and sets the default values.
@@ -85,7 +118,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -124,6 +157,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("permissioned", Permissioned);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListDataTableTables200ResponseSchemaItemSchemas>("schemas", Schemas);
             writer.WriteCollectionOfPrimitiveValues<string>("usable_roles", UsableRoles);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

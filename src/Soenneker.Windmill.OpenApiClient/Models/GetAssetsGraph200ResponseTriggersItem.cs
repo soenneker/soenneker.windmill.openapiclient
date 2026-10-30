@@ -12,7 +12,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class GetAssetsGraph200ResponseTriggersItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,13 +46,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var result = new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItem();
             if("GetAssetsGraph200ResponseTriggersItemOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GetAssetsGraph200ResponseTriggersItemOneOf1 = new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1();
+                
             }
             else if("GetAssetsGraph200ResponseTriggersItemOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.GetAssetsGraph200ResponseTriggersItemOneOf2 = new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("trigger_kind") != null && (parseNode.GetChildNode("trigger_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("asset".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("asset_kind") != null && (parseNode.GetChildNode("asset_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("s3object".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "resource".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "ducklake".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "datatable".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "volume".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal) || "dbt".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("asset_path") != null && parseNode.GetChildNode("runnable_kind") != null && (parseNode.GetChildNode("runnable_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag6 && ("script".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "flow".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "job".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("runnable_path") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("trigger_kind") != null && (parseNode.GetChildNode("trigger_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("schedule".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "email".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "kafka".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "mqtt".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "nats".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "postgres".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "sqs".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "gcp".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("path") != null && parseNode.GetChildNode("runnable_kind") != null && (parseNode.GetChildNode("runnable_kind")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag4 && ("script".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal) || "flow".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal) || "job".Equals(tag4.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("runnable_path") != null))();
+            if (result.GetAssetsGraph200ResponseTriggersItemOneOf1 == null && result.GetAssetsGraph200ResponseTriggersItemOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.GetAssetsGraph200ResponseTriggersItemOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1(), parseNode);
+            if (result.GetAssetsGraph200ResponseTriggersItemOneOf1 == null && result.GetAssetsGraph200ResponseTriggersItemOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.GetAssetsGraph200ResponseTriggersItemOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2(), parseNode);
+            if (result.GetAssetsGraph200ResponseTriggersItemOneOf1 == null && result.GetAssetsGraph200ResponseTriggersItemOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,13 +83,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (GetAssetsGraph200ResponseTriggersItemOneOf1 == null && GetAssetsGraph200ResponseTriggersItemOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (GetAssetsGraph200ResponseTriggersItemOneOf1 != null && GetAssetsGraph200ResponseTriggersItemOneOf2 == null) { if (GetAssetsGraph200ResponseTriggersItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GetAssetsGraph200ResponseTriggersItemOneOf1); return; }
+            if (GetAssetsGraph200ResponseTriggersItemOneOf2 != null && GetAssetsGraph200ResponseTriggersItemOneOf1 == null) { if (GetAssetsGraph200ResponseTriggersItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, GetAssetsGraph200ResponseTriggersItemOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(GetAssetsGraph200ResponseTriggersItemOneOf1 != null)
             {
+                if (GetAssetsGraph200ResponseTriggersItemOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf1>(null, GetAssetsGraph200ResponseTriggersItemOneOf1);
             }
             else if(GetAssetsGraph200ResponseTriggersItemOneOf2 != null)
             {
+                if (GetAssetsGraph200ResponseTriggersItemOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetAssetsGraph200ResponseTriggersItemOneOf2>(null, GetAssetsGraph200ResponseTriggersItemOneOf2);
             }
         }

@@ -53,6 +53,8 @@ namespace Soenneker.Windmill.OpenApiClient.Health.Status
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "503", global::Soenneker.Windmill.OpenApiClient.Models.GetHealthStatus503Response.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GetHealthStatus200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GetHealthStatus200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

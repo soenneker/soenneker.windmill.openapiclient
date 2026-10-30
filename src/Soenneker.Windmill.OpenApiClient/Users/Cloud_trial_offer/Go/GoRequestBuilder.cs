@@ -49,7 +49,7 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Cloud_trial_offer.Go
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GoCloudTrialOffer200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GoCloudTrialOffer200Response.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Windmill.OpenApiClient.Models.GoCloudTrialOffer200Response>(requestInfo, global::Soenneker.Windmill.OpenApiClient.Models.GoCloudTrialOffer200Response.CreateFromDiscriminatorValue, new global::System.Collections.Generic.Dictionary<string, global::Microsoft.Kiota.Abstractions.Serialization.ParsableFactory<global::Microsoft.Kiota.Abstractions.Serialization.IParsable>> { { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue }, { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue } }, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// start the signed-in account&apos;s pre-approved self-hosted trial on the customer portal (cloud only). A POST answered as JSON rather than a redirecting GET, so a cross-site navigation cannot start it; the browser navigates to `location` itself

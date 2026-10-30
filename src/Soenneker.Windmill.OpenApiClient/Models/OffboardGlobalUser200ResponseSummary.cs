@@ -11,25 +11,48 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class OffboardGlobalUser200ResponseSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("apps_reassigned") is { } nullNodeAppsReassigned && nullNodeAppsReassigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AppsReassigned = null;
+            if (parseNode.GetChildNode("drafts_deleted") is { } nullNodeDraftsDeleted && nullNodeDraftsDeleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DraftsDeleted = null;
+            if (parseNode.GetChildNode("flows_reassigned") is { } nullNodeFlowsReassigned && nullNodeFlowsReassigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowsReassigned = null;
+            if (parseNode.GetChildNode("resources_reassigned") is { } nullNodeResourcesReassigned && nullNodeResourcesReassigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourcesReassigned = null;
+            if (parseNode.GetChildNode("schedules_reassigned") is { } nullNodeSchedulesReassigned && nullNodeSchedulesReassigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SchedulesReassigned = null;
+            if (parseNode.GetChildNode("scripts_reassigned") is { } nullNodeScriptsReassigned && nullNodeScriptsReassigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptsReassigned = null;
+            if (parseNode.GetChildNode("triggers_reassigned") is { } nullNodeTriggersReassigned && nullNodeTriggersReassigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggersReassigned = null;
+            if (parseNode.GetChildNode("variables_reassigned") is { } nullNodeVariablesReassigned && nullNodeVariablesReassigned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariablesReassigned = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The apps_reassigned property</summary>
-        public int? AppsReassigned { get; set; }
+        public int? AppsReassigned { get => _explicitNullValueAppsReassigned; set { _explicitNullValueAppsReassigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps_reassigned"); else _explicitNullProperties?.Remove("apps_reassigned"); } }
+        private int? _explicitNullValueAppsReassigned = default!;
         /// <summary>The drafts_deleted property</summary>
-        public int? DraftsDeleted { get; set; }
+        public int? DraftsDeleted { get => _explicitNullValueDraftsDeleted; set { _explicitNullValueDraftsDeleted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drafts_deleted"); else _explicitNullProperties?.Remove("drafts_deleted"); } }
+        private int? _explicitNullValueDraftsDeleted = default!;
         /// <summary>The flows_reassigned property</summary>
-        public int? FlowsReassigned { get; set; }
+        public int? FlowsReassigned { get => _explicitNullValueFlowsReassigned; set { _explicitNullValueFlowsReassigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flows_reassigned"); else _explicitNullProperties?.Remove("flows_reassigned"); } }
+        private int? _explicitNullValueFlowsReassigned = default!;
         /// <summary>The resources_reassigned property</summary>
-        public int? ResourcesReassigned { get; set; }
+        public int? ResourcesReassigned { get => _explicitNullValueResourcesReassigned; set { _explicitNullValueResourcesReassigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources_reassigned"); else _explicitNullProperties?.Remove("resources_reassigned"); } }
+        private int? _explicitNullValueResourcesReassigned = default!;
         /// <summary>The schedules_reassigned property</summary>
-        public int? SchedulesReassigned { get; set; }
+        public int? SchedulesReassigned { get => _explicitNullValueSchedulesReassigned; set { _explicitNullValueSchedulesReassigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedules_reassigned"); else _explicitNullProperties?.Remove("schedules_reassigned"); } }
+        private int? _explicitNullValueSchedulesReassigned = default!;
         /// <summary>The scripts_reassigned property</summary>
-        public int? ScriptsReassigned { get; set; }
+        public int? ScriptsReassigned { get => _explicitNullValueScriptsReassigned; set { _explicitNullValueScriptsReassigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts_reassigned"); else _explicitNullProperties?.Remove("scripts_reassigned"); } }
+        private int? _explicitNullValueScriptsReassigned = default!;
         /// <summary>The triggers_reassigned property</summary>
-        public int? TriggersReassigned { get; set; }
+        public int? TriggersReassigned { get => _explicitNullValueTriggersReassigned; set { _explicitNullValueTriggersReassigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("triggers_reassigned"); else _explicitNullProperties?.Remove("triggers_reassigned"); } }
+        private int? _explicitNullValueTriggersReassigned = default!;
         /// <summary>The variables_reassigned property</summary>
-        public int? VariablesReassigned { get; set; }
+        public int? VariablesReassigned { get => _explicitNullValueVariablesReassigned; set { _explicitNullValueVariablesReassigned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variables_reassigned"); else _explicitNullProperties?.Remove("variables_reassigned"); } }
+        private int? _explicitNullValueVariablesReassigned = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.OffboardGlobalUser200ResponseSummary"/> and sets the default values.
         /// </summary>
@@ -45,7 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.OffboardGlobalUser200ResponseSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Windmill.OpenApiClient.Models.OffboardGlobalUser200ResponseSummary();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.OffboardGlobalUser200ResponseSummary(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,6 +103,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("scripts_reassigned", ScriptsReassigned);
             writer.WriteIntValue("triggers_reassigned", TriggersReassigned);
             writer.WriteIntValue("variables_reassigned", VariablesReassigned);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -17,17 +17,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("disk_size_bytes") is { } nullNodeDiskSizeBytes && nullNodeDiskSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiskSizeBytes = null;
-            if (parseNode.GetChildNode("s3_size_bytes") is { } nullNodeS3SizeBytes && nullNodeS3SizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3SizeBytes = null;
+            if (parseNode.GetChildNode("disk_size_bytes") is null) { _explicitNullValueDiskSizeBytes = default!; _explicitNullProperties?.Remove("disk_size_bytes"); }
+            else if (parseNode.GetChildNode("disk_size_bytes") is { } nullNodeDiskSizeBytes && nullNodeDiskSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DiskSizeBytes = null;
+            if (parseNode.GetChildNode("s3_size_bytes") is null) { _explicitNullValueS3SizeBytes = default!; _explicitNullProperties?.Remove("s3_size_bytes"); }
+            else if (parseNode.GetChildNode("s3_size_bytes") is { } nullNodeS3SizeBytes && nullNodeS3SizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3SizeBytes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The disk_size_bytes property</summary>
-        public int? DiskSizeBytes { get => _explicitNullValueDiskSizeBytes; set { _explicitNullValueDiskSizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disk_size_bytes"); else _explicitNullProperties?.Remove("disk_size_bytes"); } }
+        public int? DiskSizeBytes { get => _explicitNullValueDiskSizeBytes; set { _explicitNullValueDiskSizeBytes = value; AdditionalData?.Remove("disk_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disk_size_bytes"); else _explicitNullProperties?.Remove("disk_size_bytes"); } }
         private int? _explicitNullValueDiskSizeBytes = default!;
         /// <summary>The s3_size_bytes property</summary>
-        public int? S3SizeBytes { get => _explicitNullValueS3SizeBytes; set { _explicitNullValueS3SizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_size_bytes"); else _explicitNullProperties?.Remove("s3_size_bytes"); } }
+        public int? S3SizeBytes { get => _explicitNullValueS3SizeBytes; set { _explicitNullValueS3SizeBytes = value; AdditionalData?.Remove("s3_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_size_bytes"); else _explicitNullProperties?.Remove("s3_size_bytes"); } }
         private int? _explicitNullValueS3SizeBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseServiceLogIndex"/> and sets the default values.

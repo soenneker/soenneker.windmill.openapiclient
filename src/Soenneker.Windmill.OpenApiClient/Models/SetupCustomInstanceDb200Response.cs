@@ -17,12 +17,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
-            if (parseNode.GetChildNode("logs") is { } nullNodeLogs && nullNodeLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logs = null;
-            if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
-            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
-            if (parseNode.GetChildNode("used_by_workspaces") is { } nullNodeUsedByWorkspaces && nullNodeUsedByWorkspaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsedByWorkspaces = null;
-            if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
+            if (parseNode.GetChildNode("error") is null) { _explicitNullValueError = default!; _explicitNullProperties?.Remove("error"); }
+            else if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("logs") is null) { _explicitNullValueLogs = default!; _explicitNullProperties?.Remove("logs"); }
+            else if (parseNode.GetChildNode("logs") is { } nullNodeLogs && nullNodeLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logs = null;
+            if (parseNode.GetChildNode("success") is null) { _explicitNullValueSuccess = default!; _explicitNullProperties?.Remove("success"); }
+            else if (parseNode.GetChildNode("success") is { } nullNodeSuccess && nullNodeSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Success = null;
+            if (parseNode.GetChildNode("tag") is null) { _explicitNullValueTag = default!; _explicitNullProperties?.Remove("tag"); }
+            else if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("used_by_workspaces") is null) { _explicitNullValueUsedByWorkspaces = default!; _explicitNullProperties?.Remove("used_by_workspaces"); }
+            else if (parseNode.GetChildNode("used_by_workspaces") is { } nullNodeUsedByWorkspaces && nullNodeUsedByWorkspaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsedByWorkspaces = null;
+            if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
+            else if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,47 +36,47 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Error message if the operation failed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string _explicitNullValueError = default!;
 #endif
         /// <summary>The logs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs? Logs { get => _explicitNullValueLogs; set { _explicitNullValueLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs"); else _explicitNullProperties?.Remove("logs"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs? _explicitNullValueLogs = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemF34Ee330E2? Logs { get => _explicitNullValueLogs; set { _explicitNullValueLogs = value; AdditionalData?.Remove("logs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs"); else _explicitNullProperties?.Remove("logs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemF34Ee330E2? _explicitNullValueLogs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs Logs { get => _explicitNullValueLogs; set { _explicitNullValueLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs"); else _explicitNullProperties?.Remove("logs"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs _explicitNullValueLogs = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemF34Ee330E2 Logs { get => _explicitNullValueLogs; set { _explicitNullValueLogs = value; AdditionalData?.Remove("logs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logs"); else _explicitNullProperties?.Remove("logs"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemF34Ee330E2 _explicitNullValueLogs = default!;
 #endif
         /// <summary>Whether the operation completed successfully</summary>
-        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
+        public bool? Success { get => _explicitNullValueSuccess; set { _explicitNullValueSuccess = value; AdditionalData?.Remove("success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success"); else _explicitNullProperties?.Remove("success"); } }
         private bool? _explicitNullValueSuccess = default!;
         /// <summary>The tag property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseTag? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseTag? _explicitNullValueTag = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchem62Bbdf63Ad? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; AdditionalData?.Remove("tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchem62Bbdf63Ad? _explicitNullValueTag = default!;
         /// <summary>Workspaces that reference this database through a ducklake catalog or a datatable database of the kind being listed — &apos;instance&apos; for the instance databases endpoint, &apos;external_instance&apos; for the external cluster one. Computed at request time, not persisted, and only returned to superadmins.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UsedByWorkspaces { get => _explicitNullValueUsedByWorkspaces; set { _explicitNullValueUsedByWorkspaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used_by_workspaces"); else _explicitNullProperties?.Remove("used_by_workspaces"); } }
+        public List<string>? UsedByWorkspaces { get => _explicitNullValueUsedByWorkspaces; set { _explicitNullValueUsedByWorkspaces = value; AdditionalData?.Remove("used_by_workspaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used_by_workspaces"); else _explicitNullProperties?.Remove("used_by_workspaces"); } }
         private List<string>? _explicitNullValueUsedByWorkspaces = default!;
 #nullable restore
 #else
-        public List<string> UsedByWorkspaces { get => _explicitNullValueUsedByWorkspaces; set { _explicitNullValueUsedByWorkspaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used_by_workspaces"); else _explicitNullProperties?.Remove("used_by_workspaces"); } }
+        public List<string> UsedByWorkspaces { get => _explicitNullValueUsedByWorkspaces; set { _explicitNullValueUsedByWorkspaces = value; AdditionalData?.Remove("used_by_workspaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used_by_workspaces"); else _explicitNullProperties?.Remove("used_by_workspaces"); } }
         private List<string> _explicitNullValueUsedByWorkspaces = default!;
 #endif
         /// <summary>The workspace a member created this database for as a fork copy. Only that workspace can import into it or point a fork at it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
         private string? _explicitNullValueWorkspaceId = default!;
 #nullable restore
 #else
-        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
         private string _explicitNullValueWorkspaceId = default!;
 #endif
         /// <summary>
@@ -99,9 +105,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error", n => { Error = n.GetStringValue(); } },
-                { "logs", n => { Logs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs>(global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs.CreateFromDiscriminatorValue); } },
+                { "logs", n => { Logs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemF34Ee330E2>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemF34Ee330E2.CreateFromDiscriminatorValue); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
-                { "tag", n => { Tag = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseTag>(); } },
+                { "tag", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchem62Bbdf63Ad>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTag = default; _explicitNullProperties?.Remove("tag"); AdditionalData["tag"] = unknown; } else { Tag = parsed; AdditionalData.Remove("tag"); } } },
                 { "used_by_workspaces", n => { UsedByWorkspaces = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -114,9 +120,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseLogs>("logs", Logs);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemF34Ee330E2>("logs", Logs);
             writer.WriteBoolValue("success", Success);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetupCustomInstanceDb200ResponseTag>("tag", Tag);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchem62Bbdf63Ad>("tag", Tag);
             writer.WriteCollectionOfPrimitiveValues<string>("used_by_workspaces", UsedByWorkspaces);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

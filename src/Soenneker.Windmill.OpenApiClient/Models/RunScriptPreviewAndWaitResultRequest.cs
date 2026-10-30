@@ -17,20 +17,34 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("args") is { } nullNodeArgs && nullNodeArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Args = null;
-            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
-            if (parseNode.GetChildNode("dedicated_worker") is { } nullNodeDedicatedWorker && nullNodeDedicatedWorker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DedicatedWorker = null;
-            if (parseNode.GetChildNode("flow_path") is { } nullNodeFlowPath && nullNodeFlowPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowPath = null;
-            if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
-            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
-            if (parseNode.GetChildNode("lock") is { } nullNodeLock && nullNodeLock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lock = null;
-            if (parseNode.GetChildNode("modules") is { } nullNodeModules && nullNodeModules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Modules = null;
-            if (parseNode.GetChildNode("on_behalf_of") is { } nullNodeOnBehalfOf && nullNodeOnBehalfOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBehalfOf = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
-            if (parseNode.GetChildNode("script_hash") is { } nullNodeScriptHash && nullNodeScriptHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptHash = null;
-            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
-            if (parseNode.GetChildNode("temp_script_refs") is { } nullNodeTempScriptRefs && nullNodeTempScriptRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TempScriptRefs = null;
-            if (parseNode.GetChildNode("viewer_data_access") is { } nullNodeViewerDataAccess && nullNodeViewerDataAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewerDataAccess = null;
+            if (parseNode.GetChildNode("args") is null) { _explicitNullValueArgs = default!; _explicitNullProperties?.Remove("args"); }
+            else if (parseNode.GetChildNode("args") is { } nullNodeArgs && nullNodeArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Args = null;
+            if (parseNode.GetChildNode("content") is null) { _explicitNullValueContent = default!; _explicitNullProperties?.Remove("content"); }
+            else if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("dedicated_worker") is null) { _explicitNullValueDedicatedWorker = default!; _explicitNullProperties?.Remove("dedicated_worker"); }
+            else if (parseNode.GetChildNode("dedicated_worker") is { } nullNodeDedicatedWorker && nullNodeDedicatedWorker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DedicatedWorker = null;
+            if (parseNode.GetChildNode("flow_path") is null) { _explicitNullValueFlowPath = default!; _explicitNullProperties?.Remove("flow_path"); }
+            else if (parseNode.GetChildNode("flow_path") is { } nullNodeFlowPath && nullNodeFlowPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowPath = null;
+            if (parseNode.GetChildNode("kind") is null) { _explicitNullValueKind = default!; _explicitNullProperties?.Remove("kind"); }
+            else if (parseNode.GetChildNode("kind") is { } nullNodeKind && nullNodeKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kind = null;
+            if (parseNode.GetChildNode("language") is null) { _explicitNullValueLanguage = default!; _explicitNullProperties?.Remove("language"); }
+            else if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("lock") is null) { _explicitNullValueLock = default!; _explicitNullProperties?.Remove("lock"); }
+            else if (parseNode.GetChildNode("lock") is { } nullNodeLock && nullNodeLock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lock = null;
+            if (parseNode.GetChildNode("modules") is null) { _explicitNullValueModules = default!; _explicitNullProperties?.Remove("modules"); }
+            else if (parseNode.GetChildNode("modules") is { } nullNodeModules && nullNodeModules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Modules = null;
+            if (parseNode.GetChildNode("on_behalf_of") is null) { _explicitNullValueOnBehalfOf = default!; _explicitNullProperties?.Remove("on_behalf_of"); }
+            else if (parseNode.GetChildNode("on_behalf_of") is { } nullNodeOnBehalfOf && nullNodeOnBehalfOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBehalfOf = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("script_hash") is null) { _explicitNullValueScriptHash = default!; _explicitNullProperties?.Remove("script_hash"); }
+            else if (parseNode.GetChildNode("script_hash") is { } nullNodeScriptHash && nullNodeScriptHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptHash = null;
+            if (parseNode.GetChildNode("tag") is null) { _explicitNullValueTag = default!; _explicitNullProperties?.Remove("tag"); }
+            else if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("temp_script_refs") is null) { _explicitNullValueTempScriptRefs = default!; _explicitNullProperties?.Remove("temp_script_refs"); }
+            else if (parseNode.GetChildNode("temp_script_refs") is { } nullNodeTempScriptRefs && nullNodeTempScriptRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TempScriptRefs = null;
+            if (parseNode.GetChildNode("viewer_data_access") is null) { _explicitNullValueViewerDataAccess = default!; _explicitNullProperties?.Remove("viewer_data_access"); }
+            else if (parseNode.GetChildNode("viewer_data_access") is { } nullNodeViewerDataAccess && nullNodeViewerDataAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewerDataAccess = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,114 +52,114 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestArgs? Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestArgs? Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; AdditionalData?.Remove("args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestArgs? _explicitNullValueArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestArgs Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestArgs Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; AdditionalData?.Remove("args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestArgs _explicitNullValueArgs = default!;
 #endif
         /// <summary>The code to run</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public string? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private string? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public string Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private string _explicitNullValueContent = default!;
 #endif
         /// <summary>The dedicated_worker property</summary>
-        public bool? DedicatedWorker { get => _explicitNullValueDedicatedWorker; set { _explicitNullValueDedicatedWorker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dedicated_worker"); else _explicitNullProperties?.Remove("dedicated_worker"); } }
+        public bool? DedicatedWorker { get => _explicitNullValueDedicatedWorker; set { _explicitNullValueDedicatedWorker = value; AdditionalData?.Remove("dedicated_worker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dedicated_worker"); else _explicitNullProperties?.Remove("dedicated_worker"); } }
         private bool? _explicitNullValueDedicatedWorker = default!;
         /// <summary>The flow_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FlowPath { get => _explicitNullValueFlowPath; set { _explicitNullValueFlowPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_path"); else _explicitNullProperties?.Remove("flow_path"); } }
+        public string? FlowPath { get => _explicitNullValueFlowPath; set { _explicitNullValueFlowPath = value; AdditionalData?.Remove("flow_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_path"); else _explicitNullProperties?.Remove("flow_path"); } }
         private string? _explicitNullValueFlowPath = default!;
 #nullable restore
 #else
-        public string FlowPath { get => _explicitNullValueFlowPath; set { _explicitNullValueFlowPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_path"); else _explicitNullProperties?.Remove("flow_path"); } }
+        public string FlowPath { get => _explicitNullValueFlowPath; set { _explicitNullValueFlowPath = value; AdditionalData?.Remove("flow_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_path"); else _explicitNullProperties?.Remove("flow_path"); } }
         private string _explicitNullValueFlowPath = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestKind? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestKind? _explicitNullValueKind = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti10F9Ff570B? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti10F9Ff570B? _explicitNullValueKind = default!;
         /// <summary>The language property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestLanguage? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestLanguage? _explicitNullValueLanguage = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti2884759802? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti2884759802? _explicitNullValueLanguage = default!;
         /// <summary>The lock property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
+        public string? Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; AdditionalData?.Remove("lock"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
         private string? _explicitNullValueLock = default!;
 #nullable restore
 #else
-        public string Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
+        public string Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; AdditionalData?.Remove("lock"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
         private string _explicitNullValueLock = default!;
 #endif
         /// <summary>Additional script modules keyed by relative file path</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules? Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules? Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; AdditionalData?.Remove("modules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules? _explicitNullValueModules = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules Modules { get => _explicitNullValueModules; set { _explicitNullValueModules = value; AdditionalData?.Remove("modules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("modules"); else _explicitNullProperties?.Remove("modules"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules _explicitNullValueModules = default!;
 #endif
         /// <summary>Run the preview as this identity (an email, `u/&lt;username&gt;` or `g/&lt;group&gt;`) instead of the caller. Naming anyone other than yourself requires being an admin or a member of wm_deployers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
+        public string? OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; AdditionalData?.Remove("on_behalf_of"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
         private string? _explicitNullValueOnBehalfOf = default!;
 #nullable restore
 #else
-        public string OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
+        public string OnBehalfOf { get => _explicitNullValueOnBehalfOf; set { _explicitNullValueOnBehalfOf = value; AdditionalData?.Remove("on_behalf_of"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of"); else _explicitNullProperties?.Remove("on_behalf_of"); } }
         private string _explicitNullValueOnBehalfOf = default!;
 #endif
         /// <summary>The path to the script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The hash of the script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
+        public string? ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; AdditionalData?.Remove("script_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
         private string? _explicitNullValueScriptHash = default!;
 #nullable restore
 #else
-        public string ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
+        public string ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; AdditionalData?.Remove("script_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
         private string _explicitNullValueScriptHash = default!;
 #endif
         /// <summary>The tag property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; AdditionalData?.Remove("tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
         private string? _explicitNullValueTag = default!;
 #nullable restore
 #else
-        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; AdditionalData?.Remove("tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
         private string _explicitNullValueTag = default!;
 #endif
         /// <summary>Map of relative-import script path -&gt; temp storage hash so the preview job resolves those imports from not-yet-deployed local content instead of the deployed script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs? TempScriptRefs { get => _explicitNullValueTempScriptRefs; set { _explicitNullValueTempScriptRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_script_refs"); else _explicitNullProperties?.Remove("temp_script_refs"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs? TempScriptRefs { get => _explicitNullValueTempScriptRefs; set { _explicitNullValueTempScriptRefs = value; AdditionalData?.Remove("temp_script_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_script_refs"); else _explicitNullProperties?.Remove("temp_script_refs"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs? _explicitNullValueTempScriptRefs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs TempScriptRefs { get => _explicitNullValueTempScriptRefs; set { _explicitNullValueTempScriptRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_script_refs"); else _explicitNullProperties?.Remove("temp_script_refs"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs TempScriptRefs { get => _explicitNullValueTempScriptRefs; set { _explicitNullValueTempScriptRefs = value; AdditionalData?.Remove("temp_script_refs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("temp_script_refs"); else _explicitNullProperties?.Remove("temp_script_refs"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestTempScriptRefs _explicitNullValueTempScriptRefs = default!;
 #endif
         /// <summary>Data table and object storage access as the caller rather than as the job&apos;s identity, as a full-code app&apos;s inline runnable flagged viewer_data_access does for its viewer.</summary>
-        public bool? ViewerDataAccess { get => _explicitNullValueViewerDataAccess; set { _explicitNullValueViewerDataAccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("viewer_data_access"); else _explicitNullProperties?.Remove("viewer_data_access"); } }
+        public bool? ViewerDataAccess { get => _explicitNullValueViewerDataAccess; set { _explicitNullValueViewerDataAccess = value; AdditionalData?.Remove("viewer_data_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("viewer_data_access"); else _explicitNullProperties?.Remove("viewer_data_access"); } }
         private bool? _explicitNullValueViewerDataAccess = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequest"/> and sets the default values.
@@ -176,8 +190,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "dedicated_worker", n => { DedicatedWorker = n.GetBoolValue(); } },
                 { "flow_path", n => { FlowPath = n.GetStringValue(); } },
-                { "kind", n => { Kind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestKind>(); } },
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestLanguage>(); } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti10F9Ff570B>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
+                { "language", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti2884759802>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLanguage = default; _explicitNullProperties?.Remove("language"); AdditionalData["language"] = unknown; } else { Language = parsed; AdditionalData.Remove("language"); } } },
                 { "lock", n => { Lock = n.GetStringValue(); } },
                 { "modules", n => { Modules = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules>(global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules.CreateFromDiscriminatorValue); } },
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
@@ -199,8 +213,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("content", Content);
             writer.WriteBoolValue("dedicated_worker", DedicatedWorker);
             writer.WriteStringValue("flow_path", FlowPath);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestKind>("kind", Kind);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestLanguage>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti10F9Ff570B>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewPostRequestBodyContentApplicationJsonSchemaProperti2884759802>("language", Language);
             writer.WriteStringValue("lock", Lock);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.RunScriptPreviewAndWaitResultRequestModules>("modules", Modules);
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);

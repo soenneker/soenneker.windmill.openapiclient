@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("lock") is { } nullNodeLock && nullNodeLock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lock = null;
+            if (parseNode.GetChildNode("lock") is null) { _explicitNullValueLock = default!; _explicitNullProperties?.Remove("lock"); }
+            else if (parseNode.GetChildNode("lock") is { } nullNodeLock && nullNodeLock.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Lock = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The lock property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
+        public string? Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; AdditionalData?.Remove("lock"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
         private string? _explicitNullValueLock = default!;
 #nullable restore
 #else
-        public string Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
+        public string Lock { get => _explicitNullValueLock; set { _explicitNullValueLock = value; AdditionalData?.Remove("lock"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock"); else _explicitNullProperties?.Remove("lock"); } }
         private string _explicitNullValueLock = default!;
 #endif
         /// <summary>

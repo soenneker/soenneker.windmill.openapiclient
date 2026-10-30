@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection_settings_str") is { } nullNodeConnectionSettingsStr && nullNodeConnectionSettingsStr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionSettingsStr = null;
+            if (parseNode.GetChildNode("connection_settings_str") is null) { _explicitNullValueConnectionSettingsStr = default!; _explicitNullProperties?.Remove("connection_settings_str"); }
+            else if (parseNode.GetChildNode("connection_settings_str") is { } nullNodeConnectionSettingsStr && nullNodeConnectionSettingsStr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionSettingsStr = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The connection_settings_str property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
+        public string? ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; AdditionalData?.Remove("connection_settings_str"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
         private string? _explicitNullValueConnectionSettingsStr = default!;
 #nullable restore
 #else
-        public string ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
+        public string ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; AdditionalData?.Remove("connection_settings_str"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
         private string _explicitNullValueConnectionSettingsStr = default!;
 #endif
         /// <summary>

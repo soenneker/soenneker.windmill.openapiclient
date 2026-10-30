@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("deploy_ui_settings") is { } nullNodeDeployUiSettings && nullNodeDeployUiSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeployUiSettings = null;
+            if (parseNode.GetChildNode("deploy_ui_settings") is null) { _explicitNullValueDeployUiSettings = default!; _explicitNullProperties?.Remove("deploy_ui_settings"); }
+            else if (parseNode.GetChildNode("deploy_ui_settings") is { } nullNodeDeployUiSettings && nullNodeDeployUiSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeployUiSettings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The deploy_ui_settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettings? DeployUiSettings { get => _explicitNullValueDeployUiSettings; set { _explicitNullValueDeployUiSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deploy_ui_settings"); else _explicitNullProperties?.Remove("deploy_ui_settings"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettings? DeployUiSettings { get => _explicitNullValueDeployUiSettings; set { _explicitNullValueDeployUiSettings = value; AdditionalData?.Remove("deploy_ui_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deploy_ui_settings"); else _explicitNullProperties?.Remove("deploy_ui_settings"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettings? _explicitNullValueDeployUiSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettings DeployUiSettings { get => _explicitNullValueDeployUiSettings; set { _explicitNullValueDeployUiSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deploy_ui_settings"); else _explicitNullProperties?.Remove("deploy_ui_settings"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettings DeployUiSettings { get => _explicitNullValueDeployUiSettings; set { _explicitNullValueDeployUiSettings = value; AdditionalData?.Remove("deploy_ui_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deploy_ui_settings"); else _explicitNullProperties?.Remove("deploy_ui_settings"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettings _explicitNullValueDeployUiSettings = default!;
 #endif
         /// <summary>

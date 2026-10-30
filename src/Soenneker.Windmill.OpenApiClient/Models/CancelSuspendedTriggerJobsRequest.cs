@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_ids") is { } nullNodeJobIds && nullNodeJobIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIds = null;
+            if (parseNode.GetChildNode("job_ids") is null) { _explicitNullValueJobIds = default!; _explicitNullProperties?.Remove("job_ids"); }
+            else if (parseNode.GetChildNode("job_ids") is { } nullNodeJobIds && nullNodeJobIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIds = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Optional list of specific job UUIDs to cancel. If not provided, all suspended jobs for the trigger will be canceled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
+        public List<Guid?>? JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; AdditionalData?.Remove("job_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
         private List<Guid?>? _explicitNullValueJobIds = default!;
 #nullable restore
 #else
-        public List<Guid?> JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
+        public List<Guid?> JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; AdditionalData?.Remove("job_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
         private List<Guid?> _explicitNullValueJobIds = default!;
 #endif
         /// <summary>

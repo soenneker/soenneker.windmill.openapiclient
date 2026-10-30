@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("pruned") is { } nullNodePruned && nullNodePruned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pruned = null;
+            if (parseNode.GetChildNode("pruned") is null) { _explicitNullValuePruned = default!; _explicitNullProperties?.Remove("pruned"); }
+            else if (parseNode.GetChildNode("pruned") is { } nullNodePruned && nullNodePruned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pruned = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The pruned property</summary>
-        public int? Pruned { get => _explicitNullValuePruned; set { _explicitNullValuePruned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pruned"); else _explicitNullProperties?.Remove("pruned"); } }
+        public int? Pruned { get => _explicitNullValuePruned; set { _explicitNullValuePruned = value; AdditionalData?.Remove("pruned"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pruned"); else _explicitNullProperties?.Remove("pruned"); } }
         private int? _explicitNullValuePruned = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.PruneVersions200Response"/> and sets the default values.

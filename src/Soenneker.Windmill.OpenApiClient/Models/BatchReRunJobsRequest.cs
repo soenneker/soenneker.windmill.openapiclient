@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("flow_options_by_path") is { } nullNodeFlowOptionsByPath && nullNodeFlowOptionsByPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowOptionsByPath = null;
-            if (parseNode.GetChildNode("job_ids") is { } nullNodeJobIds && nullNodeJobIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIds = null;
-            if (parseNode.GetChildNode("script_options_by_path") is { } nullNodeScriptOptionsByPath && nullNodeScriptOptionsByPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptOptionsByPath = null;
+            if (parseNode.GetChildNode("flow_options_by_path") is null) { _explicitNullValueFlowOptionsByPath = default!; _explicitNullProperties?.Remove("flow_options_by_path"); }
+            else if (parseNode.GetChildNode("flow_options_by_path") is { } nullNodeFlowOptionsByPath && nullNodeFlowOptionsByPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowOptionsByPath = null;
+            if (parseNode.GetChildNode("job_ids") is null) { _explicitNullValueJobIds = default!; _explicitNullProperties?.Remove("job_ids"); }
+            else if (parseNode.GetChildNode("job_ids") is { } nullNodeJobIds && nullNodeJobIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIds = null;
+            if (parseNode.GetChildNode("script_options_by_path") is null) { _explicitNullValueScriptOptionsByPath = default!; _explicitNullProperties?.Remove("script_options_by_path"); }
+            else if (parseNode.GetChildNode("script_options_by_path") is { } nullNodeScriptOptionsByPath && nullNodeScriptOptionsByPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptOptionsByPath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The flow_options_by_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestFlowOptionsByPath? FlowOptionsByPath { get => _explicitNullValueFlowOptionsByPath; set { _explicitNullValueFlowOptionsByPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_options_by_path"); else _explicitNullProperties?.Remove("flow_options_by_path"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestFlowOptionsByPath? FlowOptionsByPath { get => _explicitNullValueFlowOptionsByPath; set { _explicitNullValueFlowOptionsByPath = value; AdditionalData?.Remove("flow_options_by_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_options_by_path"); else _explicitNullProperties?.Remove("flow_options_by_path"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestFlowOptionsByPath? _explicitNullValueFlowOptionsByPath = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestFlowOptionsByPath FlowOptionsByPath { get => _explicitNullValueFlowOptionsByPath; set { _explicitNullValueFlowOptionsByPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_options_by_path"); else _explicitNullProperties?.Remove("flow_options_by_path"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestFlowOptionsByPath FlowOptionsByPath { get => _explicitNullValueFlowOptionsByPath; set { _explicitNullValueFlowOptionsByPath = value; AdditionalData?.Remove("flow_options_by_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_options_by_path"); else _explicitNullProperties?.Remove("flow_options_by_path"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestFlowOptionsByPath _explicitNullValueFlowOptionsByPath = default!;
 #endif
         /// <summary>The job_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
+        public List<string>? JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; AdditionalData?.Remove("job_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
         private List<string>? _explicitNullValueJobIds = default!;
 #nullable restore
 #else
-        public List<string> JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
+        public List<string> JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; AdditionalData?.Remove("job_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
         private List<string> _explicitNullValueJobIds = default!;
 #endif
         /// <summary>The script_options_by_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestScriptOptionsByPath? ScriptOptionsByPath { get => _explicitNullValueScriptOptionsByPath; set { _explicitNullValueScriptOptionsByPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_options_by_path"); else _explicitNullProperties?.Remove("script_options_by_path"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestScriptOptionsByPath? ScriptOptionsByPath { get => _explicitNullValueScriptOptionsByPath; set { _explicitNullValueScriptOptionsByPath = value; AdditionalData?.Remove("script_options_by_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_options_by_path"); else _explicitNullProperties?.Remove("script_options_by_path"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestScriptOptionsByPath? _explicitNullValueScriptOptionsByPath = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestScriptOptionsByPath ScriptOptionsByPath { get => _explicitNullValueScriptOptionsByPath; set { _explicitNullValueScriptOptionsByPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_options_by_path"); else _explicitNullProperties?.Remove("script_options_by_path"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestScriptOptionsByPath ScriptOptionsByPath { get => _explicitNullValueScriptOptionsByPath; set { _explicitNullValueScriptOptionsByPath = value; AdditionalData?.Remove("script_options_by_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_options_by_path"); else _explicitNullProperties?.Remove("script_options_by_path"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.BatchReRunJobsRequestScriptOptionsByPath _explicitNullValueScriptOptionsByPath = default!;
 #endif
         /// <summary>

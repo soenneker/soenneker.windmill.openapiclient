@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ducklakes") is { } nullNodeDucklakes && nullNodeDucklakes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ducklakes = null;
+            if (parseNode.GetChildNode("ducklakes") is null) { _explicitNullValueDucklakes = default!; _explicitNullProperties?.Remove("ducklakes"); }
+            else if (parseNode.GetChildNode("ducklakes") is { } nullNodeDucklakes && nullNodeDucklakes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ducklakes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The ducklakes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklakeDucklakes? Ducklakes { get => _explicitNullValueDucklakes; set { _explicitNullValueDucklakes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ducklakes"); else _explicitNullProperties?.Remove("ducklakes"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklakeDucklakes? Ducklakes { get => _explicitNullValueDucklakes; set { _explicitNullValueDucklakes = value; AdditionalData?.Remove("ducklakes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ducklakes"); else _explicitNullProperties?.Remove("ducklakes"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklakeDucklakes? _explicitNullValueDucklakes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklakeDucklakes Ducklakes { get => _explicitNullValueDucklakes; set { _explicitNullValueDucklakes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ducklakes"); else _explicitNullProperties?.Remove("ducklakes"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklakeDucklakes Ducklakes { get => _explicitNullValueDucklakes; set { _explicitNullValueDucklakes = value; AdditionalData?.Remove("ducklakes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ducklakes"); else _explicitNullProperties?.Remove("ducklakes"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseDucklakeDucklakes _explicitNullValueDucklakes = default!;
 #endif
         /// <summary>

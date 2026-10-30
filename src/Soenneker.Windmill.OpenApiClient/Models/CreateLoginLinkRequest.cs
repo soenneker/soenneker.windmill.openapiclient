@@ -17,10 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
-            if (parseNode.GetChildNode("expires_in_s") is { } nullNodeExpiresInS && nullNodeExpiresInS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInS = null;
-            if (parseNode.GetChildNode("rd") is { } nullNodeRd && nullNodeRd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rd = null;
-            if (parseNode.GetChildNode("require_login_type") is { } nullNodeRequireLoginType && nullNodeRequireLoginType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireLoginType = null;
+            if (parseNode.GetChildNode("email") is null) { _explicitNullValueEmail = default!; _explicitNullProperties?.Remove("email"); }
+            else if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("expires_in_s") is null) { _explicitNullValueExpiresInS = default!; _explicitNullProperties?.Remove("expires_in_s"); }
+            else if (parseNode.GetChildNode("expires_in_s") is { } nullNodeExpiresInS && nullNodeExpiresInS.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInS = null;
+            if (parseNode.GetChildNode("rd") is null) { _explicitNullValueRd = default!; _explicitNullProperties?.Remove("rd"); }
+            else if (parseNode.GetChildNode("rd") is { } nullNodeRd && nullNodeRd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rd = null;
+            if (parseNode.GetChildNode("require_login_type") is null) { _explicitNullValueRequireLoginType = default!; _explicitNullProperties?.Remove("require_login_type"); }
+            else if (parseNode.GetChildNode("require_login_type") is { } nullNodeRequireLoginType && nullNodeRequireLoginType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequireLoginType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,34 +32,34 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
         private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; AdditionalData?.Remove("email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
         private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>link lifetime in seconds, at most 900 (default 600)</summary>
-        public int? ExpiresInS { get => _explicitNullValueExpiresInS; set { _explicitNullValueExpiresInS = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in_s"); else _explicitNullProperties?.Remove("expires_in_s"); } }
+        public int? ExpiresInS { get => _explicitNullValueExpiresInS; set { _explicitNullValueExpiresInS = value; AdditionalData?.Remove("expires_in_s"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in_s"); else _explicitNullProperties?.Remove("expires_in_s"); } }
         private int? _explicitNullValueExpiresInS = default!;
         /// <summary>same-origin path the browser lands on after login (default /user/workspaces)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rd { get => _explicitNullValueRd; set { _explicitNullValueRd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rd"); else _explicitNullProperties?.Remove("rd"); } }
+        public string? Rd { get => _explicitNullValueRd; set { _explicitNullValueRd = value; AdditionalData?.Remove("rd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rd"); else _explicitNullProperties?.Remove("rd"); } }
         private string? _explicitNullValueRd = default!;
 #nullable restore
 #else
-        public string Rd { get => _explicitNullValueRd; set { _explicitNullValueRd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rd"); else _explicitNullProperties?.Remove("rd"); } }
+        public string Rd { get => _explicitNullValueRd; set { _explicitNullValueRd = value; AdditionalData?.Remove("rd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rd"); else _explicitNullProperties?.Remove("rd"); } }
         private string _explicitNullValueRd = default!;
 #endif
         /// <summary>mint only while the account still has this login type (for example pending_oauth), so a link stops working once the owner has set a password or signed in with a provider</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequireLoginType { get => _explicitNullValueRequireLoginType; set { _explicitNullValueRequireLoginType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_login_type"); else _explicitNullProperties?.Remove("require_login_type"); } }
+        public string? RequireLoginType { get => _explicitNullValueRequireLoginType; set { _explicitNullValueRequireLoginType = value; AdditionalData?.Remove("require_login_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_login_type"); else _explicitNullProperties?.Remove("require_login_type"); } }
         private string? _explicitNullValueRequireLoginType = default!;
 #nullable restore
 #else
-        public string RequireLoginType { get => _explicitNullValueRequireLoginType; set { _explicitNullValueRequireLoginType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_login_type"); else _explicitNullProperties?.Remove("require_login_type"); } }
+        public string RequireLoginType { get => _explicitNullValueRequireLoginType; set { _explicitNullValueRequireLoginType = value; AdditionalData?.Remove("require_login_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("require_login_type"); else _explicitNullProperties?.Remove("require_login_type"); } }
         private string _explicitNullValueRequireLoginType = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dev_workspace_id") is { } nullNodeDevWorkspaceId && nullNodeDevWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceId = null;
+            if (parseNode.GetChildNode("dev_workspace_id") is null) { _explicitNullValueDevWorkspaceId = default!; _explicitNullProperties?.Remove("dev_workspace_id"); }
+            else if (parseNode.GetChildNode("dev_workspace_id") is { } nullNodeDevWorkspaceId && nullNodeDevWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The dev_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
+        public string? DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; AdditionalData?.Remove("dev_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
         private string? _explicitNullValueDevWorkspaceId = default!;
 #nullable restore
 #else
-        public string DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
+        public string DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; AdditionalData?.Remove("dev_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
         private string _explicitNullValueDevWorkspaceId = default!;
 #endif
         /// <summary>

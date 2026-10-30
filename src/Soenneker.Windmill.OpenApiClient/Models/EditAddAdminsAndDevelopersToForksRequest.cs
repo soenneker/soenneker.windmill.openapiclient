@@ -17,11 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("add_admins_and_developers_to_forks") is { } nullNodeAddAdminsAndDevelopersToForks && nullNodeAddAdminsAndDevelopersToForks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddAdminsAndDevelopersToForks = null;
+            if (parseNode.GetChildNode("add_admins_and_developers_to_forks") is null) { _explicitNullValueAddAdminsAndDevelopersToForks = default!; _explicitNullProperties?.Remove("add_admins_and_developers_to_forks"); }
+            else if (parseNode.GetChildNode("add_admins_and_developers_to_forks") is { } nullNodeAddAdminsAndDevelopersToForks && nullNodeAddAdminsAndDevelopersToForks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddAdminsAndDevelopersToForks = null;
         }
 
         /// <summary>The add_admins_and_developers_to_forks property</summary>
-        public bool? AddAdminsAndDevelopersToForks { get => _explicitNullValueAddAdminsAndDevelopersToForks; set { _explicitNullValueAddAdminsAndDevelopersToForks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_admins_and_developers_to_forks"); else _explicitNullProperties?.Remove("add_admins_and_developers_to_forks"); } }
+        public bool? AddAdminsAndDevelopersToForks { get => _explicitNullValueAddAdminsAndDevelopersToForks; set { _explicitNullValueAddAdminsAndDevelopersToForks = value; AdditionalData?.Remove("add_admins_and_developers_to_forks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_admins_and_developers_to_forks"); else _explicitNullProperties?.Remove("add_admins_and_developers_to_forks"); } }
         private bool? _explicitNullValueAddAdminsAndDevelopersToForks = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

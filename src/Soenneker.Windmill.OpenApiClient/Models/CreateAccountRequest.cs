@@ -17,17 +17,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cc_client_id") is { } nullNodeCcClientId && nullNodeCcClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcClientId = null;
-            if (parseNode.GetChildNode("cc_client_secret") is { } nullNodeCcClientSecret && nullNodeCcClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcClientSecret = null;
-            if (parseNode.GetChildNode("cc_instance") is { } nullNodeCcInstance && nullNodeCcInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcInstance = null;
-            if (parseNode.GetChildNode("cc_token_url") is { } nullNodeCcTokenUrl && nullNodeCcTokenUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcTokenUrl = null;
-            if (parseNode.GetChildNode("client") is { } nullNodeClient && nullNodeClient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Client = null;
-            if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
-            if (parseNode.GetChildNode("grant_type") is { } nullNodeGrantType && nullNodeGrantType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantType = null;
-            if (parseNode.GetChildNode("mcp_server_url") is { } nullNodeMcpServerUrl && nullNodeMcpServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerUrl = null;
-            if (parseNode.GetChildNode("refresh_token") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
-            if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
-            if (parseNode.GetChildNode("variable") is { } nullNodeVariable && nullNodeVariable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Variable = null;
+            if (parseNode.GetChildNode("cc_client_id") is null) { _explicitNullValueCcClientId = default!; _explicitNullProperties?.Remove("cc_client_id"); }
+            else if (parseNode.GetChildNode("cc_client_id") is { } nullNodeCcClientId && nullNodeCcClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcClientId = null;
+            if (parseNode.GetChildNode("cc_client_secret") is null) { _explicitNullValueCcClientSecret = default!; _explicitNullProperties?.Remove("cc_client_secret"); }
+            else if (parseNode.GetChildNode("cc_client_secret") is { } nullNodeCcClientSecret && nullNodeCcClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcClientSecret = null;
+            if (parseNode.GetChildNode("cc_instance") is null) { _explicitNullValueCcInstance = default!; _explicitNullProperties?.Remove("cc_instance"); }
+            else if (parseNode.GetChildNode("cc_instance") is { } nullNodeCcInstance && nullNodeCcInstance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcInstance = null;
+            if (parseNode.GetChildNode("cc_token_url") is null) { _explicitNullValueCcTokenUrl = default!; _explicitNullProperties?.Remove("cc_token_url"); }
+            else if (parseNode.GetChildNode("cc_token_url") is { } nullNodeCcTokenUrl && nullNodeCcTokenUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CcTokenUrl = null;
+            if (parseNode.GetChildNode("client") is null) { _explicitNullValueClient = default!; _explicitNullProperties?.Remove("client"); }
+            else if (parseNode.GetChildNode("client") is { } nullNodeClient && nullNodeClient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Client = null;
+            if (parseNode.GetChildNode("expires_in") is null) { _explicitNullValueExpiresIn = default!; _explicitNullProperties?.Remove("expires_in"); }
+            else if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
+            if (parseNode.GetChildNode("grant_type") is null) { _explicitNullValueGrantType = default!; _explicitNullProperties?.Remove("grant_type"); }
+            else if (parseNode.GetChildNode("grant_type") is { } nullNodeGrantType && nullNodeGrantType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantType = null;
+            if (parseNode.GetChildNode("mcp_server_url") is null) { _explicitNullValueMcpServerUrl = default!; _explicitNullProperties?.Remove("mcp_server_url"); }
+            else if (parseNode.GetChildNode("mcp_server_url") is { } nullNodeMcpServerUrl && nullNodeMcpServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerUrl = null;
+            if (parseNode.GetChildNode("refresh_token") is null) { _explicitNullValueRefreshToken = default!; _explicitNullProperties?.Remove("refresh_token"); }
+            else if (parseNode.GetChildNode("refresh_token") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
+            if (parseNode.GetChildNode("scopes") is null) { _explicitNullValueScopes = default!; _explicitNullProperties?.Remove("scopes"); }
+            else if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
+            if (parseNode.GetChildNode("variable") is null) { _explicitNullValueVariable = default!; _explicitNullProperties?.Remove("variable"); }
+            else if (parseNode.GetChildNode("variable") is { } nullNodeVariable && nullNodeVariable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Variable = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -35,104 +46,104 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>OAuth client ID for resource-level credentials (client_credentials flow only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcClientId { get => _explicitNullValueCcClientId; set { _explicitNullValueCcClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_id"); else _explicitNullProperties?.Remove("cc_client_id"); } }
+        public string? CcClientId { get => _explicitNullValueCcClientId; set { _explicitNullValueCcClientId = value; AdditionalData?.Remove("cc_client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_id"); else _explicitNullProperties?.Remove("cc_client_id"); } }
         private string? _explicitNullValueCcClientId = default!;
 #nullable restore
 #else
-        public string CcClientId { get => _explicitNullValueCcClientId; set { _explicitNullValueCcClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_id"); else _explicitNullProperties?.Remove("cc_client_id"); } }
+        public string CcClientId { get => _explicitNullValueCcClientId; set { _explicitNullValueCcClientId = value; AdditionalData?.Remove("cc_client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_id"); else _explicitNullProperties?.Remove("cc_client_id"); } }
         private string _explicitNullValueCcClientId = default!;
 #endif
         /// <summary>OAuth client secret for resource-level credentials (client_credentials flow only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcClientSecret { get => _explicitNullValueCcClientSecret; set { _explicitNullValueCcClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_secret"); else _explicitNullProperties?.Remove("cc_client_secret"); } }
+        public string? CcClientSecret { get => _explicitNullValueCcClientSecret; set { _explicitNullValueCcClientSecret = value; AdditionalData?.Remove("cc_client_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_secret"); else _explicitNullProperties?.Remove("cc_client_secret"); } }
         private string? _explicitNullValueCcClientSecret = default!;
 #nullable restore
 #else
-        public string CcClientSecret { get => _explicitNullValueCcClientSecret; set { _explicitNullValueCcClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_secret"); else _explicitNullProperties?.Remove("cc_client_secret"); } }
+        public string CcClientSecret { get => _explicitNullValueCcClientSecret; set { _explicitNullValueCcClientSecret = value; AdditionalData?.Remove("cc_client_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_client_secret"); else _explicitNullProperties?.Remove("cc_client_secret"); } }
         private string _explicitNullValueCcClientSecret = default!;
 #endif
         /// <summary>Instance name for built-in providers whose client-credentials token URL is instance-templated; substituted into the fixed-host registry template server-side (client_credentials flow only). The token URL is never caller-supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcInstance { get => _explicitNullValueCcInstance; set { _explicitNullValueCcInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_instance"); else _explicitNullProperties?.Remove("cc_instance"); } }
+        public string? CcInstance { get => _explicitNullValueCcInstance; set { _explicitNullValueCcInstance = value; AdditionalData?.Remove("cc_instance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_instance"); else _explicitNullProperties?.Remove("cc_instance"); } }
         private string? _explicitNullValueCcInstance = default!;
 #nullable restore
 #else
-        public string CcInstance { get => _explicitNullValueCcInstance; set { _explicitNullValueCcInstance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_instance"); else _explicitNullProperties?.Remove("cc_instance"); } }
+        public string CcInstance { get => _explicitNullValueCcInstance; set { _explicitNullValueCcInstance = value; AdditionalData?.Remove("cc_instance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_instance"); else _explicitNullProperties?.Remove("cc_instance"); } }
         private string _explicitNullValueCcInstance = default!;
 #endif
         /// <summary>Bring-your-own token endpoint override (client_credentials flow only). Only honored together with cc_client_id/cc_client_secret and mutually exclusive with cc_instance; ignored/rejected on the shared-instance path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CcTokenUrl { get => _explicitNullValueCcTokenUrl; set { _explicitNullValueCcTokenUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_token_url"); else _explicitNullProperties?.Remove("cc_token_url"); } }
+        public string? CcTokenUrl { get => _explicitNullValueCcTokenUrl; set { _explicitNullValueCcTokenUrl = value; AdditionalData?.Remove("cc_token_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_token_url"); else _explicitNullProperties?.Remove("cc_token_url"); } }
         private string? _explicitNullValueCcTokenUrl = default!;
 #nullable restore
 #else
-        public string CcTokenUrl { get => _explicitNullValueCcTokenUrl; set { _explicitNullValueCcTokenUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_token_url"); else _explicitNullProperties?.Remove("cc_token_url"); } }
+        public string CcTokenUrl { get => _explicitNullValueCcTokenUrl; set { _explicitNullValueCcTokenUrl = value; AdditionalData?.Remove("cc_token_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cc_token_url"); else _explicitNullProperties?.Remove("cc_token_url"); } }
         private string _explicitNullValueCcTokenUrl = default!;
 #endif
         /// <summary>The client property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        public string? Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; AdditionalData?.Remove("client"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
         private string? _explicitNullValueClient = default!;
 #nullable restore
 #else
-        public string Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        public string Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; AdditionalData?.Remove("client"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
         private string _explicitNullValueClient = default!;
 #endif
         /// <summary>The expires_in property</summary>
-        public int? ExpiresIn { get => _explicitNullValueExpiresIn; set { _explicitNullValueExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in"); else _explicitNullProperties?.Remove("expires_in"); } }
+        public int? ExpiresIn { get => _explicitNullValueExpiresIn; set { _explicitNullValueExpiresIn = value; AdditionalData?.Remove("expires_in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires_in"); else _explicitNullProperties?.Remove("expires_in"); } }
         private int? _explicitNullValueExpiresIn = default!;
         /// <summary>The grant_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
+        public string? GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; AdditionalData?.Remove("grant_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
         private string? _explicitNullValueGrantType = default!;
 #nullable restore
 #else
-        public string GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
+        public string GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; AdditionalData?.Remove("grant_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
         private string _explicitNullValueGrantType = default!;
 #endif
         /// <summary>MCP server URL for MCP OAuth token refresh</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
+        public string? McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; AdditionalData?.Remove("mcp_server_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
         private string? _explicitNullValueMcpServerUrl = default!;
 #nullable restore
 #else
-        public string McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
+        public string McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; AdditionalData?.Remove("mcp_server_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
         private string _explicitNullValueMcpServerUrl = default!;
 #endif
         /// <summary>OAuth refresh token. For authorization_code flow, this contains the actual refresh token. For client_credentials flow, this must be set to an empty string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
+        public string? RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refresh_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
         private string? _explicitNullValueRefreshToken = default!;
 #nullable restore
 #else
-        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
+        public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refresh_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
         private string _explicitNullValueRefreshToken = default!;
 #endif
         /// <summary>OAuth scopes to use for token refresh. Overrides instance-level scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        public List<string>? Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; AdditionalData?.Remove("scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
         private List<string>? _explicitNullValueScopes = default!;
 #nullable restore
 #else
-        public List<string> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
+        public List<string> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; AdditionalData?.Remove("scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
         private List<string> _explicitNullValueScopes = default!;
 #endif
         /// <summary>The variable holding this account&apos;s access token. It is created with the account, in one transaction and with the same checks as createVariable, and linked to it so it refreshes through it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable? Variable { get => _explicitNullValueVariable; set { _explicitNullValueVariable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable"); else _explicitNullProperties?.Remove("variable"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable? Variable { get => _explicitNullValueVariable; set { _explicitNullValueVariable = value; AdditionalData?.Remove("variable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable"); else _explicitNullProperties?.Remove("variable"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable? _explicitNullValueVariable = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable Variable { get => _explicitNullValueVariable; set { _explicitNullValueVariable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable"); else _explicitNullProperties?.Remove("variable"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable Variable { get => _explicitNullValueVariable; set { _explicitNullValueVariable = value; AdditionalData?.Remove("variable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable"); else _explicitNullProperties?.Remove("variable"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable _explicitNullValueVariable = default!;
 #endif
         /// <summary>

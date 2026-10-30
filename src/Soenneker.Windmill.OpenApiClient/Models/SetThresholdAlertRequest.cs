@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("threshold_alert_amount") is { } nullNodeThresholdAlertAmount && nullNodeThresholdAlertAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdAlertAmount = null;
+            if (parseNode.GetChildNode("threshold_alert_amount") is null) { _explicitNullValueThresholdAlertAmount = default!; _explicitNullProperties?.Remove("threshold_alert_amount"); }
+            else if (parseNode.GetChildNode("threshold_alert_amount") is { } nullNodeThresholdAlertAmount && nullNodeThresholdAlertAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThresholdAlertAmount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The threshold_alert_amount property</summary>
-        public double? ThresholdAlertAmount { get => _explicitNullValueThresholdAlertAmount; set { _explicitNullValueThresholdAlertAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_alert_amount"); else _explicitNullProperties?.Remove("threshold_alert_amount"); } }
+        public double? ThresholdAlertAmount { get => _explicitNullValueThresholdAlertAmount; set { _explicitNullValueThresholdAlertAmount = value; AdditionalData?.Remove("threshold_alert_amount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threshold_alert_amount"); else _explicitNullProperties?.Remove("threshold_alert_amount"); } }
         private double? _explicitNullValueThresholdAlertAmount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetThresholdAlertRequest"/> and sets the default values.

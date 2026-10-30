@@ -88,7 +88,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
         {
             /// <summary>filter on type of operation</summary>
             [QueryParameter("action_kind")]
-            public global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogsActionKindParameter? ActionKind { get; set; }
+            public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAuditListGetParameters10SchemaBe7A71B72C? ActionKind { get; set; }
             /// <summary>filter on created after (exclusive) timestamp</summary>
             [QueryParameter("after")]
             public DateTimeOffset? After { get; set; }

@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("table_to_track") is { } nullNodeTableToTrack && nullNodeTableToTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TableToTrack = null;
-            if (parseNode.GetChildNode("transaction_to_track") is { } nullNodeTransactionToTrack && nullNodeTransactionToTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionToTrack = null;
+            if (parseNode.GetChildNode("table_to_track") is null) { _explicitNullValueTableToTrack = default!; _explicitNullProperties?.Remove("table_to_track"); }
+            else if (parseNode.GetChildNode("table_to_track") is { } nullNodeTableToTrack && nullNodeTableToTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TableToTrack = null;
+            if (parseNode.GetChildNode("transaction_to_track") is null) { _explicitNullValueTransactionToTrack = default!; _explicitNullProperties?.Remove("transaction_to_track"); }
+            else if (parseNode.GetChildNode("transaction_to_track") is { } nullNodeTransactionToTrack && nullNodeTransactionToTrack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionToTrack = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The table_to_track property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdatePostgresPublicationRequestTableToTrackItem>? TableToTrack { get => _explicitNullValueTableToTrack; set { _explicitNullValueTableToTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("table_to_track"); else _explicitNullProperties?.Remove("table_to_track"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdatePostgresPublicationRequestTableToTrackItem>? _explicitNullValueTableToTrack = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersPublicationGetPublicationPathGetResponses200Ca7A7345Ef8>? TableToTrack { get => _explicitNullValueTableToTrack; set { _explicitNullValueTableToTrack = value; AdditionalData?.Remove("table_to_track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("table_to_track"); else _explicitNullProperties?.Remove("table_to_track"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersPublicationGetPublicationPathGetResponses200Ca7A7345Ef8>? _explicitNullValueTableToTrack = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdatePostgresPublicationRequestTableToTrackItem> TableToTrack { get => _explicitNullValueTableToTrack; set { _explicitNullValueTableToTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("table_to_track"); else _explicitNullProperties?.Remove("table_to_track"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdatePostgresPublicationRequestTableToTrackItem> _explicitNullValueTableToTrack = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersPublicationGetPublicationPathGetResponses200Ca7A7345Ef8> TableToTrack { get => _explicitNullValueTableToTrack; set { _explicitNullValueTableToTrack = value; AdditionalData?.Remove("table_to_track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("table_to_track"); else _explicitNullProperties?.Remove("table_to_track"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersPublicationGetPublicationPathGetResponses200Ca7A7345Ef8> _explicitNullValueTableToTrack = default!;
 #endif
         /// <summary>The transaction_to_track property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TransactionToTrack { get => _explicitNullValueTransactionToTrack; set { _explicitNullValueTransactionToTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_to_track"); else _explicitNullProperties?.Remove("transaction_to_track"); } }
+        public List<string>? TransactionToTrack { get => _explicitNullValueTransactionToTrack; set { _explicitNullValueTransactionToTrack = value; AdditionalData?.Remove("transaction_to_track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_to_track"); else _explicitNullProperties?.Remove("transaction_to_track"); } }
         private List<string>? _explicitNullValueTransactionToTrack = default!;
 #nullable restore
 #else
-        public List<string> TransactionToTrack { get => _explicitNullValueTransactionToTrack; set { _explicitNullValueTransactionToTrack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_to_track"); else _explicitNullProperties?.Remove("transaction_to_track"); } }
+        public List<string> TransactionToTrack { get => _explicitNullValueTransactionToTrack; set { _explicitNullValueTransactionToTrack = value; AdditionalData?.Remove("transaction_to_track"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_to_track"); else _explicitNullProperties?.Remove("transaction_to_track"); } }
         private List<string> _explicitNullValueTransactionToTrack = default!;
 #endif
         /// <summary>
@@ -68,7 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "table_to_track", n => { TableToTrack = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdatePostgresPublicationRequestTableToTrackItem>(global::Soenneker.Windmill.OpenApiClient.Models.UpdatePostgresPublicationRequestTableToTrackItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "table_to_track", n => { TableToTrack = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersPublicationGetPublicationPathGetResponses200Ca7A7345Ef8>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersPublicationGetPublicationPathGetResponses200Ca7A7345Ef8.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "transaction_to_track", n => { TransactionToTrack = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
@@ -79,7 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdatePostgresPublicationRequestTableToTrackItem>("table_to_track", TableToTrack);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersPublicationGetPublicationPathGetResponses200Ca7A7345Ef8>("table_to_track", TableToTrack);
             writer.WriteCollectionOfPrimitiveValues<string>("transaction_to_track", TransactionToTrack);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

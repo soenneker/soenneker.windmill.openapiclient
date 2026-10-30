@@ -17,38 +17,42 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("branch_or_iteration_n") is { } nullNodeBranchOrIterationN && nullNodeBranchOrIterationN.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchOrIterationN = null;
-            if (parseNode.GetChildNode("flow_version") is { } nullNodeFlowVersion && nullNodeFlowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowVersion = null;
-            if (parseNode.GetChildNode("nested_path") is { } nullNodeNestedPath && nullNodeNestedPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NestedPath = null;
-            if (parseNode.GetChildNode("step_id") is { } nullNodeStepId && nullNodeStepId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepId = null;
+            if (parseNode.GetChildNode("branch_or_iteration_n") is null) { _explicitNullValueBranchOrIterationN = default!; _explicitNullProperties?.Remove("branch_or_iteration_n"); }
+            else if (parseNode.GetChildNode("branch_or_iteration_n") is { } nullNodeBranchOrIterationN && nullNodeBranchOrIterationN.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchOrIterationN = null;
+            if (parseNode.GetChildNode("flow_version") is null) { _explicitNullValueFlowVersion = default!; _explicitNullProperties?.Remove("flow_version"); }
+            else if (parseNode.GetChildNode("flow_version") is { } nullNodeFlowVersion && nullNodeFlowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowVersion = null;
+            if (parseNode.GetChildNode("nested_path") is null) { _explicitNullValueNestedPath = default!; _explicitNullProperties?.Remove("nested_path"); }
+            else if (parseNode.GetChildNode("nested_path") is { } nullNodeNestedPath && nullNodeNestedPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NestedPath = null;
+            if (parseNode.GetChildNode("step_id") is null) { _explicitNullValueStepId = default!; _explicitNullProperties?.Remove("step_id"); }
+            else if (parseNode.GetChildNode("step_id") is { } nullNodeStepId && nullNodeStepId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>for branchall or loop at the top level, the iteration at which the flow should restart (optional)</summary>
-        public int? BranchOrIterationN { get => _explicitNullValueBranchOrIterationN; set { _explicitNullValueBranchOrIterationN = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_or_iteration_n"); else _explicitNullProperties?.Remove("branch_or_iteration_n"); } }
+        public int? BranchOrIterationN { get => _explicitNullValueBranchOrIterationN; set { _explicitNullValueBranchOrIterationN = value; AdditionalData?.Remove("branch_or_iteration_n"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_or_iteration_n"); else _explicitNullProperties?.Remove("branch_or_iteration_n"); } }
         private int? _explicitNullValueBranchOrIterationN = default!;
         /// <summary>specific flow version to use for restart (optional, uses current version if not specified)</summary>
-        public int? FlowVersion { get => _explicitNullValueFlowVersion; set { _explicitNullValueFlowVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_version"); else _explicitNullProperties?.Remove("flow_version"); } }
+        public int? FlowVersion { get => _explicitNullValueFlowVersion; set { _explicitNullValueFlowVersion = value; AdditionalData?.Remove("flow_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_version"); else _explicitNullProperties?.Remove("flow_version"); } }
         private int? _explicitNullValueFlowVersion = default!;
         /// <summary>path of additional steps to descend into AFTER `step_id`. Each entry represents one level of nesting inside the spawned child of the previous level&apos;s container (BranchOne / sequential ForLoop iteration / Subflow). When non-empty, the actual restart point is the LAST entry&apos;s step_id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem>? NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem>? NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; AdditionalData?.Remove("nested_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem>? _explicitNullValueNestedPath = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem> NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem> NestedPath { get => _explicitNullValueNestedPath; set { _explicitNullValueNestedPath = value; AdditionalData?.Remove("nested_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nested_path"); else _explicitNullProperties?.Remove("nested_path"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem> _explicitNullValueNestedPath = default!;
 #endif
         /// <summary>top-level step id to restart the flow from (or the outermost container when restarting at a nested step)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StepId { get => _explicitNullValueStepId; set { _explicitNullValueStepId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_id"); else _explicitNullProperties?.Remove("step_id"); } }
+        public string? StepId { get => _explicitNullValueStepId; set { _explicitNullValueStepId = value; AdditionalData?.Remove("step_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_id"); else _explicitNullProperties?.Remove("step_id"); } }
         private string? _explicitNullValueStepId = default!;
 #nullable restore
 #else
-        public string StepId { get => _explicitNullValueStepId; set { _explicitNullValueStepId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_id"); else _explicitNullProperties?.Remove("step_id"); } }
+        public string StepId { get => _explicitNullValueStepId; set { _explicitNullValueStepId = value; AdditionalData?.Remove("step_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_id"); else _explicitNullProperties?.Remove("step_id"); } }
         private string _explicitNullValueStepId = default!;
 #endif
         /// <summary>

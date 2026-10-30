@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("slack_oauth_client_id") is { } nullNodeSlackOauthClientId && nullNodeSlackOauthClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackOauthClientId = null;
-            if (parseNode.GetChildNode("slack_oauth_client_secret") is { } nullNodeSlackOauthClientSecret && nullNodeSlackOauthClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackOauthClientSecret = null;
+            if (parseNode.GetChildNode("slack_oauth_client_id") is null) { _explicitNullValueSlackOauthClientId = default!; _explicitNullProperties?.Remove("slack_oauth_client_id"); }
+            else if (parseNode.GetChildNode("slack_oauth_client_id") is { } nullNodeSlackOauthClientId && nullNodeSlackOauthClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackOauthClientId = null;
+            if (parseNode.GetChildNode("slack_oauth_client_secret") is null) { _explicitNullValueSlackOauthClientSecret = default!; _explicitNullProperties?.Remove("slack_oauth_client_secret"); }
+            else if (parseNode.GetChildNode("slack_oauth_client_secret") is { } nullNodeSlackOauthClientSecret && nullNodeSlackOauthClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackOauthClientSecret = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The slack_oauth_client_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackOauthClientId { get => _explicitNullValueSlackOauthClientId; set { _explicitNullValueSlackOauthClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_id"); else _explicitNullProperties?.Remove("slack_oauth_client_id"); } }
+        public string? SlackOauthClientId { get => _explicitNullValueSlackOauthClientId; set { _explicitNullValueSlackOauthClientId = value; AdditionalData?.Remove("slack_oauth_client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_id"); else _explicitNullProperties?.Remove("slack_oauth_client_id"); } }
         private string? _explicitNullValueSlackOauthClientId = default!;
 #nullable restore
 #else
-        public string SlackOauthClientId { get => _explicitNullValueSlackOauthClientId; set { _explicitNullValueSlackOauthClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_id"); else _explicitNullProperties?.Remove("slack_oauth_client_id"); } }
+        public string SlackOauthClientId { get => _explicitNullValueSlackOauthClientId; set { _explicitNullValueSlackOauthClientId = value; AdditionalData?.Remove("slack_oauth_client_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_id"); else _explicitNullProperties?.Remove("slack_oauth_client_id"); } }
         private string _explicitNullValueSlackOauthClientId = default!;
 #endif
         /// <summary>The slack_oauth_client_secret property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackOauthClientSecret { get => _explicitNullValueSlackOauthClientSecret; set { _explicitNullValueSlackOauthClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_secret"); else _explicitNullProperties?.Remove("slack_oauth_client_secret"); } }
+        public string? SlackOauthClientSecret { get => _explicitNullValueSlackOauthClientSecret; set { _explicitNullValueSlackOauthClientSecret = value; AdditionalData?.Remove("slack_oauth_client_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_secret"); else _explicitNullProperties?.Remove("slack_oauth_client_secret"); } }
         private string? _explicitNullValueSlackOauthClientSecret = default!;
 #nullable restore
 #else
-        public string SlackOauthClientSecret { get => _explicitNullValueSlackOauthClientSecret; set { _explicitNullValueSlackOauthClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_secret"); else _explicitNullProperties?.Remove("slack_oauth_client_secret"); } }
+        public string SlackOauthClientSecret { get => _explicitNullValueSlackOauthClientSecret; set { _explicitNullValueSlackOauthClientSecret = value; AdditionalData?.Remove("slack_oauth_client_secret"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_oauth_client_secret"); else _explicitNullProperties?.Remove("slack_oauth_client_secret"); } }
         private string _explicitNullValueSlackOauthClientSecret = default!;
 #endif
         /// <summary>

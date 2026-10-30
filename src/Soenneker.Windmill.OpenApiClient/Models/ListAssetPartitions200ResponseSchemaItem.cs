@@ -17,67 +17,76 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("asset_kind") is { } nullNodeAssetKind && nullNodeAssetKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetKind = null;
-            if (parseNode.GetChildNode("asset_path") is { } nullNodeAssetPath && nullNodeAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetPath = null;
-            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
-            if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
-            if (parseNode.GetChildNode("materialized_at") is { } nullNodeMaterializedAt && nullNodeMaterializedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaterializedAt = null;
-            if (parseNode.GetChildNode("partition") is { } nullNodePartition && nullNodePartition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Partition = null;
-            if (parseNode.GetChildNode("row_count") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
-            if (parseNode.GetChildNode("snapshot_id") is { } nullNodeSnapshotId && nullNodeSnapshotId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SnapshotId = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("asset_kind") is null) { _explicitNullValueAssetKind = default!; _explicitNullProperties?.Remove("asset_kind"); }
+            else if (parseNode.GetChildNode("asset_kind") is { } nullNodeAssetKind && nullNodeAssetKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetKind = null;
+            if (parseNode.GetChildNode("asset_path") is null) { _explicitNullValueAssetPath = default!; _explicitNullProperties?.Remove("asset_path"); }
+            else if (parseNode.GetChildNode("asset_path") is { } nullNodeAssetPath && nullNodeAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetPath = null;
+            if (parseNode.GetChildNode("error") is null) { _explicitNullValueError = default!; _explicitNullProperties?.Remove("error"); }
+            else if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("job_id") is null) { _explicitNullValueJobId = default!; _explicitNullProperties?.Remove("job_id"); }
+            else if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
+            if (parseNode.GetChildNode("materialized_at") is null) { _explicitNullValueMaterializedAt = default!; _explicitNullProperties?.Remove("materialized_at"); }
+            else if (parseNode.GetChildNode("materialized_at") is { } nullNodeMaterializedAt && nullNodeMaterializedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaterializedAt = null;
+            if (parseNode.GetChildNode("partition") is null) { _explicitNullValuePartition = default!; _explicitNullProperties?.Remove("partition"); }
+            else if (parseNode.GetChildNode("partition") is { } nullNodePartition && nullNodePartition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Partition = null;
+            if (parseNode.GetChildNode("row_count") is null) { _explicitNullValueRowCount = default!; _explicitNullProperties?.Remove("row_count"); }
+            else if (parseNode.GetChildNode("row_count") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
+            if (parseNode.GetChildNode("snapshot_id") is null) { _explicitNullValueSnapshotId = default!; _explicitNullProperties?.Remove("snapshot_id"); }
+            else if (parseNode.GetChildNode("snapshot_id") is { } nullNodeSnapshotId && nullNodeSnapshotId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SnapshotId = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The asset_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemAssetKind? AssetKind { get => _explicitNullValueAssetKind; set { _explicitNullValueAssetKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_kind"); else _explicitNullProperties?.Remove("asset_kind"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemAssetKind? _explicitNullValueAssetKind = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItemsBd268A0D2E? AssetKind { get => _explicitNullValueAssetKind; set { _explicitNullValueAssetKind = value; AdditionalData?.Remove("asset_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_kind"); else _explicitNullProperties?.Remove("asset_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItemsBd268A0D2E? _explicitNullValueAssetKind = default!;
         /// <summary>The asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        public string? AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; AdditionalData?.Remove("asset_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
         private string? _explicitNullValueAssetPath = default!;
 #nullable restore
 #else
-        public string AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        public string AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; AdditionalData?.Remove("asset_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
         private string _explicitNullValueAssetPath = default!;
 #endif
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        public string Error { get => _explicitNullValueError; set { _explicitNullValueError = value; AdditionalData?.Remove("error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
         private string _explicitNullValueError = default!;
 #endif
         /// <summary>The job_id property</summary>
-        public Guid? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
+        public Guid? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private Guid? _explicitNullValueJobId = default!;
         /// <summary>The materialized_at property</summary>
-        public DateTimeOffset? MaterializedAt { get => _explicitNullValueMaterializedAt; set { _explicitNullValueMaterializedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("materialized_at"); else _explicitNullProperties?.Remove("materialized_at"); } }
+        public DateTimeOffset? MaterializedAt { get => _explicitNullValueMaterializedAt; set { _explicitNullValueMaterializedAt = value; AdditionalData?.Remove("materialized_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("materialized_at"); else _explicitNullProperties?.Remove("materialized_at"); } }
         private DateTimeOffset? _explicitNullValueMaterializedAt = default!;
         /// <summary>The partition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Partition { get => _explicitNullValuePartition; set { _explicitNullValuePartition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition"); else _explicitNullProperties?.Remove("partition"); } }
+        public string? Partition { get => _explicitNullValuePartition; set { _explicitNullValuePartition = value; AdditionalData?.Remove("partition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition"); else _explicitNullProperties?.Remove("partition"); } }
         private string? _explicitNullValuePartition = default!;
 #nullable restore
 #else
-        public string Partition { get => _explicitNullValuePartition; set { _explicitNullValuePartition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition"); else _explicitNullProperties?.Remove("partition"); } }
+        public string Partition { get => _explicitNullValuePartition; set { _explicitNullValuePartition = value; AdditionalData?.Remove("partition"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition"); else _explicitNullProperties?.Remove("partition"); } }
         private string _explicitNullValuePartition = default!;
 #endif
         /// <summary>The row_count property</summary>
-        public long? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row_count"); else _explicitNullProperties?.Remove("row_count"); } }
+        public long? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; AdditionalData?.Remove("row_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row_count"); else _explicitNullProperties?.Remove("row_count"); } }
         private long? _explicitNullValueRowCount = default!;
         /// <summary>The snapshot_id property</summary>
-        public long? SnapshotId { get => _explicitNullValueSnapshotId; set { _explicitNullValueSnapshotId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshot_id"); else _explicitNullProperties?.Remove("snapshot_id"); } }
+        public long? SnapshotId { get => _explicitNullValueSnapshotId; set { _explicitNullValueSnapshotId = value; AdditionalData?.Remove("snapshot_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshot_id"); else _explicitNullProperties?.Remove("snapshot_id"); } }
         private long? _explicitNullValueSnapshotId = default!;
         /// <summary>The status property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemStatus? _explicitNullValueStatus = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItems3533E0Aa12? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItems3533E0Aa12? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -103,7 +112,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "asset_kind", n => { AssetKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemAssetKind>(); } },
+                { "asset_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItemsBd268A0D2E>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAssetKind = default; _explicitNullProperties?.Remove("asset_kind"); AdditionalData["asset_kind"] = unknown; } else { AssetKind = parsed; AdditionalData.Remove("asset_kind"); } } },
                 { "asset_path", n => { AssetPath = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "job_id", n => { JobId = n.GetGuidValue(); } },
@@ -111,7 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "partition", n => { Partition = n.GetStringValue(); } },
                 { "row_count", n => { RowCount = n.GetLongValue(); } },
                 { "snapshot_id", n => { SnapshotId = n.GetLongValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemStatus>(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItems3533E0Aa12>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
             };
         }
         /// <summary>
@@ -121,7 +130,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemAssetKind>("asset_kind", AssetKind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItemsBd268A0D2E>("asset_kind", AssetKind);
             writer.WriteStringValue("asset_path", AssetPath);
             writer.WriteStringValue("error", Error);
             writer.WriteGuidValue("job_id", JobId);
@@ -129,7 +138,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("partition", Partition);
             writer.WriteLongValue("row_count", RowCount);
             writer.WriteLongValue("snapshot_id", SnapshotId);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitions200ResponseItemStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsGetResponses200ContentApplicationJsonSchemaItems3533E0Aa12>("status", Status);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -17,17 +17,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_index_disk_size_bytes") is { } nullNodeJobIndexDiskSizeBytes && nullNodeJobIndexDiskSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIndexDiskSizeBytes = null;
-            if (parseNode.GetChildNode("log_index_disk_size_bytes") is { } nullNodeLogIndexDiskSizeBytes && nullNodeLogIndexDiskSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogIndexDiskSizeBytes = null;
+            if (parseNode.GetChildNode("job_index_disk_size_bytes") is null) { _explicitNullValueJobIndexDiskSizeBytes = default!; _explicitNullProperties?.Remove("job_index_disk_size_bytes"); }
+            else if (parseNode.GetChildNode("job_index_disk_size_bytes") is { } nullNodeJobIndexDiskSizeBytes && nullNodeJobIndexDiskSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIndexDiskSizeBytes = null;
+            if (parseNode.GetChildNode("log_index_disk_size_bytes") is null) { _explicitNullValueLogIndexDiskSizeBytes = default!; _explicitNullProperties?.Remove("log_index_disk_size_bytes"); }
+            else if (parseNode.GetChildNode("log_index_disk_size_bytes") is { } nullNodeLogIndexDiskSizeBytes && nullNodeLogIndexDiskSizeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogIndexDiskSizeBytes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The job_index_disk_size_bytes property</summary>
-        public int? JobIndexDiskSizeBytes { get => _explicitNullValueJobIndexDiskSizeBytes; set { _explicitNullValueJobIndexDiskSizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_index_disk_size_bytes"); else _explicitNullProperties?.Remove("job_index_disk_size_bytes"); } }
+        public int? JobIndexDiskSizeBytes { get => _explicitNullValueJobIndexDiskSizeBytes; set { _explicitNullValueJobIndexDiskSizeBytes = value; AdditionalData?.Remove("job_index_disk_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_index_disk_size_bytes"); else _explicitNullProperties?.Remove("job_index_disk_size_bytes"); } }
         private int? _explicitNullValueJobIndexDiskSizeBytes = default!;
         /// <summary>The log_index_disk_size_bytes property</summary>
-        public int? LogIndexDiskSizeBytes { get => _explicitNullValueLogIndexDiskSizeBytes; set { _explicitNullValueLogIndexDiskSizeBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_index_disk_size_bytes"); else _explicitNullProperties?.Remove("log_index_disk_size_bytes"); } }
+        public int? LogIndexDiskSizeBytes { get => _explicitNullValueLogIndexDiskSizeBytes; set { _explicitNullValueLogIndexDiskSizeBytes = value; AdditionalData?.Remove("log_index_disk_size_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_index_disk_size_bytes"); else _explicitNullProperties?.Remove("log_index_disk_size_bytes"); } }
         private int? _explicitNullValueLogIndexDiskSizeBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetIndexDiskStorageSizes200Response"/> and sets the default values.

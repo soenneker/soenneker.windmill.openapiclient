@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("include_path") is { } nullNodeIncludePath && nullNodeIncludePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludePath = null;
-            if (parseNode.GetChildNode("include_type") is { } nullNodeIncludeType && nullNodeIncludeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeType = null;
+            if (parseNode.GetChildNode("include_path") is null) { _explicitNullValueIncludePath = default!; _explicitNullProperties?.Remove("include_path"); }
+            else if (parseNode.GetChildNode("include_path") is { } nullNodeIncludePath && nullNodeIncludePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludePath = null;
+            if (parseNode.GetChildNode("include_type") is null) { _explicitNullValueIncludeType = default!; _explicitNullProperties?.Remove("include_type"); }
+            else if (parseNode.GetChildNode("include_type") is { } nullNodeIncludeType && nullNodeIncludeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,22 +28,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The include_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IncludePath { get => _explicitNullValueIncludePath; set { _explicitNullValueIncludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_path"); else _explicitNullProperties?.Remove("include_path"); } }
+        public List<string>? IncludePath { get => _explicitNullValueIncludePath; set { _explicitNullValueIncludePath = value; AdditionalData?.Remove("include_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_path"); else _explicitNullProperties?.Remove("include_path"); } }
         private List<string>? _explicitNullValueIncludePath = default!;
 #nullable restore
 #else
-        public List<string> IncludePath { get => _explicitNullValueIncludePath; set { _explicitNullValueIncludePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_path"); else _explicitNullProperties?.Remove("include_path"); } }
+        public List<string> IncludePath { get => _explicitNullValueIncludePath; set { _explicitNullValueIncludePath = value; AdditionalData?.Remove("include_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_path"); else _explicitNullProperties?.Remove("include_path"); } }
         private List<string> _explicitNullValueIncludePath = default!;
 #endif
         /// <summary>The include_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettingsIncludeTypeItem?>? IncludeType { get => _explicitNullValueIncludeType; set { _explicitNullValueIncludeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_type"); else _explicitNullProperties?.Remove("include_type"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettingsIncludeTypeItem?>? _explicitNullValueIncludeType = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson7963E43550?>? IncludeType { get => _explicitNullValueIncludeType; set { _explicitNullValueIncludeType = value; AdditionalData?.Remove("include_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_type"); else _explicitNullProperties?.Remove("include_type"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson7963E43550?>? _explicitNullValueIncludeType = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettingsIncludeTypeItem?> IncludeType { get => _explicitNullValueIncludeType; set { _explicitNullValueIncludeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_type"); else _explicitNullProperties?.Remove("include_type"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettingsIncludeTypeItem?> _explicitNullValueIncludeType = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson7963E43550?> IncludeType { get => _explicitNullValueIncludeType; set { _explicitNullValueIncludeType = value; AdditionalData?.Remove("include_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("include_type"); else _explicitNullProperties?.Remove("include_type"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson7963E43550?> _explicitNullValueIncludeType = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettings"/> and sets the default values.
@@ -69,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "include_path", n => { IncludePath = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "include_type", n => { IncludeType = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettingsIncludeTypeItem>()?.AsList(); } },
+                { "include_type", n => { IncludeType = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson7963E43550>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -80,7 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("include_path", IncludePath);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceDeployUiSettingsRequestDeployUiSettingsIncludeTypeItem>("include_type", IncludeType);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson7963E43550>("include_type", IncludeType);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

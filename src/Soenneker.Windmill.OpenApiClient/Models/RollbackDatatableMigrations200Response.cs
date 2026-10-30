@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("rolled_back") is { } nullNodeRolledBack && nullNodeRolledBack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RolledBack = null;
+            if (parseNode.GetChildNode("rolled_back") is null) { _explicitNullValueRolledBack = default!; _explicitNullProperties?.Remove("rolled_back"); }
+            else if (parseNode.GetChildNode("rolled_back") is { } nullNodeRolledBack && nullNodeRolledBack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RolledBack = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The rolled_back property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.RollbackDatatableMigrations200ResponseRolledBackItem>? RolledBack { get => _explicitNullValueRolledBack; set { _explicitNullValueRolledBack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rolled_back"); else _explicitNullProperties?.Remove("rolled_back"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RollbackDatatableMigrations200ResponseRolledBackItem>? RolledBack { get => _explicitNullValueRolledBack; set { _explicitNullValueRolledBack = value; AdditionalData?.Remove("rolled_back"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rolled_back"); else _explicitNullProperties?.Remove("rolled_back"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.RollbackDatatableMigrations200ResponseRolledBackItem>? _explicitNullValueRolledBack = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.RollbackDatatableMigrations200ResponseRolledBackItem> RolledBack { get => _explicitNullValueRolledBack; set { _explicitNullValueRolledBack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rolled_back"); else _explicitNullProperties?.Remove("rolled_back"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.RollbackDatatableMigrations200ResponseRolledBackItem> RolledBack { get => _explicitNullValueRolledBack; set { _explicitNullValueRolledBack = value; AdditionalData?.Remove("rolled_back"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rolled_back"); else _explicitNullProperties?.Remove("rolled_back"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.RollbackDatatableMigrations200ResponseRolledBackItem> _explicitNullValueRolledBack = default!;
 #endif
         /// <summary>

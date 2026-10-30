@@ -17,17 +17,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("database_length") is { } nullNodeDatabaseLength && nullNodeDatabaseLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseLength = null;
-            if (parseNode.GetChildNode("suspended") is { } nullNodeSuspended && nullNodeSuspended.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suspended = null;
+            if (parseNode.GetChildNode("database_length") is null) { _explicitNullValueDatabaseLength = default!; _explicitNullProperties?.Remove("database_length"); }
+            else if (parseNode.GetChildNode("database_length") is { } nullNodeDatabaseLength && nullNodeDatabaseLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseLength = null;
+            if (parseNode.GetChildNode("suspended") is null) { _explicitNullValueSuspended = default!; _explicitNullProperties?.Remove("suspended"); }
+            else if (parseNode.GetChildNode("suspended") is { } nullNodeSuspended && nullNodeSuspended.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suspended = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The database_length property</summary>
-        public int? DatabaseLength { get => _explicitNullValueDatabaseLength; set { _explicitNullValueDatabaseLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_length"); else _explicitNullProperties?.Remove("database_length"); } }
+        public int? DatabaseLength { get => _explicitNullValueDatabaseLength; set { _explicitNullValueDatabaseLength = value; AdditionalData?.Remove("database_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_length"); else _explicitNullProperties?.Remove("database_length"); } }
         private int? _explicitNullValueDatabaseLength = default!;
         /// <summary>The suspended property</summary>
-        public int? Suspended { get => _explicitNullValueSuspended; set { _explicitNullValueSuspended = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suspended"); else _explicitNullProperties?.Remove("suspended"); } }
+        public int? Suspended { get => _explicitNullValueSuspended; set { _explicitNullValueSuspended = value; AdditionalData?.Remove("suspended"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suspended"); else _explicitNullProperties?.Remove("suspended"); } }
         private int? _explicitNullValueSuspended = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetQueueCount200Response"/> and sets the default values.

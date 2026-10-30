@@ -17,16 +17,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("app") is { } nullNodeApp && nullNodeApp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) App = null;
-            if (parseNode.GetChildNode("curated") is { } nullNodeCurated && nullNodeCurated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Curated = null;
-            if (parseNode.GetChildNode("derived") is { } nullNodeDerived && nullNodeDerived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Derived = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
-            if (parseNode.GetChildNode("docs_url") is { } nullNodeDocsUrl && nullNodeDocsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocsUrl = null;
-            if (parseNode.GetChildNode("meta") is { } nullNodeMeta && nullNodeMeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Meta = null;
-            if (parseNode.GetChildNode("metadata_source") is { } nullNodeMetadataSource && nullNodeMetadataSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetadataSource = null;
-            if (parseNode.GetChildNode("meta_updated_at") is { } nullNodeMetaUpdatedAt && nullNodeMetaUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetaUpdatedAt = null;
-            if (parseNode.GetChildNode("resource_types") is { } nullNodeResourceTypes && nullNodeResourceTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceTypes = null;
+            if (parseNode.GetChildNode("app") is null) { _explicitNullValueApp = default!; _explicitNullProperties?.Remove("app"); }
+            else if (parseNode.GetChildNode("app") is { } nullNodeApp && nullNodeApp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) App = null;
+            if (parseNode.GetChildNode("curated") is null) { _explicitNullValueCurated = default!; _explicitNullProperties?.Remove("curated"); }
+            else if (parseNode.GetChildNode("curated") is { } nullNodeCurated && nullNodeCurated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Curated = null;
+            if (parseNode.GetChildNode("derived") is null) { _explicitNullValueDerived = default!; _explicitNullProperties?.Remove("derived"); }
+            else if (parseNode.GetChildNode("derived") is { } nullNodeDerived && nullNodeDerived.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Derived = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("display_name") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("display_name"); }
+            else if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
+            if (parseNode.GetChildNode("docs_url") is null) { _explicitNullValueDocsUrl = default!; _explicitNullProperties?.Remove("docs_url"); }
+            else if (parseNode.GetChildNode("docs_url") is { } nullNodeDocsUrl && nullNodeDocsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocsUrl = null;
+            if (parseNode.GetChildNode("meta") is null) { _explicitNullValueMeta = default!; _explicitNullProperties?.Remove("meta"); }
+            else if (parseNode.GetChildNode("meta") is { } nullNodeMeta && nullNodeMeta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Meta = null;
+            if (parseNode.GetChildNode("metadata_source") is null) { _explicitNullValueMetadataSource = default!; _explicitNullProperties?.Remove("metadata_source"); }
+            else if (parseNode.GetChildNode("metadata_source") is { } nullNodeMetadataSource && nullNodeMetadataSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetadataSource = null;
+            if (parseNode.GetChildNode("meta_updated_at") is null) { _explicitNullValueMetaUpdatedAt = default!; _explicitNullProperties?.Remove("meta_updated_at"); }
+            else if (parseNode.GetChildNode("meta_updated_at") is { } nullNodeMetaUpdatedAt && nullNodeMetaUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetaUpdatedAt = null;
+            if (parseNode.GetChildNode("resource_types") is null) { _explicitNullValueResourceTypes = default!; _explicitNullProperties?.Remove("resource_types"); }
+            else if (parseNode.GetChildNode("resource_types") is { } nullNodeResourceTypes && nullNodeResourceTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceTypes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,87 +44,87 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The app property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        public string? App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; AdditionalData?.Remove("app"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
         private string? _explicitNullValueApp = default!;
 #nullable restore
 #else
-        public string App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
+        public string App { get => _explicitNullValueApp; set { _explicitNullValueApp = value; AdditionalData?.Remove("app"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("app"); else _explicitNullProperties?.Remove("app"); } }
         private string _explicitNullValueApp = default!;
 #endif
         /// <summary>whether the script set was pruned to idiomatic actions rather than generated one per endpoint; null when nobody has assessed it, which is distinct from a stated false</summary>
-        public bool? Curated { get => _explicitNullValueCurated; set { _explicitNullValueCurated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("curated"); else _explicitNullProperties?.Remove("curated"); } }
+        public bool? Curated { get => _explicitNullValueCurated; set { _explicitNullValueCurated = value; AdditionalData?.Remove("curated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("curated"); else _explicitNullProperties?.Remove("curated"); } }
         private bool? _explicitNullValueCurated = default!;
         /// <summary>facts computed from the integration&apos;s shipped scripts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerived? Derived { get => _explicitNullValueDerived; set { _explicitNullValueDerived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("derived"); else _explicitNullProperties?.Remove("derived"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerived? Derived { get => _explicitNullValueDerived; set { _explicitNullValueDerived = value; AdditionalData?.Remove("derived"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("derived"); else _explicitNullProperties?.Remove("derived"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerived? _explicitNullValueDerived = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerived Derived { get => _explicitNullValueDerived; set { _explicitNullValueDerived = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("derived"); else _explicitNullProperties?.Remove("derived"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerived Derived { get => _explicitNullValueDerived; set { _explicitNullValueDerived = value; AdditionalData?.Remove("derived"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("derived"); else _explicitNullProperties?.Remove("derived"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerived _explicitNullValueDerived = default!;
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The display_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
         private string? _explicitNullValueDisplayName = default!;
 #nullable restore
 #else
-        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
         private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The docs_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocsUrl { get => _explicitNullValueDocsUrl; set { _explicitNullValueDocsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("docs_url"); else _explicitNullProperties?.Remove("docs_url"); } }
+        public string? DocsUrl { get => _explicitNullValueDocsUrl; set { _explicitNullValueDocsUrl = value; AdditionalData?.Remove("docs_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("docs_url"); else _explicitNullProperties?.Remove("docs_url"); } }
         private string? _explicitNullValueDocsUrl = default!;
 #nullable restore
 #else
-        public string DocsUrl { get => _explicitNullValueDocsUrl; set { _explicitNullValueDocsUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("docs_url"); else _explicitNullProperties?.Remove("docs_url"); } }
+        public string DocsUrl { get => _explicitNullValueDocsUrl; set { _explicitNullValueDocsUrl = value; AdditionalData?.Remove("docs_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("docs_url"); else _explicitNullProperties?.Remove("docs_url"); } }
         private string _explicitNullValueDocsUrl = default!;
 #endif
         /// <summary>the integration&apos;s authored meta.json verbatim; the content repo owns its schema, so it is passed through unvalidated</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta? Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta? _explicitNullValueMeta = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta Meta { get => _explicitNullValueMeta; set { _explicitNullValueMeta = value; AdditionalData?.Remove("meta"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta"); else _explicitNullProperties?.Remove("meta"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta _explicitNullValueMeta = default!;
 #endif
         /// <summary>whether the provider knowledge was authored (curated) or inferred from the shipped scripts (derived)</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMetadataSource? MetadataSource { get => _explicitNullValueMetadataSource; set { _explicitNullValueMetadataSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_source"); else _explicitNullProperties?.Remove("metadata_source"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMetadataSource? MetadataSource { get => _explicitNullValueMetadataSource; set { _explicitNullValueMetadataSource = value; AdditionalData?.Remove("metadata_source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_source"); else _explicitNullProperties?.Remove("metadata_source"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMetadataSource? _explicitNullValueMetadataSource = default!;
         /// <summary>The meta_updated_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetaUpdatedAt { get => _explicitNullValueMetaUpdatedAt; set { _explicitNullValueMetaUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_updated_at"); else _explicitNullProperties?.Remove("meta_updated_at"); } }
+        public string? MetaUpdatedAt { get => _explicitNullValueMetaUpdatedAt; set { _explicitNullValueMetaUpdatedAt = value; AdditionalData?.Remove("meta_updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_updated_at"); else _explicitNullProperties?.Remove("meta_updated_at"); } }
         private string? _explicitNullValueMetaUpdatedAt = default!;
 #nullable restore
 #else
-        public string MetaUpdatedAt { get => _explicitNullValueMetaUpdatedAt; set { _explicitNullValueMetaUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_updated_at"); else _explicitNullProperties?.Remove("meta_updated_at"); } }
+        public string MetaUpdatedAt { get => _explicitNullValueMetaUpdatedAt; set { _explicitNullValueMetaUpdatedAt = value; AdditionalData?.Remove("meta_updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("meta_updated_at"); else _explicitNullProperties?.Remove("meta_updated_at"); } }
         private string _explicitNullValueMetaUpdatedAt = default!;
 #endif
         /// <summary>The resource_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem>? ResourceTypes { get => _explicitNullValueResourceTypes; set { _explicitNullValueResourceTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_types"); else _explicitNullProperties?.Remove("resource_types"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem>? ResourceTypes { get => _explicitNullValueResourceTypes; set { _explicitNullValueResourceTypes = value; AdditionalData?.Remove("resource_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_types"); else _explicitNullProperties?.Remove("resource_types"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem>? _explicitNullValueResourceTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem> ResourceTypes { get => _explicitNullValueResourceTypes; set { _explicitNullValueResourceTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_types"); else _explicitNullProperties?.Remove("resource_types"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem> ResourceTypes { get => _explicitNullValueResourceTypes; set { _explicitNullValueResourceTypes = value; AdditionalData?.Remove("resource_types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource_types"); else _explicitNullProperties?.Remove("resource_types"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem> _explicitNullValueResourceTypes = default!;
 #endif
         /// <summary>
@@ -150,7 +160,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "docs_url", n => { DocsUrl = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMeta.CreateFromDiscriminatorValue); } },
                 { "meta_updated_at", n => { MetaUpdatedAt = n.GetStringValue(); } },
-                { "metadata_source", n => { MetadataSource = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMetadataSource>(); } },
+                { "metadata_source", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseMetadataSource>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMetadataSource = default; _explicitNullProperties?.Remove("metadata_source"); AdditionalData["metadata_source"] = unknown; } else { MetadataSource = parsed; AdditionalData.Remove("metadata_source"); } } },
                 { "resource_types", n => { ResourceTypes = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseResourceTypesItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }

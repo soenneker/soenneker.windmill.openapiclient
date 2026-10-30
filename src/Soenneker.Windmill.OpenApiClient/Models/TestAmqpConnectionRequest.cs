@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("amqp_resource_path") is { } nullNodeAmqpResourcePath && nullNodeAmqpResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmqpResourcePath = null;
+            if (parseNode.GetChildNode("amqp_resource_path") is null) { _explicitNullValueAmqpResourcePath = default!; _explicitNullProperties?.Remove("amqp_resource_path"); }
+            else if (parseNode.GetChildNode("amqp_resource_path") is { } nullNodeAmqpResourcePath && nullNodeAmqpResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmqpResourcePath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Path to the AMQP resource containing broker connection configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AmqpResourcePath { get => _explicitNullValueAmqpResourcePath; set { _explicitNullValueAmqpResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amqp_resource_path"); else _explicitNullProperties?.Remove("amqp_resource_path"); } }
+        public string? AmqpResourcePath { get => _explicitNullValueAmqpResourcePath; set { _explicitNullValueAmqpResourcePath = value; AdditionalData?.Remove("amqp_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amqp_resource_path"); else _explicitNullProperties?.Remove("amqp_resource_path"); } }
         private string? _explicitNullValueAmqpResourcePath = default!;
 #nullable restore
 #else
-        public string AmqpResourcePath { get => _explicitNullValueAmqpResourcePath; set { _explicitNullValueAmqpResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amqp_resource_path"); else _explicitNullProperties?.Remove("amqp_resource_path"); } }
+        public string AmqpResourcePath { get => _explicitNullValueAmqpResourcePath; set { _explicitNullValueAmqpResourcePath = value; AdditionalData?.Remove("amqp_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amqp_resource_path"); else _explicitNullProperties?.Remove("amqp_resource_path"); } }
         private string _explicitNullValueAmqpResourcePath = default!;
 #endif
         /// <summary>

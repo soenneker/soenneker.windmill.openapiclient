@@ -18,11 +18,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api_hosts") is { } nullNodeApiHosts && nullNodeApiHosts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiHosts = null;
-            if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
-            if (parseNode.GetChildNode("script_counts") is { } nullNodeScriptCounts && nullNodeScriptCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptCounts = null;
-            if (parseNode.GetChildNode("style") is { } nullNodeStyle && nullNodeStyle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Style = null;
-            if (parseNode.GetChildNode("top_scripts") is { } nullNodeTopScripts && nullNodeTopScripts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopScripts = null;
+            if (parseNode.GetChildNode("api_hosts") is null) { _explicitNullValueApiHosts = default!; _explicitNullProperties?.Remove("api_hosts"); }
+            else if (parseNode.GetChildNode("api_hosts") is { } nullNodeApiHosts && nullNodeApiHosts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiHosts = null;
+            if (parseNode.GetChildNode("languages") is null) { _explicitNullValueLanguages = default!; _explicitNullProperties?.Remove("languages"); }
+            else if (parseNode.GetChildNode("languages") is { } nullNodeLanguages && nullNodeLanguages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Languages = null;
+            if (parseNode.GetChildNode("script_counts") is null) { _explicitNullValueScriptCounts = default!; _explicitNullProperties?.Remove("script_counts"); }
+            else if (parseNode.GetChildNode("script_counts") is { } nullNodeScriptCounts && nullNodeScriptCounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptCounts = null;
+            if (parseNode.GetChildNode("style") is null) { _explicitNullValueStyle = default!; _explicitNullProperties?.Remove("style"); }
+            else if (parseNode.GetChildNode("style") is { } nullNodeStyle && nullNodeStyle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Style = null;
+            if (parseNode.GetChildNode("top_scripts") is null) { _explicitNullValueTopScripts = default!; _explicitNullProperties?.Remove("top_scripts"); }
+            else if (parseNode.GetChildNode("top_scripts") is { } nullNodeTopScripts && nullNodeTopScripts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopScripts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,44 +35,44 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The api_hosts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem>? ApiHosts { get => _explicitNullValueApiHosts; set { _explicitNullValueApiHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_hosts"); else _explicitNullProperties?.Remove("api_hosts"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem>? ApiHosts { get => _explicitNullValueApiHosts; set { _explicitNullValueApiHosts = value; AdditionalData?.Remove("api_hosts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_hosts"); else _explicitNullProperties?.Remove("api_hosts"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem>? _explicitNullValueApiHosts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem> ApiHosts { get => _explicitNullValueApiHosts; set { _explicitNullValueApiHosts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_hosts"); else _explicitNullProperties?.Remove("api_hosts"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem> ApiHosts { get => _explicitNullValueApiHosts; set { _explicitNullValueApiHosts = value; AdditionalData?.Remove("api_hosts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api_hosts"); else _explicitNullProperties?.Remove("api_hosts"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem> _explicitNullValueApiHosts = default!;
 #endif
         /// <summary>The languages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages? Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages? _explicitNullValueLanguages = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages Languages { get => _explicitNullValueLanguages; set { _explicitNullValueLanguages = value; AdditionalData?.Remove("languages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("languages"); else _explicitNullProperties?.Remove("languages"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages _explicitNullValueLanguages = default!;
 #endif
         /// <summary>The script_counts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts? ScriptCounts { get => _explicitNullValueScriptCounts; set { _explicitNullValueScriptCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_counts"); else _explicitNullProperties?.Remove("script_counts"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts? ScriptCounts { get => _explicitNullValueScriptCounts; set { _explicitNullValueScriptCounts = value; AdditionalData?.Remove("script_counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_counts"); else _explicitNullProperties?.Remove("script_counts"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts? _explicitNullValueScriptCounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts ScriptCounts { get => _explicitNullValueScriptCounts; set { _explicitNullValueScriptCounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_counts"); else _explicitNullProperties?.Remove("script_counts"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts ScriptCounts { get => _explicitNullValueScriptCounts; set { _explicitNullValueScriptCounts = value; AdditionalData?.Remove("script_counts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_counts"); else _explicitNullProperties?.Remove("script_counts"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts _explicitNullValueScriptCounts = default!;
 #endif
         /// <summary>The style property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedStyle? Style { get => _explicitNullValueStyle; set { _explicitNullValueStyle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("style"); else _explicitNullProperties?.Remove("style"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedStyle? Style { get => _explicitNullValueStyle; set { _explicitNullValueStyle = value; AdditionalData?.Remove("style"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("style"); else _explicitNullProperties?.Remove("style"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedStyle? _explicitNullValueStyle = default!;
         /// <summary>The top_scripts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem>? TopScripts { get => _explicitNullValueTopScripts; set { _explicitNullValueTopScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_scripts"); else _explicitNullProperties?.Remove("top_scripts"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem>? TopScripts { get => _explicitNullValueTopScripts; set { _explicitNullValueTopScripts = value; AdditionalData?.Remove("top_scripts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_scripts"); else _explicitNullProperties?.Remove("top_scripts"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem>? _explicitNullValueTopScripts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem> TopScripts { get => _explicitNullValueTopScripts; set { _explicitNullValueTopScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_scripts"); else _explicitNullProperties?.Remove("top_scripts"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem> TopScripts { get => _explicitNullValueTopScripts; set { _explicitNullValueTopScripts = value; AdditionalData?.Remove("top_scripts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top_scripts"); else _explicitNullProperties?.Remove("top_scripts"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem> _explicitNullValueTopScripts = default!;
 #endif
         /// <summary>
@@ -98,7 +103,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "api_hosts", n => { ApiHosts = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedApiHostsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "languages", n => { Languages = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedLanguages.CreateFromDiscriminatorValue); } },
                 { "script_counts", n => { ScriptCounts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedScriptCounts.CreateFromDiscriminatorValue); } },
-                { "style", n => { Style = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedStyle>(); } },
+                { "style", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedStyle>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStyle = default; _explicitNullProperties?.Remove("style"); AdditionalData["style"] = unknown; } else { Style = parsed; AdditionalData.Remove("style"); } } },
                 { "top_scripts", n => { TopScripts = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetHubIntegrationMeta200ResponseDerivedTopScriptsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }

@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("oauth_data") is { } nullNodeOauthData && nullNodeOauthData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthData = null;
-            if (parseNode.GetChildNode("service_name") is { } nullNodeServiceName && nullNodeServiceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceName = null;
+            if (parseNode.GetChildNode("oauth_data") is null) { _explicitNullValueOauthData = default!; _explicitNullProperties?.Remove("oauth_data"); }
+            else if (parseNode.GetChildNode("oauth_data") is { } nullNodeOauthData && nullNodeOauthData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OauthData = null;
+            if (parseNode.GetChildNode("service_name") is null) { _explicitNullValueServiceName = default!; _explicitNullProperties?.Remove("service_name"); }
+            else if (parseNode.GetChildNode("service_name") is { } nullNodeServiceName && nullNodeServiceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,16 +28,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The oauth_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData? OauthData { get => _explicitNullValueOauthData; set { _explicitNullValueOauthData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_data"); else _explicitNullProperties?.Remove("oauth_data"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData? _explicitNullValueOauthData = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs2D228Fe770? OauthData { get => _explicitNullValueOauthData; set { _explicitNullValueOauthData = value; AdditionalData?.Remove("oauth_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_data"); else _explicitNullProperties?.Remove("oauth_data"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs2D228Fe770? _explicitNullValueOauthData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData OauthData { get => _explicitNullValueOauthData; set { _explicitNullValueOauthData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_data"); else _explicitNullProperties?.Remove("oauth_data"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData _explicitNullValueOauthData = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs2D228Fe770 OauthData { get => _explicitNullValueOauthData; set { _explicitNullValueOauthData = value; AdditionalData?.Remove("oauth_data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth_data"); else _explicitNullProperties?.Remove("oauth_data"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs2D228Fe770 _explicitNullValueOauthData = default!;
 #endif
         /// <summary>The service_name property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName? ServiceName { get => _explicitNullValueServiceName; set { _explicitNullValueServiceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_name"); else _explicitNullProperties?.Remove("service_name"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName? _explicitNullValueServiceName = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs0D04C54737? ServiceName { get => _explicitNullValueServiceName; set { _explicitNullValueServiceName = value; AdditionalData?.Remove("service_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_name"); else _explicitNullProperties?.Remove("service_name"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs0D04C54737? _explicitNullValueServiceName = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItem"/> and sets the default values.
         /// </summary>
@@ -61,8 +63,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "oauth_data", n => { OauthData = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData>(global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData.CreateFromDiscriminatorValue); } },
-                { "service_name", n => { ServiceName = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName>(); } },
+                { "oauth_data", n => { OauthData = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs2D228Fe770>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs2D228Fe770.CreateFromDiscriminatorValue); } },
+                { "service_name", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs0D04C54737>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueServiceName = default; _explicitNullProperties?.Remove("service_name"); AdditionalData["service_name"] = unknown; } else { ServiceName = parsed; AdditionalData.Remove("service_name"); } } },
             };
         }
         /// <summary>
@@ -72,8 +74,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseSchemaItemOAuthData>("oauth_data", OauthData);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListNativeTriggerServices200ResponseItemServiceName>("service_name", ServiceName);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs2D228Fe770>("oauth_data", OauthData);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs0D04C54737>("service_name", ServiceName);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

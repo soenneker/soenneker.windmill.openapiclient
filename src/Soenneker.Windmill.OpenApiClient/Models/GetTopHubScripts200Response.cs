@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("asks") is { } nullNodeAsks && nullNodeAsks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asks = null;
+            if (parseNode.GetChildNode("asks") is null) { _explicitNullValueAsks = default!; _explicitNullProperties?.Remove("asks"); }
+            else if (parseNode.GetChildNode("asks") is { } nullNodeAsks && nullNodeAsks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asks = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The asks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItem>? Asks { get => _explicitNullValueAsks; set { _explicitNullValueAsks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asks"); else _explicitNullProperties?.Remove("asks"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItem>? Asks { get => _explicitNullValueAsks; set { _explicitNullValueAsks = value; AdditionalData?.Remove("asks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asks"); else _explicitNullProperties?.Remove("asks"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItem>? _explicitNullValueAsks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItem> Asks { get => _explicitNullValueAsks; set { _explicitNullValueAsks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asks"); else _explicitNullProperties?.Remove("asks"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItem> Asks { get => _explicitNullValueAsks; set { _explicitNullValueAsks = value; AdditionalData?.Remove("asks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asks"); else _explicitNullProperties?.Remove("asks"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetTopHubScripts200ResponseAsksItem> _explicitNullValueAsks = default!;
 #endif
         /// <summary>

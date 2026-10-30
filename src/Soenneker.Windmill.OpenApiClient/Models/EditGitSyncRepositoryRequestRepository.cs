@@ -17,110 +17,123 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ai_review_prs") is { } nullNodeAiReviewPrs && nullNodeAiReviewPrs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiReviewPrs = null;
-            if (parseNode.GetChildNode("auto_pull") is { } nullNodeAutoPull && nullNodeAutoPull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoPull = null;
-            if (parseNode.GetChildNode("collapsed") is { } nullNodeCollapsed && nullNodeCollapsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collapsed = null;
-            if (parseNode.GetChildNode("credential") is { } nullNodeCredential && nullNodeCredential.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credential = null;
-            if (parseNode.GetChildNode("exclude_types_override") is { } nullNodeExcludeTypesOverride && nullNodeExcludeTypesOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeTypesOverride = null;
-            if (parseNode.GetChildNode("fork_open_prs") is { } nullNodeForkOpenPrs && nullNodeForkOpenPrs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkOpenPrs = null;
-            if (parseNode.GetChildNode("git_repo_resource_path") is { } nullNodeGitRepoResourcePath && nullNodeGitRepoResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitRepoResourcePath = null;
-            if (parseNode.GetChildNode("group_by_folder") is { } nullNodeGroupByFolder && nullNodeGroupByFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupByFolder = null;
-            if (parseNode.GetChildNode("open_pr_error") is { } nullNodeOpenPrError && nullNodeOpenPrError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenPrError = null;
-            if (parseNode.GetChildNode("promotion_open_prs") is { } nullNodePromotionOpenPrs && nullNodePromotionOpenPrs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromotionOpenPrs = null;
-            if (parseNode.GetChildNode("script_path") is { } nullNodeScriptPath && nullNodeScriptPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptPath = null;
-            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
-            if (parseNode.GetChildNode("use_individual_branch") is { } nullNodeUseIndividualBranch && nullNodeUseIndividualBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseIndividualBranch = null;
+            if (parseNode.GetChildNode("ai_review_prs") is null) { _explicitNullValueAiReviewPrs = default!; _explicitNullProperties?.Remove("ai_review_prs"); }
+            else if (parseNode.GetChildNode("ai_review_prs") is { } nullNodeAiReviewPrs && nullNodeAiReviewPrs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AiReviewPrs = null;
+            if (parseNode.GetChildNode("auto_pull") is null) { _explicitNullValueAutoPull = default!; _explicitNullProperties?.Remove("auto_pull"); }
+            else if (parseNode.GetChildNode("auto_pull") is { } nullNodeAutoPull && nullNodeAutoPull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoPull = null;
+            if (parseNode.GetChildNode("collapsed") is null) { _explicitNullValueCollapsed = default!; _explicitNullProperties?.Remove("collapsed"); }
+            else if (parseNode.GetChildNode("collapsed") is { } nullNodeCollapsed && nullNodeCollapsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collapsed = null;
+            if (parseNode.GetChildNode("credential") is null) { _explicitNullValueCredential = default!; _explicitNullProperties?.Remove("credential"); }
+            else if (parseNode.GetChildNode("credential") is { } nullNodeCredential && nullNodeCredential.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Credential = null;
+            if (parseNode.GetChildNode("exclude_types_override") is null) { _explicitNullValueExcludeTypesOverride = default!; _explicitNullProperties?.Remove("exclude_types_override"); }
+            else if (parseNode.GetChildNode("exclude_types_override") is { } nullNodeExcludeTypesOverride && nullNodeExcludeTypesOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExcludeTypesOverride = null;
+            if (parseNode.GetChildNode("fork_open_prs") is null) { _explicitNullValueForkOpenPrs = default!; _explicitNullProperties?.Remove("fork_open_prs"); }
+            else if (parseNode.GetChildNode("fork_open_prs") is { } nullNodeForkOpenPrs && nullNodeForkOpenPrs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkOpenPrs = null;
+            if (parseNode.GetChildNode("git_repo_resource_path") is null) { _explicitNullValueGitRepoResourcePath = default!; _explicitNullProperties?.Remove("git_repo_resource_path"); }
+            else if (parseNode.GetChildNode("git_repo_resource_path") is { } nullNodeGitRepoResourcePath && nullNodeGitRepoResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitRepoResourcePath = null;
+            if (parseNode.GetChildNode("group_by_folder") is null) { _explicitNullValueGroupByFolder = default!; _explicitNullProperties?.Remove("group_by_folder"); }
+            else if (parseNode.GetChildNode("group_by_folder") is { } nullNodeGroupByFolder && nullNodeGroupByFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GroupByFolder = null;
+            if (parseNode.GetChildNode("open_pr_error") is null) { _explicitNullValueOpenPrError = default!; _explicitNullProperties?.Remove("open_pr_error"); }
+            else if (parseNode.GetChildNode("open_pr_error") is { } nullNodeOpenPrError && nullNodeOpenPrError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OpenPrError = null;
+            if (parseNode.GetChildNode("promotion_open_prs") is null) { _explicitNullValuePromotionOpenPrs = default!; _explicitNullProperties?.Remove("promotion_open_prs"); }
+            else if (parseNode.GetChildNode("promotion_open_prs") is { } nullNodePromotionOpenPrs && nullNodePromotionOpenPrs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PromotionOpenPrs = null;
+            if (parseNode.GetChildNode("script_path") is null) { _explicitNullValueScriptPath = default!; _explicitNullProperties?.Remove("script_path"); }
+            else if (parseNode.GetChildNode("script_path") is { } nullNodeScriptPath && nullNodeScriptPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptPath = null;
+            if (parseNode.GetChildNode("settings") is null) { _explicitNullValueSettings = default!; _explicitNullProperties?.Remove("settings"); }
+            else if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+            if (parseNode.GetChildNode("use_individual_branch") is null) { _explicitNullValueUseIndividualBranch = default!; _explicitNullProperties?.Remove("use_individual_branch"); }
+            else if (parseNode.GetChildNode("use_individual_branch") is { } nullNodeUseIndividualBranch && nullNodeUseIndividualBranch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseIndividualBranch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>review every pull request against the tracked branch with the workspace&apos;s AI</summary>
-        public bool? AiReviewPrs { get => _explicitNullValueAiReviewPrs; set { _explicitNullValueAiReviewPrs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_review_prs"); else _explicitNullProperties?.Remove("ai_review_prs"); } }
+        public bool? AiReviewPrs { get => _explicitNullValueAiReviewPrs; set { _explicitNullValueAiReviewPrs = value; AdditionalData?.Remove("ai_review_prs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ai_review_prs"); else _explicitNullProperties?.Remove("ai_review_prs"); } }
         private bool? _explicitNullValueAiReviewPrs = default!;
         /// <summary>The auto_pull property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull? AutoPull { get => _explicitNullValueAutoPull; set { _explicitNullValueAutoPull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pull"); else _explicitNullProperties?.Remove("auto_pull"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull? _explicitNullValueAutoPull = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B? AutoPull { get => _explicitNullValueAutoPull; set { _explicitNullValueAutoPull = value; AdditionalData?.Remove("auto_pull"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pull"); else _explicitNullProperties?.Remove("auto_pull"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B? _explicitNullValueAutoPull = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull AutoPull { get => _explicitNullValueAutoPull; set { _explicitNullValueAutoPull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pull"); else _explicitNullProperties?.Remove("auto_pull"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull _explicitNullValueAutoPull = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B AutoPull { get => _explicitNullValueAutoPull; set { _explicitNullValueAutoPull = value; AdditionalData?.Remove("auto_pull"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pull"); else _explicitNullProperties?.Remove("auto_pull"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B _explicitNullValueAutoPull = default!;
 #endif
         /// <summary>The collapsed property</summary>
-        public bool? Collapsed { get => _explicitNullValueCollapsed; set { _explicitNullValueCollapsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collapsed"); else _explicitNullProperties?.Remove("collapsed"); } }
+        public bool? Collapsed { get => _explicitNullValueCollapsed; set { _explicitNullValueCollapsed = value; AdditionalData?.Remove("collapsed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collapsed"); else _explicitNullProperties?.Remove("collapsed"); } }
         private bool? _explicitNullValueCollapsed = default!;
         /// <summary>server-owned, what the repo&apos;s own credential reports about itself</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryCredential? Credential { get => _explicitNullValueCredential; set { _explicitNullValueCredential = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential"); else _explicitNullProperties?.Remove("credential"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryCredential? _explicitNullValueCredential = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D727778E1? Credential { get => _explicitNullValueCredential; set { _explicitNullValueCredential = value; AdditionalData?.Remove("credential"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential"); else _explicitNullProperties?.Remove("credential"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D727778E1? _explicitNullValueCredential = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryCredential Credential { get => _explicitNullValueCredential; set { _explicitNullValueCredential = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential"); else _explicitNullProperties?.Remove("credential"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryCredential _explicitNullValueCredential = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D727778E1 Credential { get => _explicitNullValueCredential; set { _explicitNullValueCredential = value; AdditionalData?.Remove("credential"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("credential"); else _explicitNullProperties?.Remove("credential"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D727778E1 _explicitNullValueCredential = default!;
 #endif
         /// <summary>The exclude_types_override property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem?>? ExcludeTypesOverride { get => _explicitNullValueExcludeTypesOverride; set { _explicitNullValueExcludeTypesOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_types_override"); else _explicitNullProperties?.Remove("exclude_types_override"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem?>? _explicitNullValueExcludeTypesOverride = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema85C83485F7?>? ExcludeTypesOverride { get => _explicitNullValueExcludeTypesOverride; set { _explicitNullValueExcludeTypesOverride = value; AdditionalData?.Remove("exclude_types_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_types_override"); else _explicitNullProperties?.Remove("exclude_types_override"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema85C83485F7?>? _explicitNullValueExcludeTypesOverride = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem?> ExcludeTypesOverride { get => _explicitNullValueExcludeTypesOverride; set { _explicitNullValueExcludeTypesOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_types_override"); else _explicitNullProperties?.Remove("exclude_types_override"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem?> _explicitNullValueExcludeTypesOverride = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema85C83485F7?> ExcludeTypesOverride { get => _explicitNullValueExcludeTypesOverride; set { _explicitNullValueExcludeTypesOverride = value; AdditionalData?.Remove("exclude_types_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exclude_types_override"); else _explicitNullProperties?.Remove("exclude_types_override"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema85C83485F7?> _explicitNullValueExcludeTypesOverride = default!;
 #endif
         /// <summary>The fork_open_prs property</summary>
-        public bool? ForkOpenPrs { get => _explicitNullValueForkOpenPrs; set { _explicitNullValueForkOpenPrs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_open_prs"); else _explicitNullProperties?.Remove("fork_open_prs"); } }
+        public bool? ForkOpenPrs { get => _explicitNullValueForkOpenPrs; set { _explicitNullValueForkOpenPrs = value; AdditionalData?.Remove("fork_open_prs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_open_prs"); else _explicitNullProperties?.Remove("fork_open_prs"); } }
         private bool? _explicitNullValueForkOpenPrs = default!;
         /// <summary>The git_repo_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
+        public string? GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; AdditionalData?.Remove("git_repo_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
         private string? _explicitNullValueGitRepoResourcePath = default!;
 #nullable restore
 #else
-        public string GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
+        public string GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; AdditionalData?.Remove("git_repo_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
         private string _explicitNullValueGitRepoResourcePath = default!;
 #endif
         /// <summary>The group_by_folder property</summary>
-        public bool? GroupByFolder { get => _explicitNullValueGroupByFolder; set { _explicitNullValueGroupByFolder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_by_folder"); else _explicitNullProperties?.Remove("group_by_folder"); } }
+        public bool? GroupByFolder { get => _explicitNullValueGroupByFolder; set { _explicitNullValueGroupByFolder = value; AdditionalData?.Remove("group_by_folder"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("group_by_folder"); else _explicitNullProperties?.Remove("group_by_folder"); } }
         private bool? _explicitNullValueGroupByFolder = default!;
         /// <summary>server-owned, last failure opening a PR for a deploy branch of this repo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OpenPrError { get => _explicitNullValueOpenPrError; set { _explicitNullValueOpenPrError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_pr_error"); else _explicitNullProperties?.Remove("open_pr_error"); } }
+        public string? OpenPrError { get => _explicitNullValueOpenPrError; set { _explicitNullValueOpenPrError = value; AdditionalData?.Remove("open_pr_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_pr_error"); else _explicitNullProperties?.Remove("open_pr_error"); } }
         private string? _explicitNullValueOpenPrError = default!;
 #nullable restore
 #else
-        public string OpenPrError { get => _explicitNullValueOpenPrError; set { _explicitNullValueOpenPrError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_pr_error"); else _explicitNullProperties?.Remove("open_pr_error"); } }
+        public string OpenPrError { get => _explicitNullValueOpenPrError; set { _explicitNullValueOpenPrError = value; AdditionalData?.Remove("open_pr_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("open_pr_error"); else _explicitNullProperties?.Remove("open_pr_error"); } }
         private string _explicitNullValueOpenPrError = default!;
 #endif
         /// <summary>The promotion_open_prs property</summary>
-        public bool? PromotionOpenPrs { get => _explicitNullValuePromotionOpenPrs; set { _explicitNullValuePromotionOpenPrs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("promotion_open_prs"); else _explicitNullProperties?.Remove("promotion_open_prs"); } }
+        public bool? PromotionOpenPrs { get => _explicitNullValuePromotionOpenPrs; set { _explicitNullValuePromotionOpenPrs = value; AdditionalData?.Remove("promotion_open_prs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("promotion_open_prs"); else _explicitNullProperties?.Remove("promotion_open_prs"); } }
         private bool? _explicitNullValuePromotionOpenPrs = default!;
         /// <summary>The script_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
+        public string? ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; AdditionalData?.Remove("script_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
         private string? _explicitNullValueScriptPath = default!;
 #nullable restore
 #else
-        public string ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
+        public string ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; AdditionalData?.Remove("script_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
         private string _explicitNullValueScriptPath = default!;
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings? _explicitNullValueSettings = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema41Af151816? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; AdditionalData?.Remove("settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema41Af151816? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings _explicitNullValueSettings = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema41Af151816 Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; AdditionalData?.Remove("settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema41Af151816 _explicitNullValueSettings = default!;
 #endif
         /// <summary>The use_individual_branch property</summary>
-        public bool? UseIndividualBranch { get => _explicitNullValueUseIndividualBranch; set { _explicitNullValueUseIndividualBranch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_individual_branch"); else _explicitNullProperties?.Remove("use_individual_branch"); } }
+        public bool? UseIndividualBranch { get => _explicitNullValueUseIndividualBranch; set { _explicitNullValueUseIndividualBranch = value; AdditionalData?.Remove("use_individual_branch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use_individual_branch"); else _explicitNullProperties?.Remove("use_individual_branch"); } }
         private bool? _explicitNullValueUseIndividualBranch = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepository"/> and sets the default values.
@@ -148,17 +161,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ai_review_prs", n => { AiReviewPrs = n.GetBoolValue(); } },
-                { "auto_pull", n => { AutoPull = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull>(global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull.CreateFromDiscriminatorValue); } },
+                { "auto_pull", n => { AutoPull = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B.CreateFromDiscriminatorValue); } },
                 { "collapsed", n => { Collapsed = n.GetBoolValue(); } },
-                { "credential", n => { Credential = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryCredential>(global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryCredential.CreateFromDiscriminatorValue); } },
-                { "exclude_types_override", n => { ExcludeTypesOverride = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem>()?.AsList(); } },
+                { "credential", n => { Credential = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D727778E1>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D727778E1.CreateFromDiscriminatorValue); } },
+                { "exclude_types_override", n => { ExcludeTypesOverride = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema85C83485F7>()?.AsList(); } },
                 { "fork_open_prs", n => { ForkOpenPrs = n.GetBoolValue(); } },
                 { "git_repo_resource_path", n => { GitRepoResourcePath = n.GetStringValue(); } },
                 { "group_by_folder", n => { GroupByFolder = n.GetBoolValue(); } },
                 { "open_pr_error", n => { OpenPrError = n.GetStringValue(); } },
                 { "promotion_open_prs", n => { PromotionOpenPrs = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings>(global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema41Af151816>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema41Af151816.CreateFromDiscriminatorValue); } },
                 { "use_individual_branch", n => { UseIndividualBranch = n.GetBoolValue(); } },
             };
         }
@@ -170,17 +183,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("ai_review_prs", AiReviewPrs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryAutoPull>("auto_pull", AutoPull);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B>("auto_pull", AutoPull);
             writer.WriteBoolValue("collapsed", Collapsed);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryCredential>("credential", Credential);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositoryExcludeTypesOverrideItem>("exclude_types_override", ExcludeTypesOverride);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D727778E1>("credential", Credential);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema85C83485F7>("exclude_types_override", ExcludeTypesOverride);
             writer.WriteBoolValue("fork_open_prs", ForkOpenPrs);
             writer.WriteStringValue("git_repo_resource_path", GitRepoResourcePath);
             writer.WriteBoolValue("group_by_folder", GroupByFolder);
             writer.WriteStringValue("open_pr_error", OpenPrError);
             writer.WriteBoolValue("promotion_open_prs", PromotionOpenPrs);
             writer.WriteStringValue("script_path", ScriptPath);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditGitSyncRepositoryRequestRepositorySettings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema41Af151816>("settings", Settings);
             writer.WriteBoolValue("use_individual_branch", UseIndividualBranch);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

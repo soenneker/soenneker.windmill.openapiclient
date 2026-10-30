@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("workspaces") is { } nullNodeWorkspaces && nullNodeWorkspaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workspaces = null;
+            if (parseNode.GetChildNode("workspaces") is null) { _explicitNullValueWorkspaces = default!; _explicitNullProperties?.Remove("workspaces"); }
+            else if (parseNode.GetChildNode("workspaces") is { } nullNodeWorkspaces && nullNodeWorkspaces.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workspaces = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,12 +26,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The workspaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200ResponseWorkspacesItem>? Workspaces { get => _explicitNullValueWorkspaces; set { _explicitNullValueWorkspaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaces"); else _explicitNullProperties?.Remove("workspaces"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200ResponseWorkspacesItem>? _explicitNullValueWorkspaces = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersOffboardPreviewEmailGetResponses200ContentApplicationJsonSchemaPropert967B2155B6>? Workspaces { get => _explicitNullValueWorkspaces; set { _explicitNullValueWorkspaces = value; AdditionalData?.Remove("workspaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaces"); else _explicitNullProperties?.Remove("workspaces"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersOffboardPreviewEmailGetResponses200ContentApplicationJsonSchemaPropert967B2155B6>? _explicitNullValueWorkspaces = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200ResponseWorkspacesItem> Workspaces { get => _explicitNullValueWorkspaces; set { _explicitNullValueWorkspaces = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaces"); else _explicitNullProperties?.Remove("workspaces"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200ResponseWorkspacesItem> _explicitNullValueWorkspaces = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersOffboardPreviewEmailGetResponses200ContentApplicationJsonSchemaPropert967B2155B6> Workspaces { get => _explicitNullValueWorkspaces; set { _explicitNullValueWorkspaces = value; AdditionalData?.Remove("workspaces"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaces"); else _explicitNullProperties?.Remove("workspaces"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersOffboardPreviewEmailGetResponses200ContentApplicationJsonSchemaPropert967B2155B6> _explicitNullValueWorkspaces = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200Response"/> and sets the default values.
@@ -57,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "workspaces", n => { Workspaces = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200ResponseWorkspacesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200ResponseWorkspacesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "workspaces", n => { Workspaces = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersOffboardPreviewEmailGetResponses200ContentApplicationJsonSchemaPropert967B2155B6>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersOffboardPreviewEmailGetResponses200ContentApplicationJsonSchemaPropert967B2155B6.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -67,7 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GlobalOffboardPreview200ResponseWorkspacesItem>("workspaces", Workspaces);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersOffboardPreviewEmailGetResponses200ContentApplicationJsonSchemaPropert967B2155B6>("workspaces", Workspaces);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

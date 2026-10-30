@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("stranded_references") is { } nullNodeStrandedReferences && nullNodeStrandedReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StrandedReferences = null;
+            if (parseNode.GetChildNode("stranded_references") is null) { _explicitNullValueStrandedReferences = default!; _explicitNullProperties?.Remove("stranded_references"); }
+            else if (parseNode.GetChildNode("stranded_references") is { } nullNodeStrandedReferences && nullNodeStrandedReferences.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StrandedReferences = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Data tables in other workspaces that were governed by one this save deleted and no longer resolve.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfig200ResponseStrandedReferencesItem>? StrandedReferences { get => _explicitNullValueStrandedReferences; set { _explicitNullValueStrandedReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stranded_references"); else _explicitNullProperties?.Remove("stranded_references"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfig200ResponseStrandedReferencesItem>? StrandedReferences { get => _explicitNullValueStrandedReferences; set { _explicitNullValueStrandedReferences = value; AdditionalData?.Remove("stranded_references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stranded_references"); else _explicitNullProperties?.Remove("stranded_references"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfig200ResponseStrandedReferencesItem>? _explicitNullValueStrandedReferences = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfig200ResponseStrandedReferencesItem> StrandedReferences { get => _explicitNullValueStrandedReferences; set { _explicitNullValueStrandedReferences = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stranded_references"); else _explicitNullProperties?.Remove("stranded_references"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfig200ResponseStrandedReferencesItem> StrandedReferences { get => _explicitNullValueStrandedReferences; set { _explicitNullValueStrandedReferences = value; AdditionalData?.Remove("stranded_references"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("stranded_references"); else _explicitNullProperties?.Remove("stranded_references"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfig200ResponseStrandedReferencesItem> _explicitNullValueStrandedReferences = default!;
 #endif
         /// <summary>

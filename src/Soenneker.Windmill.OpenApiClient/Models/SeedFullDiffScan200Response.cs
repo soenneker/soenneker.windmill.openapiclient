@@ -17,17 +17,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("candidates") is { } nullNodeCandidates && nullNodeCandidates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Candidates = null;
-            if (parseNode.GetChildNode("scanned_at") is { } nullNodeScannedAt && nullNodeScannedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScannedAt = null;
+            if (parseNode.GetChildNode("candidates") is null) { _explicitNullValueCandidates = default!; _explicitNullProperties?.Remove("candidates"); }
+            else if (parseNode.GetChildNode("candidates") is { } nullNodeCandidates && nullNodeCandidates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Candidates = null;
+            if (parseNode.GetChildNode("scanned_at") is null) { _explicitNullValueScannedAt = default!; _explicitNullProperties?.Remove("scanned_at"); }
+            else if (parseNode.GetChildNode("scanned_at") is { } nullNodeScannedAt && nullNodeScannedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScannedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of candidate items the comparison will evaluate</summary>
-        public int? Candidates { get => _explicitNullValueCandidates; set { _explicitNullValueCandidates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidates"); else _explicitNullProperties?.Remove("candidates"); } }
+        public int? Candidates { get => _explicitNullValueCandidates; set { _explicitNullValueCandidates = value; AdditionalData?.Remove("candidates"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("candidates"); else _explicitNullProperties?.Remove("candidates"); } }
         private int? _explicitNullValueCandidates = default!;
         /// <summary>The scanned_at property</summary>
-        public DateTimeOffset? ScannedAt { get => _explicitNullValueScannedAt; set { _explicitNullValueScannedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scanned_at"); else _explicitNullProperties?.Remove("scanned_at"); } }
+        public DateTimeOffset? ScannedAt { get => _explicitNullValueScannedAt; set { _explicitNullValueScannedAt = value; AdditionalData?.Remove("scanned_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scanned_at"); else _explicitNullProperties?.Remove("scanned_at"); } }
         private DateTimeOffset? _explicitNullValueScannedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SeedFullDiffScan200Response"/> and sets the default values.

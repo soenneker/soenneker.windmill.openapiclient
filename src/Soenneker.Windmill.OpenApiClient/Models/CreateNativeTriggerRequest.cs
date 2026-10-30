@@ -18,12 +18,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection_path") is { } nullNodeConnectionPath && nullNodeConnectionPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionPath = null;
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
-            if (parseNode.GetChildNode("is_flow") is { } nullNodeIsFlow && nullNodeIsFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFlow = null;
-            if (parseNode.GetChildNode("script_path") is { } nullNodeScriptPath && nullNodeScriptPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptPath = null;
-            if (parseNode.GetChildNode("service_config") is { } nullNodeServiceConfig && nullNodeServiceConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceConfig = null;
-            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+            if (parseNode.GetChildNode("connection_path") is null) { _explicitNullValueConnectionPath = default!; _explicitNullProperties?.Remove("connection_path"); }
+            else if (parseNode.GetChildNode("connection_path") is { } nullNodeConnectionPath && nullNodeConnectionPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionPath = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("is_flow") is null) { _explicitNullValueIsFlow = default!; _explicitNullProperties?.Remove("is_flow"); }
+            else if (parseNode.GetChildNode("is_flow") is { } nullNodeIsFlow && nullNodeIsFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFlow = null;
+            if (parseNode.GetChildNode("script_path") is null) { _explicitNullValueScriptPath = default!; _explicitNullProperties?.Remove("script_path"); }
+            else if (parseNode.GetChildNode("script_path") is { } nullNodeScriptPath && nullNodeScriptPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptPath = null;
+            if (parseNode.GetChildNode("service_config") is null) { _explicitNullValueServiceConfig = default!; _explicitNullProperties?.Remove("service_config"); }
+            else if (parseNode.GetChildNode("service_config") is { } nullNodeServiceConfig && nullNodeServiceConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceConfig = null;
+            if (parseNode.GetChildNode("summary") is null) { _explicitNullValueSummary = default!; _explicitNullProperties?.Remove("summary"); }
+            else if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,47 +37,47 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Path of the connection the trigger acts through. Honoured on create only; an update keeps the trigger&apos;s connection. When omitted on create, the caller&apos;s only usable connection for the service is used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionPath { get => _explicitNullValueConnectionPath; set { _explicitNullValueConnectionPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_path"); else _explicitNullProperties?.Remove("connection_path"); } }
+        public string? ConnectionPath { get => _explicitNullValueConnectionPath; set { _explicitNullValueConnectionPath = value; AdditionalData?.Remove("connection_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_path"); else _explicitNullProperties?.Remove("connection_path"); } }
         private string? _explicitNullValueConnectionPath = default!;
 #nullable restore
 #else
-        public string ConnectionPath { get => _explicitNullValueConnectionPath; set { _explicitNullValueConnectionPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_path"); else _explicitNullProperties?.Remove("connection_path"); } }
+        public string ConnectionPath { get => _explicitNullValueConnectionPath; set { _explicitNullValueConnectionPath = value; AdditionalData?.Remove("connection_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_path"); else _explicitNullProperties?.Remove("connection_path"); } }
         private string _explicitNullValueConnectionPath = default!;
 #endif
         /// <summary>Whether the trigger starts a job when it fires. Honoured on create only, so a trigger can be registered already paused; an update ignores it and setenabled is the only way to change an existing trigger&apos;s state. Defaults to true.</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>Whether the trigger targets a flow (true) or a script (false)</summary>
-        public bool? IsFlow { get => _explicitNullValueIsFlow; set { _explicitNullValueIsFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_flow"); else _explicitNullProperties?.Remove("is_flow"); } }
+        public bool? IsFlow { get => _explicitNullValueIsFlow; set { _explicitNullValueIsFlow = value; AdditionalData?.Remove("is_flow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_flow"); else _explicitNullProperties?.Remove("is_flow"); } }
         private bool? _explicitNullValueIsFlow = default!;
         /// <summary>The path to the script or flow that will be triggered</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
+        public string? ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; AdditionalData?.Remove("script_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
         private string? _explicitNullValueScriptPath = default!;
 #nullable restore
 #else
-        public string ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
+        public string ScriptPath { get => _explicitNullValueScriptPath; set { _explicitNullValueScriptPath = value; AdditionalData?.Remove("script_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_path"); else _explicitNullProperties?.Remove("script_path"); } }
         private string _explicitNullValueScriptPath = default!;
 #endif
         /// <summary>Service-specific configuration (e.g., event types, filters)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig? ServiceConfig { get => _explicitNullValueServiceConfig; set { _explicitNullValueServiceConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_config"); else _explicitNullProperties?.Remove("service_config"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig? ServiceConfig { get => _explicitNullValueServiceConfig; set { _explicitNullValueServiceConfig = value; AdditionalData?.Remove("service_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_config"); else _explicitNullProperties?.Remove("service_config"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig? _explicitNullValueServiceConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig ServiceConfig { get => _explicitNullValueServiceConfig; set { _explicitNullValueServiceConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_config"); else _explicitNullProperties?.Remove("service_config"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig ServiceConfig { get => _explicitNullValueServiceConfig; set { _explicitNullValueServiceConfig = value; AdditionalData?.Remove("service_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_config"); else _explicitNullProperties?.Remove("service_config"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CreateNativeTriggerRequestServiceConfig _explicitNullValueServiceConfig = default!;
 #endif
         /// <summary>Short summary to be displayed when listed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        public string? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
         private string? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public string Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        public string Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
         private string _explicitNullValueSummary = default!;
 #endif
         /// <summary>

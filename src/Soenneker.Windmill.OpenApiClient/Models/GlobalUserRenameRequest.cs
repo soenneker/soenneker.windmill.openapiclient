@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("new_username") is { } nullNodeNewUsername && nullNodeNewUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewUsername = null;
+            if (parseNode.GetChildNode("new_username") is null) { _explicitNullValueNewUsername = default!; _explicitNullProperties?.Remove("new_username"); }
+            else if (parseNode.GetChildNode("new_username") is { } nullNodeNewUsername && nullNodeNewUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewUsername = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The new_username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewUsername { get => _explicitNullValueNewUsername; set { _explicitNullValueNewUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_username"); else _explicitNullProperties?.Remove("new_username"); } }
+        public string? NewUsername { get => _explicitNullValueNewUsername; set { _explicitNullValueNewUsername = value; AdditionalData?.Remove("new_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_username"); else _explicitNullProperties?.Remove("new_username"); } }
         private string? _explicitNullValueNewUsername = default!;
 #nullable restore
 #else
-        public string NewUsername { get => _explicitNullValueNewUsername; set { _explicitNullValueNewUsername = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_username"); else _explicitNullProperties?.Remove("new_username"); } }
+        public string NewUsername { get => _explicitNullValueNewUsername; set { _explicitNullValueNewUsername = value; AdditionalData?.Remove("new_username"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_username"); else _explicitNullProperties?.Remove("new_username"); } }
         private string _explicitNullValueNewUsername = default!;
 #endif
         /// <summary>

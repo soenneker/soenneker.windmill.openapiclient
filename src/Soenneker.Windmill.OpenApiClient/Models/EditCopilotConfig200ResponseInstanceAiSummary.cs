@@ -17,10 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("code_completion_model") is { } nullNodeCodeCompletionModel && nullNodeCodeCompletionModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeCompletionModel = null;
-            if (parseNode.GetChildNode("default_model") is { } nullNodeDefaultModel && nullNodeDefaultModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultModel = null;
-            if (parseNode.GetChildNode("metadata_model") is { } nullNodeMetadataModel && nullNodeMetadataModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetadataModel = null;
-            if (parseNode.GetChildNode("providers") is { } nullNodeProviders && nullNodeProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Providers = null;
+            if (parseNode.GetChildNode("code_completion_model") is null) { _explicitNullValueCodeCompletionModel = default!; _explicitNullProperties?.Remove("code_completion_model"); }
+            else if (parseNode.GetChildNode("code_completion_model") is { } nullNodeCodeCompletionModel && nullNodeCodeCompletionModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CodeCompletionModel = null;
+            if (parseNode.GetChildNode("default_model") is null) { _explicitNullValueDefaultModel = default!; _explicitNullProperties?.Remove("default_model"); }
+            else if (parseNode.GetChildNode("default_model") is { } nullNodeDefaultModel && nullNodeDefaultModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultModel = null;
+            if (parseNode.GetChildNode("metadata_model") is null) { _explicitNullValueMetadataModel = default!; _explicitNullProperties?.Remove("metadata_model"); }
+            else if (parseNode.GetChildNode("metadata_model") is { } nullNodeMetadataModel && nullNodeMetadataModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetadataModel = null;
+            if (parseNode.GetChildNode("providers") is null) { _explicitNullValueProviders = default!; _explicitNullProperties?.Remove("providers"); }
+            else if (parseNode.GetChildNode("providers") is { } nullNodeProviders && nullNodeProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Providers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,42 +32,42 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The code_completion_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryCodeCompletionModel? CodeCompletionModel { get => _explicitNullValueCodeCompletionModel; set { _explicitNullValueCodeCompletionModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_completion_model"); else _explicitNullProperties?.Remove("code_completion_model"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryCodeCompletionModel? _explicitNullValueCodeCompletionModel = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson51044E5392? CodeCompletionModel { get => _explicitNullValueCodeCompletionModel; set { _explicitNullValueCodeCompletionModel = value; AdditionalData?.Remove("code_completion_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_completion_model"); else _explicitNullProperties?.Remove("code_completion_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson51044E5392? _explicitNullValueCodeCompletionModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryCodeCompletionModel CodeCompletionModel { get => _explicitNullValueCodeCompletionModel; set { _explicitNullValueCodeCompletionModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_completion_model"); else _explicitNullProperties?.Remove("code_completion_model"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryCodeCompletionModel _explicitNullValueCodeCompletionModel = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson51044E5392 CodeCompletionModel { get => _explicitNullValueCodeCompletionModel; set { _explicitNullValueCodeCompletionModel = value; AdditionalData?.Remove("code_completion_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code_completion_model"); else _explicitNullProperties?.Remove("code_completion_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson51044E5392 _explicitNullValueCodeCompletionModel = default!;
 #endif
         /// <summary>The default_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryDefaultModel? DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryDefaultModel? _explicitNullValueDefaultModel = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson0E2531D453? DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; AdditionalData?.Remove("default_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson0E2531D453? _explicitNullValueDefaultModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryDefaultModel DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryDefaultModel _explicitNullValueDefaultModel = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson0E2531D453 DefaultModel { get => _explicitNullValueDefaultModel; set { _explicitNullValueDefaultModel = value; AdditionalData?.Remove("default_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_model"); else _explicitNullProperties?.Remove("default_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson0E2531D453 _explicitNullValueDefaultModel = default!;
 #endif
         /// <summary>The metadata_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryMetadataModel? MetadataModel { get => _explicitNullValueMetadataModel; set { _explicitNullValueMetadataModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_model"); else _explicitNullProperties?.Remove("metadata_model"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryMetadataModel? _explicitNullValueMetadataModel = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson7Fa51A03Dc? MetadataModel { get => _explicitNullValueMetadataModel; set { _explicitNullValueMetadataModel = value; AdditionalData?.Remove("metadata_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_model"); else _explicitNullProperties?.Remove("metadata_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson7Fa51A03Dc? _explicitNullValueMetadataModel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryMetadataModel MetadataModel { get => _explicitNullValueMetadataModel; set { _explicitNullValueMetadataModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_model"); else _explicitNullProperties?.Remove("metadata_model"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryMetadataModel _explicitNullValueMetadataModel = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson7Fa51A03Dc MetadataModel { get => _explicitNullValueMetadataModel; set { _explicitNullValueMetadataModel = value; AdditionalData?.Remove("metadata_model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata_model"); else _explicitNullProperties?.Remove("metadata_model"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson7Fa51A03Dc _explicitNullValueMetadataModel = default!;
 #endif
         /// <summary>The providers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryProvidersItem>? Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryProvidersItem>? _explicitNullValueProviders = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson14885A490D>? Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; AdditionalData?.Remove("providers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson14885A490D>? _explicitNullValueProviders = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryProvidersItem> Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryProvidersItem> _explicitNullValueProviders = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson14885A490D> Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; AdditionalData?.Remove("providers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson14885A490D> _explicitNullValueProviders = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummary"/> and sets the default values.
@@ -90,10 +94,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code_completion_model", n => { CodeCompletionModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryCodeCompletionModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryCodeCompletionModel.CreateFromDiscriminatorValue); } },
-                { "default_model", n => { DefaultModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryDefaultModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryDefaultModel.CreateFromDiscriminatorValue); } },
-                { "metadata_model", n => { MetadataModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryMetadataModel>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryMetadataModel.CreateFromDiscriminatorValue); } },
-                { "providers", n => { Providers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryProvidersItem>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryProvidersItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "code_completion_model", n => { CodeCompletionModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson51044E5392>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson51044E5392.CreateFromDiscriminatorValue); } },
+                { "default_model", n => { DefaultModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson0E2531D453>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson0E2531D453.CreateFromDiscriminatorValue); } },
+                { "metadata_model", n => { MetadataModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson7Fa51A03Dc>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson7Fa51A03Dc.CreateFromDiscriminatorValue); } },
+                { "providers", n => { Providers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson14885A490D>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson14885A490D.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -103,10 +107,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryCodeCompletionModel>("code_completion_model", CodeCompletionModel);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryDefaultModel>("default_model", DefaultModel);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryMetadataModel>("metadata_model", MetadataModel);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseInstanceAiSummaryProvidersItem>("providers", Providers);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson51044E5392>("code_completion_model", CodeCompletionModel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson0E2531D453>("default_model", DefaultModel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson7Fa51A03Dc>("metadata_model", MetadataModel);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditCopilotConfigPostResponses200ContentApplicationJson14885A490D>("providers", Providers);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("default_app_path") is { } nullNodeDefaultAppPath && nullNodeDefaultAppPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAppPath = null;
+            if (parseNode.GetChildNode("default_app_path") is null) { _explicitNullValueDefaultAppPath = default!; _explicitNullProperties?.Remove("default_app_path"); }
+            else if (parseNode.GetChildNode("default_app_path") is { } nullNodeDefaultAppPath && nullNodeDefaultAppPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAppPath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The default_app_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultAppPath { get => _explicitNullValueDefaultAppPath; set { _explicitNullValueDefaultAppPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_app_path"); else _explicitNullProperties?.Remove("default_app_path"); } }
+        public string? DefaultAppPath { get => _explicitNullValueDefaultAppPath; set { _explicitNullValueDefaultAppPath = value; AdditionalData?.Remove("default_app_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_app_path"); else _explicitNullProperties?.Remove("default_app_path"); } }
         private string? _explicitNullValueDefaultAppPath = default!;
 #nullable restore
 #else
-        public string DefaultAppPath { get => _explicitNullValueDefaultAppPath; set { _explicitNullValueDefaultAppPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_app_path"); else _explicitNullProperties?.Remove("default_app_path"); } }
+        public string DefaultAppPath { get => _explicitNullValueDefaultAppPath; set { _explicitNullValueDefaultAppPath = value; AdditionalData?.Remove("default_app_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_app_path"); else _explicitNullProperties?.Remove("default_app_path"); } }
         private string _explicitNullValueDefaultAppPath = default!;
 #endif
         /// <summary>

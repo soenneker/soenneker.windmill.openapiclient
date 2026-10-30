@@ -17,30 +17,54 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("args") is { } nullNodeArgs && nullNodeArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Args = null;
-            if (parseNode.GetChildNode("cron_version") is { } nullNodeCronVersion && nullNodeCronVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CronVersion = null;
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("dynamic_skip") is { } nullNodeDynamicSkip && nullNodeDynamicSkip.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicSkip = null;
-            if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
-            if (parseNode.GetChildNode("no_flow_overlap") is { } nullNodeNoFlowOverlap && nullNodeNoFlowOverlap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoFlowOverlap = null;
-            if (parseNode.GetChildNode("on_failure") is { } nullNodeOnFailure && nullNodeOnFailure.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailure = null;
-            if (parseNode.GetChildNode("on_failure_exact") is { } nullNodeOnFailureExact && nullNodeOnFailureExact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailureExact = null;
-            if (parseNode.GetChildNode("on_failure_extra_args") is { } nullNodeOnFailureExtraArgs && nullNodeOnFailureExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailureExtraArgs = null;
-            if (parseNode.GetChildNode("on_failure_times") is { } nullNodeOnFailureTimes && nullNodeOnFailureTimes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailureTimes = null;
-            if (parseNode.GetChildNode("on_recovery") is { } nullNodeOnRecovery && nullNodeOnRecovery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnRecovery = null;
-            if (parseNode.GetChildNode("on_recovery_extra_args") is { } nullNodeOnRecoveryExtraArgs && nullNodeOnRecoveryExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnRecoveryExtraArgs = null;
-            if (parseNode.GetChildNode("on_recovery_times") is { } nullNodeOnRecoveryTimes && nullNodeOnRecoveryTimes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnRecoveryTimes = null;
-            if (parseNode.GetChildNode("on_success") is { } nullNodeOnSuccess && nullNodeOnSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnSuccess = null;
-            if (parseNode.GetChildNode("on_success_extra_args") is { } nullNodeOnSuccessExtraArgs && nullNodeOnSuccessExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnSuccessExtraArgs = null;
-            if (parseNode.GetChildNode("paused_until") is { } nullNodePausedUntil && nullNodePausedUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedUntil = null;
-            if (parseNode.GetChildNode("permissioned_as") is { } nullNodePermissionedAs && nullNodePermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionedAs = null;
-            if (parseNode.GetChildNode("preserve_permissioned_as") is { } nullNodePreservePermissionedAs && nullNodePreservePermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreservePermissionedAs = null;
-            if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
-            if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
-            if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
-            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
-            if (parseNode.GetChildNode("timezone") is { } nullNodeTimezone && nullNodeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timezone = null;
-            if (parseNode.GetChildNode("ws_error_handler_muted") is { } nullNodeWsErrorHandlerMuted && nullNodeWsErrorHandlerMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WsErrorHandlerMuted = null;
+            if (parseNode.GetChildNode("args") is null) { _explicitNullValueArgs = default!; _explicitNullProperties?.Remove("args"); }
+            else if (parseNode.GetChildNode("args") is { } nullNodeArgs && nullNodeArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Args = null;
+            if (parseNode.GetChildNode("cron_version") is null) { _explicitNullValueCronVersion = default!; _explicitNullProperties?.Remove("cron_version"); }
+            else if (parseNode.GetChildNode("cron_version") is { } nullNodeCronVersion && nullNodeCronVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CronVersion = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("dynamic_skip") is null) { _explicitNullValueDynamicSkip = default!; _explicitNullProperties?.Remove("dynamic_skip"); }
+            else if (parseNode.GetChildNode("dynamic_skip") is { } nullNodeDynamicSkip && nullNodeDynamicSkip.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DynamicSkip = null;
+            if (parseNode.GetChildNode("labels") is null) { _explicitNullValueLabels = default!; _explicitNullProperties?.Remove("labels"); }
+            else if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
+            if (parseNode.GetChildNode("no_flow_overlap") is null) { _explicitNullValueNoFlowOverlap = default!; _explicitNullProperties?.Remove("no_flow_overlap"); }
+            else if (parseNode.GetChildNode("no_flow_overlap") is { } nullNodeNoFlowOverlap && nullNodeNoFlowOverlap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoFlowOverlap = null;
+            if (parseNode.GetChildNode("on_failure") is null) { _explicitNullValueOnFailure = default!; _explicitNullProperties?.Remove("on_failure"); }
+            else if (parseNode.GetChildNode("on_failure") is { } nullNodeOnFailure && nullNodeOnFailure.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailure = null;
+            if (parseNode.GetChildNode("on_failure_exact") is null) { _explicitNullValueOnFailureExact = default!; _explicitNullProperties?.Remove("on_failure_exact"); }
+            else if (parseNode.GetChildNode("on_failure_exact") is { } nullNodeOnFailureExact && nullNodeOnFailureExact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailureExact = null;
+            if (parseNode.GetChildNode("on_failure_extra_args") is null) { _explicitNullValueOnFailureExtraArgs = default!; _explicitNullProperties?.Remove("on_failure_extra_args"); }
+            else if (parseNode.GetChildNode("on_failure_extra_args") is { } nullNodeOnFailureExtraArgs && nullNodeOnFailureExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailureExtraArgs = null;
+            if (parseNode.GetChildNode("on_failure_times") is null) { _explicitNullValueOnFailureTimes = default!; _explicitNullProperties?.Remove("on_failure_times"); }
+            else if (parseNode.GetChildNode("on_failure_times") is { } nullNodeOnFailureTimes && nullNodeOnFailureTimes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnFailureTimes = null;
+            if (parseNode.GetChildNode("on_recovery") is null) { _explicitNullValueOnRecovery = default!; _explicitNullProperties?.Remove("on_recovery"); }
+            else if (parseNode.GetChildNode("on_recovery") is { } nullNodeOnRecovery && nullNodeOnRecovery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnRecovery = null;
+            if (parseNode.GetChildNode("on_recovery_extra_args") is null) { _explicitNullValueOnRecoveryExtraArgs = default!; _explicitNullProperties?.Remove("on_recovery_extra_args"); }
+            else if (parseNode.GetChildNode("on_recovery_extra_args") is { } nullNodeOnRecoveryExtraArgs && nullNodeOnRecoveryExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnRecoveryExtraArgs = null;
+            if (parseNode.GetChildNode("on_recovery_times") is null) { _explicitNullValueOnRecoveryTimes = default!; _explicitNullProperties?.Remove("on_recovery_times"); }
+            else if (parseNode.GetChildNode("on_recovery_times") is { } nullNodeOnRecoveryTimes && nullNodeOnRecoveryTimes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnRecoveryTimes = null;
+            if (parseNode.GetChildNode("on_success") is null) { _explicitNullValueOnSuccess = default!; _explicitNullProperties?.Remove("on_success"); }
+            else if (parseNode.GetChildNode("on_success") is { } nullNodeOnSuccess && nullNodeOnSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnSuccess = null;
+            if (parseNode.GetChildNode("on_success_extra_args") is null) { _explicitNullValueOnSuccessExtraArgs = default!; _explicitNullProperties?.Remove("on_success_extra_args"); }
+            else if (parseNode.GetChildNode("on_success_extra_args") is { } nullNodeOnSuccessExtraArgs && nullNodeOnSuccessExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnSuccessExtraArgs = null;
+            if (parseNode.GetChildNode("paused_until") is null) { _explicitNullValuePausedUntil = default!; _explicitNullProperties?.Remove("paused_until"); }
+            else if (parseNode.GetChildNode("paused_until") is { } nullNodePausedUntil && nullNodePausedUntil.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PausedUntil = null;
+            if (parseNode.GetChildNode("permissioned_as") is null) { _explicitNullValuePermissionedAs = default!; _explicitNullProperties?.Remove("permissioned_as"); }
+            else if (parseNode.GetChildNode("permissioned_as") is { } nullNodePermissionedAs && nullNodePermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionedAs = null;
+            if (parseNode.GetChildNode("preserve_permissioned_as") is null) { _explicitNullValuePreservePermissionedAs = default!; _explicitNullProperties?.Remove("preserve_permissioned_as"); }
+            else if (parseNode.GetChildNode("preserve_permissioned_as") is { } nullNodePreservePermissionedAs && nullNodePreservePermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreservePermissionedAs = null;
+            if (parseNode.GetChildNode("retry") is null) { _explicitNullValueRetry = default!; _explicitNullProperties?.Remove("retry"); }
+            else if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
+            if (parseNode.GetChildNode("schedule") is null) { _explicitNullValueSchedule = default!; _explicitNullProperties?.Remove("schedule"); }
+            else if (parseNode.GetChildNode("schedule") is { } nullNodeSchedule && nullNodeSchedule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schedule = null;
+            if (parseNode.GetChildNode("summary") is null) { _explicitNullValueSummary = default!; _explicitNullProperties?.Remove("summary"); }
+            else if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
+            if (parseNode.GetChildNode("tag") is null) { _explicitNullValueTag = default!; _explicitNullProperties?.Remove("tag"); }
+            else if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("timezone") is null) { _explicitNullValueTimezone = default!; _explicitNullProperties?.Remove("timezone"); }
+            else if (parseNode.GetChildNode("timezone") is { } nullNodeTimezone && nullNodeTimezone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timezone = null;
+            if (parseNode.GetChildNode("ws_error_handler_muted") is null) { _explicitNullValueWsErrorHandlerMuted = default!; _explicitNullProperties?.Remove("ws_error_handler_muted"); }
+            else if (parseNode.GetChildNode("ws_error_handler_muted") is { } nullNodeWsErrorHandlerMuted && nullNodeWsErrorHandlerMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WsErrorHandlerMuted = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -48,193 +72,193 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestArgs? Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestArgs? Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; AdditionalData?.Remove("args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestArgs? _explicitNullValueArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestArgs Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestArgs Args { get => _explicitNullValueArgs; set { _explicitNullValueArgs = value; AdditionalData?.Remove("args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("args"); else _explicitNullProperties?.Remove("args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestArgs _explicitNullValueArgs = default!;
 #endif
         /// <summary>Cron parser version. Use &apos;v2&apos; for extended syntax with additional features</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CronVersion { get => _explicitNullValueCronVersion; set { _explicitNullValueCronVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron_version"); else _explicitNullProperties?.Remove("cron_version"); } }
+        public string? CronVersion { get => _explicitNullValueCronVersion; set { _explicitNullValueCronVersion = value; AdditionalData?.Remove("cron_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron_version"); else _explicitNullProperties?.Remove("cron_version"); } }
         private string? _explicitNullValueCronVersion = default!;
 #nullable restore
 #else
-        public string CronVersion { get => _explicitNullValueCronVersion; set { _explicitNullValueCronVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron_version"); else _explicitNullProperties?.Remove("cron_version"); } }
+        public string CronVersion { get => _explicitNullValueCronVersion; set { _explicitNullValueCronVersion = value; AdditionalData?.Remove("cron_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cron_version"); else _explicitNullProperties?.Remove("cron_version"); } }
         private string _explicitNullValueCronVersion = default!;
 #endif
         /// <summary>Detailed description of what this schedule does</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Path to a script that validates scheduled datetimes. Receives scheduled_for datetime and returns boolean to skip (true) or run (false)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DynamicSkip { get => _explicitNullValueDynamicSkip; set { _explicitNullValueDynamicSkip = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_skip"); else _explicitNullProperties?.Remove("dynamic_skip"); } }
+        public string? DynamicSkip { get => _explicitNullValueDynamicSkip; set { _explicitNullValueDynamicSkip = value; AdditionalData?.Remove("dynamic_skip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_skip"); else _explicitNullProperties?.Remove("dynamic_skip"); } }
         private string? _explicitNullValueDynamicSkip = default!;
 #nullable restore
 #else
-        public string DynamicSkip { get => _explicitNullValueDynamicSkip; set { _explicitNullValueDynamicSkip = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_skip"); else _explicitNullProperties?.Remove("dynamic_skip"); } }
+        public string DynamicSkip { get => _explicitNullValueDynamicSkip; set { _explicitNullValueDynamicSkip = value; AdditionalData?.Remove("dynamic_skip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dynamic_skip"); else _explicitNullProperties?.Remove("dynamic_skip"); } }
         private string _explicitNullValueDynamicSkip = default!;
 #endif
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        public List<string>? Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; AdditionalData?.Remove("labels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
         private List<string>? _explicitNullValueLabels = default!;
 #nullable restore
 #else
-        public List<string> Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
+        public List<string> Labels { get => _explicitNullValueLabels; set { _explicitNullValueLabels = value; AdditionalData?.Remove("labels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("labels"); else _explicitNullProperties?.Remove("labels"); } }
         private List<string> _explicitNullValueLabels = default!;
 #endif
         /// <summary>If true, skip this schedule&apos;s execution if the previous run is still in progress (prevents concurrent runs)</summary>
-        public bool? NoFlowOverlap { get => _explicitNullValueNoFlowOverlap; set { _explicitNullValueNoFlowOverlap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_flow_overlap"); else _explicitNullProperties?.Remove("no_flow_overlap"); } }
+        public bool? NoFlowOverlap { get => _explicitNullValueNoFlowOverlap; set { _explicitNullValueNoFlowOverlap = value; AdditionalData?.Remove("no_flow_overlap"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("no_flow_overlap"); else _explicitNullProperties?.Remove("no_flow_overlap"); } }
         private bool? _explicitNullValueNoFlowOverlap = default!;
         /// <summary>Path to a script or flow to run when the scheduled job fails</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnFailure { get => _explicitNullValueOnFailure; set { _explicitNullValueOnFailure = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure"); else _explicitNullProperties?.Remove("on_failure"); } }
+        public string? OnFailure { get => _explicitNullValueOnFailure; set { _explicitNullValueOnFailure = value; AdditionalData?.Remove("on_failure"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure"); else _explicitNullProperties?.Remove("on_failure"); } }
         private string? _explicitNullValueOnFailure = default!;
 #nullable restore
 #else
-        public string OnFailure { get => _explicitNullValueOnFailure; set { _explicitNullValueOnFailure = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure"); else _explicitNullProperties?.Remove("on_failure"); } }
+        public string OnFailure { get => _explicitNullValueOnFailure; set { _explicitNullValueOnFailure = value; AdditionalData?.Remove("on_failure"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure"); else _explicitNullProperties?.Remove("on_failure"); } }
         private string _explicitNullValueOnFailure = default!;
 #endif
         /// <summary>If true, trigger on_failure handler only on exactly N failures, not on every failure after N</summary>
-        public bool? OnFailureExact { get => _explicitNullValueOnFailureExact; set { _explicitNullValueOnFailureExact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_exact"); else _explicitNullProperties?.Remove("on_failure_exact"); } }
+        public bool? OnFailureExact { get => _explicitNullValueOnFailureExact; set { _explicitNullValueOnFailureExact = value; AdditionalData?.Remove("on_failure_exact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_exact"); else _explicitNullProperties?.Remove("on_failure_exact"); } }
         private bool? _explicitNullValueOnFailureExact = default!;
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnFailureExtraArgs? OnFailureExtraArgs { get => _explicitNullValueOnFailureExtraArgs; set { _explicitNullValueOnFailureExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_extra_args"); else _explicitNullProperties?.Remove("on_failure_extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnFailureExtraArgs? OnFailureExtraArgs { get => _explicitNullValueOnFailureExtraArgs; set { _explicitNullValueOnFailureExtraArgs = value; AdditionalData?.Remove("on_failure_extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_extra_args"); else _explicitNullProperties?.Remove("on_failure_extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnFailureExtraArgs? _explicitNullValueOnFailureExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnFailureExtraArgs OnFailureExtraArgs { get => _explicitNullValueOnFailureExtraArgs; set { _explicitNullValueOnFailureExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_extra_args"); else _explicitNullProperties?.Remove("on_failure_extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnFailureExtraArgs OnFailureExtraArgs { get => _explicitNullValueOnFailureExtraArgs; set { _explicitNullValueOnFailureExtraArgs = value; AdditionalData?.Remove("on_failure_extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_extra_args"); else _explicitNullProperties?.Remove("on_failure_extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnFailureExtraArgs _explicitNullValueOnFailureExtraArgs = default!;
 #endif
         /// <summary>Number of consecutive failures before the on_failure handler is triggered (default 1)</summary>
-        public double? OnFailureTimes { get => _explicitNullValueOnFailureTimes; set { _explicitNullValueOnFailureTimes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_times"); else _explicitNullProperties?.Remove("on_failure_times"); } }
+        public double? OnFailureTimes { get => _explicitNullValueOnFailureTimes; set { _explicitNullValueOnFailureTimes = value; AdditionalData?.Remove("on_failure_times"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_failure_times"); else _explicitNullProperties?.Remove("on_failure_times"); } }
         private double? _explicitNullValueOnFailureTimes = default!;
         /// <summary>Path to a script or flow to run when the schedule recovers after failures</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnRecovery { get => _explicitNullValueOnRecovery; set { _explicitNullValueOnRecovery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery"); else _explicitNullProperties?.Remove("on_recovery"); } }
+        public string? OnRecovery { get => _explicitNullValueOnRecovery; set { _explicitNullValueOnRecovery = value; AdditionalData?.Remove("on_recovery"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery"); else _explicitNullProperties?.Remove("on_recovery"); } }
         private string? _explicitNullValueOnRecovery = default!;
 #nullable restore
 #else
-        public string OnRecovery { get => _explicitNullValueOnRecovery; set { _explicitNullValueOnRecovery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery"); else _explicitNullProperties?.Remove("on_recovery"); } }
+        public string OnRecovery { get => _explicitNullValueOnRecovery; set { _explicitNullValueOnRecovery = value; AdditionalData?.Remove("on_recovery"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery"); else _explicitNullProperties?.Remove("on_recovery"); } }
         private string _explicitNullValueOnRecovery = default!;
 #endif
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnRecoveryExtraArgs? OnRecoveryExtraArgs { get => _explicitNullValueOnRecoveryExtraArgs; set { _explicitNullValueOnRecoveryExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery_extra_args"); else _explicitNullProperties?.Remove("on_recovery_extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnRecoveryExtraArgs? OnRecoveryExtraArgs { get => _explicitNullValueOnRecoveryExtraArgs; set { _explicitNullValueOnRecoveryExtraArgs = value; AdditionalData?.Remove("on_recovery_extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery_extra_args"); else _explicitNullProperties?.Remove("on_recovery_extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnRecoveryExtraArgs? _explicitNullValueOnRecoveryExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnRecoveryExtraArgs OnRecoveryExtraArgs { get => _explicitNullValueOnRecoveryExtraArgs; set { _explicitNullValueOnRecoveryExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery_extra_args"); else _explicitNullProperties?.Remove("on_recovery_extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnRecoveryExtraArgs OnRecoveryExtraArgs { get => _explicitNullValueOnRecoveryExtraArgs; set { _explicitNullValueOnRecoveryExtraArgs = value; AdditionalData?.Remove("on_recovery_extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery_extra_args"); else _explicitNullProperties?.Remove("on_recovery_extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnRecoveryExtraArgs _explicitNullValueOnRecoveryExtraArgs = default!;
 #endif
         /// <summary>Number of consecutive successes before the on_recovery handler is triggered (default 1)</summary>
-        public double? OnRecoveryTimes { get => _explicitNullValueOnRecoveryTimes; set { _explicitNullValueOnRecoveryTimes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery_times"); else _explicitNullProperties?.Remove("on_recovery_times"); } }
+        public double? OnRecoveryTimes { get => _explicitNullValueOnRecoveryTimes; set { _explicitNullValueOnRecoveryTimes = value; AdditionalData?.Remove("on_recovery_times"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_recovery_times"); else _explicitNullProperties?.Remove("on_recovery_times"); } }
         private double? _explicitNullValueOnRecoveryTimes = default!;
         /// <summary>Path to a script or flow to run after each successful execution</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnSuccess { get => _explicitNullValueOnSuccess; set { _explicitNullValueOnSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success"); else _explicitNullProperties?.Remove("on_success"); } }
+        public string? OnSuccess { get => _explicitNullValueOnSuccess; set { _explicitNullValueOnSuccess = value; AdditionalData?.Remove("on_success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success"); else _explicitNullProperties?.Remove("on_success"); } }
         private string? _explicitNullValueOnSuccess = default!;
 #nullable restore
 #else
-        public string OnSuccess { get => _explicitNullValueOnSuccess; set { _explicitNullValueOnSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success"); else _explicitNullProperties?.Remove("on_success"); } }
+        public string OnSuccess { get => _explicitNullValueOnSuccess; set { _explicitNullValueOnSuccess = value; AdditionalData?.Remove("on_success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success"); else _explicitNullProperties?.Remove("on_success"); } }
         private string _explicitNullValueOnSuccess = default!;
 #endif
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnSuccessExtraArgs? OnSuccessExtraArgs { get => _explicitNullValueOnSuccessExtraArgs; set { _explicitNullValueOnSuccessExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success_extra_args"); else _explicitNullProperties?.Remove("on_success_extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnSuccessExtraArgs? OnSuccessExtraArgs { get => _explicitNullValueOnSuccessExtraArgs; set { _explicitNullValueOnSuccessExtraArgs = value; AdditionalData?.Remove("on_success_extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success_extra_args"); else _explicitNullProperties?.Remove("on_success_extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnSuccessExtraArgs? _explicitNullValueOnSuccessExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnSuccessExtraArgs OnSuccessExtraArgs { get => _explicitNullValueOnSuccessExtraArgs; set { _explicitNullValueOnSuccessExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success_extra_args"); else _explicitNullProperties?.Remove("on_success_extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnSuccessExtraArgs OnSuccessExtraArgs { get => _explicitNullValueOnSuccessExtraArgs; set { _explicitNullValueOnSuccessExtraArgs = value; AdditionalData?.Remove("on_success_extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_success_extra_args"); else _explicitNullProperties?.Remove("on_success_extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestOnSuccessExtraArgs _explicitNullValueOnSuccessExtraArgs = default!;
 #endif
         /// <summary>ISO 8601 datetime until which the schedule is paused. Schedule resumes automatically after this time</summary>
-        public DateTimeOffset? PausedUntil { get => _explicitNullValuePausedUntil; set { _explicitNullValuePausedUntil = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paused_until"); else _explicitNullProperties?.Remove("paused_until"); } }
+        public DateTimeOffset? PausedUntil { get => _explicitNullValuePausedUntil; set { _explicitNullValuePausedUntil = value; AdditionalData?.Remove("paused_until"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paused_until"); else _explicitNullProperties?.Remove("paused_until"); } }
         private DateTimeOffset? _explicitNullValuePausedUntil = default!;
         /// <summary>The user or group this schedule runs as (e.g., &apos;u/admin&apos; or &apos;g/mygroup&apos;). Only admins and wm_deployers can set this via preserve_permissioned_as.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PermissionedAs { get => _explicitNullValuePermissionedAs; set { _explicitNullValuePermissionedAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned_as"); else _explicitNullProperties?.Remove("permissioned_as"); } }
+        public string? PermissionedAs { get => _explicitNullValuePermissionedAs; set { _explicitNullValuePermissionedAs = value; AdditionalData?.Remove("permissioned_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned_as"); else _explicitNullProperties?.Remove("permissioned_as"); } }
         private string? _explicitNullValuePermissionedAs = default!;
 #nullable restore
 #else
-        public string PermissionedAs { get => _explicitNullValuePermissionedAs; set { _explicitNullValuePermissionedAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned_as"); else _explicitNullProperties?.Remove("permissioned_as"); } }
+        public string PermissionedAs { get => _explicitNullValuePermissionedAs; set { _explicitNullValuePermissionedAs = value; AdditionalData?.Remove("permissioned_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned_as"); else _explicitNullProperties?.Remove("permissioned_as"); } }
         private string _explicitNullValuePermissionedAs = default!;
 #endif
         /// <summary>If true and user is admin/wm_deployers, preserve the provided permissioned_as instead of using the deploying user&apos;s identity</summary>
-        public bool? PreservePermissionedAs { get => _explicitNullValuePreservePermissionedAs; set { _explicitNullValuePreservePermissionedAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_permissioned_as"); else _explicitNullProperties?.Remove("preserve_permissioned_as"); } }
+        public bool? PreservePermissionedAs { get => _explicitNullValuePreservePermissionedAs; set { _explicitNullValuePreservePermissionedAs = value; AdditionalData?.Remove("preserve_permissioned_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preserve_permissioned_as"); else _explicitNullProperties?.Remove("preserve_permissioned_as"); } }
         private bool? _explicitNullValuePreservePermissionedAs = default!;
         /// <summary>Retry configuration for failed module executions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestRetry? Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestRetry? _explicitNullValueRetry = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSchedulesUpdatePathPostRequestBodyContentApplicationJsonSchemaPc283340Dfc? Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; AdditionalData?.Remove("retry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSchedulesUpdatePathPostRequestBodyContentApplicationJsonSchemaPc283340Dfc? _explicitNullValueRetry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestRetry Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestRetry _explicitNullValueRetry = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSchedulesUpdatePathPostRequestBodyContentApplicationJsonSchemaPc283340Dfc Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; AdditionalData?.Remove("retry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSchedulesUpdatePathPostRequestBodyContentApplicationJsonSchemaPc283340Dfc _explicitNullValueRetry = default!;
 #endif
         /// <summary>Cron expression with 6 fields (seconds, minutes, hours, day of month, month, day of week). Example &apos;0 0 12 * * *&apos; for daily at noon</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        public string? Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private string? _explicitNullValueSchedule = default!;
 #nullable restore
 #else
-        public string Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
+        public string Schedule { get => _explicitNullValueSchedule; set { _explicitNullValueSchedule = value; AdditionalData?.Remove("schedule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schedule"); else _explicitNullProperties?.Remove("schedule"); } }
         private string _explicitNullValueSchedule = default!;
 #endif
         /// <summary>Short summary describing the purpose of this schedule</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        public string? Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
         private string? _explicitNullValueSummary = default!;
 #nullable restore
 #else
-        public string Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
+        public string Summary { get => _explicitNullValueSummary; set { _explicitNullValueSummary = value; AdditionalData?.Remove("summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("summary"); else _explicitNullProperties?.Remove("summary"); } }
         private string _explicitNullValueSummary = default!;
 #endif
         /// <summary>Worker tag to route jobs to specific worker groups</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        public string? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; AdditionalData?.Remove("tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
         private string? _explicitNullValueTag = default!;
 #nullable restore
 #else
-        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        public string Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; AdditionalData?.Remove("tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
         private string _explicitNullValueTag = default!;
 #endif
         /// <summary>IANA timezone for the schedule (e.g., &apos;UTC&apos;, &apos;Europe/Paris&apos;, &apos;America/New_York&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
+        public string? Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; AdditionalData?.Remove("timezone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
         private string? _explicitNullValueTimezone = default!;
 #nullable restore
 #else
-        public string Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
+        public string Timezone { get => _explicitNullValueTimezone; set { _explicitNullValueTimezone = value; AdditionalData?.Remove("timezone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timezone"); else _explicitNullProperties?.Remove("timezone"); } }
         private string _explicitNullValueTimezone = default!;
 #endif
         /// <summary>If true, the workspace-level error handler will not be triggered for this schedule&apos;s failures</summary>
-        public bool? WsErrorHandlerMuted { get => _explicitNullValueWsErrorHandlerMuted; set { _explicitNullValueWsErrorHandlerMuted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ws_error_handler_muted"); else _explicitNullProperties?.Remove("ws_error_handler_muted"); } }
+        public bool? WsErrorHandlerMuted { get => _explicitNullValueWsErrorHandlerMuted; set { _explicitNullValueWsErrorHandlerMuted = value; AdditionalData?.Remove("ws_error_handler_muted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ws_error_handler_muted"); else _explicitNullProperties?.Remove("ws_error_handler_muted"); } }
         private bool? _explicitNullValueWsErrorHandlerMuted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequest"/> and sets the default values.
@@ -279,7 +303,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "paused_until", n => { PausedUntil = n.GetDateTimeOffsetValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "preserve_permissioned_as", n => { PreservePermissionedAs = n.GetBoolValue(); } },
-                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestRetry>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestRetry.CreateFromDiscriminatorValue); } },
+                { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSchedulesUpdatePathPostRequestBodyContentApplicationJsonSchemaPc283340Dfc>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSchedulesUpdatePathPostRequestBodyContentApplicationJsonSchemaPc283340Dfc.CreateFromDiscriminatorValue); } },
                 { "schedule", n => { Schedule = n.GetStringValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
@@ -312,7 +336,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("paused_until", PausedUntil);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteBoolValue("preserve_permissioned_as", PreservePermissionedAs);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateScheduleRequestRetry>("retry", Retry);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSchedulesUpdatePathPostRequestBodyContentApplicationJsonSchemaPc283340Dfc>("retry", Retry);
             writer.WriteStringValue("schedule", Schedule);
             writer.WriteStringValue("summary", Summary);
             writer.WriteStringValue("tag", Tag);

@@ -17,16 +17,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("available_roles") is { } nullNodeAvailableRoles && nullNodeAvailableRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableRoles = null;
-            if (parseNode.GetChildNode("clone_of") is { } nullNodeCloneOf && nullNodeCloneOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloneOf = null;
-            if (parseNode.GetChildNode("cluster") is { } nullNodeCluster && nullNodeCluster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cluster = null;
-            if (parseNode.GetChildNode("default_role") is { } nullNodeDefaultRole && nullNodeDefaultRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRole = null;
-            if (parseNode.GetChildNode("editable") is { } nullNodeEditable && nullNodeEditable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Editable = null;
-            if (parseNode.GetChildNode("governing_workspace_id") is { } nullNodeGoverningWorkspaceId && nullNodeGoverningWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoverningWorkspaceId = null;
-            if (parseNode.GetChildNode("permissioned") is { } nullNodePermissioned && nullNodePermissioned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissioned = null;
-            if (parseNode.GetChildNode("roles") is { } nullNodeRoles && nullNodeRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Roles = null;
-            if (parseNode.GetChildNode("supported") is { } nullNodeSupported && nullNodeSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Supported = null;
-            if (parseNode.GetChildNode("ungoverned_reachers") is { } nullNodeUngovernedReachers && nullNodeUngovernedReachers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UngovernedReachers = null;
+            if (parseNode.GetChildNode("available_roles") is null) { _explicitNullValueAvailableRoles = default!; _explicitNullProperties?.Remove("available_roles"); }
+            else if (parseNode.GetChildNode("available_roles") is { } nullNodeAvailableRoles && nullNodeAvailableRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AvailableRoles = null;
+            if (parseNode.GetChildNode("clone_of") is null) { _explicitNullValueCloneOf = default!; _explicitNullProperties?.Remove("clone_of"); }
+            else if (parseNode.GetChildNode("clone_of") is { } nullNodeCloneOf && nullNodeCloneOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CloneOf = null;
+            if (parseNode.GetChildNode("cluster") is null) { _explicitNullValueCluster = default!; _explicitNullProperties?.Remove("cluster"); }
+            else if (parseNode.GetChildNode("cluster") is { } nullNodeCluster && nullNodeCluster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cluster = null;
+            if (parseNode.GetChildNode("default_role") is null) { _explicitNullValueDefaultRole = default!; _explicitNullProperties?.Remove("default_role"); }
+            else if (parseNode.GetChildNode("default_role") is { } nullNodeDefaultRole && nullNodeDefaultRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultRole = null;
+            if (parseNode.GetChildNode("editable") is null) { _explicitNullValueEditable = default!; _explicitNullProperties?.Remove("editable"); }
+            else if (parseNode.GetChildNode("editable") is { } nullNodeEditable && nullNodeEditable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Editable = null;
+            if (parseNode.GetChildNode("governing_workspace_id") is null) { _explicitNullValueGoverningWorkspaceId = default!; _explicitNullProperties?.Remove("governing_workspace_id"); }
+            else if (parseNode.GetChildNode("governing_workspace_id") is { } nullNodeGoverningWorkspaceId && nullNodeGoverningWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GoverningWorkspaceId = null;
+            if (parseNode.GetChildNode("permissioned") is null) { _explicitNullValuePermissioned = default!; _explicitNullProperties?.Remove("permissioned"); }
+            else if (parseNode.GetChildNode("permissioned") is { } nullNodePermissioned && nullNodePermissioned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissioned = null;
+            if (parseNode.GetChildNode("roles") is null) { _explicitNullValueRoles = default!; _explicitNullProperties?.Remove("roles"); }
+            else if (parseNode.GetChildNode("roles") is { } nullNodeRoles && nullNodeRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Roles = null;
+            if (parseNode.GetChildNode("supported") is null) { _explicitNullValueSupported = default!; _explicitNullProperties?.Remove("supported"); }
+            else if (parseNode.GetChildNode("supported") is { } nullNodeSupported && nullNodeSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Supported = null;
+            if (parseNode.GetChildNode("ungoverned_reachers") is null) { _explicitNullValueUngovernedReachers = default!; _explicitNullProperties?.Remove("ungoverned_reachers"); }
+            else if (parseNode.GetChildNode("ungoverned_reachers") is { } nullNodeUngovernedReachers && nullNodeUngovernedReachers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UngovernedReachers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -34,74 +44,74 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The available_roles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>? AvailableRoles { get => _explicitNullValueAvailableRoles; set { _explicitNullValueAvailableRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_roles"); else _explicitNullProperties?.Remove("available_roles"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>? _explicitNullValueAvailableRoles = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A>? AvailableRoles { get => _explicitNullValueAvailableRoles; set { _explicitNullValueAvailableRoles = value; AdditionalData?.Remove("available_roles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_roles"); else _explicitNullProperties?.Remove("available_roles"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A>? _explicitNullValueAvailableRoles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem> AvailableRoles { get => _explicitNullValueAvailableRoles; set { _explicitNullValueAvailableRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_roles"); else _explicitNullProperties?.Remove("available_roles"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem> _explicitNullValueAvailableRoles = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A> AvailableRoles { get => _explicitNullValueAvailableRoles; set { _explicitNullValueAvailableRoles = value; AdditionalData?.Remove("available_roles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("available_roles"); else _explicitNullProperties?.Remove("available_roles"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A> _explicitNullValueAvailableRoles = default!;
 #endif
         /// <summary>for a clone, the data table whose roles it takes</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf? CloneOf { get => _explicitNullValueCloneOf; set { _explicitNullValueCloneOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clone_of"); else _explicitNullProperties?.Remove("clone_of"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf? _explicitNullValueCloneOf = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7? CloneOf { get => _explicitNullValueCloneOf; set { _explicitNullValueCloneOf = value; AdditionalData?.Remove("clone_of"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clone_of"); else _explicitNullProperties?.Remove("clone_of"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7? _explicitNullValueCloneOf = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf CloneOf { get => _explicitNullValueCloneOf; set { _explicitNullValueCloneOf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clone_of"); else _explicitNullProperties?.Remove("clone_of"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf _explicitNullValueCloneOf = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7 CloneOf { get => _explicitNullValueCloneOf; set { _explicitNullValueCloneOf = value; AdditionalData?.Remove("clone_of"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clone_of"); else _explicitNullProperties?.Remove("clone_of"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7 _explicitNullValueCloneOf = default!;
 #endif
         /// <summary>The Windmill-managed Postgres cluster a data table role is a login on: Windmill&apos;s own (behind `instance` data tables) or the external instance cluster (behind `external_instance` ones). Defaults to `instance`.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster? Cluster { get => _explicitNullValueCluster; set { _explicitNullValueCluster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster"); else _explicitNullProperties?.Remove("cluster"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster? _explicitNullValueCluster = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten2Be2Fbd950? Cluster { get => _explicitNullValueCluster; set { _explicitNullValueCluster = value; AdditionalData?.Remove("cluster"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cluster"); else _explicitNullProperties?.Remove("cluster"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten2Be2Fbd950? _explicitNullValueCluster = default!;
         /// <summary>A role id, `admin`, or `$none` when the data table has no default role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DefaultRole { get => _explicitNullValueDefaultRole; set { _explicitNullValueDefaultRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_role"); else _explicitNullProperties?.Remove("default_role"); } }
+        public string? DefaultRole { get => _explicitNullValueDefaultRole; set { _explicitNullValueDefaultRole = value; AdditionalData?.Remove("default_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_role"); else _explicitNullProperties?.Remove("default_role"); } }
         private string? _explicitNullValueDefaultRole = default!;
 #nullable restore
 #else
-        public string DefaultRole { get => _explicitNullValueDefaultRole; set { _explicitNullValueDefaultRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_role"); else _explicitNullProperties?.Remove("default_role"); } }
+        public string DefaultRole { get => _explicitNullValueDefaultRole; set { _explicitNullValueDefaultRole = value; AdditionalData?.Remove("default_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_role"); else _explicitNullProperties?.Remove("default_role"); } }
         private string _explicitNullValueDefaultRole = default!;
 #endif
         /// <summary>The editable property</summary>
-        public bool? Editable { get => _explicitNullValueEditable; set { _explicitNullValueEditable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("editable"); else _explicitNullProperties?.Remove("editable"); } }
+        public bool? Editable { get => _explicitNullValueEditable; set { _explicitNullValueEditable = value; AdditionalData?.Remove("editable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("editable"); else _explicitNullProperties?.Remove("editable"); } }
         private bool? _explicitNullValueEditable = default!;
         /// <summary>The governing_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GoverningWorkspaceId { get => _explicitNullValueGoverningWorkspaceId; set { _explicitNullValueGoverningWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("governing_workspace_id"); else _explicitNullProperties?.Remove("governing_workspace_id"); } }
+        public string? GoverningWorkspaceId { get => _explicitNullValueGoverningWorkspaceId; set { _explicitNullValueGoverningWorkspaceId = value; AdditionalData?.Remove("governing_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("governing_workspace_id"); else _explicitNullProperties?.Remove("governing_workspace_id"); } }
         private string? _explicitNullValueGoverningWorkspaceId = default!;
 #nullable restore
 #else
-        public string GoverningWorkspaceId { get => _explicitNullValueGoverningWorkspaceId; set { _explicitNullValueGoverningWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("governing_workspace_id"); else _explicitNullProperties?.Remove("governing_workspace_id"); } }
+        public string GoverningWorkspaceId { get => _explicitNullValueGoverningWorkspaceId; set { _explicitNullValueGoverningWorkspaceId = value; AdditionalData?.Remove("governing_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("governing_workspace_id"); else _explicitNullProperties?.Remove("governing_workspace_id"); } }
         private string _explicitNullValueGoverningWorkspaceId = default!;
 #endif
         /// <summary>The permissioned property</summary>
-        public bool? Permissioned { get => _explicitNullValuePermissioned; set { _explicitNullValuePermissioned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned"); else _explicitNullProperties?.Remove("permissioned"); } }
+        public bool? Permissioned { get => _explicitNullValuePermissioned; set { _explicitNullValuePermissioned = value; AdditionalData?.Remove("permissioned"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissioned"); else _explicitNullProperties?.Remove("permissioned"); } }
         private bool? _explicitNullValuePermissioned = default!;
         /// <summary>The roles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem>? Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem>? _explicitNullValueRoles = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten351307316D>? Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; AdditionalData?.Remove("roles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten351307316D>? _explicitNullValueRoles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem> Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem> _explicitNullValueRoles = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten351307316D> Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; AdditionalData?.Remove("roles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten351307316D> _explicitNullValueRoles = default!;
 #endif
         /// <summary>Whether this data table can be put under roles at all. Only one on a database Windmill manages can: a role is a login on that database&apos;s cluster.</summary>
-        public bool? Supported { get => _explicitNullValueSupported; set { _explicitNullValueSupported = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported"); else _explicitNullProperties?.Remove("supported"); } }
+        public bool? Supported { get => _explicitNullValueSupported; set { _explicitNullValueSupported = value; AdditionalData?.Remove("supported"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supported"); else _explicitNullProperties?.Remove("supported"); } }
         private bool? _explicitNullValueSupported = default!;
         /// <summary>The ungoverned_reachers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseUngovernedReachersItem>? UngovernedReachers { get => _explicitNullValueUngovernedReachers; set { _explicitNullValueUngovernedReachers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ungoverned_reachers"); else _explicitNullProperties?.Remove("ungoverned_reachers"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseUngovernedReachersItem>? _explicitNullValueUngovernedReachers = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten3A01Dff5Ec>? UngovernedReachers { get => _explicitNullValueUngovernedReachers; set { _explicitNullValueUngovernedReachers = value; AdditionalData?.Remove("ungoverned_reachers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ungoverned_reachers"); else _explicitNullProperties?.Remove("ungoverned_reachers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten3A01Dff5Ec>? _explicitNullValueUngovernedReachers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseUngovernedReachersItem> UngovernedReachers { get => _explicitNullValueUngovernedReachers; set { _explicitNullValueUngovernedReachers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ungoverned_reachers"); else _explicitNullProperties?.Remove("ungoverned_reachers"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseUngovernedReachersItem> _explicitNullValueUngovernedReachers = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten3A01Dff5Ec> UngovernedReachers { get => _explicitNullValueUngovernedReachers; set { _explicitNullValueUngovernedReachers = value; AdditionalData?.Remove("ungoverned_reachers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ungoverned_reachers"); else _explicitNullProperties?.Remove("ungoverned_reachers"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten3A01Dff5Ec> _explicitNullValueUngovernedReachers = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200Response"/> and sets the default values.
@@ -128,16 +138,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "available_roles", n => { AvailableRoles = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "clone_of", n => { CloneOf = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf.CreateFromDiscriminatorValue); } },
-                { "cluster", n => { Cluster = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster>(); } },
+                { "available_roles", n => { AvailableRoles = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "clone_of", n => { CloneOf = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7.CreateFromDiscriminatorValue); } },
+                { "cluster", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten2Be2Fbd950>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCluster = default; _explicitNullProperties?.Remove("cluster"); AdditionalData["cluster"] = unknown; } else { Cluster = parsed; AdditionalData.Remove("cluster"); } } },
                 { "default_role", n => { DefaultRole = n.GetStringValue(); } },
                 { "editable", n => { Editable = n.GetBoolValue(); } },
                 { "governing_workspace_id", n => { GoverningWorkspaceId = n.GetStringValue(); } },
                 { "permissioned", n => { Permissioned = n.GetBoolValue(); } },
-                { "roles", n => { Roles = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "roles", n => { Roles = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten351307316D>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten351307316D.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "supported", n => { Supported = n.GetBoolValue(); } },
-                { "ungoverned_reachers", n => { UngovernedReachers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseUngovernedReachersItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseUngovernedReachersItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ungoverned_reachers", n => { UngovernedReachers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten3A01Dff5Ec>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten3A01Dff5Ec.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -147,16 +157,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseAvailableRolesItem>("available_roles", AvailableRoles);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCloneOf>("clone_of", CloneOf);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseCluster>("cluster", Cluster);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A>("available_roles", AvailableRoles);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7>("clone_of", CloneOf);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten2Be2Fbd950>("cluster", Cluster);
             writer.WriteStringValue("default_role", DefaultRole);
             writer.WriteBoolValue("editable", Editable);
             writer.WriteStringValue("governing_workspace_id", GoverningWorkspaceId);
             writer.WriteBoolValue("permissioned", Permissioned);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseRolesItem>("roles", Roles);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten351307316D>("roles", Roles);
             writer.WriteBoolValue("supported", Supported);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatablePermissions200ResponseUngovernedReachersItem>("ungoverned_reachers", UngovernedReachers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten3A01Dff5Ec>("ungoverned_reachers", UngovernedReachers);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

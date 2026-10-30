@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_kind") is { } nullNodeJobKind && nullNodeJobKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobKind = null;
-            if (parseNode.GetChildNode("runnable_path") is { } nullNodeRunnablePath && nullNodeRunnablePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnablePath = null;
+            if (parseNode.GetChildNode("job_kind") is null) { _explicitNullValueJobKind = default!; _explicitNullProperties?.Remove("job_kind"); }
+            else if (parseNode.GetChildNode("job_kind") is { } nullNodeJobKind && nullNodeJobKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobKind = null;
+            if (parseNode.GetChildNode("runnable_path") is null) { _explicitNullValueRunnablePath = default!; _explicitNullProperties?.Remove("runnable_path"); }
+            else if (parseNode.GetChildNode("runnable_path") is { } nullNodeRunnablePath && nullNodeRunnablePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnablePath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The kind of job (script, flow, preview, etc.) (only present when kind is &apos;job&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JobKind { get => _explicitNullValueJobKind; set { _explicitNullValueJobKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_kind"); else _explicitNullProperties?.Remove("job_kind"); } }
+        public string? JobKind { get => _explicitNullValueJobKind; set { _explicitNullValueJobKind = value; AdditionalData?.Remove("job_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_kind"); else _explicitNullProperties?.Remove("job_kind"); } }
         private string? _explicitNullValueJobKind = default!;
 #nullable restore
 #else
-        public string JobKind { get => _explicitNullValueJobKind; set { _explicitNullValueJobKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_kind"); else _explicitNullProperties?.Remove("job_kind"); } }
+        public string JobKind { get => _explicitNullValueJobKind; set { _explicitNullValueJobKind = value; AdditionalData?.Remove("job_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_kind"); else _explicitNullProperties?.Remove("job_kind"); } }
         private string _explicitNullValueJobKind = default!;
 #endif
         /// <summary>The path of the script/flow that was run (only present when kind is &apos;job&apos;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        public string? RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; AdditionalData?.Remove("runnable_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
         private string? _explicitNullValueRunnablePath = default!;
 #nullable restore
 #else
-        public string RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        public string RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; AdditionalData?.Remove("runnable_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
         private string _explicitNullValueRunnablePath = default!;
 #endif
         /// <summary>

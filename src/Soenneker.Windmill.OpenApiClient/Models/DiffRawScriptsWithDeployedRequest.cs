@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("scripts") is { } nullNodeScripts && nullNodeScripts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scripts = null;
-            if (parseNode.GetChildNode("workspace_deps") is { } nullNodeWorkspaceDeps && nullNodeWorkspaceDeps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceDeps = null;
+            if (parseNode.GetChildNode("scripts") is null) { _explicitNullValueScripts = default!; _explicitNullProperties?.Remove("scripts"); }
+            else if (parseNode.GetChildNode("scripts") is { } nullNodeScripts && nullNodeScripts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scripts = null;
+            if (parseNode.GetChildNode("workspace_deps") is null) { _explicitNullValueWorkspaceDeps = default!; _explicitNullProperties?.Remove("workspace_deps"); }
+            else if (parseNode.GetChildNode("workspace_deps") is { } nullNodeWorkspaceDeps && nullNodeWorkspaceDeps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceDeps = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>map of script path to SHA256 content hash</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts? Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts? Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; AdditionalData?.Remove("scripts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts? _explicitNullValueScripts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts Scripts { get => _explicitNullValueScripts; set { _explicitNullValueScripts = value; AdditionalData?.Remove("scripts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scripts"); else _explicitNullProperties?.Remove("scripts"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestScripts _explicitNullValueScripts = default!;
 #endif
         /// <summary>workspace dependencies to diff</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem>? WorkspaceDeps { get => _explicitNullValueWorkspaceDeps; set { _explicitNullValueWorkspaceDeps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_deps"); else _explicitNullProperties?.Remove("workspace_deps"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem>? WorkspaceDeps { get => _explicitNullValueWorkspaceDeps; set { _explicitNullValueWorkspaceDeps = value; AdditionalData?.Remove("workspace_deps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_deps"); else _explicitNullProperties?.Remove("workspace_deps"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem>? _explicitNullValueWorkspaceDeps = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem> WorkspaceDeps { get => _explicitNullValueWorkspaceDeps; set { _explicitNullValueWorkspaceDeps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_deps"); else _explicitNullProperties?.Remove("workspace_deps"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem> WorkspaceDeps { get => _explicitNullValueWorkspaceDeps; set { _explicitNullValueWorkspaceDeps = value; AdditionalData?.Remove("workspace_deps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_deps"); else _explicitNullProperties?.Remove("workspace_deps"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.DiffRawScriptsWithDeployedRequestWorkspaceDepsItem> _explicitNullValueWorkspaceDeps = default!;
 #endif
         /// <summary>

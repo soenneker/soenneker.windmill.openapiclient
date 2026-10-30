@@ -17,11 +17,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("authorization_endpoint") is { } nullNodeAuthorizationEndpoint && nullNodeAuthorizationEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizationEndpoint = null;
-            if (parseNode.GetChildNode("registration_endpoint") is { } nullNodeRegistrationEndpoint && nullNodeRegistrationEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationEndpoint = null;
-            if (parseNode.GetChildNode("scopes_supported") is { } nullNodeScopesSupported && nullNodeScopesSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopesSupported = null;
-            if (parseNode.GetChildNode("supports_dynamic_registration") is { } nullNodeSupportsDynamicRegistration && nullNodeSupportsDynamicRegistration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsDynamicRegistration = null;
-            if (parseNode.GetChildNode("token_endpoint") is { } nullNodeTokenEndpoint && nullNodeTokenEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenEndpoint = null;
+            if (parseNode.GetChildNode("authorization_endpoint") is null) { _explicitNullValueAuthorizationEndpoint = default!; _explicitNullProperties?.Remove("authorization_endpoint"); }
+            else if (parseNode.GetChildNode("authorization_endpoint") is { } nullNodeAuthorizationEndpoint && nullNodeAuthorizationEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizationEndpoint = null;
+            if (parseNode.GetChildNode("registration_endpoint") is null) { _explicitNullValueRegistrationEndpoint = default!; _explicitNullProperties?.Remove("registration_endpoint"); }
+            else if (parseNode.GetChildNode("registration_endpoint") is { } nullNodeRegistrationEndpoint && nullNodeRegistrationEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationEndpoint = null;
+            if (parseNode.GetChildNode("scopes_supported") is null) { _explicitNullValueScopesSupported = default!; _explicitNullProperties?.Remove("scopes_supported"); }
+            else if (parseNode.GetChildNode("scopes_supported") is { } nullNodeScopesSupported && nullNodeScopesSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopesSupported = null;
+            if (parseNode.GetChildNode("supports_dynamic_registration") is null) { _explicitNullValueSupportsDynamicRegistration = default!; _explicitNullProperties?.Remove("supports_dynamic_registration"); }
+            else if (parseNode.GetChildNode("supports_dynamic_registration") is { } nullNodeSupportsDynamicRegistration && nullNodeSupportsDynamicRegistration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsDynamicRegistration = null;
+            if (parseNode.GetChildNode("token_endpoint") is null) { _explicitNullValueTokenEndpoint = default!; _explicitNullProperties?.Remove("token_endpoint"); }
+            else if (parseNode.GetChildNode("token_endpoint") is { } nullNodeTokenEndpoint && nullNodeTokenEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenEndpoint = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,44 +34,44 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The authorization_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AuthorizationEndpoint { get => _explicitNullValueAuthorizationEndpoint; set { _explicitNullValueAuthorizationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization_endpoint"); else _explicitNullProperties?.Remove("authorization_endpoint"); } }
+        public string? AuthorizationEndpoint { get => _explicitNullValueAuthorizationEndpoint; set { _explicitNullValueAuthorizationEndpoint = value; AdditionalData?.Remove("authorization_endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization_endpoint"); else _explicitNullProperties?.Remove("authorization_endpoint"); } }
         private string? _explicitNullValueAuthorizationEndpoint = default!;
 #nullable restore
 #else
-        public string AuthorizationEndpoint { get => _explicitNullValueAuthorizationEndpoint; set { _explicitNullValueAuthorizationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization_endpoint"); else _explicitNullProperties?.Remove("authorization_endpoint"); } }
+        public string AuthorizationEndpoint { get => _explicitNullValueAuthorizationEndpoint; set { _explicitNullValueAuthorizationEndpoint = value; AdditionalData?.Remove("authorization_endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorization_endpoint"); else _explicitNullProperties?.Remove("authorization_endpoint"); } }
         private string _explicitNullValueAuthorizationEndpoint = default!;
 #endif
         /// <summary>The registration_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegistrationEndpoint { get => _explicitNullValueRegistrationEndpoint; set { _explicitNullValueRegistrationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_endpoint"); else _explicitNullProperties?.Remove("registration_endpoint"); } }
+        public string? RegistrationEndpoint { get => _explicitNullValueRegistrationEndpoint; set { _explicitNullValueRegistrationEndpoint = value; AdditionalData?.Remove("registration_endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_endpoint"); else _explicitNullProperties?.Remove("registration_endpoint"); } }
         private string? _explicitNullValueRegistrationEndpoint = default!;
 #nullable restore
 #else
-        public string RegistrationEndpoint { get => _explicitNullValueRegistrationEndpoint; set { _explicitNullValueRegistrationEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_endpoint"); else _explicitNullProperties?.Remove("registration_endpoint"); } }
+        public string RegistrationEndpoint { get => _explicitNullValueRegistrationEndpoint; set { _explicitNullValueRegistrationEndpoint = value; AdditionalData?.Remove("registration_endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration_endpoint"); else _explicitNullProperties?.Remove("registration_endpoint"); } }
         private string _explicitNullValueRegistrationEndpoint = default!;
 #endif
         /// <summary>The scopes_supported property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ScopesSupported { get => _explicitNullValueScopesSupported; set { _explicitNullValueScopesSupported = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes_supported"); else _explicitNullProperties?.Remove("scopes_supported"); } }
+        public List<string>? ScopesSupported { get => _explicitNullValueScopesSupported; set { _explicitNullValueScopesSupported = value; AdditionalData?.Remove("scopes_supported"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes_supported"); else _explicitNullProperties?.Remove("scopes_supported"); } }
         private List<string>? _explicitNullValueScopesSupported = default!;
 #nullable restore
 #else
-        public List<string> ScopesSupported { get => _explicitNullValueScopesSupported; set { _explicitNullValueScopesSupported = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes_supported"); else _explicitNullProperties?.Remove("scopes_supported"); } }
+        public List<string> ScopesSupported { get => _explicitNullValueScopesSupported; set { _explicitNullValueScopesSupported = value; AdditionalData?.Remove("scopes_supported"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes_supported"); else _explicitNullProperties?.Remove("scopes_supported"); } }
         private List<string> _explicitNullValueScopesSupported = default!;
 #endif
         /// <summary>The supports_dynamic_registration property</summary>
-        public bool? SupportsDynamicRegistration { get => _explicitNullValueSupportsDynamicRegistration; set { _explicitNullValueSupportsDynamicRegistration = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_dynamic_registration"); else _explicitNullProperties?.Remove("supports_dynamic_registration"); } }
+        public bool? SupportsDynamicRegistration { get => _explicitNullValueSupportsDynamicRegistration; set { _explicitNullValueSupportsDynamicRegistration = value; AdditionalData?.Remove("supports_dynamic_registration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_dynamic_registration"); else _explicitNullProperties?.Remove("supports_dynamic_registration"); } }
         private bool? _explicitNullValueSupportsDynamicRegistration = default!;
         /// <summary>The token_endpoint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenEndpoint { get => _explicitNullValueTokenEndpoint; set { _explicitNullValueTokenEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_endpoint"); else _explicitNullProperties?.Remove("token_endpoint"); } }
+        public string? TokenEndpoint { get => _explicitNullValueTokenEndpoint; set { _explicitNullValueTokenEndpoint = value; AdditionalData?.Remove("token_endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_endpoint"); else _explicitNullProperties?.Remove("token_endpoint"); } }
         private string? _explicitNullValueTokenEndpoint = default!;
 #nullable restore
 #else
-        public string TokenEndpoint { get => _explicitNullValueTokenEndpoint; set { _explicitNullValueTokenEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_endpoint"); else _explicitNullProperties?.Remove("token_endpoint"); } }
+        public string TokenEndpoint { get => _explicitNullValueTokenEndpoint; set { _explicitNullValueTokenEndpoint = value; AdditionalData?.Remove("token_endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token_endpoint"); else _explicitNullProperties?.Remove("token_endpoint"); } }
         private string _explicitNullValueTokenEndpoint = default!;
 #endif
         /// <summary>

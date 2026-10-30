@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("signing_secret_set") is { } nullNodeSigningSecretSet && nullNodeSigningSecretSet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningSecretSet = null;
+            if (parseNode.GetChildNode("signing_secret_set") is null) { _explicitNullValueSigningSecretSet = default!; _explicitNullProperties?.Remove("signing_secret_set"); }
+            else if (parseNode.GetChildNode("signing_secret_set") is { } nullNodeSigningSecretSet && nullNodeSigningSecretSet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningSecretSet = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>agents answer in Slack only when the server has the Slack app&apos;s signing secret (SLACK_SIGNING_SECRET)</summary>
-        public bool? SigningSecretSet { get => _explicitNullValueSigningSecretSet; set { _explicitNullValueSigningSecretSet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret_set"); else _explicitNullProperties?.Remove("signing_secret_set"); } }
+        public bool? SigningSecretSet { get => _explicitNullValueSigningSecretSet; set { _explicitNullValueSigningSecretSet = value; AdditionalData?.Remove("signing_secret_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret_set"); else _explicitNullProperties?.Remove("signing_secret_set"); } }
         private bool? _explicitNullValueSigningSecretSet = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSlackAgentsStatus200Response"/> and sets the default values.

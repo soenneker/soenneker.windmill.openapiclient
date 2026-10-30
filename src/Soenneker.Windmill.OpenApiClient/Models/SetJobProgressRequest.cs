@@ -17,17 +17,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("flow_job_id") is { } nullNodeFlowJobId && nullNodeFlowJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobId = null;
-            if (parseNode.GetChildNode("percent") is { } nullNodePercent && nullNodePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Percent = null;
+            if (parseNode.GetChildNode("flow_job_id") is null) { _explicitNullValueFlowJobId = default!; _explicitNullProperties?.Remove("flow_job_id"); }
+            else if (parseNode.GetChildNode("flow_job_id") is { } nullNodeFlowJobId && nullNodeFlowJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobId = null;
+            if (parseNode.GetChildNode("percent") is null) { _explicitNullValuePercent = default!; _explicitNullProperties?.Remove("percent"); }
+            else if (parseNode.GetChildNode("percent") is { } nullNodePercent && nullNodePercent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Percent = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The flow_job_id property</summary>
-        public Guid? FlowJobId { get => _explicitNullValueFlowJobId; set { _explicitNullValueFlowJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_job_id"); else _explicitNullProperties?.Remove("flow_job_id"); } }
+        public Guid? FlowJobId { get => _explicitNullValueFlowJobId; set { _explicitNullValueFlowJobId = value; AdditionalData?.Remove("flow_job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_job_id"); else _explicitNullProperties?.Remove("flow_job_id"); } }
         private Guid? _explicitNullValueFlowJobId = default!;
         /// <summary>The percent property</summary>
-        public int? Percent { get => _explicitNullValuePercent; set { _explicitNullValuePercent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent"); else _explicitNullProperties?.Remove("percent"); } }
+        public int? Percent { get => _explicitNullValuePercent; set { _explicitNullValuePercent = value; AdditionalData?.Remove("percent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("percent"); else _explicitNullProperties?.Remove("percent"); } }
         private int? _explicitNullValuePercent = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetJobProgressRequest"/> and sets the default values.

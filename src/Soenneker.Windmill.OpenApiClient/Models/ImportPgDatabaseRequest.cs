@@ -17,45 +17,49 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fork_behavior") is { } nullNodeForkBehavior && nullNodeForkBehavior.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkBehavior = null;
-            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
-            if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
-            if (parseNode.GetChildNode("target_dbname_override") is { } nullNodeTargetDbnameOverride && nullNodeTargetDbnameOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetDbnameOverride = null;
+            if (parseNode.GetChildNode("fork_behavior") is null) { _explicitNullValueForkBehavior = default!; _explicitNullProperties?.Remove("fork_behavior"); }
+            else if (parseNode.GetChildNode("fork_behavior") is { } nullNodeForkBehavior && nullNodeForkBehavior.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkBehavior = null;
+            if (parseNode.GetChildNode("source") is null) { _explicitNullValueSource = default!; _explicitNullProperties?.Remove("source"); }
+            else if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("target") is null) { _explicitNullValueTarget = default!; _explicitNullProperties?.Remove("target"); }
+            else if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+            if (parseNode.GetChildNode("target_dbname_override") is null) { _explicitNullValueTargetDbnameOverride = default!; _explicitNullProperties?.Remove("target_dbname_override"); }
+            else if (parseNode.GetChildNode("target_dbname_override") is { } nullNodeTargetDbnameOverride && nullNodeTargetDbnameOverride.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetDbnameOverride = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fork_behavior property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ImportPgDatabaseRequestForkBehavior? ForkBehavior { get => _explicitNullValueForkBehavior; set { _explicitNullValueForkBehavior = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_behavior"); else _explicitNullProperties?.Remove("fork_behavior"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ImportPgDatabaseRequestForkBehavior? ForkBehavior { get => _explicitNullValueForkBehavior; set { _explicitNullValueForkBehavior = value; AdditionalData?.Remove("fork_behavior"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_behavior"); else _explicitNullProperties?.Remove("fork_behavior"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ImportPgDatabaseRequestForkBehavior? _explicitNullValueForkBehavior = default!;
         /// <summary>Source database: &apos;datatable://name&apos; or &apos;$res:path&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public string? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private string? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public string Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        public string Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; AdditionalData?.Remove("source"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
         private string _explicitNullValueSource = default!;
 #endif
         /// <summary>Target database: &apos;datatable://name&apos; or &apos;$res:path&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        public string? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
         private string? _explicitNullValueTarget = default!;
 #nullable restore
 #else
-        public string Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        public string Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
         private string _explicitNullValueTarget = default!;
 #endif
         /// <summary>Override the target database name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetDbnameOverride { get => _explicitNullValueTargetDbnameOverride; set { _explicitNullValueTargetDbnameOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_dbname_override"); else _explicitNullProperties?.Remove("target_dbname_override"); } }
+        public string? TargetDbnameOverride { get => _explicitNullValueTargetDbnameOverride; set { _explicitNullValueTargetDbnameOverride = value; AdditionalData?.Remove("target_dbname_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_dbname_override"); else _explicitNullProperties?.Remove("target_dbname_override"); } }
         private string? _explicitNullValueTargetDbnameOverride = default!;
 #nullable restore
 #else
-        public string TargetDbnameOverride { get => _explicitNullValueTargetDbnameOverride; set { _explicitNullValueTargetDbnameOverride = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_dbname_override"); else _explicitNullProperties?.Remove("target_dbname_override"); } }
+        public string TargetDbnameOverride { get => _explicitNullValueTargetDbnameOverride; set { _explicitNullValueTargetDbnameOverride = value; AdditionalData?.Remove("target_dbname_override"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target_dbname_override"); else _explicitNullProperties?.Remove("target_dbname_override"); } }
         private string _explicitNullValueTargetDbnameOverride = default!;
 #endif
         /// <summary>
@@ -83,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fork_behavior", n => { ForkBehavior = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportPgDatabaseRequestForkBehavior>(); } },
+                { "fork_behavior", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportPgDatabaseRequestForkBehavior>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueForkBehavior = default; _explicitNullProperties?.Remove("fork_behavior"); AdditionalData["fork_behavior"] = unknown; } else { ForkBehavior = parsed; AdditionalData.Remove("fork_behavior"); } } },
                 { "source", n => { Source = n.GetStringValue(); } },
                 { "target", n => { Target = n.GetStringValue(); } },
                 { "target_dbname_override", n => { TargetDbnameOverride = n.GetStringValue(); } },

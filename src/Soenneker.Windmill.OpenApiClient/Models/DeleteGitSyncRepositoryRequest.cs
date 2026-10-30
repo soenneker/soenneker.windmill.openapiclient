@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("git_repo_resource_path") is { } nullNodeGitRepoResourcePath && nullNodeGitRepoResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitRepoResourcePath = null;
+            if (parseNode.GetChildNode("git_repo_resource_path") is null) { _explicitNullValueGitRepoResourcePath = default!; _explicitNullProperties?.Remove("git_repo_resource_path"); }
+            else if (parseNode.GetChildNode("git_repo_resource_path") is { } nullNodeGitRepoResourcePath && nullNodeGitRepoResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GitRepoResourcePath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The resource path of the git repository to delete</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
+        public string? GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; AdditionalData?.Remove("git_repo_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
         private string? _explicitNullValueGitRepoResourcePath = default!;
 #nullable restore
 #else
-        public string GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
+        public string GitRepoResourcePath { get => _explicitNullValueGitRepoResourcePath; set { _explicitNullValueGitRepoResourcePath = value; AdditionalData?.Remove("git_repo_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("git_repo_resource_path"); else _explicitNullProperties?.Remove("git_repo_resource_path"); } }
         private string _explicitNullValueGitRepoResourcePath = default!;
 #endif
         /// <summary>

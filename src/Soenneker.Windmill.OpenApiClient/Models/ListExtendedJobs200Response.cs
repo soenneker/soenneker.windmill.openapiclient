@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("jobs") is { } nullNodeJobs && nullNodeJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jobs = null;
-            if (parseNode.GetChildNode("obscured_jobs") is { } nullNodeObscuredJobs && nullNodeObscuredJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObscuredJobs = null;
-            if (parseNode.GetChildNode("omitted_obscured_jobs") is { } nullNodeOmittedObscuredJobs && nullNodeOmittedObscuredJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OmittedObscuredJobs = null;
+            if (parseNode.GetChildNode("jobs") is null) { _explicitNullValueJobs = default!; _explicitNullProperties?.Remove("jobs"); }
+            else if (parseNode.GetChildNode("jobs") is { } nullNodeJobs && nullNodeJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jobs = null;
+            if (parseNode.GetChildNode("obscured_jobs") is null) { _explicitNullValueObscuredJobs = default!; _explicitNullProperties?.Remove("obscured_jobs"); }
+            else if (parseNode.GetChildNode("obscured_jobs") is { } nullNodeObscuredJobs && nullNodeObscuredJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObscuredJobs = null;
+            if (parseNode.GetChildNode("omitted_obscured_jobs") is null) { _explicitNullValueOmittedObscuredJobs = default!; _explicitNullProperties?.Remove("omitted_obscured_jobs"); }
+            else if (parseNode.GetChildNode("omitted_obscured_jobs") is { } nullNodeOmittedObscuredJobs && nullNodeOmittedObscuredJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OmittedObscuredJobs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>? Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>? _explicitNullValueJobs = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F>? Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; AdditionalData?.Remove("jobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F>? _explicitNullValueJobs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem> Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem> _explicitNullValueJobs = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F> Jobs { get => _explicitNullValueJobs; set { _explicitNullValueJobs = value; AdditionalData?.Remove("jobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs"); else _explicitNullProperties?.Remove("jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F> _explicitNullValueJobs = default!;
 #endif
         /// <summary>The obscured_jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>? ObscuredJobs { get => _explicitNullValueObscuredJobs; set { _explicitNullValueObscuredJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("obscured_jobs"); else _explicitNullProperties?.Remove("obscured_jobs"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>? _explicitNullValueObscuredJobs = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonScBfb83B7F11>? ObscuredJobs { get => _explicitNullValueObscuredJobs; set { _explicitNullValueObscuredJobs = value; AdditionalData?.Remove("obscured_jobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("obscured_jobs"); else _explicitNullProperties?.Remove("obscured_jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonScBfb83B7F11>? _explicitNullValueObscuredJobs = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem> ObscuredJobs { get => _explicitNullValueObscuredJobs; set { _explicitNullValueObscuredJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("obscured_jobs"); else _explicitNullProperties?.Remove("obscured_jobs"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem> _explicitNullValueObscuredJobs = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonScBfb83B7F11> ObscuredJobs { get => _explicitNullValueObscuredJobs; set { _explicitNullValueObscuredJobs = value; AdditionalData?.Remove("obscured_jobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("obscured_jobs"); else _explicitNullProperties?.Remove("obscured_jobs"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonScBfb83B7F11> _explicitNullValueObscuredJobs = default!;
 #endif
         /// <summary>Obscured jobs omitted for security because of too specific filtering</summary>
-        public bool? OmittedObscuredJobs { get => _explicitNullValueOmittedObscuredJobs; set { _explicitNullValueOmittedObscuredJobs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omitted_obscured_jobs"); else _explicitNullProperties?.Remove("omitted_obscured_jobs"); } }
+        public bool? OmittedObscuredJobs { get => _explicitNullValueOmittedObscuredJobs; set { _explicitNullValueOmittedObscuredJobs = value; AdditionalData?.Remove("omitted_obscured_jobs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omitted_obscured_jobs"); else _explicitNullProperties?.Remove("omitted_obscured_jobs"); } }
         private bool? _explicitNullValueOmittedObscuredJobs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200Response"/> and sets the default values.
@@ -72,8 +75,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "obscured_jobs", n => { ObscuredJobs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "obscured_jobs", n => { ObscuredJobs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonScBfb83B7F11>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonScBfb83B7F11.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "omitted_obscured_jobs", n => { OmittedObscuredJobs = n.GetBoolValue(); } },
             };
         }
@@ -84,8 +87,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseJobsItem>("jobs", Jobs);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListExtendedJobs200ResponseObscuredJobsItem>("obscured_jobs", ObscuredJobs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F>("jobs", Jobs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonScBfb83B7F11>("obscured_jobs", ObscuredJobs);
             writer.WriteBoolValue("omitted_obscured_jobs", OmittedObscuredJobs);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

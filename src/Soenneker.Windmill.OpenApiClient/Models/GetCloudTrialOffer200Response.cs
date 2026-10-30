@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("offered") is { } nullNodeOffered && nullNodeOffered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Offered = null;
+            if (parseNode.GetChildNode("offered") is null) { _explicitNullValueOffered = default!; _explicitNullProperties?.Remove("offered"); }
+            else if (parseNode.GetChildNode("offered") is { } nullNodeOffered && nullNodeOffered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Offered = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The offered property</summary>
-        public bool? Offered { get => _explicitNullValueOffered; set { _explicitNullValueOffered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offered"); else _explicitNullProperties?.Remove("offered"); } }
+        public bool? Offered { get => _explicitNullValueOffered; set { _explicitNullValueOffered = value; AdditionalData?.Remove("offered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offered"); else _explicitNullProperties?.Remove("offered"); } }
         private bool? _explicitNullValueOffered = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCloudTrialOffer200Response"/> and sets the default values.

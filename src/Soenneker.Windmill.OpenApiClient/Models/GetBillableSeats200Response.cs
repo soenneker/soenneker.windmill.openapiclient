@@ -17,25 +17,29 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("developers") is { } nullNodeDevelopers && nullNodeDevelopers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Developers = null;
-            if (parseNode.GetChildNode("operators") is { } nullNodeOperators && nullNodeOperators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operators = null;
-            if (parseNode.GetChildNode("seats") is { } nullNodeSeats && nullNodeSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seats = null;
-            if (parseNode.GetChildNode("service_accounts") is { } nullNodeServiceAccounts && nullNodeServiceAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccounts = null;
+            if (parseNode.GetChildNode("developers") is null) { _explicitNullValueDevelopers = default!; _explicitNullProperties?.Remove("developers"); }
+            else if (parseNode.GetChildNode("developers") is { } nullNodeDevelopers && nullNodeDevelopers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Developers = null;
+            if (parseNode.GetChildNode("operators") is null) { _explicitNullValueOperators = default!; _explicitNullProperties?.Remove("operators"); }
+            else if (parseNode.GetChildNode("operators") is { } nullNodeOperators && nullNodeOperators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operators = null;
+            if (parseNode.GetChildNode("seats") is null) { _explicitNullValueSeats = default!; _explicitNullProperties?.Remove("seats"); }
+            else if (parseNode.GetChildNode("seats") is { } nullNodeSeats && nullNodeSeats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Seats = null;
+            if (parseNode.GetChildNode("service_accounts") is null) { _explicitNullValueServiceAccounts = default!; _explicitNullProperties?.Remove("service_accounts"); }
+            else if (parseNode.GetChildNode("service_accounts") is { } nullNodeServiceAccounts && nullNodeServiceAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAccounts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Omitted when the seats counted are another workspace&apos;s, as they are for a fork resolving to its billing root.</summary>
-        public int? Developers { get => _explicitNullValueDevelopers; set { _explicitNullValueDevelopers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("developers"); else _explicitNullProperties?.Remove("developers"); } }
+        public int? Developers { get => _explicitNullValueDevelopers; set { _explicitNullValueDevelopers = value; AdditionalData?.Remove("developers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("developers"); else _explicitNullProperties?.Remove("developers"); } }
         private int? _explicitNullValueDevelopers = default!;
         /// <summary>Omitted when the seats counted are another workspace&apos;s, as they are for a fork resolving to its billing root.</summary>
-        public int? Operators { get => _explicitNullValueOperators; set { _explicitNullValueOperators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operators"); else _explicitNullProperties?.Remove("operators"); } }
+        public int? Operators { get => _explicitNullValueOperators; set { _explicitNullValueOperators = value; AdditionalData?.Remove("operators"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operators"); else _explicitNullProperties?.Remove("operators"); } }
         private int? _explicitNullValueOperators = default!;
         /// <summary>The seats property</summary>
-        public int? Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
+        public int? Seats { get => _explicitNullValueSeats; set { _explicitNullValueSeats = value; AdditionalData?.Remove("seats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("seats"); else _explicitNullProperties?.Remove("seats"); } }
         private int? _explicitNullValueSeats = default!;
         /// <summary>Enabled service accounts, half a seat each like operators. Omitted when the seats counted are another workspace&apos;s, as they are for a fork resolving to its billing root.</summary>
-        public int? ServiceAccounts { get => _explicitNullValueServiceAccounts; set { _explicitNullValueServiceAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_accounts"); else _explicitNullProperties?.Remove("service_accounts"); } }
+        public int? ServiceAccounts { get => _explicitNullValueServiceAccounts; set { _explicitNullValueServiceAccounts = value; AdditionalData?.Remove("service_accounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_accounts"); else _explicitNullProperties?.Remove("service_accounts"); } }
         private int? _explicitNullValueServiceAccounts = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetBillableSeats200Response"/> and sets the default values.

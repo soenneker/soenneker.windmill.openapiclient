@@ -17,61 +17,67 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("email_triggers") is { } nullNodeEmailTriggers && nullNodeEmailTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailTriggers = null;
-            if (parseNode.GetChildNode("executing_on_behalf") is { } nullNodeExecutingOnBehalf && nullNodeExecutingOnBehalf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutingOnBehalf = null;
-            if (parseNode.GetChildNode("http_triggers") is { } nullNodeHttpTriggers && nullNodeHttpTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpTriggers = null;
-            if (parseNode.GetChildNode("owned") is { } nullNodeOwned && nullNodeOwned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owned = null;
-            if (parseNode.GetChildNode("referencing") is { } nullNodeReferencing && nullNodeReferencing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Referencing = null;
-            if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
+            if (parseNode.GetChildNode("email_triggers") is null) { _explicitNullValueEmailTriggers = default!; _explicitNullProperties?.Remove("email_triggers"); }
+            else if (parseNode.GetChildNode("email_triggers") is { } nullNodeEmailTriggers && nullNodeEmailTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailTriggers = null;
+            if (parseNode.GetChildNode("executing_on_behalf") is null) { _explicitNullValueExecutingOnBehalf = default!; _explicitNullProperties?.Remove("executing_on_behalf"); }
+            else if (parseNode.GetChildNode("executing_on_behalf") is { } nullNodeExecutingOnBehalf && nullNodeExecutingOnBehalf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutingOnBehalf = null;
+            if (parseNode.GetChildNode("http_triggers") is null) { _explicitNullValueHttpTriggers = default!; _explicitNullProperties?.Remove("http_triggers"); }
+            else if (parseNode.GetChildNode("http_triggers") is { } nullNodeHttpTriggers && nullNodeHttpTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpTriggers = null;
+            if (parseNode.GetChildNode("owned") is null) { _explicitNullValueOwned = default!; _explicitNullProperties?.Remove("owned"); }
+            else if (parseNode.GetChildNode("owned") is { } nullNodeOwned && nullNodeOwned.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owned = null;
+            if (parseNode.GetChildNode("referencing") is null) { _explicitNullValueReferencing = default!; _explicitNullProperties?.Remove("referencing"); }
+            else if (parseNode.GetChildNode("referencing") is { } nullNodeReferencing && nullNodeReferencing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Referencing = null;
+            if (parseNode.GetChildNode("tokens") is null) { _explicitNullValueTokens = default!; _explicitNullProperties?.Remove("tokens"); }
+            else if (parseNode.GetChildNode("tokens") is { } nullNodeTokens && nullNodeTokens.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tokens = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Email triggers under the user&apos;s path (email addresses will change)</summary>
-        public int? EmailTriggers { get => _explicitNullValueEmailTriggers; set { _explicitNullValueEmailTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_triggers"); else _explicitNullProperties?.Remove("email_triggers"); } }
+        public int? EmailTriggers { get => _explicitNullValueEmailTriggers; set { _explicitNullValueEmailTriggers = value; AdditionalData?.Remove("email_triggers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_triggers"); else _explicitNullProperties?.Remove("email_triggers"); } }
         private int? _explicitNullValueEmailTriggers = default!;
         /// <summary>Objects not under the user&apos;s path but that execute on behalf of this user (permissioned_as/on_behalf_of will be updated)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf? ExecutingOnBehalf { get => _explicitNullValueExecutingOnBehalf; set { _explicitNullValueExecutingOnBehalf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executing_on_behalf"); else _explicitNullProperties?.Remove("executing_on_behalf"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf? _explicitNullValueExecutingOnBehalf = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs4Fc0Ec7734? ExecutingOnBehalf { get => _explicitNullValueExecutingOnBehalf; set { _explicitNullValueExecutingOnBehalf = value; AdditionalData?.Remove("executing_on_behalf"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executing_on_behalf"); else _explicitNullProperties?.Remove("executing_on_behalf"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs4Fc0Ec7734? _explicitNullValueExecutingOnBehalf = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf ExecutingOnBehalf { get => _explicitNullValueExecutingOnBehalf; set { _explicitNullValueExecutingOnBehalf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executing_on_behalf"); else _explicitNullProperties?.Remove("executing_on_behalf"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf _explicitNullValueExecutingOnBehalf = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs4Fc0Ec7734 ExecutingOnBehalf { get => _explicitNullValueExecutingOnBehalf; set { _explicitNullValueExecutingOnBehalf = value; AdditionalData?.Remove("executing_on_behalf"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executing_on_behalf"); else _explicitNullProperties?.Remove("executing_on_behalf"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs4Fc0Ec7734 _explicitNullValueExecutingOnBehalf = default!;
 #endif
         /// <summary>HTTP triggers under the user&apos;s path (webhook URLs will change)</summary>
-        public int? HttpTriggers { get => _explicitNullValueHttpTriggers; set { _explicitNullValueHttpTriggers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_triggers"); else _explicitNullProperties?.Remove("http_triggers"); } }
+        public int? HttpTriggers { get => _explicitNullValueHttpTriggers; set { _explicitNullValueHttpTriggers = value; AdditionalData?.Remove("http_triggers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_triggers"); else _explicitNullProperties?.Remove("http_triggers"); } }
         private int? _explicitNullValueHttpTriggers = default!;
         /// <summary>Objects under u/{username}/ that will be reassigned</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned? Owned { get => _explicitNullValueOwned; set { _explicitNullValueOwned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owned"); else _explicitNullProperties?.Remove("owned"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned? _explicitNullValueOwned = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJsF23F305177? Owned { get => _explicitNullValueOwned; set { _explicitNullValueOwned = value; AdditionalData?.Remove("owned"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owned"); else _explicitNullProperties?.Remove("owned"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJsF23F305177? _explicitNullValueOwned = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned Owned { get => _explicitNullValueOwned; set { _explicitNullValueOwned = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owned"); else _explicitNullProperties?.Remove("owned"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned _explicitNullValueOwned = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJsF23F305177 Owned { get => _explicitNullValueOwned; set { _explicitNullValueOwned = value; AdditionalData?.Remove("owned"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owned"); else _explicitNullProperties?.Remove("owned"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJsF23F305177 _explicitNullValueOwned = default!;
 #endif
         /// <summary>Scripts/flows/apps/resources whose content or value references this user&apos;s paths (may break after reassignment)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing? Referencing { get => _explicitNullValueReferencing; set { _explicitNullValueReferencing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referencing"); else _explicitNullProperties?.Remove("referencing"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing? _explicitNullValueReferencing = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs266E7042Bd? Referencing { get => _explicitNullValueReferencing; set { _explicitNullValueReferencing = value; AdditionalData?.Remove("referencing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referencing"); else _explicitNullProperties?.Remove("referencing"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs266E7042Bd? _explicitNullValueReferencing = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing Referencing { get => _explicitNullValueReferencing; set { _explicitNullValueReferencing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referencing"); else _explicitNullProperties?.Remove("referencing"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing _explicitNullValueReferencing = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs266E7042Bd Referencing { get => _explicitNullValueReferencing; set { _explicitNullValueReferencing = value; AdditionalData?.Remove("referencing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referencing"); else _explicitNullProperties?.Remove("referencing"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs266E7042Bd _explicitNullValueReferencing = default!;
 #endif
         /// <summary>Tokens owned by this user (will be deleted)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>? _explicitNullValueTokens = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs44309285Fc>? Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; AdditionalData?.Remove("tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs44309285Fc>? _explicitNullValueTokens = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem> Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem> _explicitNullValueTokens = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs44309285Fc> Tokens { get => _explicitNullValueTokens; set { _explicitNullValueTokens = value; AdditionalData?.Remove("tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokens"); else _explicitNullProperties?.Remove("tokens"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs44309285Fc> _explicitNullValueTokens = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200Response"/> and sets the default values.
@@ -99,11 +105,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email_triggers", n => { EmailTriggers = n.GetIntValue(); } },
-                { "executing_on_behalf", n => { ExecutingOnBehalf = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf>(global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf.CreateFromDiscriminatorValue); } },
+                { "executing_on_behalf", n => { ExecutingOnBehalf = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs4Fc0Ec7734>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs4Fc0Ec7734.CreateFromDiscriminatorValue); } },
                 { "http_triggers", n => { HttpTriggers = n.GetIntValue(); } },
-                { "owned", n => { Owned = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned>(global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned.CreateFromDiscriminatorValue); } },
-                { "referencing", n => { Referencing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing>(global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing.CreateFromDiscriminatorValue); } },
-                { "tokens", n => { Tokens = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>(global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "owned", n => { Owned = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJsF23F305177>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJsF23F305177.CreateFromDiscriminatorValue); } },
+                { "referencing", n => { Referencing = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs266E7042Bd>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs266E7042Bd.CreateFromDiscriminatorValue); } },
+                { "tokens", n => { Tokens = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs44309285Fc>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs44309285Fc.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -114,11 +120,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("email_triggers", EmailTriggers);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseExecutingOnBehalf>("executing_on_behalf", ExecutingOnBehalf);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs4Fc0Ec7734>("executing_on_behalf", ExecutingOnBehalf);
             writer.WriteIntValue("http_triggers", HttpTriggers);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseOwned>("owned", Owned);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseReferencing>("referencing", Referencing);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.OffboardPreview200ResponseTokensItem>("tokens", Tokens);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJsF23F305177>("owned", Owned);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs266E7042Bd>("referencing", Referencing);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardPreviewUsernameGetResponses200ContentApplicationJs44309285Fc>("tokens", Tokens);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

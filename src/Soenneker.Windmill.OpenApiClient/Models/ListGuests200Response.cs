@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("guests") is { } nullNodeGuests && nullNodeGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guests = null;
-            if (parseNode.GetChildNode("usage") is { } nullNodeUsage && nullNodeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usage = null;
+            if (parseNode.GetChildNode("guests") is null) { _explicitNullValueGuests = default!; _explicitNullProperties?.Remove("guests"); }
+            else if (parseNode.GetChildNode("guests") is { } nullNodeGuests && nullNodeGuests.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guests = null;
+            if (parseNode.GetChildNode("usage") is null) { _explicitNullValueUsage = default!; _explicitNullProperties?.Remove("usage"); }
+            else if (parseNode.GetChildNode("usage") is { } nullNodeUsage && nullNodeUsage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Usage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,22 +28,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The guests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem>? Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem>? _explicitNullValueGuests = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesGuestsItemsA712Ee2564>? Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; AdditionalData?.Remove("guests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesGuestsItemsA712Ee2564>? _explicitNullValueGuests = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem> Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem> _explicitNullValueGuests = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesGuestsItemsA712Ee2564> Guests { get => _explicitNullValueGuests; set { _explicitNullValueGuests = value; AdditionalData?.Remove("guests"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guests"); else _explicitNullProperties?.Remove("guests"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesGuestsItemsA712Ee2564> _explicitNullValueGuests = default!;
 #endif
         /// <summary>Guests are free up to `free_allowance` distinct emails over the trailing `window_days`. Past that an Enterprise plan meters them (`metered`, four guests to one seat: `billable_guests`, `guest_seats`); every other plan and build admits no new email until the count drops. `available` is whether this deployment can have guests at all: false on the shared cloud, where guest access requires a self-hosted or dedicated deployment, and every other field is then moot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage? _explicitNullValueUsage = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesUsage5760784201? Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; AdditionalData?.Remove("usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesUsage5760784201? _explicitNullValueUsage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage _explicitNullValueUsage = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesUsage5760784201 Usage { get => _explicitNullValueUsage; set { _explicitNullValueUsage = value; AdditionalData?.Remove("usage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("usage"); else _explicitNullProperties?.Remove("usage"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesUsage5760784201 _explicitNullValueUsage = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200Response"/> and sets the default values.
@@ -68,8 +70,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "guests", n => { Guests = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage>(global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage.CreateFromDiscriminatorValue); } },
+                { "guests", n => { Guests = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesGuestsItemsA712Ee2564>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesGuestsItemsA712Ee2564.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "usage", n => { Usage = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesUsage5760784201>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesUsage5760784201.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -79,8 +81,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseGuestsItem>("guests", Guests);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListGuests200ResponseUsage>("usage", Usage);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesGuestsItemsA712Ee2564>("guests", Guests);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersGuestsGetResponses200ContentApplicationJsonSchemaPropertiesUsage5760784201>("usage", Usage);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

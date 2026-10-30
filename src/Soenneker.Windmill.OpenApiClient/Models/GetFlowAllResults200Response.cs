@@ -17,43 +17,48 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enclosing_job") is { } nullNodeEnclosingJob && nullNodeEnclosingJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnclosingJob = null;
-            if (parseNode.GetChildNode("entries") is { } nullNodeEntries && nullNodeEntries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Entries = null;
-            if (parseNode.GetChildNode("scope_filtered") is { } nullNodeScopeFiltered && nullNodeScopeFiltered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopeFiltered = null;
-            if (parseNode.GetChildNode("step_error") is { } nullNodeStepError && nullNodeStepError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepError = null;
-            if (parseNode.GetChildNode("truncated") is { } nullNodeTruncated && nullNodeTruncated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Truncated = null;
+            if (parseNode.GetChildNode("enclosing_job") is null) { _explicitNullValueEnclosingJob = default!; _explicitNullProperties?.Remove("enclosing_job"); }
+            else if (parseNode.GetChildNode("enclosing_job") is { } nullNodeEnclosingJob && nullNodeEnclosingJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnclosingJob = null;
+            if (parseNode.GetChildNode("entries") is null) { _explicitNullValueEntries = default!; _explicitNullProperties?.Remove("entries"); }
+            else if (parseNode.GetChildNode("entries") is { } nullNodeEntries && nullNodeEntries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Entries = null;
+            if (parseNode.GetChildNode("scope_filtered") is null) { _explicitNullValueScopeFiltered = default!; _explicitNullProperties?.Remove("scope_filtered"); }
+            else if (parseNode.GetChildNode("scope_filtered") is { } nullNodeScopeFiltered && nullNodeScopeFiltered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopeFiltered = null;
+            if (parseNode.GetChildNode("step_error") is null) { _explicitNullValueStepError = default!; _explicitNullProperties?.Remove("step_error"); }
+            else if (parseNode.GetChildNode("step_error") is { } nullNodeStepError && nullNodeStepError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepError = null;
+            if (parseNode.GetChildNode("truncated") is null) { _explicitNullValueTruncated = default!; _explicitNullProperties?.Remove("truncated"); }
+            else if (parseNode.GetChildNode("truncated") is { } nullNodeTruncated && nullNodeTruncated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Truncated = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>set when the requested job is itself a step of a larger flow run; id of the flow run directly enclosing it</summary>
-        public Guid? EnclosingJob { get => _explicitNullValueEnclosingJob; set { _explicitNullValueEnclosingJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enclosing_job"); else _explicitNullProperties?.Remove("enclosing_job"); } }
+        public Guid? EnclosingJob { get => _explicitNullValueEnclosingJob; set { _explicitNullValueEnclosingJob = value; AdditionalData?.Remove("enclosing_job"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enclosing_job"); else _explicitNullProperties?.Remove("enclosing_job"); } }
         private Guid? _explicitNullValueEnclosingJob = default!;
         /// <summary>The entries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem>? Entries { get => _explicitNullValueEntries; set { _explicitNullValueEntries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entries"); else _explicitNullProperties?.Remove("entries"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem>? Entries { get => _explicitNullValueEntries; set { _explicitNullValueEntries = value; AdditionalData?.Remove("entries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entries"); else _explicitNullProperties?.Remove("entries"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem>? _explicitNullValueEntries = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem> Entries { get => _explicitNullValueEntries; set { _explicitNullValueEntries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entries"); else _explicitNullProperties?.Remove("entries"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem> Entries { get => _explicitNullValueEntries; set { _explicitNullValueEntries = value; AdditionalData?.Remove("entries"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entries"); else _explicitNullProperties?.Remove("entries"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem> _explicitNullValueEntries = default!;
 #endif
         /// <summary>true when the caller&apos;s token is tag-scoped; steps running on other tags are omitted</summary>
-        public bool? ScopeFiltered { get => _explicitNullValueScopeFiltered; set { _explicitNullValueScopeFiltered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_filtered"); else _explicitNullProperties?.Remove("scope_filtered"); } }
+        public bool? ScopeFiltered { get => _explicitNullValueScopeFiltered; set { _explicitNullValueScopeFiltered = value; AdditionalData?.Remove("scope_filtered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_filtered"); else _explicitNullProperties?.Remove("scope_filtered"); } }
         private bool? _explicitNullValueScopeFiltered = default!;
         /// <summary>set when step was provided but could not be resolved; a diagnostic listing available step ids or iteration statuses</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StepError { get => _explicitNullValueStepError; set { _explicitNullValueStepError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_error"); else _explicitNullProperties?.Remove("step_error"); } }
+        public string? StepError { get => _explicitNullValueStepError; set { _explicitNullValueStepError = value; AdditionalData?.Remove("step_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_error"); else _explicitNullProperties?.Remove("step_error"); } }
         private string? _explicitNullValueStepError = default!;
 #nullable restore
 #else
-        public string StepError { get => _explicitNullValueStepError; set { _explicitNullValueStepError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_error"); else _explicitNullProperties?.Remove("step_error"); } }
+        public string StepError { get => _explicitNullValueStepError; set { _explicitNullValueStepError = value; AdditionalData?.Remove("step_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step_error"); else _explicitNullProperties?.Remove("step_error"); } }
         private string _explicitNullValueStepError = default!;
 #endif
         /// <summary>true when the tree has more jobs than the entry cap; entries then hold the depth-first prefix</summary>
-        public bool? Truncated { get => _explicitNullValueTruncated; set { _explicitNullValueTruncated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncated"); else _explicitNullProperties?.Remove("truncated"); } }
+        public bool? Truncated { get => _explicitNullValueTruncated; set { _explicitNullValueTruncated = value; AdditionalData?.Remove("truncated"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("truncated"); else _explicitNullProperties?.Remove("truncated"); } }
         private bool? _explicitNullValueTruncated = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200Response"/> and sets the default values.

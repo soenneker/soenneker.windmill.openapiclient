@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("registry_configured") is { } nullNodeRegistryConfigured && nullNodeRegistryConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryConfigured = null;
+            if (parseNode.GetChildNode("registry_configured") is null) { _explicitNullValueRegistryConfigured = default!; _explicitNullProperties?.Remove("registry_configured"); }
+            else if (parseNode.GetChildNode("registry_configured") is { } nullNodeRegistryConfigured && nullNodeRegistryConfigured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryConfigured = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The registry_configured property</summary>
-        public bool? RegistryConfigured { get => _explicitNullValueRegistryConfigured; set { _explicitNullValueRegistryConfigured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_configured"); else _explicitNullProperties?.Remove("registry_configured"); } }
+        public bool? RegistryConfigured { get => _explicitNullValueRegistryConfigured; set { _explicitNullValueRegistryConfigured = value; AdditionalData?.Remove("registry_configured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry_configured"); else _explicitNullProperties?.Remove("registry_configured"); } }
         private bool? _explicitNullValueRegistryConfigured = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetNpmProxyConfig200Response"/> and sets the default values.

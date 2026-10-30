@@ -17,14 +17,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
-            if (parseNode.GetChildNode("comments") is { } nullNodeComments && nullNodeComments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comments = null;
-            if (parseNode.GetChildNode("fork_workspace_id") is { } nullNodeForkWorkspaceId && nullNodeForkWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkWorkspaceId = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("requested_at") is { } nullNodeRequestedAt && nullNodeRequestedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedAt = null;
-            if (parseNode.GetChildNode("requested_by") is { } nullNodeRequestedBy && nullNodeRequestedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedBy = null;
-            if (parseNode.GetChildNode("requested_by_email") is { } nullNodeRequestedByEmail && nullNodeRequestedByEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedByEmail = null;
-            if (parseNode.GetChildNode("source_workspace_id") is { } nullNodeSourceWorkspaceId && nullNodeSourceWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceWorkspaceId = null;
+            if (parseNode.GetChildNode("assignees") is null) { _explicitNullValueAssignees = default!; _explicitNullProperties?.Remove("assignees"); }
+            else if (parseNode.GetChildNode("assignees") is { } nullNodeAssignees && nullNodeAssignees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assignees = null;
+            if (parseNode.GetChildNode("comments") is null) { _explicitNullValueComments = default!; _explicitNullProperties?.Remove("comments"); }
+            else if (parseNode.GetChildNode("comments") is { } nullNodeComments && nullNodeComments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comments = null;
+            if (parseNode.GetChildNode("fork_workspace_id") is null) { _explicitNullValueForkWorkspaceId = default!; _explicitNullProperties?.Remove("fork_workspace_id"); }
+            else if (parseNode.GetChildNode("fork_workspace_id") is { } nullNodeForkWorkspaceId && nullNodeForkWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkWorkspaceId = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("requested_at") is null) { _explicitNullValueRequestedAt = default!; _explicitNullProperties?.Remove("requested_at"); }
+            else if (parseNode.GetChildNode("requested_at") is { } nullNodeRequestedAt && nullNodeRequestedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedAt = null;
+            if (parseNode.GetChildNode("requested_by") is null) { _explicitNullValueRequestedBy = default!; _explicitNullProperties?.Remove("requested_by"); }
+            else if (parseNode.GetChildNode("requested_by") is { } nullNodeRequestedBy && nullNodeRequestedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedBy = null;
+            if (parseNode.GetChildNode("requested_by_email") is null) { _explicitNullValueRequestedByEmail = default!; _explicitNullProperties?.Remove("requested_by_email"); }
+            else if (parseNode.GetChildNode("requested_by_email") is { } nullNodeRequestedByEmail && nullNodeRequestedByEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestedByEmail = null;
+            if (parseNode.GetChildNode("source_workspace_id") is null) { _explicitNullValueSourceWorkspaceId = default!; _explicitNullProperties?.Remove("source_workspace_id"); }
+            else if (parseNode.GetChildNode("source_workspace_id") is { } nullNodeSourceWorkspaceId && nullNodeSourceWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceWorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,67 +40,67 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The assignees property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseAssigneesItem>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseAssigneesItem>? _explicitNullValueAssignees = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5>? Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; AdditionalData?.Remove("assignees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5>? _explicitNullValueAssignees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseAssigneesItem> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseAssigneesItem> _explicitNullValueAssignees = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5> Assignees { get => _explicitNullValueAssignees; set { _explicitNullValueAssignees = value; AdditionalData?.Remove("assignees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assignees"); else _explicitNullProperties?.Remove("assignees"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5> _explicitNullValueAssignees = default!;
 #endif
         /// <summary>The comments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseCommentsItem>? Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseCommentsItem>? _explicitNullValueComments = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104>? Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; AdditionalData?.Remove("comments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104>? _explicitNullValueComments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseCommentsItem> Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseCommentsItem> _explicitNullValueComments = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104> Comments { get => _explicitNullValueComments; set { _explicitNullValueComments = value; AdditionalData?.Remove("comments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comments"); else _explicitNullProperties?.Remove("comments"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104> _explicitNullValueComments = default!;
 #endif
         /// <summary>The fork_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ForkWorkspaceId { get => _explicitNullValueForkWorkspaceId; set { _explicitNullValueForkWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_workspace_id"); else _explicitNullProperties?.Remove("fork_workspace_id"); } }
+        public string? ForkWorkspaceId { get => _explicitNullValueForkWorkspaceId; set { _explicitNullValueForkWorkspaceId = value; AdditionalData?.Remove("fork_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_workspace_id"); else _explicitNullProperties?.Remove("fork_workspace_id"); } }
         private string? _explicitNullValueForkWorkspaceId = default!;
 #nullable restore
 #else
-        public string ForkWorkspaceId { get => _explicitNullValueForkWorkspaceId; set { _explicitNullValueForkWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_workspace_id"); else _explicitNullProperties?.Remove("fork_workspace_id"); } }
+        public string ForkWorkspaceId { get => _explicitNullValueForkWorkspaceId; set { _explicitNullValueForkWorkspaceId = value; AdditionalData?.Remove("fork_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_workspace_id"); else _explicitNullProperties?.Remove("fork_workspace_id"); } }
         private string _explicitNullValueForkWorkspaceId = default!;
 #endif
         /// <summary>The id property</summary>
-        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public long? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private long? _explicitNullValueId = default!;
         /// <summary>The requested_at property</summary>
-        public DateTimeOffset? RequestedAt { get => _explicitNullValueRequestedAt; set { _explicitNullValueRequestedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_at"); else _explicitNullProperties?.Remove("requested_at"); } }
+        public DateTimeOffset? RequestedAt { get => _explicitNullValueRequestedAt; set { _explicitNullValueRequestedAt = value; AdditionalData?.Remove("requested_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_at"); else _explicitNullProperties?.Remove("requested_at"); } }
         private DateTimeOffset? _explicitNullValueRequestedAt = default!;
         /// <summary>The requested_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestedBy { get => _explicitNullValueRequestedBy; set { _explicitNullValueRequestedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by"); else _explicitNullProperties?.Remove("requested_by"); } }
+        public string? RequestedBy { get => _explicitNullValueRequestedBy; set { _explicitNullValueRequestedBy = value; AdditionalData?.Remove("requested_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by"); else _explicitNullProperties?.Remove("requested_by"); } }
         private string? _explicitNullValueRequestedBy = default!;
 #nullable restore
 #else
-        public string RequestedBy { get => _explicitNullValueRequestedBy; set { _explicitNullValueRequestedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by"); else _explicitNullProperties?.Remove("requested_by"); } }
+        public string RequestedBy { get => _explicitNullValueRequestedBy; set { _explicitNullValueRequestedBy = value; AdditionalData?.Remove("requested_by"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by"); else _explicitNullProperties?.Remove("requested_by"); } }
         private string _explicitNullValueRequestedBy = default!;
 #endif
         /// <summary>The requested_by_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestedByEmail { get => _explicitNullValueRequestedByEmail; set { _explicitNullValueRequestedByEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by_email"); else _explicitNullProperties?.Remove("requested_by_email"); } }
+        public string? RequestedByEmail { get => _explicitNullValueRequestedByEmail; set { _explicitNullValueRequestedByEmail = value; AdditionalData?.Remove("requested_by_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by_email"); else _explicitNullProperties?.Remove("requested_by_email"); } }
         private string? _explicitNullValueRequestedByEmail = default!;
 #nullable restore
 #else
-        public string RequestedByEmail { get => _explicitNullValueRequestedByEmail; set { _explicitNullValueRequestedByEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by_email"); else _explicitNullProperties?.Remove("requested_by_email"); } }
+        public string RequestedByEmail { get => _explicitNullValueRequestedByEmail; set { _explicitNullValueRequestedByEmail = value; AdditionalData?.Remove("requested_by_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requested_by_email"); else _explicitNullProperties?.Remove("requested_by_email"); } }
         private string _explicitNullValueRequestedByEmail = default!;
 #endif
         /// <summary>The source_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
+        public string? SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; AdditionalData?.Remove("source_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
         private string? _explicitNullValueSourceWorkspaceId = default!;
 #nullable restore
 #else
-        public string SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
+        public string SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; AdditionalData?.Remove("source_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
         private string _explicitNullValueSourceWorkspaceId = default!;
 #endif
         /// <summary>
@@ -120,8 +128,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseAssigneesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseAssigneesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "comments", n => { Comments = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseCommentsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseCommentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "comments", n => { Comments = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fork_workspace_id", n => { ForkWorkspaceId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetLongValue(); } },
                 { "requested_at", n => { RequestedAt = n.GetDateTimeOffsetValue(); } },
@@ -137,8 +145,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseAssigneesItem>("assignees", Assignees);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetOpenDeploymentRequest200ResponseCommentsItem>("comments", Comments);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5>("assignees", Assignees);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104>("comments", Comments);
             writer.WriteStringValue("fork_workspace_id", ForkWorkspaceId);
             writer.WriteLongValue("id", Id);
             writer.WriteDateTimeOffsetValue("requested_at", RequestedAt);

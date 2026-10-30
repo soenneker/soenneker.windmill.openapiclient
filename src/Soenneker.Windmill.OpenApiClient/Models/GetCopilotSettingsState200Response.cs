@@ -17,28 +17,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("has_instance_ai_config") is { } nullNodeHasInstanceAiConfig && nullNodeHasInstanceAiConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasInstanceAiConfig = null;
-            if (parseNode.GetChildNode("instance_ai_summary") is { } nullNodeInstanceAiSummary && nullNodeInstanceAiSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceAiSummary = null;
-            if (parseNode.GetChildNode("uses_instance_ai_config") is { } nullNodeUsesInstanceAiConfig && nullNodeUsesInstanceAiConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsesInstanceAiConfig = null;
+            if (parseNode.GetChildNode("has_instance_ai_config") is null) { _explicitNullValueHasInstanceAiConfig = default!; _explicitNullProperties?.Remove("has_instance_ai_config"); }
+            else if (parseNode.GetChildNode("has_instance_ai_config") is { } nullNodeHasInstanceAiConfig && nullNodeHasInstanceAiConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasInstanceAiConfig = null;
+            if (parseNode.GetChildNode("instance_ai_summary") is null) { _explicitNullValueInstanceAiSummary = default!; _explicitNullProperties?.Remove("instance_ai_summary"); }
+            else if (parseNode.GetChildNode("instance_ai_summary") is { } nullNodeInstanceAiSummary && nullNodeInstanceAiSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceAiSummary = null;
+            if (parseNode.GetChildNode("uses_instance_ai_config") is null) { _explicitNullValueUsesInstanceAiConfig = default!; _explicitNullProperties?.Remove("uses_instance_ai_config"); }
+            else if (parseNode.GetChildNode("uses_instance_ai_config") is { } nullNodeUsesInstanceAiConfig && nullNodeUsesInstanceAiConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsesInstanceAiConfig = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The has_instance_ai_config property</summary>
-        public bool? HasInstanceAiConfig { get => _explicitNullValueHasInstanceAiConfig; set { _explicitNullValueHasInstanceAiConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_instance_ai_config"); else _explicitNullProperties?.Remove("has_instance_ai_config"); } }
+        public bool? HasInstanceAiConfig { get => _explicitNullValueHasInstanceAiConfig; set { _explicitNullValueHasInstanceAiConfig = value; AdditionalData?.Remove("has_instance_ai_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_instance_ai_config"); else _explicitNullProperties?.Remove("has_instance_ai_config"); } }
         private bool? _explicitNullValueHasInstanceAiConfig = default!;
         /// <summary>The instance_ai_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary? InstanceAiSummary { get => _explicitNullValueInstanceAiSummary; set { _explicitNullValueInstanceAiSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_ai_summary"); else _explicitNullProperties?.Remove("instance_ai_summary"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary? InstanceAiSummary { get => _explicitNullValueInstanceAiSummary; set { _explicitNullValueInstanceAiSummary = value; AdditionalData?.Remove("instance_ai_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_ai_summary"); else _explicitNullProperties?.Remove("instance_ai_summary"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary? _explicitNullValueInstanceAiSummary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary InstanceAiSummary { get => _explicitNullValueInstanceAiSummary; set { _explicitNullValueInstanceAiSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_ai_summary"); else _explicitNullProperties?.Remove("instance_ai_summary"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary InstanceAiSummary { get => _explicitNullValueInstanceAiSummary; set { _explicitNullValueInstanceAiSummary = value; AdditionalData?.Remove("instance_ai_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_ai_summary"); else _explicitNullProperties?.Remove("instance_ai_summary"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200ResponseInstanceAiSummary _explicitNullValueInstanceAiSummary = default!;
 #endif
         /// <summary>The uses_instance_ai_config property</summary>
-        public bool? UsesInstanceAiConfig { get => _explicitNullValueUsesInstanceAiConfig; set { _explicitNullValueUsesInstanceAiConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uses_instance_ai_config"); else _explicitNullProperties?.Remove("uses_instance_ai_config"); } }
+        public bool? UsesInstanceAiConfig { get => _explicitNullValueUsesInstanceAiConfig; set { _explicitNullValueUsesInstanceAiConfig = value; AdditionalData?.Remove("uses_instance_ai_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uses_instance_ai_config"); else _explicitNullProperties?.Remove("uses_instance_ai_config"); } }
         private bool? _explicitNullValueUsesInstanceAiConfig = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotSettingsState200Response"/> and sets the default values.

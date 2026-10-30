@@ -17,11 +17,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("aws_access_key_id") is { } nullNodeAwsAccessKeyId && nullNodeAwsAccessKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsAccessKeyId = null;
-            if (parseNode.GetChildNode("aws_allow_http") is { } nullNodeAwsAllowHttp && nullNodeAwsAllowHttp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsAllowHttp = null;
-            if (parseNode.GetChildNode("aws_endpoint_url") is { } nullNodeAwsEndpointUrl && nullNodeAwsEndpointUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsEndpointUrl = null;
-            if (parseNode.GetChildNode("aws_region") is { } nullNodeAwsRegion && nullNodeAwsRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRegion = null;
-            if (parseNode.GetChildNode("aws_secret_access_key") is { } nullNodeAwsSecretAccessKey && nullNodeAwsSecretAccessKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSecretAccessKey = null;
+            if (parseNode.GetChildNode("aws_access_key_id") is null) { _explicitNullValueAwsAccessKeyId = default!; _explicitNullProperties?.Remove("aws_access_key_id"); }
+            else if (parseNode.GetChildNode("aws_access_key_id") is { } nullNodeAwsAccessKeyId && nullNodeAwsAccessKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsAccessKeyId = null;
+            if (parseNode.GetChildNode("aws_allow_http") is null) { _explicitNullValueAwsAllowHttp = default!; _explicitNullProperties?.Remove("aws_allow_http"); }
+            else if (parseNode.GetChildNode("aws_allow_http") is { } nullNodeAwsAllowHttp && nullNodeAwsAllowHttp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsAllowHttp = null;
+            if (parseNode.GetChildNode("aws_endpoint_url") is null) { _explicitNullValueAwsEndpointUrl = default!; _explicitNullProperties?.Remove("aws_endpoint_url"); }
+            else if (parseNode.GetChildNode("aws_endpoint_url") is { } nullNodeAwsEndpointUrl && nullNodeAwsEndpointUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsEndpointUrl = null;
+            if (parseNode.GetChildNode("aws_region") is null) { _explicitNullValueAwsRegion = default!; _explicitNullProperties?.Remove("aws_region"); }
+            else if (parseNode.GetChildNode("aws_region") is { } nullNodeAwsRegion && nullNodeAwsRegion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsRegion = null;
+            if (parseNode.GetChildNode("aws_secret_access_key") is null) { _explicitNullValueAwsSecretAccessKey = default!; _explicitNullProperties?.Remove("aws_secret_access_key"); }
+            else if (parseNode.GetChildNode("aws_secret_access_key") is { } nullNodeAwsSecretAccessKey && nullNodeAwsSecretAccessKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AwsSecretAccessKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The aws_access_key_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
+        public string? AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; AdditionalData?.Remove("aws_access_key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
         private string? _explicitNullValueAwsAccessKeyId = default!;
 #nullable restore
 #else
-        public string AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
+        public string AwsAccessKeyId { get => _explicitNullValueAwsAccessKeyId; set { _explicitNullValueAwsAccessKeyId = value; AdditionalData?.Remove("aws_access_key_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_access_key_id"); else _explicitNullProperties?.Remove("aws_access_key_id"); } }
         private string _explicitNullValueAwsAccessKeyId = default!;
 #endif
         /// <summary>The aws_allow_http property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsAllowHttp { get => _explicitNullValueAwsAllowHttp; set { _explicitNullValueAwsAllowHttp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_allow_http"); else _explicitNullProperties?.Remove("aws_allow_http"); } }
+        public string? AwsAllowHttp { get => _explicitNullValueAwsAllowHttp; set { _explicitNullValueAwsAllowHttp = value; AdditionalData?.Remove("aws_allow_http"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_allow_http"); else _explicitNullProperties?.Remove("aws_allow_http"); } }
         private string? _explicitNullValueAwsAllowHttp = default!;
 #nullable restore
 #else
-        public string AwsAllowHttp { get => _explicitNullValueAwsAllowHttp; set { _explicitNullValueAwsAllowHttp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_allow_http"); else _explicitNullProperties?.Remove("aws_allow_http"); } }
+        public string AwsAllowHttp { get => _explicitNullValueAwsAllowHttp; set { _explicitNullValueAwsAllowHttp = value; AdditionalData?.Remove("aws_allow_http"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_allow_http"); else _explicitNullProperties?.Remove("aws_allow_http"); } }
         private string _explicitNullValueAwsAllowHttp = default!;
 #endif
         /// <summary>The aws_endpoint_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsEndpointUrl { get => _explicitNullValueAwsEndpointUrl; set { _explicitNullValueAwsEndpointUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_endpoint_url"); else _explicitNullProperties?.Remove("aws_endpoint_url"); } }
+        public string? AwsEndpointUrl { get => _explicitNullValueAwsEndpointUrl; set { _explicitNullValueAwsEndpointUrl = value; AdditionalData?.Remove("aws_endpoint_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_endpoint_url"); else _explicitNullProperties?.Remove("aws_endpoint_url"); } }
         private string? _explicitNullValueAwsEndpointUrl = default!;
 #nullable restore
 #else
-        public string AwsEndpointUrl { get => _explicitNullValueAwsEndpointUrl; set { _explicitNullValueAwsEndpointUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_endpoint_url"); else _explicitNullProperties?.Remove("aws_endpoint_url"); } }
+        public string AwsEndpointUrl { get => _explicitNullValueAwsEndpointUrl; set { _explicitNullValueAwsEndpointUrl = value; AdditionalData?.Remove("aws_endpoint_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_endpoint_url"); else _explicitNullProperties?.Remove("aws_endpoint_url"); } }
         private string _explicitNullValueAwsEndpointUrl = default!;
 #endif
         /// <summary>The aws_region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
+        public string? AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; AdditionalData?.Remove("aws_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
         private string? _explicitNullValueAwsRegion = default!;
 #nullable restore
 #else
-        public string AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
+        public string AwsRegion { get => _explicitNullValueAwsRegion; set { _explicitNullValueAwsRegion = value; AdditionalData?.Remove("aws_region"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_region"); else _explicitNullProperties?.Remove("aws_region"); } }
         private string _explicitNullValueAwsRegion = default!;
 #endif
         /// <summary>The aws_secret_access_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
+        public string? AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; AdditionalData?.Remove("aws_secret_access_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
         private string? _explicitNullValueAwsSecretAccessKey = default!;
 #nullable restore
 #else
-        public string AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
+        public string AwsSecretAccessKey { get => _explicitNullValueAwsSecretAccessKey; set { _explicitNullValueAwsSecretAccessKey = value; AdditionalData?.Remove("aws_secret_access_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aws_secret_access_key"); else _explicitNullProperties?.Remove("aws_secret_access_key"); } }
         private string _explicitNullValueAwsSecretAccessKey = default!;
 #endif
         /// <summary>

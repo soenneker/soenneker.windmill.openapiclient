@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("previous_messages") is { } nullNodePreviousMessages && nullNodePreviousMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousMessages = null;
-            if (parseNode.GetChildNode("user_attachments") is { } nullNodeUserAttachments && nullNodeUserAttachments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAttachments = null;
-            if (parseNode.GetChildNode("user_message") is { } nullNodeUserMessage && nullNodeUserMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserMessage = null;
+            if (parseNode.GetChildNode("previous_messages") is null) { _explicitNullValuePreviousMessages = default!; _explicitNullProperties?.Remove("previous_messages"); }
+            else if (parseNode.GetChildNode("previous_messages") is { } nullNodePreviousMessages && nullNodePreviousMessages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousMessages = null;
+            if (parseNode.GetChildNode("user_attachments") is null) { _explicitNullValueUserAttachments = default!; _explicitNullProperties?.Remove("user_attachments"); }
+            else if (parseNode.GetChildNode("user_attachments") is { } nullNodeUserAttachments && nullNodeUserAttachments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAttachments = null;
+            if (parseNode.GetChildNode("user_message") is null) { _explicitNullValueUserMessage = default!; _explicitNullProperties?.Remove("user_message"); }
+            else if (parseNode.GetChildNode("user_message") is { } nullNodeUserMessage && nullNodeUserMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserMessage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The history to answer from, as chat messages, when the agent&apos;s memory is off.An agent with managed memory reads its conversation instead and ignores this.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? PreviousMessages { get => _explicitNullValuePreviousMessages; set { _explicitNullValuePreviousMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_messages"); else _explicitNullProperties?.Remove("previous_messages"); } }
+        public UntypedNode? PreviousMessages { get => _explicitNullValuePreviousMessages; set { _explicitNullValuePreviousMessages = value; AdditionalData?.Remove("previous_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_messages"); else _explicitNullProperties?.Remove("previous_messages"); } }
         private UntypedNode? _explicitNullValuePreviousMessages = default!;
 #nullable restore
 #else
-        public UntypedNode PreviousMessages { get => _explicitNullValuePreviousMessages; set { _explicitNullValuePreviousMessages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_messages"); else _explicitNullProperties?.Remove("previous_messages"); } }
+        public UntypedNode PreviousMessages { get => _explicitNullValuePreviousMessages; set { _explicitNullValuePreviousMessages = value; AdditionalData?.Remove("previous_messages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("previous_messages"); else _explicitNullProperties?.Remove("previous_messages"); } }
         private UntypedNode _explicitNullValuePreviousMessages = default!;
 #endif
         /// <summary>The user_attachments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? UserAttachments { get => _explicitNullValueUserAttachments; set { _explicitNullValueUserAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_attachments"); else _explicitNullProperties?.Remove("user_attachments"); } }
+        public UntypedNode? UserAttachments { get => _explicitNullValueUserAttachments; set { _explicitNullValueUserAttachments = value; AdditionalData?.Remove("user_attachments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_attachments"); else _explicitNullProperties?.Remove("user_attachments"); } }
         private UntypedNode? _explicitNullValueUserAttachments = default!;
 #nullable restore
 #else
-        public UntypedNode UserAttachments { get => _explicitNullValueUserAttachments; set { _explicitNullValueUserAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_attachments"); else _explicitNullProperties?.Remove("user_attachments"); } }
+        public UntypedNode UserAttachments { get => _explicitNullValueUserAttachments; set { _explicitNullValueUserAttachments = value; AdditionalData?.Remove("user_attachments"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_attachments"); else _explicitNullProperties?.Remove("user_attachments"); } }
         private UntypedNode _explicitNullValueUserAttachments = default!;
 #endif
         /// <summary>The user_message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
+        public string? UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; AdditionalData?.Remove("user_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
         private string? _explicitNullValueUserMessage = default!;
 #nullable restore
 #else
-        public string UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
+        public string UserMessage { get => _explicitNullValueUserMessage; set { _explicitNullValueUserMessage = value; AdditionalData?.Remove("user_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_message"); else _explicitNullProperties?.Remove("user_message"); } }
         private string _explicitNullValueUserMessage = default!;
 #endif
         /// <summary>

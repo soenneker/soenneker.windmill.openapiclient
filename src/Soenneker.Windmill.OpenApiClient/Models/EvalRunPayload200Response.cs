@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("rendered") is { } nullNodeRendered && nullNodeRendered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rendered = null;
-            if (parseNode.GetChildNode("run") is { } nullNodeRun && nullNodeRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Run = null;
+            if (parseNode.GetChildNode("rendered") is null) { _explicitNullValueRendered = default!; _explicitNullProperties?.Remove("rendered"); }
+            else if (parseNode.GetChildNode("rendered") is { } nullNodeRendered && nullNodeRendered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rendered = null;
+            if (parseNode.GetChildNode("run") is null) { _explicitNullValueRun = default!; _explicitNullProperties?.Remove("run"); }
+            else if (parseNode.GetChildNode("run") is { } nullNodeRun && nullNodeRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Run = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The same run as a judge agent is shown it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rendered { get => _explicitNullValueRendered; set { _explicitNullValueRendered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rendered"); else _explicitNullProperties?.Remove("rendered"); } }
+        public string? Rendered { get => _explicitNullValueRendered; set { _explicitNullValueRendered = value; AdditionalData?.Remove("rendered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rendered"); else _explicitNullProperties?.Remove("rendered"); } }
         private string? _explicitNullValueRendered = default!;
 #nullable restore
 #else
-        public string Rendered { get => _explicitNullValueRendered; set { _explicitNullValueRendered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rendered"); else _explicitNullProperties?.Remove("rendered"); } }
+        public string Rendered { get => _explicitNullValueRendered; set { _explicitNullValueRendered = value; AdditionalData?.Remove("rendered"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rendered"); else _explicitNullProperties?.Remove("rendered"); } }
         private string _explicitNullValueRendered = default!;
 #endif
         /// <summary>The case, the answer, and every tool call the agent made.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200ResponseRun? Run { get => _explicitNullValueRun; set { _explicitNullValueRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run"); else _explicitNullProperties?.Remove("run"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200ResponseRun? Run { get => _explicitNullValueRun; set { _explicitNullValueRun = value; AdditionalData?.Remove("run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run"); else _explicitNullProperties?.Remove("run"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200ResponseRun? _explicitNullValueRun = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200ResponseRun Run { get => _explicitNullValueRun; set { _explicitNullValueRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run"); else _explicitNullProperties?.Remove("run"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200ResponseRun Run { get => _explicitNullValueRun; set { _explicitNullValueRun = value; AdditionalData?.Remove("run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run"); else _explicitNullProperties?.Remove("run"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EvalRunPayload200ResponseRun _explicitNullValueRun = default!;
 #endif
         /// <summary>

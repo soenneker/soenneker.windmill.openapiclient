@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
+            if (parseNode.GetChildNode("tag") is null) { _explicitNullValueTag = default!; _explicitNullProperties?.Remove("tag"); }
+            else if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The tag property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateExternalInstancePgDatabaseRequestTag? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CreateExternalInstancePgDatabaseRequestTag? Tag { get => _explicitNullValueTag; set { _explicitNullValueTag = value; AdditionalData?.Remove("tag"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tag"); else _explicitNullProperties?.Remove("tag"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CreateExternalInstancePgDatabaseRequestTag? _explicitNullValueTag = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateExternalInstancePgDatabaseRequest"/> and sets the default values.
@@ -50,7 +51,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tag", n => { Tag = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateExternalInstancePgDatabaseRequestTag>(); } },
+                { "tag", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateExternalInstancePgDatabaseRequestTag>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTag = default; _explicitNullProperties?.Remove("tag"); AdditionalData["tag"] = unknown; } else { Tag = parsed; AdditionalData.Remove("tag"); } } },
             };
         }
         /// <summary>

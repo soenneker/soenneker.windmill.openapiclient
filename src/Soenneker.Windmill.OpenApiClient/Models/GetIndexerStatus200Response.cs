@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_indexer") is { } nullNodeJobIndexer && nullNodeJobIndexer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIndexer = null;
-            if (parseNode.GetChildNode("log_indexer") is { } nullNodeLogIndexer && nullNodeLogIndexer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogIndexer = null;
+            if (parseNode.GetChildNode("job_indexer") is null) { _explicitNullValueJobIndexer = default!; _explicitNullProperties?.Remove("job_indexer"); }
+            else if (parseNode.GetChildNode("job_indexer") is { } nullNodeJobIndexer && nullNodeJobIndexer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIndexer = null;
+            if (parseNode.GetChildNode("log_indexer") is null) { _explicitNullValueLogIndexer = default!; _explicitNullProperties?.Remove("log_indexer"); }
+            else if (parseNode.GetChildNode("log_indexer") is { } nullNodeLogIndexer && nullNodeLogIndexer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogIndexer = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The job_indexer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseJobIndexer? JobIndexer { get => _explicitNullValueJobIndexer; set { _explicitNullValueJobIndexer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_indexer"); else _explicitNullProperties?.Remove("job_indexer"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseJobIndexer? JobIndexer { get => _explicitNullValueJobIndexer; set { _explicitNullValueJobIndexer = value; AdditionalData?.Remove("job_indexer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_indexer"); else _explicitNullProperties?.Remove("job_indexer"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseJobIndexer? _explicitNullValueJobIndexer = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseJobIndexer JobIndexer { get => _explicitNullValueJobIndexer; set { _explicitNullValueJobIndexer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_indexer"); else _explicitNullProperties?.Remove("job_indexer"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseJobIndexer JobIndexer { get => _explicitNullValueJobIndexer; set { _explicitNullValueJobIndexer = value; AdditionalData?.Remove("job_indexer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_indexer"); else _explicitNullProperties?.Remove("job_indexer"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseJobIndexer _explicitNullValueJobIndexer = default!;
 #endif
         /// <summary>The log_indexer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseLogIndexer? LogIndexer { get => _explicitNullValueLogIndexer; set { _explicitNullValueLogIndexer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_indexer"); else _explicitNullProperties?.Remove("log_indexer"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseLogIndexer? LogIndexer { get => _explicitNullValueLogIndexer; set { _explicitNullValueLogIndexer = value; AdditionalData?.Remove("log_indexer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_indexer"); else _explicitNullProperties?.Remove("log_indexer"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseLogIndexer? _explicitNullValueLogIndexer = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseLogIndexer LogIndexer { get => _explicitNullValueLogIndexer; set { _explicitNullValueLogIndexer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_indexer"); else _explicitNullProperties?.Remove("log_indexer"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseLogIndexer LogIndexer { get => _explicitNullValueLogIndexer; set { _explicitNullValueLogIndexer = value; AdditionalData?.Remove("log_indexer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_indexer"); else _explicitNullProperties?.Remove("log_indexer"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexerStatus200ResponseLogIndexer _explicitNullValueLogIndexer = default!;
 #endif
         /// <summary>

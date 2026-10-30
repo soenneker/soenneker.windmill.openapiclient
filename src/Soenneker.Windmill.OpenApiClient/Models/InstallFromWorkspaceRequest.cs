@@ -17,23 +17,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("installation_id") is { } nullNodeInstallationId && nullNodeInstallationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstallationId = null;
-            if (parseNode.GetChildNode("source_workspace_id") is { } nullNodeSourceWorkspaceId && nullNodeSourceWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceWorkspaceId = null;
+            if (parseNode.GetChildNode("installation_id") is null) { _explicitNullValueInstallationId = default!; _explicitNullProperties?.Remove("installation_id"); }
+            else if (parseNode.GetChildNode("installation_id") is { } nullNodeInstallationId && nullNodeInstallationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstallationId = null;
+            if (parseNode.GetChildNode("source_workspace_id") is null) { _explicitNullValueSourceWorkspaceId = default!; _explicitNullProperties?.Remove("source_workspace_id"); }
+            else if (parseNode.GetChildNode("source_workspace_id") is { } nullNodeSourceWorkspaceId && nullNodeSourceWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceWorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The ID of the GitHub installation to copy</summary>
-        public double? InstallationId { get => _explicitNullValueInstallationId; set { _explicitNullValueInstallationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("installation_id"); else _explicitNullProperties?.Remove("installation_id"); } }
+        public double? InstallationId { get => _explicitNullValueInstallationId; set { _explicitNullValueInstallationId = value; AdditionalData?.Remove("installation_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("installation_id"); else _explicitNullProperties?.Remove("installation_id"); } }
         private double? _explicitNullValueInstallationId = default!;
         /// <summary>The ID of the workspace containing the installation to copy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
+        public string? SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; AdditionalData?.Remove("source_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
         private string? _explicitNullValueSourceWorkspaceId = default!;
 #nullable restore
 #else
-        public string SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
+        public string SourceWorkspaceId { get => _explicitNullValueSourceWorkspaceId; set { _explicitNullValueSourceWorkspaceId = value; AdditionalData?.Remove("source_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source_workspace_id"); else _explicitNullProperties?.Remove("source_workspace_id"); } }
         private string _explicitNullValueSourceWorkspaceId = default!;
 #endif
         /// <summary>

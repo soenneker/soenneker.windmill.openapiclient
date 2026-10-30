@@ -105,7 +105,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Inputs.Create
 #endif
             #pragma warning disable CS1591
             [QueryParameter("runnable_type")]
-            public global::Soenneker.Windmill.OpenApiClient.Models.CreateInputRunnableTypeParameter? RunnableType { get; set; }
+            public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceInputsHistoryGetParameters2Schema94D905D088? RunnableType { get; set; }
             #pragma warning restore CS1591
         }
     }

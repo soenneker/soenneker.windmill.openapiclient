@@ -17,39 +17,43 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("is_flow") is { } nullNodeIsFlow && nullNodeIsFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFlow = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
-            if (parseNode.GetChildNode("trigger_config") is { } nullNodeTriggerConfig && nullNodeTriggerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerConfig = null;
-            if (parseNode.GetChildNode("trigger_kind") is { } nullNodeTriggerKind && nullNodeTriggerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerKind = null;
+            if (parseNode.GetChildNode("is_flow") is null) { _explicitNullValueIsFlow = default!; _explicitNullProperties?.Remove("is_flow"); }
+            else if (parseNode.GetChildNode("is_flow") is { } nullNodeIsFlow && nullNodeIsFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFlow = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("trigger_config") is null) { _explicitNullValueTriggerConfig = default!; _explicitNullProperties?.Remove("trigger_config"); }
+            else if (parseNode.GetChildNode("trigger_config") is { } nullNodeTriggerConfig && nullNodeTriggerConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerConfig = null;
+            if (parseNode.GetChildNode("trigger_kind") is null) { _explicitNullValueTriggerKind = default!; _explicitNullProperties?.Remove("trigger_kind"); }
+            else if (parseNode.GetChildNode("trigger_kind") is { } nullNodeTriggerKind && nullNodeTriggerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerKind = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The is_flow property</summary>
-        public bool? IsFlow { get => _explicitNullValueIsFlow; set { _explicitNullValueIsFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_flow"); else _explicitNullProperties?.Remove("is_flow"); } }
+        public bool? IsFlow { get => _explicitNullValueIsFlow; set { _explicitNullValueIsFlow = value; AdditionalData?.Remove("is_flow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_flow"); else _explicitNullProperties?.Remove("is_flow"); } }
         private bool? _explicitNullValueIsFlow = default!;
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The trigger_config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig? TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig? TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; AdditionalData?.Remove("trigger_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig? _explicitNullValueTriggerConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig TriggerConfig { get => _explicitNullValueTriggerConfig; set { _explicitNullValueTriggerConfig = value; AdditionalData?.Remove("trigger_config"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_config"); else _explicitNullProperties?.Remove("trigger_config"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig _explicitNullValueTriggerConfig = default!;
 #endif
         /// <summary>The trigger_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerKind? TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerKind? TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; AdditionalData?.Remove("trigger_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerKind? _explicitNullValueTriggerKind = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequest"/> and sets the default values.
@@ -79,7 +83,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_flow", n => { IsFlow = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "trigger_config", n => { TriggerConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig>(global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerConfig.CreateFromDiscriminatorValue); } },
-                { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerKind>(); } },
+                { "trigger_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetCaptureConfigRequestTriggerKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTriggerKind = default; _explicitNullProperties?.Remove("trigger_kind"); AdditionalData["trigger_kind"] = unknown; } else { TriggerKind = parsed; AdditionalData.Remove("trigger_kind"); } } },
             };
         }
         /// <summary>

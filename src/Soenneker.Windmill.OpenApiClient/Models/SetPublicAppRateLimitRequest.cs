@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("public_app_execution_limit_per_minute") is { } nullNodePublicAppExecutionLimitPerMinute && nullNodePublicAppExecutionLimitPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicAppExecutionLimitPerMinute = null;
+            if (parseNode.GetChildNode("public_app_execution_limit_per_minute") is null) { _explicitNullValuePublicAppExecutionLimitPerMinute = default!; _explicitNullProperties?.Remove("public_app_execution_limit_per_minute"); }
+            else if (parseNode.GetChildNode("public_app_execution_limit_per_minute") is { } nullNodePublicAppExecutionLimitPerMinute && nullNodePublicAppExecutionLimitPerMinute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicAppExecutionLimitPerMinute = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Rate limit for public app executions per minute per server. NULL or 0 to disable.</summary>
-        public int? PublicAppExecutionLimitPerMinute { get => _explicitNullValuePublicAppExecutionLimitPerMinute; set { _explicitNullValuePublicAppExecutionLimitPerMinute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_app_execution_limit_per_minute"); else _explicitNullProperties?.Remove("public_app_execution_limit_per_minute"); } }
+        public int? PublicAppExecutionLimitPerMinute { get => _explicitNullValuePublicAppExecutionLimitPerMinute; set { _explicitNullValuePublicAppExecutionLimitPerMinute = value; AdditionalData?.Remove("public_app_execution_limit_per_minute"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_app_execution_limit_per_minute"); else _explicitNullProperties?.Remove("public_app_execution_limit_per_minute"); } }
         private int? _explicitNullValuePublicAppExecutionLimitPerMinute = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetPublicAppRateLimitRequest"/> and sets the default values.

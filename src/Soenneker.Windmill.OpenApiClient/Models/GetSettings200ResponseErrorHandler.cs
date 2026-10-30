@@ -18,10 +18,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("extra_args") is { } nullNodeExtraArgs && nullNodeExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraArgs = null;
-            if (parseNode.GetChildNode("muted_on_cancel") is { } nullNodeMutedOnCancel && nullNodeMutedOnCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnCancel = null;
-            if (parseNode.GetChildNode("muted_on_user_path") is { } nullNodeMutedOnUserPath && nullNodeMutedOnUserPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnUserPath = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("extra_args") is null) { _explicitNullValueExtraArgs = default!; _explicitNullProperties?.Remove("extra_args"); }
+            else if (parseNode.GetChildNode("extra_args") is { } nullNodeExtraArgs && nullNodeExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraArgs = null;
+            if (parseNode.GetChildNode("muted_on_cancel") is null) { _explicitNullValueMutedOnCancel = default!; _explicitNullProperties?.Remove("muted_on_cancel"); }
+            else if (parseNode.GetChildNode("muted_on_cancel") is { } nullNodeMutedOnCancel && nullNodeMutedOnCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnCancel = null;
+            if (parseNode.GetChildNode("muted_on_user_path") is null) { _explicitNullValueMutedOnUserPath = default!; _explicitNullProperties?.Remove("muted_on_user_path"); }
+            else if (parseNode.GetChildNode("muted_on_user_path") is { } nullNodeMutedOnUserPath && nullNodeMutedOnUserPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnUserPath = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,27 +33,27 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs? ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs? ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; AdditionalData?.Remove("extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs? _explicitNullValueExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; AdditionalData?.Remove("extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs _explicitNullValueExtraArgs = default!;
 #endif
         /// <summary>The muted_on_cancel property</summary>
-        public bool? MutedOnCancel { get => _explicitNullValueMutedOnCancel; set { _explicitNullValueMutedOnCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_cancel"); else _explicitNullProperties?.Remove("muted_on_cancel"); } }
+        public bool? MutedOnCancel { get => _explicitNullValueMutedOnCancel; set { _explicitNullValueMutedOnCancel = value; AdditionalData?.Remove("muted_on_cancel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_cancel"); else _explicitNullProperties?.Remove("muted_on_cancel"); } }
         private bool? _explicitNullValueMutedOnCancel = default!;
         /// <summary>The muted_on_user_path property</summary>
-        public bool? MutedOnUserPath { get => _explicitNullValueMutedOnUserPath; set { _explicitNullValueMutedOnUserPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_user_path"); else _explicitNullProperties?.Remove("muted_on_user_path"); } }
+        public bool? MutedOnUserPath { get => _explicitNullValueMutedOnUserPath; set { _explicitNullValueMutedOnUserPath = value; AdditionalData?.Remove("muted_on_user_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_user_path"); else _explicitNullProperties?.Remove("muted_on_user_path"); } }
         private bool? _explicitNullValueMutedOnUserPath = default!;
         /// <summary>Path to the error handler script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>

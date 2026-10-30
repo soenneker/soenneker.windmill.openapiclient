@@ -17,35 +17,38 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
-            if (parseNode.GetChildNode("postgres_resource_path") is { } nullNodePostgresResourcePath && nullNodePostgresResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostgresResourcePath = null;
-            if (parseNode.GetChildNode("relations") is { } nullNodeRelations && nullNodeRelations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relations = null;
+            if (parseNode.GetChildNode("language") is null) { _explicitNullValueLanguage = default!; _explicitNullProperties?.Remove("language"); }
+            else if (parseNode.GetChildNode("language") is { } nullNodeLanguage && nullNodeLanguage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Language = null;
+            if (parseNode.GetChildNode("postgres_resource_path") is null) { _explicitNullValuePostgresResourcePath = default!; _explicitNullProperties?.Remove("postgres_resource_path"); }
+            else if (parseNode.GetChildNode("postgres_resource_path") is { } nullNodePostgresResourcePath && nullNodePostgresResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostgresResourcePath = null;
+            if (parseNode.GetChildNode("relations") is null) { _explicitNullValueRelations = default!; _explicitNullProperties?.Remove("relations"); }
+            else if (parseNode.GetChildNode("relations") is { } nullNodeRelations && nullNodeRelations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relations = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The language property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage? _explicitNullValueLanguage = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicatAfc0996769? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicatAfc0996769? _explicitNullValueLanguage = default!;
         /// <summary>The postgres_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PostgresResourcePath { get => _explicitNullValuePostgresResourcePath; set { _explicitNullValuePostgresResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_resource_path"); else _explicitNullProperties?.Remove("postgres_resource_path"); } }
+        public string? PostgresResourcePath { get => _explicitNullValuePostgresResourcePath; set { _explicitNullValuePostgresResourcePath = value; AdditionalData?.Remove("postgres_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_resource_path"); else _explicitNullProperties?.Remove("postgres_resource_path"); } }
         private string? _explicitNullValuePostgresResourcePath = default!;
 #nullable restore
 #else
-        public string PostgresResourcePath { get => _explicitNullValuePostgresResourcePath; set { _explicitNullValuePostgresResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_resource_path"); else _explicitNullProperties?.Remove("postgres_resource_path"); } }
+        public string PostgresResourcePath { get => _explicitNullValuePostgresResourcePath; set { _explicitNullValuePostgresResourcePath = value; AdditionalData?.Remove("postgres_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postgres_resource_path"); else _explicitNullProperties?.Remove("postgres_resource_path"); } }
         private string _explicitNullValuePostgresResourcePath = default!;
 #endif
         /// <summary>The relations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>? Relations { get => _explicitNullValueRelations; set { _explicitNullValueRelations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relations"); else _explicitNullProperties?.Remove("relations"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>? _explicitNullValueRelations = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicat74D50E8475>? Relations { get => _explicitNullValueRelations; set { _explicitNullValueRelations = value; AdditionalData?.Remove("relations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relations"); else _explicitNullProperties?.Remove("relations"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicat74D50E8475>? _explicitNullValueRelations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem> Relations { get => _explicitNullValueRelations; set { _explicitNullValueRelations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relations"); else _explicitNullProperties?.Remove("relations"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem> _explicitNullValueRelations = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicat74D50E8475> Relations { get => _explicitNullValueRelations; set { _explicitNullValueRelations = value; AdditionalData?.Remove("relations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relations"); else _explicitNullProperties?.Remove("relations"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicat74D50E8475> _explicitNullValueRelations = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequest"/> and sets the default values.
@@ -72,9 +75,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "language", n => { Language = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage>(); } },
+                { "language", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicatAfc0996769>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLanguage = default; _explicitNullProperties?.Remove("language"); AdditionalData["language"] = unknown; } else { Language = parsed; AdditionalData.Remove("language"); } } },
                 { "postgres_resource_path", n => { PostgresResourcePath = n.GetStringValue(); } },
-                { "relations", n => { Relations = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "relations", n => { Relations = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicat74D50E8475>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicat74D50E8475.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -84,9 +87,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.TypescriptLanguage>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicatAfc0996769>("language", Language);
             writer.WriteStringValue("postgres_resource_path", PostgresResourcePath);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateTemplateScriptRequestRelationsItem>("relations", Relations);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspacePostgresTriggersCreateTemplateScriptPostRequestBodyContentApplicat74D50E8475>("relations", Relations);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

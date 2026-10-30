@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("jwt_token") is { } nullNodeJwtToken && nullNodeJwtToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtToken = null;
+            if (parseNode.GetChildNode("jwt_token") is null) { _explicitNullValueJwtToken = default!; _explicitNullProperties?.Remove("jwt_token"); }
+            else if (parseNode.GetChildNode("jwt_token") is { } nullNodeJwtToken && nullNodeJwtToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The jwt_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JwtToken { get => _explicitNullValueJwtToken; set { _explicitNullValueJwtToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_token"); else _explicitNullProperties?.Remove("jwt_token"); } }
+        public string? JwtToken { get => _explicitNullValueJwtToken; set { _explicitNullValueJwtToken = value; AdditionalData?.Remove("jwt_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_token"); else _explicitNullProperties?.Remove("jwt_token"); } }
         private string? _explicitNullValueJwtToken = default!;
 #nullable restore
 #else
-        public string JwtToken { get => _explicitNullValueJwtToken; set { _explicitNullValueJwtToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_token"); else _explicitNullProperties?.Remove("jwt_token"); } }
+        public string JwtToken { get => _explicitNullValueJwtToken; set { _explicitNullValueJwtToken = value; AdditionalData?.Remove("jwt_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jwt_token"); else _explicitNullProperties?.Remove("jwt_token"); } }
         private string _explicitNullValueJwtToken = default!;
 #endif
         /// <summary>

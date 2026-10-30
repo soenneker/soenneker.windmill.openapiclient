@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_token") is { } nullNodeJobToken && nullNodeJobToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobToken = null;
+            if (parseNode.GetChildNode("job_token") is null) { _explicitNullValueJobToken = default!; _explicitNullProperties?.Remove("job_token"); }
+            else if (parseNode.GetChildNode("job_token") is { } nullNodeJobToken && nullNodeJobToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The job_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JobToken { get => _explicitNullValueJobToken; set { _explicitNullValueJobToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_token"); else _explicitNullProperties?.Remove("job_token"); } }
+        public string? JobToken { get => _explicitNullValueJobToken; set { _explicitNullValueJobToken = value; AdditionalData?.Remove("job_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_token"); else _explicitNullProperties?.Remove("job_token"); } }
         private string? _explicitNullValueJobToken = default!;
 #nullable restore
 #else
-        public string JobToken { get => _explicitNullValueJobToken; set { _explicitNullValueJobToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_token"); else _explicitNullProperties?.Remove("job_token"); } }
+        public string JobToken { get => _explicitNullValueJobToken; set { _explicitNullValueJobToken = value; AdditionalData?.Remove("job_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_token"); else _explicitNullProperties?.Remove("job_token"); } }
         private string _explicitNullValueJobToken = default!;
 #endif
         /// <summary>

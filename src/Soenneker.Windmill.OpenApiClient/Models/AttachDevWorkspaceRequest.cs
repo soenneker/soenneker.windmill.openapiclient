@@ -17,10 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dev_workspace_id") is { } nullNodeDevWorkspaceId && nullNodeDevWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceId = null;
-            if (parseNode.GetChildNode("dev_workspace_label") is { } nullNodeDevWorkspaceLabel && nullNodeDevWorkspaceLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceLabel = null;
-            if (parseNode.GetChildNode("lock_prod_deploy") is { } nullNodeLockProdDeploy && nullNodeLockProdDeploy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdDeploy = null;
-            if (parseNode.GetChildNode("lock_prod_forking") is { } nullNodeLockProdForking && nullNodeLockProdForking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdForking = null;
+            if (parseNode.GetChildNode("dev_workspace_id") is null) { _explicitNullValueDevWorkspaceId = default!; _explicitNullProperties?.Remove("dev_workspace_id"); }
+            else if (parseNode.GetChildNode("dev_workspace_id") is { } nullNodeDevWorkspaceId && nullNodeDevWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceId = null;
+            if (parseNode.GetChildNode("dev_workspace_label") is null) { _explicitNullValueDevWorkspaceLabel = default!; _explicitNullProperties?.Remove("dev_workspace_label"); }
+            else if (parseNode.GetChildNode("dev_workspace_label") is { } nullNodeDevWorkspaceLabel && nullNodeDevWorkspaceLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceLabel = null;
+            if (parseNode.GetChildNode("lock_prod_deploy") is null) { _explicitNullValueLockProdDeploy = default!; _explicitNullProperties?.Remove("lock_prod_deploy"); }
+            else if (parseNode.GetChildNode("lock_prod_deploy") is { } nullNodeLockProdDeploy && nullNodeLockProdDeploy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdDeploy = null;
+            if (parseNode.GetChildNode("lock_prod_forking") is null) { _explicitNullValueLockProdForking = default!; _explicitNullProperties?.Remove("lock_prod_forking"); }
+            else if (parseNode.GetChildNode("lock_prod_forking") is { } nullNodeLockProdForking && nullNodeLockProdForking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdForking = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,21 +32,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The dev_workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
+        public string? DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; AdditionalData?.Remove("dev_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
         private string? _explicitNullValueDevWorkspaceId = default!;
 #nullable restore
 #else
-        public string DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
+        public string DevWorkspaceId { get => _explicitNullValueDevWorkspaceId; set { _explicitNullValueDevWorkspaceId = value; AdditionalData?.Remove("dev_workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_id"); else _explicitNullProperties?.Remove("dev_workspace_id"); } }
         private string _explicitNullValueDevWorkspaceId = default!;
 #endif
         /// <summary>Environment label; also names the branch the dev workspace deploys to. Omitted defaults to &apos;dev&apos;</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? DevWorkspaceLabel { get => _explicitNullValueDevWorkspaceLabel; set { _explicitNullValueDevWorkspaceLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_label"); else _explicitNullProperties?.Remove("dev_workspace_label"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? DevWorkspaceLabel { get => _explicitNullValueDevWorkspaceLabel; set { _explicitNullValueDevWorkspaceLabel = value; AdditionalData?.Remove("dev_workspace_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_label"); else _explicitNullProperties?.Remove("dev_workspace_label"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel? _explicitNullValueDevWorkspaceLabel = default!;
         /// <summary>The lock_prod_deploy property</summary>
-        public bool? LockProdDeploy { get => _explicitNullValueLockProdDeploy; set { _explicitNullValueLockProdDeploy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_deploy"); else _explicitNullProperties?.Remove("lock_prod_deploy"); } }
+        public bool? LockProdDeploy { get => _explicitNullValueLockProdDeploy; set { _explicitNullValueLockProdDeploy = value; AdditionalData?.Remove("lock_prod_deploy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_deploy"); else _explicitNullProperties?.Remove("lock_prod_deploy"); } }
         private bool? _explicitNullValueLockProdDeploy = default!;
         /// <summary>The lock_prod_forking property</summary>
-        public bool? LockProdForking { get => _explicitNullValueLockProdForking; set { _explicitNullValueLockProdForking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_forking"); else _explicitNullProperties?.Remove("lock_prod_forking"); } }
+        public bool? LockProdForking { get => _explicitNullValueLockProdForking; set { _explicitNullValueLockProdForking = value; AdditionalData?.Remove("lock_prod_forking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_forking"); else _explicitNullProperties?.Remove("lock_prod_forking"); } }
         private bool? _explicitNullValueLockProdForking = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequest"/> and sets the default values.
@@ -70,7 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "dev_workspace_id", n => { DevWorkspaceId = n.GetStringValue(); } },
-                { "dev_workspace_label", n => { DevWorkspaceLabel = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel>(); } },
+                { "dev_workspace_label", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDevWorkspaceLabel = default; _explicitNullProperties?.Remove("dev_workspace_label"); AdditionalData["dev_workspace_label"] = unknown; } else { DevWorkspaceLabel = parsed; AdditionalData.Remove("dev_workspace_label"); } } },
                 { "lock_prod_deploy", n => { LockProdDeploy = n.GetBoolValue(); } },
                 { "lock_prod_forking", n => { LockProdForking = n.GetBoolValue(); } },
             };

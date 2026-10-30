@@ -18,50 +18,57 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("breaker") is { } nullNodeBreaker && nullNodeBreaker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Breaker = null;
-            if (parseNode.GetChildNode("current_rps") is { } nullNodeCurrentRps && nullNodeCurrentRps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentRps = null;
-            if (parseNode.GetChildNode("keys_from_store") is { } nullNodeKeysFromStore && nullNodeKeysFromStore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeysFromStore = null;
-            if (parseNode.GetChildNode("last_refresh_error") is { } nullNodeLastRefreshError && nullNodeLastRefreshError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRefreshError = null;
-            if (parseNode.GetChildNode("last_refresh_success") is { } nullNodeLastRefreshSuccess && nullNodeLastRefreshSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRefreshSuccess = null;
-            if (parseNode.GetChildNode("max_rps") is { } nullNodeMaxRps && nullNodeMaxRps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRps = null;
-            if (parseNode.GetChildNode("tls_files_error") is { } nullNodeTlsFilesError && nullNodeTlsFilesError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TlsFilesError = null;
+            if (parseNode.GetChildNode("breaker") is null) { _explicitNullValueBreaker = default!; _explicitNullProperties?.Remove("breaker"); }
+            else if (parseNode.GetChildNode("breaker") is { } nullNodeBreaker && nullNodeBreaker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Breaker = null;
+            if (parseNode.GetChildNode("current_rps") is null) { _explicitNullValueCurrentRps = default!; _explicitNullProperties?.Remove("current_rps"); }
+            else if (parseNode.GetChildNode("current_rps") is { } nullNodeCurrentRps && nullNodeCurrentRps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentRps = null;
+            if (parseNode.GetChildNode("keys_from_store") is null) { _explicitNullValueKeysFromStore = default!; _explicitNullProperties?.Remove("keys_from_store"); }
+            else if (parseNode.GetChildNode("keys_from_store") is { } nullNodeKeysFromStore && nullNodeKeysFromStore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeysFromStore = null;
+            if (parseNode.GetChildNode("last_refresh_error") is null) { _explicitNullValueLastRefreshError = default!; _explicitNullProperties?.Remove("last_refresh_error"); }
+            else if (parseNode.GetChildNode("last_refresh_error") is { } nullNodeLastRefreshError && nullNodeLastRefreshError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRefreshError = null;
+            if (parseNode.GetChildNode("last_refresh_success") is null) { _explicitNullValueLastRefreshSuccess = default!; _explicitNullProperties?.Remove("last_refresh_success"); }
+            else if (parseNode.GetChildNode("last_refresh_success") is { } nullNodeLastRefreshSuccess && nullNodeLastRefreshSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRefreshSuccess = null;
+            if (parseNode.GetChildNode("max_rps") is null) { _explicitNullValueMaxRps = default!; _explicitNullProperties?.Remove("max_rps"); }
+            else if (parseNode.GetChildNode("max_rps") is { } nullNodeMaxRps && nullNodeMaxRps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxRps = null;
+            if (parseNode.GetChildNode("tls_files_error") is null) { _explicitNullValueTlsFilesError = default!; _explicitNullProperties?.Remove("tls_files_error"); }
+            else if (parseNode.GetChildNode("tls_files_error") is { } nullNodeTlsFilesError && nullNodeTlsFilesError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TlsFilesError = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The breaker property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200ResponseSignerBreaker? Breaker { get => _explicitNullValueBreaker; set { _explicitNullValueBreaker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("breaker"); else _explicitNullProperties?.Remove("breaker"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200ResponseSignerBreaker? Breaker { get => _explicitNullValueBreaker; set { _explicitNullValueBreaker = value; AdditionalData?.Remove("breaker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("breaker"); else _explicitNullProperties?.Remove("breaker"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200ResponseSignerBreaker? _explicitNullValueBreaker = default!;
         /// <summary>The current_rps property</summary>
-        public double? CurrentRps { get => _explicitNullValueCurrentRps; set { _explicitNullValueCurrentRps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_rps"); else _explicitNullProperties?.Remove("current_rps"); } }
+        public double? CurrentRps { get => _explicitNullValueCurrentRps; set { _explicitNullValueCurrentRps = value; AdditionalData?.Remove("current_rps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_rps"); else _explicitNullProperties?.Remove("current_rps"); } }
         private double? _explicitNullValueCurrentRps = default!;
         /// <summary>the keys served are those stored by the last accepted listing, the signer has not answered this server yet</summary>
-        public bool? KeysFromStore { get => _explicitNullValueKeysFromStore; set { _explicitNullValueKeysFromStore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keys_from_store"); else _explicitNullProperties?.Remove("keys_from_store"); } }
+        public bool? KeysFromStore { get => _explicitNullValueKeysFromStore; set { _explicitNullValueKeysFromStore = value; AdditionalData?.Remove("keys_from_store"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keys_from_store"); else _explicitNullProperties?.Remove("keys_from_store"); } }
         private bool? _explicitNullValueKeysFromStore = default!;
         /// <summary>The last_refresh_error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRefreshError { get => _explicitNullValueLastRefreshError; set { _explicitNullValueLastRefreshError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refresh_error"); else _explicitNullProperties?.Remove("last_refresh_error"); } }
+        public string? LastRefreshError { get => _explicitNullValueLastRefreshError; set { _explicitNullValueLastRefreshError = value; AdditionalData?.Remove("last_refresh_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refresh_error"); else _explicitNullProperties?.Remove("last_refresh_error"); } }
         private string? _explicitNullValueLastRefreshError = default!;
 #nullable restore
 #else
-        public string LastRefreshError { get => _explicitNullValueLastRefreshError; set { _explicitNullValueLastRefreshError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refresh_error"); else _explicitNullProperties?.Remove("last_refresh_error"); } }
+        public string LastRefreshError { get => _explicitNullValueLastRefreshError; set { _explicitNullValueLastRefreshError = value; AdditionalData?.Remove("last_refresh_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refresh_error"); else _explicitNullProperties?.Remove("last_refresh_error"); } }
         private string _explicitNullValueLastRefreshError = default!;
 #endif
         /// <summary>The last_refresh_success property</summary>
-        public DateTimeOffset? LastRefreshSuccess { get => _explicitNullValueLastRefreshSuccess; set { _explicitNullValueLastRefreshSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refresh_success"); else _explicitNullProperties?.Remove("last_refresh_success"); } }
+        public DateTimeOffset? LastRefreshSuccess { get => _explicitNullValueLastRefreshSuccess; set { _explicitNullValueLastRefreshSuccess = value; AdditionalData?.Remove("last_refresh_success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_refresh_success"); else _explicitNullProperties?.Remove("last_refresh_success"); } }
         private DateTimeOffset? _explicitNullValueLastRefreshSuccess = default!;
         /// <summary>The max_rps property</summary>
-        public double? MaxRps { get => _explicitNullValueMaxRps; set { _explicitNullValueMaxRps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_rps"); else _explicitNullProperties?.Remove("max_rps"); } }
+        public double? MaxRps { get => _explicitNullValueMaxRps; set { _explicitNullValueMaxRps = value; AdditionalData?.Remove("max_rps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_rps"); else _explicitNullProperties?.Remove("max_rps"); } }
         private double? _explicitNullValueMaxRps = default!;
         /// <summary>why the mTLS files on disk are not the ones in use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TlsFilesError { get => _explicitNullValueTlsFilesError; set { _explicitNullValueTlsFilesError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tls_files_error"); else _explicitNullProperties?.Remove("tls_files_error"); } }
+        public string? TlsFilesError { get => _explicitNullValueTlsFilesError; set { _explicitNullValueTlsFilesError = value; AdditionalData?.Remove("tls_files_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tls_files_error"); else _explicitNullProperties?.Remove("tls_files_error"); } }
         private string? _explicitNullValueTlsFilesError = default!;
 #nullable restore
 #else
-        public string TlsFilesError { get => _explicitNullValueTlsFilesError; set { _explicitNullValueTlsFilesError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tls_files_error"); else _explicitNullProperties?.Remove("tls_files_error"); } }
+        public string TlsFilesError { get => _explicitNullValueTlsFilesError; set { _explicitNullValueTlsFilesError = value; AdditionalData?.Remove("tls_files_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tls_files_error"); else _explicitNullProperties?.Remove("tls_files_error"); } }
         private string _explicitNullValueTlsFilesError = default!;
 #endif
         /// <summary>
@@ -89,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "breaker", n => { Breaker = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200ResponseSignerBreaker>(); } },
+                { "breaker", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200ResponseSignerBreaker>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBreaker = default; _explicitNullProperties?.Remove("breaker"); AdditionalData["breaker"] = unknown; } else { Breaker = parsed; AdditionalData.Remove("breaker"); } } },
                 { "current_rps", n => { CurrentRps = n.GetDoubleValue(); } },
                 { "keys_from_store", n => { KeysFromStore = n.GetBoolValue(); } },
                 { "last_refresh_error", n => { LastRefreshError = n.GetStringValue(); } },

@@ -18,8 +18,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("global_settings") is { } nullNodeGlobalSettings && nullNodeGlobalSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalSettings = null;
-            if (parseNode.GetChildNode("worker_configs") is { } nullNodeWorkerConfigs && nullNodeWorkerConfigs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkerConfigs = null;
+            if (parseNode.GetChildNode("global_settings") is null) { _explicitNullValueGlobalSettings = default!; _explicitNullProperties?.Remove("global_settings"); }
+            else if (parseNode.GetChildNode("global_settings") is { } nullNodeGlobalSettings && nullNodeGlobalSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalSettings = null;
+            if (parseNode.GetChildNode("worker_configs") is null) { _explicitNullValueWorkerConfigs = default!; _explicitNullProperties?.Remove("worker_configs"); }
+            else if (parseNode.GetChildNode("worker_configs") is { } nullNodeWorkerConfigs && nullNodeWorkerConfigs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkerConfigs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Global settings keyed by setting name. Known fields include base_url, license_key, retention_period_secs, smtp_settings, otel, etc. Unknown fields are preserved as-is.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseGlobalSettings? GlobalSettings { get => _explicitNullValueGlobalSettings; set { _explicitNullValueGlobalSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_settings"); else _explicitNullProperties?.Remove("global_settings"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseGlobalSettings? GlobalSettings { get => _explicitNullValueGlobalSettings; set { _explicitNullValueGlobalSettings = value; AdditionalData?.Remove("global_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_settings"); else _explicitNullProperties?.Remove("global_settings"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseGlobalSettings? _explicitNullValueGlobalSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseGlobalSettings GlobalSettings { get => _explicitNullValueGlobalSettings; set { _explicitNullValueGlobalSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_settings"); else _explicitNullProperties?.Remove("global_settings"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseGlobalSettings GlobalSettings { get => _explicitNullValueGlobalSettings; set { _explicitNullValueGlobalSettings = value; AdditionalData?.Remove("global_settings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global_settings"); else _explicitNullProperties?.Remove("global_settings"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseGlobalSettings _explicitNullValueGlobalSettings = default!;
 #endif
         /// <summary>Worker group configurations keyed by group name (e.g. &quot;default&quot;, &quot;gpu&quot;). Each value contains worker_tags, init_bash, autoscaling, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseWorkerConfigs? WorkerConfigs { get => _explicitNullValueWorkerConfigs; set { _explicitNullValueWorkerConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_configs"); else _explicitNullProperties?.Remove("worker_configs"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseWorkerConfigs? WorkerConfigs { get => _explicitNullValueWorkerConfigs; set { _explicitNullValueWorkerConfigs = value; AdditionalData?.Remove("worker_configs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_configs"); else _explicitNullProperties?.Remove("worker_configs"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseWorkerConfigs? _explicitNullValueWorkerConfigs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseWorkerConfigs WorkerConfigs { get => _explicitNullValueWorkerConfigs; set { _explicitNullValueWorkerConfigs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_configs"); else _explicitNullProperties?.Remove("worker_configs"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseWorkerConfigs WorkerConfigs { get => _explicitNullValueWorkerConfigs; set { _explicitNullValueWorkerConfigs = value; AdditionalData?.Remove("worker_configs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_configs"); else _explicitNullProperties?.Remove("worker_configs"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200ResponseWorkerConfigs _explicitNullValueWorkerConfigs = default!;
 #endif
         /// <summary>

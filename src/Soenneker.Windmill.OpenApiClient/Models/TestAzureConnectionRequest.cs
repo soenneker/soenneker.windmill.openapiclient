@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("azure_resource_path") is { } nullNodeAzureResourcePath && nullNodeAzureResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureResourcePath = null;
+            if (parseNode.GetChildNode("azure_resource_path") is null) { _explicitNullValueAzureResourcePath = default!; _explicitNullProperties?.Remove("azure_resource_path"); }
+            else if (parseNode.GetChildNode("azure_resource_path") is { } nullNodeAzureResourcePath && nullNodeAzureResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureResourcePath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The azure_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AzureResourcePath { get => _explicitNullValueAzureResourcePath; set { _explicitNullValueAzureResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_resource_path"); else _explicitNullProperties?.Remove("azure_resource_path"); } }
+        public string? AzureResourcePath { get => _explicitNullValueAzureResourcePath; set { _explicitNullValueAzureResourcePath = value; AdditionalData?.Remove("azure_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_resource_path"); else _explicitNullProperties?.Remove("azure_resource_path"); } }
         private string? _explicitNullValueAzureResourcePath = default!;
 #nullable restore
 #else
-        public string AzureResourcePath { get => _explicitNullValueAzureResourcePath; set { _explicitNullValueAzureResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_resource_path"); else _explicitNullProperties?.Remove("azure_resource_path"); } }
+        public string AzureResourcePath { get => _explicitNullValueAzureResourcePath; set { _explicitNullValueAzureResourcePath = value; AdditionalData?.Remove("azure_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_resource_path"); else _explicitNullProperties?.Remove("azure_resource_path"); } }
         private string _explicitNullValueAzureResourcePath = default!;
 #endif
         /// <summary>

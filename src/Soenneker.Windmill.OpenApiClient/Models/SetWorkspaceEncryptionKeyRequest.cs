@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("new_key") is { } nullNodeNewKey && nullNodeNewKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewKey = null;
-            if (parseNode.GetChildNode("skip_reencrypt") is { } nullNodeSkipReencrypt && nullNodeSkipReencrypt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipReencrypt = null;
+            if (parseNode.GetChildNode("new_key") is null) { _explicitNullValueNewKey = default!; _explicitNullProperties?.Remove("new_key"); }
+            else if (parseNode.GetChildNode("new_key") is { } nullNodeNewKey && nullNodeNewKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewKey = null;
+            if (parseNode.GetChildNode("skip_reencrypt") is null) { _explicitNullValueSkipReencrypt = default!; _explicitNullProperties?.Remove("skip_reencrypt"); }
+            else if (parseNode.GetChildNode("skip_reencrypt") is { } nullNodeSkipReencrypt && nullNodeSkipReencrypt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipReencrypt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The new_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewKey { get => _explicitNullValueNewKey; set { _explicitNullValueNewKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_key"); else _explicitNullProperties?.Remove("new_key"); } }
+        public string? NewKey { get => _explicitNullValueNewKey; set { _explicitNullValueNewKey = value; AdditionalData?.Remove("new_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_key"); else _explicitNullProperties?.Remove("new_key"); } }
         private string? _explicitNullValueNewKey = default!;
 #nullable restore
 #else
-        public string NewKey { get => _explicitNullValueNewKey; set { _explicitNullValueNewKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_key"); else _explicitNullProperties?.Remove("new_key"); } }
+        public string NewKey { get => _explicitNullValueNewKey; set { _explicitNullValueNewKey = value; AdditionalData?.Remove("new_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_key"); else _explicitNullProperties?.Remove("new_key"); } }
         private string _explicitNullValueNewKey = default!;
 #endif
         /// <summary>The skip_reencrypt property</summary>
-        public bool? SkipReencrypt { get => _explicitNullValueSkipReencrypt; set { _explicitNullValueSkipReencrypt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_reencrypt"); else _explicitNullProperties?.Remove("skip_reencrypt"); } }
+        public bool? SkipReencrypt { get => _explicitNullValueSkipReencrypt; set { _explicitNullValueSkipReencrypt = value; AdditionalData?.Remove("skip_reencrypt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_reencrypt"); else _explicitNullProperties?.Remove("skip_reencrypt"); } }
         private bool? _explicitNullValueSkipReencrypt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetWorkspaceEncryptionKeyRequest"/> and sets the default values.

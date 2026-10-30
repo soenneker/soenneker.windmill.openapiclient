@@ -18,65 +18,74 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_count") is { } nullNodeJobCount && nullNodeJobCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobCount = null;
-            if (parseNode.GetChildNode("max_memory_peak") is { } nullNodeMaxMemoryPeak && nullNodeMaxMemoryPeak.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxMemoryPeak = null;
-            if (parseNode.GetChildNode("memory_sample_count") is { } nullNodeMemorySampleCount && nullNodeMemorySampleCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemorySampleCount = null;
-            if (parseNode.GetChildNode("runnable_path") is { } nullNodeRunnablePath && nullNodeRunnablePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnablePath = null;
-            if (parseNode.GetChildNode("sum_memory_peak") is { } nullNodeSumMemoryPeak && nullNodeSumMemoryPeak.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SumMemoryPeak = null;
-            if (parseNode.GetChildNode("total_cpu_ms") is { } nullNodeTotalCpuMs && nullNodeTotalCpuMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCpuMs = null;
-            if (parseNode.GetChildNode("total_duration_ms") is { } nullNodeTotalDurationMs && nullNodeTotalDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDurationMs = null;
-            if (parseNode.GetChildNode("worker_group") is { } nullNodeWorkerGroup && nullNodeWorkerGroup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkerGroup = null;
-            if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
+            if (parseNode.GetChildNode("job_count") is null) { _explicitNullValueJobCount = default!; _explicitNullProperties?.Remove("job_count"); }
+            else if (parseNode.GetChildNode("job_count") is { } nullNodeJobCount && nullNodeJobCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobCount = null;
+            if (parseNode.GetChildNode("max_memory_peak") is null) { _explicitNullValueMaxMemoryPeak = default!; _explicitNullProperties?.Remove("max_memory_peak"); }
+            else if (parseNode.GetChildNode("max_memory_peak") is { } nullNodeMaxMemoryPeak && nullNodeMaxMemoryPeak.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxMemoryPeak = null;
+            if (parseNode.GetChildNode("memory_sample_count") is null) { _explicitNullValueMemorySampleCount = default!; _explicitNullProperties?.Remove("memory_sample_count"); }
+            else if (parseNode.GetChildNode("memory_sample_count") is { } nullNodeMemorySampleCount && nullNodeMemorySampleCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemorySampleCount = null;
+            if (parseNode.GetChildNode("runnable_path") is null) { _explicitNullValueRunnablePath = default!; _explicitNullProperties?.Remove("runnable_path"); }
+            else if (parseNode.GetChildNode("runnable_path") is { } nullNodeRunnablePath && nullNodeRunnablePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunnablePath = null;
+            if (parseNode.GetChildNode("sum_memory_peak") is null) { _explicitNullValueSumMemoryPeak = default!; _explicitNullProperties?.Remove("sum_memory_peak"); }
+            else if (parseNode.GetChildNode("sum_memory_peak") is { } nullNodeSumMemoryPeak && nullNodeSumMemoryPeak.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SumMemoryPeak = null;
+            if (parseNode.GetChildNode("total_cpu_ms") is null) { _explicitNullValueTotalCpuMs = default!; _explicitNullProperties?.Remove("total_cpu_ms"); }
+            else if (parseNode.GetChildNode("total_cpu_ms") is { } nullNodeTotalCpuMs && nullNodeTotalCpuMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCpuMs = null;
+            if (parseNode.GetChildNode("total_duration_ms") is null) { _explicitNullValueTotalDurationMs = default!; _explicitNullProperties?.Remove("total_duration_ms"); }
+            else if (parseNode.GetChildNode("total_duration_ms") is { } nullNodeTotalDurationMs && nullNodeTotalDurationMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalDurationMs = null;
+            if (parseNode.GetChildNode("worker_group") is null) { _explicitNullValueWorkerGroup = default!; _explicitNullProperties?.Remove("worker_group"); }
+            else if (parseNode.GetChildNode("worker_group") is { } nullNodeWorkerGroup && nullNodeWorkerGroup.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkerGroup = null;
+            if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
+            else if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The job_count property</summary>
-        public int? JobCount { get => _explicitNullValueJobCount; set { _explicitNullValueJobCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_count"); else _explicitNullProperties?.Remove("job_count"); } }
+        public int? JobCount { get => _explicitNullValueJobCount; set { _explicitNullValueJobCount = value; AdditionalData?.Remove("job_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_count"); else _explicitNullProperties?.Remove("job_count"); } }
         private int? _explicitNullValueJobCount = default!;
         /// <summary>highest peak memory of a job, in kB</summary>
-        public int? MaxMemoryPeak { get => _explicitNullValueMaxMemoryPeak; set { _explicitNullValueMaxMemoryPeak = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_memory_peak"); else _explicitNullProperties?.Remove("max_memory_peak"); } }
+        public int? MaxMemoryPeak { get => _explicitNullValueMaxMemoryPeak; set { _explicitNullValueMaxMemoryPeak = value; AdditionalData?.Remove("max_memory_peak"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_memory_peak"); else _explicitNullProperties?.Remove("max_memory_peak"); } }
         private int? _explicitNullValueMaxMemoryPeak = default!;
         /// <summary>number of jobs that have a peak memory reading</summary>
-        public int? MemorySampleCount { get => _explicitNullValueMemorySampleCount; set { _explicitNullValueMemorySampleCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_sample_count"); else _explicitNullProperties?.Remove("memory_sample_count"); } }
+        public int? MemorySampleCount { get => _explicitNullValueMemorySampleCount; set { _explicitNullValueMemorySampleCount = value; AdditionalData?.Remove("memory_sample_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memory_sample_count"); else _explicitNullProperties?.Remove("memory_sample_count"); } }
         private int? _explicitNullValueMemorySampleCount = default!;
         /// <summary>path of the script or flow step; `&lt;adhoc&gt;` gathers previews and other runs without a stable path</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        public string? RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; AdditionalData?.Remove("runnable_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
         private string? _explicitNullValueRunnablePath = default!;
 #nullable restore
 #else
-        public string RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
+        public string RunnablePath { get => _explicitNullValueRunnablePath; set { _explicitNullValueRunnablePath = value; AdditionalData?.Remove("runnable_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runnable_path"); else _explicitNullProperties?.Remove("runnable_path"); } }
         private string _explicitNullValueRunnablePath = default!;
 #endif
         /// <summary>sum of the peak memory of the jobs that have one, in kB</summary>
-        public int? SumMemoryPeak { get => _explicitNullValueSumMemoryPeak; set { _explicitNullValueSumMemoryPeak = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sum_memory_peak"); else _explicitNullProperties?.Remove("sum_memory_peak"); } }
+        public int? SumMemoryPeak { get => _explicitNullValueSumMemoryPeak; set { _explicitNullValueSumMemoryPeak = value; AdditionalData?.Remove("sum_memory_peak"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sum_memory_peak"); else _explicitNullProperties?.Remove("sum_memory_peak"); } }
         private int? _explicitNullValueSumMemoryPeak = default!;
         /// <summary>The total_cpu_ms property</summary>
-        public int? TotalCpuMs { get => _explicitNullValueTotalCpuMs; set { _explicitNullValueTotalCpuMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cpu_ms"); else _explicitNullProperties?.Remove("total_cpu_ms"); } }
+        public int? TotalCpuMs { get => _explicitNullValueTotalCpuMs; set { _explicitNullValueTotalCpuMs = value; AdditionalData?.Remove("total_cpu_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_cpu_ms"); else _explicitNullProperties?.Remove("total_cpu_ms"); } }
         private int? _explicitNullValueTotalCpuMs = default!;
         /// <summary>The total_duration_ms property</summary>
-        public int? TotalDurationMs { get => _explicitNullValueTotalDurationMs; set { _explicitNullValueTotalDurationMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_duration_ms"); else _explicitNullProperties?.Remove("total_duration_ms"); } }
+        public int? TotalDurationMs { get => _explicitNullValueTotalDurationMs; set { _explicitNullValueTotalDurationMs = value; AdditionalData?.Remove("total_duration_ms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_duration_ms"); else _explicitNullProperties?.Remove("total_duration_ms"); } }
         private int? _explicitNullValueTotalDurationMs = default!;
         /// <summary>The worker_group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkerGroup { get => _explicitNullValueWorkerGroup; set { _explicitNullValueWorkerGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_group"); else _explicitNullProperties?.Remove("worker_group"); } }
+        public string? WorkerGroup { get => _explicitNullValueWorkerGroup; set { _explicitNullValueWorkerGroup = value; AdditionalData?.Remove("worker_group"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_group"); else _explicitNullProperties?.Remove("worker_group"); } }
         private string? _explicitNullValueWorkerGroup = default!;
 #nullable restore
 #else
-        public string WorkerGroup { get => _explicitNullValueWorkerGroup; set { _explicitNullValueWorkerGroup = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_group"); else _explicitNullProperties?.Remove("worker_group"); } }
+        public string WorkerGroup { get => _explicitNullValueWorkerGroup; set { _explicitNullValueWorkerGroup = value; AdditionalData?.Remove("worker_group"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("worker_group"); else _explicitNullProperties?.Remove("worker_group"); } }
         private string _explicitNullValueWorkerGroup = default!;
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
         private string? _explicitNullValueWorkspaceId = default!;
 #nullable restore
 #else
-        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
         private string _explicitNullValueWorkspaceId = default!;
 #endif
         /// <summary>

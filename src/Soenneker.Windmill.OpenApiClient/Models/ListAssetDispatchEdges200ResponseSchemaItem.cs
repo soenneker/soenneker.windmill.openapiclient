@@ -17,50 +17,57 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("asset_kind") is { } nullNodeAssetKind && nullNodeAssetKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetKind = null;
-            if (parseNode.GetChildNode("asset_path") is { } nullNodeAssetPath && nullNodeAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetPath = null;
-            if (parseNode.GetChildNode("child_job_id") is { } nullNodeChildJobId && nullNodeChildJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildJobId = null;
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("outcome") is { } nullNodeOutcome && nullNodeOutcome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outcome = null;
-            if (parseNode.GetChildNode("producer_job_id") is { } nullNodeProducerJobId && nullNodeProducerJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProducerJobId = null;
-            if (parseNode.GetChildNode("subscriber_path") is { } nullNodeSubscriberPath && nullNodeSubscriberPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriberPath = null;
+            if (parseNode.GetChildNode("asset_kind") is null) { _explicitNullValueAssetKind = default!; _explicitNullProperties?.Remove("asset_kind"); }
+            else if (parseNode.GetChildNode("asset_kind") is { } nullNodeAssetKind && nullNodeAssetKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetKind = null;
+            if (parseNode.GetChildNode("asset_path") is null) { _explicitNullValueAssetPath = default!; _explicitNullProperties?.Remove("asset_path"); }
+            else if (parseNode.GetChildNode("asset_path") is { } nullNodeAssetPath && nullNodeAssetPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AssetPath = null;
+            if (parseNode.GetChildNode("child_job_id") is null) { _explicitNullValueChildJobId = default!; _explicitNullProperties?.Remove("child_job_id"); }
+            else if (parseNode.GetChildNode("child_job_id") is { } nullNodeChildJobId && nullNodeChildJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildJobId = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("outcome") is null) { _explicitNullValueOutcome = default!; _explicitNullProperties?.Remove("outcome"); }
+            else if (parseNode.GetChildNode("outcome") is { } nullNodeOutcome && nullNodeOutcome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outcome = null;
+            if (parseNode.GetChildNode("producer_job_id") is null) { _explicitNullValueProducerJobId = default!; _explicitNullProperties?.Remove("producer_job_id"); }
+            else if (parseNode.GetChildNode("producer_job_id") is { } nullNodeProducerJobId && nullNodeProducerJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProducerJobId = null;
+            if (parseNode.GetChildNode("subscriber_path") is null) { _explicitNullValueSubscriberPath = default!; _explicitNullProperties?.Remove("subscriber_path"); }
+            else if (parseNode.GetChildNode("subscriber_path") is { } nullNodeSubscriberPath && nullNodeSubscriberPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriberPath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The asset_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemAssetKind? AssetKind { get => _explicitNullValueAssetKind; set { _explicitNullValueAssetKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_kind"); else _explicitNullProperties?.Remove("asset_kind"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemAssetKind? AssetKind { get => _explicitNullValueAssetKind; set { _explicitNullValueAssetKind = value; AdditionalData?.Remove("asset_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_kind"); else _explicitNullProperties?.Remove("asset_kind"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemAssetKind? _explicitNullValueAssetKind = default!;
         /// <summary>The asset_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        public string? AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; AdditionalData?.Remove("asset_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
         private string? _explicitNullValueAssetPath = default!;
 #nullable restore
 #else
-        public string AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
+        public string AssetPath { get => _explicitNullValueAssetPath; set { _explicitNullValueAssetPath = value; AdditionalData?.Remove("asset_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset_path"); else _explicitNullProperties?.Remove("asset_path"); } }
         private string _explicitNullValueAssetPath = default!;
 #endif
         /// <summary>Set for `dispatched`; absent for `join_pending` inputs.</summary>
-        public Guid? ChildJobId { get => _explicitNullValueChildJobId; set { _explicitNullValueChildJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_job_id"); else _explicitNullProperties?.Remove("child_job_id"); } }
+        public Guid? ChildJobId { get => _explicitNullValueChildJobId; set { _explicitNullValueChildJobId = value; AdditionalData?.Remove("child_job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_job_id"); else _explicitNullProperties?.Remove("child_job_id"); } }
         private Guid? _explicitNullValueChildJobId = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The outcome property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemOutcome? Outcome { get => _explicitNullValueOutcome; set { _explicitNullValueOutcome = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcome"); else _explicitNullProperties?.Remove("outcome"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemOutcome? Outcome { get => _explicitNullValueOutcome; set { _explicitNullValueOutcome = value; AdditionalData?.Remove("outcome"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcome"); else _explicitNullProperties?.Remove("outcome"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemOutcome? _explicitNullValueOutcome = default!;
         /// <summary>The producer_job_id property</summary>
-        public Guid? ProducerJobId { get => _explicitNullValueProducerJobId; set { _explicitNullValueProducerJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_job_id"); else _explicitNullProperties?.Remove("producer_job_id"); } }
+        public Guid? ProducerJobId { get => _explicitNullValueProducerJobId; set { _explicitNullValueProducerJobId = value; AdditionalData?.Remove("producer_job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_job_id"); else _explicitNullProperties?.Remove("producer_job_id"); } }
         private Guid? _explicitNullValueProducerJobId = default!;
         /// <summary>The subscriber_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriberPath { get => _explicitNullValueSubscriberPath; set { _explicitNullValueSubscriberPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_path"); else _explicitNullProperties?.Remove("subscriber_path"); } }
+        public string? SubscriberPath { get => _explicitNullValueSubscriberPath; set { _explicitNullValueSubscriberPath = value; AdditionalData?.Remove("subscriber_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_path"); else _explicitNullProperties?.Remove("subscriber_path"); } }
         private string? _explicitNullValueSubscriberPath = default!;
 #nullable restore
 #else
-        public string SubscriberPath { get => _explicitNullValueSubscriberPath; set { _explicitNullValueSubscriberPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_path"); else _explicitNullProperties?.Remove("subscriber_path"); } }
+        public string SubscriberPath { get => _explicitNullValueSubscriberPath; set { _explicitNullValueSubscriberPath = value; AdditionalData?.Remove("subscriber_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscriber_path"); else _explicitNullProperties?.Remove("subscriber_path"); } }
         private string _explicitNullValueSubscriberPath = default!;
 #endif
         /// <summary>
@@ -88,11 +95,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "asset_kind", n => { AssetKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemAssetKind>(); } },
+                { "asset_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemAssetKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAssetKind = default; _explicitNullProperties?.Remove("asset_kind"); AdditionalData["asset_kind"] = unknown; } else { AssetKind = parsed; AdditionalData.Remove("asset_kind"); } } },
                 { "asset_path", n => { AssetPath = n.GetStringValue(); } },
                 { "child_job_id", n => { ChildJobId = n.GetGuidValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "outcome", n => { Outcome = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemOutcome>(); } },
+                { "outcome", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetDispatchEdges200ResponseItemOutcome>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOutcome = default; _explicitNullProperties?.Remove("outcome"); AdditionalData["outcome"] = unknown; } else { Outcome = parsed; AdditionalData.Remove("outcome"); } } },
                 { "producer_job_id", n => { ProducerJobId = n.GetGuidValue(); } },
                 { "subscriber_path", n => { SubscriberPath = n.GetStringValue(); } },
             };

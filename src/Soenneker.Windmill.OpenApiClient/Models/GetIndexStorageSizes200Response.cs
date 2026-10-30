@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_index") is { } nullNodeJobIndex && nullNodeJobIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIndex = null;
-            if (parseNode.GetChildNode("service_log_index") is { } nullNodeServiceLogIndex && nullNodeServiceLogIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceLogIndex = null;
+            if (parseNode.GetChildNode("job_index") is null) { _explicitNullValueJobIndex = default!; _explicitNullProperties?.Remove("job_index"); }
+            else if (parseNode.GetChildNode("job_index") is { } nullNodeJobIndex && nullNodeJobIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIndex = null;
+            if (parseNode.GetChildNode("service_log_index") is null) { _explicitNullValueServiceLogIndex = default!; _explicitNullProperties?.Remove("service_log_index"); }
+            else if (parseNode.GetChildNode("service_log_index") is { } nullNodeServiceLogIndex && nullNodeServiceLogIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceLogIndex = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The job_index property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseJobIndex? JobIndex { get => _explicitNullValueJobIndex; set { _explicitNullValueJobIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_index"); else _explicitNullProperties?.Remove("job_index"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseJobIndex? JobIndex { get => _explicitNullValueJobIndex; set { _explicitNullValueJobIndex = value; AdditionalData?.Remove("job_index"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_index"); else _explicitNullProperties?.Remove("job_index"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseJobIndex? _explicitNullValueJobIndex = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseJobIndex JobIndex { get => _explicitNullValueJobIndex; set { _explicitNullValueJobIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_index"); else _explicitNullProperties?.Remove("job_index"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseJobIndex JobIndex { get => _explicitNullValueJobIndex; set { _explicitNullValueJobIndex = value; AdditionalData?.Remove("job_index"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_index"); else _explicitNullProperties?.Remove("job_index"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseJobIndex _explicitNullValueJobIndex = default!;
 #endif
         /// <summary>The service_log_index property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseServiceLogIndex? ServiceLogIndex { get => _explicitNullValueServiceLogIndex; set { _explicitNullValueServiceLogIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_log_index"); else _explicitNullProperties?.Remove("service_log_index"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseServiceLogIndex? ServiceLogIndex { get => _explicitNullValueServiceLogIndex; set { _explicitNullValueServiceLogIndex = value; AdditionalData?.Remove("service_log_index"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_log_index"); else _explicitNullProperties?.Remove("service_log_index"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseServiceLogIndex? _explicitNullValueServiceLogIndex = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseServiceLogIndex ServiceLogIndex { get => _explicitNullValueServiceLogIndex; set { _explicitNullValueServiceLogIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_log_index"); else _explicitNullProperties?.Remove("service_log_index"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseServiceLogIndex ServiceLogIndex { get => _explicitNullValueServiceLogIndex; set { _explicitNullValueServiceLogIndex = value; AdditionalData?.Remove("service_log_index"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_log_index"); else _explicitNullProperties?.Remove("service_log_index"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetIndexStorageSizes200ResponseServiceLogIndex _explicitNullValueServiceLogIndex = default!;
 #endif
         /// <summary>

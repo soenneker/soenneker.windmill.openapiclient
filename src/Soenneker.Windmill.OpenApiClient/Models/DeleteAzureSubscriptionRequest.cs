@@ -17,45 +17,49 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("azure_mode") is { } nullNodeAzureMode && nullNodeAzureMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureMode = null;
-            if (parseNode.GetChildNode("scope_resource_id") is { } nullNodeScopeResourceId && nullNodeScopeResourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopeResourceId = null;
-            if (parseNode.GetChildNode("subscription_name") is { } nullNodeSubscriptionName && nullNodeSubscriptionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionName = null;
-            if (parseNode.GetChildNode("topic_name") is { } nullNodeTopicName && nullNodeTopicName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopicName = null;
+            if (parseNode.GetChildNode("azure_mode") is null) { _explicitNullValueAzureMode = default!; _explicitNullProperties?.Remove("azure_mode"); }
+            else if (parseNode.GetChildNode("azure_mode") is { } nullNodeAzureMode && nullNodeAzureMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureMode = null;
+            if (parseNode.GetChildNode("scope_resource_id") is null) { _explicitNullValueScopeResourceId = default!; _explicitNullProperties?.Remove("scope_resource_id"); }
+            else if (parseNode.GetChildNode("scope_resource_id") is { } nullNodeScopeResourceId && nullNodeScopeResourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopeResourceId = null;
+            if (parseNode.GetChildNode("subscription_name") is null) { _explicitNullValueSubscriptionName = default!; _explicitNullProperties?.Remove("subscription_name"); }
+            else if (parseNode.GetChildNode("subscription_name") is { } nullNodeSubscriptionName && nullNodeSubscriptionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubscriptionName = null;
+            if (parseNode.GetChildNode("topic_name") is null) { _explicitNullValueTopicName = default!; _explicitNullProperties?.Remove("topic_name"); }
+            else if (parseNode.GetChildNode("topic_name") is { } nullNodeTopicName && nullNodeTopicName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopicName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Azure Event Grid trigger mode.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequestAzureMode? AzureMode { get => _explicitNullValueAzureMode; set { _explicitNullValueAzureMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_mode"); else _explicitNullProperties?.Remove("azure_mode"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequestAzureMode? _explicitNullValueAzureMode = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAzureTriggersSubscriptionsDeletePathDeleteRequestBodyContentAppl54Dcbaa19F? AzureMode { get => _explicitNullValueAzureMode; set { _explicitNullValueAzureMode = value; AdditionalData?.Remove("azure_mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_mode"); else _explicitNullProperties?.Remove("azure_mode"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAzureTriggersSubscriptionsDeletePathDeleteRequestBodyContentAppl54Dcbaa19F? _explicitNullValueAzureMode = default!;
         /// <summary>The scope_resource_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
+        public string? ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; AdditionalData?.Remove("scope_resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
         private string? _explicitNullValueScopeResourceId = default!;
 #nullable restore
 #else
-        public string ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
+        public string ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; AdditionalData?.Remove("scope_resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
         private string _explicitNullValueScopeResourceId = default!;
 #endif
         /// <summary>The subscription_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubscriptionName { get => _explicitNullValueSubscriptionName; set { _explicitNullValueSubscriptionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_name"); else _explicitNullProperties?.Remove("subscription_name"); } }
+        public string? SubscriptionName { get => _explicitNullValueSubscriptionName; set { _explicitNullValueSubscriptionName = value; AdditionalData?.Remove("subscription_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_name"); else _explicitNullProperties?.Remove("subscription_name"); } }
         private string? _explicitNullValueSubscriptionName = default!;
 #nullable restore
 #else
-        public string SubscriptionName { get => _explicitNullValueSubscriptionName; set { _explicitNullValueSubscriptionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_name"); else _explicitNullProperties?.Remove("subscription_name"); } }
+        public string SubscriptionName { get => _explicitNullValueSubscriptionName; set { _explicitNullValueSubscriptionName = value; AdditionalData?.Remove("subscription_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subscription_name"); else _explicitNullProperties?.Remove("subscription_name"); } }
         private string _explicitNullValueSubscriptionName = default!;
 #endif
         /// <summary>The topic_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
+        public string? TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; AdditionalData?.Remove("topic_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
         private string? _explicitNullValueTopicName = default!;
 #nullable restore
 #else
-        public string TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
+        public string TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; AdditionalData?.Remove("topic_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
         private string _explicitNullValueTopicName = default!;
 #endif
         /// <summary>
@@ -83,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "azure_mode", n => { AzureMode = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequestAzureMode>(); } },
+                { "azure_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAzureTriggersSubscriptionsDeletePathDeleteRequestBodyContentAppl54Dcbaa19F>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAzureMode = default; _explicitNullProperties?.Remove("azure_mode"); AdditionalData["azure_mode"] = unknown; } else { AzureMode = parsed; AdditionalData.Remove("azure_mode"); } } },
                 { "scope_resource_id", n => { ScopeResourceId = n.GetStringValue(); } },
                 { "subscription_name", n => { SubscriptionName = n.GetStringValue(); } },
                 { "topic_name", n => { TopicName = n.GetStringValue(); } },
@@ -96,7 +100,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.DeleteAzureSubscriptionRequestAzureMode>("azure_mode", AzureMode);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAzureTriggersSubscriptionsDeletePathDeleteRequestBodyContentAppl54Dcbaa19F>("azure_mode", AzureMode);
             writer.WriteStringValue("scope_resource_id", ScopeResourceId);
             writer.WriteStringValue("subscription_name", SubscriptionName);
             writer.WriteStringValue("topic_name", TopicName);

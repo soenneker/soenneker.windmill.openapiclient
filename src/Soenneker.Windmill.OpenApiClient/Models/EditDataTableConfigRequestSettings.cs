@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("datatables") is { } nullNodeDatatables && nullNodeDatatables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Datatables = null;
+            if (parseNode.GetChildNode("datatables") is null) { _explicitNullValueDatatables = default!; _explicitNullProperties?.Remove("datatables"); }
+            else if (parseNode.GetChildNode("datatables") is { } nullNodeDatatables && nullNodeDatatables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Datatables = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The datatables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettingsDatatables? Datatables { get => _explicitNullValueDatatables; set { _explicitNullValueDatatables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatables"); else _explicitNullProperties?.Remove("datatables"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettingsDatatables? Datatables { get => _explicitNullValueDatatables; set { _explicitNullValueDatatables = value; AdditionalData?.Remove("datatables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatables"); else _explicitNullProperties?.Remove("datatables"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettingsDatatables? _explicitNullValueDatatables = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettingsDatatables Datatables { get => _explicitNullValueDatatables; set { _explicitNullValueDatatables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatables"); else _explicitNullProperties?.Remove("datatables"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettingsDatatables Datatables { get => _explicitNullValueDatatables; set { _explicitNullValueDatatables = value; AdditionalData?.Remove("datatables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatables"); else _explicitNullProperties?.Remove("datatables"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditDataTableConfigRequestSettingsDatatables _explicitNullValueDatatables = default!;
 #endif
         /// <summary>

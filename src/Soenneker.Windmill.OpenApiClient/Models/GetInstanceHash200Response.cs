@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("instance_hash") is { } nullNodeInstanceHash && nullNodeInstanceHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceHash = null;
+            if (parseNode.GetChildNode("instance_hash") is null) { _explicitNullValueInstanceHash = default!; _explicitNullProperties?.Remove("instance_hash"); }
+            else if (parseNode.GetChildNode("instance_hash") is { } nullNodeInstanceHash && nullNodeInstanceHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceHash = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The instance_hash property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InstanceHash { get => _explicitNullValueInstanceHash; set { _explicitNullValueInstanceHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_hash"); else _explicitNullProperties?.Remove("instance_hash"); } }
+        public string? InstanceHash { get => _explicitNullValueInstanceHash; set { _explicitNullValueInstanceHash = value; AdditionalData?.Remove("instance_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_hash"); else _explicitNullProperties?.Remove("instance_hash"); } }
         private string? _explicitNullValueInstanceHash = default!;
 #nullable restore
 #else
-        public string InstanceHash { get => _explicitNullValueInstanceHash; set { _explicitNullValueInstanceHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_hash"); else _explicitNullProperties?.Remove("instance_hash"); } }
+        public string InstanceHash { get => _explicitNullValueInstanceHash; set { _explicitNullValueInstanceHash = value; AdditionalData?.Remove("instance_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_hash"); else _explicitNullProperties?.Remove("instance_hash"); } }
         private string _explicitNullValueInstanceHash = default!;
 #endif
         /// <summary>

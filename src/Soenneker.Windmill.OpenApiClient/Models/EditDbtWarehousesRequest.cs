@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dbt_warehouses") is { } nullNodeDbtWarehouses && nullNodeDbtWarehouses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbtWarehouses = null;
+            if (parseNode.GetChildNode("dbt_warehouses") is null) { _explicitNullValueDbtWarehouses = default!; _explicitNullProperties?.Remove("dbt_warehouses"); }
+            else if (parseNode.GetChildNode("dbt_warehouses") is { } nullNodeDbtWarehouses && nullNodeDbtWarehouses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DbtWarehouses = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Warehouses a dbt project may run against, by name. `main` is the one a project gets when its descriptor names none. Each entry points at a resource; it never holds credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses? DbtWarehouses { get => _explicitNullValueDbtWarehouses; set { _explicitNullValueDbtWarehouses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_warehouses"); else _explicitNullProperties?.Remove("dbt_warehouses"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses? DbtWarehouses { get => _explicitNullValueDbtWarehouses; set { _explicitNullValueDbtWarehouses = value; AdditionalData?.Remove("dbt_warehouses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_warehouses"); else _explicitNullProperties?.Remove("dbt_warehouses"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses? _explicitNullValueDbtWarehouses = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses DbtWarehouses { get => _explicitNullValueDbtWarehouses; set { _explicitNullValueDbtWarehouses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_warehouses"); else _explicitNullProperties?.Remove("dbt_warehouses"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses DbtWarehouses { get => _explicitNullValueDbtWarehouses; set { _explicitNullValueDbtWarehouses = value; AdditionalData?.Remove("dbt_warehouses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbt_warehouses"); else _explicitNullProperties?.Remove("dbt_warehouses"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditDbtWarehousesRequestDbtWarehouses _explicitNullValueDbtWarehouses = default!;
 #endif
         /// <summary>

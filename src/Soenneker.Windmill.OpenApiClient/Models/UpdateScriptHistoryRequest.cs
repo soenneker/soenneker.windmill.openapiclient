@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("deployment_msg") is { } nullNodeDeploymentMsg && nullNodeDeploymentMsg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeploymentMsg = null;
+            if (parseNode.GetChildNode("deployment_msg") is null) { _explicitNullValueDeploymentMsg = default!; _explicitNullProperties?.Remove("deployment_msg"); }
+            else if (parseNode.GetChildNode("deployment_msg") is { } nullNodeDeploymentMsg && nullNodeDeploymentMsg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeploymentMsg = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The deployment_msg property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeploymentMsg { get => _explicitNullValueDeploymentMsg; set { _explicitNullValueDeploymentMsg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_msg"); else _explicitNullProperties?.Remove("deployment_msg"); } }
+        public string? DeploymentMsg { get => _explicitNullValueDeploymentMsg; set { _explicitNullValueDeploymentMsg = value; AdditionalData?.Remove("deployment_msg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_msg"); else _explicitNullProperties?.Remove("deployment_msg"); } }
         private string? _explicitNullValueDeploymentMsg = default!;
 #nullable restore
 #else
-        public string DeploymentMsg { get => _explicitNullValueDeploymentMsg; set { _explicitNullValueDeploymentMsg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_msg"); else _explicitNullProperties?.Remove("deployment_msg"); } }
+        public string DeploymentMsg { get => _explicitNullValueDeploymentMsg; set { _explicitNullValueDeploymentMsg = value; AdditionalData?.Remove("deployment_msg"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment_msg"); else _explicitNullProperties?.Remove("deployment_msg"); } }
         private string _explicitNullValueDeploymentMsg = default!;
 #endif
         /// <summary>

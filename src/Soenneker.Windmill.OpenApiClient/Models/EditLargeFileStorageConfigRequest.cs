@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("large_file_storage") is { } nullNodeLargeFileStorage && nullNodeLargeFileStorage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LargeFileStorage = null;
+            if (parseNode.GetChildNode("large_file_storage") is null) { _explicitNullValueLargeFileStorage = default!; _explicitNullProperties?.Remove("large_file_storage"); }
+            else if (parseNode.GetChildNode("large_file_storage") is { } nullNodeLargeFileStorage && nullNodeLargeFileStorage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LargeFileStorage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The large_file_storage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequestLargeFileStorage? LargeFileStorage { get => _explicitNullValueLargeFileStorage; set { _explicitNullValueLargeFileStorage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("large_file_storage"); else _explicitNullProperties?.Remove("large_file_storage"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequestLargeFileStorage? LargeFileStorage { get => _explicitNullValueLargeFileStorage; set { _explicitNullValueLargeFileStorage = value; AdditionalData?.Remove("large_file_storage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("large_file_storage"); else _explicitNullProperties?.Remove("large_file_storage"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequestLargeFileStorage? _explicitNullValueLargeFileStorage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequestLargeFileStorage LargeFileStorage { get => _explicitNullValueLargeFileStorage; set { _explicitNullValueLargeFileStorage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("large_file_storage"); else _explicitNullProperties?.Remove("large_file_storage"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequestLargeFileStorage LargeFileStorage { get => _explicitNullValueLargeFileStorage; set { _explicitNullValueLargeFileStorage = value; AdditionalData?.Remove("large_file_storage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("large_file_storage"); else _explicitNullProperties?.Remove("large_file_storage"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.EditLargeFileStorageConfigRequestLargeFileStorage _explicitNullValueLargeFileStorage = default!;
 #endif
         /// <summary>

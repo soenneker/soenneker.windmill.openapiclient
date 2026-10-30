@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("license_key") is { } nullNodeLicenseKey && nullNodeLicenseKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseKey = null;
+            if (parseNode.GetChildNode("license_key") is null) { _explicitNullValueLicenseKey = default!; _explicitNullProperties?.Remove("license_key"); }
+            else if (parseNode.GetChildNode("license_key") is { } nullNodeLicenseKey && nullNodeLicenseKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The license_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LicenseKey { get => _explicitNullValueLicenseKey; set { _explicitNullValueLicenseKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license_key"); else _explicitNullProperties?.Remove("license_key"); } }
+        public string? LicenseKey { get => _explicitNullValueLicenseKey; set { _explicitNullValueLicenseKey = value; AdditionalData?.Remove("license_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license_key"); else _explicitNullProperties?.Remove("license_key"); } }
         private string? _explicitNullValueLicenseKey = default!;
 #nullable restore
 #else
-        public string LicenseKey { get => _explicitNullValueLicenseKey; set { _explicitNullValueLicenseKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license_key"); else _explicitNullProperties?.Remove("license_key"); } }
+        public string LicenseKey { get => _explicitNullValueLicenseKey; set { _explicitNullValueLicenseKey = value; AdditionalData?.Remove("license_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license_key"); else _explicitNullProperties?.Remove("license_key"); } }
         private string _explicitNullValueLicenseKey = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
+            if (parseNode.GetChildNode("repositories") is null) { _explicitNullValueRepositories = default!; _explicitNullProperties?.Remove("repositories"); }
+            else if (parseNode.GetChildNode("repositories") is { } nullNodeRepositories && nullNodeRepositories.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Repositories = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,12 +26,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The repositories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItem>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItem>? _explicitNullValueRepositories = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema350E3Adb91>? Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; AdditionalData?.Remove("repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema350E3Adb91>? _explicitNullValueRepositories = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItem> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItem> _explicitNullValueRepositories = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema350E3Adb91> Repositories { get => _explicitNullValueRepositories; set { _explicitNullValueRepositories = value; AdditionalData?.Remove("repositories"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repositories"); else _explicitNullProperties?.Remove("repositories"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema350E3Adb91> _explicitNullValueRepositories = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettings"/> and sets the default values.
@@ -57,7 +58,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItem>(global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "repositories", n => { Repositories = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema350E3Adb91>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema350E3Adb91.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -67,7 +68,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.EditWorkspaceGitSyncConfigRequestGitSyncSettingsRepositoriesItem>("repositories", Repositories);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema350E3Adb91>("repositories", Repositories);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

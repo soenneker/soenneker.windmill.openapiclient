@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("approvalPage") is { } nullNodeApprovalPage && nullNodeApprovalPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalPage = null;
-            if (parseNode.GetChildNode("cancel") is { } nullNodeCancel && nullNodeCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancel = null;
-            if (parseNode.GetChildNode("resume") is { } nullNodeResume && nullNodeResume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resume = null;
+            if (parseNode.GetChildNode("approvalPage") is null) { _explicitNullValueApprovalPage = default!; _explicitNullProperties?.Remove("approvalPage"); }
+            else if (parseNode.GetChildNode("approvalPage") is { } nullNodeApprovalPage && nullNodeApprovalPage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalPage = null;
+            if (parseNode.GetChildNode("cancel") is null) { _explicitNullValueCancel = default!; _explicitNullProperties?.Remove("cancel"); }
+            else if (parseNode.GetChildNode("cancel") is { } nullNodeCancel && nullNodeCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cancel = null;
+            if (parseNode.GetChildNode("resume") is null) { _explicitNullValueResume = default!; _explicitNullProperties?.Remove("resume"); }
+            else if (parseNode.GetChildNode("resume") is { } nullNodeResume && nullNodeResume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resume = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The approvalPage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApprovalPage { get => _explicitNullValueApprovalPage; set { _explicitNullValueApprovalPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalPage"); else _explicitNullProperties?.Remove("approvalPage"); } }
+        public string? ApprovalPage { get => _explicitNullValueApprovalPage; set { _explicitNullValueApprovalPage = value; AdditionalData?.Remove("approvalPage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalPage"); else _explicitNullProperties?.Remove("approvalPage"); } }
         private string? _explicitNullValueApprovalPage = default!;
 #nullable restore
 #else
-        public string ApprovalPage { get => _explicitNullValueApprovalPage; set { _explicitNullValueApprovalPage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalPage"); else _explicitNullProperties?.Remove("approvalPage"); } }
+        public string ApprovalPage { get => _explicitNullValueApprovalPage; set { _explicitNullValueApprovalPage = value; AdditionalData?.Remove("approvalPage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalPage"); else _explicitNullProperties?.Remove("approvalPage"); } }
         private string _explicitNullValueApprovalPage = default!;
 #endif
         /// <summary>The cancel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Cancel { get => _explicitNullValueCancel; set { _explicitNullValueCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel"); else _explicitNullProperties?.Remove("cancel"); } }
+        public string? Cancel { get => _explicitNullValueCancel; set { _explicitNullValueCancel = value; AdditionalData?.Remove("cancel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel"); else _explicitNullProperties?.Remove("cancel"); } }
         private string? _explicitNullValueCancel = default!;
 #nullable restore
 #else
-        public string Cancel { get => _explicitNullValueCancel; set { _explicitNullValueCancel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel"); else _explicitNullProperties?.Remove("cancel"); } }
+        public string Cancel { get => _explicitNullValueCancel; set { _explicitNullValueCancel = value; AdditionalData?.Remove("cancel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancel"); else _explicitNullProperties?.Remove("cancel"); } }
         private string _explicitNullValueCancel = default!;
 #endif
         /// <summary>The resume property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Resume { get => _explicitNullValueResume; set { _explicitNullValueResume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume"); else _explicitNullProperties?.Remove("resume"); } }
+        public string? Resume { get => _explicitNullValueResume; set { _explicitNullValueResume = value; AdditionalData?.Remove("resume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume"); else _explicitNullProperties?.Remove("resume"); } }
         private string? _explicitNullValueResume = default!;
 #nullable restore
 #else
-        public string Resume { get => _explicitNullValueResume; set { _explicitNullValueResume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume"); else _explicitNullProperties?.Remove("resume"); } }
+        public string Resume { get => _explicitNullValueResume; set { _explicitNullValueResume = value; AdditionalData?.Remove("resume"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume"); else _explicitNullProperties?.Remove("resume"); } }
         private string _explicitNullValueResume = default!;
 #endif
         /// <summary>

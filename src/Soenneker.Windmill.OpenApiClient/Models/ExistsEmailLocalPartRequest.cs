@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("local_part") is { } nullNodeLocalPart && nullNodeLocalPart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalPart = null;
-            if (parseNode.GetChildNode("trigger_path") is { } nullNodeTriggerPath && nullNodeTriggerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerPath = null;
-            if (parseNode.GetChildNode("workspaced_local_part") is { } nullNodeWorkspacedLocalPart && nullNodeWorkspacedLocalPart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspacedLocalPart = null;
+            if (parseNode.GetChildNode("local_part") is null) { _explicitNullValueLocalPart = default!; _explicitNullProperties?.Remove("local_part"); }
+            else if (parseNode.GetChildNode("local_part") is { } nullNodeLocalPart && nullNodeLocalPart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocalPart = null;
+            if (parseNode.GetChildNode("trigger_path") is null) { _explicitNullValueTriggerPath = default!; _explicitNullProperties?.Remove("trigger_path"); }
+            else if (parseNode.GetChildNode("trigger_path") is { } nullNodeTriggerPath && nullNodeTriggerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerPath = null;
+            if (parseNode.GetChildNode("workspaced_local_part") is null) { _explicitNullValueWorkspacedLocalPart = default!; _explicitNullProperties?.Remove("workspaced_local_part"); }
+            else if (parseNode.GetChildNode("workspaced_local_part") is { } nullNodeWorkspacedLocalPart && nullNodeWorkspacedLocalPart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspacedLocalPart = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,25 +30,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The local_part property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LocalPart { get => _explicitNullValueLocalPart; set { _explicitNullValueLocalPart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_part"); else _explicitNullProperties?.Remove("local_part"); } }
+        public string? LocalPart { get => _explicitNullValueLocalPart; set { _explicitNullValueLocalPart = value; AdditionalData?.Remove("local_part"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_part"); else _explicitNullProperties?.Remove("local_part"); } }
         private string? _explicitNullValueLocalPart = default!;
 #nullable restore
 #else
-        public string LocalPart { get => _explicitNullValueLocalPart; set { _explicitNullValueLocalPart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_part"); else _explicitNullProperties?.Remove("local_part"); } }
+        public string LocalPart { get => _explicitNullValueLocalPart; set { _explicitNullValueLocalPart = value; AdditionalData?.Remove("local_part"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("local_part"); else _explicitNullProperties?.Remove("local_part"); } }
         private string _explicitNullValueLocalPart = default!;
 #endif
         /// <summary>The trigger_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        public string? TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; AdditionalData?.Remove("trigger_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
         private string? _explicitNullValueTriggerPath = default!;
 #nullable restore
 #else
-        public string TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        public string TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; AdditionalData?.Remove("trigger_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
         private string _explicitNullValueTriggerPath = default!;
 #endif
         /// <summary>The workspaced_local_part property</summary>
-        public bool? WorkspacedLocalPart { get => _explicitNullValueWorkspacedLocalPart; set { _explicitNullValueWorkspacedLocalPart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaced_local_part"); else _explicitNullProperties?.Remove("workspaced_local_part"); } }
+        public bool? WorkspacedLocalPart { get => _explicitNullValueWorkspacedLocalPart; set { _explicitNullValueWorkspacedLocalPart = value; AdditionalData?.Remove("workspaced_local_part"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaced_local_part"); else _explicitNullProperties?.Remove("workspaced_local_part"); } }
         private bool? _explicitNullValueWorkspacedLocalPart = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExistsEmailLocalPartRequest"/> and sets the default values.

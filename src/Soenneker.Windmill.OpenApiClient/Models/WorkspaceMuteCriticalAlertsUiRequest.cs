@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mute_critical_alerts") is { } nullNodeMuteCriticalAlerts && nullNodeMuteCriticalAlerts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MuteCriticalAlerts = null;
+            if (parseNode.GetChildNode("mute_critical_alerts") is null) { _explicitNullValueMuteCriticalAlerts = default!; _explicitNullProperties?.Remove("mute_critical_alerts"); }
+            else if (parseNode.GetChildNode("mute_critical_alerts") is { } nullNodeMuteCriticalAlerts && nullNodeMuteCriticalAlerts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MuteCriticalAlerts = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether critical alerts should be muted.</summary>
-        public bool? MuteCriticalAlerts { get => _explicitNullValueMuteCriticalAlerts; set { _explicitNullValueMuteCriticalAlerts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mute_critical_alerts"); else _explicitNullProperties?.Remove("mute_critical_alerts"); } }
+        public bool? MuteCriticalAlerts { get => _explicitNullValueMuteCriticalAlerts; set { _explicitNullValueMuteCriticalAlerts = value; AdditionalData?.Remove("mute_critical_alerts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mute_critical_alerts"); else _explicitNullProperties?.Remove("mute_critical_alerts"); } }
         private bool? _explicitNullValueMuteCriticalAlerts = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.WorkspaceMuteCriticalAlertsUiRequest"/> and sets the default values.

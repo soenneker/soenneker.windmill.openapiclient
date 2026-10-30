@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dancer") is { } nullNodeDancer && nullNodeDancer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dancer = null;
+            if (parseNode.GetChildNode("dancer") is null) { _explicitNullValueDancer = default!; _explicitNullProperties?.Remove("dancer"); }
+            else if (parseNode.GetChildNode("dancer") is { } nullNodeDancer && nullNodeDancer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dancer = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The dancer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Dancer { get => _explicitNullValueDancer; set { _explicitNullValueDancer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dancer"); else _explicitNullProperties?.Remove("dancer"); } }
+        public string? Dancer { get => _explicitNullValueDancer; set { _explicitNullValueDancer = value; AdditionalData?.Remove("dancer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dancer"); else _explicitNullProperties?.Remove("dancer"); } }
         private string? _explicitNullValueDancer = default!;
 #nullable restore
 #else
-        public string Dancer { get => _explicitNullValueDancer; set { _explicitNullValueDancer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dancer"); else _explicitNullProperties?.Remove("dancer"); } }
+        public string Dancer { get => _explicitNullValueDancer; set { _explicitNullValueDancer = value; AdditionalData?.Remove("dancer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dancer"); else _explicitNullProperties?.Remove("dancer"); } }
         private string _explicitNullValueDancer = default!;
 #endif
         /// <summary>

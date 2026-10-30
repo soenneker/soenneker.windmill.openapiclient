@@ -17,23 +17,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("retention_secs") is { } nullNodeRetentionSecs && nullNodeRetentionSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionSecs = null;
-            if (parseNode.GetChildNode("share") is { } nullNodeShare && nullNodeShare.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Share = null;
+            if (parseNode.GetChildNode("retention_secs") is null) { _explicitNullValueRetentionSecs = default!; _explicitNullProperties?.Remove("retention_secs"); }
+            else if (parseNode.GetChildNode("retention_secs") is { } nullNodeRetentionSecs && nullNodeRetentionSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RetentionSecs = null;
+            if (parseNode.GetChildNode("share") is null) { _explicitNullValueShare = default!; _explicitNullProperties?.Remove("share"); }
+            else if (parseNode.GetChildNode("share") is { } nullNodeShare && nullNodeShare.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Share = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The retention_secs property</summary>
-        public int? RetentionSecs { get => _explicitNullValueRetentionSecs; set { _explicitNullValueRetentionSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_secs"); else _explicitNullProperties?.Remove("retention_secs"); } }
+        public int? RetentionSecs { get => _explicitNullValueRetentionSecs; set { _explicitNullValueRetentionSecs = value; AdditionalData?.Remove("retention_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retention_secs"); else _explicitNullProperties?.Remove("retention_secs"); } }
         private int? _explicitNullValueRetentionSecs = default!;
         /// <summary>The share property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAiArtifactShareStatus200ResponseShare? Share { get => _explicitNullValueShare; set { _explicitNullValueShare = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share"); else _explicitNullProperties?.Remove("share"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAiArtifactShareStatus200ResponseShare? Share { get => _explicitNullValueShare; set { _explicitNullValueShare = value; AdditionalData?.Remove("share"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share"); else _explicitNullProperties?.Remove("share"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetAiArtifactShareStatus200ResponseShare? _explicitNullValueShare = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetAiArtifactShareStatus200ResponseShare Share { get => _explicitNullValueShare; set { _explicitNullValueShare = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share"); else _explicitNullProperties?.Remove("share"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetAiArtifactShareStatus200ResponseShare Share { get => _explicitNullValueShare; set { _explicitNullValueShare = value; AdditionalData?.Remove("share"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("share"); else _explicitNullProperties?.Remove("share"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetAiArtifactShareStatus200ResponseShare _explicitNullValueShare = default!;
 #endif
         /// <summary>

@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
-            if (parseNode.GetChildNode("isError") is { } nullNodeIsError && nullNodeIsError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsError = null;
-            if (parseNode.GetChildNode("structuredContent") is { } nullNodeStructuredContent && nullNodeStructuredContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StructuredContent = null;
+            if (parseNode.GetChildNode("content") is null) { _explicitNullValueContent = default!; _explicitNullProperties?.Remove("content"); }
+            else if (parseNode.GetChildNode("content") is { } nullNodeContent && nullNodeContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Content = null;
+            if (parseNode.GetChildNode("isError") is null) { _explicitNullValueIsError = default!; _explicitNullProperties?.Remove("isError"); }
+            else if (parseNode.GetChildNode("isError") is { } nullNodeIsError && nullNodeIsError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsError = null;
+            if (parseNode.GetChildNode("structuredContent") is null) { _explicitNullValueStructuredContent = default!; _explicitNullProperties?.Remove("structuredContent"); }
+            else if (parseNode.GetChildNode("structuredContent") is { } nullNodeStructuredContent && nullNodeStructuredContent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StructuredContent = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseContentItem>? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseContentItem>? Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseContentItem>? _explicitNullValueContent = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseContentItem> Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseContentItem> Content { get => _explicitNullValueContent; set { _explicitNullValueContent = value; AdditionalData?.Remove("content"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("content"); else _explicitNullProperties?.Remove("content"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseContentItem> _explicitNullValueContent = default!;
 #endif
         /// <summary>The isError property</summary>
-        public bool? IsError { get => _explicitNullValueIsError; set { _explicitNullValueIsError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isError"); else _explicitNullProperties?.Remove("isError"); } }
+        public bool? IsError { get => _explicitNullValueIsError; set { _explicitNullValueIsError = value; AdditionalData?.Remove("isError"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isError"); else _explicitNullProperties?.Remove("isError"); } }
         private bool? _explicitNullValueIsError = default!;
         /// <summary>The structuredContent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseStructuredContent? StructuredContent { get => _explicitNullValueStructuredContent; set { _explicitNullValueStructuredContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structuredContent"); else _explicitNullProperties?.Remove("structuredContent"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseStructuredContent? StructuredContent { get => _explicitNullValueStructuredContent; set { _explicitNullValueStructuredContent = value; AdditionalData?.Remove("structuredContent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structuredContent"); else _explicitNullProperties?.Remove("structuredContent"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseStructuredContent? _explicitNullValueStructuredContent = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseStructuredContent StructuredContent { get => _explicitNullValueStructuredContent; set { _explicitNullValueStructuredContent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structuredContent"); else _explicitNullProperties?.Remove("structuredContent"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseStructuredContent StructuredContent { get => _explicitNullValueStructuredContent; set { _explicitNullValueStructuredContent = value; AdditionalData?.Remove("structuredContent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structuredContent"); else _explicitNullProperties?.Remove("structuredContent"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CallMcpTool200ResponseStructuredContent _explicitNullValueStructuredContent = default!;
 #endif
         /// <summary>

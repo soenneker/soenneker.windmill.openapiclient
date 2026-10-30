@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("next_marker") is { } nullNodeNextMarker && nullNodeNextMarker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextMarker = null;
-            if (parseNode.GetChildNode("restricted_access") is { } nullNodeRestrictedAccess && nullNodeRestrictedAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedAccess = null;
-            if (parseNode.GetChildNode("windmill_large_files") is { } nullNodeWindmillLargeFiles && nullNodeWindmillLargeFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindmillLargeFiles = null;
+            if (parseNode.GetChildNode("next_marker") is null) { _explicitNullValueNextMarker = default!; _explicitNullProperties?.Remove("next_marker"); }
+            else if (parseNode.GetChildNode("next_marker") is { } nullNodeNextMarker && nullNodeNextMarker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextMarker = null;
+            if (parseNode.GetChildNode("restricted_access") is null) { _explicitNullValueRestrictedAccess = default!; _explicitNullProperties?.Remove("restricted_access"); }
+            else if (parseNode.GetChildNode("restricted_access") is { } nullNodeRestrictedAccess && nullNodeRestrictedAccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RestrictedAccess = null;
+            if (parseNode.GetChildNode("windmill_large_files") is null) { _explicitNullValueWindmillLargeFiles = default!; _explicitNullProperties?.Remove("windmill_large_files"); }
+            else if (parseNode.GetChildNode("windmill_large_files") is { } nullNodeWindmillLargeFiles && nullNodeWindmillLargeFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindmillLargeFiles = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The next_marker property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NextMarker { get => _explicitNullValueNextMarker; set { _explicitNullValueNextMarker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_marker"); else _explicitNullProperties?.Remove("next_marker"); } }
+        public string? NextMarker { get => _explicitNullValueNextMarker; set { _explicitNullValueNextMarker = value; AdditionalData?.Remove("next_marker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_marker"); else _explicitNullProperties?.Remove("next_marker"); } }
         private string? _explicitNullValueNextMarker = default!;
 #nullable restore
 #else
-        public string NextMarker { get => _explicitNullValueNextMarker; set { _explicitNullValueNextMarker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_marker"); else _explicitNullProperties?.Remove("next_marker"); } }
+        public string NextMarker { get => _explicitNullValueNextMarker; set { _explicitNullValueNextMarker = value; AdditionalData?.Remove("next_marker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_marker"); else _explicitNullProperties?.Remove("next_marker"); } }
         private string _explicitNullValueNextMarker = default!;
 #endif
         /// <summary>The restricted_access property</summary>
-        public bool? RestrictedAccess { get => _explicitNullValueRestrictedAccess; set { _explicitNullValueRestrictedAccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_access"); else _explicitNullProperties?.Remove("restricted_access"); } }
+        public bool? RestrictedAccess { get => _explicitNullValueRestrictedAccess; set { _explicitNullValueRestrictedAccess = value; AdditionalData?.Remove("restricted_access"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("restricted_access"); else _explicitNullProperties?.Remove("restricted_access"); } }
         private bool? _explicitNullValueRestrictedAccess = default!;
         /// <summary>The windmill_large_files property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFiles200ResponseWindmillLargeFilesItem>? WindmillLargeFiles { get => _explicitNullValueWindmillLargeFiles; set { _explicitNullValueWindmillLargeFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windmill_large_files"); else _explicitNullProperties?.Remove("windmill_large_files"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFiles200ResponseWindmillLargeFilesItem>? WindmillLargeFiles { get => _explicitNullValueWindmillLargeFiles; set { _explicitNullValueWindmillLargeFiles = value; AdditionalData?.Remove("windmill_large_files"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windmill_large_files"); else _explicitNullProperties?.Remove("windmill_large_files"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFiles200ResponseWindmillLargeFilesItem>? _explicitNullValueWindmillLargeFiles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFiles200ResponseWindmillLargeFilesItem> WindmillLargeFiles { get => _explicitNullValueWindmillLargeFiles; set { _explicitNullValueWindmillLargeFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windmill_large_files"); else _explicitNullProperties?.Remove("windmill_large_files"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFiles200ResponseWindmillLargeFilesItem> WindmillLargeFiles { get => _explicitNullValueWindmillLargeFiles; set { _explicitNullValueWindmillLargeFiles = value; AdditionalData?.Remove("windmill_large_files"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windmill_large_files"); else _explicitNullProperties?.Remove("windmill_large_files"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFiles200ResponseWindmillLargeFilesItem> _explicitNullValueWindmillLargeFiles = default!;
 #endif
         /// <summary>

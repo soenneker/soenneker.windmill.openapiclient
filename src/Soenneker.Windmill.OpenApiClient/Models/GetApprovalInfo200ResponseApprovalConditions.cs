@@ -17,27 +17,30 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("self_approval_disabled") is { } nullNodeSelfApprovalDisabled && nullNodeSelfApprovalDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfApprovalDisabled = null;
-            if (parseNode.GetChildNode("user_auth_required") is { } nullNodeUserAuthRequired && nullNodeUserAuthRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAuthRequired = null;
-            if (parseNode.GetChildNode("user_groups_required") is { } nullNodeUserGroupsRequired && nullNodeUserGroupsRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserGroupsRequired = null;
+            if (parseNode.GetChildNode("self_approval_disabled") is null) { _explicitNullValueSelfApprovalDisabled = default!; _explicitNullProperties?.Remove("self_approval_disabled"); }
+            else if (parseNode.GetChildNode("self_approval_disabled") is { } nullNodeSelfApprovalDisabled && nullNodeSelfApprovalDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfApprovalDisabled = null;
+            if (parseNode.GetChildNode("user_auth_required") is null) { _explicitNullValueUserAuthRequired = default!; _explicitNullProperties?.Remove("user_auth_required"); }
+            else if (parseNode.GetChildNode("user_auth_required") is { } nullNodeUserAuthRequired && nullNodeUserAuthRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAuthRequired = null;
+            if (parseNode.GetChildNode("user_groups_required") is null) { _explicitNullValueUserGroupsRequired = default!; _explicitNullProperties?.Remove("user_groups_required"); }
+            else if (parseNode.GetChildNode("user_groups_required") is { } nullNodeUserGroupsRequired && nullNodeUserGroupsRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserGroupsRequired = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The self_approval_disabled property</summary>
-        public bool? SelfApprovalDisabled { get => _explicitNullValueSelfApprovalDisabled; set { _explicitNullValueSelfApprovalDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self_approval_disabled"); else _explicitNullProperties?.Remove("self_approval_disabled"); } }
+        public bool? SelfApprovalDisabled { get => _explicitNullValueSelfApprovalDisabled; set { _explicitNullValueSelfApprovalDisabled = value; AdditionalData?.Remove("self_approval_disabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self_approval_disabled"); else _explicitNullProperties?.Remove("self_approval_disabled"); } }
         private bool? _explicitNullValueSelfApprovalDisabled = default!;
         /// <summary>The user_auth_required property</summary>
-        public bool? UserAuthRequired { get => _explicitNullValueUserAuthRequired; set { _explicitNullValueUserAuthRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_auth_required"); else _explicitNullProperties?.Remove("user_auth_required"); } }
+        public bool? UserAuthRequired { get => _explicitNullValueUserAuthRequired; set { _explicitNullValueUserAuthRequired = value; AdditionalData?.Remove("user_auth_required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_auth_required"); else _explicitNullProperties?.Remove("user_auth_required"); } }
         private bool? _explicitNullValueUserAuthRequired = default!;
         /// <summary>The user_groups_required property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
+        public List<string>? UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; AdditionalData?.Remove("user_groups_required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
         private List<string>? _explicitNullValueUserGroupsRequired = default!;
 #nullable restore
 #else
-        public List<string> UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
+        public List<string> UserGroupsRequired { get => _explicitNullValueUserGroupsRequired; set { _explicitNullValueUserGroupsRequired = value; AdditionalData?.Remove("user_groups_required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_groups_required"); else _explicitNullProperties?.Remove("user_groups_required"); } }
         private List<string> _explicitNullValueUserGroupsRequired = default!;
 #endif
         /// <summary>

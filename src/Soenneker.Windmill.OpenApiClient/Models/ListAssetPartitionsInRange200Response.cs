@@ -17,34 +17,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("partition_kind") is { } nullNodePartitionKind && nullNodePartitionKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartitionKind = null;
-            if (parseNode.GetChildNode("partitions") is { } nullNodePartitions && nullNodePartitions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Partitions = null;
-            if (parseNode.GetChildNode("producer_path") is { } nullNodeProducerPath && nullNodeProducerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProducerPath = null;
+            if (parseNode.GetChildNode("partition_kind") is null) { _explicitNullValuePartitionKind = default!; _explicitNullProperties?.Remove("partition_kind"); }
+            else if (parseNode.GetChildNode("partition_kind") is { } nullNodePartitionKind && nullNodePartitionKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartitionKind = null;
+            if (parseNode.GetChildNode("partitions") is null) { _explicitNullValuePartitions = default!; _explicitNullProperties?.Remove("partitions"); }
+            else if (parseNode.GetChildNode("partitions") is { } nullNodePartitions && nullNodePartitions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Partitions = null;
+            if (parseNode.GetChildNode("producer_path") is null) { _explicitNullValueProducerPath = default!; _explicitNullProperties?.Remove("producer_path"); }
+            else if (parseNode.GetChildNode("producer_path") is { } nullNodeProducerPath && nullNodeProducerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProducerPath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The partition_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionKind? PartitionKind { get => _explicitNullValuePartitionKind; set { _explicitNullValuePartitionKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition_kind"); else _explicitNullProperties?.Remove("partition_kind"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionKind? _explicitNullValuePartitionKind = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonScheB6Cbefbbd7? PartitionKind { get => _explicitNullValuePartitionKind; set { _explicitNullValuePartitionKind = value; AdditionalData?.Remove("partition_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partition_kind"); else _explicitNullProperties?.Remove("partition_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonScheB6Cbefbbd7? _explicitNullValuePartitionKind = default!;
         /// <summary>The partitions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionsItem>? Partitions { get => _explicitNullValuePartitions; set { _explicitNullValuePartitions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partitions"); else _explicitNullProperties?.Remove("partitions"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionsItem>? _explicitNullValuePartitions = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonSche4B6Ec1101D>? Partitions { get => _explicitNullValuePartitions; set { _explicitNullValuePartitions = value; AdditionalData?.Remove("partitions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partitions"); else _explicitNullProperties?.Remove("partitions"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonSche4B6Ec1101D>? _explicitNullValuePartitions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionsItem> Partitions { get => _explicitNullValuePartitions; set { _explicitNullValuePartitions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partitions"); else _explicitNullProperties?.Remove("partitions"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionsItem> _explicitNullValuePartitions = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonSche4B6Ec1101D> Partitions { get => _explicitNullValuePartitions; set { _explicitNullValuePartitions = value; AdditionalData?.Remove("partitions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partitions"); else _explicitNullProperties?.Remove("partitions"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonSche4B6Ec1101D> _explicitNullValuePartitions = default!;
 #endif
         /// <summary>the pipeline script that materializes the asset (managed `// materialize` target, or a partitioned writer using the SDK helpers) — the runnable a backfill launches</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProducerPath { get => _explicitNullValueProducerPath; set { _explicitNullValueProducerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_path"); else _explicitNullProperties?.Remove("producer_path"); } }
+        public string? ProducerPath { get => _explicitNullValueProducerPath; set { _explicitNullValueProducerPath = value; AdditionalData?.Remove("producer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_path"); else _explicitNullProperties?.Remove("producer_path"); } }
         private string? _explicitNullValueProducerPath = default!;
 #nullable restore
 #else
-        public string ProducerPath { get => _explicitNullValueProducerPath; set { _explicitNullValueProducerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_path"); else _explicitNullProperties?.Remove("producer_path"); } }
+        public string ProducerPath { get => _explicitNullValueProducerPath; set { _explicitNullValueProducerPath = value; AdditionalData?.Remove("producer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("producer_path"); else _explicitNullProperties?.Remove("producer_path"); } }
         private string _explicitNullValueProducerPath = default!;
 #endif
         /// <summary>
@@ -72,8 +75,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "partition_kind", n => { PartitionKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionKind>(); } },
-                { "partitions", n => { Partitions = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "partition_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonScheB6Cbefbbd7>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePartitionKind = default; _explicitNullProperties?.Remove("partition_kind"); AdditionalData["partition_kind"] = unknown; } else { PartitionKind = parsed; AdditionalData.Remove("partition_kind"); } } },
+                { "partitions", n => { Partitions = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonSche4B6Ec1101D>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonSche4B6Ec1101D.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "producer_path", n => { ProducerPath = n.GetStringValue(); } },
             };
         }
@@ -84,8 +87,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionKind>("partition_kind", PartitionKind);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListAssetPartitionsInRange200ResponsePartitionsItem>("partitions", Partitions);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonScheB6Cbefbbd7>("partition_kind", PartitionKind);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsPartitionsInRangeGetResponses200ContentApplicationJsonSche4B6Ec1101D>("partitions", Partitions);
             writer.WriteStringValue("producer_path", ProducerPath);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

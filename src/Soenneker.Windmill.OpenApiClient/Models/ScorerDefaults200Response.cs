@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("judge_prompt") is { } nullNodeJudgePrompt && nullNodeJudgePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgePrompt = null;
-            if (parseNode.GetChildNode("script_template") is { } nullNodeScriptTemplate && nullNodeScriptTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptTemplate = null;
+            if (parseNode.GetChildNode("judge_prompt") is null) { _explicitNullValueJudgePrompt = default!; _explicitNullProperties?.Remove("judge_prompt"); }
+            else if (parseNode.GetChildNode("judge_prompt") is { } nullNodeJudgePrompt && nullNodeJudgePrompt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JudgePrompt = null;
+            if (parseNode.GetChildNode("script_template") is null) { _explicitNullValueScriptTemplate = default!; _explicitNullProperties?.Remove("script_template"); }
+            else if (parseNode.GetChildNode("script_template") is { } nullNodeScriptTemplate && nullNodeScriptTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptTemplate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The system prompt a judge agent is created with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JudgePrompt { get => _explicitNullValueJudgePrompt; set { _explicitNullValueJudgePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_prompt"); else _explicitNullProperties?.Remove("judge_prompt"); } }
+        public string? JudgePrompt { get => _explicitNullValueJudgePrompt; set { _explicitNullValueJudgePrompt = value; AdditionalData?.Remove("judge_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_prompt"); else _explicitNullProperties?.Remove("judge_prompt"); } }
         private string? _explicitNullValueJudgePrompt = default!;
 #nullable restore
 #else
-        public string JudgePrompt { get => _explicitNullValueJudgePrompt; set { _explicitNullValueJudgePrompt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_prompt"); else _explicitNullProperties?.Remove("judge_prompt"); } }
+        public string JudgePrompt { get => _explicitNullValueJudgePrompt; set { _explicitNullValueJudgePrompt = value; AdditionalData?.Remove("judge_prompt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("judge_prompt"); else _explicitNullProperties?.Remove("judge_prompt"); } }
         private string _explicitNullValueJudgePrompt = default!;
 #endif
         /// <summary>The script_template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScriptTemplate { get => _explicitNullValueScriptTemplate; set { _explicitNullValueScriptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_template"); else _explicitNullProperties?.Remove("script_template"); } }
+        public string? ScriptTemplate { get => _explicitNullValueScriptTemplate; set { _explicitNullValueScriptTemplate = value; AdditionalData?.Remove("script_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_template"); else _explicitNullProperties?.Remove("script_template"); } }
         private string? _explicitNullValueScriptTemplate = default!;
 #nullable restore
 #else
-        public string ScriptTemplate { get => _explicitNullValueScriptTemplate; set { _explicitNullValueScriptTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_template"); else _explicitNullProperties?.Remove("script_template"); } }
+        public string ScriptTemplate { get => _explicitNullValueScriptTemplate; set { _explicitNullValueScriptTemplate = value; AdditionalData?.Remove("script_template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_template"); else _explicitNullProperties?.Remove("script_template"); } }
         private string _explicitNullValueScriptTemplate = default!;
 #endif
         /// <summary>

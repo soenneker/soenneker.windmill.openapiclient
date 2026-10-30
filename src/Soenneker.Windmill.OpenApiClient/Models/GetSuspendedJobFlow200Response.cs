@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("approvers") is { } nullNodeApprovers && nullNodeApprovers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Approvers = null;
-            if (parseNode.GetChildNode("job") is { } nullNodeJob && nullNodeJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Job = null;
-            if (parseNode.GetChildNode("view_token") is { } nullNodeViewToken && nullNodeViewToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewToken = null;
+            if (parseNode.GetChildNode("approvers") is null) { _explicitNullValueApprovers = default!; _explicitNullProperties?.Remove("approvers"); }
+            else if (parseNode.GetChildNode("approvers") is { } nullNodeApprovers && nullNodeApprovers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Approvers = null;
+            if (parseNode.GetChildNode("job") is null) { _explicitNullValueJob = default!; _explicitNullProperties?.Remove("job"); }
+            else if (parseNode.GetChildNode("job") is { } nullNodeJob && nullNodeJob.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Job = null;
+            if (parseNode.GetChildNode("view_token") is null) { _explicitNullValueViewToken = default!; _explicitNullProperties?.Remove("view_token"); }
+            else if (parseNode.GetChildNode("view_token") is { } nullNodeViewToken && nullNodeViewToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ViewToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The approvers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem>? Approvers { get => _explicitNullValueApprovers; set { _explicitNullValueApprovers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvers"); else _explicitNullProperties?.Remove("approvers"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem>? Approvers { get => _explicitNullValueApprovers; set { _explicitNullValueApprovers = value; AdditionalData?.Remove("approvers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvers"); else _explicitNullProperties?.Remove("approvers"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem>? _explicitNullValueApprovers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem> Approvers { get => _explicitNullValueApprovers; set { _explicitNullValueApprovers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvers"); else _explicitNullProperties?.Remove("approvers"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem> Approvers { get => _explicitNullValueApprovers; set { _explicitNullValueApprovers = value; AdditionalData?.Remove("approvers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvers"); else _explicitNullProperties?.Remove("approvers"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem> _explicitNullValueApprovers = default!;
 #endif
         /// <summary>The job property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob? Job { get => _explicitNullValueJob; set { _explicitNullValueJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job"); else _explicitNullProperties?.Remove("job"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob? Job { get => _explicitNullValueJob; set { _explicitNullValueJob = value; AdditionalData?.Remove("job"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job"); else _explicitNullProperties?.Remove("job"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob? _explicitNullValueJob = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob Job { get => _explicitNullValueJob; set { _explicitNullValueJob = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job"); else _explicitNullProperties?.Remove("job"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob Job { get => _explicitNullValueJob; set { _explicitNullValueJob = value; AdditionalData?.Remove("job"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job"); else _explicitNullProperties?.Remove("job"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseJob _explicitNullValueJob = default!;
 #endif
         /// <summary>Share-read-link token for the parent flow. An authenticated workspace member can append it as a `view_token` query param on the run page to read a flow they don&apos;t otherwise have access to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ViewToken { get => _explicitNullValueViewToken; set { _explicitNullValueViewToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_token"); else _explicitNullProperties?.Remove("view_token"); } }
+        public string? ViewToken { get => _explicitNullValueViewToken; set { _explicitNullValueViewToken = value; AdditionalData?.Remove("view_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_token"); else _explicitNullProperties?.Remove("view_token"); } }
         private string? _explicitNullValueViewToken = default!;
 #nullable restore
 #else
-        public string ViewToken { get => _explicitNullValueViewToken; set { _explicitNullValueViewToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_token"); else _explicitNullProperties?.Remove("view_token"); } }
+        public string ViewToken { get => _explicitNullValueViewToken; set { _explicitNullValueViewToken = value; AdditionalData?.Remove("view_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("view_token"); else _explicitNullProperties?.Remove("view_token"); } }
         private string _explicitNullValueViewToken = default!;
 #endif
         /// <summary>

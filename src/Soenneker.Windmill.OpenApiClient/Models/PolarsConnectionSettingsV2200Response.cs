@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("s3fs_args") is { } nullNodeS3fsArgs && nullNodeS3fsArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3fsArgs = null;
-            if (parseNode.GetChildNode("storage_options") is { } nullNodeStorageOptions && nullNodeStorageOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageOptions = null;
+            if (parseNode.GetChildNode("s3fs_args") is null) { _explicitNullValueS3fsArgs = default!; _explicitNullProperties?.Remove("s3fs_args"); }
+            else if (parseNode.GetChildNode("s3fs_args") is { } nullNodeS3fsArgs && nullNodeS3fsArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3fsArgs = null;
+            if (parseNode.GetChildNode("storage_options") is null) { _explicitNullValueStorageOptions = default!; _explicitNullProperties?.Remove("storage_options"); }
+            else if (parseNode.GetChildNode("storage_options") is { } nullNodeStorageOptions && nullNodeStorageOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StorageOptions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The s3fs_args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgs? S3fsArgs { get => _explicitNullValueS3fsArgs; set { _explicitNullValueS3fsArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3fs_args"); else _explicitNullProperties?.Remove("s3fs_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgs? S3fsArgs { get => _explicitNullValueS3fsArgs; set { _explicitNullValueS3fsArgs = value; AdditionalData?.Remove("s3fs_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3fs_args"); else _explicitNullProperties?.Remove("s3fs_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgs? _explicitNullValueS3fsArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgs S3fsArgs { get => _explicitNullValueS3fsArgs; set { _explicitNullValueS3fsArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3fs_args"); else _explicitNullProperties?.Remove("s3fs_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgs S3fsArgs { get => _explicitNullValueS3fsArgs; set { _explicitNullValueS3fsArgs = value; AdditionalData?.Remove("s3fs_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3fs_args"); else _explicitNullProperties?.Remove("s3fs_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgs _explicitNullValueS3fsArgs = default!;
 #endif
         /// <summary>The storage_options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseStorageOptions? StorageOptions { get => _explicitNullValueStorageOptions; set { _explicitNullValueStorageOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_options"); else _explicitNullProperties?.Remove("storage_options"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseStorageOptions? StorageOptions { get => _explicitNullValueStorageOptions; set { _explicitNullValueStorageOptions = value; AdditionalData?.Remove("storage_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_options"); else _explicitNullProperties?.Remove("storage_options"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseStorageOptions? _explicitNullValueStorageOptions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseStorageOptions StorageOptions { get => _explicitNullValueStorageOptions; set { _explicitNullValueStorageOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_options"); else _explicitNullProperties?.Remove("storage_options"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseStorageOptions StorageOptions { get => _explicitNullValueStorageOptions; set { _explicitNullValueStorageOptions = value; AdditionalData?.Remove("storage_options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storage_options"); else _explicitNullProperties?.Remove("storage_options"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseStorageOptions _explicitNullValueStorageOptions = default!;
 #endif
         /// <summary>

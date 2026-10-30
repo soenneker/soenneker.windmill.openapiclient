@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metrics_metadata") is { } nullNodeMetricsMetadata && nullNodeMetricsMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricsMetadata = null;
-            if (parseNode.GetChildNode("scalar_metrics") is { } nullNodeScalarMetrics && nullNodeScalarMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScalarMetrics = null;
-            if (parseNode.GetChildNode("timeseries_metrics") is { } nullNodeTimeseriesMetrics && nullNodeTimeseriesMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeseriesMetrics = null;
+            if (parseNode.GetChildNode("metrics_metadata") is null) { _explicitNullValueMetricsMetadata = default!; _explicitNullProperties?.Remove("metrics_metadata"); }
+            else if (parseNode.GetChildNode("metrics_metadata") is { } nullNodeMetricsMetadata && nullNodeMetricsMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricsMetadata = null;
+            if (parseNode.GetChildNode("scalar_metrics") is null) { _explicitNullValueScalarMetrics = default!; _explicitNullProperties?.Remove("scalar_metrics"); }
+            else if (parseNode.GetChildNode("scalar_metrics") is { } nullNodeScalarMetrics && nullNodeScalarMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScalarMetrics = null;
+            if (parseNode.GetChildNode("timeseries_metrics") is null) { _explicitNullValueTimeseriesMetrics = default!; _explicitNullProperties?.Remove("timeseries_metrics"); }
+            else if (parseNode.GetChildNode("timeseries_metrics") is { } nullNodeTimeseriesMetrics && nullNodeTimeseriesMetrics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeseriesMetrics = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The metrics_metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseMetricsMetadataItem>? MetricsMetadata { get => _explicitNullValueMetricsMetadata; set { _explicitNullValueMetricsMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics_metadata"); else _explicitNullProperties?.Remove("metrics_metadata"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseMetricsMetadataItem>? MetricsMetadata { get => _explicitNullValueMetricsMetadata; set { _explicitNullValueMetricsMetadata = value; AdditionalData?.Remove("metrics_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics_metadata"); else _explicitNullProperties?.Remove("metrics_metadata"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseMetricsMetadataItem>? _explicitNullValueMetricsMetadata = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseMetricsMetadataItem> MetricsMetadata { get => _explicitNullValueMetricsMetadata; set { _explicitNullValueMetricsMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics_metadata"); else _explicitNullProperties?.Remove("metrics_metadata"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseMetricsMetadataItem> MetricsMetadata { get => _explicitNullValueMetricsMetadata; set { _explicitNullValueMetricsMetadata = value; AdditionalData?.Remove("metrics_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metrics_metadata"); else _explicitNullProperties?.Remove("metrics_metadata"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseMetricsMetadataItem> _explicitNullValueMetricsMetadata = default!;
 #endif
         /// <summary>The scalar_metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseScalarMetricsItem>? ScalarMetrics { get => _explicitNullValueScalarMetrics; set { _explicitNullValueScalarMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scalar_metrics"); else _explicitNullProperties?.Remove("scalar_metrics"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseScalarMetricsItem>? ScalarMetrics { get => _explicitNullValueScalarMetrics; set { _explicitNullValueScalarMetrics = value; AdditionalData?.Remove("scalar_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scalar_metrics"); else _explicitNullProperties?.Remove("scalar_metrics"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseScalarMetricsItem>? _explicitNullValueScalarMetrics = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseScalarMetricsItem> ScalarMetrics { get => _explicitNullValueScalarMetrics; set { _explicitNullValueScalarMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scalar_metrics"); else _explicitNullProperties?.Remove("scalar_metrics"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseScalarMetricsItem> ScalarMetrics { get => _explicitNullValueScalarMetrics; set { _explicitNullValueScalarMetrics = value; AdditionalData?.Remove("scalar_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scalar_metrics"); else _explicitNullProperties?.Remove("scalar_metrics"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseScalarMetricsItem> _explicitNullValueScalarMetrics = default!;
 #endif
         /// <summary>The timeseries_metrics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItem>? TimeseriesMetrics { get => _explicitNullValueTimeseriesMetrics; set { _explicitNullValueTimeseriesMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeseries_metrics"); else _explicitNullProperties?.Remove("timeseries_metrics"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItem>? TimeseriesMetrics { get => _explicitNullValueTimeseriesMetrics; set { _explicitNullValueTimeseriesMetrics = value; AdditionalData?.Remove("timeseries_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeseries_metrics"); else _explicitNullProperties?.Remove("timeseries_metrics"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItem>? _explicitNullValueTimeseriesMetrics = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItem> TimeseriesMetrics { get => _explicitNullValueTimeseriesMetrics; set { _explicitNullValueTimeseriesMetrics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeseries_metrics"); else _explicitNullProperties?.Remove("timeseries_metrics"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItem> TimeseriesMetrics { get => _explicitNullValueTimeseriesMetrics; set { _explicitNullValueTimeseriesMetrics = value; AdditionalData?.Remove("timeseries_metrics"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeseries_metrics"); else _explicitNullProperties?.Remove("timeseries_metrics"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItem> _explicitNullValueTimeseriesMetrics = default!;
 #endif
         /// <summary>

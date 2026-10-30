@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("datatable_names") is { } nullNodeDatatableNames && nullNodeDatatableNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatatableNames = null;
+            if (parseNode.GetChildNode("datatable_names") is null) { _explicitNullValueDatatableNames = default!; _explicitNullProperties?.Remove("datatable_names"); }
+            else if (parseNode.GetChildNode("datatable_names") is { } nullNodeDatatableNames && nullNodeDatatableNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatatableNames = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The datatable_names property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DatatableNames { get => _explicitNullValueDatatableNames; set { _explicitNullValueDatatableNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatable_names"); else _explicitNullProperties?.Remove("datatable_names"); } }
+        public List<string>? DatatableNames { get => _explicitNullValueDatatableNames; set { _explicitNullValueDatatableNames = value; AdditionalData?.Remove("datatable_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatable_names"); else _explicitNullProperties?.Remove("datatable_names"); } }
         private List<string>? _explicitNullValueDatatableNames = default!;
 #nullable restore
 #else
-        public List<string> DatatableNames { get => _explicitNullValueDatatableNames; set { _explicitNullValueDatatableNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatable_names"); else _explicitNullProperties?.Remove("datatable_names"); } }
+        public List<string> DatatableNames { get => _explicitNullValueDatatableNames; set { _explicitNullValueDatatableNames = value; AdditionalData?.Remove("datatable_names"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("datatable_names"); else _explicitNullProperties?.Remove("datatable_names"); } }
         private List<string> _explicitNullValueDatatableNames = default!;
 #endif
         /// <summary>

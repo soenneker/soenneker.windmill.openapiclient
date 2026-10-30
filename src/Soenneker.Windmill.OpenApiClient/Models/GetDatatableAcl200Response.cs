@@ -17,14 +17,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("children") is { } nullNodeChildren && nullNodeChildren.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Children = null;
-            if (parseNode.GetChildNode("clone") is { } nullNodeClone && nullNodeClone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Clone = null;
-            if (parseNode.GetChildNode("dbname") is { } nullNodeDbname && nullNodeDbname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dbname = null;
-            if (parseNode.GetChildNode("editable") is { } nullNodeEditable && nullNodeEditable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Editable = null;
-            if (parseNode.GetChildNode("grants") is { } nullNodeGrants && nullNodeGrants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grants = null;
-            if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
-            if (parseNode.GetChildNode("roles") is { } nullNodeRoles && nullNodeRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Roles = null;
-            if (parseNode.GetChildNode("supports_maintain") is { } nullNodeSupportsMaintain && nullNodeSupportsMaintain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsMaintain = null;
+            if (parseNode.GetChildNode("children") is null) { _explicitNullValueChildren = default!; _explicitNullProperties?.Remove("children"); }
+            else if (parseNode.GetChildNode("children") is { } nullNodeChildren && nullNodeChildren.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Children = null;
+            if (parseNode.GetChildNode("clone") is null) { _explicitNullValueClone = default!; _explicitNullProperties?.Remove("clone"); }
+            else if (parseNode.GetChildNode("clone") is { } nullNodeClone && nullNodeClone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Clone = null;
+            if (parseNode.GetChildNode("dbname") is null) { _explicitNullValueDbname = default!; _explicitNullProperties?.Remove("dbname"); }
+            else if (parseNode.GetChildNode("dbname") is { } nullNodeDbname && nullNodeDbname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dbname = null;
+            if (parseNode.GetChildNode("editable") is null) { _explicitNullValueEditable = default!; _explicitNullProperties?.Remove("editable"); }
+            else if (parseNode.GetChildNode("editable") is { } nullNodeEditable && nullNodeEditable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Editable = null;
+            if (parseNode.GetChildNode("grants") is null) { _explicitNullValueGrants = default!; _explicitNullProperties?.Remove("grants"); }
+            else if (parseNode.GetChildNode("grants") is { } nullNodeGrants && nullNodeGrants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Grants = null;
+            if (parseNode.GetChildNode("owner") is null) { _explicitNullValueOwner = default!; _explicitNullProperties?.Remove("owner"); }
+            else if (parseNode.GetChildNode("owner") is { } nullNodeOwner && nullNodeOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owner = null;
+            if (parseNode.GetChildNode("roles") is null) { _explicitNullValueRoles = default!; _explicitNullProperties?.Remove("roles"); }
+            else if (parseNode.GetChildNode("roles") is { } nullNodeRoles && nullNodeRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Roles = null;
+            if (parseNode.GetChildNode("supports_maintain") is null) { _explicitNullValueSupportsMaintain = default!; _explicitNullProperties?.Remove("supports_maintain"); }
+            else if (parseNode.GetChildNode("supports_maintain") is { } nullNodeSupportsMaintain && nullNodeSupportsMaintain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsMaintain = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,61 +40,61 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>a database&apos;s schemas, or a schema&apos;s tables</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Children { get => _explicitNullValueChildren; set { _explicitNullValueChildren = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("children"); else _explicitNullProperties?.Remove("children"); } }
+        public List<string>? Children { get => _explicitNullValueChildren; set { _explicitNullValueChildren = value; AdditionalData?.Remove("children"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("children"); else _explicitNullProperties?.Remove("children"); } }
         private List<string>? _explicitNullValueChildren = default!;
 #nullable restore
 #else
-        public List<string> Children { get => _explicitNullValueChildren; set { _explicitNullValueChildren = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("children"); else _explicitNullProperties?.Remove("children"); } }
+        public List<string> Children { get => _explicitNullValueChildren; set { _explicitNullValueChildren = value; AdditionalData?.Remove("children"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("children"); else _explicitNullProperties?.Remove("children"); } }
         private List<string> _explicitNullValueChildren = default!;
 #endif
         /// <summary>whether this is a clone, whose grants stay as they were copied</summary>
-        public bool? Clone { get => _explicitNullValueClone; set { _explicitNullValueClone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clone"); else _explicitNullProperties?.Remove("clone"); } }
+        public bool? Clone { get => _explicitNullValueClone; set { _explicitNullValueClone = value; AdditionalData?.Remove("clone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clone"); else _explicitNullProperties?.Remove("clone"); } }
         private bool? _explicitNullValueClone = default!;
         /// <summary>the database the target lives in</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Dbname { get => _explicitNullValueDbname; set { _explicitNullValueDbname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbname"); else _explicitNullProperties?.Remove("dbname"); } }
+        public string? Dbname { get => _explicitNullValueDbname; set { _explicitNullValueDbname = value; AdditionalData?.Remove("dbname"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbname"); else _explicitNullProperties?.Remove("dbname"); } }
         private string? _explicitNullValueDbname = default!;
 #nullable restore
 #else
-        public string Dbname { get => _explicitNullValueDbname; set { _explicitNullValueDbname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbname"); else _explicitNullProperties?.Remove("dbname"); } }
+        public string Dbname { get => _explicitNullValueDbname; set { _explicitNullValueDbname = value; AdditionalData?.Remove("dbname"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dbname"); else _explicitNullProperties?.Remove("dbname"); } }
         private string _explicitNullValueDbname = default!;
 #endif
         /// <summary>whether the caller may plan and apply changes</summary>
-        public bool? Editable { get => _explicitNullValueEditable; set { _explicitNullValueEditable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("editable"); else _explicitNullProperties?.Remove("editable"); } }
+        public bool? Editable { get => _explicitNullValueEditable; set { _explicitNullValueEditable = value; AdditionalData?.Remove("editable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("editable"); else _explicitNullProperties?.Remove("editable"); } }
         private bool? _explicitNullValueEditable = default!;
         /// <summary>The grants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem>? Grants { get => _explicitNullValueGrants; set { _explicitNullValueGrants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grants"); else _explicitNullProperties?.Remove("grants"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem>? _explicitNullValueGrants = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNameGetResponses200ContentApplic678Fe06C7E>? Grants { get => _explicitNullValueGrants; set { _explicitNullValueGrants = value; AdditionalData?.Remove("grants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grants"); else _explicitNullProperties?.Remove("grants"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNameGetResponses200ContentApplic678Fe06C7E>? _explicitNullValueGrants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem> Grants { get => _explicitNullValueGrants; set { _explicitNullValueGrants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grants"); else _explicitNullProperties?.Remove("grants"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem> _explicitNullValueGrants = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNameGetResponses200ContentApplic678Fe06C7E> Grants { get => _explicitNullValueGrants; set { _explicitNullValueGrants = value; AdditionalData?.Remove("grants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grants"); else _explicitNullProperties?.Remove("grants"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNameGetResponses200ContentApplic678Fe06C7E> _explicitNullValueGrants = default!;
 #endif
         /// <summary>The owner property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        public string? Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; AdditionalData?.Remove("owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
         private string? _explicitNullValueOwner = default!;
 #nullable restore
 #else
-        public string Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
+        public string Owner { get => _explicitNullValueOwner; set { _explicitNullValueOwner = value; AdditionalData?.Remove("owner"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("owner"); else _explicitNullProperties?.Remove("owner"); } }
         private string _explicitNullValueOwner = default!;
 #endif
         /// <summary>the roles a change may name; empty unless the caller may change anything</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
+        public List<string>? Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; AdditionalData?.Remove("roles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
         private List<string>? _explicitNullValueRoles = default!;
 #nullable restore
 #else
-        public List<string> Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
+        public List<string> Roles { get => _explicitNullValueRoles; set { _explicitNullValueRoles = value; AdditionalData?.Remove("roles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("roles"); else _explicitNullProperties?.Remove("roles"); } }
         private List<string> _explicitNullValueRoles = default!;
 #endif
         /// <summary>whether the server is Postgres 17+, which added the MAINTAIN table privilege</summary>
-        public bool? SupportsMaintain { get => _explicitNullValueSupportsMaintain; set { _explicitNullValueSupportsMaintain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_maintain"); else _explicitNullProperties?.Remove("supports_maintain"); } }
+        public bool? SupportsMaintain { get => _explicitNullValueSupportsMaintain; set { _explicitNullValueSupportsMaintain = value; AdditionalData?.Remove("supports_maintain"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_maintain"); else _explicitNullProperties?.Remove("supports_maintain"); } }
         private bool? _explicitNullValueSupportsMaintain = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200Response"/> and sets the default values.
@@ -117,7 +125,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "clone", n => { Clone = n.GetBoolValue(); } },
                 { "dbname", n => { Dbname = n.GetStringValue(); } },
                 { "editable", n => { Editable = n.GetBoolValue(); } },
-                { "grants", n => { Grants = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "grants", n => { Grants = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNameGetResponses200ContentApplic678Fe06C7E>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNameGetResponses200ContentApplic678Fe06C7E.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
                 { "roles", n => { Roles = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "supports_maintain", n => { SupportsMaintain = n.GetBoolValue(); } },
@@ -134,7 +142,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("clone", Clone);
             writer.WriteStringValue("dbname", Dbname);
             writer.WriteBoolValue("editable", Editable);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetDatatableAcl200ResponseGrantsItem>("grants", Grants);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNameGetResponses200ContentApplic678Fe06C7E>("grants", Grants);
             writer.WriteStringValue("owner", Owner);
             writer.WriteCollectionOfPrimitiveValues<string>("roles", Roles);
             writer.WriteBoolValue("supports_maintain", SupportsMaintain);

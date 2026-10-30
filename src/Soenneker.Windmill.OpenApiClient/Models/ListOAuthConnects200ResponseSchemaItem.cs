@@ -17,28 +17,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("has_shared_credentials") is { } nullNodeHasSharedCredentials && nullNodeHasSharedCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasSharedCredentials = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("supports_client_credentials") is { } nullNodeSupportsClientCredentials && nullNodeSupportsClientCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsClientCredentials = null;
+            if (parseNode.GetChildNode("has_shared_credentials") is null) { _explicitNullValueHasSharedCredentials = default!; _explicitNullProperties?.Remove("has_shared_credentials"); }
+            else if (parseNode.GetChildNode("has_shared_credentials") is { } nullNodeHasSharedCredentials && nullNodeHasSharedCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasSharedCredentials = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("supports_client_credentials") is null) { _explicitNullValueSupportsClientCredentials = default!; _explicitNullProperties?.Remove("supports_client_credentials"); }
+            else if (parseNode.GetChildNode("supports_client_credentials") is { } nullNodeSupportsClientCredentials && nullNodeSupportsClientCredentials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsClientCredentials = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The has_shared_credentials property</summary>
-        public bool? HasSharedCredentials { get => _explicitNullValueHasSharedCredentials; set { _explicitNullValueHasSharedCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_shared_credentials"); else _explicitNullProperties?.Remove("has_shared_credentials"); } }
+        public bool? HasSharedCredentials { get => _explicitNullValueHasSharedCredentials; set { _explicitNullValueHasSharedCredentials = value; AdditionalData?.Remove("has_shared_credentials"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_shared_credentials"); else _explicitNullProperties?.Remove("has_shared_credentials"); } }
         private bool? _explicitNullValueHasSharedCredentials = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The supports_client_credentials property</summary>
-        public bool? SupportsClientCredentials { get => _explicitNullValueSupportsClientCredentials; set { _explicitNullValueSupportsClientCredentials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_client_credentials"); else _explicitNullProperties?.Remove("supports_client_credentials"); } }
+        public bool? SupportsClientCredentials { get => _explicitNullValueSupportsClientCredentials; set { _explicitNullValueSupportsClientCredentials = value; AdditionalData?.Remove("supports_client_credentials"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_client_credentials"); else _explicitNullProperties?.Remove("supports_client_credentials"); } }
         private bool? _explicitNullValueSupportsClientCredentials = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthConnects200ResponseSchemaItem"/> and sets the default values.

@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("instance_role") is { } nullNodeInstanceRole && nullNodeInstanceRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceRole = null;
-            if (parseNode.GetChildNode("new_summary") is { } nullNodeNewSummary && nullNodeNewSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewSummary = null;
+            if (parseNode.GetChildNode("instance_role") is null) { _explicitNullValueInstanceRole = default!; _explicitNullProperties?.Remove("instance_role"); }
+            else if (parseNode.GetChildNode("instance_role") is { } nullNodeInstanceRole && nullNodeInstanceRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceRole = null;
+            if (parseNode.GetChildNode("new_summary") is null) { _explicitNullValueNewSummary = default!; _explicitNullProperties?.Remove("new_summary"); }
+            else if (parseNode.GetChildNode("new_summary") is { } nullNodeNewSummary && nullNodeNewSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewSummary = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Instance-level role for group members. &apos;superadmin&apos;, &apos;devops&apos;, &apos;user&apos; or empty to clear.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InstanceRole { get => _explicitNullValueInstanceRole; set { _explicitNullValueInstanceRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_role"); else _explicitNullProperties?.Remove("instance_role"); } }
+        public string? InstanceRole { get => _explicitNullValueInstanceRole; set { _explicitNullValueInstanceRole = value; AdditionalData?.Remove("instance_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_role"); else _explicitNullProperties?.Remove("instance_role"); } }
         private string? _explicitNullValueInstanceRole = default!;
 #nullable restore
 #else
-        public string InstanceRole { get => _explicitNullValueInstanceRole; set { _explicitNullValueInstanceRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_role"); else _explicitNullProperties?.Remove("instance_role"); } }
+        public string InstanceRole { get => _explicitNullValueInstanceRole; set { _explicitNullValueInstanceRole = value; AdditionalData?.Remove("instance_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_role"); else _explicitNullProperties?.Remove("instance_role"); } }
         private string _explicitNullValueInstanceRole = default!;
 #endif
         /// <summary>The new_summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewSummary { get => _explicitNullValueNewSummary; set { _explicitNullValueNewSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_summary"); else _explicitNullProperties?.Remove("new_summary"); } }
+        public string? NewSummary { get => _explicitNullValueNewSummary; set { _explicitNullValueNewSummary = value; AdditionalData?.Remove("new_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_summary"); else _explicitNullProperties?.Remove("new_summary"); } }
         private string? _explicitNullValueNewSummary = default!;
 #nullable restore
 #else
-        public string NewSummary { get => _explicitNullValueNewSummary; set { _explicitNullValueNewSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_summary"); else _explicitNullProperties?.Remove("new_summary"); } }
+        public string NewSummary { get => _explicitNullValueNewSummary; set { _explicitNullValueNewSummary = value; AdditionalData?.Remove("new_summary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_summary"); else _explicitNullProperties?.Remove("new_summary"); } }
         private string _explicitNullValueNewSummary = default!;
 #endif
         /// <summary>

@@ -17,32 +17,36 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("failed_count") is { } nullNodeFailedCount && nullNodeFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedCount = null;
-            if (parseNode.GetChildNode("failures") is { } nullNodeFailures && nullNodeFailures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failures = null;
-            if (parseNode.GetChildNode("migrated_count") is { } nullNodeMigratedCount && nullNodeMigratedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MigratedCount = null;
-            if (parseNode.GetChildNode("total_secrets") is { } nullNodeTotalSecrets && nullNodeTotalSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSecrets = null;
+            if (parseNode.GetChildNode("failed_count") is null) { _explicitNullValueFailedCount = default!; _explicitNullProperties?.Remove("failed_count"); }
+            else if (parseNode.GetChildNode("failed_count") is { } nullNodeFailedCount && nullNodeFailedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedCount = null;
+            if (parseNode.GetChildNode("failures") is null) { _explicitNullValueFailures = default!; _explicitNullProperties?.Remove("failures"); }
+            else if (parseNode.GetChildNode("failures") is { } nullNodeFailures && nullNodeFailures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Failures = null;
+            if (parseNode.GetChildNode("migrated_count") is null) { _explicitNullValueMigratedCount = default!; _explicitNullProperties?.Remove("migrated_count"); }
+            else if (parseNode.GetChildNode("migrated_count") is { } nullNodeMigratedCount && nullNodeMigratedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MigratedCount = null;
+            if (parseNode.GetChildNode("total_secrets") is null) { _explicitNullValueTotalSecrets = default!; _explicitNullProperties?.Remove("total_secrets"); }
+            else if (parseNode.GetChildNode("total_secrets") is { } nullNodeTotalSecrets && nullNodeTotalSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSecrets = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of secrets that failed to migrate</summary>
-        public long? FailedCount { get => _explicitNullValueFailedCount; set { _explicitNullValueFailedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_count"); else _explicitNullProperties?.Remove("failed_count"); } }
+        public long? FailedCount { get => _explicitNullValueFailedCount; set { _explicitNullValueFailedCount = value; AdditionalData?.Remove("failed_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_count"); else _explicitNullProperties?.Remove("failed_count"); } }
         private long? _explicitNullValueFailedCount = default!;
         /// <summary>Details of any failures encountered during migration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200ResponseFailuresItem>? Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200ResponseFailuresItem>? _explicitNullValueFailures = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsMigrateSecretsToVaultPostResponses200ContentApplicationJsonSchemaPro1D76Cfa2B8>? Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; AdditionalData?.Remove("failures"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsMigrateSecretsToVaultPostResponses200ContentApplicationJsonSchemaPro1D76Cfa2B8>? _explicitNullValueFailures = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200ResponseFailuresItem> Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200ResponseFailuresItem> _explicitNullValueFailures = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsMigrateSecretsToVaultPostResponses200ContentApplicationJsonSchemaPro1D76Cfa2B8> Failures { get => _explicitNullValueFailures; set { _explicitNullValueFailures = value; AdditionalData?.Remove("failures"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failures"); else _explicitNullProperties?.Remove("failures"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsMigrateSecretsToVaultPostResponses200ContentApplicationJsonSchemaPro1D76Cfa2B8> _explicitNullValueFailures = default!;
 #endif
         /// <summary>Number of secrets successfully migrated</summary>
-        public long? MigratedCount { get => _explicitNullValueMigratedCount; set { _explicitNullValueMigratedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("migrated_count"); else _explicitNullProperties?.Remove("migrated_count"); } }
+        public long? MigratedCount { get => _explicitNullValueMigratedCount; set { _explicitNullValueMigratedCount = value; AdditionalData?.Remove("migrated_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("migrated_count"); else _explicitNullProperties?.Remove("migrated_count"); } }
         private long? _explicitNullValueMigratedCount = default!;
         /// <summary>Total number of secrets found</summary>
-        public long? TotalSecrets { get => _explicitNullValueTotalSecrets; set { _explicitNullValueTotalSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_secrets"); else _explicitNullProperties?.Remove("total_secrets"); } }
+        public long? TotalSecrets { get => _explicitNullValueTotalSecrets; set { _explicitNullValueTotalSecrets = value; AdditionalData?.Remove("total_secrets"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_secrets"); else _explicitNullProperties?.Remove("total_secrets"); } }
         private long? _explicitNullValueTotalSecrets = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200Response"/> and sets the default values.
@@ -70,7 +74,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "failed_count", n => { FailedCount = n.GetLongValue(); } },
-                { "failures", n => { Failures = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200ResponseFailuresItem>(global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200ResponseFailuresItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "failures", n => { Failures = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsMigrateSecretsToVaultPostResponses200ContentApplicationJsonSchemaPro1D76Cfa2B8>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsMigrateSecretsToVaultPostResponses200ContentApplicationJsonSchemaPro1D76Cfa2B8.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "migrated_count", n => { MigratedCount = n.GetLongValue(); } },
                 { "total_secrets", n => { TotalSecrets = n.GetLongValue(); } },
             };
@@ -83,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("failed_count", FailedCount);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsToAwsSm200ResponseFailuresItem>("failures", Failures);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsMigrateSecretsToVaultPostResponses200ContentApplicationJsonSchemaPro1D76Cfa2B8>("failures", Failures);
             writer.WriteLongValue("migrated_count", MigratedCount);
             writer.WriteLongValue("total_secrets", TotalSecrets);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

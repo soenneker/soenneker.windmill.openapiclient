@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("commit_hash") is { } nullNodeCommitHash && nullNodeCommitHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitHash = null;
+            if (parseNode.GetChildNode("commit_hash") is null) { _explicitNullValueCommitHash = default!; _explicitNullProperties?.Remove("commit_hash"); }
+            else if (parseNode.GetChildNode("commit_hash") is { } nullNodeCommitHash && nullNodeCommitHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommitHash = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Latest commit hash from git ls-remote</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CommitHash { get => _explicitNullValueCommitHash; set { _explicitNullValueCommitHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_hash"); else _explicitNullProperties?.Remove("commit_hash"); } }
+        public string? CommitHash { get => _explicitNullValueCommitHash; set { _explicitNullValueCommitHash = value; AdditionalData?.Remove("commit_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_hash"); else _explicitNullProperties?.Remove("commit_hash"); } }
         private string? _explicitNullValueCommitHash = default!;
 #nullable restore
 #else
-        public string CommitHash { get => _explicitNullValueCommitHash; set { _explicitNullValueCommitHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_hash"); else _explicitNullProperties?.Remove("commit_hash"); } }
+        public string CommitHash { get => _explicitNullValueCommitHash; set { _explicitNullValueCommitHash = value; AdditionalData?.Remove("commit_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("commit_hash"); else _explicitNullProperties?.Remove("commit_hash"); } }
         private string _explicitNullValueCommitHash = default!;
 #endif
         /// <summary>

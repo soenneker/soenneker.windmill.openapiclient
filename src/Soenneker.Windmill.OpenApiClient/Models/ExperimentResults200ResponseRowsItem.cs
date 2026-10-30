@@ -17,80 +17,89 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("case_id") is { } nullNodeCaseId && nullNodeCaseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseId = null;
-            if (parseNode.GetChildNode("expected") is { } nullNodeExpected && nullNodeExpected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expected = null;
-            if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
-            if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
-            if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
-            if (parseNode.GetChildNode("scores") is { } nullNodeScores && nullNodeScores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scores = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("subject_draft_hash") is { } nullNodeSubjectDraftHash && nullNodeSubjectDraftHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectDraftHash = null;
-            if (parseNode.GetChildNode("subject_version") is { } nullNodeSubjectVersion && nullNodeSubjectVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectVersion = null;
+            if (parseNode.GetChildNode("case_id") is null) { _explicitNullValueCaseId = default!; _explicitNullProperties?.Remove("case_id"); }
+            else if (parseNode.GetChildNode("case_id") is { } nullNodeCaseId && nullNodeCaseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseId = null;
+            if (parseNode.GetChildNode("expected") is null) { _explicitNullValueExpected = default!; _explicitNullProperties?.Remove("expected"); }
+            else if (parseNode.GetChildNode("expected") is { } nullNodeExpected && nullNodeExpected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expected = null;
+            if (parseNode.GetChildNode("input") is null) { _explicitNullValueInput = default!; _explicitNullProperties?.Remove("input"); }
+            else if (parseNode.GetChildNode("input") is { } nullNodeInput && nullNodeInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Input = null;
+            if (parseNode.GetChildNode("job_id") is null) { _explicitNullValueJobId = default!; _explicitNullProperties?.Remove("job_id"); }
+            else if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
+            if (parseNode.GetChildNode("output") is null) { _explicitNullValueOutput = default!; _explicitNullProperties?.Remove("output"); }
+            else if (parseNode.GetChildNode("output") is { } nullNodeOutput && nullNodeOutput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Output = null;
+            if (parseNode.GetChildNode("scores") is null) { _explicitNullValueScores = default!; _explicitNullProperties?.Remove("scores"); }
+            else if (parseNode.GetChildNode("scores") is { } nullNodeScores && nullNodeScores.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scores = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("subject_draft_hash") is null) { _explicitNullValueSubjectDraftHash = default!; _explicitNullProperties?.Remove("subject_draft_hash"); }
+            else if (parseNode.GetChildNode("subject_draft_hash") is { } nullNodeSubjectDraftHash && nullNodeSubjectDraftHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectDraftHash = null;
+            if (parseNode.GetChildNode("subject_version") is null) { _explicitNullValueSubjectVersion = default!; _explicitNullProperties?.Remove("subject_version"); }
+            else if (parseNode.GetChildNode("subject_version") is { } nullNodeSubjectVersion && nullNodeSubjectVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubjectVersion = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The case_id property</summary>
-        public Guid? CaseId { get => _explicitNullValueCaseId; set { _explicitNullValueCaseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case_id"); else _explicitNullProperties?.Remove("case_id"); } }
+        public Guid? CaseId { get => _explicitNullValueCaseId; set { _explicitNullValueCaseId = value; AdditionalData?.Remove("case_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case_id"); else _explicitNullProperties?.Remove("case_id"); } }
         private Guid? _explicitNullValueCaseId = default!;
         /// <summary>The expected property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Expected { get => _explicitNullValueExpected; set { _explicitNullValueExpected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected"); else _explicitNullProperties?.Remove("expected"); } }
+        public UntypedNode? Expected { get => _explicitNullValueExpected; set { _explicitNullValueExpected = value; AdditionalData?.Remove("expected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected"); else _explicitNullProperties?.Remove("expected"); } }
         private UntypedNode? _explicitNullValueExpected = default!;
 #nullable restore
 #else
-        public UntypedNode Expected { get => _explicitNullValueExpected; set { _explicitNullValueExpected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected"); else _explicitNullProperties?.Remove("expected"); } }
+        public UntypedNode Expected { get => _explicitNullValueExpected; set { _explicitNullValueExpected = value; AdditionalData?.Remove("expected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected"); else _explicitNullProperties?.Remove("expected"); } }
         private UntypedNode _explicitNullValueExpected = default!;
 #endif
         /// <summary>The inputs a standalone run feeds the agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput? _explicitNullValueInput = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication80E20C9E0E? Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication80E20C9E0E? _explicitNullValueInput = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput _explicitNullValueInput = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication80E20C9E0E Input { get => _explicitNullValueInput; set { _explicitNullValueInput = value; AdditionalData?.Remove("input"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input"); else _explicitNullProperties?.Remove("input"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication80E20C9E0E _explicitNullValueInput = default!;
 #endif
         /// <summary>The iteration that ran this case. Absent between a run being recorded and its flow reaching this case, which reads as a case still to run.</summary>
-        public Guid? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
+        public Guid? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private Guid? _explicitNullValueJobId = default!;
         /// <summary>The agent&apos;s answer. The full trajectory stays reachable through job_id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public string? Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private string? _explicitNullValueOutput = default!;
 #nullable restore
 #else
-        public string Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
+        public string Output { get => _explicitNullValueOutput; set { _explicitNullValueOutput = value; AdditionalData?.Remove("output"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("output"); else _explicitNullProperties?.Remove("output"); } }
         private string _explicitNullValueOutput = default!;
 #endif
         /// <summary>One entry per scorer of the dataset, in column order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItem>? Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItem>? _explicitNullValueScores = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication92721489Ee>? Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; AdditionalData?.Remove("scores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication92721489Ee>? _explicitNullValueScores = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItem> Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItem> _explicitNullValueScores = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication92721489Ee> Scores { get => _explicitNullValueScores; set { _explicitNullValueScores = value; AdditionalData?.Remove("scores"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scores"); else _explicitNullProperties?.Remove("scores"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication92721489Ee> _explicitNullValueScores = default!;
 #endif
         /// <summary>The case&apos;s status; `running` until its iteration completes, and `unavailable` for a case whose job was retained away before anything read what it produced.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemStatus? _explicitNullValueStatus = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication5A66D4Cf61? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication5A66D4Cf61? _explicitNullValueStatus = default!;
         /// <summary>For a run of unsaved edits, the hash of the configuration this cell ran. Edits move without a version changing, so this is what identifies what ran, and what recognises a run whose edits were later saved as a run of that version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubjectDraftHash { get => _explicitNullValueSubjectDraftHash; set { _explicitNullValueSubjectDraftHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_draft_hash"); else _explicitNullProperties?.Remove("subject_draft_hash"); } }
+        public string? SubjectDraftHash { get => _explicitNullValueSubjectDraftHash; set { _explicitNullValueSubjectDraftHash = value; AdditionalData?.Remove("subject_draft_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_draft_hash"); else _explicitNullProperties?.Remove("subject_draft_hash"); } }
         private string? _explicitNullValueSubjectDraftHash = default!;
 #nullable restore
 #else
-        public string SubjectDraftHash { get => _explicitNullValueSubjectDraftHash; set { _explicitNullValueSubjectDraftHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_draft_hash"); else _explicitNullProperties?.Remove("subject_draft_hash"); } }
+        public string SubjectDraftHash { get => _explicitNullValueSubjectDraftHash; set { _explicitNullValueSubjectDraftHash = value; AdditionalData?.Remove("subject_draft_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_draft_hash"); else _explicitNullProperties?.Remove("subject_draft_hash"); } }
         private string _explicitNullValueSubjectDraftHash = default!;
 #endif
         /// <summary>The agent version this cell ran against. Cells of one experiment can differ, which the table says rather than averaging two versions silently.</summary>
-        public long? SubjectVersion { get => _explicitNullValueSubjectVersion; set { _explicitNullValueSubjectVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_version"); else _explicitNullProperties?.Remove("subject_version"); } }
+        public long? SubjectVersion { get => _explicitNullValueSubjectVersion; set { _explicitNullValueSubjectVersion = value; AdditionalData?.Remove("subject_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subject_version"); else _explicitNullProperties?.Remove("subject_version"); } }
         private long? _explicitNullValueSubjectVersion = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItem"/> and sets the default values.
@@ -119,11 +128,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "case_id", n => { CaseId = n.GetGuidValue(); } },
                 { "expected", n => { Expected = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput>(global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication80E20C9E0E>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication80E20C9E0E.CreateFromDiscriminatorValue); } },
                 { "job_id", n => { JobId = n.GetGuidValue(); } },
                 { "output", n => { Output = n.GetStringValue(); } },
-                { "scores", n => { Scores = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItem>(global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemStatus>(); } },
+                { "scores", n => { Scores = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication92721489Ee>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication92721489Ee.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication5A66D4Cf61>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "subject_draft_hash", n => { SubjectDraftHash = n.GetStringValue(); } },
                 { "subject_version", n => { SubjectVersion = n.GetLongValue(); } },
             };
@@ -137,11 +146,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("case_id", CaseId);
             writer.WriteObjectValue<UntypedNode>("expected", Expected);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemInput>("input", Input);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication80E20C9E0E>("input", Input);
             writer.WriteGuidValue("job_id", JobId);
             writer.WriteStringValue("output", Output);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemScoresItem>("scores", Scores);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ExperimentResults200ResponseRowsItemStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication92721489Ee>("scores", Scores);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiEvalsExperimentsResultsPathGetResponses200ContentApplication5A66D4Cf61>("status", Status);
             writer.WriteStringValue("subject_draft_hash", SubjectDraftHash);
             writer.WriteLongValue("subject_version", SubjectVersion);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

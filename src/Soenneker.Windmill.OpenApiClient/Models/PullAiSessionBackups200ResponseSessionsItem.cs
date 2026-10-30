@@ -17,14 +17,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("artifacts") is { } nullNodeArtifacts && nullNodeArtifacts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Artifacts = null;
-            if (parseNode.GetChildNode("chats") is { } nullNodeChats && nullNodeChats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Chats = null;
-            if (parseNode.GetChildNode("head") is { } nullNodeHead && nullNodeHead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Head = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("images") is { } nullNodeImages && nullNodeImages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Images = null;
-            if (parseNode.GetChildNode("listing") is { } nullNodeListing && nullNodeListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Listing = null;
-            if (parseNode.GetChildNode("moved") is { } nullNodeMoved && nullNodeMoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Moved = null;
-            if (parseNode.GetChildNode("next") is { } nullNodeNext && nullNodeNext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Next = null;
+            if (parseNode.GetChildNode("artifacts") is null) { _explicitNullValueArtifacts = default!; _explicitNullProperties?.Remove("artifacts"); }
+            else if (parseNode.GetChildNode("artifacts") is { } nullNodeArtifacts && nullNodeArtifacts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Artifacts = null;
+            if (parseNode.GetChildNode("chats") is null) { _explicitNullValueChats = default!; _explicitNullProperties?.Remove("chats"); }
+            else if (parseNode.GetChildNode("chats") is { } nullNodeChats && nullNodeChats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Chats = null;
+            if (parseNode.GetChildNode("head") is null) { _explicitNullValueHead = default!; _explicitNullProperties?.Remove("head"); }
+            else if (parseNode.GetChildNode("head") is { } nullNodeHead && nullNodeHead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Head = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("images") is null) { _explicitNullValueImages = default!; _explicitNullProperties?.Remove("images"); }
+            else if (parseNode.GetChildNode("images") is { } nullNodeImages && nullNodeImages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Images = null;
+            if (parseNode.GetChildNode("listing") is null) { _explicitNullValueListing = default!; _explicitNullProperties?.Remove("listing"); }
+            else if (parseNode.GetChildNode("listing") is { } nullNodeListing && nullNodeListing.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Listing = null;
+            if (parseNode.GetChildNode("moved") is null) { _explicitNullValueMoved = default!; _explicitNullProperties?.Remove("moved"); }
+            else if (parseNode.GetChildNode("moved") is { } nullNodeMoved && nullNodeMoved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Moved = null;
+            if (parseNode.GetChildNode("next") is null) { _explicitNullValueNext = default!; _explicitNullProperties?.Remove("next"); }
+            else if (parseNode.GetChildNode("next") is { } nullNodeNext && nullNodeNext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Next = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,75 +40,75 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The artifacts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts? Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts? Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; AdditionalData?.Remove("artifacts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts? _explicitNullValueArtifacts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts Artifacts { get => _explicitNullValueArtifacts; set { _explicitNullValueArtifacts = value; AdditionalData?.Remove("artifacts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("artifacts"); else _explicitNullProperties?.Remove("artifacts"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts _explicitNullValueArtifacts = default!;
 #endif
         /// <summary>The chats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem>? Chats { get => _explicitNullValueChats; set { _explicitNullValueChats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chats"); else _explicitNullProperties?.Remove("chats"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem>? _explicitNullValueChats = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E>? Chats { get => _explicitNullValueChats; set { _explicitNullValueChats = value; AdditionalData?.Remove("chats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chats"); else _explicitNullProperties?.Remove("chats"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E>? _explicitNullValueChats = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem> Chats { get => _explicitNullValueChats; set { _explicitNullValueChats = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chats"); else _explicitNullProperties?.Remove("chats"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem> _explicitNullValueChats = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E> Chats { get => _explicitNullValueChats; set { _explicitNullValueChats = value; AdditionalData?.Remove("chats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chats"); else _explicitNullProperties?.Remove("chats"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E> _explicitNullValueChats = default!;
 #endif
         /// <summary>The head property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead? Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead? Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; AdditionalData?.Remove("head"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead? _explicitNullValueHead = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead Head { get => _explicitNullValueHead; set { _explicitNullValueHead = value; AdditionalData?.Remove("head"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("head"); else _explicitNullProperties?.Remove("head"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead _explicitNullValueHead = default!;
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>The images property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem>? Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem>? _explicitNullValueImages = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperD4112238F4>? Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; AdditionalData?.Remove("images"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperD4112238F4>? _explicitNullValueImages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem> Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem> _explicitNullValueImages = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperD4112238F4> Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; AdditionalData?.Remove("images"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperD4112238F4> _explicitNullValueImages = default!;
 #endif
         /// <summary>a fingerprint of the session&apos;s listing; pages of one session whose fingerprints differ do not belong together</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Listing { get => _explicitNullValueListing; set { _explicitNullValueListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listing"); else _explicitNullProperties?.Remove("listing"); } }
+        public string? Listing { get => _explicitNullValueListing; set { _explicitNullValueListing = value; AdditionalData?.Remove("listing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listing"); else _explicitNullProperties?.Remove("listing"); } }
         private string? _explicitNullValueListing = default!;
 #nullable restore
 #else
-        public string Listing { get => _explicitNullValueListing; set { _explicitNullValueListing = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listing"); else _explicitNullProperties?.Remove("listing"); } }
+        public string Listing { get => _explicitNullValueListing; set { _explicitNullValueListing = value; AdditionalData?.Remove("listing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listing"); else _explicitNullProperties?.Remove("listing"); } }
         private string _explicitNullValueListing = default!;
 #endif
         /// <summary>the backup kept changing while this page was read, so it may mix two versions; the browser starts the session over</summary>
-        public bool? Moved { get => _explicitNullValueMoved; set { _explicitNullValueMoved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved"); else _explicitNullProperties?.Remove("moved"); } }
+        public bool? Moved { get => _explicitNullValueMoved; set { _explicitNullValueMoved = value; AdditionalData?.Remove("moved"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moved"); else _explicitNullProperties?.Remove("moved"); } }
         private bool? _explicitNullValueMoved = default!;
         /// <summary>where a pull of a session that did not fit one answer whole picks up; the rest of the session follows a pull naming that session alone with this as `resume`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext? Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext? _explicitNullValueNext = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProper65348D3Dea? Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; AdditionalData?.Remove("next"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProper65348D3Dea? _explicitNullValueNext = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext _explicitNullValueNext = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProper65348D3Dea Next { get => _explicitNullValueNext; set { _explicitNullValueNext = value; AdditionalData?.Remove("next"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next"); else _explicitNullProperties?.Remove("next"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProper65348D3Dea _explicitNullValueNext = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItem"/> and sets the default values.
@@ -128,13 +136,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "artifacts", n => { Artifacts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts>(global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts.CreateFromDiscriminatorValue); } },
-                { "chats", n => { Chats = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem>(global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "chats", n => { Chats = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "head", n => { Head = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead>(global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "images", n => { Images = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem>(global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "images", n => { Images = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperD4112238F4>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperD4112238F4.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "listing", n => { Listing = n.GetStringValue(); } },
                 { "moved", n => { Moved = n.GetBoolValue(); } },
-                { "next", n => { Next = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext>(global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext.CreateFromDiscriminatorValue); } },
+                { "next", n => { Next = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProper65348D3Dea>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProper65348D3Dea.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -145,13 +153,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts>("artifacts", Artifacts);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemChatsItem>("chats", Chats);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E>("chats", Chats);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemHead>("head", Head);
             writer.WriteStringValue("id", Id);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemImagesItem>("images", Images);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperD4112238F4>("images", Images);
             writer.WriteStringValue("listing", Listing);
             writer.WriteBoolValue("moved", Moved);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemNext>("next", Next);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProper65348D3Dea>("next", Next);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

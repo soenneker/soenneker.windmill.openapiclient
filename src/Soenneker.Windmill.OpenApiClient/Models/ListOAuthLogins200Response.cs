@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auto_login") is { } nullNodeAutoLogin && nullNodeAutoLogin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoLogin = null;
-            if (parseNode.GetChildNode("oauth") is { } nullNodeOauth && nullNodeOauth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Oauth = null;
-            if (parseNode.GetChildNode("saml") is { } nullNodeSaml && nullNodeSaml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Saml = null;
+            if (parseNode.GetChildNode("auto_login") is null) { _explicitNullValueAutoLogin = default!; _explicitNullProperties?.Remove("auto_login"); }
+            else if (parseNode.GetChildNode("auto_login") is { } nullNodeAutoLogin && nullNodeAutoLogin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoLogin = null;
+            if (parseNode.GetChildNode("oauth") is null) { _explicitNullValueOauth = default!; _explicitNullProperties?.Remove("oauth"); }
+            else if (parseNode.GetChildNode("oauth") is { } nullNodeOauth && nullNodeOauth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Oauth = null;
+            if (parseNode.GetChildNode("saml") is null) { _explicitNullValueSaml = default!; _explicitNullProperties?.Remove("saml"); }
+            else if (parseNode.GetChildNode("saml") is { } nullNodeSaml && nullNodeSaml.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Saml = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>provider type to auto-redirect to on login (oauth key or &quot;saml&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutoLogin { get => _explicitNullValueAutoLogin; set { _explicitNullValueAutoLogin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_login"); else _explicitNullProperties?.Remove("auto_login"); } }
+        public string? AutoLogin { get => _explicitNullValueAutoLogin; set { _explicitNullValueAutoLogin = value; AdditionalData?.Remove("auto_login"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_login"); else _explicitNullProperties?.Remove("auto_login"); } }
         private string? _explicitNullValueAutoLogin = default!;
 #nullable restore
 #else
-        public string AutoLogin { get => _explicitNullValueAutoLogin; set { _explicitNullValueAutoLogin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_login"); else _explicitNullProperties?.Remove("auto_login"); } }
+        public string AutoLogin { get => _explicitNullValueAutoLogin; set { _explicitNullValueAutoLogin = value; AdditionalData?.Remove("auto_login"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_login"); else _explicitNullProperties?.Remove("auto_login"); } }
         private string _explicitNullValueAutoLogin = default!;
 #endif
         /// <summary>The oauth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200ResponseOAuthItem>? Oauth { get => _explicitNullValueOauth; set { _explicitNullValueOauth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth"); else _explicitNullProperties?.Remove("oauth"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200ResponseOAuthItem>? Oauth { get => _explicitNullValueOauth; set { _explicitNullValueOauth = value; AdditionalData?.Remove("oauth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth"); else _explicitNullProperties?.Remove("oauth"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200ResponseOAuthItem>? _explicitNullValueOauth = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200ResponseOAuthItem> Oauth { get => _explicitNullValueOauth; set { _explicitNullValueOauth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth"); else _explicitNullProperties?.Remove("oauth"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200ResponseOAuthItem> Oauth { get => _explicitNullValueOauth; set { _explicitNullValueOauth = value; AdditionalData?.Remove("oauth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oauth"); else _explicitNullProperties?.Remove("oauth"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.ListOAuthLogins200ResponseOAuthItem> _explicitNullValueOauth = default!;
 #endif
         /// <summary>The saml property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Saml { get => _explicitNullValueSaml; set { _explicitNullValueSaml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("saml"); else _explicitNullProperties?.Remove("saml"); } }
+        public string? Saml { get => _explicitNullValueSaml; set { _explicitNullValueSaml = value; AdditionalData?.Remove("saml"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("saml"); else _explicitNullProperties?.Remove("saml"); } }
         private string? _explicitNullValueSaml = default!;
 #nullable restore
 #else
-        public string Saml { get => _explicitNullValueSaml; set { _explicitNullValueSaml = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("saml"); else _explicitNullProperties?.Remove("saml"); } }
+        public string Saml { get => _explicitNullValueSaml; set { _explicitNullValueSaml = value; AdditionalData?.Remove("saml"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("saml"); else _explicitNullProperties?.Remove("saml"); } }
         private string _explicitNullValueSaml = default!;
 #endif
         /// <summary>

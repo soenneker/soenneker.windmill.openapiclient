@@ -17,17 +17,28 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("color") is { } nullNodeColor && nullNodeColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Color = null;
-            if (parseNode.GetChildNode("copy_members") is { } nullNodeCopyMembers && nullNodeCopyMembers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopyMembers = null;
-            if (parseNode.GetChildNode("dev_workspace_label") is { } nullNodeDevWorkspaceLabel && nullNodeDevWorkspaceLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceLabel = null;
-            if (parseNode.GetChildNode("forked_datatables") is { } nullNodeForkedDatatables && nullNodeForkedDatatables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkedDatatables = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("is_dev_workspace") is { } nullNodeIsDevWorkspace && nullNodeIsDevWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDevWorkspace = null;
-            if (parseNode.GetChildNode("lock_prod_deploy") is { } nullNodeLockProdDeploy && nullNodeLockProdDeploy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdDeploy = null;
-            if (parseNode.GetChildNode("lock_prod_forking") is { } nullNodeLockProdForking && nullNodeLockProdForking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdForking = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("shared_ducklakes") is { } nullNodeSharedDucklakes && nullNodeSharedDucklakes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedDucklakes = null;
-            if (parseNode.GetChildNode("shared_storages") is { } nullNodeSharedStorages && nullNodeSharedStorages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedStorages = null;
+            if (parseNode.GetChildNode("color") is null) { _explicitNullValueColor = default!; _explicitNullProperties?.Remove("color"); }
+            else if (parseNode.GetChildNode("color") is { } nullNodeColor && nullNodeColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Color = null;
+            if (parseNode.GetChildNode("copy_members") is null) { _explicitNullValueCopyMembers = default!; _explicitNullProperties?.Remove("copy_members"); }
+            else if (parseNode.GetChildNode("copy_members") is { } nullNodeCopyMembers && nullNodeCopyMembers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CopyMembers = null;
+            if (parseNode.GetChildNode("dev_workspace_label") is null) { _explicitNullValueDevWorkspaceLabel = default!; _explicitNullProperties?.Remove("dev_workspace_label"); }
+            else if (parseNode.GetChildNode("dev_workspace_label") is { } nullNodeDevWorkspaceLabel && nullNodeDevWorkspaceLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DevWorkspaceLabel = null;
+            if (parseNode.GetChildNode("forked_datatables") is null) { _explicitNullValueForkedDatatables = default!; _explicitNullProperties?.Remove("forked_datatables"); }
+            else if (parseNode.GetChildNode("forked_datatables") is { } nullNodeForkedDatatables && nullNodeForkedDatatables.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkedDatatables = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("is_dev_workspace") is null) { _explicitNullValueIsDevWorkspace = default!; _explicitNullProperties?.Remove("is_dev_workspace"); }
+            else if (parseNode.GetChildNode("is_dev_workspace") is { } nullNodeIsDevWorkspace && nullNodeIsDevWorkspace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDevWorkspace = null;
+            if (parseNode.GetChildNode("lock_prod_deploy") is null) { _explicitNullValueLockProdDeploy = default!; _explicitNullProperties?.Remove("lock_prod_deploy"); }
+            else if (parseNode.GetChildNode("lock_prod_deploy") is { } nullNodeLockProdDeploy && nullNodeLockProdDeploy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdDeploy = null;
+            if (parseNode.GetChildNode("lock_prod_forking") is null) { _explicitNullValueLockProdForking = default!; _explicitNullProperties?.Remove("lock_prod_forking"); }
+            else if (parseNode.GetChildNode("lock_prod_forking") is { } nullNodeLockProdForking && nullNodeLockProdForking.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockProdForking = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("shared_ducklakes") is null) { _explicitNullValueSharedDucklakes = default!; _explicitNullProperties?.Remove("shared_ducklakes"); }
+            else if (parseNode.GetChildNode("shared_ducklakes") is { } nullNodeSharedDucklakes && nullNodeSharedDucklakes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedDucklakes = null;
+            if (parseNode.GetChildNode("shared_storages") is null) { _explicitNullValueSharedStorages = default!; _explicitNullProperties?.Remove("shared_storages"); }
+            else if (parseNode.GetChildNode("shared_storages") is { } nullNodeSharedStorages && nullNodeSharedStorages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SharedStorages = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -35,76 +46,76 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The color property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
+        public string? Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; AdditionalData?.Remove("color"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
         private string? _explicitNullValueColor = default!;
 #nullable restore
 #else
-        public string Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
+        public string Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; AdditionalData?.Remove("color"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
         private string _explicitNullValueColor = default!;
 #endif
         /// <summary>Copy the parent&apos;s members (users + group memberships) into the fork so the team can work in it</summary>
-        public bool? CopyMembers { get => _explicitNullValueCopyMembers; set { _explicitNullValueCopyMembers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copy_members"); else _explicitNullProperties?.Remove("copy_members"); } }
+        public bool? CopyMembers { get => _explicitNullValueCopyMembers; set { _explicitNullValueCopyMembers = value; AdditionalData?.Remove("copy_members"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("copy_members"); else _explicitNullProperties?.Remove("copy_members"); } }
         private bool? _explicitNullValueCopyMembers = default!;
         /// <summary>Environment label for the dev workspace: its badge text and the branch it deploys to. Ignored for non-dev forks. Omitted defaults to &apos;dev&apos;</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestDevWorkspaceLabel? DevWorkspaceLabel { get => _explicitNullValueDevWorkspaceLabel; set { _explicitNullValueDevWorkspaceLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_label"); else _explicitNullProperties?.Remove("dev_workspace_label"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestDevWorkspaceLabel? _explicitNullValueDevWorkspaceLabel = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati70Ed3F39Bc? DevWorkspaceLabel { get => _explicitNullValueDevWorkspaceLabel; set { _explicitNullValueDevWorkspaceLabel = value; AdditionalData?.Remove("dev_workspace_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dev_workspace_label"); else _explicitNullProperties?.Remove("dev_workspace_label"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati70Ed3F39Bc? _explicitNullValueDevWorkspaceLabel = default!;
         /// <summary>The forked_datatables property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>? ForkedDatatables { get => _explicitNullValueForkedDatatables; set { _explicitNullValueForkedDatatables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_datatables"); else _explicitNullProperties?.Remove("forked_datatables"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>? _explicitNullValueForkedDatatables = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati975Ee24457>? ForkedDatatables { get => _explicitNullValueForkedDatatables; set { _explicitNullValueForkedDatatables = value; AdditionalData?.Remove("forked_datatables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_datatables"); else _explicitNullProperties?.Remove("forked_datatables"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati975Ee24457>? _explicitNullValueForkedDatatables = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem> ForkedDatatables { get => _explicitNullValueForkedDatatables; set { _explicitNullValueForkedDatatables = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_datatables"); else _explicitNullProperties?.Remove("forked_datatables"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem> _explicitNullValueForkedDatatables = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati975Ee24457> ForkedDatatables { get => _explicitNullValueForkedDatatables; set { _explicitNullValueForkedDatatables = value; AdditionalData?.Remove("forked_datatables"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("forked_datatables"); else _explicitNullProperties?.Remove("forked_datatables"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati975Ee24457> _explicitNullValueForkedDatatables = default!;
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public string Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private string _explicitNullValueId = default!;
 #endif
         /// <summary>Create the fork as a persistent dev workspace (id not required to carry the wm-fork- prefix; at most one per parent)</summary>
-        public bool? IsDevWorkspace { get => _explicitNullValueIsDevWorkspace; set { _explicitNullValueIsDevWorkspace = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_dev_workspace"); else _explicitNullProperties?.Remove("is_dev_workspace"); } }
+        public bool? IsDevWorkspace { get => _explicitNullValueIsDevWorkspace; set { _explicitNullValueIsDevWorkspace = value; AdditionalData?.Remove("is_dev_workspace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_dev_workspace"); else _explicitNullProperties?.Remove("is_dev_workspace"); } }
         private bool? _explicitNullValueIsDevWorkspace = default!;
         /// <summary>When creating a dev workspace, lock the parent (prod) against direct deployment</summary>
-        public bool? LockProdDeploy { get => _explicitNullValueLockProdDeploy; set { _explicitNullValueLockProdDeploy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_deploy"); else _explicitNullProperties?.Remove("lock_prod_deploy"); } }
+        public bool? LockProdDeploy { get => _explicitNullValueLockProdDeploy; set { _explicitNullValueLockProdDeploy = value; AdditionalData?.Remove("lock_prod_deploy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_deploy"); else _explicitNullProperties?.Remove("lock_prod_deploy"); } }
         private bool? _explicitNullValueLockProdDeploy = default!;
         /// <summary>When creating a dev workspace, prevent forking the parent (prod)</summary>
-        public bool? LockProdForking { get => _explicitNullValueLockProdForking; set { _explicitNullValueLockProdForking = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_forking"); else _explicitNullProperties?.Remove("lock_prod_forking"); } }
+        public bool? LockProdForking { get => _explicitNullValueLockProdForking; set { _explicitNullValueLockProdForking = value; AdditionalData?.Remove("lock_prod_forking"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_prod_forking"); else _explicitNullProperties?.Remove("lock_prod_forking"); } }
         private bool? _explicitNullValueLockProdForking = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Lake names the fork SHARES with the parent (reads and writes the parent&apos;s lake directly). Every lake not listed gets the default isolated fork namespace with read-defer to the parent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SharedDucklakes { get => _explicitNullValueSharedDucklakes; set { _explicitNullValueSharedDucklakes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_ducklakes"); else _explicitNullProperties?.Remove("shared_ducklakes"); } }
+        public List<string>? SharedDucklakes { get => _explicitNullValueSharedDucklakes; set { _explicitNullValueSharedDucklakes = value; AdditionalData?.Remove("shared_ducklakes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_ducklakes"); else _explicitNullProperties?.Remove("shared_ducklakes"); } }
         private List<string>? _explicitNullValueSharedDucklakes = default!;
 #nullable restore
 #else
-        public List<string> SharedDucklakes { get => _explicitNullValueSharedDucklakes; set { _explicitNullValueSharedDucklakes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_ducklakes"); else _explicitNullProperties?.Remove("shared_ducklakes"); } }
+        public List<string> SharedDucklakes { get => _explicitNullValueSharedDucklakes; set { _explicitNullValueSharedDucklakes = value; AdditionalData?.Remove("shared_ducklakes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_ducklakes"); else _explicitNullProperties?.Remove("shared_ducklakes"); } }
         private List<string> _explicitNullValueSharedDucklakes = default!;
 #endif
         /// <summary>Workspace storages the fork SHARES with the parent (`_default_` for the primary one): it reads and writes the parent&apos;s objects directly. Every storage not listed is isolated: the fork writes under its own prefix and reads through to the parent&apos;s objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SharedStorages { get => _explicitNullValueSharedStorages; set { _explicitNullValueSharedStorages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_storages"); else _explicitNullProperties?.Remove("shared_storages"); } }
+        public List<string>? SharedStorages { get => _explicitNullValueSharedStorages; set { _explicitNullValueSharedStorages = value; AdditionalData?.Remove("shared_storages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_storages"); else _explicitNullProperties?.Remove("shared_storages"); } }
         private List<string>? _explicitNullValueSharedStorages = default!;
 #nullable restore
 #else
-        public List<string> SharedStorages { get => _explicitNullValueSharedStorages; set { _explicitNullValueSharedStorages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_storages"); else _explicitNullProperties?.Remove("shared_storages"); } }
+        public List<string> SharedStorages { get => _explicitNullValueSharedStorages; set { _explicitNullValueSharedStorages = value; AdditionalData?.Remove("shared_storages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shared_storages"); else _explicitNullProperties?.Remove("shared_storages"); } }
         private List<string> _explicitNullValueSharedStorages = default!;
 #endif
         /// <summary>
@@ -134,8 +145,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "color", n => { Color = n.GetStringValue(); } },
                 { "copy_members", n => { CopyMembers = n.GetBoolValue(); } },
-                { "dev_workspace_label", n => { DevWorkspaceLabel = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestDevWorkspaceLabel>(); } },
-                { "forked_datatables", n => { ForkedDatatables = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>(global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "dev_workspace_label", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati70Ed3F39Bc>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDevWorkspaceLabel = default; _explicitNullProperties?.Remove("dev_workspace_label"); AdditionalData["dev_workspace_label"] = unknown; } else { DevWorkspaceLabel = parsed; AdditionalData.Remove("dev_workspace_label"); } } },
+                { "forked_datatables", n => { ForkedDatatables = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati975Ee24457>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati975Ee24457.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_dev_workspace", n => { IsDevWorkspace = n.GetBoolValue(); } },
                 { "lock_prod_deploy", n => { LockProdDeploy = n.GetBoolValue(); } },
@@ -154,8 +165,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("color", Color);
             writer.WriteBoolValue("copy_members", CopyMembers);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestDevWorkspaceLabel>("dev_workspace_label", DevWorkspaceLabel);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.CreateWorkspaceForkRequestForkedDatatablesItem>("forked_datatables", ForkedDatatables);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati70Ed3F39Bc>("dev_workspace_label", DevWorkspaceLabel);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesCreateWorkspaceForkBranchPostRequestBodyContentApplicati975Ee24457>("forked_datatables", ForkedDatatables);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_dev_workspace", IsDevWorkspace);
             writer.WriteBoolValue("lock_prod_deploy", LockProdDeploy);

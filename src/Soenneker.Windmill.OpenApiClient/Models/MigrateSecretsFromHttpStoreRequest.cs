@@ -18,14 +18,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("auth") is { } nullNodeAuth && nullNodeAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auth = null;
-            if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
-            if (parseNode.GetChildNode("ca_bundle_path") is { } nullNodeCaBundlePath && nullNodeCaBundlePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaBundlePath = null;
-            if (parseNode.GetChildNode("extra_headers") is { } nullNodeExtraHeaders && nullNodeExtraHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraHeaders = null;
-            if (parseNode.GetChildNode("path_encoding") is { } nullNodePathEncoding && nullNodePathEncoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathEncoding = null;
-            if (parseNode.GetChildNode("read") is { } nullNodeRead && nullNodeRead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Read = null;
-            if (parseNode.GetChildNode("skip_ssl_verify") is { } nullNodeSkipSslVerify && nullNodeSkipSslVerify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipSslVerify = null;
-            if (parseNode.GetChildNode("timeout_secs") is { } nullNodeTimeoutSecs && nullNodeTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSecs = null;
+            if (parseNode.GetChildNode("auth") is null) { _explicitNullValueAuth = default!; _explicitNullProperties?.Remove("auth"); }
+            else if (parseNode.GetChildNode("auth") is { } nullNodeAuth && nullNodeAuth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Auth = null;
+            if (parseNode.GetChildNode("base_url") is null) { _explicitNullValueBaseUrl = default!; _explicitNullProperties?.Remove("base_url"); }
+            else if (parseNode.GetChildNode("base_url") is { } nullNodeBaseUrl && nullNodeBaseUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BaseUrl = null;
+            if (parseNode.GetChildNode("ca_bundle_path") is null) { _explicitNullValueCaBundlePath = default!; _explicitNullProperties?.Remove("ca_bundle_path"); }
+            else if (parseNode.GetChildNode("ca_bundle_path") is { } nullNodeCaBundlePath && nullNodeCaBundlePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaBundlePath = null;
+            if (parseNode.GetChildNode("extra_headers") is null) { _explicitNullValueExtraHeaders = default!; _explicitNullProperties?.Remove("extra_headers"); }
+            else if (parseNode.GetChildNode("extra_headers") is { } nullNodeExtraHeaders && nullNodeExtraHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraHeaders = null;
+            if (parseNode.GetChildNode("path_encoding") is null) { _explicitNullValuePathEncoding = default!; _explicitNullProperties?.Remove("path_encoding"); }
+            else if (parseNode.GetChildNode("path_encoding") is { } nullNodePathEncoding && nullNodePathEncoding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PathEncoding = null;
+            if (parseNode.GetChildNode("read") is null) { _explicitNullValueRead = default!; _explicitNullProperties?.Remove("read"); }
+            else if (parseNode.GetChildNode("read") is { } nullNodeRead && nullNodeRead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Read = null;
+            if (parseNode.GetChildNode("skip_ssl_verify") is null) { _explicitNullValueSkipSslVerify = default!; _explicitNullProperties?.Remove("skip_ssl_verify"); }
+            else if (parseNode.GetChildNode("skip_ssl_verify") is { } nullNodeSkipSslVerify && nullNodeSkipSslVerify.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipSslVerify = null;
+            if (parseNode.GetChildNode("timeout_secs") is null) { _explicitNullValueTimeoutSecs = default!; _explicitNullProperties?.Remove("timeout_secs"); }
+            else if (parseNode.GetChildNode("timeout_secs") is { } nullNodeTimeoutSecs && nullNodeTimeoutSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutSecs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,61 +41,61 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The auth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestAuth? Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestAuth? _explicitNullValueAuth = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper202Ef940F0? Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; AdditionalData?.Remove("auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper202Ef940F0? _explicitNullValueAuth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestAuth Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestAuth _explicitNullValueAuth = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper202Ef940F0 Auth { get => _explicitNullValueAuth; set { _explicitNullValueAuth = value; AdditionalData?.Remove("auth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth"); else _explicitNullProperties?.Remove("auth"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper202Ef940F0 _explicitNullValueAuth = default!;
 #endif
         /// <summary>Scheme, host and optional path prefix of the store</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        public string? BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; AdditionalData?.Remove("base_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
         private string? _explicitNullValueBaseUrl = default!;
 #nullable restore
 #else
-        public string BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
+        public string BaseUrl { get => _explicitNullValueBaseUrl; set { _explicitNullValueBaseUrl = value; AdditionalData?.Remove("base_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("base_url"); else _explicitNullProperties?.Remove("base_url"); } }
         private string _explicitNullValueBaseUrl = default!;
 #endif
         /// <summary>PEM bundle of additional CA certificates trusted for the store</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CaBundlePath { get => _explicitNullValueCaBundlePath; set { _explicitNullValueCaBundlePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca_bundle_path"); else _explicitNullProperties?.Remove("ca_bundle_path"); } }
+        public string? CaBundlePath { get => _explicitNullValueCaBundlePath; set { _explicitNullValueCaBundlePath = value; AdditionalData?.Remove("ca_bundle_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca_bundle_path"); else _explicitNullProperties?.Remove("ca_bundle_path"); } }
         private string? _explicitNullValueCaBundlePath = default!;
 #nullable restore
 #else
-        public string CaBundlePath { get => _explicitNullValueCaBundlePath; set { _explicitNullValueCaBundlePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca_bundle_path"); else _explicitNullProperties?.Remove("ca_bundle_path"); } }
+        public string CaBundlePath { get => _explicitNullValueCaBundlePath; set { _explicitNullValueCaBundlePath = value; AdditionalData?.Remove("ca_bundle_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca_bundle_path"); else _explicitNullProperties?.Remove("ca_bundle_path"); } }
         private string _explicitNullValueCaBundlePath = default!;
 #endif
         /// <summary>The extra_headers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders? ExtraHeaders { get => _explicitNullValueExtraHeaders; set { _explicitNullValueExtraHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_headers"); else _explicitNullProperties?.Remove("extra_headers"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders? ExtraHeaders { get => _explicitNullValueExtraHeaders; set { _explicitNullValueExtraHeaders = value; AdditionalData?.Remove("extra_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_headers"); else _explicitNullProperties?.Remove("extra_headers"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders? _explicitNullValueExtraHeaders = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders ExtraHeaders { get => _explicitNullValueExtraHeaders; set { _explicitNullValueExtraHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_headers"); else _explicitNullProperties?.Remove("extra_headers"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders ExtraHeaders { get => _explicitNullValueExtraHeaders; set { _explicitNullValueExtraHeaders = value; AdditionalData?.Remove("extra_headers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_headers"); else _explicitNullProperties?.Remove("extra_headers"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders _explicitNullValueExtraHeaders = default!;
 #endif
         /// <summary>How a variable path becomes a store key (default url)</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestPathEncoding? PathEncoding { get => _explicitNullValuePathEncoding; set { _explicitNullValuePathEncoding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path_encoding"); else _explicitNullProperties?.Remove("path_encoding"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestPathEncoding? _explicitNullValuePathEncoding = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper29168229Bc? PathEncoding { get => _explicitNullValuePathEncoding; set { _explicitNullValuePathEncoding = value; AdditionalData?.Remove("path_encoding"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path_encoding"); else _explicitNullProperties?.Remove("path_encoding"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper29168229Bc? _explicitNullValuePathEncoding = default!;
         /// <summary>The read property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestRead? Read { get => _explicitNullValueRead; set { _explicitNullValueRead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read"); else _explicitNullProperties?.Remove("read"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestRead? _explicitNullValueRead = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProperF24E8D431F? Read { get => _explicitNullValueRead; set { _explicitNullValueRead = value; AdditionalData?.Remove("read"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read"); else _explicitNullProperties?.Remove("read"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProperF24E8D431F? _explicitNullValueRead = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestRead Read { get => _explicitNullValueRead; set { _explicitNullValueRead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read"); else _explicitNullProperties?.Remove("read"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestRead _explicitNullValueRead = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProperF24E8D431F Read { get => _explicitNullValueRead; set { _explicitNullValueRead = value; AdditionalData?.Remove("read"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read"); else _explicitNullProperties?.Remove("read"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProperF24E8D431F _explicitNullValueRead = default!;
 #endif
         /// <summary>The skip_ssl_verify property</summary>
-        public bool? SkipSslVerify { get => _explicitNullValueSkipSslVerify; set { _explicitNullValueSkipSslVerify = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_ssl_verify"); else _explicitNullProperties?.Remove("skip_ssl_verify"); } }
+        public bool? SkipSslVerify { get => _explicitNullValueSkipSslVerify; set { _explicitNullValueSkipSslVerify = value; AdditionalData?.Remove("skip_ssl_verify"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_ssl_verify"); else _explicitNullProperties?.Remove("skip_ssl_verify"); } }
         private bool? _explicitNullValueSkipSslVerify = default!;
         /// <summary>The timeout_secs property</summary>
-        public int? TimeoutSecs { get => _explicitNullValueTimeoutSecs; set { _explicitNullValueTimeoutSecs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_secs"); else _explicitNullProperties?.Remove("timeout_secs"); } }
+        public int? TimeoutSecs { get => _explicitNullValueTimeoutSecs; set { _explicitNullValueTimeoutSecs = value; AdditionalData?.Remove("timeout_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout_secs"); else _explicitNullProperties?.Remove("timeout_secs"); } }
         private int? _explicitNullValueTimeoutSecs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequest"/> and sets the default values.
@@ -114,12 +122,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auth", n => { Auth = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestAuth>(global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestAuth.CreateFromDiscriminatorValue); } },
+                { "auth", n => { Auth = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper202Ef940F0>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper202Ef940F0.CreateFromDiscriminatorValue); } },
                 { "base_url", n => { BaseUrl = n.GetStringValue(); } },
                 { "ca_bundle_path", n => { CaBundlePath = n.GetStringValue(); } },
                 { "extra_headers", n => { ExtraHeaders = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders>(global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders.CreateFromDiscriminatorValue); } },
-                { "path_encoding", n => { PathEncoding = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestPathEncoding>(); } },
-                { "read", n => { Read = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestRead>(global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestRead.CreateFromDiscriminatorValue); } },
+                { "path_encoding", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper29168229Bc>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePathEncoding = default; _explicitNullProperties?.Remove("path_encoding"); AdditionalData["path_encoding"] = unknown; } else { PathEncoding = parsed; AdditionalData.Remove("path_encoding"); } } },
+                { "read", n => { Read = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProperF24E8D431F>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProperF24E8D431F.CreateFromDiscriminatorValue); } },
                 { "skip_ssl_verify", n => { SkipSslVerify = n.GetBoolValue(); } },
                 { "timeout_secs", n => { TimeoutSecs = n.GetIntValue(); } },
             };
@@ -131,12 +139,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestAuth>("auth", Auth);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper202Ef940F0>("auth", Auth);
             writer.WriteStringValue("base_url", BaseUrl);
             writer.WriteStringValue("ca_bundle_path", CaBundlePath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestExtraHeaders>("extra_headers", ExtraHeaders);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestPathEncoding>("path_encoding", PathEncoding);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.MigrateSecretsFromHttpStoreRequestRead>("read", Read);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProper29168229Bc>("path_encoding", PathEncoding);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsTestHttpStoreBackendPostRequestBodyContentApplicationJsonSchemaProperF24E8D431F>("read", Read);
             writer.WriteBoolValue("skip_ssl_verify", SkipSslVerify);
             writer.WriteIntValue("timeout_secs", TimeoutSecs);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

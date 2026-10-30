@@ -17,39 +17,43 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("http_method") is { } nullNodeHttpMethod && nullNodeHttpMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMethod = null;
-            if (parseNode.GetChildNode("route_path") is { } nullNodeRoutePath && nullNodeRoutePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutePath = null;
-            if (parseNode.GetChildNode("trigger_path") is { } nullNodeTriggerPath && nullNodeTriggerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerPath = null;
-            if (parseNode.GetChildNode("workspaced_route") is { } nullNodeWorkspacedRoute && nullNodeWorkspacedRoute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspacedRoute = null;
+            if (parseNode.GetChildNode("http_method") is null) { _explicitNullValueHttpMethod = default!; _explicitNullProperties?.Remove("http_method"); }
+            else if (parseNode.GetChildNode("http_method") is { } nullNodeHttpMethod && nullNodeHttpMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpMethod = null;
+            if (parseNode.GetChildNode("route_path") is null) { _explicitNullValueRoutePath = default!; _explicitNullProperties?.Remove("route_path"); }
+            else if (parseNode.GetChildNode("route_path") is { } nullNodeRoutePath && nullNodeRoutePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutePath = null;
+            if (parseNode.GetChildNode("trigger_path") is null) { _explicitNullValueTriggerPath = default!; _explicitNullProperties?.Remove("trigger_path"); }
+            else if (parseNode.GetChildNode("trigger_path") is { } nullNodeTriggerPath && nullNodeTriggerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerPath = null;
+            if (parseNode.GetChildNode("workspaced_route") is null) { _explicitNullValueWorkspacedRoute = default!; _explicitNullProperties?.Remove("workspaced_route"); }
+            else if (parseNode.GetChildNode("workspaced_route") is { } nullNodeWorkspacedRoute && nullNodeWorkspacedRoute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspacedRoute = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The http_method property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod? HttpMethod { get => _explicitNullValueHttpMethod; set { _explicitNullValueHttpMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_method"); else _explicitNullProperties?.Remove("http_method"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod? HttpMethod { get => _explicitNullValueHttpMethod; set { _explicitNullValueHttpMethod = value; AdditionalData?.Remove("http_method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("http_method"); else _explicitNullProperties?.Remove("http_method"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod? _explicitNullValueHttpMethod = default!;
         /// <summary>The route_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutePath { get => _explicitNullValueRoutePath; set { _explicitNullValueRoutePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path"); else _explicitNullProperties?.Remove("route_path"); } }
+        public string? RoutePath { get => _explicitNullValueRoutePath; set { _explicitNullValueRoutePath = value; AdditionalData?.Remove("route_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path"); else _explicitNullProperties?.Remove("route_path"); } }
         private string? _explicitNullValueRoutePath = default!;
 #nullable restore
 #else
-        public string RoutePath { get => _explicitNullValueRoutePath; set { _explicitNullValueRoutePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path"); else _explicitNullProperties?.Remove("route_path"); } }
+        public string RoutePath { get => _explicitNullValueRoutePath; set { _explicitNullValueRoutePath = value; AdditionalData?.Remove("route_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("route_path"); else _explicitNullProperties?.Remove("route_path"); } }
         private string _explicitNullValueRoutePath = default!;
 #endif
         /// <summary>The trigger_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        public string? TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; AdditionalData?.Remove("trigger_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
         private string? _explicitNullValueTriggerPath = default!;
 #nullable restore
 #else
-        public string TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        public string TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; AdditionalData?.Remove("trigger_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
         private string _explicitNullValueTriggerPath = default!;
 #endif
         /// <summary>The workspaced_route property</summary>
-        public bool? WorkspacedRoute { get => _explicitNullValueWorkspacedRoute; set { _explicitNullValueWorkspacedRoute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaced_route"); else _explicitNullProperties?.Remove("workspaced_route"); } }
+        public bool? WorkspacedRoute { get => _explicitNullValueWorkspacedRoute; set { _explicitNullValueWorkspacedRoute = value; AdditionalData?.Remove("workspaced_route"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspaced_route"); else _explicitNullProperties?.Remove("workspaced_route"); } }
         private bool? _explicitNullValueWorkspacedRoute = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequest"/> and sets the default values.
@@ -76,7 +80,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "http_method", n => { HttpMethod = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod>(); } },
+                { "http_method", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ExistsRouteRequestHttpMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueHttpMethod = default; _explicitNullProperties?.Remove("http_method"); AdditionalData["http_method"] = unknown; } else { HttpMethod = parsed; AdditionalData.Remove("http_method"); } } },
                 { "route_path", n => { RoutePath = n.GetStringValue(); } },
                 { "trigger_path", n => { TriggerPath = n.GetStringValue(); } },
                 { "workspaced_route", n => { WorkspacedRoute = n.GetBoolValue(); } },

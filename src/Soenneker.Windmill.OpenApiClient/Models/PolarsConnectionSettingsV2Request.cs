@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("s3_resource_path") is { } nullNodeS3ResourcePath && nullNodeS3ResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3ResourcePath = null;
+            if (parseNode.GetChildNode("s3_resource_path") is null) { _explicitNullValueS3ResourcePath = default!; _explicitNullProperties?.Remove("s3_resource_path"); }
+            else if (parseNode.GetChildNode("s3_resource_path") is { } nullNodeS3ResourcePath && nullNodeS3ResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3ResourcePath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The s3_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
+        public string? S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; AdditionalData?.Remove("s3_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
         private string? _explicitNullValueS3ResourcePath = default!;
 #nullable restore
 #else
-        public string S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
+        public string S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; AdditionalData?.Remove("s3_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
         private string _explicitNullValueS3ResourcePath = default!;
 #endif
         /// <summary>

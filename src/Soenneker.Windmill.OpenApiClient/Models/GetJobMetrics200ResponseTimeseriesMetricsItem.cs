@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metric_id") is { } nullNodeMetricId && nullNodeMetricId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricId = null;
-            if (parseNode.GetChildNode("values") is { } nullNodeValues && nullNodeValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Values = null;
+            if (parseNode.GetChildNode("metric_id") is null) { _explicitNullValueMetricId = default!; _explicitNullProperties?.Remove("metric_id"); }
+            else if (parseNode.GetChildNode("metric_id") is { } nullNodeMetricId && nullNodeMetricId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetricId = null;
+            if (parseNode.GetChildNode("values") is null) { _explicitNullValueValues = default!; _explicitNullProperties?.Remove("values"); }
+            else if (parseNode.GetChildNode("values") is { } nullNodeValues && nullNodeValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Values = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,22 +28,22 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The metric_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MetricId { get => _explicitNullValueMetricId; set { _explicitNullValueMetricId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_id"); else _explicitNullProperties?.Remove("metric_id"); } }
+        public string? MetricId { get => _explicitNullValueMetricId; set { _explicitNullValueMetricId = value; AdditionalData?.Remove("metric_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_id"); else _explicitNullProperties?.Remove("metric_id"); } }
         private string? _explicitNullValueMetricId = default!;
 #nullable restore
 #else
-        public string MetricId { get => _explicitNullValueMetricId; set { _explicitNullValueMetricId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_id"); else _explicitNullProperties?.Remove("metric_id"); } }
+        public string MetricId { get => _explicitNullValueMetricId; set { _explicitNullValueMetricId = value; AdditionalData?.Remove("metric_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metric_id"); else _explicitNullProperties?.Remove("metric_id"); } }
         private string _explicitNullValueMetricId = default!;
 #endif
         /// <summary>The values property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItemValuesItem>? Values { get => _explicitNullValueValues; set { _explicitNullValueValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("values"); else _explicitNullProperties?.Remove("values"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItemValuesItem>? _explicitNullValueValues = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobMetricsGetIdPostResponses200ContentApplicationJsonSchemaPrBa4F7Bf5C3>? Values { get => _explicitNullValueValues; set { _explicitNullValueValues = value; AdditionalData?.Remove("values"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("values"); else _explicitNullProperties?.Remove("values"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobMetricsGetIdPostResponses200ContentApplicationJsonSchemaPrBa4F7Bf5C3>? _explicitNullValueValues = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItemValuesItem> Values { get => _explicitNullValueValues; set { _explicitNullValueValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("values"); else _explicitNullProperties?.Remove("values"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItemValuesItem> _explicitNullValueValues = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobMetricsGetIdPostResponses200ContentApplicationJsonSchemaPrBa4F7Bf5C3> Values { get => _explicitNullValueValues; set { _explicitNullValueValues = value; AdditionalData?.Remove("values"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("values"); else _explicitNullProperties?.Remove("values"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobMetricsGetIdPostResponses200ContentApplicationJsonSchemaPrBa4F7Bf5C3> _explicitNullValueValues = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItem"/> and sets the default values.
@@ -69,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "metric_id", n => { MetricId = n.GetStringValue(); } },
-                { "values", n => { Values = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItemValuesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItemValuesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "values", n => { Values = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobMetricsGetIdPostResponses200ContentApplicationJsonSchemaPrBa4F7Bf5C3>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobMetricsGetIdPostResponses200ContentApplicationJsonSchemaPrBa4F7Bf5C3.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -80,7 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("metric_id", MetricId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetJobMetrics200ResponseTimeseriesMetricsItemValuesItem>("values", Values);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobMetricsGetIdPostResponses200ContentApplicationJsonSchemaPrBa4F7Bf5C3>("values", Values);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

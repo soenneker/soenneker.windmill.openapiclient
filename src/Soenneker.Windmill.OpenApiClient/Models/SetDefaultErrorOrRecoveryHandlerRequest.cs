@@ -17,13 +17,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("extra_args") is { } nullNodeExtraArgs && nullNodeExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraArgs = null;
-            if (parseNode.GetChildNode("handler_type") is { } nullNodeHandlerType && nullNodeHandlerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HandlerType = null;
-            if (parseNode.GetChildNode("number_of_occurence") is { } nullNodeNumberOfOccurence && nullNodeNumberOfOccurence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfOccurence = null;
-            if (parseNode.GetChildNode("number_of_occurence_exact") is { } nullNodeNumberOfOccurenceExact && nullNodeNumberOfOccurenceExact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfOccurenceExact = null;
-            if (parseNode.GetChildNode("override_existing") is { } nullNodeOverrideExisting && nullNodeOverrideExisting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverrideExisting = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
-            if (parseNode.GetChildNode("workspace_handler_muted") is { } nullNodeWorkspaceHandlerMuted && nullNodeWorkspaceHandlerMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceHandlerMuted = null;
+            if (parseNode.GetChildNode("extra_args") is null) { _explicitNullValueExtraArgs = default!; _explicitNullProperties?.Remove("extra_args"); }
+            else if (parseNode.GetChildNode("extra_args") is { } nullNodeExtraArgs && nullNodeExtraArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraArgs = null;
+            if (parseNode.GetChildNode("handler_type") is null) { _explicitNullValueHandlerType = default!; _explicitNullProperties?.Remove("handler_type"); }
+            else if (parseNode.GetChildNode("handler_type") is { } nullNodeHandlerType && nullNodeHandlerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HandlerType = null;
+            if (parseNode.GetChildNode("number_of_occurence") is null) { _explicitNullValueNumberOfOccurence = default!; _explicitNullProperties?.Remove("number_of_occurence"); }
+            else if (parseNode.GetChildNode("number_of_occurence") is { } nullNodeNumberOfOccurence && nullNodeNumberOfOccurence.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfOccurence = null;
+            if (parseNode.GetChildNode("number_of_occurence_exact") is null) { _explicitNullValueNumberOfOccurenceExact = default!; _explicitNullProperties?.Remove("number_of_occurence_exact"); }
+            else if (parseNode.GetChildNode("number_of_occurence_exact") is { } nullNodeNumberOfOccurenceExact && nullNodeNumberOfOccurenceExact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NumberOfOccurenceExact = null;
+            if (parseNode.GetChildNode("override_existing") is null) { _explicitNullValueOverrideExisting = default!; _explicitNullProperties?.Remove("override_existing"); }
+            else if (parseNode.GetChildNode("override_existing") is { } nullNodeOverrideExisting && nullNodeOverrideExisting.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OverrideExisting = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("workspace_handler_muted") is null) { _explicitNullValueWorkspaceHandlerMuted = default!; _explicitNullProperties?.Remove("workspace_handler_muted"); }
+            else if (parseNode.GetChildNode("workspace_handler_muted") is { } nullNodeWorkspaceHandlerMuted && nullNodeWorkspaceHandlerMuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceHandlerMuted = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,37 +38,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The extra_args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs? ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs? ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; AdditionalData?.Remove("extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs? _explicitNullValueExtraArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs ExtraArgs { get => _explicitNullValueExtraArgs; set { _explicitNullValueExtraArgs = value; AdditionalData?.Remove("extra_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra_args"); else _explicitNullProperties?.Remove("extra_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs _explicitNullValueExtraArgs = default!;
 #endif
         /// <summary>The handler_type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType? HandlerType { get => _explicitNullValueHandlerType; set { _explicitNullValueHandlerType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handler_type"); else _explicitNullProperties?.Remove("handler_type"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType? HandlerType { get => _explicitNullValueHandlerType; set { _explicitNullValueHandlerType = value; AdditionalData?.Remove("handler_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handler_type"); else _explicitNullProperties?.Remove("handler_type"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType? _explicitNullValueHandlerType = default!;
         /// <summary>The number_of_occurence property</summary>
-        public int? NumberOfOccurence { get => _explicitNullValueNumberOfOccurence; set { _explicitNullValueNumberOfOccurence = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_occurence"); else _explicitNullProperties?.Remove("number_of_occurence"); } }
+        public int? NumberOfOccurence { get => _explicitNullValueNumberOfOccurence; set { _explicitNullValueNumberOfOccurence = value; AdditionalData?.Remove("number_of_occurence"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_occurence"); else _explicitNullProperties?.Remove("number_of_occurence"); } }
         private int? _explicitNullValueNumberOfOccurence = default!;
         /// <summary>The number_of_occurence_exact property</summary>
-        public bool? NumberOfOccurenceExact { get => _explicitNullValueNumberOfOccurenceExact; set { _explicitNullValueNumberOfOccurenceExact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_occurence_exact"); else _explicitNullProperties?.Remove("number_of_occurence_exact"); } }
+        public bool? NumberOfOccurenceExact { get => _explicitNullValueNumberOfOccurenceExact; set { _explicitNullValueNumberOfOccurenceExact = value; AdditionalData?.Remove("number_of_occurence_exact"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("number_of_occurence_exact"); else _explicitNullProperties?.Remove("number_of_occurence_exact"); } }
         private bool? _explicitNullValueNumberOfOccurenceExact = default!;
         /// <summary>The override_existing property</summary>
-        public bool? OverrideExisting { get => _explicitNullValueOverrideExisting; set { _explicitNullValueOverrideExisting = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("override_existing"); else _explicitNullProperties?.Remove("override_existing"); } }
+        public bool? OverrideExisting { get => _explicitNullValueOverrideExisting; set { _explicitNullValueOverrideExisting = value; AdditionalData?.Remove("override_existing"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("override_existing"); else _explicitNullProperties?.Remove("override_existing"); } }
         private bool? _explicitNullValueOverrideExisting = default!;
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The workspace_handler_muted property</summary>
-        public bool? WorkspaceHandlerMuted { get => _explicitNullValueWorkspaceHandlerMuted; set { _explicitNullValueWorkspaceHandlerMuted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_handler_muted"); else _explicitNullProperties?.Remove("workspace_handler_muted"); } }
+        public bool? WorkspaceHandlerMuted { get => _explicitNullValueWorkspaceHandlerMuted; set { _explicitNullValueWorkspaceHandlerMuted = value; AdditionalData?.Remove("workspace_handler_muted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_handler_muted"); else _explicitNullProperties?.Remove("workspace_handler_muted"); } }
         private bool? _explicitNullValueWorkspaceHandlerMuted = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequest"/> and sets the default values.
@@ -89,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestExtraArgs.CreateFromDiscriminatorValue); } },
-                { "handler_type", n => { HandlerType = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType>(); } },
+                { "handler_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.SetDefaultErrorOrRecoveryHandlerRequestHandlerType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueHandlerType = default; _explicitNullProperties?.Remove("handler_type"); AdditionalData["handler_type"] = unknown; } else { HandlerType = parsed; AdditionalData.Remove("handler_type"); } } },
                 { "number_of_occurence", n => { NumberOfOccurence = n.GetIntValue(); } },
                 { "number_of_occurence_exact", n => { NumberOfOccurenceExact = n.GetBoolValue(); } },
                 { "override_existing", n => { OverrideExisting = n.GetBoolValue(); } },

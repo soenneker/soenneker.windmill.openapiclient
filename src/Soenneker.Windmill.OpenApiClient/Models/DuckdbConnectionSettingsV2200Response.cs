@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("azure_container_path") is { } nullNodeAzureContainerPath && nullNodeAzureContainerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureContainerPath = null;
-            if (parseNode.GetChildNode("connection_settings_str") is { } nullNodeConnectionSettingsStr && nullNodeConnectionSettingsStr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionSettingsStr = null;
+            if (parseNode.GetChildNode("azure_container_path") is null) { _explicitNullValueAzureContainerPath = default!; _explicitNullProperties?.Remove("azure_container_path"); }
+            else if (parseNode.GetChildNode("azure_container_path") is { } nullNodeAzureContainerPath && nullNodeAzureContainerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureContainerPath = null;
+            if (parseNode.GetChildNode("connection_settings_str") is null) { _explicitNullValueConnectionSettingsStr = default!; _explicitNullProperties?.Remove("connection_settings_str"); }
+            else if (parseNode.GetChildNode("connection_settings_str") is { } nullNodeConnectionSettingsStr && nullNodeConnectionSettingsStr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionSettingsStr = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The azure_container_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AzureContainerPath { get => _explicitNullValueAzureContainerPath; set { _explicitNullValueAzureContainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_container_path"); else _explicitNullProperties?.Remove("azure_container_path"); } }
+        public string? AzureContainerPath { get => _explicitNullValueAzureContainerPath; set { _explicitNullValueAzureContainerPath = value; AdditionalData?.Remove("azure_container_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_container_path"); else _explicitNullProperties?.Remove("azure_container_path"); } }
         private string? _explicitNullValueAzureContainerPath = default!;
 #nullable restore
 #else
-        public string AzureContainerPath { get => _explicitNullValueAzureContainerPath; set { _explicitNullValueAzureContainerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_container_path"); else _explicitNullProperties?.Remove("azure_container_path"); } }
+        public string AzureContainerPath { get => _explicitNullValueAzureContainerPath; set { _explicitNullValueAzureContainerPath = value; AdditionalData?.Remove("azure_container_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_container_path"); else _explicitNullProperties?.Remove("azure_container_path"); } }
         private string _explicitNullValueAzureContainerPath = default!;
 #endif
         /// <summary>The connection_settings_str property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
+        public string? ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; AdditionalData?.Remove("connection_settings_str"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
         private string? _explicitNullValueConnectionSettingsStr = default!;
 #nullable restore
 #else
-        public string ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
+        public string ConnectionSettingsStr { get => _explicitNullValueConnectionSettingsStr; set { _explicitNullValueConnectionSettingsStr = value; AdditionalData?.Remove("connection_settings_str"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection_settings_str"); else _explicitNullProperties?.Remove("connection_settings_str"); } }
         private string _explicitNullValueConnectionSettingsStr = default!;
 #endif
         /// <summary>

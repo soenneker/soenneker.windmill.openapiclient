@@ -17,23 +17,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
-            if (parseNode.GetChildNode("lock_error_logs") is { } nullNodeLockErrorLogs && nullNodeLockErrorLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockErrorLogs = null;
+            if (parseNode.GetChildNode("job_id") is null) { _explicitNullValueJobId = default!; _explicitNullProperties?.Remove("job_id"); }
+            else if (parseNode.GetChildNode("job_id") is { } nullNodeJobId && nullNodeJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobId = null;
+            if (parseNode.GetChildNode("lock_error_logs") is null) { _explicitNullValueLockErrorLogs = default!; _explicitNullProperties?.Remove("lock_error_logs"); }
+            else if (parseNode.GetChildNode("lock_error_logs") is { } nullNodeLockErrorLogs && nullNodeLockErrorLogs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LockErrorLogs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The job_id property</summary>
-        public Guid? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
+        public Guid? JobId { get => _explicitNullValueJobId; set { _explicitNullValueJobId = value; AdditionalData?.Remove("job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_id"); else _explicitNullProperties?.Remove("job_id"); } }
         private Guid? _explicitNullValueJobId = default!;
         /// <summary>The lock_error_logs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LockErrorLogs { get => _explicitNullValueLockErrorLogs; set { _explicitNullValueLockErrorLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_error_logs"); else _explicitNullProperties?.Remove("lock_error_logs"); } }
+        public string? LockErrorLogs { get => _explicitNullValueLockErrorLogs; set { _explicitNullValueLockErrorLogs = value; AdditionalData?.Remove("lock_error_logs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_error_logs"); else _explicitNullProperties?.Remove("lock_error_logs"); } }
         private string? _explicitNullValueLockErrorLogs = default!;
 #nullable restore
 #else
-        public string LockErrorLogs { get => _explicitNullValueLockErrorLogs; set { _explicitNullValueLockErrorLogs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_error_logs"); else _explicitNullProperties?.Remove("lock_error_logs"); } }
+        public string LockErrorLogs { get => _explicitNullValueLockErrorLogs; set { _explicitNullValueLockErrorLogs = value; AdditionalData?.Remove("lock_error_logs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lock_error_logs"); else _explicitNullProperties?.Remove("lock_error_logs"); } }
         private string _explicitNullValueLockErrorLogs = default!;
 #endif
         /// <summary>

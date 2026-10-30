@@ -17,34 +17,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("importer_kind") is { } nullNodeImporterKind && nullNodeImporterKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterKind = null;
-            if (parseNode.GetChildNode("importer_node_ids") is { } nullNodeImporterNodeIds && nullNodeImporterNodeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterNodeIds = null;
-            if (parseNode.GetChildNode("importer_path") is { } nullNodeImporterPath && nullNodeImporterPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterPath = null;
+            if (parseNode.GetChildNode("importer_kind") is null) { _explicitNullValueImporterKind = default!; _explicitNullProperties?.Remove("importer_kind"); }
+            else if (parseNode.GetChildNode("importer_kind") is { } nullNodeImporterKind && nullNodeImporterKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterKind = null;
+            if (parseNode.GetChildNode("importer_node_ids") is null) { _explicitNullValueImporterNodeIds = default!; _explicitNullProperties?.Remove("importer_node_ids"); }
+            else if (parseNode.GetChildNode("importer_node_ids") is { } nullNodeImporterNodeIds && nullNodeImporterNodeIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterNodeIds = null;
+            if (parseNode.GetChildNode("importer_path") is null) { _explicitNullValueImporterPath = default!; _explicitNullProperties?.Remove("importer_path"); }
+            else if (parseNode.GetChildNode("importer_path") is { } nullNodeImporterPath && nullNodeImporterPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterPath = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The importer_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetDependents200ResponseItemImporterKind? ImporterKind { get => _explicitNullValueImporterKind; set { _explicitNullValueImporterKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_kind"); else _explicitNullProperties?.Remove("importer_kind"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.GetDependents200ResponseItemImporterKind? _explicitNullValueImporterKind = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetDependentsImportedPathGetResponses200ContentApplicB7956Ab871? ImporterKind { get => _explicitNullValueImporterKind; set { _explicitNullValueImporterKind = value; AdditionalData?.Remove("importer_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_kind"); else _explicitNullProperties?.Remove("importer_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetDependentsImportedPathGetResponses200ContentApplicB7956Ab871? _explicitNullValueImporterKind = default!;
         /// <summary>The importer_node_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ImporterNodeIds { get => _explicitNullValueImporterNodeIds; set { _explicitNullValueImporterNodeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_ids"); else _explicitNullProperties?.Remove("importer_node_ids"); } }
+        public List<string>? ImporterNodeIds { get => _explicitNullValueImporterNodeIds; set { _explicitNullValueImporterNodeIds = value; AdditionalData?.Remove("importer_node_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_ids"); else _explicitNullProperties?.Remove("importer_node_ids"); } }
         private List<string>? _explicitNullValueImporterNodeIds = default!;
 #nullable restore
 #else
-        public List<string> ImporterNodeIds { get => _explicitNullValueImporterNodeIds; set { _explicitNullValueImporterNodeIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_ids"); else _explicitNullProperties?.Remove("importer_node_ids"); } }
+        public List<string> ImporterNodeIds { get => _explicitNullValueImporterNodeIds; set { _explicitNullValueImporterNodeIds = value; AdditionalData?.Remove("importer_node_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_ids"); else _explicitNullProperties?.Remove("importer_node_ids"); } }
         private List<string> _explicitNullValueImporterNodeIds = default!;
 #endif
         /// <summary>The importer_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
+        public string? ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; AdditionalData?.Remove("importer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
         private string? _explicitNullValueImporterPath = default!;
 #nullable restore
 #else
-        public string ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
+        public string ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; AdditionalData?.Remove("importer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
         private string _explicitNullValueImporterPath = default!;
 #endif
         /// <summary>
@@ -72,7 +75,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "importer_kind", n => { ImporterKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDependents200ResponseItemImporterKind>(); } },
+                { "importer_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetDependentsImportedPathGetResponses200ContentApplicB7956Ab871>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueImporterKind = default; _explicitNullProperties?.Remove("importer_kind"); AdditionalData["importer_kind"] = unknown; } else { ImporterKind = parsed; AdditionalData.Remove("importer_kind"); } } },
                 { "importer_node_ids", n => { ImporterNodeIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "importer_path", n => { ImporterPath = n.GetStringValue(); } },
             };
@@ -84,7 +87,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetDependents200ResponseItemImporterKind>("importer_kind", ImporterKind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetDependentsImportedPathGetResponses200ContentApplicB7956Ab871>("importer_kind", ImporterKind);
             writer.WriteCollectionOfPrimitiveValues<string>("importer_node_ids", ImporterNodeIds);
             writer.WriteStringValue("importer_path", ImporterPath);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

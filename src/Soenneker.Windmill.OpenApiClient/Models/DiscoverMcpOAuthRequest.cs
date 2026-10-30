@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("mcp_server_url") is { } nullNodeMcpServerUrl && nullNodeMcpServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerUrl = null;
+            if (parseNode.GetChildNode("mcp_server_url") is null) { _explicitNullValueMcpServerUrl = default!; _explicitNullProperties?.Remove("mcp_server_url"); }
+            else if (parseNode.GetChildNode("mcp_server_url") is { } nullNodeMcpServerUrl && nullNodeMcpServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>URL of the MCP server to discover OAuth metadata from</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
+        public string? McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; AdditionalData?.Remove("mcp_server_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
         private string? _explicitNullValueMcpServerUrl = default!;
 #nullable restore
 #else
-        public string McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
+        public string McpServerUrl { get => _explicitNullValueMcpServerUrl; set { _explicitNullValueMcpServerUrl = value; AdditionalData?.Remove("mcp_server_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mcp_server_url"); else _explicitNullProperties?.Remove("mcp_server_url"); } }
         private string _explicitNullValueMcpServerUrl = default!;
 #endif
         /// <summary>

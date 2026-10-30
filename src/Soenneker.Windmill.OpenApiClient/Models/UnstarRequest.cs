@@ -17,23 +17,25 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("favorite_kind") is { } nullNodeFavoriteKind && nullNodeFavoriteKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FavoriteKind = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("favorite_kind") is null) { _explicitNullValueFavoriteKind = default!; _explicitNullProperties?.Remove("favorite_kind"); }
+            else if (parseNode.GetChildNode("favorite_kind") is { } nullNodeFavoriteKind && nullNodeFavoriteKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FavoriteKind = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The favorite_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.UnstarRequestFavoriteKind? FavoriteKind { get => _explicitNullValueFavoriteKind; set { _explicitNullValueFavoriteKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favorite_kind"); else _explicitNullProperties?.Remove("favorite_kind"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UnstarRequestFavoriteKind? FavoriteKind { get => _explicitNullValueFavoriteKind; set { _explicitNullValueFavoriteKind = value; AdditionalData?.Remove("favorite_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("favorite_kind"); else _explicitNullProperties?.Remove("favorite_kind"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UnstarRequestFavoriteKind? _explicitNullValueFavoriteKind = default!;
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "favorite_kind", n => { FavoriteKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UnstarRequestFavoriteKind>(); } },
+                { "favorite_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.UnstarRequestFavoriteKind>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueFavoriteKind = default; _explicitNullProperties?.Remove("favorite_kind"); AdditionalData["favorite_kind"] = unknown; } else { FavoriteKind = parsed; AdditionalData.Remove("favorite_kind"); } } },
                 { "path", n => { Path = n.GetStringValue(); } },
             };
         }

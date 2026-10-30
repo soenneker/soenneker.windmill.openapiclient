@@ -17,9 +17,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("job_ids") is { } nullNodeJobIds && nullNodeJobIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIds = null;
-            if (parseNode.GetChildNode("schema") is { } nullNodeSchema && nullNodeSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schema = null;
-            if (parseNode.GetChildNode("script_hash") is { } nullNodeScriptHash && nullNodeScriptHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptHash = null;
+            if (parseNode.GetChildNode("job_ids") is null) { _explicitNullValueJobIds = default!; _explicitNullProperties?.Remove("job_ids"); }
+            else if (parseNode.GetChildNode("job_ids") is { } nullNodeJobIds && nullNodeJobIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIds = null;
+            if (parseNode.GetChildNode("schema") is null) { _explicitNullValueSchema = default!; _explicitNullProperties?.Remove("schema"); }
+            else if (parseNode.GetChildNode("schema") is { } nullNodeSchema && nullNodeSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Schema = null;
+            if (parseNode.GetChildNode("script_hash") is null) { _explicitNullValueScriptHash = default!; _explicitNullProperties?.Remove("script_hash"); }
+            else if (parseNode.GetChildNode("script_hash") is { } nullNodeScriptHash && nullNodeScriptHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptHash = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The job_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
+        public List<string>? JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; AdditionalData?.Remove("job_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
         private List<string>? _explicitNullValueJobIds = default!;
 #nullable restore
 #else
-        public List<string> JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
+        public List<string> JobIds { get => _explicitNullValueJobIds; set { _explicitNullValueJobIds = value; AdditionalData?.Remove("job_ids"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_ids"); else _explicitNullProperties?.Remove("job_ids"); } }
         private List<string> _explicitNullValueJobIds = default!;
 #endif
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItemSchema? Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItemSchema? Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; AdditionalData?.Remove("schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItemSchema? _explicitNullValueSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItemSchema Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItemSchema Schema { get => _explicitNullValueSchema; set { _explicitNullValueSchema = value; AdditionalData?.Remove("schema"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("schema"); else _explicitNullProperties?.Remove("schema"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ListSelectedJobGroups200PlainResponseItemSchemasItemSchema _explicitNullValueSchema = default!;
 #endif
         /// <summary>The script_hash property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
+        public string? ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; AdditionalData?.Remove("script_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
         private string? _explicitNullValueScriptHash = default!;
 #nullable restore
 #else
-        public string ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
+        public string ScriptHash { get => _explicitNullValueScriptHash; set { _explicitNullValueScriptHash = value; AdditionalData?.Remove("script_hash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("script_hash"); else _explicitNullProperties?.Remove("script_hash"); } }
         private string _explicitNullValueScriptHash = default!;
 #endif
         /// <summary>

@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("count_per_host") is { } nullNodeCountPerHost && nullNodeCountPerHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountPerHost = null;
-            if (parseNode.GetChildNode("query_parse_errors") is { } nullNodeQueryParseErrors && nullNodeQueryParseErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryParseErrors = null;
+            if (parseNode.GetChildNode("count_per_host") is null) { _explicitNullValueCountPerHost = default!; _explicitNullProperties?.Remove("count_per_host"); }
+            else if (parseNode.GetChildNode("count_per_host") is { } nullNodeCountPerHost && nullNodeCountPerHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountPerHost = null;
+            if (parseNode.GetChildNode("query_parse_errors") is null) { _explicitNullValueQueryParseErrors = default!; _explicitNullProperties?.Remove("query_parse_errors"); }
+            else if (parseNode.GetChildNode("query_parse_errors") is { } nullNodeQueryParseErrors && nullNodeQueryParseErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryParseErrors = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>count of log lines that matched the query per hostname</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.CountSearchLogsIndex200ResponseCountPerHost? CountPerHost { get => _explicitNullValueCountPerHost; set { _explicitNullValueCountPerHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count_per_host"); else _explicitNullProperties?.Remove("count_per_host"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CountSearchLogsIndex200ResponseCountPerHost? CountPerHost { get => _explicitNullValueCountPerHost; set { _explicitNullValueCountPerHost = value; AdditionalData?.Remove("count_per_host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count_per_host"); else _explicitNullProperties?.Remove("count_per_host"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CountSearchLogsIndex200ResponseCountPerHost? _explicitNullValueCountPerHost = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.CountSearchLogsIndex200ResponseCountPerHost CountPerHost { get => _explicitNullValueCountPerHost; set { _explicitNullValueCountPerHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count_per_host"); else _explicitNullProperties?.Remove("count_per_host"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.CountSearchLogsIndex200ResponseCountPerHost CountPerHost { get => _explicitNullValueCountPerHost; set { _explicitNullValueCountPerHost = value; AdditionalData?.Remove("count_per_host"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("count_per_host"); else _explicitNullProperties?.Remove("count_per_host"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.CountSearchLogsIndex200ResponseCountPerHost _explicitNullValueCountPerHost = default!;
 #endif
         /// <summary>a list of the terms that couldn&apos;t be parsed (and thus ignored)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
+        public List<string>? QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; AdditionalData?.Remove("query_parse_errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
         private List<string>? _explicitNullValueQueryParseErrors = default!;
 #nullable restore
 #else
-        public List<string> QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
+        public List<string> QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; AdditionalData?.Remove("query_parse_errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
         private List<string> _explicitNullValueQueryParseErrors = default!;
 #endif
         /// <summary>

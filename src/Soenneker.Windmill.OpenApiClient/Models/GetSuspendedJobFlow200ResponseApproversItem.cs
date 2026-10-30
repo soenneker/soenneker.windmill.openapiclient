@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("approver") is { } nullNodeApprover && nullNodeApprover.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Approver = null;
-            if (parseNode.GetChildNode("resume_id") is { } nullNodeResumeId && nullNodeResumeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeId = null;
+            if (parseNode.GetChildNode("approver") is null) { _explicitNullValueApprover = default!; _explicitNullProperties?.Remove("approver"); }
+            else if (parseNode.GetChildNode("approver") is { } nullNodeApprover && nullNodeApprover.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Approver = null;
+            if (parseNode.GetChildNode("resume_id") is null) { _explicitNullValueResumeId = default!; _explicitNullProperties?.Remove("resume_id"); }
+            else if (parseNode.GetChildNode("resume_id") is { } nullNodeResumeId && nullNodeResumeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The approver property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Approver { get => _explicitNullValueApprover; set { _explicitNullValueApprover = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approver"); else _explicitNullProperties?.Remove("approver"); } }
+        public string? Approver { get => _explicitNullValueApprover; set { _explicitNullValueApprover = value; AdditionalData?.Remove("approver"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approver"); else _explicitNullProperties?.Remove("approver"); } }
         private string? _explicitNullValueApprover = default!;
 #nullable restore
 #else
-        public string Approver { get => _explicitNullValueApprover; set { _explicitNullValueApprover = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approver"); else _explicitNullProperties?.Remove("approver"); } }
+        public string Approver { get => _explicitNullValueApprover; set { _explicitNullValueApprover = value; AdditionalData?.Remove("approver"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approver"); else _explicitNullProperties?.Remove("approver"); } }
         private string _explicitNullValueApprover = default!;
 #endif
         /// <summary>The resume_id property</summary>
-        public int? ResumeId { get => _explicitNullValueResumeId; set { _explicitNullValueResumeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume_id"); else _explicitNullProperties?.Remove("resume_id"); } }
+        public int? ResumeId { get => _explicitNullValueResumeId; set { _explicitNullValueResumeId = value; AdditionalData?.Remove("resume_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resume_id"); else _explicitNullProperties?.Remove("resume_id"); } }
         private int? _explicitNullValueResumeId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSuspendedJobFlow200ResponseApproversItem"/> and sets the default values.

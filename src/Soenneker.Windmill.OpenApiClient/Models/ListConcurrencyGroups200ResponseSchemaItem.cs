@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("concurrency_key") is { } nullNodeConcurrencyKey && nullNodeConcurrencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrencyKey = null;
-            if (parseNode.GetChildNode("total_running") is { } nullNodeTotalRunning && nullNodeTotalRunning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRunning = null;
+            if (parseNode.GetChildNode("concurrency_key") is null) { _explicitNullValueConcurrencyKey = default!; _explicitNullProperties?.Remove("concurrency_key"); }
+            else if (parseNode.GetChildNode("concurrency_key") is { } nullNodeConcurrencyKey && nullNodeConcurrencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConcurrencyKey = null;
+            if (parseNode.GetChildNode("total_running") is null) { _explicitNullValueTotalRunning = default!; _explicitNullProperties?.Remove("total_running"); }
+            else if (parseNode.GetChildNode("total_running") is { } nullNodeTotalRunning && nullNodeTotalRunning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalRunning = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The concurrency_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ConcurrencyKey { get => _explicitNullValueConcurrencyKey; set { _explicitNullValueConcurrencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_key"); else _explicitNullProperties?.Remove("concurrency_key"); } }
+        public string? ConcurrencyKey { get => _explicitNullValueConcurrencyKey; set { _explicitNullValueConcurrencyKey = value; AdditionalData?.Remove("concurrency_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_key"); else _explicitNullProperties?.Remove("concurrency_key"); } }
         private string? _explicitNullValueConcurrencyKey = default!;
 #nullable restore
 #else
-        public string ConcurrencyKey { get => _explicitNullValueConcurrencyKey; set { _explicitNullValueConcurrencyKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_key"); else _explicitNullProperties?.Remove("concurrency_key"); } }
+        public string ConcurrencyKey { get => _explicitNullValueConcurrencyKey; set { _explicitNullValueConcurrencyKey = value; AdditionalData?.Remove("concurrency_key"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("concurrency_key"); else _explicitNullProperties?.Remove("concurrency_key"); } }
         private string _explicitNullValueConcurrencyKey = default!;
 #endif
         /// <summary>The total_running property</summary>
-        public double? TotalRunning { get => _explicitNullValueTotalRunning; set { _explicitNullValueTotalRunning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_running"); else _explicitNullProperties?.Remove("total_running"); } }
+        public double? TotalRunning { get => _explicitNullValueTotalRunning; set { _explicitNullValueTotalRunning = value; AdditionalData?.Remove("total_running"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_running"); else _explicitNullProperties?.Remove("total_running"); } }
         private double? _explicitNullValueTotalRunning = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListConcurrencyGroups200ResponseSchemaItem"/> and sets the default values.

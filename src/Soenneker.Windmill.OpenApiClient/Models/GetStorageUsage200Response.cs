@@ -17,28 +17,31 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("quota_bytes") is { } nullNodeQuotaBytes && nullNodeQuotaBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuotaBytes = null;
-            if (parseNode.GetChildNode("storages") is { } nullNodeStorages && nullNodeStorages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Storages = null;
-            if (parseNode.GetChildNode("total_bytes") is { } nullNodeTotalBytes && nullNodeTotalBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBytes = null;
+            if (parseNode.GetChildNode("quota_bytes") is null) { _explicitNullValueQuotaBytes = default!; _explicitNullProperties?.Remove("quota_bytes"); }
+            else if (parseNode.GetChildNode("quota_bytes") is { } nullNodeQuotaBytes && nullNodeQuotaBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuotaBytes = null;
+            if (parseNode.GetChildNode("storages") is null) { _explicitNullValueStorages = default!; _explicitNullProperties?.Remove("storages"); }
+            else if (parseNode.GetChildNode("storages") is { } nullNodeStorages && nullNodeStorages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Storages = null;
+            if (parseNode.GetChildNode("total_bytes") is null) { _explicitNullValueTotalBytes = default!; _explicitNullProperties?.Remove("total_bytes"); }
+            else if (parseNode.GetChildNode("total_bytes") is { } nullNodeTotalBytes && nullNodeTotalBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalBytes = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>only present on Community Edition, where workspace storage is capped</summary>
-        public long? QuotaBytes { get => _explicitNullValueQuotaBytes; set { _explicitNullValueQuotaBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quota_bytes"); else _explicitNullProperties?.Remove("quota_bytes"); } }
+        public long? QuotaBytes { get => _explicitNullValueQuotaBytes; set { _explicitNullValueQuotaBytes = value; AdditionalData?.Remove("quota_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quota_bytes"); else _explicitNullProperties?.Remove("quota_bytes"); } }
         private long? _explicitNullValueQuotaBytes = default!;
         /// <summary>The storages property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetStorageUsage200ResponseStoragesItem>? Storages { get => _explicitNullValueStorages; set { _explicitNullValueStorages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storages"); else _explicitNullProperties?.Remove("storages"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetStorageUsage200ResponseStoragesItem>? Storages { get => _explicitNullValueStorages; set { _explicitNullValueStorages = value; AdditionalData?.Remove("storages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storages"); else _explicitNullProperties?.Remove("storages"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetStorageUsage200ResponseStoragesItem>? _explicitNullValueStorages = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetStorageUsage200ResponseStoragesItem> Storages { get => _explicitNullValueStorages; set { _explicitNullValueStorages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storages"); else _explicitNullProperties?.Remove("storages"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetStorageUsage200ResponseStoragesItem> Storages { get => _explicitNullValueStorages; set { _explicitNullValueStorages = value; AdditionalData?.Remove("storages"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("storages"); else _explicitNullProperties?.Remove("storages"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetStorageUsage200ResponseStoragesItem> _explicitNullValueStorages = default!;
 #endif
         /// <summary>The total_bytes property</summary>
-        public long? TotalBytes { get => _explicitNullValueTotalBytes; set { _explicitNullValueTotalBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes"); else _explicitNullProperties?.Remove("total_bytes"); } }
+        public long? TotalBytes { get => _explicitNullValueTotalBytes; set { _explicitNullValueTotalBytes = value; AdditionalData?.Remove("total_bytes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_bytes"); else _explicitNullProperties?.Remove("total_bytes"); } }
         private long? _explicitNullValueTotalBytes = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetStorageUsage200Response"/> and sets the default values.

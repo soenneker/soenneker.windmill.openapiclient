@@ -17,13 +17,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("advanced_permissions") is { } nullNodeAdvancedPermissions && nullNodeAdvancedPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedPermissions = null;
-            if (parseNode.GetChildNode("azure_blob_resource_path") is { } nullNodeAzureBlobResourcePath && nullNodeAzureBlobResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureBlobResourcePath = null;
-            if (parseNode.GetChildNode("gcs_resource_path") is { } nullNodeGcsResourcePath && nullNodeGcsResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GcsResourcePath = null;
-            if (parseNode.GetChildNode("public_resource") is { } nullNodePublicResource && nullNodePublicResource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicResource = null;
-            if (parseNode.GetChildNode("s3_resource_path") is { } nullNodeS3ResourcePath && nullNodeS3ResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3ResourcePath = null;
-            if (parseNode.GetChildNode("secondary_storage") is { } nullNodeSecondaryStorage && nullNodeSecondaryStorage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryStorage = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("advanced_permissions") is null) { _explicitNullValueAdvancedPermissions = default!; _explicitNullProperties?.Remove("advanced_permissions"); }
+            else if (parseNode.GetChildNode("advanced_permissions") is { } nullNodeAdvancedPermissions && nullNodeAdvancedPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdvancedPermissions = null;
+            if (parseNode.GetChildNode("azure_blob_resource_path") is null) { _explicitNullValueAzureBlobResourcePath = default!; _explicitNullProperties?.Remove("azure_blob_resource_path"); }
+            else if (parseNode.GetChildNode("azure_blob_resource_path") is { } nullNodeAzureBlobResourcePath && nullNodeAzureBlobResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AzureBlobResourcePath = null;
+            if (parseNode.GetChildNode("gcs_resource_path") is null) { _explicitNullValueGcsResourcePath = default!; _explicitNullProperties?.Remove("gcs_resource_path"); }
+            else if (parseNode.GetChildNode("gcs_resource_path") is { } nullNodeGcsResourcePath && nullNodeGcsResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GcsResourcePath = null;
+            if (parseNode.GetChildNode("public_resource") is null) { _explicitNullValuePublicResource = default!; _explicitNullProperties?.Remove("public_resource"); }
+            else if (parseNode.GetChildNode("public_resource") is { } nullNodePublicResource && nullNodePublicResource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PublicResource = null;
+            if (parseNode.GetChildNode("s3_resource_path") is null) { _explicitNullValueS3ResourcePath = default!; _explicitNullProperties?.Remove("s3_resource_path"); }
+            else if (parseNode.GetChildNode("s3_resource_path") is { } nullNodeS3ResourcePath && nullNodeS3ResourcePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3ResourcePath = null;
+            if (parseNode.GetChildNode("secondary_storage") is null) { _explicitNullValueSecondaryStorage = default!; _explicitNullProperties?.Remove("secondary_storage"); }
+            else if (parseNode.GetChildNode("secondary_storage") is { } nullNodeSecondaryStorage && nullNodeSecondaryStorage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondaryStorage = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,59 +38,59 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The advanced_permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageAdvancedPermissionsItem>? AdvancedPermissions { get => _explicitNullValueAdvancedPermissions; set { _explicitNullValueAdvancedPermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_permissions"); else _explicitNullProperties?.Remove("advanced_permissions"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageAdvancedPermissionsItem>? _explicitNullValueAdvancedPermissions = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38>? AdvancedPermissions { get => _explicitNullValueAdvancedPermissions; set { _explicitNullValueAdvancedPermissions = value; AdditionalData?.Remove("advanced_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_permissions"); else _explicitNullProperties?.Remove("advanced_permissions"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38>? _explicitNullValueAdvancedPermissions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageAdvancedPermissionsItem> AdvancedPermissions { get => _explicitNullValueAdvancedPermissions; set { _explicitNullValueAdvancedPermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_permissions"); else _explicitNullProperties?.Remove("advanced_permissions"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageAdvancedPermissionsItem> _explicitNullValueAdvancedPermissions = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38> AdvancedPermissions { get => _explicitNullValueAdvancedPermissions; set { _explicitNullValueAdvancedPermissions = value; AdditionalData?.Remove("advanced_permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("advanced_permissions"); else _explicitNullProperties?.Remove("advanced_permissions"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38> _explicitNullValueAdvancedPermissions = default!;
 #endif
         /// <summary>The azure_blob_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AzureBlobResourcePath { get => _explicitNullValueAzureBlobResourcePath; set { _explicitNullValueAzureBlobResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_blob_resource_path"); else _explicitNullProperties?.Remove("azure_blob_resource_path"); } }
+        public string? AzureBlobResourcePath { get => _explicitNullValueAzureBlobResourcePath; set { _explicitNullValueAzureBlobResourcePath = value; AdditionalData?.Remove("azure_blob_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_blob_resource_path"); else _explicitNullProperties?.Remove("azure_blob_resource_path"); } }
         private string? _explicitNullValueAzureBlobResourcePath = default!;
 #nullable restore
 #else
-        public string AzureBlobResourcePath { get => _explicitNullValueAzureBlobResourcePath; set { _explicitNullValueAzureBlobResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_blob_resource_path"); else _explicitNullProperties?.Remove("azure_blob_resource_path"); } }
+        public string AzureBlobResourcePath { get => _explicitNullValueAzureBlobResourcePath; set { _explicitNullValueAzureBlobResourcePath = value; AdditionalData?.Remove("azure_blob_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("azure_blob_resource_path"); else _explicitNullProperties?.Remove("azure_blob_resource_path"); } }
         private string _explicitNullValueAzureBlobResourcePath = default!;
 #endif
         /// <summary>The gcs_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GcsResourcePath { get => _explicitNullValueGcsResourcePath; set { _explicitNullValueGcsResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gcs_resource_path"); else _explicitNullProperties?.Remove("gcs_resource_path"); } }
+        public string? GcsResourcePath { get => _explicitNullValueGcsResourcePath; set { _explicitNullValueGcsResourcePath = value; AdditionalData?.Remove("gcs_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gcs_resource_path"); else _explicitNullProperties?.Remove("gcs_resource_path"); } }
         private string? _explicitNullValueGcsResourcePath = default!;
 #nullable restore
 #else
-        public string GcsResourcePath { get => _explicitNullValueGcsResourcePath; set { _explicitNullValueGcsResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gcs_resource_path"); else _explicitNullProperties?.Remove("gcs_resource_path"); } }
+        public string GcsResourcePath { get => _explicitNullValueGcsResourcePath; set { _explicitNullValueGcsResourcePath = value; AdditionalData?.Remove("gcs_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gcs_resource_path"); else _explicitNullProperties?.Remove("gcs_resource_path"); } }
         private string _explicitNullValueGcsResourcePath = default!;
 #endif
         /// <summary>The public_resource property</summary>
-        public bool? PublicResource { get => _explicitNullValuePublicResource; set { _explicitNullValuePublicResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_resource"); else _explicitNullProperties?.Remove("public_resource"); } }
+        public bool? PublicResource { get => _explicitNullValuePublicResource; set { _explicitNullValuePublicResource = value; AdditionalData?.Remove("public_resource"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("public_resource"); else _explicitNullProperties?.Remove("public_resource"); } }
         private bool? _explicitNullValuePublicResource = default!;
         /// <summary>The s3_resource_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
+        public string? S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; AdditionalData?.Remove("s3_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
         private string? _explicitNullValueS3ResourcePath = default!;
 #nullable restore
 #else
-        public string S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
+        public string S3ResourcePath { get => _explicitNullValueS3ResourcePath; set { _explicitNullValueS3ResourcePath = value; AdditionalData?.Remove("s3_resource_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3_resource_path"); else _explicitNullProperties?.Remove("s3_resource_path"); } }
         private string _explicitNullValueS3ResourcePath = default!;
 #endif
         /// <summary>The secondary_storage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage? SecondaryStorage { get => _explicitNullValueSecondaryStorage; set { _explicitNullValueSecondaryStorage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_storage"); else _explicitNullProperties?.Remove("secondary_storage"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage? SecondaryStorage { get => _explicitNullValueSecondaryStorage; set { _explicitNullValueSecondaryStorage = value; AdditionalData?.Remove("secondary_storage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_storage"); else _explicitNullProperties?.Remove("secondary_storage"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage? _explicitNullValueSecondaryStorage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage SecondaryStorage { get => _explicitNullValueSecondaryStorage; set { _explicitNullValueSecondaryStorage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_storage"); else _explicitNullProperties?.Remove("secondary_storage"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage SecondaryStorage { get => _explicitNullValueSecondaryStorage; set { _explicitNullValueSecondaryStorage = value; AdditionalData?.Remove("secondary_storage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondary_storage"); else _explicitNullProperties?.Remove("secondary_storage"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage _explicitNullValueSecondaryStorage = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageType? _explicitNullValueType = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson02842806A3? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson02842806A3? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorage"/> and sets the default values.
         /// </summary>
@@ -109,13 +116,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "advanced_permissions", n => { AdvancedPermissions = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageAdvancedPermissionsItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageAdvancedPermissionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "advanced_permissions", n => { AdvancedPermissions = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "azure_blob_resource_path", n => { AzureBlobResourcePath = n.GetStringValue(); } },
                 { "gcs_resource_path", n => { GcsResourcePath = n.GetStringValue(); } },
                 { "public_resource", n => { PublicResource = n.GetBoolValue(); } },
                 { "s3_resource_path", n => { S3ResourcePath = n.GetStringValue(); } },
                 { "secondary_storage", n => { SecondaryStorage = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson02842806A3>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>
@@ -125,13 +132,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageAdvancedPermissionsItem>("advanced_permissions", AdvancedPermissions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38>("advanced_permissions", AdvancedPermissions);
             writer.WriteStringValue("azure_blob_resource_path", AzureBlobResourcePath);
             writer.WriteStringValue("gcs_resource_path", GcsResourcePath);
             writer.WriteBoolValue("public_resource", PublicResource);
             writer.WriteStringValue("s3_resource_path", S3ResourcePath);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageSecondaryStorage>("secondary_storage", SecondaryStorage);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseLargeFileStorageType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson02842806A3>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

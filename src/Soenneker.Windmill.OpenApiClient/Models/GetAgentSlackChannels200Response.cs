@@ -17,75 +17,83 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("anyone") is { } nullNodeAnyone && nullNodeAnyone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anyone = null;
-            if (parseNode.GetChildNode("bot_name") is { } nullNodeBotName && nullNodeBotName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotName = null;
-            if (parseNode.GetChildNode("can_share") is { } nullNodeCanShare && nullNodeCanShare.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanShare = null;
-            if (parseNode.GetChildNode("channels") is { } nullNodeChannels && nullNodeChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channels = null;
-            if (parseNode.GetChildNode("missing_scopes") is { } nullNodeMissingScopes && nullNodeMissingScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MissingScopes = null;
-            if (parseNode.GetChildNode("runs_as") is { } nullNodeRunsAs && nullNodeRunsAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunsAs = null;
-            if (parseNode.GetChildNode("signing_secret_set") is { } nullNodeSigningSecretSet && nullNodeSigningSecretSet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningSecretSet = null;
-            if (parseNode.GetChildNode("slack_team_name") is { } nullNodeSlackTeamName && nullNodeSlackTeamName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackTeamName = null;
+            if (parseNode.GetChildNode("anyone") is null) { _explicitNullValueAnyone = default!; _explicitNullProperties?.Remove("anyone"); }
+            else if (parseNode.GetChildNode("anyone") is { } nullNodeAnyone && nullNodeAnyone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Anyone = null;
+            if (parseNode.GetChildNode("bot_name") is null) { _explicitNullValueBotName = default!; _explicitNullProperties?.Remove("bot_name"); }
+            else if (parseNode.GetChildNode("bot_name") is { } nullNodeBotName && nullNodeBotName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BotName = null;
+            if (parseNode.GetChildNode("can_share") is null) { _explicitNullValueCanShare = default!; _explicitNullProperties?.Remove("can_share"); }
+            else if (parseNode.GetChildNode("can_share") is { } nullNodeCanShare && nullNodeCanShare.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanShare = null;
+            if (parseNode.GetChildNode("channels") is null) { _explicitNullValueChannels = default!; _explicitNullProperties?.Remove("channels"); }
+            else if (parseNode.GetChildNode("channels") is { } nullNodeChannels && nullNodeChannels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channels = null;
+            if (parseNode.GetChildNode("missing_scopes") is null) { _explicitNullValueMissingScopes = default!; _explicitNullProperties?.Remove("missing_scopes"); }
+            else if (parseNode.GetChildNode("missing_scopes") is { } nullNodeMissingScopes && nullNodeMissingScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MissingScopes = null;
+            if (parseNode.GetChildNode("runs_as") is null) { _explicitNullValueRunsAs = default!; _explicitNullProperties?.Remove("runs_as"); }
+            else if (parseNode.GetChildNode("runs_as") is { } nullNodeRunsAs && nullNodeRunsAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunsAs = null;
+            if (parseNode.GetChildNode("signing_secret_set") is null) { _explicitNullValueSigningSecretSet = default!; _explicitNullProperties?.Remove("signing_secret_set"); }
+            else if (parseNode.GetChildNode("signing_secret_set") is { } nullNodeSigningSecretSet && nullNodeSigningSecretSet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningSecretSet = null;
+            if (parseNode.GetChildNode("slack_team_name") is null) { _explicitNullValueSlackTeamName = default!; _explicitNullProperties?.Remove("slack_team_name"); }
+            else if (parseNode.GetChildNode("slack_team_name") is { } nullNodeSlackTeamName && nullNodeSlackTeamName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackTeamName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>whether anyone in its channels can ask it (its slack_anyone, kept only while it runs on behalf of someone), rather than workspace members only</summary>
-        public bool? Anyone { get => _explicitNullValueAnyone; set { _explicitNullValueAnyone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anyone"); else _explicitNullProperties?.Remove("anyone"); } }
+        public bool? Anyone { get => _explicitNullValueAnyone; set { _explicitNullValueAnyone = value; AdditionalData?.Remove("anyone"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("anyone"); else _explicitNullProperties?.Remove("anyone"); } }
         private bool? _explicitNullValueAnyone = default!;
         /// <summary>the bot&apos;s Slack handle; absent when Slack can&apos;t be reached</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BotName { get => _explicitNullValueBotName; set { _explicitNullValueBotName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_name"); else _explicitNullProperties?.Remove("bot_name"); } }
+        public string? BotName { get => _explicitNullValueBotName; set { _explicitNullValueBotName = value; AdditionalData?.Remove("bot_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_name"); else _explicitNullProperties?.Remove("bot_name"); } }
         private string? _explicitNullValueBotName = default!;
 #nullable restore
 #else
-        public string BotName { get => _explicitNullValueBotName; set { _explicitNullValueBotName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_name"); else _explicitNullProperties?.Remove("bot_name"); } }
+        public string BotName { get => _explicitNullValueBotName; set { _explicitNullValueBotName = value; AdditionalData?.Remove("bot_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bot_name"); else _explicitNullProperties?.Remove("bot_name"); } }
         private string _explicitNullValueBotName = default!;
 #endif
         /// <summary>whether the caller can change the agent&apos;s channels, as anyone who can edit it can</summary>
-        public bool? CanShare { get => _explicitNullValueCanShare; set { _explicitNullValueCanShare = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_share"); else _explicitNullProperties?.Remove("can_share"); } }
+        public bool? CanShare { get => _explicitNullValueCanShare; set { _explicitNullValueCanShare = value; AdditionalData?.Remove("can_share"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_share"); else _explicitNullProperties?.Remove("can_share"); } }
         private bool? _explicitNullValueCanShare = default!;
         /// <summary>The channels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAgentSlackChannels200ResponseChannelsItem>? Channels { get => _explicitNullValueChannels; set { _explicitNullValueChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channels"); else _explicitNullProperties?.Remove("channels"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAgentSlackChannels200ResponseChannelsItem>? Channels { get => _explicitNullValueChannels; set { _explicitNullValueChannels = value; AdditionalData?.Remove("channels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channels"); else _explicitNullProperties?.Remove("channels"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAgentSlackChannels200ResponseChannelsItem>? _explicitNullValueChannels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAgentSlackChannels200ResponseChannelsItem> Channels { get => _explicitNullValueChannels; set { _explicitNullValueChannels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channels"); else _explicitNullProperties?.Remove("channels"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetAgentSlackChannels200ResponseChannelsItem> Channels { get => _explicitNullValueChannels; set { _explicitNullValueChannels = value; AdditionalData?.Remove("channels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channels"); else _explicitNullProperties?.Remove("channels"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.GetAgentSlackChannels200ResponseChannelsItem> _explicitNullValueChannels = default!;
 #endif
         /// <summary>agent scopes the workspace&apos;s Slack connection lacks, so it must be reconnected with AI agents enabled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? MissingScopes { get => _explicitNullValueMissingScopes; set { _explicitNullValueMissingScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("missing_scopes"); else _explicitNullProperties?.Remove("missing_scopes"); } }
+        public List<string>? MissingScopes { get => _explicitNullValueMissingScopes; set { _explicitNullValueMissingScopes = value; AdditionalData?.Remove("missing_scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("missing_scopes"); else _explicitNullProperties?.Remove("missing_scopes"); } }
         private List<string>? _explicitNullValueMissingScopes = default!;
 #nullable restore
 #else
-        public List<string> MissingScopes { get => _explicitNullValueMissingScopes; set { _explicitNullValueMissingScopes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("missing_scopes"); else _explicitNullProperties?.Remove("missing_scopes"); } }
+        public List<string> MissingScopes { get => _explicitNullValueMissingScopes; set { _explicitNullValueMissingScopes = value; AdditionalData?.Remove("missing_scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("missing_scopes"); else _explicitNullProperties?.Remove("missing_scopes"); } }
         private List<string> _explicitNullValueMissingScopes = default!;
 #endif
         /// <summary>who the agent runs as (its on_behalf_of); absent unless it runs on behalf of someone</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RunsAs { get => _explicitNullValueRunsAs; set { _explicitNullValueRunsAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs_as"); else _explicitNullProperties?.Remove("runs_as"); } }
+        public string? RunsAs { get => _explicitNullValueRunsAs; set { _explicitNullValueRunsAs = value; AdditionalData?.Remove("runs_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs_as"); else _explicitNullProperties?.Remove("runs_as"); } }
         private string? _explicitNullValueRunsAs = default!;
 #nullable restore
 #else
-        public string RunsAs { get => _explicitNullValueRunsAs; set { _explicitNullValueRunsAs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs_as"); else _explicitNullProperties?.Remove("runs_as"); } }
+        public string RunsAs { get => _explicitNullValueRunsAs; set { _explicitNullValueRunsAs = value; AdditionalData?.Remove("runs_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs_as"); else _explicitNullProperties?.Remove("runs_as"); } }
         private string _explicitNullValueRunsAs = default!;
 #endif
         /// <summary>agents answer in Slack only when the server has the Slack app&apos;s signing secret (SLACK_SIGNING_SECRET)</summary>
-        public bool? SigningSecretSet { get => _explicitNullValueSigningSecretSet; set { _explicitNullValueSigningSecretSet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret_set"); else _explicitNullProperties?.Remove("signing_secret_set"); } }
+        public bool? SigningSecretSet { get => _explicitNullValueSigningSecretSet; set { _explicitNullValueSigningSecretSet = value; AdditionalData?.Remove("signing_secret_set"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing_secret_set"); else _explicitNullProperties?.Remove("signing_secret_set"); } }
         private bool? _explicitNullValueSigningSecretSet = default!;
         /// <summary>the connected Slack workspace; absent when Slack is not connected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackTeamName { get => _explicitNullValueSlackTeamName; set { _explicitNullValueSlackTeamName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_name"); else _explicitNullProperties?.Remove("slack_team_name"); } }
+        public string? SlackTeamName { get => _explicitNullValueSlackTeamName; set { _explicitNullValueSlackTeamName = value; AdditionalData?.Remove("slack_team_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_name"); else _explicitNullProperties?.Remove("slack_team_name"); } }
         private string? _explicitNullValueSlackTeamName = default!;
 #nullable restore
 #else
-        public string SlackTeamName { get => _explicitNullValueSlackTeamName; set { _explicitNullValueSlackTeamName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_name"); else _explicitNullProperties?.Remove("slack_team_name"); } }
+        public string SlackTeamName { get => _explicitNullValueSlackTeamName; set { _explicitNullValueSlackTeamName = value; AdditionalData?.Remove("slack_team_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_team_name"); else _explicitNullProperties?.Remove("slack_team_name"); } }
         private string _explicitNullValueSlackTeamName = default!;
 #endif
         /// <summary>

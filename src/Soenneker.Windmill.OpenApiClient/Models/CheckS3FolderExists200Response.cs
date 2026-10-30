@@ -17,17 +17,19 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("exists") is { } nullNodeExists && nullNodeExists.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exists = null;
-            if (parseNode.GetChildNode("is_folder") is { } nullNodeIsFolder && nullNodeIsFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFolder = null;
+            if (parseNode.GetChildNode("exists") is null) { _explicitNullValueExists = default!; _explicitNullProperties?.Remove("exists"); }
+            else if (parseNode.GetChildNode("exists") is { } nullNodeExists && nullNodeExists.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exists = null;
+            if (parseNode.GetChildNode("is_folder") is null) { _explicitNullValueIsFolder = default!; _explicitNullProperties?.Remove("is_folder"); }
+            else if (parseNode.GetChildNode("is_folder") is { } nullNodeIsFolder && nullNodeIsFolder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsFolder = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the path exists</summary>
-        public bool? Exists { get => _explicitNullValueExists; set { _explicitNullValueExists = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exists"); else _explicitNullProperties?.Remove("exists"); } }
+        public bool? Exists { get => _explicitNullValueExists; set { _explicitNullValueExists = value; AdditionalData?.Remove("exists"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exists"); else _explicitNullProperties?.Remove("exists"); } }
         private bool? _explicitNullValueExists = default!;
         /// <summary>Whether the path is a folder (true) or file (false)</summary>
-        public bool? IsFolder { get => _explicitNullValueIsFolder; set { _explicitNullValueIsFolder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_folder"); else _explicitNullProperties?.Remove("is_folder"); } }
+        public bool? IsFolder { get => _explicitNullValueIsFolder; set { _explicitNullValueIsFolder = value; AdditionalData?.Remove("is_folder"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_folder"); else _explicitNullProperties?.Remove("is_folder"); } }
         private bool? _explicitNullValueIsFolder = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.CheckS3FolderExists200Response"/> and sets the default values.

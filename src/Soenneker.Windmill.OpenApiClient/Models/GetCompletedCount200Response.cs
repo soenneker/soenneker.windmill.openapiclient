@@ -17,13 +17,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("database_length") is { } nullNodeDatabaseLength && nullNodeDatabaseLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseLength = null;
+            if (parseNode.GetChildNode("database_length") is null) { _explicitNullValueDatabaseLength = default!; _explicitNullProperties?.Remove("database_length"); }
+            else if (parseNode.GetChildNode("database_length") is { } nullNodeDatabaseLength && nullNodeDatabaseLength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DatabaseLength = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The database_length property</summary>
-        public int? DatabaseLength { get => _explicitNullValueDatabaseLength; set { _explicitNullValueDatabaseLength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_length"); else _explicitNullProperties?.Remove("database_length"); } }
+        public int? DatabaseLength { get => _explicitNullValueDatabaseLength; set { _explicitNullValueDatabaseLength = value; AdditionalData?.Remove("database_length"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database_length"); else _explicitNullProperties?.Remove("database_length"); } }
         private int? _explicitNullValueDatabaseLength = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCompletedCount200Response"/> and sets the default values.

@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("new_email") is { } nullNodeNewEmail && nullNodeNewEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewEmail = null;
+            if (parseNode.GetChildNode("new_email") is null) { _explicitNullValueNewEmail = default!; _explicitNullProperties?.Remove("new_email"); }
+            else if (parseNode.GetChildNode("new_email") is { } nullNodeNewEmail && nullNodeNewEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NewEmail = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The new_email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NewEmail { get => _explicitNullValueNewEmail; set { _explicitNullValueNewEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_email"); else _explicitNullProperties?.Remove("new_email"); } }
+        public string? NewEmail { get => _explicitNullValueNewEmail; set { _explicitNullValueNewEmail = value; AdditionalData?.Remove("new_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_email"); else _explicitNullProperties?.Remove("new_email"); } }
         private string? _explicitNullValueNewEmail = default!;
 #nullable restore
 #else
-        public string NewEmail { get => _explicitNullValueNewEmail; set { _explicitNullValueNewEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_email"); else _explicitNullProperties?.Remove("new_email"); } }
+        public string NewEmail { get => _explicitNullValueNewEmail; set { _explicitNullValueNewEmail = value; AdditionalData?.Remove("new_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("new_email"); else _explicitNullProperties?.Remove("new_email"); } }
         private string _explicitNullValueNewEmail = default!;
 #endif
         /// <summary>

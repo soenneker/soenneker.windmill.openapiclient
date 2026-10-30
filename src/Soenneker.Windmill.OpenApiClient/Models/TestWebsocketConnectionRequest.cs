@@ -17,34 +17,37 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("can_return_message") is { } nullNodeCanReturnMessage && nullNodeCanReturnMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanReturnMessage = null;
-            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
-            if (parseNode.GetChildNode("url_runnable_args") is { } nullNodeUrlRunnableArgs && nullNodeUrlRunnableArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrlRunnableArgs = null;
+            if (parseNode.GetChildNode("can_return_message") is null) { _explicitNullValueCanReturnMessage = default!; _explicitNullProperties?.Remove("can_return_message"); }
+            else if (parseNode.GetChildNode("can_return_message") is { } nullNodeCanReturnMessage && nullNodeCanReturnMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanReturnMessage = null;
+            if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
+            else if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+            if (parseNode.GetChildNode("url_runnable_args") is null) { _explicitNullValueUrlRunnableArgs = default!; _explicitNullProperties?.Remove("url_runnable_args"); }
+            else if (parseNode.GetChildNode("url_runnable_args") is { } nullNodeUrlRunnableArgs && nullNodeUrlRunnableArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrlRunnableArgs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The can_return_message property</summary>
-        public bool? CanReturnMessage { get => _explicitNullValueCanReturnMessage; set { _explicitNullValueCanReturnMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_return_message"); else _explicitNullProperties?.Remove("can_return_message"); } }
+        public bool? CanReturnMessage { get => _explicitNullValueCanReturnMessage; set { _explicitNullValueCanReturnMessage = value; AdditionalData?.Remove("can_return_message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_return_message"); else _explicitNullProperties?.Remove("can_return_message"); } }
         private bool? _explicitNullValueCanReturnMessage = default!;
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; AdditionalData?.Remove("url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
         private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>The arguments to pass to the script or flow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.TestWebsocketConnectionRequestUrlRunnableArgs? UrlRunnableArgs { get => _explicitNullValueUrlRunnableArgs; set { _explicitNullValueUrlRunnableArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_runnable_args"); else _explicitNullProperties?.Remove("url_runnable_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.TestWebsocketConnectionRequestUrlRunnableArgs? UrlRunnableArgs { get => _explicitNullValueUrlRunnableArgs; set { _explicitNullValueUrlRunnableArgs = value; AdditionalData?.Remove("url_runnable_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_runnable_args"); else _explicitNullProperties?.Remove("url_runnable_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.TestWebsocketConnectionRequestUrlRunnableArgs? _explicitNullValueUrlRunnableArgs = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.TestWebsocketConnectionRequestUrlRunnableArgs UrlRunnableArgs { get => _explicitNullValueUrlRunnableArgs; set { _explicitNullValueUrlRunnableArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_runnable_args"); else _explicitNullProperties?.Remove("url_runnable_args"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.TestWebsocketConnectionRequestUrlRunnableArgs UrlRunnableArgs { get => _explicitNullValueUrlRunnableArgs; set { _explicitNullValueUrlRunnableArgs = value; AdditionalData?.Remove("url_runnable_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url_runnable_args"); else _explicitNullProperties?.Remove("url_runnable_args"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.TestWebsocketConnectionRequestUrlRunnableArgs _explicitNullValueUrlRunnableArgs = default!;
 #endif
         /// <summary>

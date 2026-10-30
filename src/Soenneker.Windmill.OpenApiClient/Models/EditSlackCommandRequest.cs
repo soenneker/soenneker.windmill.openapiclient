@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("slack_command_script") is { } nullNodeSlackCommandScript && nullNodeSlackCommandScript.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackCommandScript = null;
+            if (parseNode.GetChildNode("slack_command_script") is null) { _explicitNullValueSlackCommandScript = default!; _explicitNullProperties?.Remove("slack_command_script"); }
+            else if (parseNode.GetChildNode("slack_command_script") is { } nullNodeSlackCommandScript && nullNodeSlackCommandScript.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlackCommandScript = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The slack_command_script property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SlackCommandScript { get => _explicitNullValueSlackCommandScript; set { _explicitNullValueSlackCommandScript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_command_script"); else _explicitNullProperties?.Remove("slack_command_script"); } }
+        public string? SlackCommandScript { get => _explicitNullValueSlackCommandScript; set { _explicitNullValueSlackCommandScript = value; AdditionalData?.Remove("slack_command_script"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_command_script"); else _explicitNullProperties?.Remove("slack_command_script"); } }
         private string? _explicitNullValueSlackCommandScript = default!;
 #nullable restore
 #else
-        public string SlackCommandScript { get => _explicitNullValueSlackCommandScript; set { _explicitNullValueSlackCommandScript = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_command_script"); else _explicitNullProperties?.Remove("slack_command_script"); } }
+        public string SlackCommandScript { get => _explicitNullValueSlackCommandScript; set { _explicitNullValueSlackCommandScript = value; AdditionalData?.Remove("slack_command_script"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slack_command_script"); else _explicitNullProperties?.Remove("slack_command_script"); } }
         private string _explicitNullValueSlackCommandScript = default!;
 #endif
         /// <summary>

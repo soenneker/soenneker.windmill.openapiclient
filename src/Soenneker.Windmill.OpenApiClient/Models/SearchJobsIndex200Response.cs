@@ -17,45 +17,49 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hit_count") is { } nullNodeHitCount && nullNodeHitCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HitCount = null;
-            if (parseNode.GetChildNode("hits") is { } nullNodeHits && nullNodeHits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hits = null;
-            if (parseNode.GetChildNode("index_metadata") is { } nullNodeIndexMetadata && nullNodeIndexMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexMetadata = null;
-            if (parseNode.GetChildNode("query_parse_errors") is { } nullNodeQueryParseErrors && nullNodeQueryParseErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryParseErrors = null;
+            if (parseNode.GetChildNode("hit_count") is null) { _explicitNullValueHitCount = default!; _explicitNullProperties?.Remove("hit_count"); }
+            else if (parseNode.GetChildNode("hit_count") is { } nullNodeHitCount && nullNodeHitCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HitCount = null;
+            if (parseNode.GetChildNode("hits") is null) { _explicitNullValueHits = default!; _explicitNullProperties?.Remove("hits"); }
+            else if (parseNode.GetChildNode("hits") is { } nullNodeHits && nullNodeHits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hits = null;
+            if (parseNode.GetChildNode("index_metadata") is null) { _explicitNullValueIndexMetadata = default!; _explicitNullProperties?.Remove("index_metadata"); }
+            else if (parseNode.GetChildNode("index_metadata") is { } nullNodeIndexMetadata && nullNodeIndexMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndexMetadata = null;
+            if (parseNode.GetChildNode("query_parse_errors") is null) { _explicitNullValueQueryParseErrors = default!; _explicitNullProperties?.Remove("query_parse_errors"); }
+            else if (parseNode.GetChildNode("query_parse_errors") is { } nullNodeQueryParseErrors && nullNodeQueryParseErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QueryParseErrors = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>how many jobs matched in total</summary>
-        public double? HitCount { get => _explicitNullValueHitCount; set { _explicitNullValueHitCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hit_count"); else _explicitNullProperties?.Remove("hit_count"); } }
+        public double? HitCount { get => _explicitNullValueHitCount; set { _explicitNullValueHitCount = value; AdditionalData?.Remove("hit_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hit_count"); else _explicitNullProperties?.Remove("hit_count"); } }
         private double? _explicitNullValueHitCount = default!;
         /// <summary>the jobs that matched the query</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem>? Hits { get => _explicitNullValueHits; set { _explicitNullValueHits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hits"); else _explicitNullProperties?.Remove("hits"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem>? Hits { get => _explicitNullValueHits; set { _explicitNullValueHits = value; AdditionalData?.Remove("hits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hits"); else _explicitNullProperties?.Remove("hits"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem>? _explicitNullValueHits = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem> Hits { get => _explicitNullValueHits; set { _explicitNullValueHits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hits"); else _explicitNullProperties?.Remove("hits"); } }
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem> Hits { get => _explicitNullValueHits; set { _explicitNullValueHits = value; AdditionalData?.Remove("hits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hits"); else _explicitNullProperties?.Remove("hits"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseHitsItem> _explicitNullValueHits = default!;
 #endif
         /// <summary>Metadata about the index current state</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata? IndexMetadata { get => _explicitNullValueIndexMetadata; set { _explicitNullValueIndexMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_metadata"); else _explicitNullProperties?.Remove("index_metadata"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata? IndexMetadata { get => _explicitNullValueIndexMetadata; set { _explicitNullValueIndexMetadata = value; AdditionalData?.Remove("index_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_metadata"); else _explicitNullProperties?.Remove("index_metadata"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata? _explicitNullValueIndexMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata IndexMetadata { get => _explicitNullValueIndexMetadata; set { _explicitNullValueIndexMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_metadata"); else _explicitNullProperties?.Remove("index_metadata"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata IndexMetadata { get => _explicitNullValueIndexMetadata; set { _explicitNullValueIndexMetadata = value; AdditionalData?.Remove("index_metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index_metadata"); else _explicitNullProperties?.Remove("index_metadata"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.SearchJobsIndex200ResponseIndexMetadata _explicitNullValueIndexMetadata = default!;
 #endif
         /// <summary>a list of the terms that couldn&apos;t be parsed (and thus ignored)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
+        public List<string>? QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; AdditionalData?.Remove("query_parse_errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
         private List<string>? _explicitNullValueQueryParseErrors = default!;
 #nullable restore
 #else
-        public List<string> QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
+        public List<string> QueryParseErrors { get => _explicitNullValueQueryParseErrors; set { _explicitNullValueQueryParseErrors = value; AdditionalData?.Remove("query_parse_errors"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query_parse_errors"); else _explicitNullProperties?.Remove("query_parse_errors"); } }
         private List<string> _explicitNullValueQueryParseErrors = default!;
 #endif
         /// <summary>

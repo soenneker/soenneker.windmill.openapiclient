@@ -17,11 +17,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bypass_groups") is { } nullNodeBypassGroups && nullNodeBypassGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassGroups = null;
-            if (parseNode.GetChildNode("bypass_users") is { } nullNodeBypassUsers && nullNodeBypassUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassUsers = null;
-            if (parseNode.GetChildNode("fork_role_mapping") is { } nullNodeForkRoleMapping && nullNodeForkRoleMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkRoleMapping = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("rules") is { } nullNodeRules && nullNodeRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rules = null;
+            if (parseNode.GetChildNode("bypass_groups") is null) { _explicitNullValueBypassGroups = default!; _explicitNullProperties?.Remove("bypass_groups"); }
+            else if (parseNode.GetChildNode("bypass_groups") is { } nullNodeBypassGroups && nullNodeBypassGroups.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassGroups = null;
+            if (parseNode.GetChildNode("bypass_users") is null) { _explicitNullValueBypassUsers = default!; _explicitNullProperties?.Remove("bypass_users"); }
+            else if (parseNode.GetChildNode("bypass_users") is { } nullNodeBypassUsers && nullNodeBypassUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BypassUsers = null;
+            if (parseNode.GetChildNode("fork_role_mapping") is null) { _explicitNullValueForkRoleMapping = default!; _explicitNullProperties?.Remove("fork_role_mapping"); }
+            else if (parseNode.GetChildNode("fork_role_mapping") is { } nullNodeForkRoleMapping && nullNodeForkRoleMapping.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ForkRoleMapping = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("rules") is null) { _explicitNullValueRules = default!; _explicitNullProperties?.Remove("rules"); }
+            else if (parseNode.GetChildNode("rules") is { } nullNodeRules && nullNodeRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rules = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,52 +34,52 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Groups that can bypass this ruleset</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BypassGroups { get => _explicitNullValueBypassGroups; set { _explicitNullValueBypassGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_groups"); else _explicitNullProperties?.Remove("bypass_groups"); } }
+        public List<string>? BypassGroups { get => _explicitNullValueBypassGroups; set { _explicitNullValueBypassGroups = value; AdditionalData?.Remove("bypass_groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_groups"); else _explicitNullProperties?.Remove("bypass_groups"); } }
         private List<string>? _explicitNullValueBypassGroups = default!;
 #nullable restore
 #else
-        public List<string> BypassGroups { get => _explicitNullValueBypassGroups; set { _explicitNullValueBypassGroups = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_groups"); else _explicitNullProperties?.Remove("bypass_groups"); } }
+        public List<string> BypassGroups { get => _explicitNullValueBypassGroups; set { _explicitNullValueBypassGroups = value; AdditionalData?.Remove("bypass_groups"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_groups"); else _explicitNullProperties?.Remove("bypass_groups"); } }
         private List<string> _explicitNullValueBypassGroups = default!;
 #endif
         /// <summary>Users that can bypass this ruleset</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BypassUsers { get => _explicitNullValueBypassUsers; set { _explicitNullValueBypassUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_users"); else _explicitNullProperties?.Remove("bypass_users"); } }
+        public List<string>? BypassUsers { get => _explicitNullValueBypassUsers; set { _explicitNullValueBypassUsers = value; AdditionalData?.Remove("bypass_users"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_users"); else _explicitNullProperties?.Remove("bypass_users"); } }
         private List<string>? _explicitNullValueBypassUsers = default!;
 #nullable restore
 #else
-        public List<string> BypassUsers { get => _explicitNullValueBypassUsers; set { _explicitNullValueBypassUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_users"); else _explicitNullProperties?.Remove("bypass_users"); } }
+        public List<string> BypassUsers { get => _explicitNullValueBypassUsers; set { _explicitNullValueBypassUsers = value; AdditionalData?.Remove("bypass_users"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bypass_users"); else _explicitNullProperties?.Remove("bypass_users"); } }
         private List<string> _explicitNullValueBypassUsers = default!;
 #endif
         /// <summary>Role a member of this workspace gets in a fork of it, keyed by the role it holds here. Unmapped roles carry over unchanged; where two rulesets map the same role, the first by name wins. On update, omitting it leaves the stored mapping unchanged.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping? ForkRoleMapping { get => _explicitNullValueForkRoleMapping; set { _explicitNullValueForkRoleMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_role_mapping"); else _explicitNullProperties?.Remove("fork_role_mapping"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping? ForkRoleMapping { get => _explicitNullValueForkRoleMapping; set { _explicitNullValueForkRoleMapping = value; AdditionalData?.Remove("fork_role_mapping"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_role_mapping"); else _explicitNullProperties?.Remove("fork_role_mapping"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping? _explicitNullValueForkRoleMapping = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping ForkRoleMapping { get => _explicitNullValueForkRoleMapping; set { _explicitNullValueForkRoleMapping = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_role_mapping"); else _explicitNullProperties?.Remove("fork_role_mapping"); } }
+        public global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping ForkRoleMapping { get => _explicitNullValueForkRoleMapping; set { _explicitNullValueForkRoleMapping = value; AdditionalData?.Remove("fork_role_mapping"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fork_role_mapping"); else _explicitNullProperties?.Remove("fork_role_mapping"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping _explicitNullValueForkRoleMapping = default!;
 #endif
         /// <summary>New name for the rule. Omit, or pass the current name, to leave it unchanged. The reserved `dev_workspace_lock` rule cannot be renamed, nor can another rule be renamed onto it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Configuration of protection restrictions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem?>? Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem?>? _explicitNullValueRules = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesProtectionRulesGetResponses200ContentApplicationJsonSch2257065E4F?>? Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; AdditionalData?.Remove("rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesProtectionRulesGetResponses200ContentApplicationJsonSch2257065E4F?>? _explicitNullValueRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem?> Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
-        private List<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem?> _explicitNullValueRules = default!;
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesProtectionRulesGetResponses200ContentApplicationJsonSch2257065E4F?> Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; AdditionalData?.Remove("rules"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesProtectionRulesGetResponses200ContentApplicationJsonSch2257065E4F?> _explicitNullValueRules = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequest"/> and sets the default values.
@@ -105,7 +110,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "bypass_users", n => { BypassUsers = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "fork_role_mapping", n => { ForkRoleMapping = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "rules", n => { Rules = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem>()?.AsList(); } },
+                { "rules", n => { Rules = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesProtectionRulesGetResponses200ContentApplicationJsonSch2257065E4F>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -119,7 +124,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("bypass_users", BypassUsers);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestForkRoleMapping>("fork_role_mapping", ForkRoleMapping);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.UpdateProtectionRuleRequestRulesItem>("rules", Rules);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesProtectionRulesGetResponses200ContentApplicationJsonSch2257065E4F>("rules", Rules);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

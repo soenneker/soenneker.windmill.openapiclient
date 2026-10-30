@@ -17,44 +17,49 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
-            if (parseNode.GetChildNode("main_args") is { } nullNodeMainArgs && nullNodeMainArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MainArgs = null;
-            if (parseNode.GetChildNode("preprocessor_args") is { } nullNodePreprocessorArgs && nullNodePreprocessorArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreprocessorArgs = null;
-            if (parseNode.GetChildNode("trigger_kind") is { } nullNodeTriggerKind && nullNodeTriggerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerKind = null;
+            if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
+            else if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
+            else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
+            if (parseNode.GetChildNode("main_args") is null) { _explicitNullValueMainArgs = default!; _explicitNullProperties?.Remove("main_args"); }
+            else if (parseNode.GetChildNode("main_args") is { } nullNodeMainArgs && nullNodeMainArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MainArgs = null;
+            if (parseNode.GetChildNode("preprocessor_args") is null) { _explicitNullValuePreprocessorArgs = default!; _explicitNullProperties?.Remove("preprocessor_args"); }
+            else if (parseNode.GetChildNode("preprocessor_args") is { } nullNodePreprocessorArgs && nullNodePreprocessorArgs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreprocessorArgs = null;
+            if (parseNode.GetChildNode("trigger_kind") is null) { _explicitNullValueTriggerKind = default!; _explicitNullProperties?.Remove("trigger_kind"); }
+            else if (parseNode.GetChildNode("trigger_kind") is { } nullNodeTriggerKind && nullNodeTriggerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerKind = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The id property</summary>
-        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private int? _explicitNullValueId = default!;
         /// <summary>The main_args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? MainArgs { get => _explicitNullValueMainArgs; set { _explicitNullValueMainArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_args"); else _explicitNullProperties?.Remove("main_args"); } }
+        public UntypedNode? MainArgs { get => _explicitNullValueMainArgs; set { _explicitNullValueMainArgs = value; AdditionalData?.Remove("main_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_args"); else _explicitNullProperties?.Remove("main_args"); } }
         private UntypedNode? _explicitNullValueMainArgs = default!;
 #nullable restore
 #else
-        public UntypedNode MainArgs { get => _explicitNullValueMainArgs; set { _explicitNullValueMainArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_args"); else _explicitNullProperties?.Remove("main_args"); } }
+        public UntypedNode MainArgs { get => _explicitNullValueMainArgs; set { _explicitNullValueMainArgs = value; AdditionalData?.Remove("main_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("main_args"); else _explicitNullProperties?.Remove("main_args"); } }
         private UntypedNode _explicitNullValueMainArgs = default!;
 #endif
         /// <summary>The preprocessor_args property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? PreprocessorArgs { get => _explicitNullValuePreprocessorArgs; set { _explicitNullValuePreprocessorArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_args"); else _explicitNullProperties?.Remove("preprocessor_args"); } }
+        public UntypedNode? PreprocessorArgs { get => _explicitNullValuePreprocessorArgs; set { _explicitNullValuePreprocessorArgs = value; AdditionalData?.Remove("preprocessor_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_args"); else _explicitNullProperties?.Remove("preprocessor_args"); } }
         private UntypedNode? _explicitNullValuePreprocessorArgs = default!;
 #nullable restore
 #else
-        public UntypedNode PreprocessorArgs { get => _explicitNullValuePreprocessorArgs; set { _explicitNullValuePreprocessorArgs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_args"); else _explicitNullProperties?.Remove("preprocessor_args"); } }
+        public UntypedNode PreprocessorArgs { get => _explicitNullValuePreprocessorArgs; set { _explicitNullValuePreprocessorArgs = value; AdditionalData?.Remove("preprocessor_args"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preprocessor_args"); else _explicitNullProperties?.Remove("preprocessor_args"); } }
         private UntypedNode _explicitNullValuePreprocessorArgs = default!;
 #endif
         /// <summary>The trigger_kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.GetCapture200ResponseTriggerKind? TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.GetCapture200ResponseTriggerKind? _explicitNullValueTriggerKind = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceCaptureListRunnableKindPathGetResponses200ContentApplicationF87B19Cd5B? TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; AdditionalData?.Remove("trigger_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceCaptureListRunnableKindPathGetResponses200ContentApplicationF87B19Cd5B? _explicitNullValueTriggerKind = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetCapture200Response"/> and sets the default values.
         /// </summary>
@@ -84,7 +89,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "main_args", n => { MainArgs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "preprocessor_args", n => { PreprocessorArgs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCapture200ResponseTriggerKind>(); } },
+                { "trigger_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceCaptureListRunnableKindPathGetResponses200ContentApplicationF87B19Cd5B>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueTriggerKind = default; _explicitNullProperties?.Remove("trigger_kind"); AdditionalData["trigger_kind"] = unknown; } else { TriggerKind = parsed; AdditionalData.Remove("trigger_kind"); } } },
             };
         }
         /// <summary>
@@ -98,7 +103,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("id", Id);
             writer.WriteObjectValue<UntypedNode>("main_args", MainArgs);
             writer.WriteObjectValue<UntypedNode>("preprocessor_args", PreprocessorArgs);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCapture200ResponseTriggerKind>("trigger_kind", TriggerKind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceCaptureListRunnableKindPathGetResponses200ContentApplicationF87B19Cd5B>("trigger_kind", TriggerKind);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

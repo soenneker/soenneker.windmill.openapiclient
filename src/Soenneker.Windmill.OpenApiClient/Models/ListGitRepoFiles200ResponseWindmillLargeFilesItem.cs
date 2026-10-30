@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("s3") is { } nullNodeS3 && nullNodeS3.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3 = null;
+            if (parseNode.GetChildNode("s3") is null) { _explicitNullValueS3 = default!; _explicitNullProperties?.Remove("s3"); }
+            else if (parseNode.GetChildNode("s3") is { } nullNodeS3 && nullNodeS3.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) S3 = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The s3 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? S3 { get => _explicitNullValueS3; set { _explicitNullValueS3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3"); else _explicitNullProperties?.Remove("s3"); } }
+        public string? S3 { get => _explicitNullValueS3; set { _explicitNullValueS3 = value; AdditionalData?.Remove("s3"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3"); else _explicitNullProperties?.Remove("s3"); } }
         private string? _explicitNullValueS3 = default!;
 #nullable restore
 #else
-        public string S3 { get => _explicitNullValueS3; set { _explicitNullValueS3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3"); else _explicitNullProperties?.Remove("s3"); } }
+        public string S3 { get => _explicitNullValueS3; set { _explicitNullValueS3 = value; AdditionalData?.Remove("s3"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("s3"); else _explicitNullProperties?.Remove("s3"); } }
         private string _explicitNullValueS3 = default!;
 #endif
         /// <summary>

@@ -17,8 +17,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("scope_resource_id") is { } nullNodeScopeResourceId && nullNodeScopeResourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopeResourceId = null;
-            if (parseNode.GetChildNode("topic_name") is { } nullNodeTopicName && nullNodeTopicName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopicName = null;
+            if (parseNode.GetChildNode("scope_resource_id") is null) { _explicitNullValueScopeResourceId = default!; _explicitNullProperties?.Remove("scope_resource_id"); }
+            else if (parseNode.GetChildNode("scope_resource_id") is { } nullNodeScopeResourceId && nullNodeScopeResourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScopeResourceId = null;
+            if (parseNode.GetChildNode("topic_name") is null) { _explicitNullValueTopicName = default!; _explicitNullProperties?.Remove("topic_name"); }
+            else if (parseNode.GetChildNode("topic_name") is { } nullNodeTopicName && nullNodeTopicName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopicName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The scope_resource_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
+        public string? ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; AdditionalData?.Remove("scope_resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
         private string? _explicitNullValueScopeResourceId = default!;
 #nullable restore
 #else
-        public string ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
+        public string ScopeResourceId { get => _explicitNullValueScopeResourceId; set { _explicitNullValueScopeResourceId = value; AdditionalData?.Remove("scope_resource_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope_resource_id"); else _explicitNullProperties?.Remove("scope_resource_id"); } }
         private string _explicitNullValueScopeResourceId = default!;
 #endif
         /// <summary>The topic_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
+        public string? TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; AdditionalData?.Remove("topic_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
         private string? _explicitNullValueTopicName = default!;
 #nullable restore
 #else
-        public string TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
+        public string TopicName { get => _explicitNullValueTopicName; set { _explicitNullValueTopicName = value; AdditionalData?.Remove("topic_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topic_name"); else _explicitNullProperties?.Remove("topic_name"); } }
         private string _explicitNullValueTopicName = default!;
 #endif
         /// <summary>

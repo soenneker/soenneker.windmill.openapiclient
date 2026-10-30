@@ -17,11 +17,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("imported_path") is { } nullNodeImportedPath && nullNodeImportedPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportedPath = null;
-            if (parseNode.GetChildNode("importer_kind") is { } nullNodeImporterKind && nullNodeImporterKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterKind = null;
-            if (parseNode.GetChildNode("importer_node_id") is { } nullNodeImporterNodeId && nullNodeImporterNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterNodeId = null;
-            if (parseNode.GetChildNode("importer_path") is { } nullNodeImporterPath && nullNodeImporterPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterPath = null;
-            if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
+            if (parseNode.GetChildNode("imported_path") is null) { _explicitNullValueImportedPath = default!; _explicitNullProperties?.Remove("imported_path"); }
+            else if (parseNode.GetChildNode("imported_path") is { } nullNodeImportedPath && nullNodeImportedPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImportedPath = null;
+            if (parseNode.GetChildNode("importer_kind") is null) { _explicitNullValueImporterKind = default!; _explicitNullProperties?.Remove("importer_kind"); }
+            else if (parseNode.GetChildNode("importer_kind") is { } nullNodeImporterKind && nullNodeImporterKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterKind = null;
+            if (parseNode.GetChildNode("importer_node_id") is null) { _explicitNullValueImporterNodeId = default!; _explicitNullProperties?.Remove("importer_node_id"); }
+            else if (parseNode.GetChildNode("importer_node_id") is { } nullNodeImporterNodeId && nullNodeImporterNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterNodeId = null;
+            if (parseNode.GetChildNode("importer_path") is null) { _explicitNullValueImporterPath = default!; _explicitNullProperties?.Remove("importer_path"); }
+            else if (parseNode.GetChildNode("importer_path") is { } nullNodeImporterPath && nullNodeImporterPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterPath = null;
+            if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
+            else if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,51 +34,51 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The imported_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImportedPath { get => _explicitNullValueImportedPath; set { _explicitNullValueImportedPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imported_path"); else _explicitNullProperties?.Remove("imported_path"); } }
+        public string? ImportedPath { get => _explicitNullValueImportedPath; set { _explicitNullValueImportedPath = value; AdditionalData?.Remove("imported_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imported_path"); else _explicitNullProperties?.Remove("imported_path"); } }
         private string? _explicitNullValueImportedPath = default!;
 #nullable restore
 #else
-        public string ImportedPath { get => _explicitNullValueImportedPath; set { _explicitNullValueImportedPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imported_path"); else _explicitNullProperties?.Remove("imported_path"); } }
+        public string ImportedPath { get => _explicitNullValueImportedPath; set { _explicitNullValueImportedPath = value; AdditionalData?.Remove("imported_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imported_path"); else _explicitNullProperties?.Remove("imported_path"); } }
         private string _explicitNullValueImportedPath = default!;
 #endif
         /// <summary>The importer_kind property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImporterKind { get => _explicitNullValueImporterKind; set { _explicitNullValueImporterKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_kind"); else _explicitNullProperties?.Remove("importer_kind"); } }
+        public string? ImporterKind { get => _explicitNullValueImporterKind; set { _explicitNullValueImporterKind = value; AdditionalData?.Remove("importer_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_kind"); else _explicitNullProperties?.Remove("importer_kind"); } }
         private string? _explicitNullValueImporterKind = default!;
 #nullable restore
 #else
-        public string ImporterKind { get => _explicitNullValueImporterKind; set { _explicitNullValueImporterKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_kind"); else _explicitNullProperties?.Remove("importer_kind"); } }
+        public string ImporterKind { get => _explicitNullValueImporterKind; set { _explicitNullValueImporterKind = value; AdditionalData?.Remove("importer_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_kind"); else _explicitNullProperties?.Remove("importer_kind"); } }
         private string _explicitNullValueImporterKind = default!;
 #endif
         /// <summary>The importer_node_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImporterNodeId { get => _explicitNullValueImporterNodeId; set { _explicitNullValueImporterNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_id"); else _explicitNullProperties?.Remove("importer_node_id"); } }
+        public string? ImporterNodeId { get => _explicitNullValueImporterNodeId; set { _explicitNullValueImporterNodeId = value; AdditionalData?.Remove("importer_node_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_id"); else _explicitNullProperties?.Remove("importer_node_id"); } }
         private string? _explicitNullValueImporterNodeId = default!;
 #nullable restore
 #else
-        public string ImporterNodeId { get => _explicitNullValueImporterNodeId; set { _explicitNullValueImporterNodeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_id"); else _explicitNullProperties?.Remove("importer_node_id"); } }
+        public string ImporterNodeId { get => _explicitNullValueImporterNodeId; set { _explicitNullValueImporterNodeId = value; AdditionalData?.Remove("importer_node_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_node_id"); else _explicitNullProperties?.Remove("importer_node_id"); } }
         private string _explicitNullValueImporterNodeId = default!;
 #endif
         /// <summary>The importer_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
+        public string? ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; AdditionalData?.Remove("importer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
         private string? _explicitNullValueImporterPath = default!;
 #nullable restore
 #else
-        public string ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
+        public string ImporterPath { get => _explicitNullValueImporterPath; set { _explicitNullValueImporterPath = value; AdditionalData?.Remove("importer_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("importer_path"); else _explicitNullProperties?.Remove("importer_path"); } }
         private string _explicitNullValueImporterPath = default!;
 #endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
         private string? _explicitNullValueWorkspaceId = default!;
 #nullable restore
 #else
-        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
+        public string WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
         private string _explicitNullValueWorkspaceId = default!;
 #endif
         /// <summary>

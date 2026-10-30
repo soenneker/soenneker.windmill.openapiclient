@@ -17,7 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("login_type") is { } nullNodeLoginType && nullNodeLoginType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoginType = null;
+            if (parseNode.GetChildNode("login_type") is null) { _explicitNullValueLoginType = default!; _explicitNullProperties?.Remove("login_type"); }
+            else if (parseNode.GetChildNode("login_type") is { } nullNodeLoginType && nullNodeLoginType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoginType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The login_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoginType { get => _explicitNullValueLoginType; set { _explicitNullValueLoginType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login_type"); else _explicitNullProperties?.Remove("login_type"); } }
+        public string? LoginType { get => _explicitNullValueLoginType; set { _explicitNullValueLoginType = value; AdditionalData?.Remove("login_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login_type"); else _explicitNullProperties?.Remove("login_type"); } }
         private string? _explicitNullValueLoginType = default!;
 #nullable restore
 #else
-        public string LoginType { get => _explicitNullValueLoginType; set { _explicitNullValueLoginType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login_type"); else _explicitNullProperties?.Remove("login_type"); } }
+        public string LoginType { get => _explicitNullValueLoginType; set { _explicitNullValueLoginType = value; AdditionalData?.Remove("login_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("login_type"); else _explicitNullProperties?.Remove("login_type"); } }
         private string _explicitNullValueLoginType = default!;
 #endif
         /// <summary>

@@ -1120,6 +1120,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "user created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserGlobally201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -1976,6 +1987,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "token created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkspace201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -2018,6 +2040,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "forked workspace branch created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkspaceForkGitBranch201ResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -2068,6 +2101,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "forked workspace created, or with background set, the id of its creation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkspaceFork201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -3098,6 +3142,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "computation started",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputeObjectStorageUsage202PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -3119,6 +3174,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "cleanup started",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunLogCleanup202PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -4851,6 +4917,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "service account created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateServiceAccount201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -4892,6 +4969,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "impersonation token",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImpersonateServiceAccount201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -9648,6 +9736,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "token created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateToken201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -9680,6 +9779,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "token created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateTokenImpersonate201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -9715,6 +9825,17 @@
           },
           "409": {
             "description": "the account does not have the required login type"
+          },
+          "200": {
+            "description": "login link minted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLoginLink201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -10120,6 +10241,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "variable created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateVariable201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true
@@ -12066,6 +12198,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "resource created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateResource201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true
@@ -12965,6 +13108,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "resource_type created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateResourceType201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -14828,6 +14982,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "script created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateScript201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true,
@@ -14896,6 +15061,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "new script version created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateScript201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true,
@@ -15131,6 +15307,17 @@
           },
           "400": {
             "description": "the body\u0027s workspace_id does not match the workspace in the path"
+          },
+          "200": {
+            "description": "workspace dependencies created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWorkspaceDependencies201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -16500,6 +16687,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunScriptByPath201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true,
@@ -18937,6 +19135,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "flow created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateFlow201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true,
@@ -21310,6 +21519,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "app created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateApp201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -21352,6 +21572,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "app created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAppRaw201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -22195,6 +22426,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "app created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAppRawSource201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true,
@@ -23279,6 +23521,17 @@
           },
           "409": {
             "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunFlowByPath201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true,
@@ -23412,6 +23665,17 @@
           },
           "409": {
             "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunFlowByVersion201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -23455,6 +23719,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "stream of created job uuids separated by \\n. Lines may start with \u0027Error:\u0027",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchReRunJobs201EventStreamResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -23565,6 +23840,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestartFlowAtStep201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -23698,6 +23984,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunScriptByHash201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -23773,6 +24070,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunScriptPreview201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -24022,6 +24330,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunCodeWorkflowTask201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -24064,6 +24383,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "dependency job result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunRawScriptDependencies201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -24106,6 +24436,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "dependency job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunRawScriptDependenciesAsync201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -24148,6 +24489,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "flow dependencies job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunFlowDependenciesAsync201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -24226,6 +24578,17 @@
           },
           "409": {
             "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunFlowPreview201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -24285,6 +24648,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunAgent201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -24380,6 +24754,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "dynamic select job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunDynamicSelect201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -28166,6 +28551,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job resumed",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResumeSuspended201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -28286,6 +28682,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job resumed",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResumeSuspendedJobGet201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -28357,6 +28764,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job resumed",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResumeSuspendedJobPost201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -28512,6 +28930,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job resumed",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResumeSuspendedFlowAsOwner201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -28575,6 +29004,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job canceled",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelSuspendedJobGet201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       },
@@ -28646,6 +29086,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "job canceled",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelSuspendedJobPost201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -28783,6 +29234,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "schedule created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSchedule201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "x-mcp-tool": true,
@@ -29348,6 +29810,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "http trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateHttpTriggers201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -29390,6 +29863,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "http trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateHttpTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -29783,6 +30267,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "websocket trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateWebsocketTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -30177,6 +30672,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "kafka trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateKafkaTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -30646,6 +31152,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "nats trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateNatsTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -31040,6 +31557,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "sqs trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSqsTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -31512,6 +32040,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "native trigger service created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateNativeTriggerService201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -31876,6 +32415,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "native trigger created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateNativeTrigger201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -32597,6 +33147,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "mqtt trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMqttTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -32991,6 +33552,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "amqp trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAmqpTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -33385,6 +33957,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "gcp trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateGcpTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -34048,6 +34631,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "azure trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAzureTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -34862,6 +35456,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "slot created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePostgresReplicationSlot201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -35058,6 +35663,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "publication created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePostgresPublication201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -35117,6 +35733,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "publication updated",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatePostgresPublication201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -35207,6 +35834,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "postgres trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePostgresTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -35601,6 +36239,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "email trigger created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateEmailTrigger201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -38796,6 +39445,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Input created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateInput201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -38838,6 +39498,17 @@
                 }
               }
             }
+          },
+          "200": {
+            "description": "Input updated",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateInput201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
@@ -54917,7 +55588,7 @@
             "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
           },
           "value": {
-            "$ref": "#/components/schemas/ToolValue"
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C"
           }
         },
         "description": "A tool available to an AI agent. Can be a flow module or an external MCP (Model Context Protocol) tool"
@@ -54950,12 +55621,9 @@
         "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
       },
       "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C": {
-        "required": [
-          "tool_type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
+            "$ref": "#/components/schemas/ToolValueOneOf1"
           },
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro4Fd5635Baf"
@@ -54967,13 +55635,8 @@
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro16F758D2E7"
           }
         ],
-        "properties": {
-          "tool_type": {
-            "type": "string"
-          }
-        },
         "description": "The implementation of a tool. Can be a flow module (script/flow) or an MCP tool reference",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "tool_type",
           "mapping": {
             "flowmodule": "#/components/schemas/FlowModuleTool",
@@ -91245,12 +91908,9 @@
         "description": "Built-in tool the AI calls as ask_question: the agent stops, releasing its worker, until someone answers from the flow\u0027s run page or chat or the question times out, then resumes with the answer as the tool result."
       },
       "ToolValue": {
-        "required": [
-          "tool_type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
+            "$ref": "#/components/schemas/ToolValueOneOf1"
           },
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro4Fd5635Baf"
@@ -91262,13 +91922,8 @@
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro16F758D2E7"
           }
         ],
-        "properties": {
-          "tool_type": {
-            "type": "string"
-          }
-        },
         "description": "The implementation of a tool. Can be a flow module (script/flow) or an MCP tool reference",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "tool_type",
           "mapping": {
             "flowmodule": "#/components/schemas/FlowModuleTool",
@@ -91309,7 +91964,7 @@
             "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
           },
           "value": {
-            "$ref": "#/components/schemas/ToolValue"
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C"
           }
         },
         "description": "A tool available to an AI agent. Can be a flow module or an external MCP (Model Context Protocol) tool"
@@ -93924,7 +94579,7 @@
             "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
           },
           "value": {
-            "$ref": "#/components/schemas/ToolValue"
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C"
           }
         },
         "description": "A tool available to an AI agent. Can be a flow module or an external MCP (Model Context Protocol) tool"
@@ -147297,6 +147952,106 @@
           "tag",
           "type"
         ]
+      },
+      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07COneOf1": {
+        "description": "A tool implemented as a flow module (script, flow, etc.). The AI can call this like any other flow module",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf4"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf5"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf6"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf7"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf8"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf9"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf10"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "rawscript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf1",
+            "script": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf2",
+            "flow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf3",
+            "forloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf4",
+            "whileloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf5",
+            "branchone": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf6",
+            "branchall": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf7",
+            "identity": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf8",
+            "aiagent": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf9",
+            "aidecision": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf10"
+          }
+        }
+      },
+      "ToolValueOneOf1": {
+        "description": "A tool implemented as a flow module (script, flow, etc.). The AI can call this like any other flow module",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf4"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf5"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf6"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf7"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf8"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf9"
+          },
+          {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf10"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "rawscript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf1",
+            "script": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf2",
+            "flow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf3",
+            "forloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf4",
+            "whileloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf5",
+            "branchone": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf6",
+            "branchall": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf7",
+            "identity": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf8",
+            "aiagent": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf9",
+            "aidecision": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf10"
+          }
+        }
       }
     },
     "parameters": {

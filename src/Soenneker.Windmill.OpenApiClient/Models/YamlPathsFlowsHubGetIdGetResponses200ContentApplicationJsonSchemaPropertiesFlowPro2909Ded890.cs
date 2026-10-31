@@ -80,12 +80,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The implementation of a tool. Can be a flow module (script/flow) or an MCP tool reference</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.ToolValue? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ToolValue? _explicitNullValueValue = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.ToolValue Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.ToolValue _explicitNullValueValue = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C _explicitNullValueValue = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2909Ded890"/> and sets the default values.
@@ -117,7 +117,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "requires_approval", n => { RequiresApproval = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ToolValue>(global::Soenneker.Windmill.OpenApiClient.Models.ToolValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -132,7 +132,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
             writer.WriteBoolValue("requires_approval", RequiresApproval);
             writer.WriteStringValue("summary", Summary);
-            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ToolValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C>("value", Value);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

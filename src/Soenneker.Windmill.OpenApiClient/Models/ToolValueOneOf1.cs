@@ -11,7 +11,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
     /// A tool implemented as a flow module (script, flow, etc.). The AI can call this like any other flow module
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf : IAdditionalDataHolder, IParsable
+    public partial class ToolValueOneOf1 : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -284,9 +284,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         private string? _explicitNullValueType = default!;
 #nullable restore
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ToolValueOneOf1"/> and sets the default values.
         /// </summary>
-        public YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf()
+        public ToolValueOneOf1()
         {
             AdditionalData = new Dictionary<string, object>();
             OmitOutputFromConversation = false;
@@ -294,12 +294,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ToolValueOneOf1"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Windmill.OpenApiClient.Models.ToolValueOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ToolValueOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

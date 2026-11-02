@@ -45140,7 +45140,8 @@
             "type": "string",
             "description": "The instance group name (when source is \u0027instance_group\u0027)"
           }
-        }
+        },
+        "nullable": true
       },
       "YamlPathsWWorkspaceUsersGetUsernameGetResponses200ContentApplicationJsonSchemaPro07D71C5A4D": {
         "required": [
@@ -94021,7 +94022,8 @@
           {
             "$ref": "#/components/schemas/MainArgSignatureArgsItemTypOneOf5ListOneOf2"
           }
-        ]
+        ],
+        "nullable": true
       },
       "MainArgSignatureArgsItemTypOneOf4ObjectPropsItemTypOneOf2": {
         "required": [
@@ -100433,7 +100435,8 @@
               "$ref": "#/components/schemas/YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104"
             }
           }
-        }
+        },
+        "nullable": true
       },
       "CreateDeploymentRequestRequest": {
         "required": [
@@ -101862,7 +101865,8 @@
         "type": "object",
         "properties": {
           "value": {
-            "description": "Draft content to save. \u0060null\u0060 (or omitted) signals a delete \u2014 the row is removed under the same conflict rules."
+            "description": "Draft content to save. \u0060null\u0060 (or omitted) signals a delete \u2014 the row is removed under the same conflict rules.",
+            "nullable": true
           },
           "last_sync": {
             "type": "string",

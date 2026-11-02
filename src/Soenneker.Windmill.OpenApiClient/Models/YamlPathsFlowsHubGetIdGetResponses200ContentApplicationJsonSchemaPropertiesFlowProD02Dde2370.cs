@@ -52,9 +52,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "ai" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf3(),
-                "javascript" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf2(),
-                "static" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf1(),
+                "ai" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedAiVariant38E75B14DECAC4C7(),
+                "javascript" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedJavascriptVariant2FCFE2A9993F5B73(),
+                "static" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedStaticVariant6078962DF12DDA86(),
                 _ => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370(),
             };
         }

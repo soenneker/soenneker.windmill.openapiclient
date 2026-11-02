@@ -50731,9 +50731,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariantB21A6BC08B421A1A",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant931A8462DBCA678A",
+            "ai": "#/components/schemas/TaggedAiVariant6D44D30CEE842707"
           }
         },
         "x-client-original-tagged-union": {
@@ -50773,9 +50773,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant3764D9B6FBF61739",
+            "javascript": "#/components/schemas/TaggedJavascriptVariantD96C3F672F548AB6",
+            "ai": "#/components/schemas/TaggedAiVariant91E30A039055BEC5"
           }
         },
         "x-client-original-tagged-union": {
@@ -50815,9 +50815,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant8E3402B75A11321B",
+            "javascript": "#/components/schemas/TaggedJavascriptVariantE4BE2AE86E2977E6",
+            "ai": "#/components/schemas/TaggedAiVariant416B05F3241124C4"
           }
         },
         "x-client-original-tagged-union": {
@@ -50857,9 +50857,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant6078962DF12DDA86",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant2FCFE2A9993F5B73",
+            "ai": "#/components/schemas/TaggedAiVariant38E75B14DECAC4C7"
           }
         },
         "x-client-original-tagged-union": {
@@ -51168,9 +51168,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant880C886F2F55B653",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant414B13CABDF84F0D",
+            "ai": "#/components/schemas/TaggedAiVariant76F5E5A56E5FA642"
           }
         },
         "x-client-original-tagged-union": {
@@ -51210,9 +51210,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeOneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeOneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeOneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant471FB1EC77BA140F",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant012FD0570BFFC3DB",
+            "ai": "#/components/schemas/TaggedAiVariantAA6CCC4FD076BF4E"
           }
         },
         "x-client-original-tagged-union": {
@@ -51252,9 +51252,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariantCFC606E4AE1F1601",
+            "javascript": "#/components/schemas/TaggedJavascriptVariantA0631B152D79F0BB",
+            "ai": "#/components/schemas/TaggedAiVariantE3EA28144378A365"
           }
         },
         "x-client-original-tagged-union": {
@@ -51294,9 +51294,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant19AD3E3CDFFECD0D",
+            "javascript": "#/components/schemas/TaggedJavascriptVariantB163924723C09F2A",
+            "ai": "#/components/schemas/TaggedAiVariant98229686E23D8891"
           }
         },
         "x-client-original-tagged-union": {
@@ -51336,9 +51336,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AOneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AOneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AOneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant3B442438577314BB",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant689966AFF9A7CCB0",
+            "ai": "#/components/schemas/TaggedAiVariant9E0C5D32E90D1EE3"
           }
         },
         "x-client-original-tagged-union": {
@@ -51378,9 +51378,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AOneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AOneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AOneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant474599588FE95B9F",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant1DAA503AE0DE464C",
+            "ai": "#/components/schemas/TaggedAiVariant003FB9709EB779B3"
           }
         },
         "x-client-original-tagged-union": {
@@ -51420,9 +51420,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeOneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeOneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeOneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant5065097A496D118D",
+            "javascript": "#/components/schemas/TaggedJavascriptVariantE247F20945CD7840",
+            "ai": "#/components/schemas/TaggedAiVariantCCB1A76B96DC9677"
           }
         },
         "x-client-original-tagged-union": {
@@ -51462,9 +51462,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant045891126D8BB525",
+            "javascript": "#/components/schemas/TaggedJavascriptVariantE8976D6F2576250C",
+            "ai": "#/components/schemas/TaggedAiVariantD3B99CE3D707DABB"
           }
         },
         "x-client-original-tagged-union": {
@@ -51504,9 +51504,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariantE1D582912EC0E0F8",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant1FD94A60F8B0AC15",
+            "ai": "#/components/schemas/TaggedAiVariant6D6E4A88655464F3"
           }
         },
         "x-client-original-tagged-union": {
@@ -51546,9 +51546,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant4C475F8F73C2FC1F",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant6F3C8A4C9FF8ECCE",
+            "ai": "#/components/schemas/TaggedAiVariantD641EB65DD79D078"
           }
         },
         "x-client-original-tagged-union": {
@@ -51714,9 +51714,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant574821391993B550",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant57D49083E0C2FCCE",
+            "ai": "#/components/schemas/TaggedAiVariantFD6C42886C199A97"
           }
         },
         "x-client-original-tagged-union": {
@@ -51756,9 +51756,9 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4OneOf1",
-            "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4OneOf2",
-            "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4OneOf3"
+            "static": "#/components/schemas/TaggedStaticVariant606CBD4C16C3121A",
+            "javascript": "#/components/schemas/TaggedJavascriptVariant0EDCF6C61BE275FB",
+            "ai": "#/components/schemas/TaggedAiVariant51861AC2B350D830"
           }
         },
         "x-client-original-tagged-union": {
@@ -55114,8 +55114,8 @@
         "discriminator": {
           "propertyName": "source",
           "mapping": {
-            "deployed": "#/components/schemas/YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP55C7Bc730A",
-            "inline": "#/components/schemas/YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaPFc83D4A1F4"
+            "deployed": "#/components/schemas/TaggedDeployedVariantDA61235D3CAC117D",
+            "inline": "#/components/schemas/TaggedInlineVariantEDD175453D85AE8A"
           }
         },
         "x-client-original-tagged-union": {
@@ -55653,12 +55653,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "tool_call": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr8948D6127C",
-            "mcp_tool_call": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr9Fccde0Abb",
-            "web_search": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA99Fd15A2D",
-            "approval": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrE7Ae415727",
-            "question": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr41094F3B26",
-            "message": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr1F4C1302E5"
+            "tool_call": "#/components/schemas/TaggedToolCallVariant1AE1EF5E15F92539",
+            "mcp_tool_call": "#/components/schemas/TaggedMcpToolCallVariantD12C67B30A7EBC7C",
+            "web_search": "#/components/schemas/TaggedWebSearchVariant18AD0CD8E4D04A8A",
+            "approval": "#/components/schemas/TaggedApprovalVariant2F045534463EE91C",
+            "question": "#/components/schemas/TaggedQuestionVariant08168F18A7553959",
+            "message": "#/components/schemas/TaggedMessageVariant8BE954E65BCE8A26"
           }
         },
         "x-client-original-tagged-union": {
@@ -61103,8 +61103,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "CompletedJob": "#/components/schemas/YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FYamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FOneOf1",
-            "QueuedJob": "#/components/schemas/YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FYamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FOneOf2"
+            "CompletedJob": "#/components/schemas/TaggedCompletedJobVariant7BF7B0C4446BC275",
+            "QueuedJob": "#/components/schemas/TaggedQueuedJobVariant46222A169841B745"
           }
         },
         "x-client-original-tagged-union": {
@@ -61621,15 +61621,15 @@
         "discriminator": {
           "propertyName": "trigger_kind",
           "mapping": {
-            "asset": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5",
-            "schedule": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85",
-            "email": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85",
-            "kafka": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85",
-            "mqtt": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85",
-            "nats": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85",
-            "postgres": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85",
-            "sqs": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85",
-            "gcp": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85"
+            "asset": "#/components/schemas/TaggedAssetVariant5F7D987FD634825F",
+            "schedule": "#/components/schemas/TaggedEmailVariant676F062E52909180",
+            "email": "#/components/schemas/TaggedEmailVariant676F062E52909180",
+            "kafka": "#/components/schemas/TaggedEmailVariant676F062E52909180",
+            "mqtt": "#/components/schemas/TaggedEmailVariant676F062E52909180",
+            "nats": "#/components/schemas/TaggedEmailVariant676F062E52909180",
+            "postgres": "#/components/schemas/TaggedEmailVariant676F062E52909180",
+            "sqs": "#/components/schemas/TaggedEmailVariant676F062E52909180",
+            "gcp": "#/components/schemas/TaggedEmailVariant676F062E52909180"
           }
         },
         "x-client-original-tagged-union": {
@@ -72525,8 +72525,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "CompletedJob": "#/components/schemas/GetJob200ResponseGetJob200ResponseOneOf1",
-            "QueuedJob": "#/components/schemas/GetJob200ResponseGetJob200ResponseOneOf2"
+            "CompletedJob": "#/components/schemas/GetJob200ResponseOneOf1Variant",
+            "QueuedJob": "#/components/schemas/GetJob200ResponseOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -82765,8 +82765,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "CompletedJob": "#/components/schemas/GetSuspendedJobFlow200ResponseJobGetSuspendedJobFlow200ResponseJobOneOf1",
-            "QueuedJob": "#/components/schemas/GetSuspendedJobFlow200ResponseJobGetSuspendedJobFlow200ResponseJobOneOf2"
+            "CompletedJob": "#/components/schemas/GetSuspendedJobFlow200ResponseJobOneOf1Variant",
+            "QueuedJob": "#/components/schemas/GetSuspendedJobFlow200ResponseJobOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -82806,8 +82806,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "CompletedJob": "#/components/schemas/ListJobs200ResponseSchemaItemListJobs200ResponseSchemaItemOneOf1",
-            "QueuedJob": "#/components/schemas/ListJobs200ResponseSchemaItemListJobs200ResponseSchemaItemOneOf2"
+            "CompletedJob": "#/components/schemas/ListJobs200ResponseSchemaItemOneOf1Variant",
+            "QueuedJob": "#/components/schemas/ListJobs200ResponseSchemaItemOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -101179,7 +101179,7 @@
           "$ref": "#/components/schemas/NativeKubernetesAutoscalingHealthcheck400PlainResponseSchema"
         }
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36OneOf1": {
+      "TaggedStaticVariantB21A6BC08B421A1A": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36"
@@ -101200,7 +101200,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36OneOf2": {
+      "TaggedJavascriptVariant931A8462DBCA678A": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36"
@@ -101223,7 +101223,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36OneOf3": {
+      "TaggedAiVariant6D44D30CEE842707": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro8B18F56D36"
@@ -101241,7 +101241,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380OneOf1": {
+      "TaggedStaticVariant3764D9B6FBF61739": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380"
@@ -101262,7 +101262,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380OneOf2": {
+      "TaggedJavascriptVariantD96C3F672F548AB6": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380"
@@ -101285,7 +101285,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380OneOf3": {
+      "TaggedAiVariant91E30A039055BEC5": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro792Fa7E380"
@@ -101303,7 +101303,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867OneOf1": {
+      "TaggedStaticVariant8E3402B75A11321B": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867"
@@ -101324,7 +101324,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867OneOf2": {
+      "TaggedJavascriptVariantE4BE2AE86E2977E6": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867"
@@ -101347,7 +101347,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867OneOf3": {
+      "TaggedAiVariant416B05F3241124C4": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro71Fc762867"
@@ -101365,7 +101365,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf1": {
+      "TaggedStaticVariant6078962DF12DDA86": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370"
@@ -101386,7 +101386,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf2": {
+      "TaggedJavascriptVariant2FCFE2A9993F5B73": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370"
@@ -101409,7 +101409,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370OneOf3": {
+      "TaggedAiVariant38E75B14DECAC4C7": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD02Dde2370"
@@ -101427,7 +101427,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814OneOf1": {
+      "TaggedStaticVariant880C886F2F55B653": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814"
@@ -101448,7 +101448,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814OneOf2": {
+      "TaggedJavascriptVariant414B13CABDF84F0D": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814"
@@ -101471,7 +101471,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814OneOf3": {
+      "TaggedAiVariant76F5E5A56E5FA642": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC6C0774814"
@@ -101489,7 +101489,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeOneOf1": {
+      "TaggedStaticVariant471FB1EC77BA140F": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08De"
@@ -101510,7 +101510,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeOneOf2": {
+      "TaggedJavascriptVariant012FD0570BFFC3DB": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08De"
@@ -101533,7 +101533,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08DeOneOf3": {
+      "TaggedAiVariantAA6CCC4FD076BF4E": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0D131B08De"
@@ -101551,7 +101551,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149OneOf1": {
+      "TaggedStaticVariantCFC606E4AE1F1601": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149"
@@ -101572,7 +101572,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149OneOf2": {
+      "TaggedJavascriptVariantA0631B152D79F0BB": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149"
@@ -101595,7 +101595,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149OneOf3": {
+      "TaggedAiVariantE3EA28144378A365": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro520F293149"
@@ -101613,7 +101613,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7OneOf1": {
+      "TaggedStaticVariant19AD3E3CDFFECD0D": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7"
@@ -101634,7 +101634,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7OneOf2": {
+      "TaggedJavascriptVariantB163924723C09F2A": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7"
@@ -101657,7 +101657,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7OneOf3": {
+      "TaggedAiVariant98229686E23D8891": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro70F784F3C7"
@@ -101675,7 +101675,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AOneOf1": {
+      "TaggedStaticVariant3B442438577314BB": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218A"
@@ -101696,7 +101696,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AOneOf2": {
+      "TaggedJavascriptVariant689966AFF9A7CCB0": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218A"
@@ -101719,7 +101719,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218AOneOf3": {
+      "TaggedAiVariant9E0C5D32E90D1EE3": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFa3B7B218A"
@@ -101737,7 +101737,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AOneOf1": {
+      "TaggedStaticVariant474599588FE95B9F": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2A"
@@ -101758,7 +101758,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AOneOf2": {
+      "TaggedJavascriptVariant1DAA503AE0DE464C": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2A"
@@ -101781,7 +101781,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2AOneOf3": {
+      "TaggedAiVariant003FB9709EB779B3": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B1989Fe2A"
@@ -101799,7 +101799,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeOneOf1": {
+      "TaggedStaticVariant5065097A496D118D": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802Fe"
@@ -101820,7 +101820,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeOneOf2": {
+      "TaggedJavascriptVariantE247F20945CD7840": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802Fe"
@@ -101843,7 +101843,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802FeOneOf3": {
+      "TaggedAiVariantCCB1A76B96DC9677": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProEc783802Fe"
@@ -101861,7 +101861,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2OneOf1": {
+      "TaggedStaticVariant045891126D8BB525": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2"
@@ -101882,7 +101882,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2OneOf2": {
+      "TaggedJavascriptVariantE8976D6F2576250C": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2"
@@ -101905,7 +101905,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2OneOf3": {
+      "TaggedAiVariantD3B99CE3D707DABB": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2F4C2434F2"
@@ -101923,7 +101923,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221OneOf1": {
+      "TaggedStaticVariantE1D582912EC0E0F8": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221"
@@ -101944,7 +101944,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221OneOf2": {
+      "TaggedJavascriptVariant1FD94A60F8B0AC15": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221"
@@ -101967,7 +101967,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221OneOf3": {
+      "TaggedAiVariant6D6E4A88655464F3": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAab7374221"
@@ -101985,7 +101985,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54OneOf1": {
+      "TaggedStaticVariant4C475F8F73C2FC1F": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54"
@@ -102006,7 +102006,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54OneOf2": {
+      "TaggedJavascriptVariant6F3C8A4C9FF8ECCE": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54"
@@ -102029,7 +102029,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54OneOf3": {
+      "TaggedAiVariantD641EB65DD79D078": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB1598F1D54"
@@ -102047,7 +102047,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01OneOf1": {
+      "TaggedStaticVariant574821391993B550": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01"
@@ -102068,7 +102068,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01OneOf2": {
+      "TaggedJavascriptVariant57D49083E0C2FCCE": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01"
@@ -102091,7 +102091,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01OneOf3": {
+      "TaggedAiVariantFD6C42886C199A97": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9Ae539Cd01"
@@ -102109,7 +102109,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4OneOf1": {
+      "TaggedStaticVariant606CBD4C16C3121A": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4"
@@ -102130,7 +102130,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4OneOf2": {
+      "TaggedJavascriptVariant0EDCF6C61BE275FB": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4"
@@ -102153,7 +102153,7 @@
           }
         ]
       },
-      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4OneOf3": {
+      "TaggedAiVariant51861AC2B350D830": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC44C578Ae4"
@@ -102171,7 +102171,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP55C7Bc730A": {
+      "TaggedDeployedVariantDA61235D3CAC117D": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95"
@@ -102198,7 +102198,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaPFc83D4A1F4": {
+      "TaggedInlineVariantEDD175453D85AE8A": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95"
@@ -102224,7 +102224,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr8948D6127C": {
+      "TaggedToolCallVariant1AE1EF5E15F92539": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056"
@@ -102255,7 +102255,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr9Fccde0Abb": {
+      "TaggedMcpToolCallVariantD12C67B30A7EBC7C": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056"
@@ -102289,7 +102289,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA99Fd15A2D": {
+      "TaggedWebSearchVariant18AD0CD8E4D04A8A": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056"
@@ -102307,7 +102307,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrE7Ae415727": {
+      "TaggedApprovalVariant2F045534463EE91C": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056"
@@ -102341,7 +102341,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr41094F3B26": {
+      "TaggedQuestionVariant08168F18A7553959": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056"
@@ -102383,7 +102383,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr1F4C1302E5": {
+      "TaggedMessageVariant8BE954E65BCE8A26": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056"
@@ -102402,7 +102402,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FYamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FOneOf1": {
+      "TaggedCompletedJobVariant7BF7B0C4446BC275": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F"
@@ -102585,7 +102585,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FYamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989FOneOf2": {
+      "TaggedQueuedJobVariant46222A169841B745": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceConcurrencyGroupsListJobsGetResponses200ContentApplicationJsonSc3E56Ae989F"
@@ -102733,7 +102733,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5": {
+      "TaggedAssetVariant5F7D987FD634825F": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4"
@@ -102768,7 +102768,7 @@
           }
         ]
       },
-      "YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85": {
+      "TaggedEmailVariant676F062E52909180": {
         "allOf": [
           {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4"
@@ -102799,7 +102799,7 @@
           }
         ]
       },
-      "GetJob200ResponseGetJob200ResponseOneOf1": {
+      "GetJob200ResponseOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/GetJob200Response"
@@ -102982,7 +102982,7 @@
           }
         ]
       },
-      "GetJob200ResponseGetJob200ResponseOneOf2": {
+      "GetJob200ResponseOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/GetJob200Response"
@@ -103130,7 +103130,7 @@
           }
         ]
       },
-      "GetSuspendedJobFlow200ResponseJobGetSuspendedJobFlow200ResponseJobOneOf1": {
+      "GetSuspendedJobFlow200ResponseJobOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/GetSuspendedJobFlow200ResponseJob"
@@ -103313,7 +103313,7 @@
           }
         ]
       },
-      "GetSuspendedJobFlow200ResponseJobGetSuspendedJobFlow200ResponseJobOneOf2": {
+      "GetSuspendedJobFlow200ResponseJobOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/GetSuspendedJobFlow200ResponseJob"
@@ -103461,7 +103461,7 @@
           }
         ]
       },
-      "ListJobs200ResponseSchemaItemListJobs200ResponseSchemaItemOneOf1": {
+      "ListJobs200ResponseSchemaItemOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ListJobs200ResponseSchemaItem"
@@ -103644,7 +103644,7 @@
           }
         ]
       },
-      "ListJobs200ResponseSchemaItemListJobs200ResponseSchemaItemOneOf2": {
+      "ListJobs200ResponseSchemaItemOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/ListJobs200ResponseSchemaItem"
@@ -106681,9 +106681,9 @@
       "discriminator": {
         "propertyName": "kind",
         "mapping": {
-          "database": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp43E46B3112",
-          "schema": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApC6F5083Fe1",
-          "table": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp6B251D20Db"
+          "database": "#/components/schemas/TaggedDatabaseVariantE2603ED90A564A04",
+          "schema": "#/components/schemas/TaggedSchemaVariantE011A4C7D35E4677",
+          "table": "#/components/schemas/TaggedTableVariantDC1EA233E965554D"
         }
       },
       "x-client-original-tagged-union": {
@@ -106754,9 +106754,9 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "set_owner": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp632D03Dc14",
-          "grant": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApD473F1C8Bf",
-          "revoke": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApFc0575F52A"
+          "set_owner": "#/components/schemas/TaggedSetOwnerVariantB84A300581E11907",
+          "grant": "#/components/schemas/TaggedGrantVariant23802C1226E6974B",
+          "revoke": "#/components/schemas/TaggedRevokeVariant4D532CEDCB4DB49B"
         }
       },
       "x-client-original-tagged-union": {
@@ -107724,16 +107724,16 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "rawscript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689",
-          "script": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0Bde862883",
-          "flow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF2E098F653",
-          "forloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF01A35Ebb6",
-          "whileloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro565D71E925",
-          "branchone": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC097B0Acd3",
-          "branchall": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAd57Ea75D4",
-          "identity": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProCd0F83C3Fa",
-          "aiagent": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro6193Ad917C",
-          "aidecision": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro4Ccff3A45D"
+          "rawscript": "#/components/schemas/TaggedRawscriptVariantE78A55B424BA1B0A",
+          "script": "#/components/schemas/TaggedScriptVariantC26194C98792784E",
+          "flow": "#/components/schemas/TaggedFlowVariant90703C515BC7A2B9",
+          "forloopflow": "#/components/schemas/TaggedForloopflowVariant87399EEF1518FD45",
+          "whileloopflow": "#/components/schemas/TaggedWhileloopflowVariantCF2483A000279396",
+          "branchone": "#/components/schemas/TaggedBranchoneVariantC9A1DBD8AFAA3899",
+          "branchall": "#/components/schemas/TaggedBranchallVariant04F11601C99EFB73",
+          "identity": "#/components/schemas/TaggedIdentityVariantA9DED139DBCD9C3E",
+          "aiagent": "#/components/schemas/TaggedAiagentVariant485DA70F7C7BD36F",
+          "aidecision": "#/components/schemas/TaggedAidecisionVariant89CF3FA51EB310B7"
         }
       },
       "x-client-original-tagged-union": {
@@ -107844,9 +107844,9 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4DfdYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
-          "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4DfdYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
-          "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4DfdYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+          "static": "#/components/schemas/TaggedStaticVariantFBFDF29D0094109F",
+          "javascript": "#/components/schemas/TaggedJavascriptVariant31A4FEFC39C7BFAA",
+          "ai": "#/components/schemas/TaggedAiVariant5A62DCA2B8029620"
         }
       },
       "x-client-original-tagged-union": {
@@ -108485,9 +108485,9 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro69A0722Df9",
-          "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProE6Aee11D1E",
-          "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB747156F70"
+          "static": "#/components/schemas/TaggedStaticVariant0E52872D86EF28F5",
+          "javascript": "#/components/schemas/TaggedJavascriptVariantCD7ABAAB63FB34B5",
+          "ai": "#/components/schemas/TaggedAiVariantD51FFB62365F1D5D"
         }
       },
       "x-client-original-tagged-union": {
@@ -108693,9 +108693,9 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2EdbcYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B9Ebd574A",
-          "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2EdbcYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0574Ad97D8",
-          "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2EdbcYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro23Af7462E1"
+          "static": "#/components/schemas/TaggedStaticVariant37A6677224BDDBAA",
+          "javascript": "#/components/schemas/TaggedJavascriptVariant6D288B84D9F047C1",
+          "ai": "#/components/schemas/TaggedAiVariant0B9C85F0C5B943DC"
         }
       },
       "x-client-original-tagged-union": {
@@ -108761,11 +108761,11 @@
       "discriminator": {
         "propertyName": "kind",
         "mapping": {
-          "off": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro5F00F6D67C",
-          "window": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro04D0Bc6Ad2",
-          "compaction": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD9F4096A47",
-          "auto": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro5E97Ebd551",
-          "manual": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro77Ec247A2B"
+          "off": "#/components/schemas/TaggedOffVariantB6B6259498B30F83",
+          "window": "#/components/schemas/TaggedWindowVariantB612CBEF0AE5277C",
+          "compaction": "#/components/schemas/TaggedCompactionVariantC54CFF960E407A04",
+          "auto": "#/components/schemas/TaggedAutoVariantACFCD6CF76066F0A",
+          "manual": "#/components/schemas/TaggedManualVariantCE0E706FEA8219DE"
         }
       },
       "x-client-original-tagged-union": {
@@ -109209,16 +109209,16 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "rawscript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf1",
-          "script": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf2",
-          "flow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf3",
-          "forloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf4",
-          "whileloopflow": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf5",
-          "branchone": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf6",
-          "branchall": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf7",
-          "identity": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf8",
-          "aiagent": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf9",
-          "aidecision": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf10"
+          "rawscript": "#/components/schemas/TaggedRawscriptVariant82FFDC3F9A20B732",
+          "script": "#/components/schemas/TaggedScriptVariant519958C99F67394B",
+          "flow": "#/components/schemas/TaggedFlowVariant5004E330BD9A848D",
+          "forloopflow": "#/components/schemas/TaggedForloopflowVariant8A404EFC8467621D",
+          "whileloopflow": "#/components/schemas/TaggedWhileloopflowVariant5156653DDCF073E5",
+          "branchone": "#/components/schemas/TaggedBranchoneVariant617E7338669F7A15",
+          "branchall": "#/components/schemas/TaggedBranchallVariant0C132171E2DE65C9",
+          "identity": "#/components/schemas/TaggedIdentityVariantDD808761F264362D",
+          "aiagent": "#/components/schemas/TaggedAiagentVariant1330458B6209EA3C",
+          "aidecision": "#/components/schemas/TaggedAidecisionVariant51E81A012FFEF75B"
         }
       },
       "x-client-original-tagged-union": {
@@ -118908,9 +118908,9 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "static": "#/components/schemas/InputTransformYamlPathsWWorkspaceJobsRunBatchRerunJobsPostRequestBodyContentApplicationJsonSchema31639D8F93",
-          "javascript": "#/components/schemas/InputTransformYamlPathsWWorkspaceJobsRunBatchRerunJobsPostRequestBodyContentApplicationJsonSchema17E16E3121",
-          "ai": "#/components/schemas/InputTransformYamlPathsWWorkspaceJobsRunBatchRerunJobsPostRequestBodyContentApplicationJsonSchemaCbd6A95143"
+          "static": "#/components/schemas/TaggedStaticVariantABDB95379777B656",
+          "javascript": "#/components/schemas/TaggedJavascriptVariant233024A31AA93FEC",
+          "ai": "#/components/schemas/TaggedAiVariantC833F90F8784F855"
         }
       },
       "x-client-original-tagged-union": {
@@ -119042,9 +119042,9 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "static": "#/components/schemas/ProviderTransformProviderTransformOneOf1",
-          "javascript": "#/components/schemas/ProviderTransformProviderTransformOneOf2",
-          "ai": "#/components/schemas/ProviderTransformProviderTransformOneOf3"
+          "static": "#/components/schemas/ProviderTransformOneOf1Variant",
+          "javascript": "#/components/schemas/ProviderTransformOneOf2Variant",
+          "ai": "#/components/schemas/ProviderTransformOneOf3Variant"
         }
       },
       "x-client-original-tagged-union": {
@@ -119110,11 +119110,11 @@
       "discriminator": {
         "propertyName": "kind",
         "mapping": {
-          "off": "#/components/schemas/MemoryConfigMemoryConfigOneOf1",
-          "window": "#/components/schemas/MemoryConfigMemoryConfigOneOf2",
-          "compaction": "#/components/schemas/MemoryConfigMemoryConfigOneOf3",
-          "auto": "#/components/schemas/MemoryConfigMemoryConfigOneOf4",
-          "manual": "#/components/schemas/MemoryConfigMemoryConfigOneOf5"
+          "off": "#/components/schemas/MemoryConfigOneOf1Variant",
+          "window": "#/components/schemas/MemoryConfigOneOf2Variant",
+          "compaction": "#/components/schemas/MemoryConfigOneOf3Variant",
+          "auto": "#/components/schemas/MemoryConfigOneOf4Variant",
+          "manual": "#/components/schemas/MemoryConfigOneOf5Variant"
         }
       },
       "x-client-original-tagged-union": {
@@ -119202,16 +119202,16 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "rawscript": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf1",
-          "script": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf2",
-          "flow": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf3",
-          "forloopflow": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf4",
-          "whileloopflow": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf5",
-          "branchone": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf6",
-          "branchall": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf7",
-          "identity": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf8",
-          "aiagent": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf9",
-          "aidecision": "#/components/schemas/FlowModuleValueFlowModuleValueOneOf10"
+          "rawscript": "#/components/schemas/FlowModuleValueOneOf1Variant",
+          "script": "#/components/schemas/FlowModuleValueOneOf2Variant",
+          "flow": "#/components/schemas/FlowModuleValueOneOf3Variant",
+          "forloopflow": "#/components/schemas/FlowModuleValueOneOf4Variant",
+          "whileloopflow": "#/components/schemas/FlowModuleValueOneOf5Variant",
+          "branchone": "#/components/schemas/FlowModuleValueOneOf6Variant",
+          "branchall": "#/components/schemas/FlowModuleValueOneOf7Variant",
+          "identity": "#/components/schemas/FlowModuleValueOneOf8Variant",
+          "aiagent": "#/components/schemas/FlowModuleValueOneOf9Variant",
+          "aidecision": "#/components/schemas/FlowModuleValueOneOf10Variant"
         }
       },
       "x-client-original-tagged-union": {
@@ -122965,8 +122965,8 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "CompletedJob": "#/components/schemas/JobJobOneOf1",
-          "QueuedJob": "#/components/schemas/JobJobOneOf2"
+          "CompletedJob": "#/components/schemas/JobOneOf1Variant",
+          "QueuedJob": "#/components/schemas/JobOneOf2Variant"
         }
       },
       "x-client-original-tagged-union": {
@@ -134915,16 +134915,16 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "rawscript": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf1",
-          "script": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf2",
-          "flow": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf3",
-          "forloopflow": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf4",
-          "whileloopflow": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf5",
-          "branchone": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf6",
-          "branchall": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf7",
-          "identity": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf8",
-          "aiagent": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf9",
-          "aidecision": "#/components/schemas/FlowModuleToolFlowModuleToolOneOf10"
+          "rawscript": "#/components/schemas/FlowModuleToolOneOf1Variant",
+          "script": "#/components/schemas/FlowModuleToolOneOf2Variant",
+          "flow": "#/components/schemas/FlowModuleToolOneOf3Variant",
+          "forloopflow": "#/components/schemas/FlowModuleToolOneOf4Variant",
+          "whileloopflow": "#/components/schemas/FlowModuleToolOneOf5Variant",
+          "branchone": "#/components/schemas/FlowModuleToolOneOf6Variant",
+          "branchall": "#/components/schemas/FlowModuleToolOneOf7Variant",
+          "identity": "#/components/schemas/FlowModuleToolOneOf8Variant",
+          "aiagent": "#/components/schemas/FlowModuleToolOneOf9Variant",
+          "aidecision": "#/components/schemas/FlowModuleToolOneOf10Variant"
         }
       },
       "x-client-original-tagged-union": {
@@ -136854,12 +136854,12 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "tool_call": "#/components/schemas/FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf1",
-          "mcp_tool_call": "#/components/schemas/FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf2",
-          "web_search": "#/components/schemas/FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf3",
-          "approval": "#/components/schemas/FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf4",
-          "question": "#/components/schemas/FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf5",
-          "message": "#/components/schemas/FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf6"
+          "tool_call": "#/components/schemas/FlowStatusModuleAgentActionsItemOneOf1Variant",
+          "mcp_tool_call": "#/components/schemas/FlowStatusModuleAgentActionsItemOneOf2Variant",
+          "web_search": "#/components/schemas/FlowStatusModuleAgentActionsItemOneOf3Variant",
+          "approval": "#/components/schemas/FlowStatusModuleAgentActionsItemOneOf4Variant",
+          "question": "#/components/schemas/FlowStatusModuleAgentActionsItemOneOf5Variant",
+          "message": "#/components/schemas/FlowStatusModuleAgentActionsItemOneOf6Variant"
         }
       },
       "x-client-original-tagged-union": {
@@ -140858,8 +140858,8 @@
       "discriminator": {
         "propertyName": "type",
         "mapping": {
-          "CompletedJob": "#/components/schemas/ListJobs200ResponseItemListJobs200ResponseItemOneOf1",
-          "QueuedJob": "#/components/schemas/ListJobs200ResponseItemListJobs200ResponseItemOneOf2"
+          "CompletedJob": "#/components/schemas/ListJobs200ResponseItemOneOf1Variant",
+          "QueuedJob": "#/components/schemas/ListJobs200ResponseItemOneOf2Variant"
         }
       },
       "x-client-original-tagged-union": {
@@ -152913,7 +152913,7 @@
         }
       }
     },
-    "YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp43E46B3112": {
+    "TaggedDatabaseVariantE2603ED90A564A04": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77"
@@ -152931,7 +152931,7 @@
         }
       ]
     },
-    "YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApC6F5083Fe1": {
+    "TaggedSchemaVariantE011A4C7D35E4677": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77"
@@ -152953,7 +152953,7 @@
         }
       ]
     },
-    "YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp6B251D20Db": {
+    "TaggedTableVariantDC1EA233E965554D": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApDb27C20E77"
@@ -152979,7 +152979,7 @@
         }
       ]
     },
-    "YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp632D03Dc14": {
+    "TaggedSetOwnerVariantB84A300581E11907": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4"
@@ -153003,7 +153003,7 @@
         }
       ]
     },
-    "YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApD473F1C8Bf": {
+    "TaggedGrantVariant23802C1226E6974B": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4"
@@ -153037,7 +153037,7 @@
         }
       ]
     },
-    "YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentApFc0575F52A": {
+    "TaggedRevokeVariant4D532CEDCB4DB49B": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp115C08A2A4"
@@ -153078,7 +153078,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689": {
+    "TaggedRawscriptVariantE78A55B424BA1B0A": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153145,7 +153145,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0Bde862883": {
+    "TaggedScriptVariantC26194C98792784E": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153185,7 +153185,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF2E098F653": {
+    "TaggedFlowVariant90703C515BC7A2B9": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153213,7 +153213,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF01A35Ebb6": {
+    "TaggedForloopflowVariant87399EEF1518FD45": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153259,7 +153259,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro565D71E925": {
+    "TaggedWhileloopflowVariantCF2483A000279396": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153301,7 +153301,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC097B0Acd3": {
+    "TaggedBranchoneVariantC9A1DBD8AFAA3899": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153336,7 +153336,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAd57Ea75D4": {
+    "TaggedBranchallVariant04F11601C99EFB73": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153367,7 +153367,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProCd0F83C3Fa": {
+    "TaggedIdentityVariantA9DED139DBCD9C3E": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153390,7 +153390,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro6193Ad917C": {
+    "TaggedAiagentVariant485DA70F7C7BD36F": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153440,7 +153440,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro4Ccff3A45D": {
+    "TaggedAidecisionVariant89CF3FA51EB310B7": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42933B6024"
@@ -153467,7 +153467,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4DfdYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F": {
+    "TaggedStaticVariantFBFDF29D0094109F": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4Dfd"
@@ -153489,7 +153489,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4DfdYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566": {
+    "TaggedJavascriptVariant31A4FEFC39C7BFAA": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4Dfd"
@@ -153513,7 +153513,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4DfdYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389": {
+    "TaggedAiVariant5A62DCA2B8029620": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB28C5C4Dfd"
@@ -153532,7 +153532,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro69A0722Df9": {
+    "TaggedStaticVariant0E52872D86EF28F5": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813"
@@ -153555,7 +153555,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProE6Aee11D1E": {
+    "TaggedJavascriptVariantCD7ABAAB63FB34B5": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813"
@@ -153579,7 +153579,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB747156F70": {
+    "TaggedAiVariantD51FFB62365F1D5D": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Bc757A813"
@@ -153598,7 +153598,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2EdbcYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1B9Ebd574A": {
+    "TaggedStaticVariant37A6677224BDDBAA": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2Edbc"
@@ -153621,7 +153621,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2EdbcYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro0574Ad97D8": {
+    "TaggedJavascriptVariant6D288B84D9F047C1": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2Edbc"
@@ -153645,7 +153645,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2EdbcYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro23Af7462E1": {
+    "TaggedAiVariant0B9C85F0C5B943DC": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProDc35F2Edbc"
@@ -153664,7 +153664,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro5F00F6D67C": {
+    "TaggedOffVariantB6B6259498B30F83": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00"
@@ -153683,7 +153683,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro04D0Bc6Ad2": {
+    "TaggedWindowVariantB612CBEF0AE5277C": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00"
@@ -153707,7 +153707,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD9F4096A47": {
+    "TaggedCompactionVariantC54CFF960E407A04": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00"
@@ -153730,7 +153730,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro5E97Ebd551": {
+    "TaggedAutoVariantACFCD6CF76066F0A": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00"
@@ -153758,7 +153758,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro77Ec247A2B": {
+    "TaggedManualVariantCE0E706FEA8219DE": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro442220Cb00"
@@ -153785,7 +153785,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf1": {
+    "TaggedRawscriptVariant82FFDC3F9A20B732": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -153855,7 +153855,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf2": {
+    "TaggedScriptVariant519958C99F67394B": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -153898,7 +153898,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf3": {
+    "TaggedFlowVariant5004E330BD9A848D": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -153929,7 +153929,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf4": {
+    "TaggedForloopflowVariant8A404EFC8467621D": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -153978,7 +153978,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf5": {
+    "TaggedWhileloopflowVariant5156653DDCF073E5": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -154023,7 +154023,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf6": {
+    "TaggedBranchoneVariant617E7338669F7A15": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -154061,7 +154061,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf7": {
+    "TaggedBranchallVariant0C132171E2DE65C9": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -154095,7 +154095,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf8": {
+    "TaggedIdentityVariantDD808761F264362D": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -154121,7 +154121,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf9": {
+    "TaggedAiagentVariant1330458B6209EA3C": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -154174,7 +154174,7 @@
         }
       ]
     },
-    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfYamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33FabfOneOf10": {
+    "TaggedAidecisionVariant51E81A012FFEF75B": {
       "allOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf"
@@ -154204,7 +154204,7 @@
         }
       ]
     },
-    "InputTransformYamlPathsWWorkspaceJobsRunBatchRerunJobsPostRequestBodyContentApplicationJsonSchema31639D8F93": {
+    "TaggedStaticVariantABDB95379777B656": {
       "allOf": [
         {
           "$ref": "#/components/schemas/InputTransform"
@@ -154226,7 +154226,7 @@
         }
       ]
     },
-    "InputTransformYamlPathsWWorkspaceJobsRunBatchRerunJobsPostRequestBodyContentApplicationJsonSchema17E16E3121": {
+    "TaggedJavascriptVariant233024A31AA93FEC": {
       "allOf": [
         {
           "$ref": "#/components/schemas/InputTransform"
@@ -154250,7 +154250,7 @@
         }
       ]
     },
-    "InputTransformYamlPathsWWorkspaceJobsRunBatchRerunJobsPostRequestBodyContentApplicationJsonSchemaCbd6A95143": {
+    "TaggedAiVariantC833F90F8784F855": {
       "allOf": [
         {
           "$ref": "#/components/schemas/InputTransform"
@@ -154269,7 +154269,7 @@
         }
       ]
     },
-    "ProviderTransformProviderTransformOneOf1": {
+    "ProviderTransformOneOf1Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/ProviderTransform"
@@ -154292,7 +154292,7 @@
         }
       ]
     },
-    "ProviderTransformProviderTransformOneOf2": {
+    "ProviderTransformOneOf2Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/ProviderTransform"
@@ -154316,7 +154316,7 @@
         }
       ]
     },
-    "ProviderTransformProviderTransformOneOf3": {
+    "ProviderTransformOneOf3Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/ProviderTransform"
@@ -154335,7 +154335,7 @@
         }
       ]
     },
-    "MemoryConfigMemoryConfigOneOf1": {
+    "MemoryConfigOneOf1Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/MemoryConfig"
@@ -154354,7 +154354,7 @@
         }
       ]
     },
-    "MemoryConfigMemoryConfigOneOf2": {
+    "MemoryConfigOneOf2Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/MemoryConfig"
@@ -154378,7 +154378,7 @@
         }
       ]
     },
-    "MemoryConfigMemoryConfigOneOf3": {
+    "MemoryConfigOneOf3Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/MemoryConfig"
@@ -154401,7 +154401,7 @@
         }
       ]
     },
-    "MemoryConfigMemoryConfigOneOf4": {
+    "MemoryConfigOneOf4Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/MemoryConfig"
@@ -154429,7 +154429,7 @@
         }
       ]
     },
-    "MemoryConfigMemoryConfigOneOf5": {
+    "MemoryConfigOneOf5Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/MemoryConfig"
@@ -154456,7 +154456,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf1": {
+    "FlowModuleValueOneOf1Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154523,7 +154523,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf2": {
+    "FlowModuleValueOneOf2Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154563,7 +154563,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf3": {
+    "FlowModuleValueOneOf3Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154591,7 +154591,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf4": {
+    "FlowModuleValueOneOf4Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154637,7 +154637,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf5": {
+    "FlowModuleValueOneOf5Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154679,7 +154679,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf6": {
+    "FlowModuleValueOneOf6Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154714,7 +154714,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf7": {
+    "FlowModuleValueOneOf7Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154745,7 +154745,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf8": {
+    "FlowModuleValueOneOf8Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154768,7 +154768,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf9": {
+    "FlowModuleValueOneOf9Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154818,7 +154818,7 @@
         }
       ]
     },
-    "FlowModuleValueFlowModuleValueOneOf10": {
+    "FlowModuleValueOneOf10Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleValue"
@@ -154845,7 +154845,7 @@
         }
       ]
     },
-    "JobJobOneOf1": {
+    "JobOneOf1Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/Job"
@@ -155028,7 +155028,7 @@
         }
       ]
     },
-    "JobJobOneOf2": {
+    "JobOneOf2Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/Job"
@@ -155176,7 +155176,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf1": {
+    "FlowModuleToolOneOf1Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155246,7 +155246,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf2": {
+    "FlowModuleToolOneOf2Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155289,7 +155289,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf3": {
+    "FlowModuleToolOneOf3Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155320,7 +155320,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf4": {
+    "FlowModuleToolOneOf4Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155369,7 +155369,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf5": {
+    "FlowModuleToolOneOf5Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155414,7 +155414,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf6": {
+    "FlowModuleToolOneOf6Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155452,7 +155452,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf7": {
+    "FlowModuleToolOneOf7Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155486,7 +155486,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf8": {
+    "FlowModuleToolOneOf8Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155512,7 +155512,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf9": {
+    "FlowModuleToolOneOf9Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155565,7 +155565,7 @@
         }
       ]
     },
-    "FlowModuleToolFlowModuleToolOneOf10": {
+    "FlowModuleToolOneOf10Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowModuleTool"
@@ -155595,7 +155595,7 @@
         }
       ]
     },
-    "FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf1": {
+    "FlowStatusModuleAgentActionsItemOneOf1Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowStatusModuleAgentActionsItem"
@@ -155626,7 +155626,7 @@
         }
       ]
     },
-    "FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf2": {
+    "FlowStatusModuleAgentActionsItemOneOf2Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowStatusModuleAgentActionsItem"
@@ -155660,7 +155660,7 @@
         }
       ]
     },
-    "FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf3": {
+    "FlowStatusModuleAgentActionsItemOneOf3Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowStatusModuleAgentActionsItem"
@@ -155678,7 +155678,7 @@
         }
       ]
     },
-    "FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf4": {
+    "FlowStatusModuleAgentActionsItemOneOf4Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowStatusModuleAgentActionsItem"
@@ -155712,7 +155712,7 @@
         }
       ]
     },
-    "FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf5": {
+    "FlowStatusModuleAgentActionsItemOneOf5Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowStatusModuleAgentActionsItem"
@@ -155754,7 +155754,7 @@
         }
       ]
     },
-    "FlowStatusModuleAgentActionsItemFlowStatusModuleAgentActionsItemOneOf6": {
+    "FlowStatusModuleAgentActionsItemOneOf6Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/FlowStatusModuleAgentActionsItem"
@@ -155773,7 +155773,7 @@
         }
       ]
     },
-    "ListJobs200ResponseItemListJobs200ResponseItemOneOf1": {
+    "ListJobs200ResponseItemOneOf1Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/ListJobs200ResponseItem"
@@ -155956,7 +155956,7 @@
         }
       ]
     },
-    "ListJobs200ResponseItemListJobs200ResponseItemOneOf2": {
+    "ListJobs200ResponseItemOneOf2Variant": {
       "allOf": [
         {
           "$ref": "#/components/schemas/ListJobs200ResponseItem"

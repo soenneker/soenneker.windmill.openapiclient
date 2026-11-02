@@ -51,12 +51,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "approval" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrE7Ae415727(),
-                "mcp_tool_call" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr9Fccde0Abb(),
-                "message" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr1F4C1302E5(),
-                "question" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr41094F3B26(),
-                "tool_call" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr8948D6127C(),
-                "web_search" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA99Fd15A2D(),
+                "approval" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedApprovalVariant2F045534463EE91C(),
+                "mcp_tool_call" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedMcpToolCallVariantD12C67B30A7EBC7C(),
+                "message" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedMessageVariant8BE954E65BCE8A26(),
+                "question" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedQuestionVariant08168F18A7553959(),
+                "tool_call" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedToolCallVariant1AE1EF5E15F92539(),
+                "web_search" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedWebSearchVariant18AD0CD8E4D04A8A(),
                 _ => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056(),
             };
         }

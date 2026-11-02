@@ -51,15 +51,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("trigger_kind")?.GetStringValue();
             return mappingValue switch
             {
-                "asset" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5(),
-                "email" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
-                "gcp" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
-                "kafka" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
-                "mqtt" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
-                "nats" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
-                "postgres" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
-                "schedule" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
-                "sqs" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "asset" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedAssetVariant5F7D987FD634825F(),
+                "email" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
+                "gcp" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
+                "kafka" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
+                "mqtt" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
+                "nats" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
+                "postgres" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
+                "schedule" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
+                "sqs" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedEmailVariant676F062E52909180(),
                 _ => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4(),
             };
         }

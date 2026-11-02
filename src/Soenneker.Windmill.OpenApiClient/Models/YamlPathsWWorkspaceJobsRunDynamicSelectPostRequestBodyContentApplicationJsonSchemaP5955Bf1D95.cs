@@ -51,8 +51,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("source")?.GetStringValue();
             return mappingValue switch
             {
-                "deployed" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP55C7Bc730A(),
-                "inline" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaPFc83D4A1F4(),
+                "deployed" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedDeployedVariantDA61235D3CAC117D(),
+                "inline" => new global::Soenneker.Windmill.OpenApiClient.Models.TaggedInlineVariantEDD175453D85AE8A(),
                 _ => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunDynamicSelectPostRequestBodyContentApplicationJsonSchemaP5955Bf1D95(),
             };
         }

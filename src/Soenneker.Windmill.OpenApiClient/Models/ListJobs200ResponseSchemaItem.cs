@@ -51,8 +51,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "CompletedJob" => new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseSchemaItemListJobs200ResponseSchemaItemOneOf1(),
-                "QueuedJob" => new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseSchemaItemListJobs200ResponseSchemaItemOneOf2(),
+                "CompletedJob" => new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseSchemaItemOneOf1Variant(),
+                "QueuedJob" => new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseSchemaItemOneOf2Variant(),
                 _ => new global::Soenneker.Windmill.OpenApiClient.Models.ListJobs200ResponseSchemaItem(),
             };
         }

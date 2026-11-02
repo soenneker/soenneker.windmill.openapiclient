@@ -7,33 +7,39 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5"/>, <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4 : IComposedTypeWrapper, IParsable
-    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
-        // Preserve ambiguous union payloads without inventing a discriminator.
-        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
-        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+    #pragma warning disable CS1591
+    public partial class YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4 : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
 
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5"/></summary>
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("trigger_kind") is null) { _explicitNullValueTriggerKind = default!; _explicitNullProperties?.Remove("trigger_kind"); }
+            else if (parseNode.GetChildNode("trigger_kind") is { } nullNodeTriggerKind && nullNodeTriggerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerKind = null;
+        }
+
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The trigger_kind property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5? YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 { get; set; }
+        public string? TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; AdditionalData?.Remove("trigger_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
+        private string? _explicitNullValueTriggerKind = default!;
 #nullable restore
 #else
-        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 { get; set; }
+        public string TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; AdditionalData?.Remove("trigger_kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
+        private string _explicitNullValueTriggerKind = default!;
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85? YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 { get; set; }
-#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4"/> and sets the default values.
+        /// </summary>
+        public YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,211 +48,20 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public static global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4();
-            if("YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            var mappingValue = parseNode.GetChildNode("trigger_kind")?.GetStringValue();
+            return mappingValue switch
             {
-                
-            }
-            else if("YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                
-            }
-            
-            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool? matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? ((global::System.Func<bool?>)(() => { int remaining = 10000;
-bool IsNumber(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal;
-int StringLength(string text) { int count = 0; for (int i = 0; i < text.Length; i++, count++) if (char.IsHighSurrogate(text[i]) && i + 1 < text.Length && char.IsLowSurrogate(text[i + 1])) i++; return count; }
-bool? All(params bool?[] values) { bool? result = true; foreach (var item in values) result &= item; return result; }
-bool? Any(params bool?[] values) { bool? result = false; foreach (var item in values) result |= item; return result; }
-bool? One(params bool?[] values) { int matches = 0; bool unknown = false; foreach (var item in values) { if (item == true) matches++; if (item == null) unknown = true; } return matches > 1 ? false : unknown ? null : matches == 1; }
-decimal? Number(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) {
-    try { return node switch {
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal n => n.GetValue(), _ => null }; }
-    catch (global::System.OverflowException) { return null; }
-}
-bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
-if (result == false) return false;
-if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("trigger_kind")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("asset_kind")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("asset_path")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("runnable_kind")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("runnable_path")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("trigger_kind") ? (bool?)true : MatchSchema1(fields["trigger_kind"], depth + 1)))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("asset_kind") ? (bool?)true : MatchSchema2(fields["asset_kind"], depth + 1)))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("asset_path") ? (bool?)true : MatchSchema3(fields["asset_path"], depth + 1)))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("runnable_kind") ? (bool?)true : MatchSchema4(fields["runnable_kind"], depth + 1)))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("runnable_path") ? (bool?)true : MatchSchema5(fields["runnable_path"], depth + 1)))();
-if (result == false) return false;
-}
-return result;
-}
-bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-bool? enumMatch = false;
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "asset".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-result &= ((global::System.Func<bool?>)(() => enumMatch))();
-if (result == false) return false;
-return result;
-}
-bool? MatchSchema2(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-bool? enumMatch = false;
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "s3object".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "resource".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "ducklake".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "datatable".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "volume".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "dbt".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-result &= ((global::System.Func<bool?>)(() => enumMatch))();
-if (result == false) return false;
-return result;
-}
-bool? MatchSchema3(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-return result;
-}
-bool? MatchSchema4(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-bool? enumMatch = false;
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "script".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "flow".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "job".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-result &= ((global::System.Func<bool?>)(() => enumMatch))();
-if (result == false) return false;
-return result;
-}
-bool? MatchSchema5(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-return result;
-}
-return MatchSchema0(unionPayload, 0); }))() : (bool?)false;
-            bool? matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject ? ((global::System.Func<bool?>)(() => { int remaining = 10000;
-bool IsNumber(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger or global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong or global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble or global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal;
-int StringLength(string text) { int count = 0; for (int i = 0; i < text.Length; i++, count++) if (char.IsHighSurrogate(text[i]) && i + 1 < text.Length && char.IsLowSurrogate(text[i + 1])) i++; return count; }
-bool? All(params bool?[] values) { bool? result = true; foreach (var item in values) result &= item; return result; }
-bool? Any(params bool?[] values) { bool? result = false; foreach (var item in values) result |= item; return result; }
-bool? One(params bool?[] values) { int matches = 0; bool unknown = false; foreach (var item in values) { if (item == true) matches++; if (item == null) unknown = true; } return matches > 1 ? false : unknown ? null : matches == 1; }
-decimal? Number(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node) {
-    try { return node switch {
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedInteger n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedLong n => n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedFloat n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDouble n => (decimal)n.GetValue(),
-        global::Microsoft.Kiota.Abstractions.Serialization.UntypedDecimal n => n.GetValue(), _ => null }; }
-    catch (global::System.OverflowException) { return null; }
-}
-bool? MatchSchema0(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject))();
-if (result == false) return false;
-if (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject obj) { var fields = obj.GetValue();
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("trigger_kind")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("path")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("runnable_kind")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => fields.ContainsKey("runnable_path")))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("trigger_kind") ? (bool?)true : MatchSchema1(fields["trigger_kind"], depth + 1)))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("path") ? (bool?)true : MatchSchema2(fields["path"], depth + 1)))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("runnable_kind") ? (bool?)true : MatchSchema3(fields["runnable_kind"], depth + 1)))();
-if (result == false) return false;
-result &= ((global::System.Func<bool?>)(() => !fields.ContainsKey("runnable_path") ? (bool?)true : MatchSchema4(fields["runnable_path"], depth + 1)))();
-if (result == false) return false;
-}
-return result;
-}
-bool? MatchSchema1(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-bool? enumMatch = false;
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "schedule".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "email".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "kafka".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "mqtt".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "nats".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "postgres".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "sqs".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "gcp".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-result &= ((global::System.Func<bool?>)(() => enumMatch))();
-if (result == false) return false;
-return result;
-}
-bool? MatchSchema2(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-return result;
-}
-bool? MatchSchema3(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-bool? enumMatch = false;
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "script".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "flow".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-enumMatch |= ((global::System.Func<bool?>)(() => (node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString text && "job".Equals(text.GetValue(), global::System.StringComparison.Ordinal))))();
-result &= ((global::System.Func<bool?>)(() => enumMatch))();
-if (result == false) return false;
-return result;
-}
-bool? MatchSchema4(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode node, int depth) {
-if (depth > 64 || --remaining < 0) return null;
-bool? result = true;
-result &= ((global::System.Func<bool?>)(() => node is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString))();
-if (result == false) return false;
-return result;
-}
-return MatchSchema0(unionPayload, 0); }))() : (bool?)false;
-            int matchingUnionBranches = 0;
-            if (matchesUnionBranch0 != false) matchingUnionBranches++;
-            if (matchesUnionBranch1 != false) matchingUnionBranches++;
-            bool noSelectedUnionBranch = result.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 == null && result.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 == null;
-            if (noSelectedUnionBranch && matchesUnionBranch0 == true && matchingUnionBranches == 1) result.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5(), parseNode);
-            if (noSelectedUnionBranch && matchesUnionBranch1 == true && matchingUnionBranches == 1) result.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(), parseNode);
-            if (result.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 == null && result.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 == null) result.UnrecognizedValue = unionPayload;
-return result;
+                "asset" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5(),
+                "email" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "gcp" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "kafka" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "mqtt" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "nats" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "postgres" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "schedule" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                "sqs" => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85(),
+                _ => new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties4105Fabcb4(),
+            };
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -254,17 +69,10 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
-
-            if(YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5.GetFieldDeserializers();
-            }
-            else if(YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 != null)
-            {
-                return YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "trigger_kind", n => { TriggerKind = n.GetStringValue(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -272,25 +80,10 @@ return result;
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
-            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
-            if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 == null && YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            int selectedUnionBranches = 0;
-            if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 != null) selectedUnionBranches++;
-            if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 != null) selectedUnionBranches++;
-            if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 != null && selectedUnionBranches == 1) { if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5); return; }
-            if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 != null && selectedUnionBranches == 1) { if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85); return; }
-
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 != null)
-            {
-                if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5>(null, YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties70422149A5);
-            }
-            else if(YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 != null)
-            {
-                if (YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85>(null, YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties7Ce9825D85);
-            }
+            writer.WriteStringValue("trigger_kind", TriggerKind);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

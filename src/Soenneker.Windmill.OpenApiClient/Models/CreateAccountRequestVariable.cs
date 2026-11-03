@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
-        /// <summary>The value of the variable</summary>
+        /// <summary>The value of the variable. For a secret, `$external:vault://&lt;path&gt;#&lt;key&gt;` stores a reference to an existing secret in the instance&apos;s external HashiCorp Vault (path as `vault kv get` takes it) instead of a value; without `#&lt;key&gt;` it reads the whole secret as a JSON object of its fields. It is resolved on each read, only under the path prefixes a superadmin allowed for the workspace, and is returned as-is when the secret is not decrypted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }

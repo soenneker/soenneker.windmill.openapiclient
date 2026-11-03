@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.855.1",
+    "version": "1.858.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -10292,6 +10292,37 @@
               "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/EncryptValue200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/variables/external_secret_prefixes": {
+      "get": {
+        "tags": [
+          "variable"
+        ],
+        "summary": "list the external secret prefixes allowed for this workspace (admin only)",
+        "operationId": "ListExternalSecretPrefixes",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "allowed prefixes, such as vault://secret/team",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListExternalSecretPrefixes200ResponseSchema"
                 }
               }
             }
@@ -20784,6 +20815,56 @@
         }
       }
     },
+    "/w/{workspace}/ai_session_tools/{name}": {
+      "post": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "run one of the AI session\u0027s tools as the calling user",
+        "description": "The in-app chat\u0027s entry to the session toolset the MCP server also serves. Refused for job tokens and scoped tokens.",
+        "operationId": "CallAiSessionTool",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CallAiSessionToolRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "what the model reads, and what the chat applies",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallAiSessionTool200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/ai/sessions/list": {
       "get": {
         "tags": [
@@ -26401,6 +26482,61 @@
               "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/DeleteJobs200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/jobs/recent_runs": {
+      "get": {
+        "tags": [
+          "job"
+        ],
+        "summary": "list what ran recently, one entry per script, flow or agent",
+        "operationId": "ListRecentRuns",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "folder",
+            "in": "query",
+            "description": "only runs of items in this folder",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "failed_ids_kind",
+            "in": "query",
+            "description": "with failed_ids_path, the item whose unresolved failed run ids to list in failed_run_ids",
+            "schema": {
+              "$ref": "#/components/schemas/ListRecentRunsFailedIdsKindParameter"
+            }
+          },
+          {
+            "name": "failed_ids_path",
+            "in": "query",
+            "description": "with failed_ids_kind, the path of that item",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "runs that completed in the window or are running, grouped by item, newest run first",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListRecentRuns200Response"
                 }
               }
             }
@@ -63057,6 +63193,10 @@
           "operator": {
             "type": "boolean"
           },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role by name (\u0060developer\u0060, \u0060operator\u0060 or a custom role). Admin is the separate \u0060is_admin\u0060 flag."
+          },
           "disabled": {
             "type": "boolean"
           },
@@ -64171,8 +64311,7 @@
       },
       "TestSecretBackendRequest": {
         "required": [
-          "address",
-          "mount_path"
+          "address"
         ],
         "type": "object",
         "properties": {
@@ -64182,7 +64321,7 @@
           },
           "mount_path": {
             "type": "string",
-            "description": "KV v2 secrets engine mount path (e.g., windmill)"
+            "description": "KV v2 secrets engine mount path (e.g., windmill). Empty to test the connection used for \u0060$external:vault://\u0060 references, which checks only that Vault accepts Windmill\u0027s token."
           },
           "kv_secret_path_prefix": {
             "type": "string",
@@ -64195,6 +64334,14 @@
           "jwt_mount_path": {
             "type": "string",
             "description": "Mount path for the JWT auth method in Vault (optional, defaults to \u0022jwt\u0022). Set this when the JWT auth method is mounted at a non-default path, e.g. via \u0060vault auth enable -path=\u003Cmount\u003E jwt\u0060."
+          },
+          "approle_role_id": {
+            "type": "string",
+            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+          },
+          "approle_mount_path": {
+            "type": "string",
+            "description": "Mount path of the AppRole auth method (optional, defaults to \u0022approle\u0022)."
           },
           "namespace": {
             "type": "string",
@@ -64212,8 +64359,7 @@
       },
       "MigrateSecretsToVaultRequest": {
         "required": [
-          "address",
-          "mount_path"
+          "address"
         ],
         "type": "object",
         "properties": {
@@ -64223,7 +64369,7 @@
           },
           "mount_path": {
             "type": "string",
-            "description": "KV v2 secrets engine mount path (e.g., windmill)"
+            "description": "KV v2 secrets engine mount path (e.g., windmill). Empty to test the connection used for \u0060$external:vault://\u0060 references, which checks only that Vault accepts Windmill\u0027s token."
           },
           "kv_secret_path_prefix": {
             "type": "string",
@@ -64236,6 +64382,14 @@
           "jwt_mount_path": {
             "type": "string",
             "description": "Mount path for the JWT auth method in Vault (optional, defaults to \u0022jwt\u0022). Set this when the JWT auth method is mounted at a non-default path, e.g. via \u0060vault auth enable -path=\u003Cmount\u003E jwt\u0060."
+          },
+          "approle_role_id": {
+            "type": "string",
+            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+          },
+          "approle_mount_path": {
+            "type": "string",
+            "description": "Mount path of the AppRole auth method (optional, defaults to \u0022approle\u0022)."
           },
           "namespace": {
             "type": "string",
@@ -64253,8 +64407,7 @@
       },
       "MigrateSecretsToDatabaseRequest": {
         "required": [
-          "address",
-          "mount_path"
+          "address"
         ],
         "type": "object",
         "properties": {
@@ -64264,7 +64417,7 @@
           },
           "mount_path": {
             "type": "string",
-            "description": "KV v2 secrets engine mount path (e.g., windmill)"
+            "description": "KV v2 secrets engine mount path (e.g., windmill). Empty to test the connection used for \u0060$external:vault://\u0060 references, which checks only that Vault accepts Windmill\u0027s token."
           },
           "kv_secret_path_prefix": {
             "type": "string",
@@ -64277,6 +64430,14 @@
           "jwt_mount_path": {
             "type": "string",
             "description": "Mount path for the JWT auth method in Vault (optional, defaults to \u0022jwt\u0022). Set this when the JWT auth method is mounted at a non-default path, e.g. via \u0060vault auth enable -path=\u003Cmount\u003E jwt\u0060."
+          },
+          "approle_role_id": {
+            "type": "string",
+            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+          },
+          "approle_mount_path": {
+            "type": "string",
+            "description": "Mount path of the AppRole auth method (optional, defaults to \u0022approle\u0022)."
           },
           "namespace": {
             "type": "string",
@@ -64669,6 +64830,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role by name (\u0060developer\u0060, \u0060operator\u0060 or a custom role). Admin is the separate \u0060is_admin\u0060 flag."
           },
           "disabled": {
             "type": "boolean"
@@ -65079,6 +65244,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role by name (\u0060developer\u0060, \u0060operator\u0060 or a custom role). Admin is the separate \u0060is_admin\u0060 flag."
           },
           "disabled": {
             "type": "boolean"
@@ -67070,7 +67239,7 @@
           },
           "value": {
             "type": "string",
-            "description": "The value of the variable"
+            "description": "The value of the variable. For a secret, \u0060$external:vault://\u003Cpath\u003E#\u003Ckey\u003E\u0060 stores a reference to an existing secret in the instance\u0027s external HashiCorp Vault (path as \u0060vault kv get\u0060 takes it) instead of a value; without \u0060#\u003Ckey\u003E\u0060 it reads the whole secret as a JSON object of its fields. It is resolved on each read, only under the path prefixes a superadmin allowed for the workspace, and is returned as-is when the secret is not decrypted.\n"
           },
           "is_secret": {
             "type": "boolean",
@@ -67133,7 +67302,7 @@
           },
           "value": {
             "type": "string",
-            "description": "The new value of the variable"
+            "description": "The new value of the variable. Accepts an \u0060$external:vault://\u003Cpath\u003E[#\u003Ckey\u003E]\u0060 reference for a secret, as in CreateVariable."
           },
           "is_secret": {
             "type": "boolean",
@@ -69938,6 +70107,10 @@
           },
           "content": {
             "type": "string"
+          },
+          "path": {
+            "type": "string",
+            "description": "The script\u0027s path. A \u0060// materialize\u0060 that names no table writes the\ntable named after the script, so without it such a target is not checked.\n"
           }
         }
       },
@@ -70887,6 +71060,39 @@
           "truncated": {
             "type": "boolean",
             "description": "more buckets matched than were returned, so summing them under-reports"
+          }
+        }
+      },
+      "CallAiSessionToolRequest": {
+        "type": "object",
+        "properties": {
+          "args": {
+            "description": "the tool\u0027s arguments, as the model sent them"
+          },
+          "context": {
+            "$ref": "#/components/schemas/CallAiSessionToolRequestContext"
+          }
+        }
+      },
+      "CallAiSessionTool200Response": {
+        "required": [
+          "text",
+          "is_error",
+          "effects"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "is_error": {
+            "type": "boolean"
+          },
+          "effects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallAiSessionTool200ResponseEffectsItem"
+            }
           }
         }
       },
@@ -72511,6 +72717,45 @@
               "format": "uuid"
             },
             "description": "Optional list of specific job UUIDs to cancel. If not provided, all suspended jobs for the trigger will be canceled."
+          }
+        }
+      },
+      "ListRecentRuns200Response": {
+        "required": [
+          "window_hours",
+          "capped",
+          "total_runs",
+          "failed_runs",
+          "failing_items",
+          "running_items",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "window_hours": {
+            "type": "integer"
+          },
+          "capped": {
+            "type": "boolean",
+            "description": "the window holds more runs than were read, so counts cover the newest ones only"
+          },
+          "total_runs": {
+            "type": "integer"
+          },
+          "failed_runs": {
+            "type": "integer"
+          },
+          "failing_items": {
+            "type": "integer"
+          },
+          "running_items": {
+            "type": "integer"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListRecentRuns200ResponseItemsItem"
+            }
           }
         }
       },
@@ -80381,6 +80626,12 @@
       "EncryptValue200PlainResponseSchema": {
         "type": "string"
       },
+      "ListExternalSecretPrefixes200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
       "DeleteVariable200PlainResponseSchema": {
         "type": "string"
       },
@@ -84476,7 +84727,7 @@
           },
           "value": {
             "type": "string",
-            "description": "The value of the variable"
+            "description": "The value of the variable. For a secret, \u0060$external:vault://\u003Cpath\u003E#\u003Ckey\u003E\u0060 stores a reference to an existing secret in the instance\u0027s external HashiCorp Vault (path as \u0060vault kv get\u0060 takes it) instead of a value; without \u0060#\u003Ckey\u003E\u0060 it reads the whole secret as a JSON object of its fields. It is resolved on each read, only under the path prefixes a superadmin allowed for the workspace, and is returned as-is when the secret is not decrypted.\n"
           },
           "is_secret": {
             "type": "boolean",
@@ -85699,6 +85950,27 @@
           }
         }
       },
+      "CallAiSessionToolRequestContext": {
+        "type": "object",
+        "properties": {
+          "live_editors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallAiSessionToolRequestContextLiveEditorsItem"
+            }
+          },
+          "cells": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CallAiSessionToolRequestContextCellsItem"
+            }
+          }
+        },
+        "description": "browser-held state the tool reads"
+      },
+      "CallAiSessionTool200ResponseEffectsItem": {
+        "type": "object"
+      },
       "ListAiSessionBackups200ResponseSessionsItem": {
         "required": [
           "id",
@@ -86589,6 +86861,48 @@
       "RunDynamicSelectRequestArgs": {
         "type": "object",
         "description": "Arguments to pass to the function"
+      },
+      "ListRecentRuns200ResponseItemsItem": {
+        "required": [
+          "path",
+          "kind",
+          "status",
+          "failed_runs",
+          "runs"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ListRecentRuns200ResponseItemsItemKind"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ListRecentRuns200ResponseItemsItemStatus"
+          },
+          "failed_runs": {
+            "type": "integer",
+            "description": "unresolved failed runs of the item over the whole window, not only those in runs"
+          },
+          "failed_run_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "the ids of those failed runs, only for the item named by failed_ids_kind and failed_ids_path"
+          },
+          "runs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListRecentRuns200ResponseItemsItemRunsItem"
+            }
+          }
+        }
       },
       "GetFlowAllResults200ResponseEntriesItem": {
         "required": [
@@ -88549,6 +88863,10 @@
           },
           "operator": {
             "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "description": "The member\u0027s workspace role by name (\u0060developer\u0060, \u0060operator\u0060 or a custom role). Admin is the separate \u0060is_admin\u0060 flag."
           },
           "disabled": {
             "type": "boolean"
@@ -94556,6 +94874,41 @@
           }
         }
       },
+      "CallAiSessionToolRequestContextLiveEditorsItem": {
+        "required": [
+          "kind",
+          "storage_path"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "storage_path": {
+            "type": "string"
+          },
+          "effective_path": {
+            "type": "string"
+          }
+        }
+      },
+      "CallAiSessionToolRequestContextCellsItem": {
+        "required": [
+          "kind",
+          "storage_path",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "storage_path": {
+            "type": "string"
+          },
+          "value": {}
+        }
+      },
       "PullAiSessionBackups200ResponseSessionsItemHead": {
         "type": "object"
       },
@@ -94776,6 +95129,31 @@
         "type": "object",
         "additionalProperties": {},
         "description": "Environment variables available to all steps. Values can be strings, JSON values, or special references: \u0027$var:path\u0027 (workspace variable) or \u0027$res:path\u0027 (resource)."
+      },
+      "ListRecentRuns200ResponseItemsItemRunsItem": {
+        "required": [
+          "id",
+          "status",
+          "ran_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ListRecentRuns200ResponseItemsItemRunsItemStatus"
+          },
+          "ran_at": {
+            "type": "string",
+            "description": "when the run started, or was created for one that has not reported a start",
+            "format": "date-time"
+          },
+          "duration_ms": {
+            "type": "integer"
+          }
+        }
       },
       "GetQueueMetrics200ResponseItemValuesItem": {
         "required": [
@@ -97286,6 +97664,69 @@
           ]
         }
       },
+      "ListRecentRuns200ResponseItemsItemKind": {
+        "enum": [
+          "script",
+          "flow",
+          "agent"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ListRecentRuns200ResponseItemsItemKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "script",
+              "name": "Script"
+            },
+            {
+              "value": "flow",
+              "name": "Flow"
+            },
+            {
+              "value": "agent",
+              "name": "Agent"
+            }
+          ]
+        }
+      },
+      "ListRecentRuns200ResponseItemsItemStatus": {
+        "enum": [
+          "success",
+          "failure",
+          "resolved",
+          "canceled",
+          "running"
+        ],
+        "type": "string",
+        "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060",
+        "x-ms-enum": {
+          "name": "ListRecentRuns200ResponseItemsItemStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "failure",
+              "name": "Failure"
+            },
+            {
+              "value": "resolved",
+              "name": "Resolved"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            },
+            {
+              "value": "running",
+              "name": "Running"
+            }
+          ]
+        }
+      },
       "GetFlowAllResults200ResponseEntriesItemStatus": {
         "enum": [
           "success",
@@ -97952,6 +98393,43 @@
             {
               "value": "rw",
               "name": "Rw"
+            }
+          ]
+        }
+      },
+      "ListRecentRuns200ResponseItemsItemRunsItemStatus": {
+        "enum": [
+          "success",
+          "failure",
+          "resolved",
+          "canceled",
+          "running"
+        ],
+        "type": "string",
+        "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060",
+        "x-ms-enum": {
+          "name": "ListRecentRuns200ResponseItemsItemRunsItemStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "success",
+              "name": "Success"
+            },
+            {
+              "value": "failure",
+              "name": "Failure"
+            },
+            {
+              "value": "resolved",
+              "name": "Resolved"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            },
+            {
+              "value": "running",
+              "name": "Running"
             }
           ]
         }
@@ -99698,6 +100176,32 @@
             {
               "value": "skipped",
               "name": "Skipped"
+            }
+          ]
+        }
+      },
+      "ListRecentRunsFailedIdsKindParameter": {
+        "enum": [
+          "script",
+          "flow",
+          "agent"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ListRecentRunsFailedIdsKindParameter",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "script",
+              "name": "Script"
+            },
+            {
+              "value": "flow",
+              "name": "Flow"
+            },
+            {
+              "value": "agent",
+              "name": "Agent"
             }
           ]
         }
@@ -104695,6 +105199,10 @@
     "YamlPathsWWorkspaceUsersGetUsernameGetResponses200ContentApplicationJsonSchemaPro7Bd003Dc89": {
       "type": "boolean"
     },
+    "YamlPathsWWorkspaceUsersGetUsernameGetResponses200ContentApplicationJsonSchemaPro00Efb40B64": {
+      "type": "string",
+      "description": "The member\u0027s workspace role by name (\u0060developer\u0060, \u0060operator\u0060 or a custom role). Admin is the separate \u0060is_admin\u0060 flag."
+    },
     "YamlPathsWWorkspaceUsersGetUsernameGetResponses200ContentApplicationJsonSchemaPro64C844B350": {
       "type": "boolean"
     },
@@ -105461,7 +105969,7 @@
     },
     "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaProperties25E6Cacf0A": {
       "type": "string",
-      "description": "KV v2 secrets engine mount path (e.g., windmill)"
+      "description": "KV v2 secrets engine mount path (e.g., windmill). Empty to test the connection used for \u0060$external:vault://\u0060 references, which checks only that Vault accepts Windmill\u0027s token."
     },
     "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaProperties9E32D727C9": {
       "type": "string",
@@ -105474,6 +105982,14 @@
     "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaProperties58Db1Acbe4": {
       "type": "string",
       "description": "Mount path for the JWT auth method in Vault (optional, defaults to \u0022jwt\u0022). Set this when the JWT auth method is mounted at a non-default path, e.g. via \u0060vault auth enable -path=\u003Cmount\u003E jwt\u0060."
+    },
+    "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaPropertiesBea24C8924": {
+      "type": "string",
+      "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+    },
+    "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaPropertiesAcc26A6539": {
+      "type": "string",
+      "description": "Mount path of the AppRole auth method (optional, defaults to \u0022approle\u0022)."
     },
     "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaProperties62B51F4C30": {
       "type": "string",
@@ -107129,7 +107645,7 @@
     },
     "YamlPathsWWorkspaceVariablesCreatePostRequestBodyContentApplicationJsonSchemaPropertiDf6Bedac02": {
       "type": "string",
-      "description": "The value of the variable"
+      "description": "The value of the variable. For a secret, \u0060$external:vault://\u003Cpath\u003E#\u003Ckey\u003E\u0060 stores a reference to an existing secret in the instance\u0027s external HashiCorp Vault (path as \u0060vault kv get\u0060 takes it) instead of a value; without \u0060#\u003Ckey\u003E\u0060 it reads the whole secret as a JSON object of its fields. It is resolved on each read, only under the path prefixes a superadmin allowed for the workspace, and is returned as-is when the secret is not decrypted.\n"
     },
     "YamlPathsWWorkspaceVariablesCreatePostRequestBodyContentApplicationJsonSchemaProperti5197C927B4": {
       "type": "boolean",
@@ -107176,7 +107692,7 @@
     },
     "YamlPathsWWorkspaceVariablesUpdatePathPostRequestBodyContentApplicationJsonSchemaP50A011A8A4": {
       "type": "string",
-      "description": "The new value of the variable"
+      "description": "The new value of the variable. Accepts an \u0060$external:vault://\u003Cpath\u003E[#\u003Ckey\u003E]\u0060 reference for a secret, as in CreateVariable."
     },
     "YamlPathsWWorkspaceVariablesUpdatePathPostRequestBodyContentApplicationJsonSchemaPFbfd4Ffc4E": {
       "type": "boolean",
@@ -120166,8 +120682,7 @@
     },
     "VaultSettings": {
       "required": [
-        "address",
-        "mount_path"
+        "address"
       ],
       "type": "object",
       "properties": {
@@ -120177,7 +120692,7 @@
         },
         "mount_path": {
           "type": "string",
-          "description": "KV v2 secrets engine mount path (e.g., windmill)"
+          "description": "KV v2 secrets engine mount path (e.g., windmill). Empty to test the connection used for \u0060$external:vault://\u0060 references, which checks only that Vault accepts Windmill\u0027s token."
         },
         "kv_secret_path_prefix": {
           "type": "string",
@@ -120190,6 +120705,14 @@
         "jwt_mount_path": {
           "type": "string",
           "description": "Mount path for the JWT auth method in Vault (optional, defaults to \u0022jwt\u0022). Set this when the JWT auth method is mounted at a non-default path, e.g. via \u0060vault auth enable -path=\u003Cmount\u003E jwt\u0060."
+        },
+        "approle_role_id": {
+          "type": "string",
+          "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+        },
+        "approle_mount_path": {
+          "type": "string",
+          "description": "Mount path of the AppRole auth method (optional, defaults to \u0022approle\u0022)."
         },
         "namespace": {
           "type": "string",
@@ -123040,6 +123563,10 @@
         "operator": {
           "type": "boolean"
         },
+        "role": {
+          "type": "string",
+          "description": "The member\u0027s workspace role by name (\u0060developer\u0060, \u0060operator\u0060 or a custom role). Admin is the separate \u0060is_admin\u0060 flag."
+        },
         "disabled": {
           "type": "boolean"
         },
@@ -123737,7 +124264,7 @@
         },
         "value": {
           "type": "string",
-          "description": "The value of the variable"
+          "description": "The value of the variable. For a secret, \u0060$external:vault://\u003Cpath\u003E#\u003Ckey\u003E\u0060 stores a reference to an existing secret in the instance\u0027s external HashiCorp Vault (path as \u0060vault kv get\u0060 takes it) instead of a value; without \u0060#\u003Ckey\u003E\u0060 it reads the whole secret as a JSON object of its fields. It is resolved on each read, only under the path prefixes a superadmin allowed for the workspace, and is returned as-is when the secret is not decrypted.\n"
         },
         "is_secret": {
           "type": "boolean",
@@ -123786,7 +124313,7 @@
         },
         "value": {
           "type": "string",
-          "description": "The new value of the variable"
+          "description": "The new value of the variable. Accepts an \u0060$external:vault://\u003Cpath\u003E[#\u003Ckey\u003E]\u0060 reference for a secret, as in CreateVariable."
         },
         "is_secret": {
           "type": "boolean",
@@ -123973,6 +124500,43 @@
           "type": "boolean",
           "nullable": true
         }
+      }
+    },
+    "RecentRunStatus": {
+      "enum": [
+        "success",
+        "failure",
+        "resolved",
+        "canceled",
+        "running"
+      ],
+      "type": "string",
+      "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060",
+      "x-ms-enum": {
+        "name": "RecentRunStatus",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "success",
+            "name": "Success"
+          },
+          {
+            "value": "failure",
+            "name": "Failure"
+          },
+          {
+            "value": "resolved",
+            "name": "Resolved"
+          },
+          {
+            "value": "canceled",
+            "name": "Canceled"
+          },
+          {
+            "value": "running",
+            "name": "Running"
+          }
+        ]
       }
     },
     "ScriptLang": {
@@ -138836,6 +139400,12 @@
     "EncryptValue200PlainResponse": {
       "type": "string"
     },
+    "ListExternalSecretPrefixes200Response": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "DeleteVariable200PlainResponse": {
       "type": "string"
     },
@@ -142851,6 +143421,10 @@
         },
         "operator": {
           "type": "boolean"
+        },
+        "role": {
+          "type": "string",
+          "description": "The member\u0027s workspace role by name (\u0060developer\u0060, \u0060operator\u0060 or a custom role). Admin is the separate \u0060is_admin\u0060 flag."
         },
         "disabled": {
           "type": "boolean"

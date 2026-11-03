@@ -7,6 +7,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Variables.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Variables.Delete_bulk;
 using Soenneker.Windmill.OpenApiClient.W.Item.Variables.Encrypt;
 using Soenneker.Windmill.OpenApiClient.W.Item.Variables.Exists;
+using Soenneker.Windmill.OpenApiClient.W.Item.Variables.External_secret_prefixes;
 using Soenneker.Windmill.OpenApiClient.W.Item.Variables.Get;
 using Soenneker.Windmill.OpenApiClient.W.Item.Variables.Get_value;
 using Soenneker.Windmill.OpenApiClient.W.Item.Variables.List;
@@ -48,6 +49,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Variables
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.Exists.ExistsRequestBuilder Exists
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.Exists.ExistsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The external_secret_prefixes property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.External_secret_prefixes.External_secret_prefixesRequestBuilder External_secret_prefixes
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.External_secret_prefixes.External_secret_prefixesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The get_value property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Variables.Get_value.Get_valueRequestBuilder Get_value

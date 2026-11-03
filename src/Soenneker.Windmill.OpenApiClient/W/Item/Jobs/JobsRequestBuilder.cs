@@ -19,6 +19,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_filtered_uuids;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.List_selected_job_groups;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Oldest;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Result_by_id;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Resume_urls;
@@ -129,6 +130,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.QueueRequestBuilder Queue
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.QueueRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The recent_runs property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Recent_runsRequestBuilder Recent_runs
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Recent_runsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The restart property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Restart.RestartRequestBuilder Restart

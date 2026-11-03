@@ -19,6 +19,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("address") is null) { _explicitNullValueAddress = default!; _explicitNullProperties?.Remove("address"); }
             else if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("approle_mount_path") is null) { _explicitNullValueApproleMountPath = default!; _explicitNullProperties?.Remove("approle_mount_path"); }
+            else if (parseNode.GetChildNode("approle_mount_path") is { } nullNodeApproleMountPath && nullNodeApproleMountPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApproleMountPath = null;
+            if (parseNode.GetChildNode("approle_role_id") is null) { _explicitNullValueApproleRoleId = default!; _explicitNullProperties?.Remove("approle_role_id"); }
+            else if (parseNode.GetChildNode("approle_role_id") is { } nullNodeApproleRoleId && nullNodeApproleRoleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApproleRoleId = null;
             if (parseNode.GetChildNode("jwt_mount_path") is null) { _explicitNullValueJwtMountPath = default!; _explicitNullProperties?.Remove("jwt_mount_path"); }
             else if (parseNode.GetChildNode("jwt_mount_path") is { } nullNodeJwtMountPath && nullNodeJwtMountPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JwtMountPath = null;
             if (parseNode.GetChildNode("jwt_role") is null) { _explicitNullValueJwtRole = default!; _explicitNullProperties?.Remove("jwt_role"); }
@@ -46,6 +50,26 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; AdditionalData?.Remove("address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
         private string _explicitNullValueAddress = default!;
+#endif
+        /// <summary>Mount path of the AppRole auth method (optional, defaults to &quot;approle&quot;).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApproleMountPath { get => _explicitNullValueApproleMountPath; set { _explicitNullValueApproleMountPath = value; AdditionalData?.Remove("approle_mount_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approle_mount_path"); else _explicitNullProperties?.Remove("approle_mount_path"); } }
+        private string? _explicitNullValueApproleMountPath = default!;
+#nullable restore
+#else
+        public string ApproleMountPath { get => _explicitNullValueApproleMountPath; set { _explicitNullValueApproleMountPath = value; AdditionalData?.Remove("approle_mount_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approle_mount_path"); else _explicitNullProperties?.Remove("approle_mount_path"); } }
+        private string _explicitNullValueApproleMountPath = default!;
+#endif
+        /// <summary>AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the `VAULT_APPROLE_SECRET_ID` environment variable of servers and workers.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ApproleRoleId { get => _explicitNullValueApproleRoleId; set { _explicitNullValueApproleRoleId = value; AdditionalData?.Remove("approle_role_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approle_role_id"); else _explicitNullProperties?.Remove("approle_role_id"); } }
+        private string? _explicitNullValueApproleRoleId = default!;
+#nullable restore
+#else
+        public string ApproleRoleId { get => _explicitNullValueApproleRoleId; set { _explicitNullValueApproleRoleId = value; AdditionalData?.Remove("approle_role_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approle_role_id"); else _explicitNullProperties?.Remove("approle_role_id"); } }
+        private string _explicitNullValueApproleRoleId = default!;
 #endif
         /// <summary>Mount path for the JWT auth method in Vault (optional, defaults to &quot;jwt&quot;). Set this when the JWT auth method is mounted at a non-default path, e.g. via `vault auth enable -path=&lt;mount&gt; jwt`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,7 +101,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string KvSecretPathPrefix { get => _explicitNullValueKvSecretPathPrefix; set { _explicitNullValueKvSecretPathPrefix = value; AdditionalData?.Remove("kv_secret_path_prefix"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kv_secret_path_prefix"); else _explicitNullProperties?.Remove("kv_secret_path_prefix"); } }
         private string _explicitNullValueKvSecretPathPrefix = default!;
 #endif
-        /// <summary>KV v2 secrets engine mount path (e.g., windmill)</summary>
+        /// <summary>KV v2 secrets engine mount path (e.g., windmill). Empty to test the connection used for `$external:vault://` references, which checks only that Vault accepts Windmill&apos;s token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MountPath { get => _explicitNullValueMountPath; set { _explicitNullValueMountPath = value; AdditionalData?.Remove("mount_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mount_path"); else _explicitNullProperties?.Remove("mount_path"); } }
@@ -136,6 +160,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address", n => { Address = n.GetStringValue(); } },
+                { "approle_mount_path", n => { ApproleMountPath = n.GetStringValue(); } },
+                { "approle_role_id", n => { ApproleRoleId = n.GetStringValue(); } },
                 { "jwt_mount_path", n => { JwtMountPath = n.GetStringValue(); } },
                 { "jwt_role", n => { JwtRole = n.GetStringValue(); } },
                 { "kv_secret_path_prefix", n => { KvSecretPathPrefix = n.GetStringValue(); } },
@@ -153,6 +179,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
+            writer.WriteStringValue("approle_mount_path", ApproleMountPath);
+            writer.WriteStringValue("approle_role_id", ApproleRoleId);
             writer.WriteStringValue("jwt_mount_path", JwtMountPath);
             writer.WriteStringValue("jwt_role", JwtRole);
             writer.WriteStringValue("kv_secret_path_prefix", KvSecretPathPrefix);

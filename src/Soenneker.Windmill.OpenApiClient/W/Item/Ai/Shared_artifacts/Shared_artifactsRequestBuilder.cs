@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Delete;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Get;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Share;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Status;
 using System.Collections.Generic;
@@ -27,6 +28,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Get.GetRequestBuilder GetPath
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Get.GetRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.List.ListRequestBuilder List
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.List.ListRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The share property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts.Share.ShareRequestBuilder Share

@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.858.0",
+    "version": "1.861.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -408,6 +408,15 @@
             "description": "get audit logs for all workspaces",
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "job_id",
+            "in": "query",
+            "description": "only the entries about this run and the jobs under it (steps, loop iterations and subflows at any depth): who started, viewed, cancelled, approved, resumed or deleted each\n",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -21059,6 +21068,38 @@
         }
       }
     },
+    "/w/{workspace}/ai/shared_artifacts/list": {
+      "get": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "list the workspace\u0027s live shared AI session artifacts",
+        "description": "Every share still inside its retention window, newest first, without its content. Capped at 500.\n",
+        "operationId": "ListSharedAiArtifacts",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the live shares",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSharedAiArtifacts200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/ai/shared_artifacts/get/{id}": {
       "get": {
         "tags": [
@@ -38776,6 +38817,47 @@
         }
       }
     },
+    "/w/{workspace}/access/get": {
+      "get": {
+        "tags": [
+          "granular_acl"
+        ],
+        "summary": "list what a workspace member or group can reach, and why",
+        "description": "Workspace admins can query any principal; other members only themselves and the groups\nthey belong to. An admin principal reaches everything, so \u0060items\u0060 is empty.\n",
+        "operationId": "GetPrincipalAccess",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "description": "\u0060u/\u003Cusername\u003E\u0060 or \u0060g/\u003Cgroup\u003E\u0060",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the principal\u0027s access",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPrincipalAccess200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/acls/get/{kind}/{path}": {
       "get": {
         "tags": [
@@ -49116,6 +49198,10 @@
             "type": "integer",
             "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
           },
+          "timeout": {
+            "type": "integer",
+            "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
+          },
           "flow_env": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E147E5111FlowEnv"
           },
@@ -55125,6 +55211,10 @@
             "type": "integer",
             "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
           },
+          "timeout": {
+            "type": "integer",
+            "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
+          },
           "flow_env": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro4F409C8D9EFlowEnv"
           },
@@ -56215,6 +56305,10 @@
             "type": "integer",
             "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
           },
+          "timeout": {
+            "type": "integer",
+            "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
+          },
           "flow_env": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr05F2237A20FlowEnv"
           },
@@ -56720,6 +56814,10 @@
           "delete_after_secs": {
             "type": "integer",
             "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
+          },
+          "timeout": {
+            "type": "integer",
+            "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
           },
           "flow_env": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem832908Be62FlowEnv"
@@ -60866,6 +60964,11 @@
           ]
         }
       },
+      "YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesExternal145F279214": {
+        "type": "string",
+        "description": "IdP group this group is linked to; its membership then follows the SSO groups claim",
+        "nullable": true
+      },
       "YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693": {
         "enum": [
           "superadmin",
@@ -60887,6 +60990,11 @@
             }
           ]
         }
+      },
+      "YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp1669F637Bc": {
+        "type": "string",
+        "description": "IdP group this group is linked to; its membership then follows the SSO groups claim",
+        "nullable": true
       },
       "YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsPropDdb4A9B0D7": {
         "required": [
@@ -61050,6 +61158,115 @@
           "alert_time_threshold_seconds": {
             "type": "integer"
           }
+        }
+      },
+      "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoAa9C05A262": {
+        "required": [
+          "name",
+          "write",
+          "owner",
+          "via"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "write": {
+            "type": "boolean"
+          },
+          "owner": {
+            "type": "boolean"
+          },
+          "via": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "the \u0060u/\u003Cuser\u003E\u0060 or \u0060g/\u003Cgroup\u003E\u0060 grants on the folder that reach the principal"
+          }
+        }
+      },
+      "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt96135271Be": {
+        "required": [
+          "kind",
+          "path",
+          "write",
+          "reasons"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "write": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesItCe774Effbf"
+            }
+          }
+        }
+      },
+      "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesItCe774Effbf": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt24Fe990Cb6"
+          },
+          "group": {
+            "type": "string"
+          },
+          "folder": {
+            "type": "string"
+          },
+          "write": {
+            "type": "boolean"
+          }
+        }
+      },
+      "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt24Fe990Cb6": {
+        "enum": [
+          "own",
+          "group_path",
+          "user",
+          "group",
+          "folder"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt24Fe990Cb6",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "own",
+              "name": "Own"
+            },
+            {
+              "value": "group_path",
+              "name": "GroupPath"
+            },
+            {
+              "value": "user",
+              "name": "User"
+            },
+            {
+              "value": "group",
+              "name": "Group"
+            },
+            {
+              "value": "folder",
+              "name": "Folder"
+            }
+          ]
         }
       },
       "YamlPathsWWorkspaceCaptureGetConfigsRunnableKindPathGetResponses200ContentAppli184Bf5Ea80": {
@@ -77837,6 +78054,13 @@
           "instance_role": {
             "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693"
           },
+          "external_id": {
+            "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp1669F637Bc"
+          },
+          "scim_managed": {
+            "type": "boolean",
+            "description": "Provisioned by SCIM, which then owns external_id"
+          },
           "workspaces": {
             "type": "array",
             "items": {
@@ -77856,6 +78080,10 @@
           },
           "summary": {
             "type": "string"
+          },
+          "external_id": {
+            "type": "string",
+            "description": "IdP group the SSO groups claim links this group to: a group id or a full path such as /operators/network-team. Blank or omitted leaves it unlinked."
           }
         }
       },
@@ -77872,6 +78100,10 @@
             "type": "string",
             "description": "Instance-level role for group members. \u0027superadmin\u0027, \u0027devops\u0027, \u0027user\u0027 or empty to clear.",
             "nullable": true
+          },
+          "external_id": {
+            "type": "string",
+            "description": "IdP group the SSO groups claim links this group to: a group id or a full path such as /operators/network-team. Omitted keeps the current link, blank clears it. Refused on a group SCIM provisioned."
           }
         }
       },
@@ -78235,6 +78467,42 @@
           "token": {
             "type": "string",
             "description": "The agent token to remove from blacklist"
+          }
+        }
+      },
+      "GetPrincipalAccess200Response": {
+        "required": [
+          "principal",
+          "is_admin",
+          "groups",
+          "folders",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "principal": {
+            "type": "string"
+          },
+          "is_admin": {
+            "type": "boolean"
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "folders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoAa9C05A262"
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt96135271Be"
+            }
           }
         }
       },
@@ -81536,6 +81804,12 @@
             "type": "string",
             "format": "date-time"
           }
+        }
+      },
+      "ListSharedAiArtifacts200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListSharedAiArtifacts200ResponseSchemaItem"
         }
       },
       "UnshareAiArtifact200PlainResponseSchema": {
@@ -86802,6 +87076,10 @@
             "type": "integer",
             "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
           },
+          "timeout": {
+            "type": "integer",
+            "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
+          },
           "flow_env": {
             "$ref": "#/components/schemas/RunFlowDependenciesAsyncRequestFlowValueFlowEnv"
           },
@@ -90466,6 +90744,44 @@
           }
         }
       },
+      "ListSharedAiArtifacts200ResponseSchemaItem": {
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "version",
+          "created_by",
+          "shared_at",
+          "expires_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceAiSharedArtifactsSharePostResponses200ContentApplicationJsonSche76637A50A5"
+          },
+          "version": {
+            "type": "integer"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "shared_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "ListSearchApp200ResponseSchemaItem": {
         "required": [
           "path",
@@ -93581,6 +93897,13 @@
           },
           "instance_role": {
             "$ref": "#/components/schemas/YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesInstance801Bd9C7F1"
+          },
+          "external_id": {
+            "$ref": "#/components/schemas/YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesExternal145F279214"
+          },
+          "scim_managed": {
+            "type": "boolean",
+            "description": "Provisioned by SCIM, which then owns external_id"
           }
         }
       },
@@ -93604,6 +93927,13 @@
           },
           "instance_role": {
             "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693"
+          },
+          "external_id": {
+            "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp1669F637Bc"
+          },
+          "scim_managed": {
+            "type": "boolean",
+            "description": "Provisioned by SCIM, which then owns external_id"
           },
           "workspaces": {
             "type": "array",
@@ -110138,6 +110468,10 @@
       "type": "integer",
       "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
     },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Af650Cf17": {
+      "type": "integer",
+      "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
+    },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFfb1Fda8F6": {
       "type": "object",
       "additionalProperties": {},
@@ -112429,6 +112763,10 @@
     "YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson537664C654": {
       "type": "integer",
       "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
+    },
+    "YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson6Ace114Ca1": {
+      "type": "integer",
+      "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
     },
     "YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson9445126C50": {
       "type": "object",
@@ -117678,6 +118016,10 @@
     "YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesEmailsItB8375E385A": {
       "type": "string"
     },
+    "YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesScimManaC5F0Ffd716": {
+      "type": "boolean",
+      "description": "Provisioned by SCIM, which then owns external_id"
+    },
     "YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp1C6Ad64F24": {
       "type": "string"
     },
@@ -117692,6 +118034,10 @@
     },
     "YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsPropA7A7320629": {
       "type": "string"
+    },
+    "YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsPropBf0A318111": {
+      "type": "boolean",
+      "description": "Provisioned by SCIM, which then owns external_id"
     },
     "YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp9Ad9626253": {
       "type": "array",
@@ -117989,6 +118335,76 @@
     "YamlPathsConfigsListAutoscalingEventsWorkerGroupGetResponses200ContentApplicationJso7826B3C575": {
       "type": "string",
       "format": "date-time"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesPrF546Df846A": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIsF0Ed436B34": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesGrDa40A008Cd": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesGrEf384279Ee": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFo90391D993D": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoAa9C05A262"
+      }
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFo96449828C9": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFo358D4C6F0E": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFo6E586023E5": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFo9Fd2190460": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "the \u0060u/\u003Cuser\u003E\u0060 or \u0060g/\u003Cgroup\u003E\u0060 grants on the folder that reach the principal"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoBb9520A565": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesItF0Ebd5Ea0A": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt96135271Be"
+      }
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesItE864Cd4995": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt1E698Eb283": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt8F78Bff75C": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesItD2653D7463": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesItCe774Effbf"
+      }
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt8F47Be666E": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt407082A4Ed": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt5627Eea89C": {
+      "type": "boolean"
     },
     "YamlPathsWWorkspaceCaptureGetConfigsRunnableKindPathGetResponses200ContentAppliFdc221F037": {},
     "YamlPathsWWorkspaceCaptureGetConfigsRunnableKindPathGetResponses200ContentAppliBbfb846974": {
@@ -119259,6 +119675,10 @@
         "delete_after_secs": {
           "type": "integer",
           "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
         },
         "flow_env": {
           "$ref": "#/components/schemas/FlowValueFlowEnv"
@@ -129996,6 +130416,62 @@
         }
       }
     },
+    "PrincipalAccess": {
+      "required": [
+        "principal",
+        "is_admin",
+        "groups",
+        "folders",
+        "items"
+      ],
+      "type": "object",
+      "properties": {
+        "principal": {
+          "type": "string"
+        },
+        "is_admin": {
+          "type": "boolean"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "folders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoAa9C05A262"
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt96135271Be"
+          }
+        }
+      }
+    },
+    "AccessReason": {
+      "required": [
+        "type"
+      ],
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesIt24Fe990Cb6"
+        },
+        "group": {
+          "type": "string"
+        },
+        "folder": {
+          "type": "string"
+        },
+        "write": {
+          "type": "boolean"
+        }
+      }
+    },
     "Group": {
       "required": [
         "name"
@@ -130039,6 +130515,13 @@
         },
         "instance_role": {
           "$ref": "#/components/schemas/YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesInstance801Bd9C7F1"
+        },
+        "external_id": {
+          "$ref": "#/components/schemas/YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesExternal145F279214"
+        },
+        "scim_managed": {
+          "type": "boolean",
+          "description": "Provisioned by SCIM, which then owns external_id"
         }
       }
     },
@@ -130062,6 +130545,13 @@
         },
         "instance_role": {
           "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693"
+        },
+        "external_id": {
+          "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp1669F637Bc"
+        },
+        "scim_managed": {
+          "type": "boolean",
+          "description": "Provisioned by SCIM, which then owns external_id"
         },
         "workspaces": {
           "type": "array",
@@ -135944,6 +136434,10 @@
           "type": "integer",
           "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
         },
+        "timeout": {
+          "type": "integer",
+          "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
+        },
         "flow_env": {
           "$ref": "#/components/schemas/SchemasFlowValueFlowEnv"
         },
@@ -140041,6 +140535,12 @@
     },
     "UpdateSharedUi200PlainResponse": {
       "type": "string"
+    },
+    "ListSharedAiArtifacts200Response": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ListSharedAiArtifacts200ResponseItem"
+      }
     },
     "UnshareAiArtifact200PlainResponse": {
       "type": "string"
@@ -145024,6 +145524,44 @@
         }
       }
     },
+    "ListSharedAiArtifacts200ResponseItem": {
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "version",
+        "created_by",
+        "shared_at",
+        "expires_at"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceAiSharedArtifactsSharePostResponses200ContentApplicationJsonSche76637A50A5"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "shared_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
     "ListSearchApp200ResponseItem": {
       "required": [
         "path",
@@ -148139,6 +148677,13 @@
         },
         "instance_role": {
           "$ref": "#/components/schemas/YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesInstance801Bd9C7F1"
+        },
+        "external_id": {
+          "$ref": "#/components/schemas/YamlPathsGroupsListGetResponses200ContentApplicationJsonSchemaItemsPropertiesExternal145F279214"
+        },
+        "scim_managed": {
+          "type": "boolean",
+          "description": "Provisioned by SCIM, which then owns external_id"
         }
       }
     },
@@ -148162,6 +148707,13 @@
         },
         "instance_role": {
           "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693"
+        },
+        "external_id": {
+          "$ref": "#/components/schemas/YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp1669F637Bc"
+        },
+        "scim_managed": {
+          "type": "boolean",
+          "description": "Provisioned by SCIM, which then owns external_id"
         },
         "workspaces": {
           "type": "array",

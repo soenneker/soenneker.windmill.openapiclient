@@ -64,6 +64,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("same_worker") is { } nullNodeSameWorker && nullNodeSameWorker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SameWorker = null;
             if (parseNode.GetChildNode("skip_expr") is null) { _explicitNullValueSkipExpr = default!; _explicitNullProperties?.Remove("skip_expr"); }
             else if (parseNode.GetChildNode("skip_expr") is { } nullNodeSkipExpr && nullNodeSkipExpr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipExpr = null;
+            if (parseNode.GetChildNode("timeout") is null) { _explicitNullValueTimeout = default!; _explicitNullProperties?.Remove("timeout"); }
+            else if (parseNode.GetChildNode("timeout") is { } nullNodeTimeout && nullNodeTimeout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timeout = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -214,6 +216,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string SkipExpr { get => _explicitNullValueSkipExpr; set { _explicitNullValueSkipExpr = value; AdditionalData?.Remove("skip_expr"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skip_expr"); else _explicitNullProperties?.Remove("skip_expr"); } }
         private string _explicitNullValueSkipExpr = default!;
 #endif
+        /// <summary>Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error.</summary>
+        public int? Timeout { get => _explicitNullValueTimeout; set { _explicitNullValueTimeout = value; AdditionalData?.Remove("timeout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout"); else _explicitNullProperties?.Remove("timeout"); } }
+        private int? _explicitNullValueTimeout = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem832908Be62"/> and sets the default values.
         /// </summary>
@@ -262,6 +267,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "priority", n => { Priority = n.GetDoubleValue(); } },
                 { "same_worker", n => { SameWorker = n.GetBoolValue(); } },
                 { "skip_expr", n => { SkipExpr = n.GetStringValue(); } },
+                { "timeout", n => { Timeout = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -294,6 +300,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("priority", Priority);
             writer.WriteBoolValue("same_worker", SameWorker);
             writer.WriteStringValue("skip_expr", SkipExpr);
+            writer.WriteIntValue("timeout", Timeout);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

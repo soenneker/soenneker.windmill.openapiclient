@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,exclude_operations*,operation*,operations*,page*,per_page*,resource*,username*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,exclude_operations*,job_id*,operation*,operations*,page*,per_page*,resource*,username*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,exclude_operations*,operation*,operations*,page*,per_page*,resource*,username*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,exclude_operations*,job_id*,operation*,operations*,page*,per_page*,resource*,username*}", rawUrl)
         {
         }
         /// <summary>
@@ -111,6 +111,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
             [QueryParameter("exclude_operations")]
             public string ExcludeOperations { get; set; }
 #endif
+            /// <summary>only the entries about this run and the jobs under it (steps, loop iterations and subflows at any depth): who started, viewed, cancelled, approved, resumed or deleted each</summary>
+            [QueryParameter("job_id")]
+            public Guid? JobId { get; set; }
             /// <summary>filter on exact or prefix name of operation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

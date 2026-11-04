@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Access;
 using Soenneker.Windmill.OpenApiClient.W.Item.Acls;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai_evals;
@@ -79,6 +80,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithWorkspaceItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The access property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Access.AccessRequestBuilder Access
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Access.AccessRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The acls property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Acls.AclsRequestBuilder Acls
         {

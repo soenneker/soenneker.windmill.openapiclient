@@ -19,10 +19,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("emails") is null) { _explicitNullValueEmails = default!; _explicitNullProperties?.Remove("emails"); }
             else if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
+            if (parseNode.GetChildNode("external_id") is null) { _explicitNullValueExternalId = default!; _explicitNullProperties?.Remove("external_id"); }
+            else if (parseNode.GetChildNode("external_id") is { } nullNodeExternalId && nullNodeExternalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalId = null;
             if (parseNode.GetChildNode("instance_role") is null) { _explicitNullValueInstanceRole = default!; _explicitNullProperties?.Remove("instance_role"); }
             else if (parseNode.GetChildNode("instance_role") is { } nullNodeInstanceRole && nullNodeInstanceRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InstanceRole = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("scim_managed") is null) { _explicitNullValueScimManaged = default!; _explicitNullProperties?.Remove("scim_managed"); }
+            else if (parseNode.GetChildNode("scim_managed") is { } nullNodeScimManaged && nullNodeScimManaged.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScimManaged = null;
             if (parseNode.GetChildNode("summary") is null) { _explicitNullValueSummary = default!; _explicitNullProperties?.Remove("summary"); }
             else if (parseNode.GetChildNode("summary") is { } nullNodeSummary && nullNodeSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Summary = null;
             if (parseNode.GetChildNode("workspaces") is null) { _explicitNullValueWorkspaces = default!; _explicitNullProperties?.Remove("workspaces"); }
@@ -41,6 +45,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; AdditionalData?.Remove("emails"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
         private List<string> _explicitNullValueEmails = default!;
 #endif
+        /// <summary>IdP group this group is linked to; its membership then follows the SSO groups claim</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; AdditionalData?.Remove("external_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string? _explicitNullValueExternalId = default!;
+#nullable restore
+#else
+        public string ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; AdditionalData?.Remove("external_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string _explicitNullValueExternalId = default!;
+#endif
         /// <summary>The instance_role property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693? InstanceRole { get => _explicitNullValueInstanceRole; set { _explicitNullValueInstanceRole = value; AdditionalData?.Remove("instance_role"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instance_role"); else _explicitNullProperties?.Remove("instance_role"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693? _explicitNullValueInstanceRole = default!;
@@ -54,6 +68,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
+        /// <summary>Provisioned by SCIM, which then owns external_id</summary>
+        public bool? ScimManaged { get => _explicitNullValueScimManaged; set { _explicitNullValueScimManaged = value; AdditionalData?.Remove("scim_managed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scim_managed"); else _explicitNullProperties?.Remove("scim_managed"); } }
+        private bool? _explicitNullValueScimManaged = default!;
         /// <summary>The summary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,8 +117,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "external_id", n => { ExternalId = n.GetStringValue(); } },
                 { "instance_role", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInstanceRole = default; _explicitNullProperties?.Remove("instance_role"); AdditionalData["instance_role"] = unknown; } else { InstanceRole = parsed; AdditionalData.Remove("instance_role"); } } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "scim_managed", n => { ScimManaged = n.GetBoolValue(); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "workspaces", n => { Workspaces = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsPropDdb4A9B0D7>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsPropDdb4A9B0D7.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -114,8 +133,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);
+            writer.WriteStringValue("external_id", ExternalId);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsProp260B6Fe693>("instance_role", InstanceRole);
             writer.WriteStringValue("name", Name);
+            writer.WriteBoolValue("scim_managed", ScimManaged);
             writer.WriteStringValue("summary", Summary);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsGroupsListWithWorkspacesGetResponses200ContentApplicationJsonSchemaItemsPropDdb4A9B0D7>("workspaces", Workspaces);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

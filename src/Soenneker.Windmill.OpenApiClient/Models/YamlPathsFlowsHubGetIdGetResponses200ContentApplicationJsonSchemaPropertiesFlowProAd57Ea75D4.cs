@@ -22,6 +22,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("branches") is { } nullNodeBranches && nullNodeBranches.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Branches = null;
             if (parseNode.GetChildNode("parallel") is null) { _explicitNullValueParallel = default!; _explicitNullProperties?.Remove("parallel"); }
             else if (parseNode.GetChildNode("parallel") is { } nullNodeParallel && nullNodeParallel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parallel = null;
+            if (parseNode.GetChildNode("parallelism") is null) { _explicitNullValueParallelism = default!; _explicitNullProperties?.Remove("parallelism"); }
+            else if (parseNode.GetChildNode("parallelism") is { } nullNodeParallelism && nullNodeParallelism.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parallelism = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
@@ -41,6 +43,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>If true, all branches execute concurrently. If false, they execute sequentially</summary>
         public bool? Parallel { get => _explicitNullValueParallel; set { _explicitNullValueParallel = value; AdditionalData?.Remove("parallel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parallel"); else _explicitNullProperties?.Remove("parallel"); } }
         private bool? _explicitNullValueParallel = default!;
+        /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? Parallelism { get => _explicitNullValueParallelism; set { _explicitNullValueParallelism = value; AdditionalData?.Remove("parallelism"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parallelism"); else _explicitNullProperties?.Remove("parallelism"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? _explicitNullValueParallelism = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties Parallelism { get => _explicitNullValueParallelism; set { _explicitNullValueParallelism = value; AdditionalData?.Remove("parallelism"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parallelism"); else _explicitNullProperties?.Remove("parallelism"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties _explicitNullValueParallelism = default!;
+#endif
         /// <summary>The type property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC62571Bc86? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC62571Bc86? _explicitNullValueType = default!;
@@ -71,6 +83,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "branches", n => { Branches = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42E4F28Fcb>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42E4F28Fcb.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parallel", n => { Parallel = n.GetBoolValue(); } },
+                { "parallelism", n => { Parallelism = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC62571Bc86>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
@@ -83,6 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro42E4F28Fcb>("branches", Branches);
             writer.WriteBoolValue("parallel", Parallel);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("parallelism", Parallelism);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC62571Bc86>("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

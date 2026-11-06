@@ -83,6 +83,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("variable_expiration_handler") is { } nullNodeVariableExpirationHandler && nullNodeVariableExpirationHandler.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariableExpirationHandler = null;
             if (parseNode.GetChildNode("webhook") is null) { _explicitNullValueWebhook = default!; _explicitNullProperties?.Remove("webhook"); }
             else if (parseNode.GetChildNode("webhook") is { } nullNodeWebhook && nullNodeWebhook.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Webhook = null;
+            if (parseNode.GetChildNode("webhook_events") is null) { _explicitNullValueWebhookEvents = default!; _explicitNullProperties?.Remove("webhook_events"); }
+            else if (parseNode.GetChildNode("webhook_events") is { } nullNodeWebhookEvents && nullNodeWebhookEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookEvents = null;
             if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
             else if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
         }
@@ -391,6 +393,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Webhook { get => _explicitNullValueWebhook; set { _explicitNullValueWebhook = value; AdditionalData?.Remove("webhook"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook"); else _explicitNullProperties?.Remove("webhook"); } }
         private string _explicitNullValueWebhook = default!;
 #endif
+        /// <summary>event types the webhook is sent; absent sends every event</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseWebhookEventsItem?>? WebhookEvents { get => _explicitNullValueWebhookEvents; set { _explicitNullValueWebhookEvents = value; AdditionalData?.Remove("webhook_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_events"); else _explicitNullProperties?.Remove("webhook_events"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseWebhookEventsItem?>? _explicitNullValueWebhookEvents = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseWebhookEventsItem?> WebhookEvents { get => _explicitNullValueWebhookEvents; set { _explicitNullValueWebhookEvents = value; AdditionalData?.Remove("webhook_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_events"); else _explicitNullProperties?.Remove("webhook_events"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseWebhookEventsItem?> _explicitNullValueWebhookEvents = default!;
+#endif
         /// <summary>The workspace_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -459,6 +471,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "teams_team_name", n => { TeamsTeamName = n.GetStringValue(); } },
                 { "variable_expiration_handler", n => { VariableExpirationHandler = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler.CreateFromDiscriminatorValue); } },
                 { "webhook", n => { Webhook = n.GetStringValue(); } },
+                { "webhook_events", n => { WebhookEvents = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseWebhookEventsItem>()?.AsList(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -502,6 +515,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("teams_team_name", TeamsTeamName);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandler>("variable_expiration_handler", VariableExpirationHandler);
             writer.WriteStringValue("webhook", Webhook);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseWebhookEventsItem>("webhook_events", WebhookEvents);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

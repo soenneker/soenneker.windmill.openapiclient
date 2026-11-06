@@ -45,6 +45,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("preserve_permissioned_as") is { } nullNodePreservePermissionedAs && nullNodePreservePermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreservePermissionedAs = null;
             if (parseNode.GetChildNode("retry") is null) { _explicitNullValueRetry = default!; _explicitNullProperties?.Remove("retry"); }
             else if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
+            if (parseNode.GetChildNode("run_on_filter_error") is null) { _explicitNullValueRunOnFilterError = default!; _explicitNullProperties?.Remove("run_on_filter_error"); }
+            else if (parseNode.GetChildNode("run_on_filter_error") is { } nullNodeRunOnFilterError && nullNodeRunOnFilterError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunOnFilterError = null;
             if (parseNode.GetChildNode("script_path") is null) { _explicitNullValueScriptPath = default!; _explicitNullProperties?.Remove("script_path"); }
             else if (parseNode.GetChildNode("script_path") is { } nullNodeScriptPath && nullNodeScriptPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptPath = null;
             if (parseNode.GetChildNode("url") is null) { _explicitNullValueUrl = default!; _explicitNullProperties?.Remove("url"); }
@@ -160,6 +162,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson9D5C29F3F6 Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; AdditionalData?.Remove("retry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson9D5C29F3F6 _explicitNullValueRetry = default!;
 #endif
+        /// <summary>Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in `event.filter_error`. When false, such a message is skipped.</summary>
+        public bool? RunOnFilterError { get => _explicitNullValueRunOnFilterError; set { _explicitNullValueRunOnFilterError = value; AdditionalData?.Remove("run_on_filter_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_on_filter_error"); else _explicitNullProperties?.Remove("run_on_filter_error"); } }
+        private bool? _explicitNullValueRunOnFilterError = default!;
         /// <summary>Path to the script or flow to execute when a message is received</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -196,6 +201,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public UpdateWebsocketTriggerRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            RunOnFilterError = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -229,6 +235,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "preserve_permissioned_as", n => { PreservePermissionedAs = n.GetBoolValue(); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson9D5C29F3F6>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson9D5C29F3F6.CreateFromDiscriminatorValue); } },
+                { "run_on_filter_error", n => { RunOnFilterError = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "url_runnable_args", n => { UrlRunnableArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateWebsocketTriggerRequestUrlRunnableArgs>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateWebsocketTriggerRequestUrlRunnableArgs.CreateFromDiscriminatorValue); } },
@@ -255,6 +262,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteBoolValue("preserve_permissioned_as", PreservePermissionedAs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson9D5C29F3F6>("retry", Retry);
+            writer.WriteBoolValue("run_on_filter_error", RunOnFilterError);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("url", Url);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateWebsocketTriggerRequestUrlRunnableArgs>("url_runnable_args", UrlRunnableArgs);

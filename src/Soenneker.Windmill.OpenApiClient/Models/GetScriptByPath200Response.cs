@@ -99,6 +99,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("on_behalf_of") is { } nullNodeOnBehalfOf && nullNodeOnBehalfOf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBehalfOf = null;
             if (parseNode.GetChildNode("on_behalf_of_email") is null) { _explicitNullValueOnBehalfOfEmail = default!; _explicitNullProperties?.Remove("on_behalf_of_email"); }
             else if (parseNode.GetChildNode("on_behalf_of_email") is { } nullNodeOnBehalfOfEmail && nullNodeOnBehalfOfEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnBehalfOfEmail = null;
+            if (parseNode.GetChildNode("on_concurrency_limit") is null) { _explicitNullValueOnConcurrencyLimit = default!; _explicitNullProperties?.Remove("on_concurrency_limit"); }
+            else if (parseNode.GetChildNode("on_concurrency_limit") is { } nullNodeOnConcurrencyLimit && nullNodeOnConcurrencyLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnConcurrencyLimit = null;
             if (parseNode.GetChildNode("other_drafts_users") is null) { _explicitNullValueOtherDraftsUsers = default!; _explicitNullProperties?.Remove("other_drafts_users"); }
             else if (parseNode.GetChildNode("other_drafts_users") is { } nullNodeOtherDraftsUsers && nullNodeOtherDraftsUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtherDraftsUsers = null;
             if (parseNode.GetChildNode("parent_hashes") is null) { _explicitNullValueParentHashes = default!; _explicitNullProperties?.Remove("parent_hashes"); }
@@ -399,6 +401,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string OnBehalfOfEmail { get => _explicitNullValueOnBehalfOfEmail; set { _explicitNullValueOnBehalfOfEmail = value; AdditionalData?.Remove("on_behalf_of_email"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_behalf_of_email"); else _explicitNullProperties?.Remove("on_behalf_of_email"); } }
         private string _explicitNullValueOnBehalfOfEmail = default!;
 #endif
+        /// <summary>What a run does when its concurrency limit is reached when a worker picks it up. `queue` (default) re-queues it to a later slot, `fail` ends it immediately as failed.</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D? OnConcurrencyLimit { get => _explicitNullValueOnConcurrencyLimit; set { _explicitNullValueOnConcurrencyLimit = value; AdditionalData?.Remove("on_concurrency_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_concurrency_limit"); else _explicitNullProperties?.Remove("on_concurrency_limit"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D? _explicitNullValueOnConcurrencyLimit = default!;
         /// <summary>Other workspace users (and the legacy NULL-email row, if any)with a saved draft at the same path. Populated only on theauthed user&apos;s &quot;get by path&quot; responses for kinds the editorsurfaces a fork banner for (script, flow, app, raw_app).Empty / omitted for kinds without that UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -553,6 +558,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
+                { "on_concurrency_limit", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOnConcurrencyLimit = default; _explicitNullProperties?.Remove("on_concurrency_limit"); AdditionalData["on_concurrency_limit"] = unknown; } else { OnConcurrencyLimit = parsed; AdditionalData.Remove("on_concurrency_limit"); } } },
                 { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parent_hashes", n => { ParentHashes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -616,6 +622,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("no_deployed", NoDeployed);
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D>("on_concurrency_limit", OnConcurrencyLimit);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4>("other_drafts_users", OtherDraftsUsers);
             writer.WriteCollectionOfPrimitiveValues<string>("parent_hashes", ParentHashes);
             writer.WriteStringValue("path", Path);

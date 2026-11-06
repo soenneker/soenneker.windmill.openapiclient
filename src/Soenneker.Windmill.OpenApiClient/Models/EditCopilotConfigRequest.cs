@@ -41,6 +41,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("sessions_retention_days") is { } nullNodeSessionsRetentionDays && nullNodeSessionsRetentionDays.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionsRetentionDays = null;
             if (parseNode.GetChildNode("sessions_storage_disabled") is null) { _explicitNullValueSessionsStorageDisabled = default!; _explicitNullProperties?.Remove("sessions_storage_disabled"); }
             else if (parseNode.GetChildNode("sessions_storage_disabled") is { } nullNodeSessionsStorageDisabled && nullNodeSessionsStorageDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionsStorageDisabled = null;
+            if (parseNode.GetChildNode("web_search") is null) { _explicitNullValueWebSearch = default!; _explicitNullProperties?.Remove("web_search"); }
+            else if (parseNode.GetChildNode("web_search") is { } nullNodeWebSearch && nullNodeWebSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebSearch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -144,6 +146,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Stops browsers from backing their AI sessions up to the workspace&apos;s object storage. Read from the workspace&apos;s own settings like `copilot_disabled`.</summary>
         public bool? SessionsStorageDisabled { get => _explicitNullValueSessionsStorageDisabled; set { _explicitNullValueSessionsStorageDisabled = value; AdditionalData?.Remove("sessions_storage_disabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sessions_storage_disabled"); else _explicitNullProperties?.Remove("sessions_storage_disabled"); } }
         private bool? _explicitNullValueSessionsStorageDisabled = default!;
+        /// <summary>The search API the AI chat searches the web and reads pages through when the model&apos;s provider has no built-in web search. Read from the workspace&apos;s own settings like `copilot_disabled`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B? WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; AdditionalData?.Remove("web_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B? _explicitNullValueWebSearch = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B WebSearch { get => _explicitNullValueWebSearch; set { _explicitNullValueWebSearch = value; AdditionalData?.Remove("web_search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("web_search"); else _explicitNullProperties?.Remove("web_search"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B _explicitNullValueWebSearch = default!;
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequest"/> and sets the default values.
         /// </summary>
@@ -181,6 +193,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "providers", n => { Providers = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestProviders>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestProviders.CreateFromDiscriminatorValue); } },
                 { "sessions_retention_days", n => { SessionsRetentionDays = n.GetIntValue(); } },
                 { "sessions_storage_disabled", n => { SessionsStorageDisabled = n.GetBoolValue(); } },
+                { "web_search", n => { WebSearch = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -202,6 +215,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfigRequestProviders>("providers", Providers);
             writer.WriteIntValue("sessions_retention_days", SessionsRetentionDays);
             writer.WriteBoolValue("sessions_storage_disabled", SessionsStorageDisabled);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B>("web_search", WebSearch);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

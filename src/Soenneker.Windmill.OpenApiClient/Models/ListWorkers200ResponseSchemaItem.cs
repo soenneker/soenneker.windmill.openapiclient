@@ -27,6 +27,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("job_isolation") is { } nullNodeJobIsolation && nullNodeJobIsolation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobIsolation = null;
             if (parseNode.GetChildNode("jobs_executed") is null) { _explicitNullValueJobsExecuted = default!; _explicitNullProperties?.Remove("jobs_executed"); }
             else if (parseNode.GetChildNode("jobs_executed") is { } nullNodeJobsExecuted && nullNodeJobsExecuted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobsExecuted = null;
+            if (parseNode.GetChildNode("job_stats") is null) { _explicitNullValueJobStats = default!; _explicitNullProperties?.Remove("job_stats"); }
+            else if (parseNode.GetChildNode("job_stats") is { } nullNodeJobStats && nullNodeJobStats.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JobStats = null;
             if (parseNode.GetChildNode("last_job_id") is null) { _explicitNullValueLastJobId = default!; _explicitNullProperties?.Remove("last_job_id"); }
             else if (parseNode.GetChildNode("last_job_id") is { } nullNodeLastJobId && nullNodeLastJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastJobId = null;
             if (parseNode.GetChildNode("last_job_workspace_id") is null) { _explicitNullValueLastJobWorkspaceId = default!; _explicitNullProperties?.Remove("last_job_workspace_id"); }
@@ -101,6 +103,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The jobs_executed property</summary>
         public int? JobsExecuted { get => _explicitNullValueJobsExecuted; set { _explicitNullValueJobsExecuted = value; AdditionalData?.Remove("jobs_executed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jobs_executed"); else _explicitNullProperties?.Remove("jobs_executed"); } }
         private int? _explicitNullValueJobsExecuted = default!;
+        /// <summary>script and flow-step jobs this worker ran and how many of them failed, over its whole life, the last 24 hours and its last 100 jobs. A flow&apos;s own outcome is not counted, since its failure is that of a step already counted on the worker that ran it. Canceled jobs count as executed, not failed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def? JobStats { get => _explicitNullValueJobStats; set { _explicitNullValueJobStats = value; AdditionalData?.Remove("job_stats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_stats"); else _explicitNullProperties?.Remove("job_stats"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def? _explicitNullValueJobStats = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def JobStats { get => _explicitNullValueJobStats; set { _explicitNullValueJobStats = value; AdditionalData?.Remove("job_stats"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("job_stats"); else _explicitNullProperties?.Remove("job_stats"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def _explicitNullValueJobStats = default!;
+#endif
         /// <summary>The last_job_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -223,6 +235,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "draining", n => { Draining = n.GetBoolValue(); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
                 { "job_isolation", n => { JobIsolation = n.GetStringValue(); } },
+                { "job_stats", n => { JobStats = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def.CreateFromDiscriminatorValue); } },
                 { "jobs_executed", n => { JobsExecuted = n.GetIntValue(); } },
                 { "last_job_id", n => { LastJobId = n.GetStringValue(); } },
                 { "last_job_workspace_id", n => { LastJobWorkspaceId = n.GetStringValue(); } },
@@ -255,6 +268,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("ip", Ip);
             writer.WriteStringValue("job_isolation", JobIsolation);
             writer.WriteIntValue("jobs_executed", JobsExecuted);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def>("job_stats", JobStats);
             writer.WriteStringValue("last_job_id", LastJobId);
             writer.WriteStringValue("last_job_workspace_id", LastJobWorkspaceId);
             writer.WriteDoubleValue("last_ping", LastPing);

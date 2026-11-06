@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.862.0",
+    "version": "1.864.1",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -19863,6 +19863,90 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CompleteAi200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/ai/web_search": {
+      "post": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "search the web through the workspace\u0027s web search API",
+        "description": "Runs a query against the search API (Exa, Tavily, Linkup or DeepSeek) set in the workspace\u0027s AI settings, with the key of its resource. The AI chat uses it when the model\u0027s provider has no built-in web search.\n",
+        "operationId": "AiWebSearch",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AiWebSearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the results, each with an excerpt of its page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiWebSearch200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/ai/web_fetch": {
+      "post": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "read a web page through the workspace\u0027s web search API",
+        "description": "Has the search API set in the workspace\u0027s AI settings fetch a page and returns its text as markdown. The page is fetched from the search API\u0027s servers, not Windmill\u0027s.\n",
+        "operationId": "AiWebFetch",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AiWebFetchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the page\u0027s text",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AiWebFetch200Response"
                 }
               }
             }
@@ -45655,6 +45739,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "run",
           "fork",
           "visibility"
         ],
@@ -45662,7 +45747,7 @@
         "properties": {
           "code": {
             "type": "boolean",
-            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps. Previews also need \u0060run\u0060."
           },
           "flows": {
             "$ref": "#/components/schemas/YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces63954A2E02"
@@ -45675,6 +45760,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "run": {
+            "type": "boolean",
+            "description": "Start runs of scripts, flows and AI agents (by path, hash or version, restarts, previews, MCP run tools). Without it a role is view-only. Schedules and triggers keep their own rights; resuming a suspended step is not a run."
           },
           "fork": {
             "type": "boolean",
@@ -46484,6 +46573,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "run",
           "fork",
           "visibility"
         ],
@@ -46491,7 +46581,7 @@
         "properties": {
           "code": {
             "type": "boolean",
-            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps. Previews also need \u0060run\u0060."
           },
           "flows": {
             "$ref": "#/components/schemas/YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces63954A2E02"
@@ -46504,6 +46594,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "run": {
+            "type": "boolean",
+            "description": "Start runs of scripts, flows and AI agents (by path, hash or version, restarts, previews, MCP run tools). Without it a role is view-only. Schedules and triggers keep their own rights; resuming a suspended step is not a run."
           },
           "fork": {
             "type": "boolean",
@@ -46562,6 +46656,9 @@
             "type": "boolean"
           },
           "manage_triggers": {
+            "type": "boolean"
+          },
+          "run": {
             "type": "boolean"
           },
           "fork": {
@@ -46638,6 +46735,7 @@
           "apps",
           "manage_schedules",
           "manage_triggers",
+          "run",
           "fork",
           "visibility"
         ],
@@ -46645,7 +46743,7 @@
         "properties": {
           "code": {
             "type": "boolean",
-            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+            "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps. Previews also need \u0060run\u0060."
           },
           "flows": {
             "$ref": "#/components/schemas/YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces63954A2E02"
@@ -46658,6 +46756,10 @@
           },
           "manage_triggers": {
             "type": "boolean"
+          },
+          "run": {
+            "type": "boolean",
+            "description": "Start runs of scripts, flows and AI agents (by path, hash or version, restarts, previews, MCP run tools). Without it a role is view-only. Schedules and triggers keep their own rights; resuming a suspended step is not a run."
           },
           "fork": {
             "type": "boolean",
@@ -47540,6 +47642,53 @@
           }
         },
         "description": "negotiated rates in USD per million tokens, keyed \u0060provider:model\u0060"
+      },
+      "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B": {
+        "required": [
+          "provider",
+          "resource_path"
+        ],
+        "type": "object",
+        "properties": {
+          "provider": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5Bb3238B88"
+          },
+          "resource_path": {
+            "type": "string"
+          }
+        },
+        "description": "The search API the AI chat searches the web and reads pages through when the model\u0027s provider has no built-in web search. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
+      },
+      "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5Bb3238B88": {
+        "enum": [
+          "exa",
+          "tavily",
+          "linkup",
+          "deepseek"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5Bb3238B88",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "exa",
+              "name": "Exa"
+            },
+            {
+              "value": "tavily",
+              "name": "Tavily"
+            },
+            {
+              "value": "linkup",
+              "name": "Linkup"
+            },
+            {
+              "value": "deepseek",
+              "name": "Deepseek"
+            }
+          ]
+        }
       },
       "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5D8A369Ce6": {
         "required": [
@@ -49160,6 +49309,9 @@
             "type": "number",
             "description": "Time window in seconds for concurrent_limit"
           },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFc4Abfaa0F"
+          },
           "debounce_delay_s": {
             "type": "integer",
             "description": "Delay in seconds to debounce flow executions"
@@ -49345,6 +49497,9 @@
           "concurrency_time_window_s": {
             "type": "number",
             "description": "Time window for concurrent_limit"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
           },
           "custom_concurrency_key": {
             "type": "string",
@@ -49600,6 +49755,28 @@
             {
               "value": "rawscript",
               "name": "Rawscript"
+            }
+          ]
+        }
+      },
+      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7": {
+        "enum": [
+          "queue",
+          "fail"
+        ],
+        "type": "string",
+        "description": "What a run of this step does when its concurrency limit is reached. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed.",
+        "x-ms-enum": {
+          "name": "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queue",
+              "name": "Queue"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
             }
           ]
         }
@@ -49994,6 +50171,10 @@
           },
           "return_value": {
             "description": "Value to return when mocked"
+          },
+          "preview_only": {
+            "type": "boolean",
+            "description": "If true, the mock applies only to runs started as a flow preview (from the editor, and every job under it, subflows included). Absent or false, it applies to every run."
           }
         },
         "description": "Mock configuration for testing without executing the actual step"
@@ -50219,6 +50400,16 @@
           },
           "squash": {
             "type": "boolean"
+          },
+          "max_iterations": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+          },
+          "max_duration_secs": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
           }
         },
         "description": "Executes nested modules repeatedly until stopped. The implicit iterator is the iteration counter, so \u0027flow_input.iter.value\u0027 equals \u0027flow_input.iter.index\u0027 (0, 1, 2, ...) and never carries state. To carry state across iterations, a step reads its own previous-iteration result via \u0027results.\u003Cits_own_id\u003E\u0027 with a first-iteration fallback - the loop\u0027s stop_after_if must then be on that inner step (a plain single-step body with stop_after_if on the loop module does not resolve \u0027results\u0027 across iterations and never terminates); plain counters can instead be derived from \u0027flow_input.iter.index\u0027, which works in every configuration. stop_after_if is evaluated after each iteration - on the loop module \u0027result\u0027 is the last iteration\u0027s result"
@@ -50537,6 +50728,9 @@
           "parallel": {
             "type": "boolean",
             "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+          },
+          "parallelism": {
+            "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
           }
         },
         "description": "Parallel branching where all branches execute simultaneously. Unlike BranchOne, all branches run regardless of conditions. Useful for executing independent tasks concurrently"
@@ -52294,6 +52488,28 @@
         },
         "description": "A single step in a flow. Can be a script, subflow, loop, or branch"
       },
+      "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFc4Abfaa0F": {
+        "enum": [
+          "queue",
+          "fail"
+        ],
+        "type": "string",
+        "description": "What a run of this flow does when its concurrency limit is reached. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed, like any failed step.",
+        "x-ms-enum": {
+          "name": "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFc4Abfaa0F",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queue",
+              "name": "Queue"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
+            }
+          ]
+        }
+      },
       "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro58E805Cdea": {
         "required": [
           "id",
@@ -52757,6 +52973,28 @@
           ]
         }
       },
+      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D": {
+        "enum": [
+          "queue",
+          "fail"
+        ],
+        "type": "string",
+        "description": "What a run does when its concurrency limit is reached when a worker picks it up. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed.",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queue",
+              "name": "Queue"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
+            }
+          ]
+        }
+      },
       "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab": {
         "required": [
           "content",
@@ -53099,6 +53337,28 @@
             {
               "value": "preprocessor",
               "name": "Preprocessor"
+            }
+          ]
+        }
+      },
+      "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties6013D63732": {
+        "enum": [
+          "queue",
+          "fail"
+        ],
+        "type": "string",
+        "description": "What a run does when its concurrency limit is reached when a worker picks it up. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed.",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties6013D63732",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queue",
+              "name": "Queue"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
             }
           ]
         }
@@ -55054,6 +55314,28 @@
         },
         "description": "A single step in a flow. Can be a script, subflow, loop, or branch"
       },
+      "YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe": {
+        "enum": [
+          "queue",
+          "fail"
+        ],
+        "type": "string",
+        "description": "What a run of this flow does when its concurrency limit is reached. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed, like any failed step.",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queue",
+              "name": "Queue"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
+            }
+          ]
+        }
+      },
       "YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson7Cf1B6241E": {
         "required": [
           "id",
@@ -55172,6 +55454,9 @@
           "concurrency_time_window_s": {
             "type": "number",
             "description": "Time window in seconds for concurrent_limit"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe"
           },
           "debounce_delay_s": {
             "type": "integer",
@@ -56267,6 +56552,9 @@
             "type": "number",
             "description": "Time window in seconds for concurrent_limit"
           },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe"
+          },
           "debounce_delay_s": {
             "type": "integer",
             "description": "Delay in seconds to debounce flow executions"
@@ -56776,6 +57064,9 @@
           "concurrency_time_window_s": {
             "type": "number",
             "description": "Time window in seconds for concurrent_limit"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe"
           },
           "debounce_delay_s": {
             "type": "integer",
@@ -61127,6 +61418,71 @@
           "permissioned_as": {
             "type": "string",
             "description": "Target identity the matched item should be permissioned as. Must be \u0060u/\u003Cusername\u003E\u0060, \u0060g/\u003Cgroupname\u003E\u0060, or an email that exists in this workspace.\n"
+          }
+        }
+      },
+      "YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def": {
+        "required": [
+          "total",
+          "last_24h",
+          "last_100"
+        ],
+        "type": "object",
+        "properties": {
+          "total": {
+            "$ref": "#/components/schemas/YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStat488Ce3F76F"
+          },
+          "last_24h": {
+            "$ref": "#/components/schemas/YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStat35749246C0"
+          },
+          "last_100": {
+            "$ref": "#/components/schemas/YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStat96B922Abe8"
+          }
+        },
+        "description": "script and flow-step jobs this worker ran and how many of them failed, over its whole life, the last 24 hours and its last 100 jobs. A flow\u0027s own outcome is not counted, since its failure is that of a step already counted on the worker that ran it. Canceled jobs count as executed, not failed."
+      },
+      "YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStat488Ce3F76F": {
+        "required": [
+          "executed",
+          "failed"
+        ],
+        "type": "object",
+        "properties": {
+          "executed": {
+            "type": "integer"
+          },
+          "failed": {
+            "type": "integer"
+          }
+        }
+      },
+      "YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStat35749246C0": {
+        "required": [
+          "executed",
+          "failed"
+        ],
+        "type": "object",
+        "properties": {
+          "executed": {
+            "type": "integer"
+          },
+          "failed": {
+            "type": "integer"
+          }
+        }
+      },
+      "YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStat96B922Abe8": {
+        "required": [
+          "executed",
+          "failed"
+        ],
+        "type": "object",
+        "properties": {
+          "executed": {
+            "type": "integer"
+          },
+          "failed": {
+            "type": "integer"
           }
         }
       },
@@ -65761,6 +66117,13 @@
           "webhook": {
             "type": "string"
           },
+          "webhook_events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetSettings200ResponseWebhookEventsItem"
+            },
+            "description": "event types the webhook is sent; absent sends every event"
+          },
           "ai_config": {
             "$ref": "#/components/schemas/GetSettings200ResponseAiConfig"
           },
@@ -66175,7 +66538,16 @@
         "type": "object",
         "properties": {
           "webhook": {
-            "type": "string"
+            "type": "string",
+            "description": "the URL to POST events to. Omitted or empty removes the webhook."
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EditWebhookRequestEventsItem"
+            },
+            "description": "event types to send, at least one. Omitted keeps the stored filter, null sends every event.\n",
+            "nullable": true
           }
         }
       },
@@ -66222,6 +66594,9 @@
             "minimum": 1,
             "type": "integer",
             "description": "The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
+          },
+          "web_search": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B"
           }
         }
       },
@@ -66351,6 +66726,9 @@
             "minimum": 1,
             "type": "integer",
             "description": "The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
+          },
+          "web_search": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B"
           }
         }
       },
@@ -67272,6 +67650,10 @@
           "read_only": {
             "type": "boolean",
             "description": "If true, the token is restricted to read-only HTTP methods\n(GET/HEAD/OPTIONS). Mutating endpoints and job-run actions are\nrejected with 403, regardless of the scopes attached.\n"
+          },
+          "super_admin": {
+            "type": "boolean",
+            "description": "For an MCP token (an \u0060mcp:\u0060 scope) owned by a superadmin: carry the owner\u0027s\nsuperadmin rights, reaching every workspace rather than only their\nmemberships. Ignored for other tokens, which always carry them.\n"
           }
         }
       },
@@ -69160,6 +69542,9 @@
           "concurrency_time_window_s": {
             "type": "integer"
           },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties6013D63732"
+          },
           "cache_ttl": {
             "type": "number"
           },
@@ -69314,6 +69699,9 @@
           },
           "concurrency_time_window_s": {
             "type": "integer"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties6013D63732"
           },
           "cache_ttl": {
             "type": "number"
@@ -69567,6 +69955,9 @@
           "concurrency_time_window_s": {
             "type": "integer"
           },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+          },
           "concurrency_key": {
             "type": "string"
           },
@@ -69753,6 +70144,9 @@
           },
           "concurrency_time_window_s": {
             "type": "integer"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
           },
           "concurrency_key": {
             "type": "string"
@@ -69955,6 +70349,9 @@
           },
           "concurrency_time_window_s": {
             "type": "integer"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
           },
           "concurrency_key": {
             "type": "string"
@@ -70195,6 +70592,9 @@
           },
           "concurrency_time_window_s": {
             "type": "integer"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
           },
           "concurrency_key": {
             "type": "string"
@@ -70968,6 +71368,69 @@
           },
           "model": {
             "$ref": "#/components/schemas/CompleteAi200ResponseModel"
+          }
+        }
+      },
+      "AiWebSearchRequest": {
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "max_results": {
+            "maximum": 10,
+            "minimum": 1,
+            "type": "integer"
+          }
+        }
+      },
+      "AiWebSearch200Response": {
+        "required": [
+          "results"
+        ],
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AiWebSearch200ResponseResultsItem"
+            }
+          }
+        }
+      },
+      "AiWebFetchRequest": {
+        "required": [
+          "url"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "AiWebFetch200Response": {
+        "required": [
+          "url",
+          "content",
+          "truncated"
+        ],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "truncated": {
+            "type": "boolean"
           }
         }
       },
@@ -73584,7 +74047,7 @@
         "type": "object",
         "properties": {
           "payload": {
-            "description": "payload to send to the resumed job"
+            "description": "payload to send to the resumed job. On a denial, a string \u0060reason\u0060 in it is shown in the step\u0027s error and the audit log.\n"
           },
           "approval_token": {
             "type": "string",
@@ -74585,6 +75048,11 @@
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersCreatePostRequestBodyContentApplicationJsonSchema5274D028Cc"
           },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
+          },
           "initial_messages": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersCreatePostRequestBodyContentApplicationJsonSchema97D7B71F2D"
           },
@@ -74665,6 +75133,11 @@
           },
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson26Ada0A0Bd"
+          },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
           },
           "initial_messages": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJsonB617Bd64F4"
@@ -74754,6 +75227,11 @@
           },
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS94E79Fc837"
+          },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
           },
           "initial_messages": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS2Ed6F21Db5"
@@ -74937,6 +75415,11 @@
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersCreatePostRequestBodyContentApplicationJsonSchemaPro42538911C6"
           },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
+          },
           "auto_offset_reset": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersCreatePostRequestBodyContentApplicationJsonSchemaProC38E55Cd04"
           },
@@ -75010,6 +75493,11 @@
           },
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersUpdatePathPostRequestBodyContentApplicationJsonSch3139Dd3990"
+          },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
           },
           "auto_offset_reset": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersUpdatePathPostRequestBodyContentApplicationJsonSchD513E32402"
@@ -75100,6 +75588,11 @@
           },
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchem0Bf5Fb5506"
+          },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
           },
           "auto_offset_reset": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchemE0Bb536C1D"
@@ -83905,6 +84398,9 @@
             "minimum": 1,
             "type": "integer",
             "description": "The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
+          },
+          "web_search": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B"
           }
         }
       },
@@ -84283,6 +84779,9 @@
             "minimum": 1,
             "type": "integer",
             "description": "The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
+          },
+          "web_search": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B"
           }
         }
       },
@@ -85759,6 +86258,28 @@
           }
         }
       },
+      "AiWebSearch200ResponseResultsItem": {
+        "required": [
+          "title",
+          "url",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "published_date": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      },
       "CreateEvalDatasetRequestScorersItem": {
         "required": [
           "kind",
@@ -87037,6 +87558,9 @@
           "concurrency_time_window_s": {
             "type": "number",
             "description": "Time window in seconds for concurrent_limit"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe"
           },
           "debounce_delay_s": {
             "type": "integer",
@@ -89896,6 +90420,9 @@
           "concurrency_time_window_s": {
             "type": "integer"
           },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+          },
           "concurrency_key": {
             "type": "string"
           },
@@ -92590,6 +93117,11 @@
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS94E79Fc837"
           },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
+          },
           "initial_messages": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS2Ed6F21Db5"
           },
@@ -92711,6 +93243,11 @@
           },
           "filter_logic": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchem0Bf5Fb5506"
+          },
+          "run_on_filter_error": {
+            "type": "boolean",
+            "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+            "default": false
           },
           "auto_offset_reset": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchemE0Bb536C1D"
@@ -94243,6 +94780,9 @@
           "draining": {
             "type": "boolean",
             "description": "the worker received its shutdown signal and exits once its current job is done"
+          },
+          "job_stats": {
+            "$ref": "#/components/schemas/YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def"
           }
         }
       },
@@ -96349,6 +96889,68 @@
             }
           ]
         }
+      },
+      "GetSettings200ResponseWebhookEventsItem": {
+        "enum": [
+          "CreateApp",
+          "DeleteApp",
+          "UpdateApp",
+          "CreateFlow",
+          "UpdateFlow",
+          "ArchiveFlow",
+          "DeleteFlow",
+          "CreateFolder",
+          "UpdateFolder",
+          "DeleteFolder",
+          "DeleteResource",
+          "CreateResource",
+          "UpdateResource",
+          "CreateResourceType",
+          "DeleteResourceType",
+          "UpdateResourceType",
+          "CreateScript",
+          "UpdateScript",
+          "DeleteScript",
+          "DeleteScriptPath",
+          "CreateVariable",
+          "UpdateVariable",
+          "DeleteVariable",
+          "TokenExpiringSoon",
+          "TokenExpired"
+        ],
+        "type": "string",
+        "description": "the \u0060type\u0060 of a workspace webhook message"
+      },
+      "EditWebhookRequestEventsItem": {
+        "enum": [
+          "CreateApp",
+          "DeleteApp",
+          "UpdateApp",
+          "CreateFlow",
+          "UpdateFlow",
+          "ArchiveFlow",
+          "DeleteFlow",
+          "CreateFolder",
+          "UpdateFolder",
+          "DeleteFolder",
+          "DeleteResource",
+          "CreateResource",
+          "UpdateResource",
+          "CreateResourceType",
+          "DeleteResourceType",
+          "UpdateResourceType",
+          "CreateScript",
+          "UpdateScript",
+          "DeleteScript",
+          "DeleteScriptPath",
+          "CreateVariable",
+          "UpdateVariable",
+          "DeleteVariable",
+          "TokenExpiringSoon",
+          "TokenExpired"
+        ],
+        "type": "string",
+        "description": "the \u0060type\u0060 of a workspace webhook message"
       },
       "ImportPgDatabaseRequestForkBehavior": {
         "enum": [
@@ -101635,6 +102237,9 @@
             "type": "number",
             "description": "Time window for concurrent_limit"
           },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+          },
           "custom_concurrency_key": {
             "type": "string",
             "description": "Custom key for grouping concurrent executions"
@@ -101791,6 +102396,16 @@
           "squash": {
             "type": "boolean"
           },
+          "max_iterations": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+          },
+          "max_duration_secs": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+          },
           "tool_type": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
           }
@@ -101849,6 +102464,9 @@
           "parallel": {
             "type": "boolean",
             "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+          },
+          "parallelism": {
+            "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
           },
           "tool_type": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
@@ -106066,13 +106684,17 @@
     },
     "YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspacesB164644F0C": {
       "type": "boolean",
-      "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+      "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps. Previews also need \u0060run\u0060."
     },
     "YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspacesBbc8F7D988": {
       "type": "boolean"
     },
     "YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspacesB7150A1079": {
       "type": "boolean"
+    },
+    "YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces27F860E694": {
+      "type": "boolean",
+      "description": "Start runs of scripts, flows and AI agents (by path, hash or version, restarts, previews, MCP run tools). Without it a role is view-only. Schedules and triggers keep their own rights; resuming a suspended step is not a run."
     },
     "YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces366Da0Bf39": {
       "type": "boolean",
@@ -106573,6 +107195,9 @@
     "YamlPathsWWorkspaceWorkspacesRolesGetResponses200ContentApplicationJsonSchemaPropert4F41Cd835F": {
       "type": "boolean"
     },
+    "YamlPathsWWorkspaceWorkspacesRolesGetResponses200ContentApplicationJsonSchemaPropertB65Dd71476": {
+      "type": "boolean"
+    },
     "YamlPathsWWorkspaceWorkspacesRolesGetResponses200ContentApplicationJsonSchemaPropert89338F5Da0": {
       "type": "boolean"
     },
@@ -106945,6 +107570,9 @@
       "minimum": 1,
       "type": "integer",
       "description": "The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
+    },
+    "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaC9A43191F1": {
+      "type": "string"
     },
     "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema0544Ae1666": {
       "type": "string",
@@ -107919,6 +108547,10 @@
     "YamlPathsUsersTokensCreatePostRequestBodyContentApplicationJsonSchemaPropertiesReadOnlC51Ce720B2": {
       "type": "boolean",
       "description": "If true, the token is restricted to read-only HTTP methods\n(GET/HEAD/OPTIONS). Mutating endpoints and job-run actions are\nrejected with 403, regardless of the scopes attached.\n"
+    },
+    "YamlPathsUsersTokensCreatePostRequestBodyContentApplicationJsonSchemaPropertiesSuperAdBe149Eab02": {
+      "type": "boolean",
+      "description": "For an MCP token (an \u0060mcp:\u0060 scope) owned by a superadmin: carry the owner\u0027s\nsuperadmin rights, reaching every workspace rather than only their\nmemberships. Ignored for other tokens, which always carry them.\n"
     },
     "YamlPathsUsersTokensImpersonatePostRequestBodyContentApplicationJsonSchemaPropertiesLabA89A0D2578": {
       "type": "string"
@@ -108999,6 +109631,10 @@
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro66Fcf9D935": {
       "description": "Value to return when mocked"
     },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF8Aadccddd": {
+      "type": "boolean",
+      "description": "If true, the mock applies only to runs started as a flow preview (from the editor, and every job under it, subflows included). Absent or false, it applies to every run."
+    },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7E959586Ca": {
       "type": "integer",
       "description": "Number of approvals required before continuing"
@@ -109256,6 +109892,16 @@
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProE6Ceae3E47": {
       "type": "boolean"
     },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro50Fbafd02E": {
+      "minimum": 1,
+      "type": "integer",
+      "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+    },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProAc30Fd2C7C": {
+      "minimum": 1,
+      "type": "integer",
+      "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+    },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProCb623Ede09": {
       "type": "array",
       "items": {
@@ -109310,6 +109956,39 @@
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProE14Aaa4976": {
       "type": "boolean",
       "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+    },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro90E3Ed8E5D": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      ],
+      "description": "Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs",
+      "x-client-original-discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/SchemasStaticTransform",
+          "javascript": "#/components/schemas/SchemasJavascriptTransform",
+          "ai": "#/components/schemas/SchemasAiTransform",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      }
     },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro742D823851": {
       "type": "boolean",
@@ -115601,6 +116280,11 @@
       ],
       "description": "Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) \u2014 addressed by \u0060key\u0060 for a top-level field or \u0060path\u0060 for a dotted path into nested objects \u2014 or a group nesting sub-filters under a boolean operator (\u0060none_of\u0060 matches when none of its sub-filters do).\n"
     },
+    "YamlPathsWWorkspaceWebsocketTriggersCreatePostRequestBodyContentApplicationJsonSchemaD09730629C": {
+      "type": "boolean",
+      "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+      "default": false
+    },
     "YamlPathsWWorkspaceWebsocketTriggersCreatePostRequestBodyContentApplicationJsonSchema64B0C4B964": {
       "anyOf": [
         {
@@ -115717,6 +116401,11 @@
         }
       ],
       "description": "Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) \u2014 addressed by \u0060key\u0060 for a top-level field or \u0060path\u0060 for a dotted path into nested objects \u2014 or a group nesting sub-filters under a boolean operator (\u0060none_of\u0060 matches when none of its sub-filters do).\n"
+    },
+    "YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJsonB7Aa7C5128": {
+      "type": "boolean",
+      "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+      "default": false
     },
     "YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson46C5Eee1E8": {
       "anyOf": [
@@ -115876,6 +116565,11 @@
       ],
       "description": "Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) \u2014 addressed by \u0060key\u0060 for a top-level field or \u0060path\u0060 for a dotted path into nested objects \u2014 or a group nesting sub-filters under a boolean operator (\u0060none_of\u0060 matches when none of its sub-filters do).\n"
     },
+    "YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS8E72F71D4F": {
+      "type": "boolean",
+      "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+      "default": false
+    },
     "YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS414A472958": {
       "anyOf": [
         {
@@ -115964,6 +116658,11 @@
       ],
       "description": "Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) \u2014 addressed by \u0060key\u0060 for a top-level field or \u0060path\u0060 for a dotted path into nested objects \u2014 or a group nesting sub-filters under a boolean operator (\u0060none_of\u0060 matches when none of its sub-filters do).\n"
     },
+    "YamlPathsWWorkspaceKafkaTriggersCreatePostRequestBodyContentApplicationJsonSchemaProAc1Fd84763": {
+      "type": "boolean",
+      "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+      "default": false
+    },
     "YamlPathsWWorkspaceKafkaTriggersCreatePostRequestBodyContentApplicationJsonSchemaPro8Caae1D214": {
       "type": "boolean",
       "description": "When true (default), offsets are committed automatically after receiving each message. When false, you must manually commit offsets using the commit_offsets endpoint.",
@@ -116038,6 +116737,11 @@
         }
       ],
       "description": "Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) \u2014 addressed by \u0060key\u0060 for a top-level field or \u0060path\u0060 for a dotted path into nested objects \u2014 or a group nesting sub-filters under a boolean operator (\u0060none_of\u0060 matches when none of its sub-filters do).\n"
+    },
+    "YamlPathsWWorkspaceKafkaTriggersUpdatePathPostRequestBodyContentApplicationJsonSch2B34Ed85F9": {
+      "type": "boolean",
+      "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+      "default": false
     },
     "YamlPathsWWorkspaceKafkaTriggersUpdatePathPostRequestBodyContentApplicationJsonSchAc5D9247B6": {
       "type": "boolean",
@@ -116191,6 +116895,11 @@
         }
       ],
       "description": "Either a leaf filter, matching a field of the message (parsed as JSON) against a value by equality (or superset, when the value is an object or array) \u2014 addressed by \u0060key\u0060 for a top-level field or \u0060path\u0060 for a dotted path into nested objects \u2014 or a group nesting sub-filters under a boolean operator (\u0060none_of\u0060 matches when none of its sub-filters do).\n"
+    },
+    "YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchem5D33E64080": {
+      "type": "boolean",
+      "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+      "default": false
     },
     "YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchem3B105F4261": {
       "type": "boolean",
@@ -118252,6 +118961,12 @@
       "type": "boolean",
       "description": "the worker received its shutdown signal and exits once its current job is done"
     },
+    "YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatB9971422A5": {
+      "type": "integer"
+    },
+    "YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatD7E45F26F1": {
+      "type": "integer"
+    },
     "YamlPathsWorkersRunnableStatsGetResponses200ContentApplicationJsonSchemaItemsPropertie3Ea88Ca525": {
       "type": "string"
     },
@@ -119638,6 +120353,9 @@
           "type": "number",
           "description": "Time window in seconds for concurrent_limit"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe"
+        },
         "debounce_delay_s": {
           "type": "integer",
           "description": "Delay in seconds to debounce flow executions"
@@ -120277,6 +120995,9 @@
           "type": "number",
           "description": "Time window for concurrent_limit"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/RawScriptOnConcurrencyLimit"
+        },
         "custom_concurrency_key": {
           "type": "string",
           "description": "Custom key for grouping concurrent executions"
@@ -120419,6 +121140,16 @@
         },
         "squash": {
           "type": "boolean"
+        },
+        "max_iterations": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+        },
+        "max_duration_secs": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
         }
       },
       "description": "Executes nested modules repeatedly until stopped. The implicit iterator is the iteration counter, so \u0027flow_input.iter.value\u0027 equals \u0027flow_input.iter.index\u0027 (0, 1, 2, ...) and never carries state. To carry state across iterations, a step reads its own previous-iteration result via \u0027results.\u003Cits_own_id\u003E\u0027 with a first-iteration fallback - the loop\u0027s stop_after_if must then be on that inner step (a plain single-step body with stop_after_if on the loop module does not resolve \u0027results\u0027 across iterations and never terminates); plain counters can instead be derived from \u0027flow_input.iter.index\u0027, which works in every configuration. stop_after_if is evaluated after each iteration - on the loop module \u0027result\u0027 is the last iteration\u0027s result"
@@ -120471,6 +121202,9 @@
         "parallel": {
           "type": "boolean",
           "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+        },
+        "parallelism": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
         }
       },
       "description": "Parallel branching where all branches execute simultaneously. Unlike BranchOne, all branches run regardless of conditions. Useful for executing independent tasks concurrently"
@@ -122184,8 +122918,27 @@
           "minimum": 1,
           "type": "integer",
           "description": "The server deletes the backup of a session no push has reached for this many days. Unset keeps backups until the user deletes the session. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
+        },
+        "web_search": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema50E236E60B"
         }
       }
+    },
+    "AiWebSearchConfig": {
+      "required": [
+        "provider",
+        "resource_path"
+      ],
+      "type": "object",
+      "properties": {
+        "provider": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5Bb3238B88"
+        },
+        "resource_path": {
+          "type": "string"
+        }
+      },
+      "description": "The search API the AI chat searches the web and reads pages through when the model\u0027s provider has no built-in web search. Read from the workspace\u0027s own settings like \u0060copilot_disabled\u0060."
     },
     "AiSessionBackupListing": {
       "required": [
@@ -122922,6 +123675,9 @@
         "concurrency_time_window_s": {
           "type": "integer"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+        },
         "concurrency_key": {
           "type": "string"
         },
@@ -123067,6 +123823,9 @@
         },
         "concurrency_time_window_s": {
           "type": "integer"
+        },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties6013D63732"
         },
         "cache_ttl": {
           "type": "number"
@@ -124537,6 +125296,10 @@
         "read_only": {
           "type": "boolean",
           "description": "If true, the token is restricted to read-only HTTP methods\n(GET/HEAD/OPTIONS). Mutating endpoints and job-run actions are\nrejected with 403, regardless of the scopes attached.\n"
+        },
+        "super_admin": {
+          "type": "boolean",
+          "description": "For an MCP token (an \u0060mcp:\u0060 scope) owned by a superadmin: carry the owner\u0027s\nsuperadmin rights, reaching every workspace rather than only their\nmemberships. Ignored for other tokens, which always carry them.\n"
         }
       }
     },
@@ -126999,6 +127762,11 @@
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS94E79Fc837"
         },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
+        },
         "initial_messages": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS2Ed6F21Db5"
         },
@@ -127119,6 +127887,11 @@
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersCreatePostRequestBodyContentApplicationJsonSchema5274D028Cc"
         },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
+        },
         "initial_messages": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersCreatePostRequestBodyContentApplicationJsonSchema97D7B71F2D"
         },
@@ -127199,6 +127972,11 @@
         },
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJson26Ada0A0Bd"
+        },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
         },
         "initial_messages": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersUpdatePathPostRequestBodyContentApplicationJsonB617Bd64F4"
@@ -129726,6 +130504,11 @@
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchem0Bf5Fb5506"
         },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
+        },
         "auto_offset_reset": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchemE0Bb536C1D"
         },
@@ -129858,6 +130641,11 @@
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersCreatePostRequestBodyContentApplicationJsonSchemaPro42538911C6"
         },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
+        },
         "auto_offset_reset": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersCreatePostRequestBodyContentApplicationJsonSchemaProC38E55Cd04"
         },
@@ -129931,6 +130719,11 @@
         },
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersUpdatePathPostRequestBodyContentApplicationJsonSch3139Dd3990"
+        },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
         },
         "auto_offset_reset": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersUpdatePathPostRequestBodyContentApplicationJsonSchD513E32402"
@@ -130762,6 +131555,24 @@
         "draining": {
           "type": "boolean",
           "description": "the worker received its shutdown signal and exits once its current job is done"
+        },
+        "job_stats": {
+          "$ref": "#/components/schemas/YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def"
+        }
+      }
+    },
+    "WorkerJobCounts": {
+      "required": [
+        "executed",
+        "failed"
+      ],
+      "type": "object",
+      "properties": {
+        "executed": {
+          "type": "integer"
+        },
+        "failed": {
+          "type": "integer"
         }
       }
     },
@@ -130782,6 +131593,37 @@
           }
         }
       }
+    },
+    "WorkspaceWebhookEventType": {
+      "enum": [
+        "CreateApp",
+        "DeleteApp",
+        "UpdateApp",
+        "CreateFlow",
+        "UpdateFlow",
+        "ArchiveFlow",
+        "DeleteFlow",
+        "CreateFolder",
+        "UpdateFolder",
+        "DeleteFolder",
+        "DeleteResource",
+        "CreateResource",
+        "UpdateResource",
+        "CreateResourceType",
+        "DeleteResourceType",
+        "UpdateResourceType",
+        "CreateScript",
+        "UpdateScript",
+        "DeleteScript",
+        "DeleteScriptPath",
+        "CreateVariable",
+        "UpdateVariable",
+        "DeleteVariable",
+        "TokenExpiringSoon",
+        "TokenExpired"
+      ],
+      "type": "string",
+      "description": "the \u0060type\u0060 of a workspace webhook message"
     },
     "CreateWorkspaceBody": {
       "required": [
@@ -133191,6 +134033,7 @@
         "apps",
         "manage_schedules",
         "manage_triggers",
+        "run",
         "fork",
         "visibility"
       ],
@@ -133198,7 +134041,7 @@
       "properties": {
         "code": {
           "type": "boolean",
-          "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps."
+          "description": "Author scripts and run code of one\u0027s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by \u0060full\u0060 flows or apps. Previews also need \u0060run\u0060."
         },
         "flows": {
           "$ref": "#/components/schemas/YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces63954A2E02"
@@ -133211,6 +134054,10 @@
         },
         "manage_triggers": {
           "type": "boolean"
+        },
+        "run": {
+          "type": "boolean",
+          "description": "Start runs of scripts, flows and AI agents (by path, hash or version, restarts, previews, MCP run tools). Without it a role is view-only. Schedules and triggers keep their own rights; resuming a suspended step is not a run."
         },
         "fork": {
           "type": "boolean",
@@ -133237,6 +134084,9 @@
           "type": "boolean"
         },
         "manage_triggers": {
+          "type": "boolean"
+        },
+        "run": {
           "type": "boolean"
         },
         "fork": {
@@ -135297,6 +136147,9 @@
           "type": "number",
           "description": "Time window for concurrent_limit"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+        },
         "custom_concurrency_key": {
           "type": "string",
           "description": "Custom key for grouping concurrent executions"
@@ -135509,6 +136362,16 @@
         },
         "squash": {
           "type": "boolean"
+        },
+        "max_iterations": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+        },
+        "max_duration_secs": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
         }
       },
       "description": "Executes nested modules repeatedly until stopped. The implicit iterator is the iteration counter, so \u0027flow_input.iter.value\u0027 equals \u0027flow_input.iter.index\u0027 (0, 1, 2, ...) and never carries state. To carry state across iterations, a step reads its own previous-iteration result via \u0027results.\u003Cits_own_id\u003E\u0027 with a first-iteration fallback - the loop\u0027s stop_after_if must then be on that inner step (a plain single-step body with stop_after_if on the loop module does not resolve \u0027results\u0027 across iterations and never terminates); plain counters can instead be derived from \u0027flow_input.iter.index\u0027, which works in every configuration. stop_after_if is evaluated after each iteration - on the loop module \u0027result\u0027 is the last iteration\u0027s result"
@@ -135561,6 +136424,9 @@
         "parallel": {
           "type": "boolean",
           "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+        },
+        "parallelism": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
         }
       },
       "description": "Parallel branching where all branches execute simultaneously. Unlike BranchOne, all branches run regardless of conditions. Useful for executing independent tasks concurrently"
@@ -136396,6 +137262,9 @@
           "type": "number",
           "description": "Time window in seconds for concurrent_limit"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFc4Abfaa0F"
+        },
         "debounce_delay_s": {
           "type": "integer",
           "description": "Delay in seconds to debounce flow executions"
@@ -136824,6 +137693,9 @@
           "type": "number",
           "description": "Time window for concurrent_limit"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+        },
         "custom_concurrency_key": {
           "type": "string",
           "description": "Custom key for grouping concurrent executions"
@@ -136966,6 +137838,16 @@
         },
         "squash": {
           "type": "boolean"
+        },
+        "max_iterations": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+        },
+        "max_duration_secs": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
         }
       },
       "description": "Executes nested modules repeatedly until stopped. The implicit iterator is the iteration counter, so \u0027flow_input.iter.value\u0027 equals \u0027flow_input.iter.index\u0027 (0, 1, 2, ...) and never carries state. To carry state across iterations, a step reads its own previous-iteration result via \u0027results.\u003Cits_own_id\u003E\u0027 with a first-iteration fallback - the loop\u0027s stop_after_if must then be on that inner step (a plain single-step body with stop_after_if on the loop module does not resolve \u0027results\u0027 across iterations and never terminates); plain counters can instead be derived from \u0027flow_input.iter.index\u0027, which works in every configuration. stop_after_if is evaluated after each iteration - on the loop module \u0027result\u0027 is the last iteration\u0027s result"
@@ -137018,6 +137900,9 @@
         "parallel": {
           "type": "boolean",
           "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+        },
+        "parallelism": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
         }
       },
       "description": "Parallel branching where all branches execute simultaneously. Unlike BranchOne, all branches run regardless of conditions. Useful for executing independent tasks concurrently"
@@ -137267,6 +138152,39 @@
       }
     },
     "WhileloopFlowParallelism": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      ],
+      "description": "Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs",
+      "x-client-original-discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/SchemasStaticTransform",
+          "javascript": "#/components/schemas/SchemasJavascriptTransform",
+          "ai": "#/components/schemas/SchemasAiTransform",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      }
+    },
+    "BranchAllParallelism": {
       "oneOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F"
@@ -138276,6 +139194,10 @@
         },
         "return_value": {
           "description": "Value to return when mocked"
+        },
+        "preview_only": {
+          "type": "boolean",
+          "description": "If true, the mock applies only to runs started as a flow preview (from the editor, and every job under it, subflows included). Absent or false, it applies to every run."
         }
       },
       "description": "Mock configuration for testing without executing the actual step"
@@ -138964,6 +139886,9 @@
           "type": "boolean"
         },
         "manage_triggers": {
+          "type": "boolean"
+        },
+        "run": {
           "type": "boolean"
         },
         "fork": {
@@ -144676,6 +145601,9 @@
         "concurrency_time_window_s": {
           "type": "integer"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+        },
         "concurrency_key": {
           "type": "string"
         },
@@ -147370,6 +148298,11 @@
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS94E79Fc837"
         },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
+        },
         "initial_messages": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonS2Ed6F21Db5"
         },
@@ -147491,6 +148424,11 @@
         },
         "filter_logic": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchem0Bf5Fb5506"
+        },
+        "run_on_filter_error": {
+          "type": "boolean",
+          "description": "Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in \u0060event.filter_error\u0060. When false, such a message is skipped.",
+          "default": false
         },
         "auto_offset_reset": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceKafkaTriggersGetPathGetResponses200ContentApplicationJsonSchemE0Bb536C1D"
@@ -149023,6 +149961,9 @@
         "draining": {
           "type": "boolean",
           "description": "the worker received its shutdown signal and exits once its current job is done"
+        },
+        "job_stats": {
+          "$ref": "#/components/schemas/YamlPathsWorkersListGetResponses200ContentApplicationJsonSchemaItemsPropertiesJobStatDe7B196Def"
         }
       }
     },
@@ -150384,6 +151325,28 @@
           {
             "value": "rawscript",
             "name": "Rawscript"
+          }
+        ]
+      }
+    },
+    "RawScriptOnConcurrencyLimit": {
+      "enum": [
+        "queue",
+        "fail"
+      ],
+      "type": "string",
+      "description": "What a run of this step does when its concurrency limit is reached. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed.",
+      "x-ms-enum": {
+        "name": "RawScriptOnConcurrencyLimit",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "queue",
+            "name": "Queue"
+          },
+          {
+            "value": "fail",
+            "name": "Fail"
           }
         ]
       }
@@ -152408,6 +153371,9 @@
           "type": "number",
           "description": "Time window for concurrent_limit"
         },
+        "on_concurrency_limit": {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+        },
         "custom_concurrency_key": {
           "type": "string",
           "description": "Custom key for grouping concurrent executions"
@@ -152564,6 +153530,16 @@
         "squash": {
           "type": "boolean"
         },
+        "max_iterations": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+        },
+        "max_duration_secs": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+        },
         "tool_type": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
         }
@@ -152622,6 +153598,9 @@
         "parallel": {
           "type": "boolean",
           "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+        },
+        "parallelism": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
         },
         "tool_type": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
@@ -154251,6 +155230,9 @@
               "type": "number",
               "description": "Time window for concurrent_limit"
             },
+            "on_concurrency_limit": {
+              "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+            },
             "custom_concurrency_key": {
               "type": "string",
               "description": "Custom key for grouping concurrent executions"
@@ -154421,6 +155403,16 @@
             },
             "squash": {
               "type": "boolean"
+            },
+            "max_iterations": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+            },
+            "max_duration_secs": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
             }
           },
           "description": "Executes nested modules repeatedly until stopped. The implicit iterator is the iteration counter, so \u0027flow_input.iter.value\u0027 equals \u0027flow_input.iter.index\u0027 (0, 1, 2, ...) and never carries state. To carry state across iterations, a step reads its own previous-iteration result via \u0027results.\u003Cits_own_id\u003E\u0027 with a first-iteration fallback - the loop\u0027s stop_after_if must then be on that inner step (a plain single-step body with stop_after_if on the loop module does not resolve \u0027results\u0027 across iterations and never terminates); plain counters can instead be derived from \u0027flow_input.iter.index\u0027, which works in every configuration. stop_after_if is evaluated after each iteration - on the loop module \u0027result\u0027 is the last iteration\u0027s result"
@@ -154487,6 +155479,9 @@
             "parallel": {
               "type": "boolean",
               "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+            },
+            "parallelism": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
             }
           },
           "description": "Parallel branching where all branches execute simultaneously. Unlike BranchOne, all branches run regardless of conditions. Useful for executing independent tasks concurrently"
@@ -154952,6 +155947,9 @@
               "type": "number",
               "description": "Time window for concurrent_limit"
             },
+            "on_concurrency_limit": {
+              "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+            },
             "custom_concurrency_key": {
               "type": "string",
               "description": "Custom key for grouping concurrent executions"
@@ -155136,6 +156134,16 @@
             "squash": {
               "type": "boolean"
             },
+            "max_iterations": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+            },
+            "max_duration_secs": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+            },
             "tool_type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
             }
@@ -155208,6 +156216,9 @@
             "parallel": {
               "type": "boolean",
               "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+            },
+            "parallelism": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
             },
             "tool_type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
@@ -155629,6 +156640,9 @@
               "type": "number",
               "description": "Time window for concurrent_limit"
             },
+            "on_concurrency_limit": {
+              "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+            },
             "custom_concurrency_key": {
               "type": "string",
               "description": "Custom key for grouping concurrent executions"
@@ -155799,6 +156813,16 @@
             },
             "squash": {
               "type": "boolean"
+            },
+            "max_iterations": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+            },
+            "max_duration_secs": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
             }
           },
           "description": "Executes nested modules repeatedly until stopped. The implicit iterator is the iteration counter, so \u0027flow_input.iter.value\u0027 equals \u0027flow_input.iter.index\u0027 (0, 1, 2, ...) and never carries state. To carry state across iterations, a step reads its own previous-iteration result via \u0027results.\u003Cits_own_id\u003E\u0027 with a first-iteration fallback - the loop\u0027s stop_after_if must then be on that inner step (a plain single-step body with stop_after_if on the loop module does not resolve \u0027results\u0027 across iterations and never terminates); plain counters can instead be derived from \u0027flow_input.iter.index\u0027, which works in every configuration. stop_after_if is evaluated after each iteration - on the loop module \u0027result\u0027 is the last iteration\u0027s result"
@@ -155865,6 +156889,9 @@
             "parallel": {
               "type": "boolean",
               "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+            },
+            "parallelism": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
             }
           },
           "description": "Parallel branching where all branches execute simultaneously. Unlike BranchOne, all branches run regardless of conditions. Useful for executing independent tasks concurrently"
@@ -156343,6 +157370,9 @@
               "type": "number",
               "description": "Time window for concurrent_limit"
             },
+            "on_concurrency_limit": {
+              "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro9C40702Fa7"
+            },
             "custom_concurrency_key": {
               "type": "string",
               "description": "Custom key for grouping concurrent executions"
@@ -156527,6 +157557,16 @@
             "squash": {
               "type": "boolean"
             },
+            "max_iterations": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+            },
+            "max_duration_secs": {
+              "minimum": 1,
+              "type": "integer",
+              "description": "Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body\u0027s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named \u0027LoopExhausted\u0027"
+            },
             "tool_type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
             }
@@ -156599,6 +157639,9 @@
             "parallel": {
               "type": "boolean",
               "description": "If true, all branches execute concurrently. If false, they execute sequentially"
+            },
+            "parallelism": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
             },
             "tool_type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"

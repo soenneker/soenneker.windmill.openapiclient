@@ -18,6 +18,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("max_duration_secs") is null) { _explicitNullValueMaxDurationSecs = default!; _explicitNullProperties?.Remove("max_duration_secs"); }
+            else if (parseNode.GetChildNode("max_duration_secs") is { } nullNodeMaxDurationSecs && nullNodeMaxDurationSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxDurationSecs = null;
+            if (parseNode.GetChildNode("max_iterations") is null) { _explicitNullValueMaxIterations = default!; _explicitNullProperties?.Remove("max_iterations"); }
+            else if (parseNode.GetChildNode("max_iterations") is { } nullNodeMaxIterations && nullNodeMaxIterations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxIterations = null;
             if (parseNode.GetChildNode("modules") is null) { _explicitNullValueModules = default!; _explicitNullProperties?.Remove("modules"); }
             else if (parseNode.GetChildNode("modules") is { } nullNodeModules && nullNodeModules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Modules = null;
             if (parseNode.GetChildNode("parallel") is null) { _explicitNullValueParallel = default!; _explicitNullProperties?.Remove("parallel"); }
@@ -34,6 +38,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body&apos;s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named &apos;LoopExhausted&apos;</summary>
+        public int? MaxDurationSecs { get => _explicitNullValueMaxDurationSecs; set { _explicitNullValueMaxDurationSecs = value; AdditionalData?.Remove("max_duration_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_duration_secs"); else _explicitNullProperties?.Remove("max_duration_secs"); } }
+        private int? _explicitNullValueMaxDurationSecs = default!;
+        /// <summary>Maximum number of iterations. Checked after each iteration; when reached and stop_after_if did not stop the loop, the loop fails with an error named &apos;LoopExhausted&apos;</summary>
+        public int? MaxIterations { get => _explicitNullValueMaxIterations; set { _explicitNullValueMaxIterations = value; AdditionalData?.Remove("max_iterations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_iterations"); else _explicitNullProperties?.Remove("max_iterations"); } }
+        private int? _explicitNullValueMaxIterations = default!;
         /// <summary>Steps to execute in each iteration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,6 +101,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "max_duration_secs", n => { MaxDurationSecs = n.GetIntValue(); } },
+                { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "modules", n => { Modules = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF927E7Fdc9>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF927E7Fdc9.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parallel", n => { Parallel = n.GetBoolValue(); } },
                 { "parallelism", n => { Parallelism = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
@@ -106,6 +118,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("max_duration_secs", MaxDurationSecs);
+            writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF927E7Fdc9>("modules", Modules);
             writer.WriteBoolValue("parallel", Parallel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("parallelism", Parallelism);

@@ -29,6 +29,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("manage_schedules") is { } nullNodeManageSchedules && nullNodeManageSchedules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManageSchedules = null;
             if (parseNode.GetChildNode("manage_triggers") is null) { _explicitNullValueManageTriggers = default!; _explicitNullProperties?.Remove("manage_triggers"); }
             else if (parseNode.GetChildNode("manage_triggers") is { } nullNodeManageTriggers && nullNodeManageTriggers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ManageTriggers = null;
+            if (parseNode.GetChildNode("run") is null) { _explicitNullValueRun = default!; _explicitNullProperties?.Remove("run"); }
+            else if (parseNode.GetChildNode("run") is { } nullNodeRun && nullNodeRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Run = null;
             if (parseNode.GetChildNode("visibility") is null) { _explicitNullValueVisibility = default!; _explicitNullProperties?.Remove("visibility"); }
             else if (parseNode.GetChildNode("visibility") is { } nullNodeVisibility && nullNodeVisibility.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Visibility = null;
         }
@@ -38,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>How much of a kind of runnable a role may author. `compose` assembles already-deployed runnables with no code of one&apos;s own.</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces04F13974Ef? Apps { get => _explicitNullValueApps; set { _explicitNullValueApps = value; AdditionalData?.Remove("apps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("apps"); else _explicitNullProperties?.Remove("apps"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces04F13974Ef? _explicitNullValueApps = default!;
-        /// <summary>Author scripts and run code of one&apos;s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by `full` flows or apps.</summary>
+        /// <summary>Author scripts and run code of one&apos;s own (previews, dependency jobs, dynamic selects, resolving jobs, data table migrations). Required by `full` flows or apps. Previews also need `run`.</summary>
         public bool? Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; AdditionalData?.Remove("code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
         private bool? _explicitNullValueCode = default!;
         /// <summary>How much of a kind of runnable a role may author. `compose` assembles already-deployed runnables with no code of one&apos;s own.</summary>
@@ -53,6 +55,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The manage_triggers property</summary>
         public bool? ManageTriggers { get => _explicitNullValueManageTriggers; set { _explicitNullValueManageTriggers = value; AdditionalData?.Remove("manage_triggers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("manage_triggers"); else _explicitNullProperties?.Remove("manage_triggers"); } }
         private bool? _explicitNullValueManageTriggers = default!;
+        /// <summary>Start runs of scripts, flows and AI agents (by path, hash or version, restarts, previews, MCP run tools). Without it a role is view-only. Schedules and triggers keep their own rights; resuming a suspended step is not a run.</summary>
+        public bool? Run { get => _explicitNullValueRun; set { _explicitNullValueRun = value; AdditionalData?.Remove("run"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run"); else _explicitNullProperties?.Remove("run"); } }
+        private bool? _explicitNullValueRun = default!;
         /// <summary>Pages a role sees. Not enforced.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,6 +99,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "fork", n => { Fork = n.GetBoolValue(); } },
                 { "manage_schedules", n => { ManageSchedules = n.GetBoolValue(); } },
                 { "manage_triggers", n => { ManageTriggers = n.GetBoolValue(); } },
+                { "run", n => { Run = n.GetBoolValue(); } },
                 { "visibility", n => { Visibility = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces7Ccbc96C53>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces7Ccbc96C53.CreateFromDiscriminatorValue); } },
             };
         }
@@ -110,6 +116,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("fork", Fork);
             writer.WriteBoolValue("manage_schedules", ManageSchedules);
             writer.WriteBoolValue("manage_triggers", ManageTriggers);
+            writer.WriteBoolValue("run", Run);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces7Ccbc96C53>("visibility", Visibility);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

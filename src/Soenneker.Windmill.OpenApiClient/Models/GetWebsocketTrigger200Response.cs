@@ -69,6 +69,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("permissioned_as") is { } nullNodePermissionedAs && nullNodePermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionedAs = null;
             if (parseNode.GetChildNode("retry") is null) { _explicitNullValueRetry = default!; _explicitNullProperties?.Remove("retry"); }
             else if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
+            if (parseNode.GetChildNode("run_on_filter_error") is null) { _explicitNullValueRunOnFilterError = default!; _explicitNullProperties?.Remove("run_on_filter_error"); }
+            else if (parseNode.GetChildNode("run_on_filter_error") is { } nullNodeRunOnFilterError && nullNodeRunOnFilterError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunOnFilterError = null;
             if (parseNode.GetChildNode("script_path") is null) { _explicitNullValueScriptPath = default!; _explicitNullProperties?.Remove("script_path"); }
             else if (parseNode.GetChildNode("script_path") is { } nullNodeScriptPath && nullNodeScriptPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScriptPath = null;
             if (parseNode.GetChildNode("server_id") is null) { _explicitNullValueServerId = default!; _explicitNullProperties?.Remove("server_id"); }
@@ -266,6 +268,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonSc9915609Fc Retry { get => _explicitNullValueRetry; set { _explicitNullValueRetry = value; AdditionalData?.Remove("retry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("retry"); else _explicitNullProperties?.Remove("retry"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonSc9915609Fc _explicitNullValueRetry = default!;
 #endif
+        /// <summary>Whether a message the filters cannot read (not UTF-8, or not JSON) still runs the target, as if the trigger had no filters. A preprocessor then finds the reason in `event.filter_error`. When false, such a message is skipped.</summary>
+        public bool? RunOnFilterError { get => _explicitNullValueRunOnFilterError; set { _explicitNullValueRunOnFilterError = value; AdditionalData?.Remove("run_on_filter_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run_on_filter_error"); else _explicitNullProperties?.Remove("run_on_filter_error"); } }
+        private bool? _explicitNullValueRunOnFilterError = default!;
         /// <summary>Path to the script or flow to execute when triggered</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -322,6 +327,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public GetWebsocketTrigger200Response()
         {
             AdditionalData = new Dictionary<string, object>();
+            RunOnFilterError = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -367,6 +373,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "permissioned_as", n => { PermissionedAs = n.GetStringValue(); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonSc9915609Fc>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonSc9915609Fc.CreateFromDiscriminatorValue); } },
+                { "run_on_filter_error", n => { RunOnFilterError = n.GetBoolValue(); } },
                 { "script_path", n => { ScriptPath = n.GetStringValue(); } },
                 { "server_id", n => { ServerId = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -407,6 +414,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("path", Path);
             writer.WriteStringValue("permissioned_as", PermissionedAs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWebsocketTriggersGetPathGetResponses200ContentApplicationJsonSc9915609Fc>("retry", Retry);
+            writer.WriteBoolValue("run_on_filter_error", RunOnFilterError);
             writer.WriteStringValue("script_path", ScriptPath);
             writer.WriteStringValue("server_id", ServerId);
             writer.WriteStringValue("url", Url);

@@ -7,6 +7,8 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Sessions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_artifacts;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Usage;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Web_fetch;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Web_search;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -43,6 +45,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Usage.UsageRequestBuilder Usage
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Usage.UsageRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The web_fetch property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Web_fetch.Web_fetchRequestBuilder Web_fetch
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Web_fetch.Web_fetchRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The web_search property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Web_search.Web_searchRequestBuilder Web_search
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Web_search.Web_searchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.AiRequestBuilder"/> and sets the default values.

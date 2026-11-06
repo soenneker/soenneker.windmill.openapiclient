@@ -20,6 +20,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
             else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("preview_only") is null) { _explicitNullValuePreviewOnly = default!; _explicitNullProperties?.Remove("preview_only"); }
+            else if (parseNode.GetChildNode("preview_only") is { } nullNodePreviewOnly && nullNodePreviewOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviewOnly = null;
             if (parseNode.GetChildNode("return_value") is null) { _explicitNullValueReturnValue = default!; _explicitNullProperties?.Remove("return_value"); }
             else if (parseNode.GetChildNode("return_value") is { } nullNodeReturnValue && nullNodeReturnValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReturnValue = null;
         }
@@ -29,6 +31,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>If true, return mock value instead of executing</summary>
         public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
+        /// <summary>If true, the mock applies only to runs started as a flow preview (from the editor, and every job under it, subflows included). Absent or false, it applies to every run.</summary>
+        public bool? PreviewOnly { get => _explicitNullValuePreviewOnly; set { _explicitNullValuePreviewOnly = value; AdditionalData?.Remove("preview_only"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preview_only"); else _explicitNullProperties?.Remove("preview_only"); } }
+        private bool? _explicitNullValuePreviewOnly = default!;
         /// <summary>Value to return when mocked</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +70,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "preview_only", n => { PreviewOnly = n.GetBoolValue(); } },
                 { "return_value", n => { ReturnValue = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -76,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteBoolValue("preview_only", PreviewOnly);
             writer.WriteObjectValue<UntypedNode>("return_value", ReturnValue);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,exclude_operations*,job_id*,operation*,operations*,page*,per_page*,resource*,username*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,before_id_timestamp*,exclude_operations*,job_id*,operation*,operations*,page*,per_page*,resource*,username*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,exclude_operations*,job_id*,operation*,operations*,page*,per_page*,resource*,username*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/audit/list{?action_kind*,after*,all_workspaces*,before*,before_id*,before_id_timestamp*,exclude_operations*,job_id*,operation*,operations*,page*,per_page*,resource*,username*}", rawUrl)
         {
         }
         /// <summary>
@@ -98,9 +98,12 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Audit.List
             /// <summary>filter on started before (inclusive) timestamp</summary>
             [QueryParameter("before")]
             public DateTimeOffset? Before { get; set; }
-            /// <summary>only return logs with an id strictly lower than this one. Logs are ordered by descending id, so this is a keyset cursor to stream a page in several batches without paying a growing offset.</summary>
+            /// <summary>the id half of a keyset cursor. Logs are ordered by descending timestamp then id: pass the last row&apos;s id here and its timestamp as before_id_timestamp to stream a page in several batches without paying a growing offset. Alone, it only filters on id &lt; before_id, which can skip or repeat rows across pages.</summary>
             [QueryParameter("before_id")]
             public long? BeforeId { get; set; }
+            /// <summary>the timestamp of the row whose id is before_id: with it, only logs strictly before that row in (timestamp, id) order are returned</summary>
+            [QueryParameter("before_id_timestamp")]
+            public DateTimeOffset? BeforeIdTimestamp { get; set; }
             /// <summary>comma separated list of operations to exclude</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

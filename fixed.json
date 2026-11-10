@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.864.1",
+    "version": "1.866.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -396,10 +396,19 @@
           {
             "name": "before_id",
             "in": "query",
-            "description": "only return logs with an id strictly lower than this one. Logs are ordered by descending id, so this is a keyset cursor to stream a page in several batches without paying a growing offset.\n",
+            "description": "the id half of a keyset cursor. Logs are ordered by descending timestamp then id: pass the last row\u0027s id here and its timestamp as before_id_timestamp to stream a page in several batches without paying a growing offset. Alone, it only filters on id \u003C before_id, which can skip or repeat rows across pages.\n",
             "schema": {
               "type": "integer",
               "format": "int64"
+            }
+          },
+          {
+            "name": "before_id_timestamp",
+            "in": "query",
+            "description": "the timestamp of the row whose id is before_id: with it, only logs strictly before that row in (timestamp, id) order are returned\n",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
             }
           },
           {
@@ -32342,7 +32351,7 @@
           }
         ],
         "requestBody": {
-          "description": "redirect_uri, and where to save the connection (defaults to u/{caller}/native_{resource_type}). Uses the workspace OAuth client, or the instance one when the instance shares it.",
+          "description": "Where to save the connection (defaults to u/{caller}/native_{resource_type}). Uses the workspace OAuth client, or the instance one when the instance shares it, and the redirect URI registered on that client.",
           "content": {
             "application/json": {
               "schema": {
@@ -59918,8 +59927,7 @@
         "required": [
           "client_id",
           "client_secret",
-          "base_url",
-          "redirect_uri"
+          "base_url"
         ],
         "type": "object",
         "properties": {
@@ -59938,7 +59946,7 @@
           },
           "redirect_uri": {
             "type": "string",
-            "description": "The OAuth redirect URI",
+            "description": "The redirect URI registered on the OAuth app. Absent for an app saved before it was stored, which uses the workspace settings page.",
             "x-client-original-format": "uri"
           }
         },
@@ -59947,6 +59955,22 @@
       "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses200E4525Fc278": {
         "type": "string",
         "description": "Username of whoever connected the account, when the caller can read its resource",
+        "nullable": true
+      },
+      "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses20078585Ebb17": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Scopes the account was connected with; absent when unknown",
+        "nullable": true
+      },
+      "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses200F45D07E4B5": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Scopes the service\u0027s triggers need that the account lacks; absent when unknown",
         "nullable": true
       },
       "YamlPathsWWorkspaceNativeTriggersServiceNameCreatePostRequestBodyContentApplicationF301Ed4Ce0": {
@@ -64910,7 +64934,11 @@
           },
           "approle_role_id": {
             "type": "string",
-            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole."
+          },
+          "approle_secret_id": {
+            "type": "string",
+            "description": "AppRole secret_id (optional). When empty, the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers is used; when that is unset too, no secret_id is sent (a role with \u0060bind_secret_id=false\u0060)."
           },
           "approle_mount_path": {
             "type": "string",
@@ -64958,7 +64986,11 @@
           },
           "approle_role_id": {
             "type": "string",
-            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole."
+          },
+          "approle_secret_id": {
+            "type": "string",
+            "description": "AppRole secret_id (optional). When empty, the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers is used; when that is unset too, no secret_id is sent (a role with \u0060bind_secret_id=false\u0060)."
           },
           "approle_mount_path": {
             "type": "string",
@@ -65006,7 +65038,11 @@
           },
           "approle_role_id": {
             "type": "string",
-            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+            "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole."
+          },
+          "approle_secret_id": {
+            "type": "string",
+            "description": "AppRole secret_id (optional). When empty, the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers is used; when that is unset too, no secret_id is sent (a role with \u0060bind_secret_id=false\u0060)."
           },
           "approle_mount_path": {
             "type": "string",
@@ -68896,6 +68932,13 @@
           },
           "account": {
             "type": "number"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "OAuth scopes the linked account was connected with"
           },
           "created_by": {
             "type": "string"
@@ -73718,6 +73761,10 @@
           "trigger_kind": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
           },
+          "trigger_path": {
+            "type": "string",
+            "description": "Path of the trigger, schedule or app that started the job, if any"
+          },
           "worker": {
             "type": "string"
           }
@@ -73924,6 +73971,10 @@
           },
           "trigger_kind": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
+          },
+          "trigger_path": {
+            "type": "string",
+            "description": "Path of the trigger, schedule or app that started the job, if any"
           },
           "worker": {
             "type": "string"
@@ -76340,8 +76391,7 @@
         "required": [
           "client_id",
           "client_secret",
-          "base_url",
-          "redirect_uri"
+          "base_url"
         ],
         "type": "object",
         "properties": {
@@ -76360,20 +76410,14 @@
           },
           "redirect_uri": {
             "type": "string",
-            "description": "The OAuth redirect URI",
+            "description": "The redirect URI registered on the OAuth app. Absent for an app saved before it was stored, which uses the workspace settings page.",
             "x-client-original-format": "uri"
           }
         }
       },
       "GenerateNativeTriggerServiceConnectUrlRequest": {
-        "required": [
-          "redirect_uri"
-        ],
         "type": "object",
         "properties": {
-          "redirect_uri": {
-            "type": "string"
-          },
           "resource_path": {
             "type": "string"
           }
@@ -76392,8 +76436,7 @@
       "NativeTriggerServiceCallbackRequest": {
         "required": [
           "code",
-          "state",
-          "redirect_uri"
+          "state"
         ],
         "type": "object",
         "properties": {
@@ -76401,9 +76444,6 @@
             "type": "string"
           },
           "state": {
-            "type": "string"
-          },
-          "redirect_uri": {
             "type": "string"
           }
         }
@@ -90048,6 +90088,13 @@
           "account": {
             "type": "number"
           },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "OAuth scopes the linked account was connected with"
+          },
           "created_by": {
             "type": "string"
           },
@@ -91571,6 +91618,10 @@
           "trigger_kind": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
           },
+          "trigger_path": {
+            "type": "string",
+            "description": "Path of the trigger, schedule or app that started the job, if any"
+          },
           "worker": {
             "type": "string"
           }
@@ -91742,6 +91793,10 @@
           },
           "trigger_kind": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
+          },
+          "trigger_path": {
+            "type": "string",
+            "description": "Path of the trigger, schedule or app that started the job, if any"
           },
           "worker": {
             "type": "string"
@@ -93568,7 +93623,8 @@
       "ListNativeTriggerConnections200ResponseSchemaItem": {
         "required": [
           "path",
-          "workspace"
+          "workspace",
+          "managed"
         ],
         "type": "object",
         "properties": {
@@ -93582,6 +93638,16 @@
           "workspace": {
             "type": "boolean",
             "description": "Whether this is the workspace connection, which every member may use"
+          },
+          "managed": {
+            "type": "boolean",
+            "description": "Whether the integration trigger connect flow made it. Any other connection is a resource connected from Resources, which triggers can use but only Resources can replace or delete."
+          },
+          "scopes": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses20078585Ebb17"
+          },
+          "missing_scopes": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses200F45D07E4B5"
           }
         },
         "description": "An account connected for native triggers, stored as an OAuth resource"
@@ -104007,6 +104073,10 @@
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
               },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
+              },
               "worker": {
                 "type": "string"
               },
@@ -104159,6 +104229,10 @@
               },
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+              },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
               },
               "worker": {
                 "type": "string"
@@ -104404,6 +104478,10 @@
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
               },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
+              },
               "worker": {
                 "type": "string"
               },
@@ -104556,6 +104634,10 @@
               },
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+              },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
               },
               "worker": {
                 "type": "string"
@@ -104735,6 +104817,10 @@
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
               },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
+              },
               "worker": {
                 "type": "string"
               },
@@ -104887,6 +104973,10 @@
               },
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+              },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
               },
               "worker": {
                 "type": "string"
@@ -105066,6 +105156,10 @@
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
               },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
+              },
               "worker": {
                 "type": "string"
               },
@@ -105218,6 +105312,10 @@
               },
               "trigger_kind": {
                 "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+              },
+              "trigger_path": {
+                "type": "string",
+                "description": "Path of the trigger, schedule or app that started the job, if any"
               },
               "worker": {
                 "type": "string"
@@ -106937,7 +107035,11 @@
     },
     "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaPropertiesBea24C8924": {
       "type": "string",
-      "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+      "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole."
+    },
+    "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaProperties86C1E977Da": {
+      "type": "string",
+      "description": "AppRole secret_id (optional). When empty, the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers is used; when that is unset too, no secret_id is sent (a role with \u0060bind_secret_id=false\u0060)."
     },
     "YamlPathsSettingsTestSecretBackendPostRequestBodyContentApplicationJsonSchemaPropertiesAcc26A6539": {
       "type": "string",
@@ -109071,6 +109173,16 @@
     },
     "YamlPathsWWorkspaceResourcesGetPathGetResponses200ContentApplicationJsonSchemaAllC9E1Cb56E0": {
       "type": "number"
+    },
+    "YamlPathsWWorkspaceResourcesGetPathGetResponses200ContentApplicationJsonSchemaAllC6Ca8A53D1": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "OAuth scopes the linked account was connected with"
+    },
+    "YamlPathsWWorkspaceResourcesGetPathGetResponses200ContentApplicationJsonSchemaAll1Cab3D3Cfd": {
+      "type": "string"
     },
     "YamlPathsWWorkspaceResourcesGetPathGetResponses200ContentApplicationJsonSchemaAll656F5Ae34C": {
       "type": "string"
@@ -114238,6 +114350,10 @@
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr4D4C06F909": {
       "type": "boolean"
     },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC718Be25Af": {
+      "type": "string",
+      "description": "Path of the trigger, schedule or app that started the job, if any"
+    },
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr7Dfebec3E3": {
       "type": "string"
     },
@@ -114398,6 +114514,10 @@
     "YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem9D079Fc1Ef": {
       "type": "boolean",
       "description": "true when a succeeding retry resolved this rather than a person. Explicit rather than inferred from an absent resolved_by, which is also absent for a manual resolution outside enterprise"
+    },
+    "YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemAe2Fcb26B6": {
+      "type": "string",
+      "description": "Path of the trigger, schedule or app that started the job, if any"
     },
     "YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem3F0Ccdd017": {
       "type": "string"
@@ -114844,6 +114964,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -115016,6 +115140,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         }
@@ -115164,6 +115292,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -115300,6 +115432,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -117351,7 +117487,7 @@
     },
     "YamlPathsWWorkspaceNativeTriggersIntegrationsListGetResponses200ContentApplicationJs0302564018": {
       "type": "string",
-      "description": "The OAuth redirect URI",
+      "description": "The redirect URI registered on the OAuth app. Absent for an app saved before it was stored, which uses the workspace settings page.",
       "x-client-original-format": "uri"
     },
     "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses2006A246B24E1": {
@@ -117361,6 +117497,16 @@
     "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses2000A4B7D3810": {
       "type": "boolean",
       "description": "Whether this is the workspace connection, which every member may use"
+    },
+    "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses200C09C62E6Fd": {
+      "type": "boolean",
+      "description": "Whether the integration trigger connect flow made it. Any other connection is a resource connected from Resources, which triggers can use but only Resources can replace or delete."
+    },
+    "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses20076062A5857": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses200A49De1Eeb1": {
+      "type": "string"
     },
     "YamlPathsWWorkspaceNativeTriggersServiceNameCreatePostRequestBodyContentApplication8928F8Bb16": {
       "type": "string",
@@ -121862,7 +122008,11 @@
         },
         "approle_role_id": {
           "type": "string",
-          "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole; the secret_id is read from the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers."
+          "description": "AppRole role_id (optional). When set and no static token is given, Windmill logs in with AppRole."
+        },
+        "approle_secret_id": {
+          "type": "string",
+          "description": "AppRole secret_id (optional). When empty, the \u0060VAULT_APPROLE_SECRET_ID\u0060 environment variable of servers and workers is used; when that is unset too, no secret_id is sent (a role with \u0060bind_secret_id=false\u0060)."
         },
         "approle_mount_path": {
           "type": "string",
@@ -124152,6 +124302,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         }
@@ -124320,6 +124474,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -126184,6 +126342,13 @@
         },
         "account": {
           "type": "number"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "OAuth scopes the linked account was connected with"
         },
         "created_by": {
           "type": "string"
@@ -135337,8 +135502,7 @@
       "required": [
         "client_id",
         "client_secret",
-        "base_url",
-        "redirect_uri"
+        "base_url"
       ],
       "type": "object",
       "properties": {
@@ -135357,7 +135521,7 @@
         },
         "redirect_uri": {
           "type": "string",
-          "description": "The OAuth redirect URI",
+          "description": "The redirect URI registered on the OAuth app. Absent for an app saved before it was stored, which uses the workspace settings page.",
           "x-client-original-format": "uri"
         }
       }
@@ -135434,7 +135598,8 @@
     "NativeTriggerConnection": {
       "required": [
         "path",
-        "workspace"
+        "workspace",
+        "managed"
       ],
       "type": "object",
       "properties": {
@@ -135448,6 +135613,16 @@
         "workspace": {
           "type": "boolean",
           "description": "Whether this is the workspace connection, which every member may use"
+        },
+        "managed": {
+          "type": "boolean",
+          "description": "Whether the integration trigger connect flow made it. Any other connection is a resource connected from Resources, which triggers can use but only Resources can replace or delete."
+        },
+        "scopes": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses20078585Ebb17"
+        },
+        "missing_scopes": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses200F45D07E4B5"
         }
       },
       "description": "An account connected for native triggers, stored as an OAuth resource"
@@ -145229,6 +145404,13 @@
         "account": {
           "type": "number"
         },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "OAuth scopes the linked account was connected with"
+        },
         "created_by": {
           "type": "string"
         },
@@ -146752,6 +146934,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         }
@@ -146923,6 +147109,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -148749,7 +148939,8 @@
     "ListNativeTriggerConnections200ResponseItem": {
       "required": [
         "path",
-        "workspace"
+        "workspace",
+        "managed"
       ],
       "type": "object",
       "properties": {
@@ -148763,6 +148954,16 @@
         "workspace": {
           "type": "boolean",
           "description": "Whether this is the workspace connection, which every member may use"
+        },
+        "managed": {
+          "type": "boolean",
+          "description": "Whether the integration trigger connect flow made it. Any other connection is a resource connected from Resources, which triggers can use but only Resources can replace or delete."
+        },
+        "scopes": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses20078585Ebb17"
+        },
+        "missing_scopes": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceNativeTriggersIntegrationsServiceNameConnectionsGetResponses200F45D07E4B5"
         }
       },
       "description": "An account connected for native triggers, stored as an OAuth resource"
@@ -152849,6 +153050,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -152994,6 +153199,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -153166,6 +153375,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -153311,6 +153524,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -153848,6 +154065,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -153993,6 +154214,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -154165,6 +154390,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -154310,6 +154539,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -154482,6 +154715,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -154627,6 +154864,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -154799,6 +155040,10 @@
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
         },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
+        },
         "worker": {
           "type": "string"
         },
@@ -154944,6 +155189,10 @@
         },
         "trigger_kind": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+        },
+        "trigger_path": {
+          "type": "string",
+          "description": "Path of the trigger, schedule or app that started the job, if any"
         },
         "worker": {
           "type": "string"
@@ -157151,6 +157400,10 @@
             "trigger_kind": {
               "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
             },
+            "trigger_path": {
+              "type": "string",
+              "description": "Path of the trigger, schedule or app that started the job, if any"
+            },
             "worker": {
               "type": "string"
             },
@@ -157303,6 +157556,10 @@
             },
             "trigger_kind": {
               "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+            },
+            "trigger_path": {
+              "type": "string",
+              "description": "Path of the trigger, schedule or app that started the job, if any"
             },
             "worker": {
               "type": "string"
@@ -158095,6 +158352,10 @@
             "trigger_kind": {
               "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItemE6371E1A82"
             },
+            "trigger_path": {
+              "type": "string",
+              "description": "Path of the trigger, schedule or app that started the job, if any"
+            },
             "worker": {
               "type": "string"
             },
@@ -158247,6 +158508,10 @@
             },
             "trigger_kind": {
               "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E"
+            },
+            "trigger_path": {
+              "type": "string",
+              "description": "Path of the trigger, schedule or app that started the job, if any"
             },
             "worker": {
               "type": "string"

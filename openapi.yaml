@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.864.1
+  version: 1.866.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -608,12 +608,22 @@ paths:
         - name: before_id
           in: query
           description: >
-            only return logs with an id strictly lower than this one. Logs are
-            ordered by descending id, so this is a keyset cursor to stream a
-            page in several batches without paying a growing offset.
+            the id half of a keyset cursor. Logs are ordered by descending
+            timestamp then id: pass the last row's id here and its timestamp as
+            before_id_timestamp to stream a page in several batches without
+            paying a growing offset. Alone, it only filters on id < before_id,
+            which can skip or repeat rows across pages.
           schema:
             type: integer
             format: int64
+        - name: before_id_timestamp
+          in: query
+          description: >
+            the timestamp of the row whose id is before_id: with it, only logs
+            strictly before that row in (timestamp, id) order are returned
+          schema:
+            type: string
+            format: date-time
         - name: all_workspaces
           in: query
           description: get audit logs for all workspaces
@@ -4347,9 +4357,14 @@ paths:
                   type: string
                   description: >-
                     AppRole role_id (optional). When set and no static token is
-                    given, Windmill logs in with AppRole; the secret_id is read
-                    from the `VAULT_APPROLE_SECRET_ID` environment variable of
-                    servers and workers.
+                    given, Windmill logs in with AppRole.
+                approle_secret_id:
+                  type: string
+                  description: >-
+                    AppRole secret_id (optional). When empty, the
+                    `VAULT_APPROLE_SECRET_ID` environment variable of servers
+                    and workers is used; when that is unset too, no secret_id is
+                    sent (a role with `bind_secret_id=false`).
                 approle_mount_path:
                   type: string
                   description: >-
@@ -14524,6 +14539,11 @@ paths:
                         type: boolean
                       account:
                         type: number
+                      scopes:
+                        type: array
+                        items:
+                          type: string
+                        description: OAuth scopes the linked account was connected with
                       created_by:
                         type: string
                       edited_at:
@@ -30372,6 +30392,11 @@ paths:
                         - freshness
                         - app
                         - ui
+                    trigger_path:
+                      type: string
+                      description: >-
+                        Path of the trigger, schedule or app that started the
+                        job, if any
                     worker:
                       type: string
                   required: &ref_272
@@ -31369,6 +31394,11 @@ paths:
                       description: job trigger kind (schedule, http, websocket...)
                       type: string
                       enum: *ref_252
+                    trigger_path:
+                      type: string
+                      description: >-
+                        Path of the trigger, schedule or app that started the
+                        job, if any
                     worker:
                       type: string
                   required: &ref_270
@@ -38607,12 +38637,14 @@ paths:
                         redirect_uri:
                           type: string
                           format: uri
-                          description: The OAuth redirect URI
+                          description: >-
+                            The redirect URI registered on the OAuth app. Absent
+                            for an app saved before it was stored, which uses
+                            the workspace settings page.
                       required: &ref_313
                         - client_id
                         - client_secret
                         - base_url
-                        - redirect_uri
                   required: &ref_798
                     - service_name
   /w/{workspace}/native_triggers/integrations/{service_name}/exists:
@@ -38691,21 +38723,18 @@ paths:
             enum: *ref_311
       requestBody:
         description: >-
-          redirect_uri, and where to save the connection (defaults to
+          Where to save the connection (defaults to
           u/{caller}/native_{resource_type}). Uses the workspace OAuth client,
-          or the instance one when the instance shares it.
+          or the instance one when the instance shares it, and the redirect URI
+          registered on that client.
         required: true
         content:
           application/json:
             schema:
               type: object
               properties:
-                redirect_uri:
-                  type: string
                 resource_path:
                   type: string
-              required:
-                - redirect_uri
       responses:
         '200':
           description: native trigger service connect url
@@ -38781,9 +38810,33 @@ paths:
                       description: >-
                         Whether this is the workspace connection, which every
                         member may use
+                    managed:
+                      type: boolean
+                      description: >-
+                        Whether the integration trigger connect flow made it.
+                        Any other connection is a resource connected from
+                        Resources, which triggers can use but only Resources can
+                        replace or delete.
+                    scopes:
+                      type: array
+                      nullable: true
+                      items:
+                        type: string
+                      description: >-
+                        Scopes the account was connected with; absent when
+                        unknown
+                    missing_scopes:
+                      type: array
+                      nullable: true
+                      items:
+                        type: string
+                      description: >-
+                        Scopes the service's triggers need that the account
+                        lacks; absent when unknown
                   required: &ref_801
                     - path
                     - workspace
+                    - managed
   /w/{workspace}/native_triggers/integrations/{service_name}/connections/delete:
     delete:
       summary: disconnect a native trigger connection and delete the triggers using it
@@ -38903,12 +38956,9 @@ paths:
                   type: string
                 state:
                   type: string
-                redirect_uri:
-                  type: string
               required:
                 - code
                 - state
-                - redirect_uri
       responses:
         '200':
           description: path of the saved connection

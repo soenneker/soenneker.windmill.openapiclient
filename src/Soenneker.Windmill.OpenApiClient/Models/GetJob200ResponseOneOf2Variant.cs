@@ -84,6 +84,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("tag") is { } nullNodeTag && nullNodeTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tag = null;
             if (parseNode.GetChildNode("trigger_kind") is null) { _explicitNullValueTriggerKind = default!; _explicitNullProperties?.Remove("trigger_kind"); }
             else if (parseNode.GetChildNode("trigger_kind") is { } nullNodeTriggerKind && nullNodeTriggerKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerKind = null;
+            if (parseNode.GetChildNode("trigger_path") is null) { _explicitNullValueTriggerPath = default!; _explicitNullProperties?.Remove("trigger_path"); }
+            else if (parseNode.GetChildNode("trigger_path") is { } nullNodeTriggerPath && nullNodeTriggerPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerPath = null;
             if (parseNode.GetChildNode("visible_to_owner") is null) { _explicitNullValueVisibleToOwner = default!; _explicitNullProperties?.Remove("visible_to_owner"); }
             else if (parseNode.GetChildNode("visible_to_owner") is { } nullNodeVisibleToOwner && nullNodeVisibleToOwner.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VisibleToOwner = null;
             if (parseNode.GetChildNode("worker") is null) { _explicitNullValueWorker = default!; _explicitNullProperties?.Remove("worker"); }
@@ -291,6 +293,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>job trigger kind (schedule, http, websocket...)</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E? TriggerKind { get => _explicitNullValueTriggerKind; set { _explicitNullValueTriggerKind = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_kind"); else _explicitNullProperties?.Remove("trigger_kind"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E? _explicitNullValueTriggerKind = default!;
+        /// <summary>Path of the trigger, schedule or app that started the job, if any</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        private string? _explicitNullValueTriggerPath = default!;
+#nullable restore
+#else
+        public string TriggerPath { get => _explicitNullValueTriggerPath; set { _explicitNullValueTriggerPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("trigger_path"); else _explicitNullProperties?.Remove("trigger_path"); } }
+        private string _explicitNullValueTriggerPath = default!;
+#endif
         /// <summary>The visible_to_owner property</summary>
         public bool? VisibleToOwner { get => _explicitNullValueVisibleToOwner; set { _explicitNullValueVisibleToOwner = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("visible_to_owner"); else _explicitNullProperties?.Remove("visible_to_owner"); } }
         private bool? _explicitNullValueVisibleToOwner = default!;
@@ -375,6 +387,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "suspend", n => { Suspend = n.GetDoubleValue(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "trigger_kind", n => { TriggerKind = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E>(); } },
+                { "trigger_path", n => { TriggerPath = n.GetStringValue(); } },
                 { "visible_to_owner", n => { VisibleToOwner = n.GetBoolValue(); } },
                 { "worker", n => { Worker = n.GetStringValue(); } },
                 { "workflow_as_code_status", n => { WorkflowAsCodeStatus = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr75562Bce9C>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr75562Bce9C.CreateFromDiscriminatorValue); } },
@@ -422,6 +435,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteDoubleValue("suspend", Suspend);
             writer.WriteStringValue("tag", Tag);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr826D41352E>("trigger_kind", TriggerKind);
+            writer.WriteStringValue("trigger_path", TriggerPath);
             writer.WriteBoolValue("visible_to_owner", VisibleToOwner);
             writer.WriteStringValue("worker", Worker);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr75562Bce9C>("workflow_as_code_status", WorkflowAsCodeStatus);

@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.866.0",
+    "version": "1.868.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -18360,6 +18360,14 @@
             "name": "path_start",
             "in": "query",
             "description": "restrict to paths under this prefix",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "paths",
+            "in": "query",
+            "description": "comma-separated exact paths, to list only the rows at one of them",
             "schema": {
               "type": "string"
             }
@@ -73786,6 +73794,10 @@
           },
           "started": {
             "type": "boolean"
+          },
+          "is_skipped": {
+            "type": "boolean",
+            "description": "set when the job is completed; true if it ended as skipped (also counted as success)"
           }
         }
       },
@@ -78732,6 +78744,10 @@
           "name": {
             "type": "string"
           },
+          "display_name": {
+            "type": "string",
+            "description": "Defaults to the name."
+          },
           "summary": {
             "type": "string"
           },
@@ -78763,6 +78779,9 @@
         "type": "object",
         "properties": {
           "summary": {
+            "type": "string"
+          },
+          "display_name": {
             "type": "string"
           },
           "owners": {
@@ -78798,6 +78817,9 @@
         "type": "object",
         "properties": {
           "name": {
+            "type": "string"
+          },
+          "display_name": {
             "type": "string"
           },
           "owners": {
@@ -94704,6 +94726,9 @@
         "type": "object",
         "properties": {
           "name": {
+            "type": "string"
+          },
+          "display_name": {
             "type": "string"
           },
           "owners": {
@@ -118980,6 +119005,9 @@
     "YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPrope0Db3B08220": {
       "type": "string"
     },
+    "YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeC1Ef4Ee6E6": {
+      "type": "string"
+    },
     "YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPrope3D36Eec29B": {
       "type": "array",
       "items": {
@@ -131545,6 +131573,9 @@
       "type": "object",
       "properties": {
         "name": {
+          "type": "string"
+        },
+        "display_name": {
           "type": "string"
         },
         "owners": {
@@ -150020,6 +150051,9 @@
       "type": "object",
       "properties": {
         "name": {
+          "type": "string"
+        },
+        "display_name": {
           "type": "string"
         },
         "owners": {

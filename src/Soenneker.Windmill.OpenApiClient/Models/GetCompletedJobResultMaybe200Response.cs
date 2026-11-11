@@ -19,6 +19,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("completed") is null) { _explicitNullValueCompleted = default!; _explicitNullProperties?.Remove("completed"); }
             else if (parseNode.GetChildNode("completed") is { } nullNodeCompleted && nullNodeCompleted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Completed = null;
+            if (parseNode.GetChildNode("is_skipped") is null) { _explicitNullValueIsSkipped = default!; _explicitNullProperties?.Remove("is_skipped"); }
+            else if (parseNode.GetChildNode("is_skipped") is { } nullNodeIsSkipped && nullNodeIsSkipped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSkipped = null;
             if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
             else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
             if (parseNode.GetChildNode("started") is null) { _explicitNullValueStarted = default!; _explicitNullProperties?.Remove("started"); }
@@ -32,6 +34,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The completed property</summary>
         public bool? Completed { get => _explicitNullValueCompleted; set { _explicitNullValueCompleted = value; AdditionalData?.Remove("completed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed"); else _explicitNullProperties?.Remove("completed"); } }
         private bool? _explicitNullValueCompleted = default!;
+        /// <summary>set when the job is completed; true if it ended as skipped (also counted as success)</summary>
+        public bool? IsSkipped { get => _explicitNullValueIsSkipped; set { _explicitNullValueIsSkipped = value; AdditionalData?.Remove("is_skipped"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_skipped"); else _explicitNullProperties?.Remove("is_skipped"); } }
+        private bool? _explicitNullValueIsSkipped = default!;
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,6 +79,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "completed", n => { Completed = n.GetBoolValue(); } },
+                { "is_skipped", n => { IsSkipped = n.GetBoolValue(); } },
                 { "result", n => { Result = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "started", n => { Started = n.GetBoolValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
@@ -87,6 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("completed", Completed);
+            writer.WriteBoolValue("is_skipped", IsSkipped);
             writer.WriteObjectValue<UntypedNode>("result", Result);
             writer.WriteBoolValue("started", Started);
             writer.WriteBoolValue("success", Success);

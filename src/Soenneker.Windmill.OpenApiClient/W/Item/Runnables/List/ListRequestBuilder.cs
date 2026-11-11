@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,per_page*,search*,show_archived*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,paths*,per_page*,search*,show_archived*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,per_page*,search*,show_archived*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,paths*,per_page*,search*,show_archived*}", rawUrl)
         {
         }
         /// <summary>
@@ -130,6 +130,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             /// <summary>order by desc order (default true)</summary>
             [QueryParameter("order_desc")]
             public bool? OrderDesc { get; set; }
+            /// <summary>comma-separated exact paths, to list only the rows at one of them</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("paths")]
+            public string? Paths { get; set; }
+#nullable restore
+#else
+            [QueryParameter("paths")]
+            public string Paths { get; set; }
+#endif
             /// <summary>restrict to paths under this prefix</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

@@ -21,6 +21,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("created_by") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
             if (parseNode.GetChildNode("default_permissioned_as") is null) { _explicitNullValueDefaultPermissionedAs = default!; _explicitNullProperties?.Remove("default_permissioned_as"); }
             else if (parseNode.GetChildNode("default_permissioned_as") is { } nullNodeDefaultPermissionedAs && nullNodeDefaultPermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultPermissionedAs = null;
+            if (parseNode.GetChildNode("display_name") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("display_name"); }
+            else if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
             if (parseNode.GetChildNode("edited_at") is null) { _explicitNullValueEditedAt = default!; _explicitNullProperties?.Remove("edited_at"); }
             else if (parseNode.GetChildNode("edited_at") is { } nullNodeEditedAt && nullNodeEditedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EditedAt = null;
             if (parseNode.GetChildNode("extra_perms") is null) { _explicitNullValueExtraPerms = default!; _explicitNullProperties?.Remove("extra_perms"); }
@@ -56,6 +58,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52> DefaultPermissionedAs { get => _explicitNullValueDefaultPermissionedAs; set { _explicitNullValueDefaultPermissionedAs = value; AdditionalData?.Remove("default_permissioned_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_permissioned_as"); else _explicitNullProperties?.Remove("default_permissioned_as"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52> _explicitNullValueDefaultPermissionedAs = default!;
+#endif
+        /// <summary>The display_name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
+#nullable restore
+#else
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The edited_at property</summary>
         public DateTimeOffset? EditedAt { get => _explicitNullValueEditedAt; set { _explicitNullValueEditedAt = value; AdditionalData?.Remove("edited_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edited_at"); else _explicitNullProperties?.Remove("edited_at"); } }
@@ -137,6 +149,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "edited_at", n => { EditedAt = n.GetDateTimeOffsetValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200ResponseExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200ResponseExtraPerms.CreateFromDiscriminatorValue); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -154,6 +167,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52>("default_permissioned_as", DefaultPermissionedAs);
+            writer.WriteStringValue("display_name", DisplayName);
             writer.WriteDateTimeOffsetValue("edited_at", EditedAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetFolder200ResponseExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);

@@ -19,6 +19,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("default_permissioned_as") is null) { _explicitNullValueDefaultPermissionedAs = default!; _explicitNullProperties?.Remove("default_permissioned_as"); }
             else if (parseNode.GetChildNode("default_permissioned_as") is { } nullNodeDefaultPermissionedAs && nullNodeDefaultPermissionedAs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultPermissionedAs = null;
+            if (parseNode.GetChildNode("display_name") is null) { _explicitNullValueDisplayName = default!; _explicitNullProperties?.Remove("display_name"); }
+            else if (parseNode.GetChildNode("display_name") is { } nullNodeDisplayName && nullNodeDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayName = null;
             if (parseNode.GetChildNode("extra_perms") is null) { _explicitNullValueExtraPerms = default!; _explicitNullProperties?.Remove("extra_perms"); }
             else if (parseNode.GetChildNode("extra_perms") is { } nullNodeExtraPerms && nullNodeExtraPerms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtraPerms = null;
             if (parseNode.GetChildNode("labels") is null) { _explicitNullValueLabels = default!; _explicitNullProperties?.Remove("labels"); }
@@ -40,6 +42,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52> DefaultPermissionedAs { get => _explicitNullValueDefaultPermissionedAs; set { _explicitNullValueDefaultPermissionedAs = value; AdditionalData?.Remove("default_permissioned_as"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default_permissioned_as"); else _explicitNullProperties?.Remove("default_permissioned_as"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52> _explicitNullValueDefaultPermissionedAs = default!;
+#endif
+        /// <summary>The display_name property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string? _explicitNullValueDisplayName = default!;
+#nullable restore
+#else
+        public string DisplayName { get => _explicitNullValueDisplayName; set { _explicitNullValueDisplayName = value; AdditionalData?.Remove("display_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("display_name"); else _explicitNullProperties?.Remove("display_name"); } }
+        private string _explicitNullValueDisplayName = default!;
 #endif
         /// <summary>The extra_perms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,6 +119,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "display_name", n => { DisplayName = n.GetStringValue(); } },
                 { "extra_perms", n => { ExtraPerms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolderRequestExtraPerms>(global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolderRequestExtraPerms.CreateFromDiscriminatorValue); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "owners", n => { Owners = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -121,6 +134,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52>("default_permissioned_as", DefaultPermissionedAs);
+            writer.WriteStringValue("display_name", DisplayName);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.UpdateFolderRequestExtraPerms>("extra_perms", ExtraPerms);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteCollectionOfPrimitiveValues<string>("owners", Owners);

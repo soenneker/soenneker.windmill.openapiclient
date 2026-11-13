@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.Create
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CreateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/create{?update_if_exists*}", pathParameters)
+        public CreateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/create{?skip_ci_tests*,update_if_exists*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.Create
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CreateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/create{?update_if_exists*}", rawUrl)
+        public CreateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/resources/create{?skip_ci_tests*,update_if_exists*}", rawUrl)
         {
         }
         /// <summary>
@@ -90,6 +90,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Resources.Create
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CreateRequestBuilderPostQueryParameters 
         {
+            /// <summary>Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.</summary>
+            [QueryParameter("skip_ci_tests")]
+            public bool? SkipCiTests { get; set; }
             /// <summary>update the resource if it already exists (default false)</summary>
             [QueryParameter("update_if_exists")]
             public bool? UpdateIfExists { get; set; }

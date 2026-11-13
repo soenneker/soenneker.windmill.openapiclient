@@ -21,7 +21,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List_filtered_uuids
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_filtered_uuidsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/list_filtered_uuids{?all_workspaces*,allow_wildcards*,args*,concurrency_key*,created_by*,is_not_schedule*,job_kinds*,order_desc*,page*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*}", pathParameters)
+        public List_filtered_uuidsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/list_filtered_uuids{?all_workspaces*,allow_wildcards*,args*,concurrency_key*,created_by*,has_null_parent*,is_not_schedule*,job_kinds*,order_desc*,page*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*}", pathParameters)
         {
         }
         /// <summary>
@@ -29,7 +29,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List_filtered_uuids
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public List_filtered_uuidsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/list_filtered_uuids{?all_workspaces*,allow_wildcards*,args*,concurrency_key*,created_by*,is_not_schedule*,job_kinds*,order_desc*,page*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*}", rawUrl)
+        public List_filtered_uuidsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/queue/list_filtered_uuids{?all_workspaces*,allow_wildcards*,args*,concurrency_key*,created_by*,has_null_parent*,is_not_schedule*,job_kinds*,order_desc*,page*,parent_job*,per_page*,result*,running*,schedule_path*,scheduled_for_before_now*,script_hash*,script_path_exact*,script_path_start*,started_after*,started_before*,success*,suspended*,tag*}", rawUrl)
         {
         }
         /// <summary>
@@ -124,6 +124,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Queue.List_filtered_uuids
             [QueryParameter("created_by")]
             public string CreatedBy { get; set; }
 #endif
+            /// <summary>has null parent</summary>
+            [QueryParameter("has_null_parent")]
+            public bool? HasNullParent { get; set; }
             /// <summary>is not a scheduled job</summary>
             [QueryParameter("is_not_schedule")]
             public bool? IsNotSchedule { get; set; }

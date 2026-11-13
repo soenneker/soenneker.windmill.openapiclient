@@ -25,6 +25,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.List_tokens;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Raw;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Raw_temp;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Toggle_workspace_error_handler;
+using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Trigger_ci_tests_batch;
 using Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Update;
 using System.Collections.Generic;
 using System.IO;
@@ -152,6 +153,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Scripts
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Toggle_workspace_error_handler.Toggle_workspace_error_handlerRequestBuilder Toggle_workspace_error_handler
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Toggle_workspace_error_handler.Toggle_workspace_error_handlerRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The trigger_ci_tests_batch property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Trigger_ci_tests_batch.Trigger_ci_tests_batchRequestBuilder Trigger_ci_tests_batch
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Trigger_ci_tests_batch.Trigger_ci_tests_batchRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Scripts.Update.UpdateRequestBuilder Update

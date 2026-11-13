@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.868.0",
+    "version": "1.871.1",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -12224,6 +12224,14 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "skip_ci_tests",
+            "in": "query",
+            "description": "Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -12260,7 +12268,10 @@
             "x-client-success-response-status": "201"
           }
         },
-        "x-mcp-tool": true
+        "x-mcp-tool": true,
+        "x-mcp-tool-include-query-params": [
+          "update_if_exists"
+        ]
       }
     },
     "/w/{workspace}/resources/delete/{path}": {
@@ -12368,6 +12379,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "skip_ci_tests",
+            "in": "query",
+            "description": "Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -12393,7 +12412,8 @@
             }
           }
         },
-        "x-mcp-tool": true
+        "x-mcp-tool": true,
+        "x-mcp-tool-include-query-params": []
       }
     },
     "/w/{workspace}/resources/update_value/{path}": {
@@ -14934,6 +14954,48 @@
         }
       }
     },
+    "/w/{workspace}/drafts/transfer": {
+      "post": {
+        "tags": [
+          "draft"
+        ],
+        "summary": "copy the current user\u0027s drafts into another workspace of the family and/or remove them here",
+        "description": "In one transaction, copies the authed user\u0027s own drafts of \u0060items\u0060 into \u0060target_workspace\u0060 (another workspace of this one\u0027s family, with the same root through \u0060parent_workspace_id\u0060) and, with \u0060remove_from_source\u0060, deletes them here. Without \u0060target_workspace\u0060 it only removes. If the user already has a draft of any item in the target, nothing is written and the items are returned in \u0060conflicts\u0060, unless \u0060replace_existing\u0060 is set. A user who can only compose flows or apps in the target is held to the same rules as a direct draft save there.",
+        "operationId": "TransferDrafts",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransferDraftsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "transfer result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransferDrafts200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/drafts/migrate_legacy/{kind}/{path}": {
       "post": {
         "tags": [
@@ -15008,6 +15070,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "skip_ci_tests",
+            "in": "query",
+            "description": "Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -15060,7 +15130,8 @@
         ],
         "x-mcp-tool-opaque-fields": [
           "schema"
-        ]
+        ],
+        "x-mcp-tool-include-query-params": []
       }
     },
     "/w/{workspace}/scripts/update/{path}": {
@@ -15086,6 +15157,14 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "skip_ci_tests",
+            "in": "query",
+            "description": "Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -15138,7 +15217,8 @@
         ],
         "x-mcp-tool-opaque-fields": [
           "schema"
-        ]
+        ],
+        "x-mcp-tool-include-query-params": []
       }
     },
     "/w/{workspace}/scripts/toggle_workspace_error_handler/p/{path}": {
@@ -16440,6 +16520,48 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetCiTestResultsBatch200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/scripts/trigger_ci_tests_batch": {
+      "post": {
+        "tags": [
+          "script"
+        ],
+        "summary": "queue the CI tests of a batch of deploys",
+        "description": "Queues the CI tests of items deployed with \u0060skip_ci_tests\u0060, plus those of the scripts\nimporting them, once nothing those tests read (the tested items, the test scripts and\ntheir imports) still has a dependency job queued or running. While one does, nothing is\nqueued and \u0060pending\u0060 lists those paths: call again later, or pass \u0060ignore_pending\u0060 to\nqueue them anyway. The tests run as the caller, who must be able to deploy each item.\n",
+        "operationId": "TriggerCiTestsBatch",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TriggerCiTestsBatchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the paths still pending, and the CI test jobs queued",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggerCiTestsBatch200Response"
                 }
               }
             }
@@ -19169,6 +19291,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "skip_ci_tests",
+            "in": "query",
+            "description": "Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -19218,7 +19348,8 @@
         "x-mcp-tool-opaque-fields": [
           "value",
           "schema"
-        ]
+        ],
+        "x-mcp-tool-include-query-params": []
       }
     },
     "/w/{workspace}/flows/update/{path}": {
@@ -19243,6 +19374,14 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "skip_ci_tests",
+            "in": "query",
+            "description": "Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -19282,7 +19421,8 @@
         "x-mcp-tool-opaque-fields": [
           "value",
           "schema"
-        ]
+        ],
+        "x-mcp-tool-include-query-params": []
       }
     },
     "/w/{workspace}/flows/archive/{path}": {
@@ -25892,6 +26032,14 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "has_null_parent",
+            "in": "query",
+            "description": "has null parent",
+            "schema": {
+              "type": "boolean"
             }
           },
           {
@@ -52120,7 +52268,7 @@
             "description": "Worker group tag for execution routing. If not set, the step runs on the flow\u0027s tag (default \u0060flow\u0060)"
           }
         },
-        "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
+        "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s or Gemini\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
       },
       "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2B9A00D4C3": {
         "required": [
@@ -53180,6 +53328,148 @@
         },
         "description": "Scopes the token of every job of this runnable is restricted to (domain:action[:resource], e.g. oidc:write). Jobs it starts, flow steps and AI agent tools inherit the restriction. Unset, the job token carries the full permissions of the identity the job runs as; an empty list leaves it no API access beyond its own job.",
         "nullable": true
+      },
+      "YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D": {
+        "enum": [
+          "script",
+          "flow",
+          "app",
+          "raw_app",
+          "resource",
+          "variable",
+          "trigger_schedule",
+          "trigger_webhook",
+          "trigger_default_email",
+          "trigger_email",
+          "trigger_http",
+          "trigger_websocket",
+          "trigger_postgres",
+          "trigger_kafka",
+          "trigger_nats",
+          "trigger_mqtt",
+          "trigger_amqp",
+          "trigger_sqs",
+          "trigger_gcp",
+          "trigger_azure",
+          "trigger_poll",
+          "trigger_cli",
+          "trigger_nextcloud",
+          "trigger_google",
+          "trigger_github",
+          "data_pipeline"
+        ],
+        "type": "string",
+        "description": "Closed set of item kinds a user can autosave as a draft. Mirrors the\nPostgres \u0060DRAFT_KIND\u0060 enum and the backend \u0060UserDraftItemKind\u0060.\n",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "script",
+              "name": "Script"
+            },
+            {
+              "value": "flow",
+              "name": "Flow"
+            },
+            {
+              "value": "app",
+              "name": "App"
+            },
+            {
+              "value": "raw_app",
+              "name": "RawApp"
+            },
+            {
+              "value": "resource",
+              "name": "Resource"
+            },
+            {
+              "value": "variable",
+              "name": "Variable"
+            },
+            {
+              "value": "trigger_schedule",
+              "name": "TriggerSchedule"
+            },
+            {
+              "value": "trigger_webhook",
+              "name": "TriggerWebhook"
+            },
+            {
+              "value": "trigger_default_email",
+              "name": "TriggerDefaultEmail"
+            },
+            {
+              "value": "trigger_email",
+              "name": "TriggerEmail"
+            },
+            {
+              "value": "trigger_http",
+              "name": "TriggerHttp"
+            },
+            {
+              "value": "trigger_websocket",
+              "name": "TriggerWebsocket"
+            },
+            {
+              "value": "trigger_postgres",
+              "name": "TriggerPostgres"
+            },
+            {
+              "value": "trigger_kafka",
+              "name": "TriggerKafka"
+            },
+            {
+              "value": "trigger_nats",
+              "name": "TriggerNats"
+            },
+            {
+              "value": "trigger_mqtt",
+              "name": "TriggerMqtt"
+            },
+            {
+              "value": "trigger_amqp",
+              "name": "TriggerAmqp"
+            },
+            {
+              "value": "trigger_sqs",
+              "name": "TriggerSqs"
+            },
+            {
+              "value": "trigger_gcp",
+              "name": "TriggerGcp"
+            },
+            {
+              "value": "trigger_azure",
+              "name": "TriggerAzure"
+            },
+            {
+              "value": "trigger_poll",
+              "name": "TriggerPoll"
+            },
+            {
+              "value": "trigger_cli",
+              "name": "TriggerCli"
+            },
+            {
+              "value": "trigger_nextcloud",
+              "name": "TriggerNextcloud"
+            },
+            {
+              "value": "trigger_google",
+              "name": "TriggerGoogle"
+            },
+            {
+              "value": "trigger_github",
+              "name": "TriggerGithub"
+            },
+            {
+              "value": "data_pipeline",
+              "name": "DataPipeline"
+            }
+          ]
+        }
       },
       "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties72Ee3Bfda1": {
         "enum": [
@@ -69523,6 +69813,58 @@
           }
         }
       },
+      "TransferDraftsRequest": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "target_workspace": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransferDraftsRequestItemsItem"
+            }
+          },
+          "remove_from_source": {
+            "type": "boolean"
+          },
+          "replace_existing": {
+            "type": "boolean",
+            "description": "Overwrite the user\u0027s own drafts of \u0060items\u0060 already in the target instead of returning them as conflicts."
+          }
+        }
+      },
+      "TransferDrafts200Response": {
+        "required": [
+          "copied",
+          "removed",
+          "conflicts"
+        ],
+        "type": "object",
+        "properties": {
+          "copied": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransferDrafts200ResponseCopiedItem"
+            }
+          },
+          "removed": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransferDrafts200ResponseRemovedItem"
+            }
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransferDrafts200ResponseConflictsItem"
+            }
+          }
+        }
+      },
       "MigrateLegacyDraftRequest": {
         "required": [
           "action"
@@ -70759,6 +71101,45 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GetCiTestResultsBatchRequestItemsItem"
+            }
+          }
+        }
+      },
+      "TriggerCiTestsBatchRequest": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TriggerCiTestsBatchRequestItemsItem"
+            }
+          },
+          "ignore_pending": {
+            "type": "boolean"
+          }
+        }
+      },
+      "TriggerCiTestsBatch200Response": {
+        "required": [
+          "pending",
+          "job_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "pending": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "job_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         }
@@ -85924,6 +86305,66 @@
           }
         }
       },
+      "TransferDraftsRequestItemsItem": {
+        "required": [
+          "kind",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "TransferDrafts200ResponseCopiedItem": {
+        "required": [
+          "kind",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "TransferDrafts200ResponseRemovedItem": {
+        "required": [
+          "kind",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "TransferDrafts200ResponseConflictsItem": {
+        "required": [
+          "kind",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
       "CreateScriptRequestSchema": {
         "type": "object",
         "description": "JSON Schema of the arguments of \u0060main\u0060, which is what a run form and an MCP tool offer. Omitted (or \u0060{}\u0060), it is inferred from \u0060content\u0060 for TypeScript, Python, Go, Bash, PowerShell, SQL, GraphQL and Ansible scripts. For other languages, or code that does not parse, a new script gets none. A new version of an existing script also keeps what the previous version\u0027s schema says about each argument, or that whole schema when nothing can be inferred. A dbt script always takes its schema from its descriptor, whatever is sent."
@@ -86031,6 +86472,21 @@
           },
           "kind": {
             "$ref": "#/components/schemas/GetCiTestResultsBatchRequestItemsItemKind"
+          }
+        }
+      },
+      "TriggerCiTestsBatchRequestItemsItem": {
+        "required": [
+          "path",
+          "kind"
+        ],
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/TriggerCiTestsBatchRequestItemsItemKind"
           }
         }
       },
@@ -90614,11 +91070,15 @@
           },
           "summary": {
             "type": "string",
-            "description": "Best-effort, read from the draft JSON\u0027s \u0060summary\u0060 field when the editor shape carries one."
+            "description": "Best-effort, read from the draft JSON\u0027s \u0060summary\u0060 field when the editor shape carries one, or its \u0060description\u0060 for an agent\u0027s draft."
           },
           "draft_path": {
             "type": "string",
             "description": "User-typed friendly path from the draft JSON\u0027s \u0060draft_path\u0060, when set and different from the storage path (e.g. a never-deployed item parked at \u0060u/{user}/draft_{uuid}\u0060)."
+          },
+          "resource_type": {
+            "type": "string",
+            "description": "A \u0060resource\u0060 draft\u0027s type, the deployed row\u0027s when there is one, else the one the draft names. \u0060ai_agent\u0060 marks an agent\u0027s draft."
           },
           "draft_only": {
             "type": "boolean",
@@ -98530,6 +98990,32 @@
           ]
         }
       },
+      "TriggerCiTestsBatchRequestItemsItemKind": {
+        "enum": [
+          "script",
+          "flow",
+          "resource"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "TriggerCiTestsBatchRequestItemsItemKind",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "script",
+              "name": "Script"
+            },
+            {
+              "value": "flow",
+              "name": "Flow"
+            },
+            {
+              "value": "resource",
+              "name": "Resource"
+            }
+          ]
+        }
+      },
       "DiffRawScriptsWithDeployedRequestWorkspaceDepsItemLanguage": {
         "enum": [
           "python3",
@@ -105409,6 +105895,14 @@
           "type": "string"
         }
       },
+      "SkipCiTests": {
+        "name": "skip_ci_tests",
+        "in": "query",
+        "description": "Do not queue the CI tests of this deploy. Set by a caller deploying several items in a row, which queues them with triggerCiTestsBatch once the whole batch has landed.",
+        "schema": {
+          "type": "boolean"
+        }
+      },
       "TablePreviewS3ResourcePath": {
         "name": "s3_resource_path",
         "in": "query",
@@ -109084,6 +109578,9 @@
     "YamlPathsWWorkspaceOAuthRefreshTokenIdPostParameters1Schema47C8E02Fd9": {
       "type": "integer"
     },
+    "YamlPathsWWorkspaceResourcesCreatePostParameters2Schema2B9Aed8Cba": {
+      "type": "boolean"
+    },
     "YamlPathsWWorkspaceResourcesCreatePostRequestBodyContentApplicationJsonSchemaPropertiF19B5A8D48": {
       "type": "string",
       "description": "The path to the resource"
@@ -111737,6 +112234,9 @@
       "description": "Labels inherited from the parent folder, computed at read time. Read-only \u2014 edit them on the folder.\n"
     },
     "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf82B9Ad589B": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertieB55B99E4Ef": {
       "type": "string"
     },
     "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties76767C891F": {
@@ -120314,6 +120814,21 @@
       },
       "description": "Overlay fields added to every \u0022get by path\u0022 response that accepts\nthe \u0060get_draft\u0060 query parameter. The deployed payload is sent\nuntouched in the response body; the authed user\u0027s saved draft\nfor this path \u2014 whatever shape the editor wrote \u2014 is attached\nas the sibling \u0060draft\u0060 field when \u0060get_draft=true\u0060 and a draft\nexists. The frontend pairs the two to present diff / reset /\ndiscard UI; the server never merges them.\n\nWhen \u0060no_deployed=true\u0060 there is no deployed row at this path \u2014\nthe response body is a best-effort stand-in synthesized from\nthe draft, and only \u0060draft\u0060 is canonical. Callers should disable\n\u0022diff vs deployed\u0022 UI in that case.\n"
     },
+    "DraftItemRef": {
+      "required": [
+        "kind",
+        "path"
+      ],
+      "type": "object",
+      "properties": {
+        "kind": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D"
+        },
+        "path": {
+          "type": "string"
+        }
+      }
+    },
     "UserDraftItemKind": {
       "enum": [
         "script",
@@ -121444,7 +121959,7 @@
           "description": "Worker group tag for execution routing. If not set, the step runs on the flow\u0027s tag (default \u0060flow\u0060)"
         }
       },
-      "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
+      "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s or Gemini\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
     },
     "Identity": {
       "required": [
@@ -137295,7 +137810,7 @@
           "description": "Worker group tag for execution routing. If not set, the step runs on the flow\u0027s tag (default \u0060flow\u0060)"
         }
       },
-      "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
+      "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s or Gemini\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
     },
     "SchemasStopAfterIf": {
       "required": [
@@ -138190,7 +138705,7 @@
           "description": "Worker group tag for execution routing. If not set, the step runs on the flow\u0027s tag (default \u0060flow\u0060)"
         }
       },
-      "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
+      "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s or Gemini\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
     },
     "RawScriptInputTransformsAdditionalProperties": {
       "oneOf": [
@@ -145939,11 +146454,15 @@
         },
         "summary": {
           "type": "string",
-          "description": "Best-effort, read from the draft JSON\u0027s \u0060summary\u0060 field when the editor shape carries one."
+          "description": "Best-effort, read from the draft JSON\u0027s \u0060summary\u0060 field when the editor shape carries one, or its \u0060description\u0060 for an agent\u0027s draft."
         },
         "draft_path": {
           "type": "string",
           "description": "User-typed friendly path from the draft JSON\u0027s \u0060draft_path\u0060, when set and different from the storage path (e.g. a never-deployed item parked at \u0060u/{user}/draft_{uuid}\u0060)."
+        },
+        "resource_type": {
+          "type": "string",
+          "description": "A \u0060resource\u0060 draft\u0027s type, the deployed row\u0027s when there is one, else the one the draft names. \u0060ai_agent\u0060 marks an agent\u0027s draft."
         },
         "draft_only": {
           "type": "boolean",
@@ -155867,7 +156386,7 @@
               "description": "Worker group tag for execution routing. If not set, the step runs on the flow\u0027s tag (default \u0060flow\u0060)"
             }
           },
-          "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
+          "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s or Gemini\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
         }
       ]
     },
@@ -157277,7 +157796,7 @@
               "description": "Worker group tag for execution routing. If not set, the step runs on the flow\u0027s tag (default \u0060flow\u0060)"
             }
           },
-          "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
+          "description": "AI decision step: one call to a decision model (TypeSafe\u0027s Jev, Cloudflare\u0027s\nJev-compatible Clef, or OpenAI\u0027s or Gemini\u0027s Decisions API) that answers typed questions about a\nstate with calibrated probabilities, instead of generating text.\nPrefer it over an AI agent to classify, route, score or check something: it is fast,\ncheap and its answers are structured. Its result is { output: { \u003Cquestion name\u003E: answer },\nmodel, usage }, so a later step reads e.g. results.\u003Cid\u003E.output.intent.choice. To route on\nthe answers, follow it with a branchone whose branch exprs read\nresults.\u003Cid\u003E.output.\u003Cquestion\u003E.choice. Usable as an AI agent tool, where the calling agent\nsupplies the state.\n"
         }
       ]
     },

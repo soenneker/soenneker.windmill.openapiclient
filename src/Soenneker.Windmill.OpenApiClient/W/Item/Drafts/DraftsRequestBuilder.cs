@@ -8,6 +8,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Get_own;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.List;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Migrate_legacy;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Move;
+using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Transfer;
 using Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Update;
 using System.Collections.Generic;
 using System.IO;
@@ -50,6 +51,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Drafts
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Move.MoveRequestBuilder Move
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Move.MoveRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The transfer property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Transfer.TransferRequestBuilder Transfer
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Transfer.TransferRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Drafts.Update.UpdateRequestBuilder Update

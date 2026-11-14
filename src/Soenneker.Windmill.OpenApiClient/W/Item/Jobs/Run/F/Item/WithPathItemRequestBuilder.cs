@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.F.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/f/{path}{?include_header*,invisible_to_owner*,job_id*,memory_id*,parent_job*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/f/{path}{?include_header*,invisible_to_owner*,job_id*,memory_id*,parent_job*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*,take_over*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.F.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/f/{path}{?include_header*,invisible_to_owner*,job_id*,memory_id*,parent_job*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run/f/{path}{?include_header*,invisible_to_owner*,job_id*,memory_id*,parent_job*,scheduled_for*,scheduled_in_secs*,skip_preprocessor*,tag*,take_over*}", rawUrl)
         {
         }
         /// <summary>
@@ -138,6 +138,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.F.Item
             [QueryParameter("tag")]
             public string Tag { get; set; }
 #endif
+            /// <summary>Stop the run that holds `memory_id`, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined `jobs:cancel` scope.</summary>
+            [QueryParameter("take_over")]
+            public bool? TakeOver { get; set; }
         }
     }
 }

@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.871.1",
+    "version": "1.875.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -12176,6 +12176,38 @@
         }
       }
     },
+    "/oauth/test_client_credentials": {
+      "post": {
+        "tags": [
+          "oauth"
+        ],
+        "summary": "test an instance OAuth entry\u0027s client credentials",
+        "description": "Runs the client-credentials token exchange with an instance OAuth entry, saved or not. Superadmin only.",
+        "operationId": "TestOAuthClientCredentials",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestOAuthClientCredentialsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the exchange returned a token",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestOAuthClientCredentials200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/teams/activities": {
       "post": {
         "tags": [
@@ -17151,6 +17183,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -17176,7 +17216,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       }
@@ -17247,6 +17287,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -17272,7 +17320,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       },
@@ -17349,6 +17397,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -17363,7 +17419,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       }
@@ -17434,6 +17490,14 @@
             }
           },
           {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "poll_delay_ms",
             "in": "query",
             "description": "delay between polling for job updates in milliseconds",
@@ -17466,7 +17530,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       },
@@ -17543,6 +17607,14 @@
             }
           },
           {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "poll_delay_ms",
             "in": "query",
             "description": "delay between polling for job updates in milliseconds",
@@ -17564,7 +17636,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       }
@@ -17637,6 +17709,14 @@
             }
           },
           {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "poll_delay_ms",
             "in": "query",
             "description": "delay between polling for job updates in milliseconds",
@@ -17669,7 +17749,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       },
@@ -17748,6 +17828,14 @@
             }
           },
           {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "poll_delay_ms",
             "in": "query",
             "description": "delay between polling for job updates in milliseconds",
@@ -17769,7 +17857,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       }
@@ -23858,6 +23946,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -23883,7 +23979,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           },
           "200": {
             "description": "job created",
@@ -24002,6 +24098,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -24027,7 +24131,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           },
           "200": {
             "description": "job created",
@@ -24915,6 +25019,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -24940,7 +25052,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           },
           "200": {
             "description": "job created",
@@ -24987,6 +25099,14 @@
             "description": "The conversation this turn belongs to. A uuid is used as is; any other string is hashed within the workspace and agent.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -25049,6 +25169,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "take_over",
+            "in": "query",
+            "description": "Stop the run that holds \u0060memory_id\u0060, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined \u0060jobs:cancel\u0060 scope.",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -25074,7 +25202,7 @@
             }
           },
           "409": {
-            "description": "Chat-enabled flow only: the conversation named by \u0060memory_id\u0060 is still answering a message. The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022 } }\u0060."
+            "description": "Another run with this \u0060memory_id\u0060 is still running (for a chat-enabled flow, the conversation is still answering a message). The body is JSON: \u0060{ \u0022error\u0022: string, \u0022running_turn\u0022: { \u0022job_id\u0022, \u0022user_seq\u0022? } }\u0060, \u0060user_seq\u0060 for a chat conversation. Pass \u0060take_over=true\u0060 to stop it instead."
           }
         }
       }
@@ -52190,6 +52318,15 @@
             "type": "boolean",
             "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
           },
+          "background": {
+            "type": "boolean",
+            "description": "Flowmodule tools only. The agent is answered as soon as the tool\u0027s job starts and keeps working; the job\u0027s result reaches it in a later message. If the agent finishes its answer first, it stops without holding a worker until the job is done, then continues with the result."
+          },
+          "background_after_secs": {
+            "minimum": 1,
+            "type": "integer",
+            "description": "Flowmodule tools only, with background unset. The agent waits up to this many seconds for the tool\u0027s job and gets its result as usual; a job still running then continues as a background one, its result reaching the agent in a later message."
+          },
           "value": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C"
           }
@@ -56353,8 +56490,9 @@
           "agent_actions_success": {
             "type": "array",
             "items": {
-              "type": "boolean"
-            }
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4"
+            },
+            "description": "The outcome of each agent action, by position. null while a background tool call is still running."
           }
         }
       },
@@ -56631,6 +56769,10 @@
           ]
         }
       },
+      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4": {
+        "type": "boolean",
+        "nullable": true
+      },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrD54B45992F": {
         "required": [
           "type"
@@ -56702,8 +56844,9 @@
           "agent_actions_success": {
             "type": "array",
             "items": {
-              "type": "boolean"
-            }
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4"
+            },
+            "description": "The outcome of each agent action, by position. null while a background tool call is still running."
           }
         }
       },
@@ -56778,8 +56921,9 @@
           "agent_actions_success": {
             "type": "array",
             "items": {
-              "type": "boolean"
-            }
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4"
+            },
+            "description": "The outcome of each agent action, by position. null while a background tool call is still running."
           },
           "parent_module": {
             "type": "string"
@@ -69021,6 +69165,22 @@
           }
         }
       },
+      "TestOAuthClientCredentialsRequest": {
+        "required": [
+          "name",
+          "entry"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "client name, the key of the entry in the instance OAuth setting"
+          },
+          "entry": {
+            "$ref": "#/components/schemas/TestOAuthClientCredentialsRequestEntry"
+          }
+        }
+      },
       "SendMessageToConversationRequest": {
         "required": [
           "conversation_id",
@@ -69275,6 +69435,10 @@
           "draft_path": {
             "type": "string",
             "description": "On a draft-only row, the path its editor has staged when it\ndiffers from the storage path (e.g. a never-deployed item parked at\n\u0060u/{user}/draft_{uuid}\u0060).\n"
+          },
+          "grant_type": {
+            "type": "string",
+            "description": "The grant of the linked OAuth account: \u0060client_credentials\u0060\nconnects as the app, \u0060authorization_code\u0060 as the user who\nconnected it.\n"
           },
           "draft_saved_at": {
             "type": "string",
@@ -81960,6 +82124,9 @@
           "$ref": "#/components/schemas/ListOAuthConnects200ResponseSchemaItem"
         }
       },
+      "TestOAuthClientCredentials200PlainResponseSchema": {
+        "type": "string"
+      },
       "CreateResource201PlainResponseSchema": {
         "type": "string"
       },
@@ -86005,6 +86172,10 @@
       },
       "GetOAuthConnect200ResponseExtraParams": {
         "type": "object"
+      },
+      "TestOAuthClientCredentialsRequestEntry": {
+        "type": "object",
+        "description": "the entry as stored in the instance OAuth setting"
       },
       "SendMessageToConversationRequestCardBlock": {
         "type": "object",
@@ -90518,7 +90689,8 @@
             "type": "boolean"
           },
           "has_shared_credentials": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "The instance entry holds a client id and secret users can connect with, for sign-in or as a shared service account. Whether client credentials are shared is get_connect\u0027s client_credentials_configured."
           }
         }
       },
@@ -90610,6 +90782,10 @@
           "draft_path": {
             "type": "string",
             "description": "On a draft-only row, the path its editor has staged when it\ndiffers from the storage path (e.g. a never-deployed item parked at\n\u0060u/{user}/draft_{uuid}\u0060).\n"
+          },
+          "grant_type": {
+            "type": "string",
+            "description": "The grant of the linked OAuth account: \u0060client_credentials\u0060\nconnects as the app, \u0060authorization_code\u0060 as the user who\nconnected it.\n"
           }
         }
       },
@@ -109750,6 +109926,10 @@
       "type": "string",
       "description": "On a draft-only row, the path its editor has staged when it\ndiffers from the storage path (e.g. a never-deployed item parked at\n\u0060u/{user}/draft_{uuid}\u0060).\n"
     },
+    "YamlPathsWWorkspaceResourcesGetPathGetResponses200ContentApplicationJsonSchemaAll48A3Baaf83": {
+      "type": "string",
+      "description": "The grant of the linked OAuth account: \u0060client_credentials\u0060\nconnects as the app, \u0060authorization_code\u0060 as the user who\nconnected it.\n"
+    },
     "YamlPathsWWorkspaceResourcesListNamesNameGetParameters1SchemaCda1D5Caef": {
       "type": "string"
     },
@@ -111362,6 +111542,15 @@
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2924Dca496": {
       "type": "boolean",
       "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
+    },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFaf5Dcbfc0": {
+      "type": "boolean",
+      "description": "Flowmodule tools only. The agent is answered as soon as the tool\u0027s job starts and keeps working; the job\u0027s result reaches it in a later message. If the agent finishes its answer first, it stops without holding a worker until the job is done, then continues with the result."
+    },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProA722Ef3185": {
+      "minimum": 1,
+      "type": "integer",
+      "description": "Flowmodule tools only, with background unset. The agent waits up to this many seconds for the tool\u0027s job and gets its result as usual; a job still running then continues as a background one, its result reaching the agent in a later message."
     },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro523C33Fabf": {
       "description": "A tool implemented as a flow module (script, flow, etc.). The AI can call this like any other flow module",
@@ -114644,11 +114833,9 @@
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC7F625Edfb": {
       "type": "array",
       "items": {
-        "type": "boolean"
-      }
-    },
-    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4": {
-      "type": "boolean"
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4"
+      },
+      "description": "The outcome of each agent action, by position. null while a background tool call is still running."
     },
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC3B772Efe7": {},
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrD86Cf7B3Ec": {
@@ -114722,8 +114909,9 @@
         "agent_actions_success": {
           "type": "array",
           "items": {
-            "type": "boolean"
-          }
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4"
+          },
+          "description": "The outcome of each agent action, by position. null while a background tool call is still running."
         }
       }
     },
@@ -114798,8 +114986,9 @@
         "agent_actions_success": {
           "type": "array",
           "items": {
-            "type": "boolean"
-          }
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4"
+          },
+          "description": "The outcome of each agent action, by position. null while a background tool call is still running."
         }
       }
     },
@@ -122077,8 +122266,10 @@
         "agent_actions_success": {
           "type": "array",
           "items": {
-            "type": "boolean"
-          }
+            "type": "boolean",
+            "nullable": true
+          },
+          "description": "The outcome of each agent action, by position. null while a background tool call is still running."
         }
       }
     },
@@ -126930,6 +127121,10 @@
         "draft_path": {
           "type": "string",
           "description": "On a draft-only row, the path its editor has staged when it\ndiffers from the storage path (e.g. a never-deployed item parked at\n\u0060u/{user}/draft_{uuid}\u0060).\n"
+        },
+        "grant_type": {
+          "type": "string",
+          "description": "The grant of the linked OAuth account: \u0060client_credentials\u0060\nconnects as the app, \u0060authorization_code\u0060 as the user who\nconnected it.\n"
         }
       }
     },
@@ -137743,6 +137938,15 @@
           "type": "boolean",
           "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
         },
+        "background": {
+          "type": "boolean",
+          "description": "Flowmodule tools only. The agent is answered as soon as the tool\u0027s job starts and keeps working; the job\u0027s result reaches it in a later message. If the agent finishes its answer first, it stops without holding a worker until the job is done, then continues with the result."
+        },
+        "background_after_secs": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Flowmodule tools only, with background unset. The agent waits up to this many seconds for the tool\u0027s job and gets its result as usual; a job still running then continues as a background one, its result reaching the agent in a later message."
+        },
         "value": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C"
         }
@@ -138131,8 +138335,9 @@
         "agent_actions_success": {
           "type": "array",
           "items": {
-            "type": "boolean"
-          }
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrA47C7486E4"
+          },
+          "description": "The outcome of each agent action, by position. null while a background tool call is still running."
         }
       }
     },
@@ -140386,6 +140591,15 @@
           "type": "boolean",
           "description": "Flowmodule and mcp tools only. Each call waits for a person to approve or reject it from the flow\u0027s run page or chat, without the agent holding a worker. Calls in the same turn that do not require approval run right away. A rejected call, or one nobody answers within 30 minutes, is reported to the AI as not run."
         },
+        "background": {
+          "type": "boolean",
+          "description": "Flowmodule tools only. The agent is answered as soon as the tool\u0027s job starts and keeps working; the job\u0027s result reaches it in a later message. If the agent finishes its answer first, it stops without holding a worker until the job is done, then continues with the result."
+        },
+        "background_after_secs": {
+          "minimum": 1,
+          "type": "integer",
+          "description": "Flowmodule tools only, with background unset. The agent waits up to this many seconds for the tool\u0027s job and gets its result as usual; a job still running then continues as a background one, its result reaching the agent in a later message."
+        },
         "value": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1E1263F07C"
         }
@@ -141669,6 +141883,9 @@
       "items": {
         "$ref": "#/components/schemas/ListOAuthConnects200ResponseItem"
       }
+    },
+    "TestOAuthClientCredentials200PlainResponse": {
+      "type": "string"
     },
     "CreateResource201PlainResponse": {
       "type": "string"
@@ -145902,7 +146119,8 @@
           "type": "boolean"
         },
         "has_shared_credentials": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "The instance entry holds a client id and secret users can connect with, for sign-in or as a shared service account. Whether client credentials are shared is get_connect\u0027s client_credentials_configured."
         }
       }
     },
@@ -145994,6 +146212,10 @@
         "draft_path": {
           "type": "string",
           "description": "On a draft-only row, the path its editor has staged when it\ndiffers from the storage path (e.g. a never-deployed item parked at\n\u0060u/{user}/draft_{uuid}\u0060).\n"
+        },
+        "grant_type": {
+          "type": "string",
+          "description": "The grant of the linked OAuth account: \u0060client_credentials\u0060\nconnects as the app, \u0060authorization_code\u0060 as the user who\nconnected it.\n"
         }
       }
     },

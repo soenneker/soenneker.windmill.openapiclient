@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.Oauth.Get_connect;
 using Soenneker.Windmill.OpenApiClient.Oauth.List_connects;
 using Soenneker.Windmill.OpenApiClient.Oauth.List_logins;
 using Soenneker.Windmill.OpenApiClient.Oauth.Login_callback;
+using Soenneker.Windmill.OpenApiClient.Oauth.Test_client_credentials;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -55,6 +56,11 @@ namespace Soenneker.Windmill.OpenApiClient.Oauth
         public global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Login_callbackRequestBuilder Login_callback
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Oauth.Login_callback.Login_callbackRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The test_client_credentials property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Oauth.Test_client_credentials.Test_client_credentialsRequestBuilder Test_client_credentials
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Oauth.Test_client_credentials.Test_client_credentialsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Oauth.OauthRequestBuilder"/> and sets the default values.

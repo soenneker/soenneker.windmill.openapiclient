@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.F.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run_wait_result/f/{path}{?include_header*,job_id*,memory_id*,queue_limit*,skip_preprocessor*}", pathParameters)
+        public WithPathItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run_wait_result/f/{path}{?include_header*,job_id*,memory_id*,queue_limit*,skip_preprocessor*,take_over*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.F.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run_wait_result/f/{path}{?include_header*,job_id*,memory_id*,queue_limit*,skip_preprocessor*}", rawUrl)
+        public WithPathItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs/run_wait_result/f/{path}{?include_header*,job_id*,memory_id*,queue_limit*,skip_preprocessor*,take_over*}", rawUrl)
         {
         }
         /// <summary>
@@ -126,6 +126,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run_wait_result.F.Item
             /// <summary>skip the preprocessor</summary>
             [QueryParameter("skip_preprocessor")]
             public bool? SkipPreprocessor { get; set; }
+            /// <summary>Stop the run that holds `memory_id`, if any, and run this one instead of being refused with a 409. Only who started that run, or an admin, can stop it; a restricted token also needs an unconfined `jobs:cancel` scope.</summary>
+            [QueryParameter("take_over")]
+            public bool? TakeOver { get; set; }
         }
     }
 }

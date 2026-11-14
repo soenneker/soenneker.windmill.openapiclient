@@ -63,7 +63,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056> AgentActions { get => _explicitNullValueAgentActions; set { _explicitNullValueAgentActions = value; AdditionalData?.Remove("agent_actions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_actions"); else _explicitNullProperties?.Remove("agent_actions"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056> _explicitNullValueAgentActions = default!;
 #endif
-        /// <summary>The agent_actions_success property</summary>
+        /// <summary>The outcome of each agent action, by position. null while a background tool call is still running.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<bool?>? AgentActionsSuccess { get => _explicitNullValueAgentActionsSuccess; set { _explicitNullValueAgentActionsSuccess = value; AdditionalData?.Remove("agent_actions_success"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_actions_success"); else _explicitNullProperties?.Remove("agent_actions_success"); } }

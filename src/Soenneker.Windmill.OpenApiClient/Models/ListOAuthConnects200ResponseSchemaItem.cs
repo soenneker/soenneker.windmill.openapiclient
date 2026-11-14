@@ -27,7 +27,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The has_shared_credentials property</summary>
+        /// <summary>The instance entry holds a client id and secret users can connect with, for sign-in or as a shared service account. Whether client credentials are shared is get_connect&apos;s client_credentials_configured.</summary>
         public bool? HasSharedCredentials { get => _explicitNullValueHasSharedCredentials; set { _explicitNullValueHasSharedCredentials = value; AdditionalData?.Remove("has_shared_credentials"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_shared_credentials"); else _explicitNullProperties?.Remove("has_shared_credentials"); } }
         private bool? _explicitNullValueHasSharedCredentials = default!;
         /// <summary>The name property</summary>

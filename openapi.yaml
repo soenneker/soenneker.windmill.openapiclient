@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.871.1
+  version: 1.875.0
   title: Windmill API
   contact:
     name: Windmill Team
@@ -14069,6 +14069,11 @@ paths:
                       type: boolean
                     has_shared_credentials:
                       type: boolean
+                      description: >-
+                        The instance entry holds a client id and secret users
+                        can connect with, for sign-in or as a shared service
+                        account. Whether client credentials are shared is
+                        get_connect's client_credentials_configured.
                   required:
                     - name
                     - supports_client_credentials
@@ -14110,6 +14115,40 @@ paths:
                       The instance OAuth entry carries shared
                       client-credentials, so the connect dialog can skip the
                       bring-your-own form and run the exchange server-side
+  /oauth/test_client_credentials:
+    post:
+      summary: test an instance OAuth entry's client credentials
+      description: >-
+        Runs the client-credentials token exchange with an instance OAuth entry,
+        saved or not. Superadmin only.
+      operationId: testOAuthClientCredentials
+      tags:
+        - oauth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: >-
+                    client name, the key of the entry in the instance OAuth
+                    setting
+                entry:
+                  type: object
+                  description: the entry as stored in the instance OAuth setting
+              required:
+                - name
+                - entry
+      responses:
+        '200':
+          description: the exchange returned a token
+          content:
+            text/plain:
+              schema:
+                type: string
   /teams/activities:
     post:
       summary: send update to Microsoft Teams activity
@@ -14616,6 +14655,16 @@ paths:
                           item parked at
 
                           `u/{user}/draft_{uuid}`).
+                      grant_type:
+                        type: string
+                        description: >
+                          The grant of the linked OAuth account:
+                          `client_credentials`
+
+                          connects as the app, `authorization_code` as the user
+                          who
+
+                          connected it.
                     required: &ref_122
                       - path
                       - resource_type
@@ -17106,6 +17155,28 @@ paths:
                                                   rejected call, or one nobody answers
                                                   within 30 minutes, is reported to the AI
                                                   as not run.
+                                              background:
+                                                type: boolean
+                                                description: >-
+                                                  Flowmodule tools only. The agent is
+                                                  answered as soon as the tool's job
+                                                  starts and keeps working; the job's
+                                                  result reaches it in a later message. If
+                                                  the agent finishes its answer first, it
+                                                  stops without holding a worker until the
+                                                  job is done, then continues with the
+                                                  result.
+                                              background_after_secs:
+                                                type: integer
+                                                minimum: 1
+                                                description: >-
+                                                  Flowmodule tools only, with background
+                                                  unset. The agent waits up to this many
+                                                  seconds for the tool's job and gets its
+                                                  result as usual; a job still running
+                                                  then continues as a background one, its
+                                                  result reaching the agent in a later
+                                                  message.
                                               value:
                                                 description: >-
                                                   The implementation of a tool. Can be a
@@ -21633,6 +21704,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       requestBody:
         description: script args
         required: true
@@ -21650,9 +21730,11 @@ paths:
               schema: {}
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run_wait_result/fv/{version}:
     post:
       summary: run flow by version and wait until completion
@@ -21706,6 +21788,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       requestBody:
         description: script args
         required: true
@@ -21723,9 +21814,11 @@ paths:
               schema: {}
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
     get:
       summary: run flow by version with GET and wait until completion
       operationId: runWaitResultFlowByVersionGet
@@ -21786,6 +21879,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       responses:
         '200':
           description: job result
@@ -21794,9 +21896,11 @@ paths:
               schema: {}
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run_and_stream/f/{path}:
     post:
       summary: run flow by path and stream updates via SSE
@@ -21847,6 +21951,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
         - name: poll_delay_ms
           description: delay between polling for job updates in milliseconds
           in: query
@@ -21871,9 +21984,11 @@ paths:
                 type: string
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
     get:
       summary: run flow by path with GET and stream updates via SSE
       operationId: runAndStreamFlowByPathGet
@@ -21931,6 +22046,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
         - name: poll_delay_ms
           description: delay between polling for job updates in milliseconds
           in: query
@@ -21946,9 +22070,11 @@ paths:
                 type: string
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run_and_stream/fv/{version}:
     post:
       summary: run flow by version and stream updates via SSE
@@ -22002,6 +22128,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
         - name: poll_delay_ms
           description: delay between polling for job updates in milliseconds
           in: query
@@ -22026,9 +22161,11 @@ paths:
                 type: string
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
     get:
       summary: run flow by version with GET and stream updates via SSE
       operationId: runAndStreamFlowByVersionGet
@@ -22089,6 +22226,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
         - name: poll_delay_ms
           description: delay between polling for job updates in milliseconds
           in: query
@@ -22104,9 +22250,11 @@ paths:
                 type: string
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run_and_stream/p/{path}:
     post:
       summary: run script by path and stream updates via SSE
@@ -28730,6 +28878,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       requestBody:
         description: flow args
         required: true
@@ -28749,9 +28906,11 @@ paths:
                 format: uuid
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run/fv/{version}:
     post:
       summary: run flow by version
@@ -28825,6 +28984,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       requestBody:
         description: flow args
         required: true
@@ -28844,9 +29012,11 @@ paths:
                 format: uuid
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run/batch_rerun_jobs:
     post:
       summary: re-run multiple jobs
@@ -29776,6 +29946,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       requestBody:
         description: preview
         required: true
@@ -29867,9 +30046,11 @@ paths:
                 format: uuid
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run/agent/{path}:
     post:
       summary: run a saved AI agent
@@ -29905,6 +30086,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       requestBody:
         description: the run's inputs
         required: true
@@ -29954,6 +30144,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: take_over
+          description: >-
+            Stop the run that holds `memory_id`, if any, and run this one
+            instead of being refused with a 409. Only who started that run, or
+            an admin, can stop it; a restricted token also needs an unconfined
+            `jobs:cancel` scope.
+          in: query
+          schema:
+            type: boolean
       requestBody:
         description: preview
         required: true
@@ -29971,9 +30170,11 @@ paths:
               schema: {}
         '409':
           description: >-
-            Chat-enabled flow only: the conversation named by `memory_id` is
-            still answering a message. The body is JSON: `{ "error": string,
-            "running_turn": { "job_id", "user_seq" } }`.
+            Another run with this `memory_id` is still running (for a
+            chat-enabled flow, the conversation is still answering a message).
+            The body is JSON: `{ "error": string, "running_turn": { "job_id",
+            "user_seq"? } }`, `user_seq` for a chat conversation. Pass
+            `take_over=true` to stop it instead.
   /w/{workspace}/jobs/run/dynamic_select:
     post:
       summary: run dynamic select helper function
@@ -30513,8 +30714,13 @@ paths:
                                         - type
                               agent_actions_success:
                                 type: array
+                                description: >-
+                                  The outcome of each agent action, by position.
+                                  null while a background tool call is still
+                                  running.
                                 items:
                                   type: boolean
+                                  nullable: true
                             required: &ref_237
                               - type
                         user_states:
@@ -53497,8 +53703,12 @@ components:
                   - type
         agent_actions_success:
           type: array
+          description: >-
+            The outcome of each agent action, by position. null while a
+            background tool call is still running.
           items:
             type: boolean
+            nullable: true
       required:
         - type
     FlowNote:

@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "fork_behavior", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ImportPgDatabaseRequestForkBehavior>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueForkBehavior = default; _explicitNullProperties?.Remove("fork_behavior"); AdditionalData["fork_behavior"] = unknown; } else { ForkBehavior = parsed; AdditionalData.Remove("fork_behavior"); } } },
                 { "source", n => { Source = n.GetStringValue(); } },

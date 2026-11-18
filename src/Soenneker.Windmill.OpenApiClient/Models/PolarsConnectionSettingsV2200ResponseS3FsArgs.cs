@@ -102,7 +102,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "cache_regions", n => { CacheRegions = n.GetBoolValue(); } },
                 { "client_kwargs", n => { ClientKwargs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgsClientKwargs>(global::Soenneker.Windmill.OpenApiClient.Models.PolarsConnectionSettingsV2200ResponseS3FsArgsClientKwargs.CreateFromDiscriminatorValue); } },

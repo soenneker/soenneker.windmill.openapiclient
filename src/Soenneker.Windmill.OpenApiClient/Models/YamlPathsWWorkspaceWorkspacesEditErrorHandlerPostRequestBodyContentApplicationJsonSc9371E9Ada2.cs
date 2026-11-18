@@ -86,7 +86,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonSc9371E9Ada2ExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonSc9371E9Ada2ExtraArgs.CreateFromDiscriminatorValue); } },
                 { "fallback_to_instance_alerts", n => { FallbackToInstanceAlerts = n.GetBoolValue(); } },

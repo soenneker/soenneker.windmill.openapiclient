@@ -78,7 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "dbt", n => { Dbt = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaPropertiesB9D70A6A49>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaPropertiesB9D70A6A49.CreateFromDiscriminatorValue); } },
                 { "fork_materialization", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties889Cd97056>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueForkMaterialization = default; _explicitNullProperties?.Remove("fork_materialization"); AdditionalData["fork_materialization"] = unknown; } else { ForkMaterialization = parsed; AdditionalData.Remove("fork_materialization"); } } },

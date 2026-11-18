@@ -94,7 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "breaker", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetOidcSigningStatus200ResponseSignerBreaker>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBreaker = default; _explicitNullProperties?.Remove("breaker"); AdditionalData["breaker"] = unknown; } else { Breaker = parsed; AdditionalData.Remove("breaker"); } } },
                 { "current_rps", n => { CurrentRps = n.GetDoubleValue(); } },

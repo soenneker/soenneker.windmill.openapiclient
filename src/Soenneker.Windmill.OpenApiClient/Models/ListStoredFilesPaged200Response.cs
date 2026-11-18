@@ -85,7 +85,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFilesPaged200ResponseFilesItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFilesPaged200ResponseFilesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "folders", n => { Folders = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFilesPaged200ResponseFoldersItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListStoredFilesPaged200ResponseFoldersItem.CreateFromDiscriminatorValue)?.AsList(); } },

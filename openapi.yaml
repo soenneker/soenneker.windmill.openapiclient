@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: 1.875.0
+  version: 1.876.1
   title: Windmill API
   contact:
     name: Windmill Team
@@ -22773,6 +22773,15 @@ paths:
             matcher discards those queries too.
           schema:
             type: string
+        - name: search_any_order
+          in: query
+          description: >-
+            when true, each search term must appear anywhere in "summary
+            (path)", in any order, rather than in the order given, and terms are
+            split on anything but letters, digits and apostrophes in any script,
+            not only ASCII ones.
+          schema:
+            type: boolean
         - name: per_page
           description: number of items to return for a given page (default 30, max 100)
           in: query

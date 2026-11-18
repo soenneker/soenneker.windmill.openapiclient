@@ -406,7 +406,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(43)
             {
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties4B6C3Bc75D>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties4B6C3Bc75D.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "auto_kind", n => { AutoKind = n.GetStringValue(); } },

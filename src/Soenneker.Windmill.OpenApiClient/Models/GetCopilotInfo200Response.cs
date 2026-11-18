@@ -179,7 +179,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "code_completion_model", n => { CodeCompletionModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaD25F6Accf8>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaD25F6Accf8.CreateFromDiscriminatorValue); } },
                 { "context_window_per_model", n => { ContextWindowPerModel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel>(global::Soenneker.Windmill.OpenApiClient.Models.GetCopilotInfo200ResponseContextWindowPerModel.CreateFromDiscriminatorValue); } },

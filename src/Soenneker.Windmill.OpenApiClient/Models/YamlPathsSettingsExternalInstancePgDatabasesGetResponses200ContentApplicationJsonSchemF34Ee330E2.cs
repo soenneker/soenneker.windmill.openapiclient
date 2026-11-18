@@ -96,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "created_database", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchem5Bf8F65570>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCreatedDatabase = default; _explicitNullProperties?.Remove("created_database"); AdditionalData["created_database"] = unknown; } else { CreatedDatabase = parsed; AdditionalData.Remove("created_database"); } } },
                 { "database_credentials", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsExternalInstancePgDatabasesGetResponses200ContentApplicationJsonSchemFbe7A6Cce5>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDatabaseCredentials = default; _explicitNullProperties?.Remove("database_credentials"); AdditionalData["database_credentials"] = unknown; } else { DatabaseCredentials = parsed; AdditionalData.Remove("database_credentials"); } } },

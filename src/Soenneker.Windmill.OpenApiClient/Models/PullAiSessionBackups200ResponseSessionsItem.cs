@@ -133,7 +133,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "artifacts", n => { Artifacts = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts>(global::Soenneker.Windmill.OpenApiClient.Models.PullAiSessionBackups200ResponseSessionsItemArtifacts.CreateFromDiscriminatorValue); } },
                 { "chats", n => { Chats = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAiSessionsPullPostResponses200ContentApplicationJsonSchemaProperF157710A2E.CreateFromDiscriminatorValue)?.AsList(); } },

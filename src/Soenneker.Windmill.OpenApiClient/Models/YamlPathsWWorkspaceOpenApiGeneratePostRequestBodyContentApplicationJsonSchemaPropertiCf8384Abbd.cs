@@ -78,7 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "path", n => { Path = n.GetStringValue(); } },
                 { "runnable_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceOpenApiGeneratePostRequestBodyContentApplicationJsonSchemaProperti262Cad25F1>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRunnableKind = default; _explicitNullProperties?.Remove("runnable_kind"); AdditionalData["runnable_kind"] = unknown; } else { RunnableKind = parsed; AdditionalData.Remove("runnable_kind"); } } },

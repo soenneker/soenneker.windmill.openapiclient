@@ -114,7 +114,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "advanced_permissions", n => { AdvancedPermissions = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetPublicSettingsGetResponses200ContentApplicationJson80Efbc8B38.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "azure_blob_resource_path", n => { AzureBlobResourcePath = n.GetStringValue(); } },

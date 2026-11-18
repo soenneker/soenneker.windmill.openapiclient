@@ -95,7 +95,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "access_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssets200ResponseAssetsItemUsagesItemAccessType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAccessType = default; _explicitNullProperties?.Remove("access_type"); AdditionalData["access_type"] = unknown; } else { AccessType = parsed; AdditionalData.Remove("access_type"); } } },
                 { "columns", n => { Columns = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAssets200ResponseAssetsItemUsagesItemColumns>(global::Soenneker.Windmill.OpenApiClient.Models.ListAssets200ResponseAssetsItemUsagesItemColumns.CreateFromDiscriminatorValue); } },

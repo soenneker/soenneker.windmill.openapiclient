@@ -83,7 +83,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "cluster", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsSettingsDatatableRolesGetResponses200ContentApplicationJsonSchemaItemsPropert8Dd854B9A7>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCluster = default; _explicitNullProperties?.Remove("cluster"); AdditionalData["cluster"] = unknown; } else { Cluster = parsed; AdditionalData.Remove("cluster"); } } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },

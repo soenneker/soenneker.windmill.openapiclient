@@ -71,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "dev_workspace_id", n => { DevWorkspaceId = n.GetStringValue(); } },
                 { "dev_workspace_label", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.AttachDevWorkspaceRequestDevWorkspaceLabel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDevWorkspaceLabel = default; _explicitNullProperties?.Remove("dev_workspace_label"); AdditionalData["dev_workspace_label"] = unknown; } else { DevWorkspaceLabel = parsed; AdditionalData.Remove("dev_workspace_label"); } } },

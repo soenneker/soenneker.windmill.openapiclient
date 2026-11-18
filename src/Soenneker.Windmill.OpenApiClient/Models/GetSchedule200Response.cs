@@ -433,7 +433,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(40)
             {
                 { "args", n => { Args = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseArgs>(global::Soenneker.Windmill.OpenApiClient.Models.GetSchedule200ResponseArgs.CreateFromDiscriminatorValue); } },
                 { "cron_version", n => { CronVersion = n.GetStringValue(); } },

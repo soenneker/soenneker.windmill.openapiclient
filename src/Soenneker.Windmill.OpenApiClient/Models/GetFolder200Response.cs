@@ -145,7 +145,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "default_permissioned_as", n => { DefaultPermissionedAs = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceFoldersListGetResponses200ContentApplicationJsonSchemaItemsPropeE613B56F52.CreateFromDiscriminatorValue)?.AsList(); } },

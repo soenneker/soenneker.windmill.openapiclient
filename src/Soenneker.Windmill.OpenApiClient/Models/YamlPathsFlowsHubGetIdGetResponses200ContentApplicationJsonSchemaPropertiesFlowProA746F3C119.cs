@@ -104,7 +104,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "continue_on_disapprove_timeout", n => { ContinueOnDisapproveTimeout = n.GetBoolValue(); } },
                 { "hide_cancel", n => { HideCancel = n.GetBoolValue(); } },

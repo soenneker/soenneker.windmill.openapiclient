@@ -97,7 +97,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "folders", n => { Folders = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoAa9C05A262>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoAa9C05A262.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "groups", n => { Groups = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

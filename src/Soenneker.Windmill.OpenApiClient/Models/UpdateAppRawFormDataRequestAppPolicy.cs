@@ -138,7 +138,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "allowed_s3_keys", n => { AllowedS3Keys = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsAppsUPublicAppByCustomPathCustomPathGetResponses200ContentApplicationJso84B4A8F2C9>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsAppsUPublicAppByCustomPathCustomPathGetResponses200ContentApplicationJso84B4A8F2C9.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "execution_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsAppsUPublicAppByCustomPathCustomPathGetResponses200ContentApplicationJso2Dcf238695>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExecutionMode = default; _explicitNullProperties?.Remove("execution_mode"); AdditionalData["execution_mode"] = unknown; } else { ExecutionMode = parsed; AdditionalData.Remove("execution_mode"); } } },

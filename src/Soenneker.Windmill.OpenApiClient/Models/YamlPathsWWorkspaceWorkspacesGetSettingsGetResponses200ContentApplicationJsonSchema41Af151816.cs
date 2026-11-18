@@ -92,7 +92,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "exclude_path", n => { ExcludePath = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "extra_include_path", n => { ExtraIncludePath = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

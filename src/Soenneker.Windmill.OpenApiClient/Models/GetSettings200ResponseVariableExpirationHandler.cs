@@ -84,7 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseVariableExpirationHandlerExtraArgs.CreateFromDiscriminatorValue); } },
                 { "muted_on_user_path", n => { MutedOnUserPath = n.GetBoolValue(); } },

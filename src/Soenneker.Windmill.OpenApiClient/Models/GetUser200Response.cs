@@ -187,7 +187,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(16)
             {
                 { "added_via", n => { AddedVia = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersGetUsernameGetResponses200ContentApplicationJsonSchemaProD16E2Eabba>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersGetUsernameGetResponses200ContentApplicationJsonSchemaProD16E2Eabba.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },

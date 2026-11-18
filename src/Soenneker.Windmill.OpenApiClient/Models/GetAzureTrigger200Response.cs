@@ -329,7 +329,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(29)
             {
                 { "azure_mode", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAzureTriggersGetPathGetResponses200ContentApplicationJsonSchemA9B1Af0F63>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAzureMode = default; _explicitNullProperties?.Remove("azure_mode"); AdditionalData["azure_mode"] = unknown; } else { AzureMode = parsed; AdditionalData.Remove("azure_mode"); } } },
                 { "azure_resource_path", n => { AzureResourcePath = n.GetStringValue(); } },

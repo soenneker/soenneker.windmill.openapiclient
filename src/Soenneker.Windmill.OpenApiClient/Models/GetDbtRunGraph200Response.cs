@@ -138,7 +138,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties27Dd6Db617>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaProperties27Dd6Db617.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "dbt_edges", n => { DbtEdges = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaPropertiesF417B31629>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaPropertiesF417B31629.CreateFromDiscriminatorValue)?.AsList(); } },

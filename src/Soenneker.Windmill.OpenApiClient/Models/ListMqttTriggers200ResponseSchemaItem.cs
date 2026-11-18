@@ -283,7 +283,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(24)
             {
                 { "client_id", n => { ClientId = n.GetStringValue(); } },
                 { "client_version", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceMqttTriggersGetPathGetResponses200ContentApplicationJsonSchemaA8Faa1Dca8>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueClientVersion = default; _explicitNullProperties?.Remove("client_version"); AdditionalData["client_version"] = unknown; } else { ClientVersion = parsed; AdditionalData.Remove("client_version"); } } },

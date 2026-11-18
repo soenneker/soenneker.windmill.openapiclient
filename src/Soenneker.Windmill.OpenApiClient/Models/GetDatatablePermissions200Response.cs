@@ -136,7 +136,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "available_roles", n => { AvailableRoles = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten6Fa9B7F49A.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "clone_of", n => { CloneOf = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatablePermissionsDatatableNameGetResponses200Conten4C72D35Fb7.CreateFromDiscriminatorValue); } },

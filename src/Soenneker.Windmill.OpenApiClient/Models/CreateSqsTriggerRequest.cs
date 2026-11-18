@@ -184,7 +184,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(14)
             {
                 { "aws_auth_resource_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceSqsTriggersCreatePostRequestBodyContentApplicationJsonSchemaPrope9Ca4B79798>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAwsAuthResourceType = default; _explicitNullProperties?.Remove("aws_auth_resource_type"); AdditionalData["aws_auth_resource_type"] = unknown; } else { AwsAuthResourceType = parsed; AdditionalData.Remove("aws_auth_resource_type"); } } },
                 { "aws_resource_path", n => { AwsResourcePath = n.GetStringValue(); } },

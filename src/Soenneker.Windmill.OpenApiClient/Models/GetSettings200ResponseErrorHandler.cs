@@ -81,7 +81,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.GetSettings200ResponseErrorHandlerExtraArgs.CreateFromDiscriminatorValue); } },
                 { "muted_on_cancel", n => { MutedOnCancel = n.GetBoolValue(); } },

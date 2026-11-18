@@ -208,7 +208,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(17)
             {
                 { "auto_commit", n => { AutoCommit = n.GetBoolValue(); } },
                 { "auto_offset_reset", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceKafkaTriggersUpdatePathPostRequestBodyContentApplicationJsonSchD513E32402>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAutoOffsetReset = default; _explicitNullProperties?.Remove("auto_offset_reset"); AdditionalData["auto_offset_reset"] = unknown; } else { AutoOffsetReset = parsed; AdditionalData.Remove("auto_offset_reset"); } } },

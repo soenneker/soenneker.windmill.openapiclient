@@ -247,7 +247,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(25)
             {
                 { "cache_ignore_s3_path", n => { CacheIgnoreS3Path = n.GetBoolValue(); } },
                 { "cache_ttl", n => { CacheTtl = n.GetDoubleValue(); } },

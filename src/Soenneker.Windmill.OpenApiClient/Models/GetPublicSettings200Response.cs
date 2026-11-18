@@ -162,7 +162,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "add_admins_and_developers_to_forks", n => { AddAdminsAndDevelopersToForks = n.GetBoolValue(); } },
                 { "datatable", n => { Datatable = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable>(global::Soenneker.Windmill.OpenApiClient.Models.GetPublicSettings200ResponseDatatable.CreateFromDiscriminatorValue); } },

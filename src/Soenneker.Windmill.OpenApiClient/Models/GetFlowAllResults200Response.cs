@@ -83,7 +83,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "enclosing_job", n => { EnclosingJob = n.GetGuidValue(); } },
                 { "entries", n => { Entries = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetFlowAllResults200ResponseEntriesItem.CreateFromDiscriminatorValue)?.AsList(); } },

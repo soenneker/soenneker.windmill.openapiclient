@@ -78,7 +78,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "effective_ai_config", n => { EffectiveAiConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfig>(global::Soenneker.Windmill.OpenApiClient.Models.EditCopilotConfig200ResponseEffectiveAiConfig.CreateFromDiscriminatorValue); } },
                 { "has_instance_ai_config", n => { HasInstanceAiConfig = n.GetBoolValue(); } },

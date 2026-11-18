@@ -289,7 +289,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(25)
             {
                 { "delivery_config", n => { DeliveryConfig = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceGcpTriggersGetPathGetResponses200ContentApplicationJsonSchemaE59C87Ce66>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceGcpTriggersGetPathGetResponses200ContentApplicationJsonSchemaE59C87Ce66.CreateFromDiscriminatorValue); } },
                 { "delivery_type", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceGcpTriggersGetPathGetResponses200ContentApplicationJsonSchemaA81D3E2D50>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDeliveryType = default; _explicitNullProperties?.Remove("delivery_type"); AdditionalData["delivery_type"] = unknown; } else { DeliveryType = parsed; AdditionalData.Remove("delivery_type"); } } },

@@ -126,7 +126,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchemaCb709F9Ec5.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "comments", n => { Comments = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceDeploymentRequestOpenGetResponses200ContentApplicationJsonSchema3F69368104.CreateFromDiscriminatorValue)?.AsList(); } },

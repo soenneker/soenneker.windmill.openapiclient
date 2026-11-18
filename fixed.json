@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.875.0",
+    "version": "1.876.1",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -18595,6 +18595,14 @@
             "description": "case-insensitive fuzzy match on \u0022summary (path)\u0022: the query is split into terms on runs of anything but ASCII letters, digits and apostrophes, and each of the first 8 must appear whole and in order, with anything in between. Terms past the 8th are ignored, so an over-long query matches more rows rather than fewer. Omitted or empty filters nothing; a query holding no ASCII-alphanumeric character at all (a lone space, \u0022_\u0022, or text in a non-Latin script) yields no terms and matches nothing, mirroring the homepage, whose matcher discards those queries too.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "search_any_order",
+            "in": "query",
+            "description": "when true, each search term must appear anywhere in \u0022summary (path)\u0022, in any order, rather than in the order given, and terms are split on anything but letters, digits and apostrophes in any script, not only ASCII ones.",
+            "schema": {
+              "type": "boolean"
             }
           },
           {

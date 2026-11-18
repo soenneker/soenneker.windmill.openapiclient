@@ -96,7 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "branch_chosen", n => { BranchChosen = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro6Cbfaa99C3>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro6Cbfaa99C3.CreateFromDiscriminatorValue); } },
                 { "branch_or_iteration_n", n => { BranchOrIterationN = n.GetIntValue(); } },

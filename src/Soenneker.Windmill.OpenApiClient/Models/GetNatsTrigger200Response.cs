@@ -317,7 +317,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(28)
             {
                 { "consumer_name", n => { ConsumerName = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetNatsTrigger200ResponseDraft.CreateFromDiscriminatorValue); } },

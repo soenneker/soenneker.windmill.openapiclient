@@ -90,7 +90,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "objects", n => { Objects = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp9490A95De4>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesDatatableAclDatatableNamePlanPostRequestBodyContentAp9490A95De4.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "privileges", n => { Privileges = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },

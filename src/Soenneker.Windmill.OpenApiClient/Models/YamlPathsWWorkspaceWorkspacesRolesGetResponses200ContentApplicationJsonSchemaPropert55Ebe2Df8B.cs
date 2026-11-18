@@ -91,7 +91,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "apps", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWorkspacesUsersGetResponses200ContentApplicationJsonSchemaPropertiesWorkspaces04F13974Ef>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueApps = default; _explicitNullProperties?.Remove("apps"); AdditionalData["apps"] = unknown; } else { Apps = parsed; AdditionalData.Remove("apps"); } } },
                 { "code", n => { Code = n.GetBoolValue(); } },

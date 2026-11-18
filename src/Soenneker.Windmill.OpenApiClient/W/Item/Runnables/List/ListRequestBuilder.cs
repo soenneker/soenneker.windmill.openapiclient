@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,paths*,per_page*,search*,show_archived*}", pathParameters)
+        public ListRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,paths*,per_page*,search*,search_any_order*,show_archived*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,paths*,per_page*,search*,show_archived*}", rawUrl)
+        public ListRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/runnables/list{?cursor*,include_draft_only*,include_without_main*,kinds*,label*,order_by*,order_desc*,path_start*,paths*,per_page*,search*,search_any_order*,show_archived*}", rawUrl)
         {
         }
         /// <summary>
@@ -163,6 +163,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Runnables.List
             [QueryParameter("search")]
             public string Search { get; set; }
 #endif
+            /// <summary>when true, each search term must appear anywhere in &quot;summary (path)&quot;, in any order, rather than in the order given, and terms are split on anything but letters, digits and apostrophes in any script, not only ASCII ones.</summary>
+            [QueryParameter("search_any_order")]
+            public bool? SearchAnyOrder { get; set; }
             #pragma warning disable CS1591
             [QueryParameter("show_archived")]
             public bool? ShowArchived { get; set; }

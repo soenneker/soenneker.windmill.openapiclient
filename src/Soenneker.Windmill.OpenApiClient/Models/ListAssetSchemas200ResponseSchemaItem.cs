@@ -76,7 +76,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "captured_at", n => { CapturedAt = n.GetDateTimeOffsetValue(); } },
                 { "columns", n => { Columns = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsAssetSchemasGetResponses200ContentApplicationJsonSchemaIte89209D728D>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAssetsAssetSchemasGetResponses200ContentApplicationJsonSchemaIte89209D728D.CreateFromDiscriminatorValue)?.AsList(); } },

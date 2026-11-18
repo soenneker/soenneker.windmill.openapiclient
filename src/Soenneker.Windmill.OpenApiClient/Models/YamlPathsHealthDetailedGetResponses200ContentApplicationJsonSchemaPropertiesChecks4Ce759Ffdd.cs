@@ -93,7 +93,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "database", n => { Database = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsHealthDetailedGetResponses200ContentApplicationJsonSchemaPropertiesChecksProp1Ad94119E5>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsHealthDetailedGetResponses200ContentApplicationJsonSchemaPropertiesChecksProp1Ad94119E5.CreateFromDiscriminatorValue); } },
                 { "queue", n => { Queue = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsHealthDetailedGetResponses200ContentApplicationJsonSchemaPropertiesChecksPropC1Ba72Adf7>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsHealthDetailedGetResponses200ContentApplicationJsonSchemaPropertiesChecksPropC1Ba72Adf7.CreateFromDiscriminatorValue); } },

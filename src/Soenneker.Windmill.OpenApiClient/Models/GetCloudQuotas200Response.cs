@@ -116,7 +116,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "apps", n => { Apps = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseApps.CreateFromDiscriminatorValue); } },
                 { "flows", n => { Flows = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows>(global::Soenneker.Windmill.OpenApiClient.Models.GetCloudQuotas200ResponseFlows.CreateFromDiscriminatorValue); } },

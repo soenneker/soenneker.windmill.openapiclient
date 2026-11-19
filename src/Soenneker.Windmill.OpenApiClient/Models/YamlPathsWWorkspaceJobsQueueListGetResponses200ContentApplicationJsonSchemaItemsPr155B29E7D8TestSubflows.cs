@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// Additional script modules keyed by relative file path
+    /// In a flow test run, deployed subflow path -&gt; the flow value with the test&apos;s step overrides applied, run in place of the deployed subflow.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ListScripts200ResponseSchemaItemModules : IAdditionalDataHolder, IParsable
+    public partial class YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -23,23 +23,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows"/> and sets the default values.
         /// </summary>
-        public ListScripts200ResponseSchemaItemModules()
+        public YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            // Preserve a nullable root response.
-            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemModules(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

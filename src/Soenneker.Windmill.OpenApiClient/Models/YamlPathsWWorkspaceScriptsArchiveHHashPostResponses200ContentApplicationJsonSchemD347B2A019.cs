@@ -5,7 +5,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da
+    public enum YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019
     #pragma warning restore CS1591
     {
         [EnumMember(Value = "script")]

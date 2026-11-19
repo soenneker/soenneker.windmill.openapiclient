@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.876.1",
+    "version": "1.879.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -18367,6 +18367,57 @@
         }
       }
     },
+    "/w/{workspace}/jobs/flow/approval_step_detail/{jobId}/{stepId}": {
+      "get": {
+        "tags": [
+          "job"
+        ],
+        "summary": "get the approval detail of one step of a flow run",
+        "description": "Get the approval state of an approval (suspend) step of a flow run, by the flow run id and the step id, in a single query: where the step stands, its approval settings, the approvals received and, while it waits, whether the caller can approve. Only the run\u0027s own steps are searched: for a step inside a branch or loop, pass the id of the branch\u0027s or iteration\u0027s run.\n",
+        "operationId": "GetApprovalStepDetail",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "description": "id of the flow run",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "stepId",
+            "in": "path",
+            "description": "id of the approval step in the flow",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "approval step detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetApprovalStepDetail200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/jobs/job_view_token/{id}": {
       "get": {
         "tags": [
@@ -21598,6 +21649,38 @@
         }
       }
     },
+    "/w/{workspace}/ai/shared_sessions/list": {
+      "get": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "list the caller\u0027s shared AI sessions",
+        "description": "The caller\u0027s own shares and the ones they opened by link, most recently shared or opened first, without their snapshot. Capped at 500. \u0060session_id\u0060 is set on the caller\u0027s own shares only, \u0060opened_at\u0060 on the others.\n",
+        "operationId": "ListSharedAiSessions",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the shares",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListSharedAiSessions200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/ai/shared_sessions/set_public/{id}": {
       "post": {
         "tags": [
@@ -21682,6 +21765,47 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetSharedAiSession200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/ai/shared_sessions/opened/{id}": {
+      "delete": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "remove a shared AI session from the caller\u0027s list",
+        "description": "The share stays readable by link; opening it again lists it again.\n",
+        "operationId": "ForgetOpenedAiSession",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "removed from the list",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForgetOpenedAiSession200PlainResponseSchema"
                 }
               }
             }
@@ -24971,6 +25095,76 @@
               "text/plain": {
                 "schema": {
                   "$ref": "#/components/schemas/RunFlowDependenciesAsync201PlainResponseSchema"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
+          }
+        }
+      }
+    },
+    "/w/{workspace}/jobs/run/flow_test/{path}": {
+      "post": {
+        "tags": [
+          "job"
+        ],
+        "summary": "run a deployed flow with some steps overridden, for tests",
+        "description": "Runs the latest deployed version of the flow as a flow preview, with each step named in \u0060steps\u0060 either mocked (\u0060{\u0022return_value\u0022: ...}\u0060) or replaced by a function of the code of \u0060caller_job_id\u0060 (\u0060{\u0022function\u0022: \u0022\u003Cname\u003E\u0022}\u0060), called with the step\u0027s inputs. Needs the same rights as a flow preview.",
+        "operationId": "RunFlowTest",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "job_id",
+            "in": "query",
+            "description": "The job id to assign to the created job. if missing, job is chosen randomly using the ULID scheme. If a job id already exists in the queue or as a completed job, the request to create one will fail (Bad Request)",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunFlowTestRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunFlowTest201PlainResponseSchema"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "job created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunFlowTest201PlainResponseSchema"
                 }
               }
             },
@@ -50323,6 +50517,9 @@
           },
           "squash": {
             "type": "boolean"
+          },
+          "iteration_label": {
+            "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
           }
         },
         "description": "Executes nested modules in a loop over an iterator. Inside the loop, use \u0027flow_input.iter.value\u0027 to access the current iteration value, and \u0027flow_input.iter.index\u0027 for the index. Supports parallel execution for better performance on I/O-bound operations"
@@ -53106,7 +53303,7 @@
         "description": "The caller\u0027s own email, returned alongside sdk_scopes so the viewer can key its stored \u0022do not ask again\u0022 per person.\n",
         "nullable": true
       },
-      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb": {
+      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope72D7Ef54E1": {
         "enum": [
           "python3",
           "deno",
@@ -53136,7 +53333,7 @@
         ],
         "type": "string",
         "x-ms-enum": {
-          "name": "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb",
+          "name": "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope72D7Ef54E1",
           "modelAsString": false,
           "values": [
             {
@@ -53242,18 +53439,17 @@
           ]
         }
       },
-      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da": {
+      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeA8De680F64": {
         "enum": [
           "script",
           "failure",
           "trigger",
-          "command",
           "approval",
           "preprocessor"
         ],
         "type": "string",
         "x-ms-enum": {
-          "name": "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da",
+          "name": "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeA8De680F64",
           "modelAsString": false,
           "values": [
             {
@@ -53269,10 +53465,6 @@
               "name": "Trigger"
             },
             {
-              "value": "command",
-              "name": "Command"
-            },
-            {
               "value": "approval",
               "name": "Approval"
             },
@@ -53283,195 +53475,24 @@
           ]
         }
       },
-      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D": {
-        "enum": [
-          "queue",
-          "fail"
-        ],
+      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope6A1E58Ca2D": {
         "type": "string",
-        "description": "What a run does when its concurrency limit is reached when a worker picks it up. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed.",
-        "x-ms-enum": {
-          "name": "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "queue",
-              "name": "Queue"
-            },
-            {
-              "value": "fail",
-              "name": "Fail"
-            }
-          ]
-        }
-      },
-      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab": {
-        "required": [
-          "content",
-          "language"
-        ],
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "string",
-            "description": "The source code content of this module"
-          },
-          "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf930Ec6E6Fe"
-          },
-          "lock": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3721Bf2C4A"
-          }
-        },
-        "description": "An additional module file associated with a script"
-      },
-      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf930Ec6E6Fe": {
-        "enum": [
-          "python3",
-          "deno",
-          "go",
-          "bash",
-          "powershell",
-          "postgresql",
-          "mysql",
-          "bigquery",
-          "snowflake",
-          "mssql",
-          "oracledb",
-          "graphql",
-          "nativets",
-          "bun",
-          "php",
-          "rust",
-          "ansible",
-          "csharp",
-          "nu",
-          "java",
-          "ruby",
-          "rlang",
-          "duckdb",
-          "bunnative",
-          "dbt"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf930Ec6E6Fe",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "python3",
-              "name": "Python3"
-            },
-            {
-              "value": "deno",
-              "name": "Deno"
-            },
-            {
-              "value": "go",
-              "name": "Go"
-            },
-            {
-              "value": "bash",
-              "name": "Bash"
-            },
-            {
-              "value": "powershell",
-              "name": "Powershell"
-            },
-            {
-              "value": "postgresql",
-              "name": "Postgresql"
-            },
-            {
-              "value": "mysql",
-              "name": "Mysql"
-            },
-            {
-              "value": "bigquery",
-              "name": "Bigquery"
-            },
-            {
-              "value": "snowflake",
-              "name": "Snowflake"
-            },
-            {
-              "value": "mssql",
-              "name": "Mssql"
-            },
-            {
-              "value": "oracledb",
-              "name": "Oracledb"
-            },
-            {
-              "value": "graphql",
-              "name": "Graphql"
-            },
-            {
-              "value": "nativets",
-              "name": "Nativets"
-            },
-            {
-              "value": "bun",
-              "name": "Bun"
-            },
-            {
-              "value": "php",
-              "name": "Php"
-            },
-            {
-              "value": "rust",
-              "name": "Rust"
-            },
-            {
-              "value": "ansible",
-              "name": "Ansible"
-            },
-            {
-              "value": "csharp",
-              "name": "Csharp"
-            },
-            {
-              "value": "nu",
-              "name": "Nu"
-            },
-            {
-              "value": "java",
-              "name": "Java"
-            },
-            {
-              "value": "ruby",
-              "name": "Ruby"
-            },
-            {
-              "value": "rlang",
-              "name": "Rlang"
-            },
-            {
-              "value": "duckdb",
-              "name": "Duckdb"
-            },
-            {
-              "value": "bunnative",
-              "name": "Bunnative"
-            },
-            {
-              "value": "dbt",
-              "name": "Dbt"
-            }
-          ]
-        }
-      },
-      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3721Bf2C4A": {
-        "type": "string",
-        "description": "Lock file content for this module\u0027s dependencies",
         "nullable": true
       },
-      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "Scopes the token of every job of this runnable is restricted to (domain:action[:resource], e.g. oidc:write). Jobs it starts, flow steps and AI agent tools inherit the restriction. Unset, the job token carries the full permissions of the identity the job runs as; an empty list leaves it no API access beyond its own job.",
+      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope907A57679A": {
+        "type": "boolean",
+        "nullable": true
+      },
+      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope7Cdbd1Ecfd": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope0Cb39Ac7C3"
+          }
+        }
+      },
+      "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope0Cb39Ac7C3": {
+        "type": "string",
         "nullable": true
       },
       "YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertie12B932016D": {
@@ -53941,13 +53962,154 @@
             "description": "The source code content of this module"
           },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf930Ec6E6Fe"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesA6B6Ed37C6"
           },
           "lock": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3721Bf2C4A"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesDd024359B7"
           }
         },
         "description": "An additional module file associated with a script"
+      },
+      "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesA6B6Ed37C6": {
+        "enum": [
+          "python3",
+          "deno",
+          "go",
+          "bash",
+          "powershell",
+          "postgresql",
+          "mysql",
+          "bigquery",
+          "snowflake",
+          "mssql",
+          "oracledb",
+          "graphql",
+          "nativets",
+          "bun",
+          "php",
+          "rust",
+          "ansible",
+          "csharp",
+          "nu",
+          "java",
+          "ruby",
+          "rlang",
+          "duckdb",
+          "bunnative",
+          "dbt"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesA6B6Ed37C6",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "python3",
+              "name": "Python3"
+            },
+            {
+              "value": "deno",
+              "name": "Deno"
+            },
+            {
+              "value": "go",
+              "name": "Go"
+            },
+            {
+              "value": "bash",
+              "name": "Bash"
+            },
+            {
+              "value": "powershell",
+              "name": "Powershell"
+            },
+            {
+              "value": "postgresql",
+              "name": "Postgresql"
+            },
+            {
+              "value": "mysql",
+              "name": "Mysql"
+            },
+            {
+              "value": "bigquery",
+              "name": "Bigquery"
+            },
+            {
+              "value": "snowflake",
+              "name": "Snowflake"
+            },
+            {
+              "value": "mssql",
+              "name": "Mssql"
+            },
+            {
+              "value": "oracledb",
+              "name": "Oracledb"
+            },
+            {
+              "value": "graphql",
+              "name": "Graphql"
+            },
+            {
+              "value": "nativets",
+              "name": "Nativets"
+            },
+            {
+              "value": "bun",
+              "name": "Bun"
+            },
+            {
+              "value": "php",
+              "name": "Php"
+            },
+            {
+              "value": "rust",
+              "name": "Rust"
+            },
+            {
+              "value": "ansible",
+              "name": "Ansible"
+            },
+            {
+              "value": "csharp",
+              "name": "Csharp"
+            },
+            {
+              "value": "nu",
+              "name": "Nu"
+            },
+            {
+              "value": "java",
+              "name": "Java"
+            },
+            {
+              "value": "ruby",
+              "name": "Ruby"
+            },
+            {
+              "value": "rlang",
+              "name": "Rlang"
+            },
+            {
+              "value": "duckdb",
+              "name": "Duckdb"
+            },
+            {
+              "value": "bunnative",
+              "name": "Bunnative"
+            },
+            {
+              "value": "dbt",
+              "name": "Dbt"
+            }
+          ]
+        }
+      },
+      "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesDd024359B7": {
+        "type": "string",
+        "description": "Lock file content for this module\u0027s dependencies",
+        "nullable": true
       },
       "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesF6Eafb17A7": {
         "type": "array",
@@ -54228,6 +54390,233 @@
             }
           ]
         }
+      },
+      "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa": {
+        "enum": [
+          "python3",
+          "deno",
+          "go",
+          "bash",
+          "powershell",
+          "postgresql",
+          "mysql",
+          "bigquery",
+          "snowflake",
+          "mssql",
+          "oracledb",
+          "graphql",
+          "nativets",
+          "bun",
+          "php",
+          "rust",
+          "ansible",
+          "csharp",
+          "nu",
+          "java",
+          "ruby",
+          "rlang",
+          "duckdb",
+          "bunnative",
+          "dbt"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "python3",
+              "name": "Python3"
+            },
+            {
+              "value": "deno",
+              "name": "Deno"
+            },
+            {
+              "value": "go",
+              "name": "Go"
+            },
+            {
+              "value": "bash",
+              "name": "Bash"
+            },
+            {
+              "value": "powershell",
+              "name": "Powershell"
+            },
+            {
+              "value": "postgresql",
+              "name": "Postgresql"
+            },
+            {
+              "value": "mysql",
+              "name": "Mysql"
+            },
+            {
+              "value": "bigquery",
+              "name": "Bigquery"
+            },
+            {
+              "value": "snowflake",
+              "name": "Snowflake"
+            },
+            {
+              "value": "mssql",
+              "name": "Mssql"
+            },
+            {
+              "value": "oracledb",
+              "name": "Oracledb"
+            },
+            {
+              "value": "graphql",
+              "name": "Graphql"
+            },
+            {
+              "value": "nativets",
+              "name": "Nativets"
+            },
+            {
+              "value": "bun",
+              "name": "Bun"
+            },
+            {
+              "value": "php",
+              "name": "Php"
+            },
+            {
+              "value": "rust",
+              "name": "Rust"
+            },
+            {
+              "value": "ansible",
+              "name": "Ansible"
+            },
+            {
+              "value": "csharp",
+              "name": "Csharp"
+            },
+            {
+              "value": "nu",
+              "name": "Nu"
+            },
+            {
+              "value": "java",
+              "name": "Java"
+            },
+            {
+              "value": "ruby",
+              "name": "Ruby"
+            },
+            {
+              "value": "rlang",
+              "name": "Rlang"
+            },
+            {
+              "value": "duckdb",
+              "name": "Duckdb"
+            },
+            {
+              "value": "bunnative",
+              "name": "Bunnative"
+            },
+            {
+              "value": "dbt",
+              "name": "Dbt"
+            }
+          ]
+        }
+      },
+      "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019": {
+        "enum": [
+          "script",
+          "failure",
+          "trigger",
+          "command",
+          "approval",
+          "preprocessor"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "script",
+              "name": "Script"
+            },
+            {
+              "value": "failure",
+              "name": "Failure"
+            },
+            {
+              "value": "trigger",
+              "name": "Trigger"
+            },
+            {
+              "value": "command",
+              "name": "Command"
+            },
+            {
+              "value": "approval",
+              "name": "Approval"
+            },
+            {
+              "value": "preprocessor",
+              "name": "Preprocessor"
+            }
+          ]
+        }
+      },
+      "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3": {
+        "enum": [
+          "queue",
+          "fail"
+        ],
+        "type": "string",
+        "description": "What a run does when its concurrency limit is reached when a worker picks it up. \u0060queue\u0060 (default) re-queues it to a later slot, \u0060fail\u0060 ends it immediately as failed.",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "queue",
+              "name": "Queue"
+            },
+            {
+              "value": "fail",
+              "name": "Fail"
+            }
+          ]
+        }
+      },
+      "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9A86E9F45B": {
+        "required": [
+          "content",
+          "language"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "The source code content of this module"
+          },
+          "language": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesA6B6Ed37C6"
+          },
+          "lock": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesDd024359B7"
+          }
+        },
+        "description": "An additional module file associated with a script"
+      },
+      "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem90312B3B59": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Scopes the token of every job of this runnable is restricted to (domain:action[:resource], e.g. oidc:write). Jobs it starts, flow steps and AI agent tools inherit the restriction. Unset, the job token carries the full permissions of the identity the job runs as; an empty list leaves it no API access beyond its own job.",
+        "nullable": true
       },
       "YamlPathsWWorkspaceScriptsGetTriggersCountPathGetResponses200ContentApplicationJs84D84C1Cdb": {
         "type": "object",
@@ -55266,10 +55655,10 @@
             "description": "The source code content of this module"
           },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf930Ec6E6Fe"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesA6B6Ed37C6"
           },
           "lock": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3721Bf2C4A"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesDd024359B7"
           }
         },
         "description": "An additional module file associated with a script"
@@ -56424,6 +56813,16 @@
           },
           "retry": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrEa380Eef4B"
+          },
+          "continued_on_error": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A"
+            },
+            "description": "On a root flow, the steps at any depth that failed and that the flow went past because of continue_on_error (at most 100)."
+          },
+          "test_subflows": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows"
           }
         }
       },
@@ -56463,6 +56862,13 @@
             "items": {
               "type": "boolean"
             }
+          },
+          "flow_jobs_labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd"
+            },
+            "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
           },
           "flow_jobs_duration": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0"
@@ -56530,6 +56936,10 @@
           },
           "args": {}
         }
+      },
+      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd": {
+        "type": "string",
+        "nullable": true
       },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0": {
         "type": "object",
@@ -56818,6 +57228,13 @@
               "type": "boolean"
             }
           },
+          "flow_jobs_labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd"
+            },
+            "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
+          },
           "flow_jobs_duration": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0"
           },
@@ -56895,6 +57312,13 @@
               "type": "boolean"
             }
           },
+          "flow_jobs_labels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd"
+            },
+            "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
+          },
           "flow_jobs_duration": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0"
           },
@@ -56952,6 +57376,138 @@
             }
           }
         }
+      },
+      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A": {
+        "required": [
+          "id",
+          "job"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "job": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af": {
+        "required": [
+          "modules"
+        ],
+        "type": "object",
+        "properties": {
+          "modules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonEad4Fa1C03"
+            },
+            "description": "Array of steps that execute in sequence. Each step can be a script, subflow, loop, or branch"
+          },
+          "failure_module": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonF9De798766"
+          },
+          "preprocessor_module": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson6Bd0D6Ef7E"
+          },
+          "same_worker": {
+            "type": "boolean",
+            "description": "If true, all steps run on the same worker for better performance"
+          },
+          "preserve_step_tags": {
+            "type": "boolean",
+            "description": "If true and the flow runs on a custom worker tag, steps that declare their own non-empty tag run on it instead of inheriting the flow tag. Steps without their own tag still inherit the flow tag."
+          },
+          "concurrent_limit": {
+            "type": "number",
+            "description": "Maximum number of concurrent executions of this flow"
+          },
+          "concurrency_key": {
+            "type": "string",
+            "description": "Expression to group concurrent executions (e.g., by user ID)"
+          },
+          "concurrency_time_window_s": {
+            "type": "number",
+            "description": "Time window in seconds for concurrent_limit"
+          },
+          "on_concurrency_limit": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe"
+          },
+          "debounce_delay_s": {
+            "type": "integer",
+            "description": "Delay in seconds to debounce flow executions"
+          },
+          "debounce_key": {
+            "type": "string",
+            "description": "Expression to group debounced executions"
+          },
+          "debounce_args_to_accumulate": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Arguments to accumulate across debounced executions"
+          },
+          "max_total_debouncing_time": {
+            "type": "integer",
+            "description": "Maximum total time in seconds that a job can be debounced"
+          },
+          "max_total_debounces_amount": {
+            "type": "integer",
+            "description": "Maximum number of times a job can be debounced"
+          },
+          "skip_expr": {
+            "type": "string",
+            "description": "JavaScript expression to conditionally skip the entire flow"
+          },
+          "cache_ttl": {
+            "type": "number",
+            "description": "Cache duration in seconds for flow results"
+          },
+          "cache_ignore_s3_path": {
+            "type": "boolean"
+          },
+          "delete_after_secs": {
+            "type": "integer",
+            "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
+          },
+          "timeout": {
+            "type": "integer",
+            "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
+          },
+          "flow_env": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0AfFlowEnv"
+          },
+          "priority": {
+            "type": "number",
+            "description": "Execution priority (higher numbers run first)"
+          },
+          "early_return": {
+            "type": "string",
+            "description": "Id of the step whose result a sync webhook returns as soon as that step completes, while the rest of the flow keeps running. When the step does not run, or fails while the flow has a failure module, the flow\u0027s final result is returned instead."
+          },
+          "chat_input_enabled": {
+            "type": "boolean",
+            "description": "Whether this flow accepts chat-style input"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson7Cf1B6241E"
+            },
+            "description": "Sticky notes attached to the flow"
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson59A6Fa2A6D"
+            },
+            "description": "Semantic groups of modules for organizational purposes"
+          }
+        },
+        "description": "The flow structure containing modules and optional preprocessor/failure handlers"
       },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr75562Bce9C": {
         "type": "object",
@@ -57463,6 +58019,16 @@
           },
           "retry": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrEa380Eef4B"
+          },
+          "continued_on_error": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A"
+            },
+            "description": "On a root flow, the steps at any depth that failed and that the flow went past because of continue_on_error (at most 100)."
+          },
+          "test_subflows": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows"
           }
         }
       },
@@ -70494,10 +71060,10 @@
             "type": "string"
           },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa"
           },
           "kind": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019"
           },
           "starred": {
             "type": "boolean"
@@ -70521,7 +71087,7 @@
             "type": "integer"
           },
           "on_concurrency_limit": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3"
           },
           "concurrency_key": {
             "type": "string"
@@ -70599,7 +71165,7 @@
             "default": []
           },
           "job_token_scopes": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem90312B3B59"
           },
           "inherited_labels": {
             "type": "array",
@@ -70684,10 +71250,10 @@
             "type": "string"
           },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa"
           },
           "kind": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019"
           },
           "starred": {
             "type": "boolean"
@@ -70711,7 +71277,7 @@
             "type": "integer"
           },
           "on_concurrency_limit": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3"
           },
           "concurrency_key": {
             "type": "string"
@@ -70789,7 +71355,7 @@
             "default": []
           },
           "job_token_scopes": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem90312B3B59"
           },
           "inherited_labels": {
             "type": "array",
@@ -70889,10 +71455,10 @@
             "type": "string"
           },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa"
           },
           "kind": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019"
           },
           "starred": {
             "type": "boolean"
@@ -70916,7 +71482,7 @@
             "type": "integer"
           },
           "on_concurrency_limit": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3"
           },
           "concurrency_key": {
             "type": "string"
@@ -70994,7 +71560,7 @@
             "default": []
           },
           "job_token_scopes": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem90312B3B59"
           },
           "inherited_labels": {
             "type": "array",
@@ -71132,10 +71698,10 @@
             "type": "string"
           },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa"
           },
           "kind": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019"
           },
           "starred": {
             "type": "boolean"
@@ -71159,7 +71725,7 @@
             "type": "integer"
           },
           "on_concurrency_limit": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3"
           },
           "concurrency_key": {
             "type": "string"
@@ -71237,7 +71803,7 @@
             "default": []
           },
           "job_token_scopes": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem90312B3B59"
           },
           "inherited_labels": {
             "type": "array",
@@ -71364,6 +71930,90 @@
               "$ref": "#/components/schemas/DiffRawScriptsWithDeployedRequestWorkspaceDepsItem"
             },
             "description": "workspace dependencies to diff"
+          }
+        }
+      },
+      "GetApprovalStepDetail200Response": {
+        "required": [
+          "flow_id",
+          "step_id",
+          "status",
+          "required_events",
+          "hide_cancel",
+          "continue_on_disapprove_timeout",
+          "skin",
+          "approvals"
+        ],
+        "type": "object",
+        "properties": {
+          "flow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "step_id": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/GetApprovalStepDetail200ResponseStatus"
+          },
+          "step_job": {
+            "type": "string",
+            "description": "the job of the approval step, once it ran",
+            "format": "uuid"
+          },
+          "step_summary": {
+            "type": "string"
+          },
+          "required_events": {
+            "type": "integer",
+            "description": "number of approvals required to resume"
+          },
+          "timeout": {
+            "type": "integer",
+            "description": "seconds the run waits for approvals"
+          },
+          "suspended_until": {
+            "type": "string",
+            "description": "when the wait times out, while waiting",
+            "format": "date-time"
+          },
+          "form_schema": {
+            "description": "form schema for the approval step"
+          },
+          "hide_cancel": {
+            "type": "boolean"
+          },
+          "continue_on_disapprove_timeout": {
+            "type": "boolean"
+          },
+          "skin": {
+            "$ref": "#/components/schemas/GetApprovalStepDetail200ResponseSkin"
+          },
+          "approval_conditions": {
+            "$ref": "#/components/schemas/GetApprovalStepDetail200ResponseApprovalConditions"
+          },
+          "can_approve": {
+            "type": "boolean",
+            "description": "whether the caller can approve, set only while waiting"
+          },
+          "description": {
+            "description": "description returned by the approval step\u0027s script"
+          },
+          "default_args": {
+            "description": "default form values returned by the approval step\u0027s script"
+          },
+          "enums": {
+            "description": "form enums returned by the approval step\u0027s script"
+          },
+          "approvals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetApprovalStepDetail200ResponseApprovalsItem"
+            },
+            "description": "approvals received. approved, value and created_at are known only while the run is live; a finished run keeps approver names alone.\n"
+          },
+          "error": {
+            "description": "the run\u0027s error, when status is not_resumed"
           }
         }
       },
@@ -72731,7 +73381,8 @@
           "created_by",
           "shared_at",
           "snapshot",
-          "can_unshare"
+          "can_unshare",
+          "mine"
         ],
         "type": "object",
         "properties": {
@@ -72761,6 +73412,10 @@
           "can_unshare": {
             "type": "boolean",
             "description": "whether the caller authored the share or is a workspace admin"
+          },
+          "mine": {
+            "type": "boolean",
+            "description": "whether the caller authored the share"
           }
         }
       },
@@ -73843,6 +74498,22 @@
           },
           "flow_value": {
             "$ref": "#/components/schemas/RunFlowDependenciesAsyncRequestFlowValue"
+          }
+        }
+      },
+      "RunFlowTestRequest": {
+        "type": "object",
+        "properties": {
+          "args": {
+            "$ref": "#/components/schemas/RunFlowTestRequestArgs"
+          },
+          "steps": {
+            "$ref": "#/components/schemas/RunFlowTestRequestSteps"
+          },
+          "caller_job_id": {
+            "type": "string",
+            "description": "the job whose code defines the replacing functions, usually the calling test; a script run or a script preview. Required with a \u0060function\u0060 override.",
+            "format": "uuid"
           }
         }
       },
@@ -82926,6 +83597,15 @@
       "UnshareAiArtifact200PlainResponseSchema": {
         "type": "string"
       },
+      "ListSharedAiSessions200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListSharedAiSessions200ResponseSchemaItem"
+        }
+      },
+      "ForgetOpenedAiSession200PlainResponseSchema": {
+        "type": "string"
+      },
       "UnshareAiSession200PlainResponseSchema": {
         "type": "string"
       },
@@ -83067,6 +83747,10 @@
         "format": "uuid"
       },
       "RunFlowDependenciesAsync201PlainResponseSchema": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "RunFlowTest201PlainResponseSchema": {
         "type": "string",
         "format": "uuid"
       },
@@ -84632,13 +85316,32 @@
         "additionalProperties": {},
         "description": "Environment variables available to all steps. Values can be strings, JSON values, or special references: \u0027$var:path\u0027 (workspace variable) or \u0027$res:path\u0027 (resource)."
       },
+      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+        },
+        "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
+      },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr9Fccde0AbbArguments": {
         "type": "object"
+      },
+      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0AfFlowEnv": {
+        "type": "object",
+        "additionalProperties": {},
+        "description": "Environment variables available to all steps. Values can be strings, JSON values, or special references: \u0027$var:path\u0027 (workspace variable) or \u0027$res:path\u0027 (resource)."
       },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr05F2237A20FlowEnv": {
         "type": "object",
         "additionalProperties": {},
         "description": "Environment variables available to all steps. Values can be strings, JSON values, or special references: \u0027$var:path\u0027 (workspace variable) or \u0027$res:path\u0027 (resource)."
+      },
+      "YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+        },
+        "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
       },
       "YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem832908Be62FlowEnv": {
         "type": "object",
@@ -86580,7 +87283,7 @@
       "ArchiveScriptByHash200ResponseModules": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9A86E9F45B"
         },
         "description": "Additional script modules keyed by relative file path",
         "nullable": true
@@ -86597,7 +87300,7 @@
       "DeleteScriptByHash200ResponseModules": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9A86E9F45B"
         },
         "description": "Additional script modules keyed by relative file path",
         "nullable": true
@@ -86614,7 +87317,7 @@
       "GetScriptByPath200ResponseModules": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9A86E9F45B"
         },
         "description": "Additional script modules keyed by relative file path",
         "nullable": true
@@ -86634,7 +87337,7 @@
       "GetScriptByHash200ResponseModules": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9A86E9F45B"
         },
         "description": "Additional script modules keyed by relative file path",
         "nullable": true
@@ -86735,6 +87438,51 @@
           "hash": {
             "type": "string",
             "description": "SHA256 content hash"
+          }
+        }
+      },
+      "GetApprovalStepDetail200ResponseApprovalConditions": {
+        "required": [
+          "user_auth_required",
+          "user_groups_required",
+          "self_approval_disabled"
+        ],
+        "type": "object",
+        "properties": {
+          "user_auth_required": {
+            "type": "boolean"
+          },
+          "user_groups_required": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "self_approval_disabled": {
+            "type": "boolean"
+          }
+        }
+      },
+      "GetApprovalStepDetail200ResponseApprovalsItem": {
+        "required": [
+          "resume_id",
+          "approver"
+        ],
+        "type": "object",
+        "properties": {
+          "resume_id": {
+            "type": "integer"
+          },
+          "approver": {
+            "type": "string"
+          },
+          "approved": {
+            "type": "boolean"
+          },
+          "value": {},
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -86938,7 +87686,7 @@
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaEc5959B50E"
           }
         },
-        "description": "defaults to the AI config\u0027s default model"
+        "description": "defaults to the AI config\u0027s default model. Must be enabled in the AI settings, or be the default, metadata or code-completion model.\n"
       },
       "CompleteAi200ResponseModel": {
         "required": [
@@ -88333,6 +89081,17 @@
         },
         "description": "The flow structure containing modules and optional preprocessor/failure handlers"
       },
+      "RunFlowTestRequestArgs": {
+        "type": "object",
+        "description": "The arguments to pass to the script or flow"
+      },
+      "RunFlowTestRequestSteps": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/RunFlowTestRequestStepsAdditionalProperties"
+        },
+        "description": "step id -\u003E override"
+      },
       "RunFlowPreviewRequestArgs": {
         "type": "object",
         "description": "The arguments to pass to the script or flow"
@@ -88502,6 +89261,16 @@
           },
           "retry": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrEa380Eef4B"
+          },
+          "continued_on_error": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A"
+            },
+            "description": "On a root flow, the steps at any depth that failed and that the flow went past because of continue_on_error (at most 100)."
+          },
+          "test_subflows": {
+            "$ref": "#/components/schemas/GetJobUpdates200ResponseFlowStatusTestSubflows"
           }
         }
       },
@@ -91034,47 +91803,28 @@
           "hash",
           "path",
           "summary",
-          "description",
-          "content",
-          "created_by",
           "created_at",
           "archived",
-          "deleted",
-          "is_template",
           "extra_perms",
           "language",
           "kind",
           "starred",
-          "has_preprocessor"
+          "tag",
+          "has_deploy_errors",
+          "ws_error_handler_muted"
         ],
         "type": "object",
         "properties": {
-          "workspace_id": {
-            "type": "string"
-          },
           "hash": {
             "type": "string"
           },
           "path": {
             "type": "string"
           },
-          "parent_hashes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The first element is the direct parent of the script, the second is the parent of the first, etc\n"
-          },
           "summary": {
             "type": "string"
           },
           "description": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
-          "created_by": {
             "type": "string"
           },
           "created_at": {
@@ -91084,142 +91834,57 @@
           "archived": {
             "type": "boolean"
           },
-          "schema": {
-            "$ref": "#/components/schemas/ListScripts200ResponseSchemaItemSchema"
-          },
-          "deleted": {
-            "type": "boolean"
-          },
-          "is_template": {
-            "type": "boolean"
-          },
           "extra_perms": {
             "$ref": "#/components/schemas/ListScripts200ResponseSchemaItemExtraPerms"
           },
-          "lock": {
-            "type": "string"
-          },
-          "lock_error_logs": {
-            "type": "string"
-          },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope72D7Ef54E1"
           },
           "kind": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeA8De680F64"
           },
           "starred": {
             "type": "boolean"
           },
           "tag": {
-            "type": "string"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope6A1E58Ca2D"
           },
           "draft_only": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "True on rows built from a draft that was never deployed. Omitted\non deployed rows.\n"
           },
-          "envs": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "concurrent_limit": {
-            "type": "integer"
-          },
-          "concurrency_time_window_s": {
-            "type": "integer"
-          },
-          "on_concurrency_limit": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
-          },
-          "concurrency_key": {
-            "type": "string"
-          },
-          "debounce_key": {
-            "type": "string"
-          },
-          "debounce_delay_s": {
-            "type": "integer"
-          },
-          "debounce_args_to_accumulate": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "max_total_debouncing_time": {
-            "type": "integer"
-          },
-          "max_total_debounces_amount": {
-            "type": "integer"
-          },
-          "cache_ttl": {
-            "type": "number"
-          },
-          "cache_ignore_s3_path": {
-            "type": "boolean"
-          },
-          "dedicated_worker": {
+          "has_deploy_errors": {
             "type": "boolean"
           },
           "ws_error_handler_muted": {
-            "type": "boolean"
-          },
-          "priority": {
-            "type": "integer"
-          },
-          "restart_unless_cancelled": {
-            "type": "boolean"
-          },
-          "timeout": {
-            "type": "integer"
-          },
-          "delete_after_secs": {
-            "type": "integer",
-            "description": "If set, delete the job\u0027s args, result and logs after this many seconds following job completion"
-          },
-          "visible_to_runner_only": {
-            "type": "boolean"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope907A57679A"
           },
           "auto_kind": {
             "type": "string"
           },
-          "codebase": {
-            "type": "string"
+          "use_codebase": {
+            "type": "boolean",
+            "description": "Omitted when false."
           },
-          "has_preprocessor": {
-            "type": "boolean"
-          },
-          "on_behalf_of_email": {
-            "type": "string"
-          },
-          "on_behalf_of": {
+          "deployment_msg": {
             "type": "string",
-            "description": "Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it."
-          },
-          "modules": {
-            "$ref": "#/components/schemas/ListScripts200ResponseSchemaItemModules"
+            "description": "Only returned with \u0060with_deployment_msg=true\u0060."
           },
           "labels": {
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "default": []
-          },
-          "job_token_scopes": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239"
+            }
           },
           "inherited_labels": {
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "description": "Labels inherited from the parent folder, computed at read time. Read-only \u2014 edit them on the folder.\n"
+            }
           },
           "is_draft": {
             "type": "boolean",
-            "description": "True when the authed user has a draft for this\nscript \u2014 either no deployed row exists at this\npath (draft-only) or the user saved a per-user\ndraft on top of the deployed row.\n"
+            "description": "True when the authed user has a draft for this\nscript \u2014 either no deployed row exists at this\npath (draft-only) or the user saved a per-user\ndraft on top of the deployed row. Omitted when false.\n"
           },
           "draft_path": {
             "type": "string",
@@ -91228,11 +91893,12 @@
           "draft_users": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ListScripts200ResponseItemDraftUsersItem"
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope7Cdbd1Ecfd"
             },
             "description": "Workspace users (including the authed user, and\nthe legacy NULL-email row if any) who have a\nper-user draft at this path. Drives the home\npage\u0027s user-avatar circles inside the Draft\nbadge. Omitted when no drafts exist.\n"
           }
-        }
+        },
+        "description": "A script as returned by the list endpoint: the deployed row\u0027s summary\nfields, without its content, lock or schema.\n"
       },
       "ListDrafts200ResponseSchemaItem": {
         "required": [
@@ -92018,6 +92684,51 @@
           },
           "expires_at": {
             "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ListSharedAiSessions200ResponseSchemaItem": {
+        "required": [
+          "id",
+          "name",
+          "is_public",
+          "message_count",
+          "created_by",
+          "shared_at",
+          "mine"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "is_public": {
+            "type": "boolean"
+          },
+          "message_count": {
+            "type": "integer"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "shared_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "mine": {
+            "type": "boolean"
+          },
+          "session_id": {
+            "type": "string"
+          },
+          "opened_at": {
+            "type": "string",
+            "description": "when the caller last opened this share by link",
             "format": "date-time"
           }
         }
@@ -96421,15 +97132,6 @@
         "type": "object",
         "description": "JSON Schema for flow inputs. Use this to define input parameters, their types, defaults, and validation. For resource inputs, set type to \u0027object\u0027 and format to \u0027resource-\u003Ctype\u003E\u0027 (e.g., \u0027resource-stripe\u0027)"
       },
-      "ListScripts200ResponseItemDraftUsersItem": {
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
       "ListDrafts200ResponseItemDraftUsersItem": {
         "type": "object",
         "properties": {
@@ -96735,6 +97437,18 @@
         "additionalProperties": {},
         "description": "Environment variables available to all steps. Values can be strings, JSON values, or special references: \u0027$var:path\u0027 (workspace variable) or \u0027$res:path\u0027 (resource)."
       },
+      "RunFlowTestRequestStepsAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "return_value": {
+            "description": "the step is skipped and returns this value"
+          },
+          "function": {
+            "type": "string",
+            "description": "name of a function of the code of \u0060caller_job_id\u0060 that runs instead of the step (exported, in TypeScript)"
+          }
+        }
+      },
       "ListRecentRuns200ResponseItemsItemRunsItem": {
         "required": [
           "id",
@@ -96759,6 +97473,13 @@
             "type": "integer"
           }
         }
+      },
+      "GetJobUpdates200ResponseFlowStatusTestSubflows": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+        },
+        "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
       },
       "GetQueueMetrics200ResponseItemValuesItem": {
         "required": [
@@ -96940,22 +97661,11 @@
           }
         }
       },
-      "ListScripts200ResponseSchemaItemSchema": {
-        "type": "object"
-      },
       "ListScripts200ResponseSchemaItemExtraPerms": {
         "type": "object",
         "additionalProperties": {
           "type": "boolean"
         }
-      },
-      "ListScripts200ResponseSchemaItemModules": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
-        },
-        "description": "Additional script modules keyed by relative file path",
-        "nullable": true
       },
       "ListSelectedJobGroups200PlainResponseSchemaItemLatestSchema": {
         "type": "object"
@@ -97395,10 +98105,10 @@
             "description": "The source code content of this module"
           },
           "language": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf930Ec6E6Fe"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesA6B6Ed37C6"
           },
           "lock": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3721Bf2C4A"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesDd024359B7"
           }
         },
         "description": "An additional module file associated with a script"
@@ -97988,6 +98698,69 @@
             {
               "value": "dbt",
               "name": "Dbt"
+            }
+          ]
+        }
+      },
+      "GetApprovalStepDetail200ResponseStatus": {
+        "enum": [
+          "not_reached",
+          "skipped",
+          "failed",
+          "waiting",
+          "resumed",
+          "not_resumed"
+        ],
+        "type": "string",
+        "description": "not_reached: the step\u0027s own script has not finished yet. failed: the step failed before asking for approval. waiting: the run is suspended on this step. resumed: the run moved past this step. not_resumed: the run ended while waiting (denied, timed out or cancelled).\n",
+        "x-ms-enum": {
+          "name": "GetApprovalStepDetail200ResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "not_reached",
+              "name": "NotReached"
+            },
+            {
+              "value": "skipped",
+              "name": "Skipped"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            },
+            {
+              "value": "waiting",
+              "name": "Waiting"
+            },
+            {
+              "value": "resumed",
+              "name": "Resumed"
+            },
+            {
+              "value": "not_resumed",
+              "name": "NotResumed"
+            }
+          ]
+        }
+      },
+      "GetApprovalStepDetail200ResponseSkin": {
+        "enum": [
+          "detailed",
+          "minimal"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "GetApprovalStepDetail200ResponseSkin",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "detailed",
+              "name": "Detailed"
+            },
+            {
+              "value": "minimal",
+              "name": "Minimal"
             }
           ]
         }
@@ -103117,6 +103890,9 @@
           },
           "squash": {
             "type": "boolean"
+          },
+          "iteration_label": {
+            "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
           },
           "tool_type": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
@@ -110663,6 +111439,39 @@
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro336Cb9644C": {
       "type": "boolean"
     },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProA6C1B2D83B": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      ],
+      "description": "Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs",
+      "x-client-original-discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/SchemasStaticTransform",
+          "javascript": "#/components/schemas/SchemasJavascriptTransform",
+          "ai": "#/components/schemas/SchemasAiTransform",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      }
+    },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProC1Fd7Fba53": {
       "type": "array",
       "items": {
@@ -112244,194 +113053,87 @@
     "YamlPathsWWorkspaceScriptsListGetParameters4Schema88A999Ad05": {
       "type": "string"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf51655De6D9": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope4191C5Bdf6": {
       "type": "string"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf9Da962643D": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope081A72150A": {
       "type": "string"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf8447Eaf997": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeE170F0Db06": {
       "type": "string"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfCa28327054": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "The first element is the direct parent of the script, the second is the parent of the first, etc\n"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf50D80C110C": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope85Caf32486": {
       "type": "string"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB852Bc9896": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf88033Ba9C6": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf1134850Dce": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf2A3Dc41E98": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf732A090Eca": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeCceafd72Da": {
       "type": "string",
       "format": "date-time"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf655C2F9283": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope0Efce7A419": {
       "type": "boolean"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf5Bdbd3Cacc": {
-      "type": "object"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf116435Aabf": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf7906E7F917": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfA3A7D76F86": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope641Ed16C71": {
       "type": "object",
       "additionalProperties": {
         "type": "boolean"
       }
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfF953F2Ff84": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeAf9Ffff677": {
       "type": "boolean"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf21773Bd744": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfE8Bddf616C": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB668E6Ce79": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope0Df24230B3": {
       "type": "boolean"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB813E1D64E": {
-      "type": "string"
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope0185Aa8016": {
+      "type": "boolean",
+      "description": "True on rows built from a draft that was never deployed. Omitted\non deployed rows.\n"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf23D64F3838": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope37Bc0061F9": {
       "type": "boolean"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDaaed970C8": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope500Eeeb827": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope944Fe1Ac81": {
+      "type": "boolean",
+      "description": "Omitted when false."
+    },
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope2C00A166B2": {
+      "type": "string",
+      "description": "Only returned with \u0060with_deployment_msg=true\u0060."
+    },
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope9F3A4E9Dcd": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf79D3D69256": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeE0A7041Cc9": {
       "type": "string"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf2E85Efddea": {
-      "type": "integer"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3B66D340Ca": {
-      "type": "integer"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf15363Ab575": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfAb97437606": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfC1Fff52F2D": {
-      "type": "integer"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfF080Eaca7A": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope4D34Ec6B40": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf27F39A0233": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope430Bb403Dd": {
       "type": "string"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfA2A53C59A3": {
-      "type": "integer"
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope06B85269B4": {
+      "type": "boolean",
+      "description": "True when the authed user has a draft for this\nscript \u2014 either no deployed row exists at this\npath (draft-only) or the user saved a per-user\ndraft on top of the deployed row. Omitted when false.\n"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf12755Fba59": {
-      "type": "integer"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3E2Aeea7A5": {
-      "type": "number"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf48F8E97Aa2": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfAaba0B6250": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfBfaceb2De5": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf596Be7Bb97": {
-      "type": "integer"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfC3Eae6D4Cf": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfD5D138F1F2": {
-      "type": "integer"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfD56Cbc256B": {
-      "type": "integer",
-      "description": "If set, delete the job\u0027s args, result and logs after this many seconds following job completion"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfA0C255C641": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf9B9D1483Af": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf8Cc170E63D": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf1A60C6Cd6A": {
-      "type": "boolean"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3627630B12": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf336F4C5E46": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeCa2E8E608F": {
       "type": "string",
-      "description": "Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it."
+      "description": "User-typed path the editor has staged but not\nyet deployed. Surfaced for draft-only rows so\nthe home list can render the meaningful name\ninstead of the autogenerated\n\u0060u/{user}/draft_{uuid}\u0060 URL path. Omitted\nwhen unchanged.\n"
     },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf85084Ce97C": {
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
-      },
-      "description": "Additional script modules keyed by relative file path",
-      "nullable": true
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfF196B64Db4": {
-      "type": "string",
-      "description": "The source code content of this module"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDe81663118": {
+    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeCa81B6D59E": {
       "type": "array",
       "items": {
-        "type": "string"
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope7Cdbd1Ecfd"
       },
-      "default": []
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfBbcdd60384": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf7Ba98Dbff1": {
-      "type": "string"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf32B3Aa46C4": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Labels inherited from the parent folder, computed at read time. Read-only \u2014 edit them on the folder.\n"
-    },
-    "YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf82B9Ad589B": {
-      "type": "string"
+      "description": "Workspace users (including the authed user, and\nthe legacy NULL-email row if any) who have a\nper-user draft at this path. Drives the home\npage\u0027s user-avatar circles inside the Draft\nbadge. Omitted when no drafts exist.\n"
     },
     "YamlPathsWWorkspaceDraftsTransferPostRequestBodyContentApplicationJsonSchemaPropertieB55B99E4Ef": {
       "type": "string"
@@ -112576,6 +113278,10 @@
       "description": "Additional script modules keyed by relative file path",
       "nullable": true
     },
+    "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesF935925242": {
+      "type": "string",
+      "description": "The source code content of this module"
+    },
     "YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaProperties3Df27C3961": {
       "type": "array",
       "items": {
@@ -112628,6 +113334,191 @@
       "format": "date-time"
     },
     "YamlPathsWWorkspaceScriptsArchiveHHashPostParameters1Schema6Ed3D3694F": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem7A7Abda219": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem4F2C390Fd8": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1F11A3De6F": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1250B91A88": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The first element is the direct parent of the script, the second is the parent of the first, etc\n"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9Aa268822A": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem87A31B9Cb8": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem776F13068F": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemEffb2629E9": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemFa7C99502E": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1Fabe7B3Ec": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem63Eb867Ec7": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9Fdc9469F9": {
+      "type": "object"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemA5Ae0C845B": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemB279A327Be": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemB24E2Da4B4": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem94B4588Fa6": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem3A0Fba15Af": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem123777D026": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem715547F0Ad": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemFcf24Dfbe2": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem59Cb4F39E0": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem2632406A08": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem5C244Aca64": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemB6350Aa47F": {
+      "type": "integer"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem14Dafd4D3B": {
+      "type": "integer"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem41Fab5A47F": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem8B8880A136": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem067A4Babf0": {
+      "type": "integer"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD32297E6E7": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemFaf37D802F": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem2C04722692": {
+      "type": "integer"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem435C8Ec26B": {
+      "type": "integer"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem3280Dd6A79": {
+      "type": "number"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem8Bce870B19": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1110D7958E": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9F78Baabd6": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem54551A7107": {
+      "type": "integer"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem4Fe8173C3C": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD273A85F91": {
+      "type": "integer"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemA4525646E7": {
+      "type": "integer",
+      "description": "If set, delete the job\u0027s args, result and logs after this many seconds following job completion"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem26952Dacf2": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem687B647A37": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemE3Ff9Adb8B": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemAb4C10C37E": {
+      "type": "boolean"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemA87C526B4E": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem0C399Db4Ff": {
+      "type": "string",
+      "description": "Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it."
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemB915644F8B": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9A86E9F45B"
+      },
+      "description": "Additional script modules keyed by relative file path",
+      "nullable": true
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem57145E0F20": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem7124D967D5": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemEb9C7E9021": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemF13Dada1Af": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Labels inherited from the parent folder, computed at read time. Read-only \u2014 edit them on the folder.\n"
+    },
+    "YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem2D5326Cb54": {
       "type": "string"
     },
     "YamlPathsWWorkspaceScriptsGetTriggersCountPathGetResponses200ContentApplicationJs0413967Ff3": {
@@ -114579,6 +115470,13 @@
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr35Cc013B92": {
       "type": "boolean"
     },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr442C97Ec24": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd"
+      },
+      "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
+    },
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrAa469Fd88F": {
       "type": "array",
       "items": {
@@ -114883,6 +115781,13 @@
             "type": "boolean"
           }
         },
+        "flow_jobs_labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd"
+          },
+          "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
+        },
         "flow_jobs_duration": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0"
         },
@@ -114960,6 +115865,13 @@
             "type": "boolean"
           }
         },
+        "flow_jobs_labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd"
+          },
+          "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
+        },
         "flow_jobs_duration": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0"
         },
@@ -115024,6 +115936,27 @@
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr9232909173": {
       "type": "string",
       "format": "uuid"
+    },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB9A5A2Ef04": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A"
+      },
+      "description": "On a root flow, the steps at any depth that failed and that the flow went past because of continue_on_error (at most 100)."
+    },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC683789A20": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrD09Fd91B60": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr101Fda89C0": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+      },
+      "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
     },
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr1D90727506": {
       "type": "string",
@@ -121991,6 +122924,9 @@
         },
         "squash": {
           "type": "boolean"
+        },
+        "iteration_label": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
         }
       },
       "description": "Executes nested modules in a loop over an iterator. Inside the loop, use \u0027flow_input.iter.value\u0027 to access the current iteration value, and \u0027flow_input.iter.index\u0027 for the index. Supports parallel execution for better performance on I/O-bound operations"
@@ -122200,6 +123136,16 @@
         },
         "retry": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrEa380Eef4B"
+        },
+        "continued_on_error": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A"
+          },
+          "description": "On a root flow, the steps at any depth that failed and that the flow went past because of continue_on_error (at most 100)."
+        },
+        "test_subflows": {
+          "$ref": "#/components/schemas/FlowStatusTestSubflows"
         }
       }
     },
@@ -122239,6 +123185,14 @@
           "items": {
             "type": "boolean"
           }
+        },
+        "flow_jobs_labels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
         },
         "flow_jobs_duration": {
           "$ref": "#/components/schemas/FlowStatusModuleFlowJobsDuration"
@@ -124467,6 +125421,108 @@
       },
       "description": "A row in the merged runnables listing. \u0060type\u0060 is the discriminator;\nkind-specific fields (hash/language/kind for scripts, execution_mode/\nversion for apps, agent_memory/ws_specific for agents) are present only\nfor that kind. An agent is an \u0060ai_agent\u0060 resource whose description is\nreported as \u0060summary\u0060. \u0060edited_at\u0060 is the unified last-updated time (a\nscript\u0027s created_at, a flow/app/agent\u0027s edit time).\n"
     },
+    "ListableScript": {
+      "required": [
+        "hash",
+        "path",
+        "summary",
+        "created_at",
+        "archived",
+        "extra_perms",
+        "language",
+        "kind",
+        "starred",
+        "tag",
+        "has_deploy_errors",
+        "ws_error_handler_muted"
+      ],
+      "type": "object",
+      "properties": {
+        "hash": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "archived": {
+          "type": "boolean"
+        },
+        "extra_perms": {
+          "$ref": "#/components/schemas/ListableScriptExtraPerms"
+        },
+        "language": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope72D7Ef54E1"
+        },
+        "kind": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeA8De680F64"
+        },
+        "starred": {
+          "type": "boolean"
+        },
+        "tag": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope6A1E58Ca2D"
+        },
+        "draft_only": {
+          "type": "boolean",
+          "description": "True on rows built from a draft that was never deployed. Omitted\non deployed rows.\n"
+        },
+        "has_deploy_errors": {
+          "type": "boolean"
+        },
+        "ws_error_handler_muted": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope907A57679A"
+        },
+        "auto_kind": {
+          "type": "string"
+        },
+        "use_codebase": {
+          "type": "boolean",
+          "description": "Omitted when false."
+        },
+        "deployment_msg": {
+          "type": "string",
+          "description": "Only returned with \u0060with_deployment_msg=true\u0060."
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "inherited_labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "is_draft": {
+          "type": "boolean",
+          "description": "True when the authed user has a draft for this\nscript \u2014 either no deployed row exists at this\npath (draft-only) or the user saved a per-user\ndraft on top of the deployed row. Omitted when false.\n"
+        },
+        "draft_path": {
+          "type": "string",
+          "description": "User-typed path the editor has staged but not\nyet deployed. Surfaced for draft-only rows so\nthe home list can render the meaningful name\ninstead of the autogenerated\n\u0060u/{user}/draft_{uuid}\u0060 URL path. Omitted\nwhen unchanged.\n"
+        },
+        "draft_users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope7Cdbd1Ecfd"
+          },
+          "description": "Workspace users (including the authed user, and\nthe legacy NULL-email row if any) who have a\nper-user draft at this path. Drives the home\npage\u0027s user-avatar circles inside the Draft\nbadge. Omitted when no drafts exist.\n"
+        }
+      },
+      "description": "A script as returned by the list endpoint: the deployed row\u0027s summary\nfields, without its content, lock or schema.\n"
+    },
     "Script": {
       "required": [
         "hash",
@@ -124541,10 +125597,10 @@
           "type": "string"
         },
         "language": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa"
         },
         "kind": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019"
         },
         "starred": {
           "type": "boolean"
@@ -124568,7 +125624,7 @@
           "type": "integer"
         },
         "on_concurrency_limit": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3"
         },
         "concurrency_key": {
           "type": "string"
@@ -124646,7 +125702,7 @@
           "default": []
         },
         "job_token_scopes": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem90312B3B59"
         },
         "inherited_labels": {
           "type": "array",
@@ -126770,10 +127826,10 @@
           "description": "The source code content of this module"
         },
         "language": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf930Ec6E6Fe"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesA6B6Ed37C6"
         },
         "lock": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf3721Bf2C4A"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsCreatePostRequestBodyContentApplicationJsonSchemaPropertiesDd024359B7"
         }
       },
       "description": "An additional module file associated with a script"
@@ -137251,6 +138307,9 @@
         },
         "squash": {
           "type": "boolean"
+        },
+        "iteration_label": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
         }
       },
       "description": "Executes nested modules in a loop over an iterator. Inside the loop, use \u0027flow_input.iter.value\u0027 to access the current iteration value, and \u0027flow_input.iter.index\u0027 for the index. Supports parallel execution for better performance on I/O-bound operations"
@@ -138309,6 +139368,13 @@
             "type": "boolean"
           }
         },
+        "flow_jobs_labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr952A1026Cd"
+          },
+          "description": "For a for-loop step whose iteration_label is set, each iteration\u0027s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing"
+        },
         "flow_jobs_duration": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0"
         },
@@ -138737,6 +139803,9 @@
         },
         "squash": {
           "type": "boolean"
+        },
+        "iteration_label": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
         }
       },
       "description": "Executes nested modules in a loop over an iterator. Inside the loop, use \u0027flow_input.iter.value\u0027 to access the current iteration value, and \u0027flow_input.iter.index\u0027 for the index. Supports parallel execution for better performance on I/O-bound operations"
@@ -139053,6 +140122,39 @@
       }
     },
     "ForloopFlowParallelism": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566"
+        },
+        {
+          "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      ],
+      "description": "Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs",
+      "x-client-original-discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/SchemasStaticTransform",
+          "javascript": "#/components/schemas/SchemasJavascriptTransform",
+          "ai": "#/components/schemas/SchemasAiTransform",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      },
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "static": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F",
+          "javascript": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro26148C9566",
+          "ai": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7B0994E389"
+        }
+      }
+    },
+    "ForloopFlowIterationLabel": {
       "oneOf": [
         {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro29Ad46B47F"
@@ -142416,6 +143518,15 @@
     "UnshareAiArtifact200PlainResponse": {
       "type": "string"
     },
+    "ListSharedAiSessions200Response": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ListSharedAiSessions200ResponseItem"
+      }
+    },
+    "ForgetOpenedAiSession200PlainResponse": {
+      "type": "string"
+    },
     "UnshareAiSession200PlainResponse": {
       "type": "string"
     },
@@ -142549,6 +143660,10 @@
       "format": "uuid"
     },
     "RunFlowDependenciesAsync201PlainResponse": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "RunFlowTest201PlainResponse": {
       "type": "string",
       "format": "uuid"
     },
@@ -144060,6 +145175,13 @@
       },
       "description": "Host-local wiring for an agent\u0027s tool inputs, keyed by tool id then input key. Binds the\nreferenced agent\u0027s tools to this flow\u0027s context (flow_input/results) without mutating the\nshared resource; overlaid onto the tools\u0027 input_transforms at runtime \u2014 including when\n\u0060agent\u0060 is unset, since a step forked for editing keeps these overrides until it is saved\nback or unlinked.\n"
     },
+    "FlowStatusTestSubflows": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+      },
+      "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
+    },
     "AutoInviteConfigInstanceGroupsRoles": {
       "type": "object",
       "additionalProperties": {
@@ -144191,6 +145313,12 @@
     "RunnableItemDraftUsersItem": {
       "type": "object"
     },
+    "ListableScriptExtraPerms": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    },
     "ScriptSchema": {
       "type": "object"
     },
@@ -144203,7 +145331,7 @@
     "ScriptModules": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem9A86E9F45B"
       },
       "description": "Additional script modules keyed by relative file path",
       "nullable": true
@@ -146464,47 +147592,28 @@
         "hash",
         "path",
         "summary",
-        "description",
-        "content",
-        "created_by",
         "created_at",
         "archived",
-        "deleted",
-        "is_template",
         "extra_perms",
         "language",
         "kind",
         "starred",
-        "has_preprocessor"
+        "tag",
+        "has_deploy_errors",
+        "ws_error_handler_muted"
       ],
       "type": "object",
       "properties": {
-        "workspace_id": {
-          "type": "string"
-        },
         "hash": {
           "type": "string"
         },
         "path": {
           "type": "string"
         },
-        "parent_hashes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "The first element is the direct parent of the script, the second is the parent of the first, etc\n"
-        },
         "summary": {
           "type": "string"
         },
         "description": {
-          "type": "string"
-        },
-        "content": {
-          "type": "string"
-        },
-        "created_by": {
           "type": "string"
         },
         "created_at": {
@@ -146514,142 +147623,57 @@
         "archived": {
           "type": "boolean"
         },
-        "schema": {
-          "$ref": "#/components/schemas/ListScripts200ResponseItemSchema"
-        },
-        "deleted": {
-          "type": "boolean"
-        },
-        "is_template": {
-          "type": "boolean"
-        },
         "extra_perms": {
           "$ref": "#/components/schemas/ListScripts200ResponseItemExtraPerms"
         },
-        "lock": {
-          "type": "string"
-        },
-        "lock_error_logs": {
-          "type": "string"
-        },
         "language": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope72D7Ef54E1"
         },
         "kind": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPropeA8De680F64"
         },
         "starred": {
           "type": "boolean"
         },
         "tag": {
-          "type": "string"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope6A1E58Ca2D"
         },
         "draft_only": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "True on rows built from a draft that was never deployed. Omitted\non deployed rows.\n"
         },
-        "envs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "concurrent_limit": {
-          "type": "integer"
-        },
-        "concurrency_time_window_s": {
-          "type": "integer"
-        },
-        "on_concurrency_limit": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D"
-        },
-        "concurrency_key": {
-          "type": "string"
-        },
-        "debounce_key": {
-          "type": "string"
-        },
-        "debounce_delay_s": {
-          "type": "integer"
-        },
-        "debounce_args_to_accumulate": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "max_total_debouncing_time": {
-          "type": "integer"
-        },
-        "max_total_debounces_amount": {
-          "type": "integer"
-        },
-        "cache_ttl": {
-          "type": "number"
-        },
-        "cache_ignore_s3_path": {
-          "type": "boolean"
-        },
-        "dedicated_worker": {
+        "has_deploy_errors": {
           "type": "boolean"
         },
         "ws_error_handler_muted": {
-          "type": "boolean"
-        },
-        "priority": {
-          "type": "integer"
-        },
-        "restart_unless_cancelled": {
-          "type": "boolean"
-        },
-        "timeout": {
-          "type": "integer"
-        },
-        "delete_after_secs": {
-          "type": "integer",
-          "description": "If set, delete the job\u0027s args, result and logs after this many seconds following job completion"
-        },
-        "visible_to_runner_only": {
-          "type": "boolean"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope907A57679A"
         },
         "auto_kind": {
           "type": "string"
         },
-        "codebase": {
-          "type": "string"
+        "use_codebase": {
+          "type": "boolean",
+          "description": "Omitted when false."
         },
-        "has_preprocessor": {
-          "type": "boolean"
-        },
-        "on_behalf_of_email": {
-          "type": "string"
-        },
-        "on_behalf_of": {
+        "deployment_msg": {
           "type": "string",
-          "description": "Authorization identity the runnable runs as: u/{username}, g/{group}, or a bare email when the username is itself email-shaped. The only stored half of the identity; on_behalf_of_email is derived from it."
-        },
-        "modules": {
-          "$ref": "#/components/schemas/ListScripts200ResponseItemModules"
+          "description": "Only returned with \u0060with_deployment_msg=true\u0060."
         },
         "labels": {
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "default": []
-        },
-        "job_token_scopes": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB8C0E29239"
+          }
         },
         "inherited_labels": {
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "description": "Labels inherited from the parent folder, computed at read time. Read-only \u2014 edit them on the folder.\n"
+          }
         },
         "is_draft": {
           "type": "boolean",
-          "description": "True when the authed user has a draft for this\nscript \u2014 either no deployed row exists at this\npath (draft-only) or the user saved a per-user\ndraft on top of the deployed row.\n"
+          "description": "True when the authed user has a draft for this\nscript \u2014 either no deployed row exists at this\npath (draft-only) or the user saved a per-user\ndraft on top of the deployed row. Omitted when false.\n"
         },
         "draft_path": {
           "type": "string",
@@ -146658,11 +147682,12 @@
         "draft_users": {
           "type": "array",
           "items": {
-            "$ref": "#/components/schemas/ListScripts200ResponseItemDraftUsersItem"
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsPrope7Cdbd1Ecfd"
           },
           "description": "Workspace users (including the authed user, and\nthe legacy NULL-email row if any) who have a\nper-user draft at this path. Drives the home\npage\u0027s user-avatar circles inside the Draft\nbadge. Omitted when no drafts exist.\n"
         }
-      }
+      },
+      "description": "A script as returned by the list endpoint: the deployed row\u0027s summary\nfields, without its content, lock or schema.\n"
     },
     "ListDrafts200ResponseItem": {
       "required": [
@@ -147448,6 +148473,51 @@
         },
         "expires_at": {
           "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ListSharedAiSessions200ResponseItem": {
+      "required": [
+        "id",
+        "name",
+        "is_public",
+        "message_count",
+        "created_by",
+        "shared_at",
+        "mine"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "is_public": {
+          "type": "boolean"
+        },
+        "message_count": {
+          "type": "integer"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "shared_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mine": {
+          "type": "boolean"
+        },
+        "session_id": {
+          "type": "string"
+        },
+        "opened_at": {
+          "type": "string",
+          "description": "when the caller last opened this share by link",
           "format": "date-time"
         }
       }
@@ -151691,22 +152761,11 @@
         }
       }
     },
-    "ListScripts200ResponseItemSchema": {
-      "type": "object"
-    },
     "ListScripts200ResponseItemExtraPerms": {
       "type": "object",
       "additionalProperties": {
         "type": "boolean"
       }
-    },
-    "ListScripts200ResponseItemModules": {
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "#/components/schemas/YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfB72Ff463Ab"
-      },
-      "description": "Additional script modules keyed by relative file path",
-      "nullable": true
     },
     "ListSelectedJobGroups200PlainResponseItemLatestSchema": {
       "type": "object"
@@ -154491,6 +155550,9 @@
         "squash": {
           "type": "boolean"
         },
+        "iteration_label": {
+          "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
+        },
         "tool_type": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
         }
@@ -156393,6 +157455,9 @@
             },
             "squash": {
               "type": "boolean"
+            },
+            "iteration_label": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
             }
           },
           "description": "Executes nested modules in a loop over an iterator. Inside the loop, use \u0027flow_input.iter.value\u0027 to access the current iteration value, and \u0027flow_input.iter.index\u0027 for the index. Supports parallel execution for better performance on I/O-bound operations"
@@ -157120,6 +158185,9 @@
             "squash": {
               "type": "boolean"
             },
+            "iteration_label": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
+            },
             "tool_type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"
             }
@@ -157803,6 +158871,9 @@
             },
             "squash": {
               "type": "boolean"
+            },
+            "iteration_label": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
             }
           },
           "description": "Executes nested modules in a loop over an iterator. Inside the loop, use \u0027flow_input.iter.value\u0027 to access the current iteration value, and \u0027flow_input.iter.index\u0027 for the index. Supports parallel execution for better performance on I/O-bound operations"
@@ -158550,6 +159621,9 @@
             },
             "squash": {
               "type": "boolean"
+            },
+            "iteration_label": {
+              "$ref": "#/components/schemas/AiAgentToolInputsAdditionalPropertiesAdditionalProperties"
             },
             "tool_type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProBc69230A1C"

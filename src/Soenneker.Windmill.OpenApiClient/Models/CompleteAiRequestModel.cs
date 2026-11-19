@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// defaults to the AI config&apos;s default model
+    /// defaults to the AI config&apos;s default model. Must be enabled in the AI settings, or be the default, metadata or code-completion model.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CompleteAiRequestModel : IAdditionalDataHolder, IParsable

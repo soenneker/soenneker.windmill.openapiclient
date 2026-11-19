@@ -327,8 +327,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         private List<string> _explicitNullValueJobTokenScopes = default!;
 #endif
         /// <summary>The kind property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da? _explicitNullValueKind = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019? Kind { get => _explicitNullValueKind; set { _explicitNullValueKind = value; AdditionalData?.Remove("kind"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kind"); else _explicitNullProperties?.Remove("kind"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019? _explicitNullValueKind = default!;
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -340,8 +340,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         private List<string> _explicitNullValueLabels = default!;
 #endif
         /// <summary>The language property</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb? _explicitNullValueLanguage = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa? Language { get => _explicitNullValueLanguage; set { _explicitNullValueLanguage = value; AdditionalData?.Remove("language"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language"); else _explicitNullProperties?.Remove("language"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa? _explicitNullValueLanguage = default!;
         /// <summary>The lock property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -402,8 +402,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         private string _explicitNullValueOnBehalfOfEmail = default!;
 #endif
         /// <summary>What a run does when its concurrency limit is reached when a worker picks it up. `queue` (default) re-queues it to a later slot, `fail` ends it immediately as failed.</summary>
-        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D? OnConcurrencyLimit { get => _explicitNullValueOnConcurrencyLimit; set { _explicitNullValueOnConcurrencyLimit = value; AdditionalData?.Remove("on_concurrency_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_concurrency_limit"); else _explicitNullProperties?.Remove("on_concurrency_limit"); } }
-        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D? _explicitNullValueOnConcurrencyLimit = default!;
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3? OnConcurrencyLimit { get => _explicitNullValueOnConcurrencyLimit; set { _explicitNullValueOnConcurrencyLimit = value; AdditionalData?.Remove("on_concurrency_limit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("on_concurrency_limit"); else _explicitNullProperties?.Remove("on_concurrency_limit"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3? _explicitNullValueOnConcurrencyLimit = default!;
         /// <summary>Other workspace users (and the legacy NULL-email row, if any)with a saved draft at the same path. Populated only on theauthed user&apos;s &quot;get by path&quot; responses for kinds the editorsurfaces a fork banner for (script, flow, app, raw_app).Empty / omitted for kinds without that UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -547,9 +547,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_draft", n => { IsDraft = n.GetBoolValue(); } },
                 { "is_template", n => { IsTemplate = n.GetBoolValue(); } },
                 { "job_token_scopes", n => { JobTokenScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
+                { "kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueKind = default; _explicitNullProperties?.Remove("kind"); AdditionalData["kind"] = unknown; } else { Kind = parsed; AdditionalData.Remove("kind"); } } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "language", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLanguage = default; _explicitNullProperties?.Remove("language"); AdditionalData["language"] = unknown; } else { Language = parsed; AdditionalData.Remove("language"); } } },
+                { "language", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLanguage = default; _explicitNullProperties?.Remove("language"); AdditionalData["language"] = unknown; } else { Language = parsed; AdditionalData.Remove("language"); } } },
                 { "lock", n => { Lock = n.GetStringValue(); } },
                 { "lock_error_logs", n => { LockErrorLogs = n.GetStringValue(); } },
                 { "max_total_debounces_amount", n => { MaxTotalDebouncesAmount = n.GetIntValue(); } },
@@ -558,7 +558,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
                 { "on_behalf_of", n => { OnBehalfOf = n.GetStringValue(); } },
                 { "on_behalf_of_email", n => { OnBehalfOfEmail = n.GetStringValue(); } },
-                { "on_concurrency_limit", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOnConcurrencyLimit = default; _explicitNullProperties?.Remove("on_concurrency_limit"); AdditionalData["on_concurrency_limit"] = unknown; } else { OnConcurrencyLimit = parsed; AdditionalData.Remove("on_concurrency_limit"); } } },
+                { "on_concurrency_limit", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOnConcurrencyLimit = default; _explicitNullProperties?.Remove("on_concurrency_limit"); AdditionalData["on_concurrency_limit"] = unknown; } else { OnConcurrencyLimit = parsed; AdditionalData.Remove("on_concurrency_limit"); } } },
                 { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "parent_hashes", n => { ParentHashes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
@@ -611,9 +611,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_draft", IsDraft);
             writer.WriteBoolValue("is_template", IsTemplate);
             writer.WriteCollectionOfPrimitiveValues<string>("job_token_scopes", JobTokenScopes);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfFff81205Da>("kind", Kind);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchemD347B2A019>("kind", Kind);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOf6A20576Fdb>("language", Language);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem1933C958Fa>("language", Language);
             writer.WriteStringValue("lock", Lock);
             writer.WriteStringValue("lock_error_logs", LockErrorLogs);
             writer.WriteIntValue("max_total_debounces_amount", MaxTotalDebouncesAmount);
@@ -622,7 +622,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("no_deployed", NoDeployed);
             writer.WriteStringValue("on_behalf_of", OnBehalfOf);
             writer.WriteStringValue("on_behalf_of_email", OnBehalfOfEmail);
-            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D>("on_concurrency_limit", OnConcurrencyLimit);
+            writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3>("on_concurrency_limit", OnConcurrencyLimit);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4>("other_drafts_users", OtherDraftsUsers);
             writer.WriteCollectionOfPrimitiveValues<string>("parent_hashes", ParentHashes);
             writer.WriteStringValue("path", Path);

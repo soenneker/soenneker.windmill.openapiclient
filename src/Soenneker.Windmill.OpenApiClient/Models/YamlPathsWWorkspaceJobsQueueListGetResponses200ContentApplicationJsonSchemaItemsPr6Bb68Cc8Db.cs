@@ -35,6 +35,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("flow_jobs") is { } nullNodeFlowJobs && nullNodeFlowJobs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobs = null;
             if (parseNode.GetChildNode("flow_jobs_duration") is null) { _explicitNullValueFlowJobsDuration = default!; _explicitNullProperties?.Remove("flow_jobs_duration"); }
             else if (parseNode.GetChildNode("flow_jobs_duration") is { } nullNodeFlowJobsDuration && nullNodeFlowJobsDuration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobsDuration = null;
+            if (parseNode.GetChildNode("flow_jobs_labels") is null) { _explicitNullValueFlowJobsLabels = default!; _explicitNullProperties?.Remove("flow_jobs_labels"); }
+            else if (parseNode.GetChildNode("flow_jobs_labels") is { } nullNodeFlowJobsLabels && nullNodeFlowJobsLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobsLabels = null;
             if (parseNode.GetChildNode("flow_jobs_success") is null) { _explicitNullValueFlowJobsSuccess = default!; _explicitNullProperties?.Remove("flow_jobs_success"); }
             else if (parseNode.GetChildNode("flow_jobs_success") is { } nullNodeFlowJobsSuccess && nullNodeFlowJobsSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobsSuccess = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
@@ -138,6 +140,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0 FlowJobsDuration { get => _explicitNullValueFlowJobsDuration; set { _explicitNullValueFlowJobsDuration = value; AdditionalData?.Remove("flow_jobs_duration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs_duration"); else _explicitNullProperties?.Remove("flow_jobs_duration"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0 _explicitNullValueFlowJobsDuration = default!;
 #endif
+        /// <summary>For a for-loop step whose iteration_label is set, each iteration&apos;s label, aligned with flow_jobs. An entry is null when its label evaluated to nothing</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? FlowJobsLabels { get => _explicitNullValueFlowJobsLabels; set { _explicitNullValueFlowJobsLabels = value; AdditionalData?.Remove("flow_jobs_labels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs_labels"); else _explicitNullProperties?.Remove("flow_jobs_labels"); } }
+        private List<string>? _explicitNullValueFlowJobsLabels = default!;
+#nullable restore
+#else
+        public List<string> FlowJobsLabels { get => _explicitNullValueFlowJobsLabels; set { _explicitNullValueFlowJobsLabels = value; AdditionalData?.Remove("flow_jobs_labels"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_jobs_labels"); else _explicitNullProperties?.Remove("flow_jobs_labels"); } }
+        private List<string> _explicitNullValueFlowJobsLabels = default!;
+#endif
         /// <summary>The flow_jobs_success property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -213,7 +225,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(17)
+            return new Dictionary<string, Action<IParseNode>>(18)
             {
                 { "agent_actions", n => { AgentActions = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr2B86Af9056.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "agent_actions_success", n => { AgentActionsSuccess = n.GetCollectionOfPrimitiveValues<bool?>()?.AsList(); } },
@@ -224,6 +236,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "failed_retries", n => { FailedRetries = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "flow_jobs", n => { FlowJobs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "flow_jobs_duration", n => { FlowJobsDuration = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0.CreateFromDiscriminatorValue); } },
+                { "flow_jobs_labels", n => { FlowJobsLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "flow_jobs_success", n => { FlowJobsSuccess = n.GetCollectionOfPrimitiveValues<bool?>()?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "iterator", n => { Iterator = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB361F8677F>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB361F8677F.CreateFromDiscriminatorValue); } },
@@ -250,6 +263,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<Guid?>("failed_retries", FailedRetries);
             writer.WriteCollectionOfPrimitiveValues<string>("flow_jobs", FlowJobs);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB7Af32A7A0>("flow_jobs_duration", FlowJobsDuration);
+            writer.WriteCollectionOfPrimitiveValues<string>("flow_jobs_labels", FlowJobsLabels);
             writer.WriteCollectionOfPrimitiveValues<bool?>("flow_jobs_success", FlowJobsSuccess);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB361F8677F>("iterator", Iterator);

@@ -27,6 +27,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("is_public") is { } nullNodeIsPublic && nullNodeIsPublic.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsPublic = null;
             if (parseNode.GetChildNode("message_count") is null) { _explicitNullValueMessageCount = default!; _explicitNullProperties?.Remove("message_count"); }
             else if (parseNode.GetChildNode("message_count") is { } nullNodeMessageCount && nullNodeMessageCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageCount = null;
+            if (parseNode.GetChildNode("mine") is null) { _explicitNullValueMine = default!; _explicitNullProperties?.Remove("mine"); }
+            else if (parseNode.GetChildNode("mine") is { } nullNodeMine && nullNodeMine.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mine = null;
             if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
             else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
             if (parseNode.GetChildNode("shared_at") is null) { _explicitNullValueSharedAt = default!; _explicitNullProperties?.Remove("shared_at"); }
@@ -59,6 +61,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The message_count property</summary>
         public int? MessageCount { get => _explicitNullValueMessageCount; set { _explicitNullValueMessageCount = value; AdditionalData?.Remove("message_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message_count"); else _explicitNullProperties?.Remove("message_count"); } }
         private int? _explicitNullValueMessageCount = default!;
+        /// <summary>whether the caller authored the share</summary>
+        public bool? Mine { get => _explicitNullValueMine; set { _explicitNullValueMine = value; AdditionalData?.Remove("mine"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mine"); else _explicitNullProperties?.Remove("mine"); } }
+        private bool? _explicitNullValueMine = default!;
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,13 +110,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(8)
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "can_unshare", n => { CanUnshare = n.GetBoolValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "is_public", n => { IsPublic = n.GetBoolValue(); } },
                 { "message_count", n => { MessageCount = n.GetIntValue(); } },
+                { "mine", n => { Mine = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "shared_at", n => { SharedAt = n.GetDateTimeOffsetValue(); } },
                 { "snapshot", n => { Snapshot = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSharedAiSession200ResponseSnapshot>(global::Soenneker.Windmill.OpenApiClient.Models.GetSharedAiSession200ResponseSnapshot.CreateFromDiscriminatorValue); } },
@@ -129,6 +135,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteBoolValue("is_public", IsPublic);
             writer.WriteIntValue("message_count", MessageCount);
+            writer.WriteBoolValue("mine", Mine);
             writer.WriteStringValue("name", Name);
             writer.WriteDateTimeOffsetValue("shared_at", SharedAt);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetSharedAiSession200ResponseSnapshot>("snapshot", Snapshot);

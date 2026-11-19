@@ -3,6 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Delete;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Opened;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Set_public;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Share;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Status;
@@ -22,6 +24,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Delete.DeleteRequestBuilder DeletePath
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Delete.DeleteRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The list property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.List.ListRequestBuilder List
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The opened property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Opened.OpenedRequestBuilder Opened
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Opened.OpenedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The set_public property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai.Shared_sessions.Set_public.Set_publicRequestBuilder Set_public

@@ -5,7 +5,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>What a run does when its concurrency limit is reached when a worker picks it up. `queue` (default) re-queues it to a later slot, `fail` ends it immediately as failed.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum YamlPathsWWorkspaceScriptsListGetResponses200ContentApplicationJsonSchemaItemsAllOfDa66E2595D
+    public enum YamlPathsWWorkspaceScriptsArchiveHHashPostResponses200ContentApplicationJsonSchem75807453C3
     {
         [EnumMember(Value = "queue")]
         #pragma warning disable CS1591

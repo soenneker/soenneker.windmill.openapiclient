@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow.Approval_step_detail;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow.Resume;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow.User_states;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FlowRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The approval_step_detail property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow.Approval_step_detail.Approval_step_detailRequestBuilder Approval_step_detail
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow.Approval_step_detail.Approval_step_detailRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The resume property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Flow.Resume.ResumeRequestBuilder Resume
         {

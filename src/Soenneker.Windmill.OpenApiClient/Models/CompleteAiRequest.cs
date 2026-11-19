@@ -32,7 +32,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The max_tokens property</summary>
         public int? MaxTokens { get => _explicitNullValueMaxTokens; set { _explicitNullValueMaxTokens = value; AdditionalData?.Remove("max_tokens"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_tokens"); else _explicitNullProperties?.Remove("max_tokens"); } }
         private int? _explicitNullValueMaxTokens = default!;
-        /// <summary>defaults to the AI config&apos;s default model</summary>
+        /// <summary>defaults to the AI config&apos;s default model. Must be enabled in the AI settings, or be the default, metadata or code-completion model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.CompleteAiRequestModel? Model { get => _explicitNullValueModel; set { _explicitNullValueModel = value; AdditionalData?.Remove("model"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("model"); else _explicitNullProperties?.Remove("model"); } }

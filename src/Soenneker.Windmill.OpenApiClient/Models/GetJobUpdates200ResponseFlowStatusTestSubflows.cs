@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
+    /// <summary>
+    /// In a flow test run, deployed subflow path -&gt; the flow value with the test&apos;s step overrides applied, run in place of the deployed subflow.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ListScripts200ResponseSchemaItemSchema : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class GetJobUpdates200ResponseFlowStatusTestSubflows : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -22,21 +23,21 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusTestSubflows"/> and sets the default values.
         /// </summary>
-        public ListScripts200ResponseSchemaItemSchema()
+        public GetJobUpdates200ResponseFlowStatusTestSubflows()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusTestSubflows"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusTestSubflows CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.ListScripts200ResponseSchemaItemSchema(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Windmill.OpenApiClient.Models.GetJobUpdates200ResponseFlowStatusTestSubflows(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

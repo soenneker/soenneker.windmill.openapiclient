@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dependencies_async;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Dynamic_select;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.F;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_dependencies_async;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_test;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Fv;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.H;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.P;
@@ -60,6 +61,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_dependencies_async.Flow_dependencies_asyncRequestBuilder Flow_dependencies_async
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_dependencies_async.Flow_dependencies_asyncRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The flow_test property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_test.Flow_testRequestBuilder Flow_test
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Flow_test.Flow_testRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The fv property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Run.Fv.FvRequestBuilder Fv

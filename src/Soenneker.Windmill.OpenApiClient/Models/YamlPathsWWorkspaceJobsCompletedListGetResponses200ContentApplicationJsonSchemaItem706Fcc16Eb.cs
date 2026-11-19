@@ -17,6 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("continued_on_error") is null) { _explicitNullValueContinuedOnError = default!; _explicitNullProperties?.Remove("continued_on_error"); }
+            else if (parseNode.GetChildNode("continued_on_error") is { } nullNodeContinuedOnError && nullNodeContinuedOnError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContinuedOnError = null;
             if (parseNode.GetChildNode("failure_module") is null) { _explicitNullValueFailureModule = default!; _explicitNullProperties?.Remove("failure_module"); }
             else if (parseNode.GetChildNode("failure_module") is { } nullNodeFailureModule && nullNodeFailureModule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureModule = null;
             if (parseNode.GetChildNode("modules") is null) { _explicitNullValueModules = default!; _explicitNullProperties?.Remove("modules"); }
@@ -27,12 +29,24 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("retry") is { } nullNodeRetry && nullNodeRetry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Retry = null;
             if (parseNode.GetChildNode("step") is null) { _explicitNullValueStep = default!; _explicitNullProperties?.Remove("step"); }
             else if (parseNode.GetChildNode("step") is { } nullNodeStep && nullNodeStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Step = null;
+            if (parseNode.GetChildNode("test_subflows") is null) { _explicitNullValueTestSubflows = default!; _explicitNullProperties?.Remove("test_subflows"); }
+            else if (parseNode.GetChildNode("test_subflows") is { } nullNodeTestSubflows && nullNodeTestSubflows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TestSubflows = null;
             if (parseNode.GetChildNode("user_states") is null) { _explicitNullValueUserStates = default!; _explicitNullProperties?.Remove("user_states"); }
             else if (parseNode.GetChildNode("user_states") is { } nullNodeUserStates && nullNodeUserStates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserStates = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>On a root flow, the steps at any depth that failed and that the flow went past because of continue_on_error (at most 100).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A>? ContinuedOnError { get => _explicitNullValueContinuedOnError; set { _explicitNullValueContinuedOnError = value; AdditionalData?.Remove("continued_on_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("continued_on_error"); else _explicitNullProperties?.Remove("continued_on_error"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A>? _explicitNullValueContinuedOnError = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A> ContinuedOnError { get => _explicitNullValueContinuedOnError; set { _explicitNullValueContinuedOnError = value; AdditionalData?.Remove("continued_on_error"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("continued_on_error"); else _explicitNullProperties?.Remove("continued_on_error"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A> _explicitNullValueContinuedOnError = default!;
+#endif
         /// <summary>The failure_module property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,6 +90,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The step property</summary>
         public int? Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; AdditionalData?.Remove("step"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
         private int? _explicitNullValueStep = default!;
+        /// <summary>In a flow test run, deployed subflow path -&gt; the flow value with the test&apos;s step overrides applied, run in place of the deployed subflow.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows? TestSubflows { get => _explicitNullValueTestSubflows; set { _explicitNullValueTestSubflows = value; AdditionalData?.Remove("test_subflows"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_subflows"); else _explicitNullProperties?.Remove("test_subflows"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows? _explicitNullValueTestSubflows = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows TestSubflows { get => _explicitNullValueTestSubflows; set { _explicitNullValueTestSubflows = value; AdditionalData?.Remove("test_subflows"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("test_subflows"); else _explicitNullProperties?.Remove("test_subflows"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows _explicitNullValueTestSubflows = default!;
+#endif
         /// <summary>The user_states property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -109,13 +133,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(6)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
+                { "continued_on_error", n => { ContinuedOnError = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "failure_module", n => { FailureModule = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr6Bb68Cc8Db>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr6Bb68Cc8Db.CreateFromDiscriminatorValue); } },
                 { "modules", n => { Modules = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrE7D9F414D3>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrE7D9F414D3.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "preprocessor_module", n => { PreprocessorModule = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrD54B45992F>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrD54B45992F.CreateFromDiscriminatorValue); } },
                 { "retry", n => { Retry = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrEa380Eef4B>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrEa380Eef4B.CreateFromDiscriminatorValue); } },
                 { "step", n => { Step = n.GetIntValue(); } },
+                { "test_subflows", n => { TestSubflows = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows.CreateFromDiscriminatorValue); } },
                 { "user_states", n => { UserStates = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -126,11 +152,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrB4B716438A>("continued_on_error", ContinuedOnError);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr6Bb68Cc8Db>("failure_module", FailureModule);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrE7D9F414D3>("modules", Modules);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrD54B45992F>("preprocessor_module", PreprocessorModule);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrEa380Eef4B>("retry", Retry);
             writer.WriteIntValue("step", Step);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows>("test_subflows", TestSubflows);
             writer.WriteObjectValue<UntypedNode>("user_states", UserStates);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

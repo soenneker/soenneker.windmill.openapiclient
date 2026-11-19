@@ -42,6 +42,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("input_transforms") is { } nullNodeInputTransforms && nullNodeInputTransforms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputTransforms = null;
             if (parseNode.GetChildNode("is_trigger") is null) { _explicitNullValueIsTrigger = default!; _explicitNullProperties?.Remove("is_trigger"); }
             else if (parseNode.GetChildNode("is_trigger") is { } nullNodeIsTrigger && nullNodeIsTrigger.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsTrigger = null;
+            if (parseNode.GetChildNode("iteration_label") is null) { _explicitNullValueIterationLabel = default!; _explicitNullProperties?.Remove("iteration_label"); }
+            else if (parseNode.GetChildNode("iteration_label") is { } nullNodeIterationLabel && nullNodeIterationLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IterationLabel = null;
             if (parseNode.GetChildNode("iterator") is null) { _explicitNullValueIterator = default!; _explicitNullProperties?.Remove("iterator"); }
             else if (parseNode.GetChildNode("iterator") is { } nullNodeIterator && nullNodeIterator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Iterator = null;
             if (parseNode.GetChildNode("language") is null) { _explicitNullValueLanguage = default!; _explicitNullProperties?.Remove("language"); }
@@ -176,6 +178,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>If true, this script is a trigger that can start the flow</summary>
         public bool? IsTrigger { get => _explicitNullValueIsTrigger; set { _explicitNullValueIsTrigger = value; AdditionalData?.Remove("is_trigger"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_trigger"); else _explicitNullProperties?.Remove("is_trigger"); } }
         private bool? _explicitNullValueIsTrigger = default!;
+        /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? IterationLabel { get => _explicitNullValueIterationLabel; set { _explicitNullValueIterationLabel = value; AdditionalData?.Remove("iteration_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iteration_label"); else _explicitNullProperties?.Remove("iteration_label"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? _explicitNullValueIterationLabel = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties IterationLabel { get => _explicitNullValueIterationLabel; set { _explicitNullValueIterationLabel = value; AdditionalData?.Remove("iteration_label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iteration_label"); else _explicitNullProperties?.Remove("iteration_label"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties _explicitNullValueIterationLabel = default!;
+#endif
         /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -322,7 +334,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(31)
+            return new Dictionary<string, Action<IParseNode>>(32)
             {
                 { "agent", n => { Agent = n.GetStringValue(); } },
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro02041F16B5>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro02041F16B5.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -336,6 +348,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "hash", n => { Hash = n.GetStringValue(); } },
                 { "input_transforms", n => { InputTransforms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689InputTransforms>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689InputTransforms.CreateFromDiscriminatorValue); } },
                 { "is_trigger", n => { IsTrigger = n.GetBoolValue(); } },
+                { "iteration_label", n => { IterationLabel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "iterator", n => { Iterator = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "language", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro24A9Fc3099>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueLanguage = default; _explicitNullProperties?.Remove("language"); AdditionalData["language"] = unknown; } else { Language = parsed; AdditionalData.Remove("language"); } } },
                 { "lock", n => { Lock = n.GetStringValue(); } },
@@ -376,6 +389,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("hash", Hash);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689InputTransforms>("input_transforms", InputTransforms);
             writer.WriteBoolValue("is_trigger", IsTrigger);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("iteration_label", IterationLabel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("iterator", Iterator);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro24A9Fc3099>("language", Language);
             writer.WriteStringValue("lock", Lock);

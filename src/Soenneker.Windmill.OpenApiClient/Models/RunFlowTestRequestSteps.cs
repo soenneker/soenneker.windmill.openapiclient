@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
     /// <summary>
-    /// step id -&gt; override
+    /// step id -&gt; override. A step inside a subflow is named by the path of step ids to it, `sub:inner` for step `inner` of the subflow that step `sub` calls.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RunFlowTestRequestSteps : IAdditionalDataHolder, IParsable

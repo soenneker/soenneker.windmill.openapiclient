@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.879.0",
+    "version": "1.880.1",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -39133,6 +39133,86 @@
         }
       }
     },
+    "/configs/autoscaling_diagnostics/{workerGroup}": {
+      "get": {
+        "tags": [
+          "config"
+        ],
+        "summary": "Get the recorded autoscaling decisions of a worker group, and whether a recording is running",
+        "operationId": "GetAutoscalingDiagnostics",
+        "parameters": [
+          {
+            "name": "workerGroup",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include_decisions",
+            "in": "query",
+            "description": "false returns the recording state and the decision count only",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The recording state and the recorded decisions, oldest first",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAutoscalingDiagnostics200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/configs/autoscaling_recording/{workerGroup}": {
+      "post": {
+        "tags": [
+          "config"
+        ],
+        "summary": "Start recording the autoscaling decisions of a worker group for 24 hours, or stop",
+        "operationId": "SetAutoscalingRecording",
+        "parameters": [
+          {
+            "name": "workerGroup",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetAutoscalingRecordingRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Recording started or stopped",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetAutoscalingRecording200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/configs/test_autoscaling/{workerGroup}": {
       "post": {
         "tags": [
@@ -57393,122 +57473,6 @@
           }
         }
       },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af": {
-        "required": [
-          "modules"
-        ],
-        "type": "object",
-        "properties": {
-          "modules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonEad4Fa1C03"
-            },
-            "description": "Array of steps that execute in sequence. Each step can be a script, subflow, loop, or branch"
-          },
-          "failure_module": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonF9De798766"
-          },
-          "preprocessor_module": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson6Bd0D6Ef7E"
-          },
-          "same_worker": {
-            "type": "boolean",
-            "description": "If true, all steps run on the same worker for better performance"
-          },
-          "preserve_step_tags": {
-            "type": "boolean",
-            "description": "If true and the flow runs on a custom worker tag, steps that declare their own non-empty tag run on it instead of inheriting the flow tag. Steps without their own tag still inherit the flow tag."
-          },
-          "concurrent_limit": {
-            "type": "number",
-            "description": "Maximum number of concurrent executions of this flow"
-          },
-          "concurrency_key": {
-            "type": "string",
-            "description": "Expression to group concurrent executions (e.g., by user ID)"
-          },
-          "concurrency_time_window_s": {
-            "type": "number",
-            "description": "Time window in seconds for concurrent_limit"
-          },
-          "on_concurrency_limit": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJsonC961F2C2Fe"
-          },
-          "debounce_delay_s": {
-            "type": "integer",
-            "description": "Delay in seconds to debounce flow executions"
-          },
-          "debounce_key": {
-            "type": "string",
-            "description": "Expression to group debounced executions"
-          },
-          "debounce_args_to_accumulate": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Arguments to accumulate across debounced executions"
-          },
-          "max_total_debouncing_time": {
-            "type": "integer",
-            "description": "Maximum total time in seconds that a job can be debounced"
-          },
-          "max_total_debounces_amount": {
-            "type": "integer",
-            "description": "Maximum number of times a job can be debounced"
-          },
-          "skip_expr": {
-            "type": "string",
-            "description": "JavaScript expression to conditionally skip the entire flow"
-          },
-          "cache_ttl": {
-            "type": "number",
-            "description": "Cache duration in seconds for flow results"
-          },
-          "cache_ignore_s3_path": {
-            "type": "boolean"
-          },
-          "delete_after_secs": {
-            "type": "integer",
-            "description": "If set, delete the flow job\u0027s args, result and logs after this many seconds following job completion"
-          },
-          "timeout": {
-            "type": "integer",
-            "description": "Wall-clock limit in seconds for the whole flow run, counted from its start and including time spent sleeping or suspended at an approval. It also applies when the flow is called as a subflow step, unless that step sets its own timeout, which replaces it. It is checked periodically, so a run can go a few seconds past it. When it expires, the running steps are cancelled, the failure module runs if there is one, and the flow ends cancelled with a timeout error. A calling flow sees the subflow step fail with that error."
-          },
-          "flow_env": {
-            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0AfFlowEnv"
-          },
-          "priority": {
-            "type": "number",
-            "description": "Execution priority (higher numbers run first)"
-          },
-          "early_return": {
-            "type": "string",
-            "description": "Id of the step whose result a sync webhook returns as soon as that step completes, while the rest of the flow keeps running. When the step does not run, or fails while the flow has a failure module, the flow\u0027s final result is returned instead."
-          },
-          "chat_input_enabled": {
-            "type": "boolean",
-            "description": "Whether this flow accepts chat-style input"
-          },
-          "notes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson7Cf1B6241E"
-            },
-            "description": "Sticky notes attached to the flow"
-          },
-          "groups": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunFlowDependenciesAsyncPostRequestBodyContentApplicationJson59A6Fa2A6D"
-            },
-            "description": "Semantic groups of modules for organizational purposes"
-          }
-        },
-        "description": "The flow structure containing modules and optional preprocessor/failure handlers"
-      },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr75562Bce9C": {
         "type": "object",
         "properties": {
@@ -62555,6 +62519,60 @@
             "type": "integer"
           }
         }
+      },
+      "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoC648B522F3": {
+        "type": "string",
+        "format": "date-time",
+        "nullable": true
+      },
+      "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJso72B129Df59": {
+        "type": "string",
+        "nullable": true
+      },
+      "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoF8Eedf1A0D": {
+        "required": [
+          "recorded_at",
+          "worker_count",
+          "jobs_waiting",
+          "decision"
+        ],
+        "type": "object",
+        "properties": {
+          "recorded_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "worker_count": {
+            "type": "integer"
+          },
+          "occupancy_rate_15s": {
+            "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoEec90A204D"
+          },
+          "occupancy_rate_5m": {
+            "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoAd7E5337F5"
+          },
+          "occupancy_rate_30m": {
+            "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoCd0C0Cd28D"
+          },
+          "jobs_waiting": {
+            "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoF8Eedf1A0DJobsWaiting"
+          },
+          "decision": {
+            "type": "string"
+          }
+        }
+      },
+      "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoEec90A204D": {
+        "type": "number",
+        "nullable": true
+      },
+      "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoAd7E5337F5": {
+        "type": "number",
+        "nullable": true
+      },
+      "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoCd0C0Cd28D": {
+        "type": "number",
+        "nullable": true
       },
       "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesFoAa9C05A262": {
         "required": [
@@ -80173,6 +80191,42 @@
         },
         "nullable": true
       },
+      "GetAutoscalingDiagnostics200Response": {
+        "required": [
+          "decision_count",
+          "decisions"
+        ],
+        "type": "object",
+        "properties": {
+          "recording_until": {
+            "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoC648B522F3"
+          },
+          "recording_started_by": {
+            "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJso72B129Df59"
+          },
+          "decision_count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "decisions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoF8Eedf1A0D"
+            }
+          }
+        }
+      },
+      "SetAutoscalingRecordingRequest": {
+        "required": [
+          "record"
+        ],
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "boolean"
+          }
+        }
+      },
       "TestAutoscalingRequest": {
         "required": [
           "desired_workers",
@@ -84698,6 +84752,9 @@
           "$ref": "#/components/schemas/ListAutoscalingEvents200ResponseSchemaItem"
         }
       },
+      "SetAutoscalingRecording200PlainResponseSchema": {
+        "type": "string"
+      },
       "NativeKubernetesAutoscalingHealthcheck400PlainResponseSchema": {
         "type": "string"
       },
@@ -85319,17 +85376,12 @@
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflows": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflowsAdditionalProperties"
         },
         "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
       },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr9Fccde0AbbArguments": {
         "type": "object"
-      },
-      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0AfFlowEnv": {
-        "type": "object",
-        "additionalProperties": {},
-        "description": "Environment variables available to all steps. Values can be strings, JSON values, or special references: \u0027$var:path\u0027 (workspace variable) or \u0027$res:path\u0027 (resource)."
       },
       "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr05F2237A20FlowEnv": {
         "type": "object",
@@ -85339,7 +85391,7 @@
       "YamlPathsWWorkspaceJobsCompletedListGetResponses200ContentApplicationJsonSchemaItem706Fcc16EbTestSubflows": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflowsAdditionalProperties"
         },
         "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
       },
@@ -85359,6 +85411,12 @@
       "YamlPathsWWorkspaceWebsocketTriggersCreatePostRequestBodyContentApplicationJsonSchema27Ca7919DcArgs": {
         "type": "object",
         "description": "The arguments to pass to the script or flow"
+      },
+      "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoF8Eedf1A0DJobsWaiting": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer"
+        }
       },
       "YamlPathsWWorkspaceAssetsGraphGetResponses200ContentApplicationJsonSchemaPropertiesB9D70A6A49Columns": {
         "type": "object",
@@ -89090,7 +89148,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/RunFlowTestRequestStepsAdditionalProperties"
         },
-        "description": "step id -\u003E override"
+        "description": "step id -\u003E override. A step inside a subflow is named by the path of step ids to it, \u0060sub:inner\u0060 for step \u0060inner\u0060 of the subflow that step \u0060sub\u0060 calls."
       },
       "RunFlowPreviewRequestArgs": {
         "type": "object",
@@ -96880,6 +96938,9 @@
       "YamlPathsAppsUPublicAppByCustomPathCustomPathGetResponses200ContentApplicationJsoAcba84C66FTriggerablesV2AdditionalProperties": {
         "type": "object"
       },
+      "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflowsAdditionalProperties": {
+        "type": "object"
+      },
       "DataTableSchemaSchemasAdditionalProperties": {
         "type": "object",
         "additionalProperties": {
@@ -97477,7 +97538,7 @@
       "GetJobUpdates200ResponseFlowStatusTestSubflows": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflowsAdditionalProperties"
         },
         "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
       },
@@ -115954,9 +116015,12 @@
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr101Fda89C0": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr101Fda89C0AdditionalProperties"
       },
       "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
+    },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af": {
+      "type": "object"
     },
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr1D90727506": {
       "type": "string",
@@ -120854,6 +120918,35 @@
     "YamlPathsConfigsListAutoscalingEventsWorkerGroupGetResponses200ContentApplicationJso7826B3C575": {
       "type": "string",
       "format": "date-time"
+    },
+    "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoA323C95884": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJso89E24A802C": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoF8Eedf1A0D"
+      }
+    },
+    "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoCf6Ef9Ea52": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJso27109734D1": {
+      "type": "integer"
+    },
+    "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJso980C1C8329": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoB0479Dc725": {
+      "type": "integer"
+    },
+    "YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJso43Ed9E6357": {
+      "type": "string"
     },
     "YamlPathsWWorkspaceAccessGetGetResponses200ContentApplicationJsonSchemaPropertiesPrF546Df846A": {
       "type": "string"
@@ -135700,6 +135793,64 @@
         }
       }
     },
+    "AutoscalingDiagnostics": {
+      "required": [
+        "decision_count",
+        "decisions"
+      ],
+      "type": "object",
+      "properties": {
+        "recording_until": {
+          "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoC648B522F3"
+        },
+        "recording_started_by": {
+          "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJso72B129Df59"
+        },
+        "decision_count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoF8Eedf1A0D"
+          }
+        }
+      }
+    },
+    "AutoscalingDecision": {
+      "required": [
+        "recorded_at",
+        "worker_count",
+        "jobs_waiting",
+        "decision"
+      ],
+      "type": "object",
+      "properties": {
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "worker_count": {
+          "type": "integer"
+        },
+        "occupancy_rate_15s": {
+          "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoEec90A204D"
+        },
+        "occupancy_rate_5m": {
+          "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoAd7E5337F5"
+        },
+        "occupancy_rate_30m": {
+          "$ref": "#/components/schemas/YamlPathsConfigsAutoscalingDiagnosticsWorkerGroupGetResponses200ContentApplicationJsoCd0C0Cd28D"
+        },
+        "jobs_waiting": {
+          "$ref": "#/components/schemas/AutoscalingDecisionJobsWaiting"
+        },
+        "decision": {
+          "type": "string"
+        }
+      }
+    },
     "CriticalAlert": {
       "type": "object",
       "properties": {
@@ -144588,6 +144739,9 @@
         "$ref": "#/components/schemas/ListAutoscalingEvents200ResponseItem"
       }
     },
+    "SetAutoscalingRecording200PlainResponse": {
+      "type": "string"
+    },
     "NativeKubernetesAutoscalingHealthcheck400PlainResponse": {
       "type": "string"
     },
@@ -145015,6 +145169,9 @@
     "YamlPathsWWorkspaceAiEvalsExperimentsRunPostRequestBodyContentApplicationJsonSchema92Fb118720Item": {
       "type": "object"
     },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr101Fda89C0AdditionalProperties": {
+      "type": "object"
+    },
     "YamlPathsWWorkspaceJobsListGetResponses200ContentApplicationJsonSchemaItemsOneOf0Ab1788Df7F9Args": {
       "type": "object",
       "description": "The arguments to pass to the script or flow"
@@ -145178,7 +145335,7 @@
     "FlowStatusTestSubflows": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrC1640Cf0Af"
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr155B29E7D8TestSubflowsAdditionalProperties"
       },
       "description": "In a flow test run, deployed subflow path -\u003E the flow value with the test\u0027s step overrides applied, run in place of the deployed subflow."
     },
@@ -145944,6 +146101,12 @@
     },
     "ConfigConfig": {
       "type": "object"
+    },
+    "AutoscalingDecisionJobsWaiting": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
     },
     "RoleCapabilitiesPatchVisibility": {
       "type": "object",

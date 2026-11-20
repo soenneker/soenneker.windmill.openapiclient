@@ -40,7 +40,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>the job whose code defines the replacing functions, usually the calling test; a script run or a script preview. Required with a `function` override.</summary>
         public Guid? CallerJobId { get => _explicitNullValueCallerJobId; set { _explicitNullValueCallerJobId = value; AdditionalData?.Remove("caller_job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("caller_job_id"); else _explicitNullProperties?.Remove("caller_job_id"); } }
         private Guid? _explicitNullValueCallerJobId = default!;
-        /// <summary>step id -&gt; override</summary>
+        /// <summary>step id -&gt; override. A step inside a subflow is named by the path of step ids to it, `sub:inner` for step `inner` of the subflow that step `sub` calls.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Windmill.OpenApiClient.Models.RunFlowTestRequestSteps? Steps { get => _explicitNullValueSteps; set { _explicitNullValueSteps = value; AdditionalData?.Remove("steps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("steps"); else _explicitNullProperties?.Remove("steps"); } }

@@ -2,6 +2,8 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Configs.Autoscaling_diagnostics;
+using Soenneker.Windmill.OpenApiClient.Configs.Autoscaling_recording;
 using Soenneker.Windmill.OpenApiClient.Configs.Get;
 using Soenneker.Windmill.OpenApiClient.Configs.List;
 using Soenneker.Windmill.OpenApiClient.Configs.List_all_dedicated_with_deps;
@@ -24,6 +26,16 @@ namespace Soenneker.Windmill.OpenApiClient.Configs
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConfigsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The autoscaling_diagnostics property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Configs.Autoscaling_diagnostics.Autoscaling_diagnosticsRequestBuilder Autoscaling_diagnostics
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Configs.Autoscaling_diagnostics.Autoscaling_diagnosticsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The autoscaling_recording property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Configs.Autoscaling_recording.Autoscaling_recordingRequestBuilder Autoscaling_recording
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Configs.Autoscaling_recording.Autoscaling_recordingRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The getPath property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Configs.Get.GetRequestBuilder GetPath
         {

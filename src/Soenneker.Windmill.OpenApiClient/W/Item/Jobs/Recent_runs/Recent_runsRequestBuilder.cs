@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Models;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Hide;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Unhide;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +19,16 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Recent_runsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The hide property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Hide.HideRequestBuilder Hide
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Hide.HideRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The unhide property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Unhide.UnhideRequestBuilder Unhide
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Unhide.UnhideRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Recent_runs.Recent_runsRequestBuilder"/> and sets the default values.
         /// </summary>

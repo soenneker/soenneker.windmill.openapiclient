@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.880.1",
+    "version": "1.881.1",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -27164,6 +27164,88 @@
         }
       }
     },
+    "/w/{workspace}/jobs/recent_runs/hide": {
+      "post": {
+        "tags": [
+          "job"
+        ],
+        "summary": "hide items from the caller\u0027s recently run list",
+        "operationId": "HideRecentRunItems",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HideRecentRunItemsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "items hidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HideRecentRunItems200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/jobs/recent_runs/unhide": {
+      "post": {
+        "tags": [
+          "job"
+        ],
+        "summary": "bring items back to the caller\u0027s recently run list",
+        "operationId": "UnhideRecentRunItems",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnhideRecentRunItemsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "items brought back",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnhideRecentRunItems200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/jobs/list": {
       "get": {
         "tags": [
@@ -48706,6 +48788,11 @@
           "webhook_error": {
             "type": "string"
           },
+          "webhook_verified_id": {
+            "type": "integer",
+            "description": "The webhook_id a delivery from the host last arrived for. Polling relaxes to about every 10 minutes only while it matches webhook_id. Set by the server.",
+            "format": "int64"
+          },
           "last_synced_sha": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9BLastSyncedSha"
           },
@@ -50539,6 +50626,10 @@
           "path": {
             "type": "string",
             "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
+          },
+          "tag_override": {
+            "type": "string",
+            "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
           },
           "type": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
@@ -58991,6 +59082,73 @@
             {
               "value": "dbt",
               "name": "Dbt"
+            }
+          ]
+        }
+      },
+      "YamlPathsWWorkspaceJobsRecentRunsGetResponses200ContentApplicationJsonSchemaPropertC40165C98C": {
+        "enum": [
+          "script",
+          "flow",
+          "agent"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceJobsRecentRunsGetResponses200ContentApplicationJsonSchemaPropertC40165C98C",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "script",
+              "name": "Script"
+            },
+            {
+              "value": "flow",
+              "name": "Flow"
+            },
+            {
+              "value": "agent",
+              "name": "Agent"
+            }
+          ]
+        }
+      },
+      "YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProD4E0B75D74": {
+        "required": [
+          "kind",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProF8Bf8Cde42"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      },
+      "YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProF8Bf8Cde42": {
+        "enum": [
+          "script",
+          "flow",
+          "agent"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProF8Bf8Cde42",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "script",
+              "name": "Script"
+            },
+            {
+              "value": "flow",
+              "name": "Flow"
+            },
+            {
+              "value": "agent",
+              "name": "Agent"
             }
           ]
         }
@@ -74701,7 +74859,8 @@
           "failed_runs",
           "failing_items",
           "running_items",
-          "items"
+          "items",
+          "hidden_items"
         ],
         "type": "object",
         "properties": {
@@ -74728,6 +74887,41 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ListRecentRuns200ResponseItemsItem"
+            }
+          },
+          "hidden_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListRecentRuns200ResponseHiddenItemsItem"
+            },
+            "description": "the items the caller hid, within the folder, whether or not they ran in the window; their runs are left out of items and of every count"
+          }
+        }
+      },
+      "HideRecentRunItemsRequest": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProD4E0B75D74"
+            }
+          }
+        }
+      },
+      "UnhideRecentRunItemsRequest": {
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProD4E0B75D74"
             }
           }
         }
@@ -80105,6 +80299,7 @@
           "flows",
           "apps",
           "resources",
+          "agents",
           "variables",
           "schedules"
         ],
@@ -80120,7 +80315,12 @@
             "type": "number"
           },
           "resources": {
-            "type": "number"
+            "type": "number",
+            "description": "resources other than AI agents"
+          },
+          "agents": {
+            "type": "number",
+            "description": "saved AI agents (resources of type \u0060ai_agent\u0060)"
           },
           "variables": {
             "type": "number"
@@ -83916,6 +84116,12 @@
       "DeleteJobs200PlainResponseSchema": {
         "type": "string",
         "description": "Summary of deleted jobs and rows"
+      },
+      "HideRecentRunItems200PlainResponseSchema": {
+        "type": "string"
+      },
+      "UnhideRecentRunItems200PlainResponseSchema": {
+        "type": "string"
       },
       "ListJobs200ResponseSchema": {
         "type": "array",
@@ -89217,6 +89423,24 @@
             "items": {
               "$ref": "#/components/schemas/ListRecentRuns200ResponseItemsItemRunsItem"
             }
+          }
+        }
+      },
+      "ListRecentRuns200ResponseHiddenItemsItem": {
+        "required": [
+          "kind",
+          "path"
+        ],
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRecentRunsGetResponses200ContentApplicationJsonSchemaPropertC40165C98C"
+          },
+          "path": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
           }
         }
       },
@@ -103908,6 +104132,10 @@
             "type": "string",
             "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
           },
+          "tag_override": {
+            "type": "string",
+            "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
+          },
           "type": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
           },
@@ -109381,6 +109609,11 @@
     "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema2E9A131E2F": {
       "type": "string"
     },
+    "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema8D3E7Ebd56": {
+      "type": "integer",
+      "description": "The webhook_id a delivery from the host last arrived for. Polling relaxes to about every 10 minutes only while it matches webhook_id. Set by the server.",
+      "format": "int64"
+    },
     "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema5Fc1D09E29": {
       "type": "object",
       "additionalProperties": {
@@ -111178,6 +111411,10 @@
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro72Ddfa3Bf6": {
       "type": "string",
       "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
+    },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProFd2E01F1Fc": {
+      "type": "string",
+      "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
     },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB06F7Dd80C": {
       "type": "array",
@@ -116518,6 +116755,21 @@
     "YamlPathsWWorkspaceJobsQueueExportGetResponses200ContentApplicationJsonSchemaItems28F779593E": {
       "type": "string",
       "format": "date-time"
+    },
+    "YamlPathsWWorkspaceJobsRecentRunsGetResponses200ContentApplicationJsonSchemaPropert8B4Abfff3F": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceJobsRecentRunsGetResponses200ContentApplicationJsonSchemaPropert1D1C2Ac3A6": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaPro1067C02Ed0": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProD4E0B75D74"
+      }
+    },
+    "YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaPro5420927454": {
+      "type": "string"
     },
     "YamlPathsWWorkspaceJobsListGetResponses200ContentApplicationJsonSchemaItemsOneOf0Bfd97Cba7D": {
       "required": [
@@ -122976,6 +123228,10 @@
           "type": "string",
           "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
         },
+        "tag_override": {
+          "type": "string",
+          "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
+        },
         "type": {
           "$ref": "#/components/schemas/FlowType"
         }
@@ -127769,6 +128025,38 @@
             "name": "Running"
           }
         ]
+      }
+    },
+    "RecentRunHiddenItem": {
+      "required": [
+        "kind",
+        "path"
+      ],
+      "type": "object",
+      "properties": {
+        "kind": {
+          "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRecentRunsGetResponses200ContentApplicationJsonSchemaPropertC40165C98C"
+        },
+        "path": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "RecentRunItemRefs": {
+      "required": [
+        "items"
+      ],
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRecentRunsHidePostRequestBodyContentApplicationJsonSchemaProD4E0B75D74"
+          }
+        }
       }
     },
     "ScriptLang": {
@@ -135482,6 +135770,11 @@
         "webhook_error": {
           "type": "string"
         },
+        "webhook_verified_id": {
+          "type": "integer",
+          "description": "The webhook_id a delivery from the host last arrived for. Polling relaxes to about every 10 minutes only while it matches webhook_id. Set by the server.",
+          "format": "int64"
+        },
         "last_synced_sha": {
           "$ref": "#/components/schemas/AutoPullSettingsLastSyncedSha"
         },
@@ -138347,6 +138640,10 @@
           "type": "string",
           "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
         },
+        "tag_override": {
+          "type": "string",
+          "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
+        },
         "type": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
         }
@@ -139912,6 +140209,10 @@
         "path": {
           "type": "string",
           "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
+        },
+        "tag_override": {
+          "type": "string",
+          "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
         },
         "type": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
@@ -143926,6 +144227,12 @@
     "DeleteJobs200PlainResponse": {
       "type": "string",
       "description": "Summary of deleted jobs and rows"
+    },
+    "HideRecentRunItems200PlainResponse": {
+      "type": "string"
+    },
+    "UnhideRecentRunItems200PlainResponse": {
+      "type": "string"
     },
     "ListJobs200Response": {
       "type": "array",
@@ -155669,6 +155976,10 @@
           "type": "string",
           "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
         },
+        "tag_override": {
+          "type": "string",
+          "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
+        },
         "type": {
           "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
         },
@@ -157570,6 +157881,10 @@
               "type": "string",
               "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
             },
+            "tag_override": {
+              "type": "string",
+              "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
+            },
             "type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
             }
@@ -158297,6 +158612,10 @@
               "type": "string",
               "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
             },
+            "tag_override": {
+              "type": "string",
+              "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
+            },
             "type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
             },
@@ -158985,6 +159304,10 @@
             "path": {
               "type": "string",
               "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
+            },
+            "tag_override": {
+              "type": "string",
+              "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
             },
             "type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"
@@ -159733,6 +160056,10 @@
             "path": {
               "type": "string",
               "description": "Path to the flow in the workspace (e.g., \u0027f/flows/process_user\u0027)"
+            },
+            "tag_override": {
+              "type": "string",
+              "description": "Override the subflow\u0027s worker group tag. Its steps run on this tag unless the subflow sets preserve_step_tags"
             },
             "type": {
               "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro292E2901C2"

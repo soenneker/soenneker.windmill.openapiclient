@@ -39,6 +39,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("webhook_secret") is { } nullNodeWebhookSecret && nullNodeWebhookSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookSecret = null;
             if (parseNode.GetChildNode("webhook_url") is null) { _explicitNullValueWebhookUrl = default!; _explicitNullProperties?.Remove("webhook_url"); }
             else if (parseNode.GetChildNode("webhook_url") is { } nullNodeWebhookUrl && nullNodeWebhookUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookUrl = null;
+            if (parseNode.GetChildNode("webhook_verified_id") is null) { _explicitNullValueWebhookVerifiedId = default!; _explicitNullProperties?.Remove("webhook_verified_id"); }
+            else if (parseNode.GetChildNode("webhook_verified_id") is { } nullNodeWebhookVerifiedId && nullNodeWebhookVerifiedId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WebhookVerifiedId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -118,6 +120,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string WebhookUrl { get => _explicitNullValueWebhookUrl; set { _explicitNullValueWebhookUrl = value; AdditionalData?.Remove("webhook_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_url"); else _explicitNullProperties?.Remove("webhook_url"); } }
         private string _explicitNullValueWebhookUrl = default!;
 #endif
+        /// <summary>The webhook_id a delivery from the host last arrived for. Polling relaxes to about every 10 minutes only while it matches webhook_id. Set by the server.</summary>
+        public long? WebhookVerifiedId { get => _explicitNullValueWebhookVerifiedId; set { _explicitNullValueWebhookVerifiedId = value; AdditionalData?.Remove("webhook_verified_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("webhook_verified_id"); else _explicitNullProperties?.Remove("webhook_verified_id"); } }
+        private long? _explicitNullValueWebhookVerifiedId = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaBab8Ca1E9B"/> and sets the default values.
         /// </summary>
@@ -141,7 +146,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(11)
+            return new Dictionary<string, Action<IParseNode>>(12)
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "enabled_by", n => { EnabledBy = n.GetStringValue(); } },
@@ -154,6 +159,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "webhook_id", n => { WebhookId = n.GetLongValue(); } },
                 { "webhook_secret", n => { WebhookSecret = n.GetStringValue(); } },
                 { "webhook_url", n => { WebhookUrl = n.GetStringValue(); } },
+                { "webhook_verified_id", n => { WebhookVerifiedId = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -174,6 +180,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteLongValue("webhook_id", WebhookId);
             writer.WriteStringValue("webhook_secret", WebhookSecret);
             writer.WriteStringValue("webhook_url", WebhookUrl);
+            writer.WriteLongValue("webhook_verified_id", WebhookVerifiedId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

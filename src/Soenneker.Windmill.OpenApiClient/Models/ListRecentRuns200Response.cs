@@ -23,6 +23,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("failed_runs") is { } nullNodeFailedRuns && nullNodeFailedRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedRuns = null;
             if (parseNode.GetChildNode("failing_items") is null) { _explicitNullValueFailingItems = default!; _explicitNullProperties?.Remove("failing_items"); }
             else if (parseNode.GetChildNode("failing_items") is { } nullNodeFailingItems && nullNodeFailingItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailingItems = null;
+            if (parseNode.GetChildNode("hidden_items") is null) { _explicitNullValueHiddenItems = default!; _explicitNullProperties?.Remove("hidden_items"); }
+            else if (parseNode.GetChildNode("hidden_items") is { } nullNodeHiddenItems && nullNodeHiddenItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HiddenItems = null;
             if (parseNode.GetChildNode("items") is null) { _explicitNullValueItems = default!; _explicitNullProperties?.Remove("items"); }
             else if (parseNode.GetChildNode("items") is { } nullNodeItems && nullNodeItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Items = null;
             if (parseNode.GetChildNode("running_items") is null) { _explicitNullValueRunningItems = default!; _explicitNullProperties?.Remove("running_items"); }
@@ -44,6 +46,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The failing_items property</summary>
         public int? FailingItems { get => _explicitNullValueFailingItems; set { _explicitNullValueFailingItems = value; AdditionalData?.Remove("failing_items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failing_items"); else _explicitNullProperties?.Remove("failing_items"); } }
         private int? _explicitNullValueFailingItems = default!;
+        /// <summary>the items the caller hid, within the folder, whether or not they ran in the window; their runs are left out of items and of every count</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseHiddenItemsItem>? HiddenItems { get => _explicitNullValueHiddenItems; set { _explicitNullValueHiddenItems = value; AdditionalData?.Remove("hidden_items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hidden_items"); else _explicitNullProperties?.Remove("hidden_items"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseHiddenItemsItem>? _explicitNullValueHiddenItems = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseHiddenItemsItem> HiddenItems { get => _explicitNullValueHiddenItems; set { _explicitNullValueHiddenItems = value; AdditionalData?.Remove("hidden_items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hidden_items"); else _explicitNullProperties?.Remove("hidden_items"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseHiddenItemsItem> _explicitNullValueHiddenItems = default!;
+#endif
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,11 +98,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "capped", n => { Capped = n.GetBoolValue(); } },
                 { "failed_runs", n => { FailedRuns = n.GetIntValue(); } },
                 { "failing_items", n => { FailingItems = n.GetIntValue(); } },
+                { "hidden_items", n => { HiddenItems = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseHiddenItemsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseHiddenItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItem>(global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "running_items", n => { RunningItems = n.GetIntValue(); } },
                 { "total_runs", n => { TotalRuns = n.GetIntValue(); } },
@@ -107,6 +120,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("capped", Capped);
             writer.WriteIntValue("failed_runs", FailedRuns);
             writer.WriteIntValue("failing_items", FailingItems);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseHiddenItemsItem>("hidden_items", HiddenItems);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItem>("items", Items);
             writer.WriteIntValue("running_items", RunningItems);
             writer.WriteIntValue("total_runs", TotalRuns);

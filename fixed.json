@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.881.1",
+    "version": "1.884.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -21262,6 +21262,48 @@
         }
       }
     },
+    "/w/{workspace}/ai_session_tools/secret_request/open": {
+      "post": {
+        "tags": [
+          "ai"
+        ],
+        "summary": "read the secret request a request_secret link carries",
+        "description": "The page an MCP client\u0027s request_secret link opens reads the card to draw from the link\u0027s signed token. Refused when the token is invalid, expired, or made for another user or workspace.",
+        "operationId": "OpenSecretRequest",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenSecretRequestRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "the card\u0027s request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpenSecretRequest200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/ai/sessions/list": {
       "get": {
         "tags": [
@@ -28465,6 +28507,14 @@
           {
             "name": "get_started",
             "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "wait_for_child",
+            "in": "query",
+            "description": "Set by a job\u0027s SDK wait helpers when the calling job is blocked until this job, its\nchild, completes. If every worker of the child\u0027s tag is held by such a waiting parent,\nthe child can never start, and the request fails with 409 instead of the wait hanging.\nLeave unset for a plain status read.\n",
             "schema": {
               "type": "boolean"
             }
@@ -49167,6 +49217,10 @@
             "type": "boolean",
             "default": false
           },
+          "muted_on_ui_runs": {
+            "type": "boolean",
+            "description": "Skip jobs started from the UI, whose trigger kind is \u0060ui\u0060. Omit to leave the stored value untouched."
+          },
           "fallback_to_instance_alerts": {
             "type": "boolean",
             "description": "Report failed jobs to the instance critical alert channels when no workspace error handler is set. Omit to leave the stored value untouched."
@@ -56566,6 +56620,14 @@
           },
           "nested": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro9A99123282"
+          },
+          "failed_only": {
+            "type": "boolean",
+            "description": "For a parallel for-loop or branch-all at \u0060step_id\u0060, keep the iterations (branches) that succeeded and rerun only the others."
+          },
+          "from_failed_step": {
+            "type": "boolean",
+            "description": "With \u0060failed_only\u0060, resume each failed iteration (branch) at the step where it failed rather than rerunning it from its first step."
           }
         }
       },
@@ -56624,6 +56686,14 @@
           },
           "nested": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro9A99123282"
+          },
+          "failed_only": {
+            "type": "boolean",
+            "description": "For a parallel for-loop or branch-all at \u0060step_id\u0060, keep the iterations (branches) that succeeded and rerun only the others."
+          },
+          "from_failed_step": {
+            "type": "boolean",
+            "description": "With \u0060failed_only\u0060, resume each failed iteration (branch) at the step where it failed rather than rerunning it from its first step."
           }
         },
         "description": "When set, the worker spawns the child for \u0060step_id\u0060 as a \u0060RestartedFlow\u0060 against \u0060nested.flow_job_id\u0060 instead of fresh-launching it."
@@ -73206,6 +73276,17 @@
           }
         }
       },
+      "OpenSecretRequestRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
       "ListAiSessionBackups200Response": {
         "required": [
           "enabled",
@@ -74452,6 +74533,14 @@
           "flow_version": {
             "type": "integer",
             "description": "specific flow version to use for restart (optional, uses current version if not specified)"
+          },
+          "failed_only": {
+            "type": "boolean",
+            "description": "for a parallel for-loop or branch-all at the restart point (\u0060step_id\u0060, or the last \u0060nested_path\u0060 entry), keep the iterations (branches) that succeeded and rerun only the others from their first step, each in its original position. Cannot be combined with an iteration to restart at on that same step."
+          },
+          "from_failed_step": {
+            "type": "boolean",
+            "description": "with \u0060failed_only\u0060, resume each failed iteration (branch) at the step where it failed, keeping the steps before it, rather than rerunning it from its first step."
           },
           "nested_path": {
             "type": "array",
@@ -83804,6 +83893,9 @@
       "UpdateSharedUi200PlainResponseSchema": {
         "type": "string"
       },
+      "OpenSecretRequest200ResponseSchema": {
+        "type": "object"
+      },
       "ShareAiArtifact200Response": {
         "required": [
           "id",
@@ -86005,6 +86097,11 @@
           },
           "muted_on_user_path": {
             "type": "boolean",
+            "default": false
+          },
+          "muted_on_ui_runs": {
+            "type": "boolean",
+            "description": "Skip jobs started from the UI, whose trigger kind is \u0060ui\u0060. Stored only when true.",
             "default": false
           }
         },
@@ -91737,7 +91834,9 @@
         "required": [
           "name",
           "supports_client_credentials",
-          "has_shared_credentials"
+          "supports_authorization_code",
+          "has_shared_credentials",
+          "shares_client_credentials"
         ],
         "type": "object",
         "properties": {
@@ -91747,9 +91846,17 @@
           "supports_client_credentials": {
             "type": "boolean"
           },
+          "supports_authorization_code": {
+            "type": "boolean",
+            "description": "The instance entry declares the authorization-code grant, so users can sign in with their own account when has_shared_credentials is also true."
+          },
           "has_shared_credentials": {
             "type": "boolean",
-            "description": "The instance entry holds a client id and secret users can connect with, for sign-in or as a shared service account. Whether client credentials are shared is get_connect\u0027s client_credentials_configured."
+            "description": "The instance entry holds a client id and secret users can connect with, for sign-in or as a shared service account."
+          },
+          "shares_client_credentials": {
+            "type": "boolean",
+            "description": "Users may connect as the instance entry\u0027s own app with its shared client credentials, with no sign-in."
           }
         }
       },
@@ -109460,6 +109567,11 @@
       "type": "boolean",
       "default": false
     },
+    "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchema37Ef75B6B1": {
+      "type": "boolean",
+      "description": "Skip jobs started from the UI, whose trigger kind is \u0060ui\u0060. Stored only when true.",
+      "default": false
+    },
     "YamlPathsWWorkspaceWorkspacesGetSettingsGetResponses200ContentApplicationJsonSchemaA84D880D56": {
       "type": "string",
       "description": "Path to the success handler script or flow"
@@ -109777,6 +109889,10 @@
     "YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonScF18C2232Df": {
       "type": "boolean",
       "default": false
+    },
+    "YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonScBe42C2C1Eb": {
+      "type": "boolean",
+      "description": "Skip jobs started from the UI, whose trigger kind is \u0060ui\u0060. Omit to leave the stored value untouched."
     },
     "YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonSc28Fde1003C": {
       "type": "boolean",
@@ -115528,6 +115644,14 @@
     },
     "YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro0A073292B5": {
       "type": "integer"
+    },
+    "YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro840Ebed5F5": {
+      "type": "boolean",
+      "description": "For a parallel for-loop or branch-all at \u0060step_id\u0060, keep the iterations (branches) that succeeded and rerun only the others."
+    },
+    "YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaProB13E09279E": {
+      "type": "boolean",
+      "description": "With \u0060failed_only\u0060, resume each failed iteration (branch) at the step where it failed rather than rerunning it from its first step."
     },
     "YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro571C842Fb9": {
       "type": "object",
@@ -123893,6 +124017,11 @@
         "muted_on_user_path": {
           "type": "boolean",
           "default": false
+        },
+        "muted_on_ui_runs": {
+          "type": "boolean",
+          "description": "Skip jobs started from the UI, whose trigger kind is \u0060ui\u0060. Stored only when true.",
+          "default": false
         }
       },
       "description": "Configuration for the workspace error handler"
@@ -123927,6 +124056,10 @@
         "muted_on_user_path": {
           "type": "boolean",
           "default": false
+        },
+        "muted_on_ui_runs": {
+          "type": "boolean",
+          "description": "Skip jobs started from the UI, whose trigger kind is \u0060ui\u0060. Omit to leave the stored value untouched."
         },
         "fallback_to_instance_alerts": {
           "type": "boolean",
@@ -134612,6 +134745,14 @@
         },
         "nested": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro9A99123282"
+        },
+        "failed_only": {
+          "type": "boolean",
+          "description": "For a parallel for-loop or branch-all at \u0060step_id\u0060, keep the iterations (branches) that succeeded and rerun only the others."
+        },
+        "from_failed_step": {
+          "type": "boolean",
+          "description": "With \u0060failed_only\u0060, resume each failed iteration (branch) at the step where it failed rather than rerunning it from its first step."
         }
       }
     },
@@ -143961,6 +144102,9 @@
     "UpdateSharedUi200PlainResponse": {
       "type": "string"
     },
+    "OpenSecretRequest200Response": {
+      "type": "object"
+    },
     "ListSharedAiArtifacts200Response": {
       "type": "array",
       "items": {
@@ -147714,7 +147858,9 @@
       "required": [
         "name",
         "supports_client_credentials",
-        "has_shared_credentials"
+        "supports_authorization_code",
+        "has_shared_credentials",
+        "shares_client_credentials"
       ],
       "type": "object",
       "properties": {
@@ -147724,9 +147870,17 @@
         "supports_client_credentials": {
           "type": "boolean"
         },
+        "supports_authorization_code": {
+          "type": "boolean",
+          "description": "The instance entry declares the authorization-code grant, so users can sign in with their own account when has_shared_credentials is also true."
+        },
         "has_shared_credentials": {
           "type": "boolean",
-          "description": "The instance entry holds a client id and secret users can connect with, for sign-in or as a shared service account. Whether client credentials are shared is get_connect\u0027s client_credentials_configured."
+          "description": "The instance entry holds a client id and secret users can connect with, for sign-in or as a shared service account."
+        },
+        "shares_client_credentials": {
+          "type": "boolean",
+          "description": "Users may connect as the instance entry\u0027s own app with its shared client credentials, with no sign-in."
         }
       }
     },

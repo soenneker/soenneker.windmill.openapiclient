@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed.Get_result_ma
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Get_result_maybeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/completed/get_result_maybe/{id}{?get_started*}", pathParameters)
+        public Get_result_maybeItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/completed/get_result_maybe/{id}{?get_started*,wait_for_child*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed.Get_result_ma
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Get_result_maybeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/completed/get_result_maybe/{id}{?get_started*}", rawUrl)
+        public Get_result_maybeItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/w/{workspace}/jobs_u/completed/get_result_maybe/{id}{?get_started*,wait_for_child*}", rawUrl)
         {
         }
         /// <summary>
@@ -89,6 +89,9 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs_u.Completed.Get_result_ma
             [QueryParameter("get_started")]
             public bool? GetStarted { get; set; }
             #pragma warning restore CS1591
+            /// <summary>Set by a job&apos;s SDK wait helpers when the calling job is blocked until this job, itschild, completes. If every worker of the child&apos;s tag is held by such a waiting parent,the child can never start, and the request fails with 409 instead of the wait hanging.Leave unset for a plain status read.</summary>
+            [QueryParameter("wait_for_child")]
+            public bool? WaitForChild { get; set; }
         }
     }
 }

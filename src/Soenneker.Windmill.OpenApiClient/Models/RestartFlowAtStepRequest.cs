@@ -19,8 +19,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("branch_or_iteration_n") is null) { _explicitNullValueBranchOrIterationN = default!; _explicitNullProperties?.Remove("branch_or_iteration_n"); }
             else if (parseNode.GetChildNode("branch_or_iteration_n") is { } nullNodeBranchOrIterationN && nullNodeBranchOrIterationN.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchOrIterationN = null;
+            if (parseNode.GetChildNode("failed_only") is null) { _explicitNullValueFailedOnly = default!; _explicitNullProperties?.Remove("failed_only"); }
+            else if (parseNode.GetChildNode("failed_only") is { } nullNodeFailedOnly && nullNodeFailedOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedOnly = null;
             if (parseNode.GetChildNode("flow_version") is null) { _explicitNullValueFlowVersion = default!; _explicitNullProperties?.Remove("flow_version"); }
             else if (parseNode.GetChildNode("flow_version") is { } nullNodeFlowVersion && nullNodeFlowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowVersion = null;
+            if (parseNode.GetChildNode("from_failed_step") is null) { _explicitNullValueFromFailedStep = default!; _explicitNullProperties?.Remove("from_failed_step"); }
+            else if (parseNode.GetChildNode("from_failed_step") is { } nullNodeFromFailedStep && nullNodeFromFailedStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromFailedStep = null;
             if (parseNode.GetChildNode("nested_path") is null) { _explicitNullValueNestedPath = default!; _explicitNullProperties?.Remove("nested_path"); }
             else if (parseNode.GetChildNode("nested_path") is { } nullNodeNestedPath && nullNodeNestedPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NestedPath = null;
             if (parseNode.GetChildNode("step_id") is null) { _explicitNullValueStepId = default!; _explicitNullProperties?.Remove("step_id"); }
@@ -32,9 +36,15 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>for branchall or loop at the top level, the iteration at which the flow should restart (optional)</summary>
         public int? BranchOrIterationN { get => _explicitNullValueBranchOrIterationN; set { _explicitNullValueBranchOrIterationN = value; AdditionalData?.Remove("branch_or_iteration_n"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_or_iteration_n"); else _explicitNullProperties?.Remove("branch_or_iteration_n"); } }
         private int? _explicitNullValueBranchOrIterationN = default!;
+        /// <summary>for a parallel for-loop or branch-all at the restart point (`step_id`, or the last `nested_path` entry), keep the iterations (branches) that succeeded and rerun only the others from their first step, each in its original position. Cannot be combined with an iteration to restart at on that same step.</summary>
+        public bool? FailedOnly { get => _explicitNullValueFailedOnly; set { _explicitNullValueFailedOnly = value; AdditionalData?.Remove("failed_only"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_only"); else _explicitNullProperties?.Remove("failed_only"); } }
+        private bool? _explicitNullValueFailedOnly = default!;
         /// <summary>specific flow version to use for restart (optional, uses current version if not specified)</summary>
         public int? FlowVersion { get => _explicitNullValueFlowVersion; set { _explicitNullValueFlowVersion = value; AdditionalData?.Remove("flow_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_version"); else _explicitNullProperties?.Remove("flow_version"); } }
         private int? _explicitNullValueFlowVersion = default!;
+        /// <summary>with `failed_only`, resume each failed iteration (branch) at the step where it failed, keeping the steps before it, rather than rerunning it from its first step.</summary>
+        public bool? FromFailedStep { get => _explicitNullValueFromFailedStep; set { _explicitNullValueFromFailedStep = value; AdditionalData?.Remove("from_failed_step"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_failed_step"); else _explicitNullProperties?.Remove("from_failed_step"); } }
+        private bool? _explicitNullValueFromFailedStep = default!;
         /// <summary>path of additional steps to descend into AFTER `step_id`. Each entry represents one level of nesting inside the spawned child of the previous level&apos;s container (BranchOne / sequential ForLoop iteration / Subflow). When non-empty, the actual restart point is the LAST entry&apos;s step_id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,10 +88,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(4)
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "branch_or_iteration_n", n => { BranchOrIterationN = n.GetIntValue(); } },
+                { "failed_only", n => { FailedOnly = n.GetBoolValue(); } },
                 { "flow_version", n => { FlowVersion = n.GetIntValue(); } },
+                { "from_failed_step", n => { FromFailedStep = n.GetBoolValue(); } },
                 { "nested_path", n => { NestedPath = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem>(global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "step_id", n => { StepId = n.GetStringValue(); } },
             };
@@ -94,7 +106,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("branch_or_iteration_n", BranchOrIterationN);
+            writer.WriteBoolValue("failed_only", FailedOnly);
             writer.WriteIntValue("flow_version", FlowVersion);
+            writer.WriteBoolValue("from_failed_step", FromFailedStep);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.RestartFlowAtStepRequestNestedPathItem>("nested_path", NestedPath);
             writer.WriteStringValue("step_id", StepId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

@@ -24,6 +24,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("fallback_to_instance_alerts") is { } nullNodeFallbackToInstanceAlerts && nullNodeFallbackToInstanceAlerts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FallbackToInstanceAlerts = null;
             if (parseNode.GetChildNode("muted_on_cancel") is null) { _explicitNullValueMutedOnCancel = default!; _explicitNullProperties?.Remove("muted_on_cancel"); }
             else if (parseNode.GetChildNode("muted_on_cancel") is { } nullNodeMutedOnCancel && nullNodeMutedOnCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnCancel = null;
+            if (parseNode.GetChildNode("muted_on_ui_runs") is null) { _explicitNullValueMutedOnUiRuns = default!; _explicitNullProperties?.Remove("muted_on_ui_runs"); }
+            else if (parseNode.GetChildNode("muted_on_ui_runs") is { } nullNodeMutedOnUiRuns && nullNodeMutedOnUiRuns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnUiRuns = null;
             if (parseNode.GetChildNode("muted_on_user_path") is null) { _explicitNullValueMutedOnUserPath = default!; _explicitNullProperties?.Remove("muted_on_user_path"); }
             else if (parseNode.GetChildNode("muted_on_user_path") is { } nullNodeMutedOnUserPath && nullNodeMutedOnUserPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MutedOnUserPath = null;
             if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
@@ -48,6 +50,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The muted_on_cancel property</summary>
         public bool? MutedOnCancel { get => _explicitNullValueMutedOnCancel; set { _explicitNullValueMutedOnCancel = value; AdditionalData?.Remove("muted_on_cancel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_cancel"); else _explicitNullProperties?.Remove("muted_on_cancel"); } }
         private bool? _explicitNullValueMutedOnCancel = default!;
+        /// <summary>Skip jobs started from the UI, whose trigger kind is `ui`. Omit to leave the stored value untouched.</summary>
+        public bool? MutedOnUiRuns { get => _explicitNullValueMutedOnUiRuns; set { _explicitNullValueMutedOnUiRuns = value; AdditionalData?.Remove("muted_on_ui_runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_ui_runs"); else _explicitNullProperties?.Remove("muted_on_ui_runs"); } }
+        private bool? _explicitNullValueMutedOnUiRuns = default!;
         /// <summary>The muted_on_user_path property</summary>
         public bool? MutedOnUserPath { get => _explicitNullValueMutedOnUserPath; set { _explicitNullValueMutedOnUserPath = value; AdditionalData?.Remove("muted_on_user_path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("muted_on_user_path"); else _explicitNullProperties?.Remove("muted_on_user_path"); } }
         private bool? _explicitNullValueMutedOnUserPath = default!;
@@ -86,11 +91,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(5)
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "extra_args", n => { ExtraArgs = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonSc9371E9Ada2ExtraArgs>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonSc9371E9Ada2ExtraArgs.CreateFromDiscriminatorValue); } },
                 { "fallback_to_instance_alerts", n => { FallbackToInstanceAlerts = n.GetBoolValue(); } },
                 { "muted_on_cancel", n => { MutedOnCancel = n.GetBoolValue(); } },
+                { "muted_on_ui_runs", n => { MutedOnUiRuns = n.GetBoolValue(); } },
                 { "muted_on_user_path", n => { MutedOnUserPath = n.GetBoolValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
             };
@@ -105,6 +111,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceWorkspacesEditErrorHandlerPostRequestBodyContentApplicationJsonSc9371E9Ada2ExtraArgs>("extra_args", ExtraArgs);
             writer.WriteBoolValue("fallback_to_instance_alerts", FallbackToInstanceAlerts);
             writer.WriteBoolValue("muted_on_cancel", MutedOnCancel);
+            writer.WriteBoolValue("muted_on_ui_runs", MutedOnUiRuns);
             writer.WriteBoolValue("muted_on_user_path", MutedOnUserPath);
             writer.WriteStringValue("path", Path);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

@@ -22,10 +22,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("branch_chosen") is { } nullNodeBranchChosen && nullNodeBranchChosen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchChosen = null;
             if (parseNode.GetChildNode("branch_or_iteration_n") is null) { _explicitNullValueBranchOrIterationN = default!; _explicitNullProperties?.Remove("branch_or_iteration_n"); }
             else if (parseNode.GetChildNode("branch_or_iteration_n") is { } nullNodeBranchOrIterationN && nullNodeBranchOrIterationN.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BranchOrIterationN = null;
+            if (parseNode.GetChildNode("failed_only") is null) { _explicitNullValueFailedOnly = default!; _explicitNullProperties?.Remove("failed_only"); }
+            else if (parseNode.GetChildNode("failed_only") is { } nullNodeFailedOnly && nullNodeFailedOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedOnly = null;
             if (parseNode.GetChildNode("flow_job_id") is null) { _explicitNullValueFlowJobId = default!; _explicitNullProperties?.Remove("flow_job_id"); }
             else if (parseNode.GetChildNode("flow_job_id") is { } nullNodeFlowJobId && nullNodeFlowJobId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowJobId = null;
             if (parseNode.GetChildNode("flow_version") is null) { _explicitNullValueFlowVersion = default!; _explicitNullProperties?.Remove("flow_version"); }
             else if (parseNode.GetChildNode("flow_version") is { } nullNodeFlowVersion && nullNodeFlowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FlowVersion = null;
+            if (parseNode.GetChildNode("from_failed_step") is null) { _explicitNullValueFromFailedStep = default!; _explicitNullProperties?.Remove("from_failed_step"); }
+            else if (parseNode.GetChildNode("from_failed_step") is { } nullNodeFromFailedStep && nullNodeFromFailedStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromFailedStep = null;
             if (parseNode.GetChildNode("nested") is null) { _explicitNullValueNested = default!; _explicitNullProperties?.Remove("nested"); }
             else if (parseNode.GetChildNode("nested") is { } nullNodeNested && nullNodeNested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Nested = null;
             if (parseNode.GetChildNode("step_id") is null) { _explicitNullValueStepId = default!; _explicitNullProperties?.Remove("step_id"); }
@@ -47,12 +51,18 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>0-based iteration index for ForLoop / branch index for BranchAll. Iterations 0..n-1 are preserved; iteration n is restarted.</summary>
         public int? BranchOrIterationN { get => _explicitNullValueBranchOrIterationN; set { _explicitNullValueBranchOrIterationN = value; AdditionalData?.Remove("branch_or_iteration_n"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("branch_or_iteration_n"); else _explicitNullProperties?.Remove("branch_or_iteration_n"); } }
         private int? _explicitNullValueBranchOrIterationN = default!;
+        /// <summary>For a parallel for-loop or branch-all at `step_id`, keep the iterations (branches) that succeeded and rerun only the others.</summary>
+        public bool? FailedOnly { get => _explicitNullValueFailedOnly; set { _explicitNullValueFailedOnly = value; AdditionalData?.Remove("failed_only"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_only"); else _explicitNullProperties?.Remove("failed_only"); } }
+        private bool? _explicitNullValueFailedOnly = default!;
         /// <summary>The flow_job_id property</summary>
         public Guid? FlowJobId { get => _explicitNullValueFlowJobId; set { _explicitNullValueFlowJobId = value; AdditionalData?.Remove("flow_job_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_job_id"); else _explicitNullProperties?.Remove("flow_job_id"); } }
         private Guid? _explicitNullValueFlowJobId = default!;
         /// <summary>The flow_version property</summary>
         public int? FlowVersion { get => _explicitNullValueFlowVersion; set { _explicitNullValueFlowVersion = value; AdditionalData?.Remove("flow_version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow_version"); else _explicitNullProperties?.Remove("flow_version"); } }
         private int? _explicitNullValueFlowVersion = default!;
+        /// <summary>With `failed_only`, resume each failed iteration (branch) at the step where it failed rather than rerunning it from its first step.</summary>
+        public bool? FromFailedStep { get => _explicitNullValueFromFailedStep; set { _explicitNullValueFromFailedStep = value; AdditionalData?.Remove("from_failed_step"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from_failed_step"); else _explicitNullProperties?.Remove("from_failed_step"); } }
+        private bool? _explicitNullValueFromFailedStep = default!;
         /// <summary>When set, the worker spawns the child for `step_id` as a `RestartedFlow` against `nested.flow_job_id` instead of fresh-launching it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,12 +106,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(6)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "branch_chosen", n => { BranchChosen = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro6Cbfaa99C3>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro6Cbfaa99C3.CreateFromDiscriminatorValue); } },
                 { "branch_or_iteration_n", n => { BranchOrIterationN = n.GetIntValue(); } },
+                { "failed_only", n => { FailedOnly = n.GetBoolValue(); } },
                 { "flow_job_id", n => { FlowJobId = n.GetGuidValue(); } },
                 { "flow_version", n => { FlowVersion = n.GetIntValue(); } },
+                { "from_failed_step", n => { FromFailedStep = n.GetBoolValue(); } },
                 { "nested", n => { Nested = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro9A99123282>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro9A99123282.CreateFromDiscriminatorValue); } },
                 { "step_id", n => { StepId = n.GetStringValue(); } },
             };
@@ -115,8 +127,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro6Cbfaa99C3>("branch_chosen", BranchChosen);
             writer.WriteIntValue("branch_or_iteration_n", BranchOrIterationN);
+            writer.WriteBoolValue("failed_only", FailedOnly);
             writer.WriteGuidValue("flow_job_id", FlowJobId);
             writer.WriteIntValue("flow_version", FlowVersion);
+            writer.WriteBoolValue("from_failed_step", FromFailedStep);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceJobsRunPreviewFlowPostRequestBodyContentApplicationJsonSchemaPro9A99123282>("nested", Nested);
             writer.WriteStringValue("step_id", StepId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

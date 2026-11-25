@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Ai_session_tools.Item;
+using Soenneker.Windmill.OpenApiClient.W.Item.Ai_session_tools.Secret_request;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,6 +16,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Ai_session_tools
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Ai_session_toolsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The secret_request property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_session_tools.Secret_request.Secret_requestRequestBuilder Secret_request
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_session_tools.Secret_request.Secret_requestRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.ai_session_tools.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.Windmill.OpenApiClient.W.Item.Ai_session_tools.Item.WithNameItemRequestBuilder"/></returns>

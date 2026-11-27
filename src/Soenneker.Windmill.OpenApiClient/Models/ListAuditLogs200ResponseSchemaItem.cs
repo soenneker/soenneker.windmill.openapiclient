@@ -19,6 +19,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("action_kind") is null) { _explicitNullValueActionKind = default!; _explicitNullProperties?.Remove("action_kind"); }
             else if (parseNode.GetChildNode("action_kind") is { } nullNodeActionKind && nullNodeActionKind.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActionKind = null;
+            if (parseNode.GetChildNode("client_ip") is null) { _explicitNullValueClientIp = default!; _explicitNullProperties?.Remove("client_ip"); }
+            else if (parseNode.GetChildNode("client_ip") is { } nullNodeClientIp && nullNodeClientIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientIp = null;
             if (parseNode.GetChildNode("id") is null) { _explicitNullValueId = default!; _explicitNullProperties?.Remove("id"); }
             else if (parseNode.GetChildNode("id") is { } nullNodeId && nullNodeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Id = null;
             if (parseNode.GetChildNode("operation") is null) { _explicitNullValueOperation = default!; _explicitNullProperties?.Remove("operation"); }
@@ -31,6 +33,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("span") is { } nullNodeSpan && nullNodeSpan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Span = null;
             if (parseNode.GetChildNode("timestamp") is null) { _explicitNullValueTimestamp = default!; _explicitNullProperties?.Remove("timestamp"); }
             else if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("user_agent") is null) { _explicitNullValueUserAgent = default!; _explicitNullProperties?.Remove("user_agent"); }
+            else if (parseNode.GetChildNode("user_agent") is { } nullNodeUserAgent && nullNodeUserAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAgent = null;
             if (parseNode.GetChildNode("username") is null) { _explicitNullValueUsername = default!; _explicitNullProperties?.Remove("username"); }
             else if (parseNode.GetChildNode("username") is { } nullNodeUsername && nullNodeUsername.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Username = null;
             if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
@@ -42,6 +46,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertie76C2962Eb4? _explicitNullValueActionKind = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Address of the client that made the request. Forwarding headers are believed only from the proxies listed in the TRUSTED_PROXIES environment variable (loopback by default, plus the private ranges on Windmill Cloud), so behind a reverse proxy this is the proxy&apos;s address until it is listed. Absent on entries no request stands behind.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; AdditionalData?.Remove("client_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_ip"); else _explicitNullProperties?.Remove("client_ip"); } }
+        private string? _explicitNullValueClientIp = default!;
+#nullable restore
+#else
+        public string ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; AdditionalData?.Remove("client_ip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_ip"); else _explicitNullProperties?.Remove("client_ip"); } }
+        private string _explicitNullValueClientIp = default!;
+#endif
         /// <summary>The id property</summary>
         public int? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
         private int? _explicitNullValueId = default!;
@@ -81,6 +95,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The timestamp property</summary>
         public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; AdditionalData?.Remove("timestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
         private DateTimeOffset? _explicitNullValueTimestamp = default!;
+        /// <summary>User-Agent header of the request.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; AdditionalData?.Remove("user_agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
+        private string? _explicitNullValueUserAgent = default!;
+#nullable restore
+#else
+        public string UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; AdditionalData?.Remove("user_agent"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_agent"); else _explicitNullProperties?.Remove("user_agent"); } }
+        private string _explicitNullValueUserAgent = default!;
+#endif
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,15 +148,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(9)
+            return new Dictionary<string, Action<IParseNode>>(11)
             {
                 { "action_kind", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertie76C2962Eb4>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueActionKind = default; _explicitNullProperties?.Remove("action_kind"); AdditionalData["action_kind"] = unknown; } else { ActionKind = parsed; AdditionalData.Remove("action_kind"); } } },
+                { "client_ip", n => { ClientIp = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetIntValue(); } },
                 { "operation", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertieE4F385Dbdd>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOperation = default; _explicitNullProperties?.Remove("operation"); AdditionalData["operation"] = unknown; } else { Operation = parsed; AdditionalData.Remove("operation"); } } },
                 { "parameters", n => { Parameters = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters>(global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters.CreateFromDiscriminatorValue); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
                 { "span", n => { Span = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
+                { "user_agent", n => { UserAgent = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -145,12 +171,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertie76C2962Eb4>("action_kind", ActionKind);
+            writer.WriteStringValue("client_ip", ClientIp);
             writer.WriteIntValue("id", Id);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertieE4F385Dbdd>("operation", Operation);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.ListAuditLogs200ResponseSchemaItemParameters>("parameters", Parameters);
             writer.WriteStringValue("resource", Resource);
             writer.WriteStringValue("span", Span);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
+            writer.WriteStringValue("user_agent", UserAgent);
             writer.WriteStringValue("username", Username);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

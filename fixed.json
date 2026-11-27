@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.884.1",
+    "version": "1.886.0",
     "x-logo": {
       "url": "https://windmill.dev/img/windmill.svg"
     }
@@ -41,6 +41,29 @@
             }
           }
         }
+      }
+    },
+    "/client_ip": {
+      "get": {
+        "tags": [
+          "settings"
+        ],
+        "summary": "get the caller\u0027s IP address",
+        "description": "The address of the client making the request, as Windmill resolves it for per-IP checks such\nas token IP allowlists: forwarding headers are believed only from the proxies in\nTRUSTED_PROXIES. Behind a proxy that is not listed, this is the proxy\u0027s address. Empty when\nthe server cannot tell.\n",
+        "operationId": "GetClientIp",
+        "responses": {
+          "200": {
+            "description": "the caller\u0027s IP address",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetClientIp200PlainResponseSchema"
+                }
+              }
+            }
+          }
+        },
+        "security": []
       }
     },
     "/health/status": {
@@ -2749,6 +2772,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "dangerously_reveal_secrets",
+            "in": "query",
+            "description": "Return stored secrets in clear. Without it, every secret is replaced by a placeholder, which a write sending it back unchanged keeps as the stored value.\n",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -3533,6 +3564,16 @@
         ],
         "summary": "list global settings",
         "operationId": "ListGlobalSettings",
+        "parameters": [
+          {
+            "name": "dangerously_reveal_secrets",
+            "in": "query",
+            "description": "Return stored secrets in clear. Without it, every secret is replaced by a placeholder, which a write sending it back unchanged keeps as the stored value.\n",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "list of settings",
@@ -3575,6 +3616,16 @@
         ],
         "summary": "get full instance config (global settings \u002B worker configs)",
         "operationId": "GetInstanceConfig",
+        "parameters": [
+          {
+            "name": "dangerously_reveal_secrets",
+            "in": "query",
+            "description": "Return stored secrets in clear. Without it, every secret is replaced by a placeholder, which a write sending it back unchanged keeps as the stored value.\n",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "full instance configuration",
@@ -11060,6 +11111,37 @@
         }
       }
     },
+    "/w/{workspace}/workspaces/password_login_members": {
+      "get": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "list the members other than service accounts that sign in with a password",
+        "operationId": "ListPasswordLoginMembers",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "members signing in with a password, with their groups",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListPasswordLoginMembers200ResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/workspaces/protection_rules/{ruleName}": {
       "post": {
         "tags": [
@@ -18367,6 +18449,48 @@
         }
       }
     },
+    "/w/{workspace}/jobs/flow/nested_approvals/{jobId}": {
+      "get": {
+        "tags": [
+          "job"
+        ],
+        "summary": "list the approvals given in runs nested under a flow run",
+        "description": "List the approval steps that runs nested under a flow run (subflows, branch and loop runs, at any depth) went past, with who approved or rejected each and when. The flow run\u0027s own approval steps are not listed: they are in its flow status. Only the runs started by a step that can hold an approval step are read: a subflow, or a loop or branch whose steps hold one.\n",
+        "operationId": "ListNestedApprovals",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "jobId",
+            "in": "path",
+            "description": "id of the flow run",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the nested approval steps, oldest first",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListNestedApprovals200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/jobs/flow/approval_step_detail/{jobId}/{stepId}": {
       "get": {
         "tags": [
@@ -18411,6 +18535,38 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GetApprovalStepDetail200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/w/{workspace}/jobs/approvals/waiting": {
+      "get": {
+        "tags": [
+          "job"
+        ],
+        "summary": "list the runs waiting for an approval the caller can give",
+        "description": "Runs suspended on an approval step the caller can approve, by the same check the approval itself runs, newest first, excluding steps the caller already approved. A step that does not require login is listed only to callers who can read its run.\n",
+        "operationId": "ListWaitingApprovals",
+        "parameters": [
+          {
+            "name": "workspace",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "runs waiting for the caller\u0027s approval",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListWaitingApprovals200Response"
                 }
               }
             }
@@ -42469,6 +42625,39 @@
         }
       }
     },
+    "/concurrency_groups/{id}/key_status": {
+      "get": {
+        "tags": [
+          "concurrencyGroups"
+        ],
+        "summary": "Get a job\u0027s concurrency key and whether its limit held it back",
+        "description": "Requires read access to the job, the same as reading the run itself. Returns null when the job has no concurrency key.",
+        "operationId": "GetConcurrencyKeyStatus",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "concurrency key and deferral of the given job",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConcurrencyKeyStatus200Response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/w/{workspace}/concurrency_groups/list_jobs": {
       "get": {
         "tags": [
@@ -46107,6 +46296,32 @@
           },
           "expiration": {
             "type": "string"
+          }
+        }
+      },
+      "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06": {
+        "required": [
+          "workspace_id",
+          "kind",
+          "source_path",
+          "target_path"
+        ],
+        "type": "object",
+        "properties": {
+          "workspace_id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "description": "Item kind, as its table name (script, flow, app, resource, variable, schedule, eval_dataset, http_trigger, ...)"
+          },
+          "source_path": {
+            "type": "string",
+            "description": "The offboarded user\u0027s item, under u/{username}/"
+          },
+          "target_path": {
+            "type": "string",
+            "description": "The existing item at the reassignment target"
           }
         }
       },
@@ -49902,7 +50117,8 @@
           "RestrictAnonymousAppDeployment",
           "RestrictPublicRunSharing",
           "RestrictGuestAppDeployment",
-          "RequireIsolatedForks"
+          "RequireIsolatedForks",
+          "RequireSso"
         ],
         "type": "string"
       },
@@ -50937,6 +51153,10 @@
           },
           "skin": {
             "$ref": "#/components/schemas/YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro6F2A4B5C65"
+          },
+          "show_on_home": {
+            "type": "boolean",
+            "description": "If true, a run waiting on this step is listed on the Home page of each user who can approve it. Leave unset when the approval request is sent through another channel (Slack, Discord, email), so it does not sit there unanswered"
           }
         },
         "description": "Configuration for approval/resume steps that wait for user input"
@@ -57261,6 +57481,15 @@
           },
           "approver": {
             "type": "string"
+          },
+          "approved_at": {
+            "type": "string",
+            "description": "absent for approvals recorded before it was kept",
+            "format": "date-time"
+          },
+          "approved": {
+            "type": "boolean",
+            "description": "false for a rejection the flow continued past; absent for approvals recorded before it was kept\n"
           }
         }
       },
@@ -64904,6 +65133,14 @@
           },
           "span": {
             "type": "string"
+          },
+          "client_ip": {
+            "type": "string",
+            "description": "Address of the client that made the request. Forwarding headers are believed only from the proxies listed in the TRUSTED_PROXIES environment variable (loopback by default, plus the private ranges on Windmill Cloud), so behind a reverse proxy this is the proxy\u0027s address until it is listed. Absent on entries no request stands behind."
+          },
+          "user_agent": {
+            "type": "string",
+            "description": "User-Agent header of the request."
           }
         }
       },
@@ -65333,6 +65570,13 @@
             },
             "description": "List of path conflicts that block the offboarding. Empty on success."
           },
+          "conflict_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06"
+            },
+            "description": "The same conflicts as \u0060conflicts\u0060, structured. Empty on success."
+          },
           "summary": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche9916Bcfd60"
           }
@@ -65360,6 +65604,13 @@
               "type": "string"
             },
             "description": "List of path conflicts that block the offboarding. Empty on success."
+          },
+          "conflict_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06"
+            },
+            "description": "The same conflicts as \u0060conflicts\u0060, structured. Empty on success."
           },
           "summary": {
             "$ref": "#/components/schemas/YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche9916Bcfd60"
@@ -68952,6 +69203,13 @@
           "super_admin": {
             "type": "boolean",
             "description": "For an MCP token (an \u0060mcp:\u0060 scope) owned by a superadmin: carry the owner\u0027s\nsuperadmin rights, reaching every workspace rather than only their\nmemberships. Ignored for other tokens, which always carry them.\n"
+          },
+          "allowed_ips": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IPs or CIDRs (IPv4 or IPv6) the token may be used from; omit to allow any.\nA request from elsewhere is refused as unauthenticated. A token that is itself\nrestricted can only create tokens within its own networks, and creates one\nrestricted to them when this is omitted.\n"
           }
         }
       },
@@ -68973,6 +69231,13 @@
           },
           "workspace_id": {
             "type": "string"
+          },
+          "allowed_ips": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IPs or CIDRs the token may be used from; omit to allow any."
           }
         }
       },
@@ -72179,6 +72444,25 @@
           }
         }
       },
+      "ListNestedApprovals200Response": {
+        "required": [
+          "approvals",
+          "more"
+        ],
+        "type": "object",
+        "properties": {
+          "approvals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListNestedApprovals200ResponseApprovalsItem"
+            }
+          },
+          "more": {
+            "type": "boolean",
+            "description": "more nested runs than are read, typically a loop with an approval in every iteration: their approvals are on those runs\u0027 own pages\n"
+          }
+        }
+      },
       "GetApprovalStepDetail200Response": {
         "required": [
           "flow_id",
@@ -72256,10 +72540,30 @@
             "items": {
               "$ref": "#/components/schemas/GetApprovalStepDetail200ResponseApprovalsItem"
             },
-            "description": "approvals received. approved, value and created_at are known only while the run is live; a finished run keeps approver names alone.\n"
+            "description": "approvals received. approved and value are known only while the run is live; a finished run keeps approver names and, for approvals recorded since it was kept, created_at.\n"
           },
           "error": {
             "description": "the run\u0027s error, when status is not_resumed"
+          }
+        }
+      },
+      "ListWaitingApprovals200Response": {
+        "required": [
+          "approvals",
+          "total"
+        ],
+        "type": "object",
+        "properties": {
+          "approvals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListWaitingApprovals200ResponseApprovalsItem"
+            },
+            "description": "the most recent of the listed runs, at most 100"
+          },
+          "total": {
+            "type": "integer",
+            "description": "how many runs are listed in all"
           }
         }
       },
@@ -75693,6 +75997,10 @@
           "flow_summary": {
             "type": "string",
             "description": "summary of the flow or workflow the approval belongs to"
+          },
+          "required_events": {
+            "type": "integer",
+            "description": "approvals the step requires; absent for a workflow as code"
           },
           "approvers": {
             "type": "array",
@@ -81147,6 +81455,30 @@
           }
         }
       },
+      "GetConcurrencyKeyStatus200Response": {
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "deferred_from": {
+            "type": "string",
+            "description": "When the job was first due. Set the first time its concurrency limit held it back, and kept after it ran.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "released_at": {
+            "type": "string",
+            "description": "When the concurrency limit let in a job it had held back, as the time the job was last due. The rest until it started is queue time.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
       "ListExtendedJobs200Response": {
         "required": [
           "jobs",
@@ -81882,6 +82214,9 @@
         }
       },
       "BackendVersion200PlainResponseSchema": {
+        "type": "string"
+      },
+      "GetClientIp200PlainResponseSchema": {
         "type": "string"
       },
       "GetHealthStatus200Response": {
@@ -83078,6 +83413,12 @@
       },
       "CreateProtectionRule200PlainResponseSchema": {
         "type": "string"
+      },
+      "ListPasswordLoginMembers200ResponseSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/ListPasswordLoginMembers200ResponseSchemaItem"
+        }
       },
       "UpdateProtectionRule200PlainResponseSchema": {
         "type": "string"
@@ -87802,6 +88143,46 @@
           }
         }
       },
+      "ListNestedApprovals200ResponseApprovalsItem": {
+        "required": [
+          "job_id",
+          "subflows",
+          "step_id",
+          "required_events",
+          "approvers"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "description": "the nested run the step belongs to",
+            "format": "uuid"
+          },
+          "subflows": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "ids of the subflow steps leading to the nested run, outermost first. Step ids are unique across a flow, loop and branch steps included, so the first one (or the step itself) is a step of the flow run\u0027s own graph\n"
+          },
+          "step_id": {
+            "type": "string"
+          },
+          "step_summary": {
+            "type": "string"
+          },
+          "required_events": {
+            "type": "integer",
+            "description": "approvals the step required; fewer approvers means it timed out and the flow continued\n"
+          },
+          "approvers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListNestedApprovals200ResponseApprovalsItemApproversItem"
+            }
+          }
+        }
+      },
       "GetApprovalStepDetail200ResponseApprovalConditions": {
         "required": [
           "user_auth_required",
@@ -87844,6 +88225,46 @@
           "created_at": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "ListWaitingApprovals200ResponseApprovalsItem": {
+        "required": [
+          "job_id",
+          "started_by",
+          "created_at",
+          "approvals",
+          "required_approvals"
+        ],
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "description": "the suspended flow run, the one its approval page takes: the root run, or the branch, loop or subflow run holding the approval step\n",
+            "format": "uuid"
+          },
+          "flow_path": {
+            "type": "string"
+          },
+          "flow_summary": {
+            "type": "string"
+          },
+          "step_summary": {
+            "type": "string"
+          },
+          "started_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "approvals": {
+            "type": "integer",
+            "description": "approvals received so far"
+          },
+          "required_approvals": {
+            "type": "integer"
           }
         }
       },
@@ -89714,6 +90135,13 @@
           },
           "approver": {
             "type": "string"
+          },
+          "approved_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "approved": {
+            "type": "boolean"
           }
         }
       },
@@ -89729,6 +90157,13 @@
           },
           "approver": {
             "type": "string"
+          },
+          "approved_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "approved": {
+            "type": "boolean"
           }
         }
       },
@@ -90713,6 +91148,14 @@
           },
           "span": {
             "type": "string"
+          },
+          "client_ip": {
+            "type": "string",
+            "description": "Address of the client that made the request. Forwarding headers are believed only from the proxies listed in the TRUSTED_PROXIES environment variable (loopback by default, plus the private ranges on Windmill Cloud), so behind a reverse proxy this is the proxy\u0027s address until it is listed. Absent on entries no request stands behind."
+          },
+          "user_agent": {
+            "type": "string",
+            "description": "User-Agent header of the request."
           }
         }
       },
@@ -91641,6 +92084,13 @@
           },
           "read_only": {
             "type": "boolean"
+          },
+          "allowed_ips": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
           }
         }
       },
@@ -91795,6 +92245,28 @@
           }
         },
         "description": "A workspace protection rule defining restrictions and bypass permissions"
+      },
+      "ListPasswordLoginMembers200ResponseSchemaItem": {
+        "required": [
+          "username",
+          "email",
+          "groups"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "ListDeploymentRequestEligibleDeployers200ResponseSchemaItem": {
         "required": [
@@ -92431,6 +92903,13 @@
           },
           "read_only": {
             "type": "boolean"
+          },
+          "allowed_ips": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
           }
         }
       },
@@ -92720,6 +93199,13 @@
           },
           "read_only": {
             "type": "boolean"
+          },
+          "allowed_ips": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
           }
         }
       },
@@ -97555,6 +98041,28 @@
           }
         }
       },
+      "ListNestedApprovals200ResponseApprovalsItemApproversItem": {
+        "required": [
+          "resume_id",
+          "approver"
+        ],
+        "type": "object",
+        "properties": {
+          "resume_id": {
+            "type": "integer"
+          },
+          "approver": {
+            "type": "string"
+          },
+          "approved_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "approved": {
+            "type": "boolean"
+          }
+        }
+      },
       "ListRunnables200ResponseItemsItemExtraPerms": {
         "type": "object",
         "additionalProperties": {
@@ -100554,10 +101062,11 @@
           "failure",
           "resolved",
           "canceled",
-          "running"
+          "running",
+          "suspended"
         ],
         "type": "string",
-        "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060",
+        "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060; a run waiting for an approval is \u0060suspended\u0060, not \u0060running\u0060\n",
         "x-ms-enum": {
           "name": "ListRecentRuns200ResponseItemsItemStatus",
           "modelAsString": false,
@@ -100581,6 +101090,10 @@
             {
               "value": "running",
               "name": "Running"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
             }
           ]
         }
@@ -101261,10 +101774,11 @@
           "failure",
           "resolved",
           "canceled",
-          "running"
+          "running",
+          "suspended"
         ],
         "type": "string",
-        "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060",
+        "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060; a run waiting for an approval is \u0060suspended\u0060, not \u0060running\u0060\n",
         "x-ms-enum": {
           "name": "ListRecentRuns200ResponseItemsItemRunsItemStatus",
           "modelAsString": false,
@@ -101288,6 +101802,10 @@
             {
               "value": "running",
               "name": "Running"
+            },
+            {
+              "value": "suspended",
+              "name": "Suspended"
             }
           ]
         }
@@ -107243,6 +107761,14 @@
           "type": "string"
         }
       },
+      "DangerouslyRevealSecrets": {
+        "name": "dangerously_reveal_secrets",
+        "in": "query",
+        "description": "Return stored secrets in clear. Without it, every secret is replaced by a placeholder, which a write sending it back unchanged keeps as the stored value.\n",
+        "schema": {
+          "type": "boolean"
+        }
+      },
       "WorkspaceId": {
         "name": "workspace",
         "in": "path",
@@ -107985,6 +108511,14 @@
     "YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertie83A314Ceaf": {
       "type": "string"
     },
+    "YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertie34259A5E1D": {
+      "type": "string",
+      "description": "Address of the client that made the request. Forwarding headers are believed only from the proxies listed in the TRUSTED_PROXIES environment variable (loopback by default, plus the private ranges on Windmill Cloud), so behind a reverse proxy this is the proxy\u0027s address until it is listed. Absent on entries no request stands behind."
+    },
+    "YamlPathsWWorkspaceAuditGetIdGetResponses200ContentApplicationJsonSchemaPropertieE08756428D": {
+      "type": "string",
+      "description": "User-Agent header of the request."
+    },
     "YamlPathsWWorkspaceAuditListGetParameters1SchemaFdf860B179": {
       "type": "integer"
     },
@@ -108449,6 +108983,28 @@
     "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche3Aeeb34Cb8": {
       "type": "string"
     },
+    "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche96Cb1A7462": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06"
+      },
+      "description": "The same conflicts as \u0060conflicts\u0060, structured. Empty on success."
+    },
+    "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche606A284715": {
+      "type": "string"
+    },
+    "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonScheEed6828E53": {
+      "type": "string",
+      "description": "Item kind, as its table name (script, flow, app, resource, variable, schedule, eval_dataset, http_trigger, ...)"
+    },
+    "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonScheE932E9D48E": {
+      "type": "string",
+      "description": "The offboarded user\u0027s item, under u/{username}/"
+    },
+    "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche46Ae6C2F8C": {
+      "type": "string",
+      "description": "The existing item at the reassignment target"
+    },
     "YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche5B29729318": {
       "type": "integer"
     },
@@ -108842,6 +109398,9 @@
     },
     "YamlPathsSettingsGlobalKeyGetParameters0Schema17Fe4D7F26": {
       "type": "string"
+    },
+    "YamlPathsSettingsGlobalKeyGetParameters1SchemaEa92880A15": {
+      "type": "boolean"
     },
     "YamlPathsSettingsCriticalAlertsGetResponses200ContentApplicationJsonSchemaPropertiesAl55Cdeb4Cd7": {
       "type": "integer",
@@ -110543,6 +111102,16 @@
       "type": "boolean",
       "description": "For an MCP token (an \u0060mcp:\u0060 scope) owned by a superadmin: carry the owner\u0027s\nsuperadmin rights, reaching every workspace rather than only their\nmemberships. Ignored for other tokens, which always carry them.\n"
     },
+    "YamlPathsUsersTokensCreatePostRequestBodyContentApplicationJsonSchemaPropertiesAllowedBd5268Ce91": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IPs or CIDRs (IPv4 or IPv6) the token may be used from; omit to allow any.\nA request from elsewhere is refused as unauthenticated. A token that is itself\nrestricted can only create tokens within its own networks, and creates one\nrestricted to them when this is omitted.\n"
+    },
+    "YamlPathsUsersTokensCreatePostRequestBodyContentApplicationJsonSchemaPropertiesAllowedE636Fa61D3": {
+      "type": "string"
+    },
     "YamlPathsUsersTokensImpersonatePostRequestBodyContentApplicationJsonSchemaPropertiesLabA89A0D2578": {
       "type": "string"
     },
@@ -110554,6 +111123,16 @@
       "type": "string"
     },
     "YamlPathsUsersTokensImpersonatePostRequestBodyContentApplicationJsonSchemaPropertiesWorB3D047131E": {
+      "type": "string"
+    },
+    "YamlPathsUsersTokensImpersonatePostRequestBodyContentApplicationJsonSchemaPropertiesAll20415689Be": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IPs or CIDRs the token may be used from; omit to allow any."
+    },
+    "YamlPathsUsersTokensImpersonatePostRequestBodyContentApplicationJsonSchemaPropertiesAll374A451D92": {
       "type": "string"
     },
     "YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesLab9Ccd708F47": {
@@ -110591,6 +111170,16 @@
     },
     "YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesReaBe48272429": {
       "type": "boolean"
+    },
+    "YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesAllF03374787A": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
+    },
+    "YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesAllE082Fdba7B": {
+      "type": "string"
     },
     "YamlPathsWWorkspaceVariablesCreatePostRequestBodyContentApplicationJsonSchemaProperti8Aa0418995": {
       "type": "string",
@@ -111707,6 +112296,10 @@
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProB22C803958": {
       "type": "boolean",
       "description": "If true, continue flow on timeout instead of canceling"
+    },
+    "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProCc6A62B32B": {
+      "type": "boolean",
+      "description": "If true, a run waiting on this step is listed on the Home page of each user who can approve it. Leave unset when the approval request is sent through another channel (Slack, Discord, email), so it does not sit there unanswered"
     },
     "YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro7C30F8D259": {
       "type": "number",
@@ -115937,6 +116530,15 @@
     },
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPrF47Aa79C4D": {
       "type": "string"
+    },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr55844Ed247": {
+      "type": "string",
+      "description": "absent for approvals recorded before it was kept",
+      "format": "date-time"
+    },
+    "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr586Bc9C9E8": {
+      "type": "boolean",
+      "description": "false for a rejection the flow continued past; absent for approvals recorded before it was kept\n"
     },
     "YamlPathsWWorkspaceJobsQueueListGetResponses200ContentApplicationJsonSchemaItemsPr6Ccfae8Ca0": {
       "type": "array",
@@ -127431,8 +128033,41 @@
           },
           "description": "List of path conflicts that block the offboarding. Empty on success."
         },
+        "conflict_items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06"
+          },
+          "description": "The same conflicts as \u0060conflicts\u0060, structured. Empty on success."
+        },
         "summary": {
           "$ref": "#/components/schemas/YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche9916Bcfd60"
+        }
+      }
+    },
+    "OffboardPathConflict": {
+      "required": [
+        "workspace_id",
+        "kind",
+        "source_path",
+        "target_path"
+      ],
+      "type": "object",
+      "properties": {
+        "workspace_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Item kind, as its table name (script, flow, app, resource, variable, schedule, eval_dataset, http_trigger, ...)"
+        },
+        "source_path": {
+          "type": "string",
+          "description": "The offboarded user\u0027s item, under u/{username}/"
+        },
+        "target_path": {
+          "type": "string",
+          "description": "The existing item at the reassignment target"
         }
       }
     },
@@ -127578,6 +128213,13 @@
         },
         "read_only": {
           "type": "boolean"
+        },
+        "allowed_ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
         }
       }
     },
@@ -127738,6 +128380,13 @@
         "super_admin": {
           "type": "boolean",
           "description": "For an MCP token (an \u0060mcp:\u0060 scope) owned by a superadmin: carry the owner\u0027s\nsuperadmin rights, reaching every workspace rather than only their\nmemberships. Ignored for other tokens, which always carry them.\n"
+        },
+        "allowed_ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IPs or CIDRs (IPv4 or IPv6) the token may be used from; omit to allow any.\nA request from elsewhere is refused as unauthenticated. A token that is itself\nrestricted can only create tokens within its own networks, and creates one\nrestricted to them when this is omitted.\n"
         }
       }
     },
@@ -127759,6 +128408,13 @@
         },
         "workspace_id": {
           "type": "string"
+        },
+        "allowed_ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IPs or CIDRs the token may be used from; omit to allow any."
         }
       }
     },
@@ -127996,6 +128652,14 @@
         },
         "span": {
           "type": "string"
+        },
+        "client_ip": {
+          "type": "string",
+          "description": "Address of the client that made the request. Forwarding headers are believed only from the proxies listed in the TRUSTED_PROXIES environment variable (loopback by default, plus the private ranges on Windmill Cloud), so behind a reverse proxy this is the proxy\u0027s address until it is listed. Absent on entries no request stands behind."
+        },
+        "user_agent": {
+          "type": "string",
+          "description": "User-Agent header of the request."
         }
       }
     },
@@ -128129,10 +128793,11 @@
         "failure",
         "resolved",
         "canceled",
-        "running"
+        "running",
+        "suspended"
       ],
       "type": "string",
-      "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060",
+      "description": "a failure someone or something marked as handled is \u0060resolved\u0060, not \u0060failure\u0060; a run waiting for an approval is \u0060suspended\u0060, not \u0060running\u0060\n",
       "x-ms-enum": {
         "name": "RecentRunStatus",
         "modelAsString": false,
@@ -128156,6 +128821,10 @@
           {
             "value": "running",
             "name": "Running"
+          },
+          {
+            "value": "suspended",
+            "name": "Suspended"
           }
         ]
       }
@@ -137581,7 +138250,8 @@
         "RestrictAnonymousAppDeployment",
         "RestrictPublicRunSharing",
         "RestrictGuestAppDeployment",
-        "RequireIsolatedForks"
+        "RequireIsolatedForks",
+        "RequireSso"
       ],
       "type": "string"
     },
@@ -141866,6 +142536,10 @@
         },
         "skin": {
           "$ref": "#/components/schemas/FlowModuleSuspendSkin"
+        },
+        "show_on_home": {
+          "type": "boolean",
+          "description": "If true, a run waiting on this step is listed on the Home page of each user who can approve it. Leave unset when the approval request is sent through another channel (Slack, Discord, email), so it does not sit there unanswered"
         }
       },
       "description": "Configuration for approval/resume steps that wait for user input"
@@ -142410,6 +143084,15 @@
         },
         "approver": {
           "type": "string"
+        },
+        "approved_at": {
+          "type": "string",
+          "description": "absent for approvals recorded before it was kept",
+          "format": "date-time"
+        },
+        "approved": {
+          "type": "boolean",
+          "description": "false for a rejection the flow continued past; absent for approvals recorded before it was kept\n"
         }
       }
     },
@@ -142774,6 +143457,9 @@
       "description": "JSON Schema for the resume form"
     },
     "BackendVersion200PlainResponse": {
+      "type": "string"
+    },
+    "GetClientIp200PlainResponse": {
       "type": "string"
     },
     "BackendUptodate200PlainResponse": {
@@ -143519,6 +144205,12 @@
     },
     "CreateProtectionRule200PlainResponse": {
       "type": "string"
+    },
+    "ListPasswordLoginMembers200Response": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ListPasswordLoginMembers200ResponseItem"
+      }
     },
     "UpdateProtectionRule200PlainResponse": {
       "type": "string"
@@ -146748,6 +147440,14 @@
         },
         "span": {
           "type": "string"
+        },
+        "client_ip": {
+          "type": "string",
+          "description": "Address of the client that made the request. Forwarding headers are believed only from the proxies listed in the TRUSTED_PROXIES environment variable (loopback by default, plus the private ranges on Windmill Cloud), so behind a reverse proxy this is the proxy\u0027s address until it is listed. Absent on entries no request stands behind."
+        },
+        "user_agent": {
+          "type": "string",
+          "description": "User-Agent header of the request."
         }
       }
     },
@@ -147665,6 +148365,13 @@
         },
         "read_only": {
           "type": "boolean"
+        },
+        "allowed_ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
         }
       }
     },
@@ -147819,6 +148526,28 @@
         }
       },
       "description": "A workspace protection rule defining restrictions and bypass permissions"
+    },
+    "ListPasswordLoginMembers200ResponseItem": {
+      "required": [
+        "username",
+        "email",
+        "groups"
+      ],
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "ListDeploymentRequestEligibleDeployers200ResponseItem": {
       "required": [
@@ -148455,6 +149184,13 @@
         },
         "read_only": {
           "type": "boolean"
+        },
+        "allowed_ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
         }
       }
     },
@@ -148744,6 +149480,13 @@
         },
         "read_only": {
           "type": "boolean"
+        },
+        "allowed_ips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IPs or CIDRs the token may be used from; absent when it may be used from anywhere."
         }
       }
     },

@@ -38,7 +38,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>when the run started, or was created for one that has not reported a start</summary>
         public DateTimeOffset? RanAt { get => _explicitNullValueRanAt; set { _explicitNullValueRanAt = value; AdditionalData?.Remove("ran_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ran_at"); else _explicitNullProperties?.Remove("ran_at"); } }
         private DateTimeOffset? _explicitNullValueRanAt = default!;
-        /// <summary>a failure someone or something marked as handled is `resolved`, not `failure`</summary>
+        /// <summary>a failure someone or something marked as handled is `resolved`, not `failure`; a run waiting for an approval is `suspended`, not `running`</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItemRunsItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItemRunsItemStatus? _explicitNullValueStatus = default!;
         /// <summary>

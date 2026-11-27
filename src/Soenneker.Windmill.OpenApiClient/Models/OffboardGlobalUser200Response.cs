@@ -17,6 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("conflict_items") is null) { _explicitNullValueConflictItems = default!; _explicitNullProperties?.Remove("conflict_items"); }
+            else if (parseNode.GetChildNode("conflict_items") is { } nullNodeConflictItems && nullNodeConflictItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConflictItems = null;
             if (parseNode.GetChildNode("conflicts") is null) { _explicitNullValueConflicts = default!; _explicitNullProperties?.Remove("conflicts"); }
             else if (parseNode.GetChildNode("conflicts") is { } nullNodeConflicts && nullNodeConflicts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Conflicts = null;
             if (parseNode.GetChildNode("summary") is null) { _explicitNullValueSummary = default!; _explicitNullProperties?.Remove("summary"); }
@@ -25,6 +27,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The same conflicts as `conflicts`, structured. Empty on success.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06>? ConflictItems { get => _explicitNullValueConflictItems; set { _explicitNullValueConflictItems = value; AdditionalData?.Remove("conflict_items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conflict_items"); else _explicitNullProperties?.Remove("conflict_items"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06>? _explicitNullValueConflictItems = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06> ConflictItems { get => _explicitNullValueConflictItems; set { _explicitNullValueConflictItems = value; AdditionalData?.Remove("conflict_items"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("conflict_items"); else _explicitNullProperties?.Remove("conflict_items"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06> _explicitNullValueConflictItems = default!;
+#endif
         /// <summary>List of path conflicts that block the offboarding. Empty on success.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,6 +82,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "conflict_items", n => { ConflictItems = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "conflicts", n => { Conflicts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "summary", n => { Summary = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche9916Bcfd60>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche9916Bcfd60.CreateFromDiscriminatorValue); } },
             };
@@ -81,6 +94,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche7D5C265B06>("conflict_items", ConflictItems);
             writer.WriteCollectionOfPrimitiveValues<string>("conflicts", Conflicts);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceUsersOffboardUsernamePostResponses200ContentApplicationJsonSche9916Bcfd60>("summary", Summary);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

@@ -33,6 +33,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("form_schema") is { } nullNodeFormSchema && nullNodeFormSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormSchema = null;
             if (parseNode.GetChildNode("hide_cancel") is null) { _explicitNullValueHideCancel = default!; _explicitNullProperties?.Remove("hide_cancel"); }
             else if (parseNode.GetChildNode("hide_cancel") is { } nullNodeHideCancel && nullNodeHideCancel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HideCancel = null;
+            if (parseNode.GetChildNode("required_events") is null) { _explicitNullValueRequiredEvents = default!; _explicitNullProperties?.Remove("required_events"); }
+            else if (parseNode.GetChildNode("required_events") is { } nullNodeRequiredEvents && nullNodeRequiredEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequiredEvents = null;
             if (parseNode.GetChildNode("skin") is null) { _explicitNullValueSkin = default!; _explicitNullProperties?.Remove("skin"); }
             else if (parseNode.GetChildNode("skin") is { } nullNodeSkin && nullNodeSkin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skin = null;
             if (parseNode.GetChildNode("step_summary") is null) { _explicitNullValueStepSummary = default!; _explicitNullProperties?.Remove("step_summary"); }
@@ -104,6 +106,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>whether to hide the cancel button in the UI</summary>
         public bool? HideCancel { get => _explicitNullValueHideCancel; set { _explicitNullValueHideCancel = value; AdditionalData?.Remove("hide_cancel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hide_cancel"); else _explicitNullProperties?.Remove("hide_cancel"); } }
         private bool? _explicitNullValueHideCancel = default!;
+        /// <summary>approvals the step requires; absent for a workflow as code</summary>
+        public int? RequiredEvents { get => _explicitNullValueRequiredEvents; set { _explicitNullValueRequiredEvents = value; AdditionalData?.Remove("required_events"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required_events"); else _explicitNullProperties?.Remove("required_events"); } }
+        private int? _explicitNullValueRequiredEvents = default!;
         /// <summary>how the approval page presents the request</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin? Skin { get => _explicitNullValueSkin; set { _explicitNullValueSkin = value; AdditionalData?.Remove("skin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skin"); else _explicitNullProperties?.Remove("skin"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin? _explicitNullValueSkin = default!;
@@ -153,7 +158,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(12)
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "approval_conditions", n => { ApprovalConditions = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApprovalConditions.CreateFromDiscriminatorValue); } },
                 { "approvers", n => { Approvers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApproversItem>(global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseApproversItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -163,6 +168,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "flow_summary", n => { FlowSummary = n.GetStringValue(); } },
                 { "form_schema", n => { FormSchema = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "hide_cancel", n => { HideCancel = n.GetBoolValue(); } },
+                { "required_events", n => { RequiredEvents = n.GetIntValue(); } },
                 { "skin", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSkin = default; _explicitNullProperties?.Remove("skin"); AdditionalData["skin"] = unknown; } else { Skin = parsed; AdditionalData.Remove("skin"); } } },
                 { "step_summary", n => { StepSummary = n.GetStringValue(); } },
                 { "user_auth_required", n => { UserAuthRequired = n.GetBoolValue(); } },
@@ -184,6 +190,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("flow_summary", FlowSummary);
             writer.WriteObjectValue<UntypedNode>("form_schema", FormSchema);
             writer.WriteBoolValue("hide_cancel", HideCancel);
+            writer.WriteIntValue("required_events", RequiredEvents);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalInfo200ResponseSkin>("skin", Skin);
             writer.WriteStringValue("step_summary", StepSummary);
             writer.WriteBoolValue("user_auth_required", UserAuthRequired);

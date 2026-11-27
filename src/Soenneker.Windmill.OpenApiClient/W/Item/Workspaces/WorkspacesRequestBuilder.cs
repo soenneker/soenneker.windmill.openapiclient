@@ -90,6 +90,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.List_ws_specific_versions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Log_feature_usage;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Operator_settings;
+using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Password_login_members;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Premium_info;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Protection_rules;
 using Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Prune_versions;
@@ -564,6 +565,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Workspaces
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Operator_settings.Operator_settingsRequestBuilder Operator_settings
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Operator_settings.Operator_settingsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The password_login_members property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Password_login_members.Password_login_membersRequestBuilder Password_login_members
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Password_login_members.Password_login_membersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The premium_info property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Workspaces.Premium_info.Premium_infoRequestBuilder Premium_info

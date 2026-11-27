@@ -22,7 +22,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Instance_config
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Instance_configRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/instance_config", pathParameters)
+        public Instance_configRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/instance_config{?dangerously_reveal_secrets*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Instance_config
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Instance_configRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/instance_config", rawUrl)
+        public Instance_configRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/settings/instance_config{?dangerously_reveal_secrets*}", rawUrl)
         {
         }
         /// <summary>
@@ -41,11 +41,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Instance_config
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder.Instance_configRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Windmill.OpenApiClient.Models.GetInstanceConfig200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder.Instance_configRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -78,11 +78,11 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Instance_config
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder.Instance_configRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder.Instance_configRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -120,6 +120,16 @@ namespace Soenneker.Windmill.OpenApiClient.Settings.Instance_config
         public global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Windmill.OpenApiClient.Settings.Instance_config.Instance_configRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// get full instance config (global settings + worker configs)
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Instance_configRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Return stored secrets in clear. Without it, every secret is replaced by a placeholder, which a write sending it back unchanged keeps as the stored value.</summary>
+            [QueryParameter("dangerously_reveal_secrets")]
+            public bool? DangerouslyRevealSecrets { get; set; }
         }
     }
 }

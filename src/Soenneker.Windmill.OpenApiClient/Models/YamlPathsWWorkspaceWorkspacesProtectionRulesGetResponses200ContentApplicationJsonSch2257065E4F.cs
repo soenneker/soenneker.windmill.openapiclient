@@ -36,5 +36,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         #pragma warning disable CS1591
         RequireIsolatedForks,
         #pragma warning restore CS1591
+        [EnumMember(Value = "RequireSso")]
+        #pragma warning disable CS1591
+        RequireSso,
+        #pragma warning restore CS1591
     }
 }

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key;
+using Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key_status;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item
         public global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key.KeyRequestBuilder Key
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key.KeyRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The key_status property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key_status.Key_statusRequestBuilder Key_status
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Key_status.Key_statusRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Item.Concurrency_groupsItemRequestBuilder"/> and sets the default values.

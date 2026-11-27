@@ -69,7 +69,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalStepDetail200ResponseApprovalConditions ApprovalConditions { get => _explicitNullValueApprovalConditions; set { _explicitNullValueApprovalConditions = value; AdditionalData?.Remove("approval_conditions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approval_conditions"); else _explicitNullProperties?.Remove("approval_conditions"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalStepDetail200ResponseApprovalConditions _explicitNullValueApprovalConditions = default!;
 #endif
-        /// <summary>approvals received. approved, value and created_at are known only while the run is live; a finished run keeps approver names alone.</summary>
+        /// <summary>approvals received. approved and value are known only while the run is live; a finished run keeps approver names and, for approvals recorded since it was kept, created_at.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Windmill.OpenApiClient.Models.GetApprovalStepDetail200ResponseApprovalsItem>? Approvals { get => _explicitNullValueApprovals; set { _explicitNullValueApprovals = value; AdditionalData?.Remove("approvals"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvals"); else _explicitNullProperties?.Remove("approvals"); } }

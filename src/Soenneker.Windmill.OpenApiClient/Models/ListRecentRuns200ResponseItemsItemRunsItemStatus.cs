@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Windmill.OpenApiClient.Models
 {
-    /// <summary>a failure someone or something marked as handled is `resolved`, not `failure`</summary>
+    /// <summary>a failure someone or something marked as handled is `resolved`, not `failure`; a run waiting for an approval is `suspended`, not `running`</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ListRecentRuns200ResponseItemsItemRunsItemStatus
     {
@@ -26,6 +26,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         [EnumMember(Value = "running")]
         #pragma warning disable CS1591
         Running,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "suspended")]
+        #pragma warning disable CS1591
+        Suspended,
         #pragma warning restore CS1591
     }
 }

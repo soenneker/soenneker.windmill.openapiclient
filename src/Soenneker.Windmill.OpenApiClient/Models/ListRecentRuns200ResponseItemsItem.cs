@@ -71,7 +71,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public List<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItemRunsItem> Runs { get => _explicitNullValueRuns; set { _explicitNullValueRuns = value; AdditionalData?.Remove("runs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("runs"); else _explicitNullProperties?.Remove("runs"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItemRunsItem> _explicitNullValueRuns = default!;
 #endif
-        /// <summary>a failure someone or something marked as handled is `resolved`, not `failure`</summary>
+        /// <summary>a failure someone or something marked as handled is `resolved`, not `failure`; a run waiting for an approval is `suspended`, not `running`</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.ListRecentRuns200ResponseItemsItemStatus? _explicitNullValueStatus = default!;
         /// <summary>The summary property</summary>

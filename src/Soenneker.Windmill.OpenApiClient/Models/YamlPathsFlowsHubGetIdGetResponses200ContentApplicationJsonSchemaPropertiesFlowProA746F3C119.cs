@@ -28,6 +28,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("resume_form") is { } nullNodeResumeForm && nullNodeResumeForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResumeForm = null;
             if (parseNode.GetChildNode("self_approval_disabled") is null) { _explicitNullValueSelfApprovalDisabled = default!; _explicitNullProperties?.Remove("self_approval_disabled"); }
             else if (parseNode.GetChildNode("self_approval_disabled") is { } nullNodeSelfApprovalDisabled && nullNodeSelfApprovalDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfApprovalDisabled = null;
+            if (parseNode.GetChildNode("show_on_home") is null) { _explicitNullValueShowOnHome = default!; _explicitNullProperties?.Remove("show_on_home"); }
+            else if (parseNode.GetChildNode("show_on_home") is { } nullNodeShowOnHome && nullNodeShowOnHome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShowOnHome = null;
             if (parseNode.GetChildNode("skin") is null) { _explicitNullValueSkin = default!; _explicitNullProperties?.Remove("skin"); }
             else if (parseNode.GetChildNode("skin") is { } nullNodeSkin && nullNodeSkin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skin = null;
             if (parseNode.GetChildNode("timeout") is null) { _explicitNullValueTimeout = default!; _explicitNullProperties?.Remove("timeout"); }
@@ -62,6 +64,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>If true, the user who started the flow cannot approve</summary>
         public bool? SelfApprovalDisabled { get => _explicitNullValueSelfApprovalDisabled; set { _explicitNullValueSelfApprovalDisabled = value; AdditionalData?.Remove("self_approval_disabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("self_approval_disabled"); else _explicitNullProperties?.Remove("self_approval_disabled"); } }
         private bool? _explicitNullValueSelfApprovalDisabled = default!;
+        /// <summary>If true, a run waiting on this step is listed on the Home page of each user who can approve it. Leave unset when the approval request is sent through another channel (Slack, Discord, email), so it does not sit there unanswered</summary>
+        public bool? ShowOnHome { get => _explicitNullValueShowOnHome; set { _explicitNullValueShowOnHome = value; AdditionalData?.Remove("show_on_home"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("show_on_home"); else _explicitNullProperties?.Remove("show_on_home"); } }
+        private bool? _explicitNullValueShowOnHome = default!;
         /// <summary>How the approval request is presented, on the approval page and in Slack/Teams approval messages. &apos;detailed&apos; (used when unset) shows the flow details (arguments, graph, approvers); &apos;minimal&apos; shows only the request: the step description, form and approve/reject actions</summary>
         public global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro6F2A4B5C65? Skin { get => _explicitNullValueSkin; set { _explicitNullValueSkin = value; AdditionalData?.Remove("skin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skin"); else _explicitNullProperties?.Remove("skin"); } }
         private global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro6F2A4B5C65? _explicitNullValueSkin = default!;
@@ -104,13 +109,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(9)
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "continue_on_disapprove_timeout", n => { ContinueOnDisapproveTimeout = n.GetBoolValue(); } },
                 { "hide_cancel", n => { HideCancel = n.GetBoolValue(); } },
                 { "required_events", n => { RequiredEvents = n.GetIntValue(); } },
                 { "resume_form", n => { ResumeForm = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro91C2D46231>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro91C2D46231.CreateFromDiscriminatorValue); } },
                 { "self_approval_disabled", n => { SelfApprovalDisabled = n.GetBoolValue(); } },
+                { "show_on_home", n => { ShowOnHome = n.GetBoolValue(); } },
                 { "skin", n => { var parsed = n.GetEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro6F2A4B5C65>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSkin = default; _explicitNullProperties?.Remove("skin"); AdditionalData["skin"] = unknown; } else { Skin = parsed; AdditionalData.Remove("skin"); } } },
                 { "timeout", n => { Timeout = n.GetIntValue(); } },
                 { "user_auth_required", n => { UserAuthRequired = n.GetBoolValue(); } },
@@ -129,6 +135,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteIntValue("required_events", RequiredEvents);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro91C2D46231>("resume_form", ResumeForm);
             writer.WriteBoolValue("self_approval_disabled", SelfApprovalDisabled);
+            writer.WriteBoolValue("show_on_home", ShowOnHome);
             writer.WriteEnumValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro6F2A4B5C65>("skin", Skin);
             writer.WriteIntValue("timeout", Timeout);
             writer.WriteBoolValue("user_auth_required", UserAuthRequired);

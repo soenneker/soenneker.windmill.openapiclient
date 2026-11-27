@@ -10,6 +10,7 @@ using Soenneker.Windmill.OpenApiClient.Agent_workers;
 using Soenneker.Windmill.OpenApiClient.Apps;
 using Soenneker.Windmill.OpenApiClient.Apps_u;
 using Soenneker.Windmill.OpenApiClient.Auth;
+using Soenneker.Windmill.OpenApiClient.Client_ip;
 using Soenneker.Windmill.OpenApiClient.Concurrency_groups;
 using Soenneker.Windmill.OpenApiClient.Configs;
 using Soenneker.Windmill.OpenApiClient.Docs;
@@ -76,6 +77,11 @@ namespace Soenneker.Windmill.OpenApiClient
         public global::Soenneker.Windmill.OpenApiClient.Auth.AuthRequestBuilder Auth
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Auth.AuthRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The client_ip property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Client_ip.Client_ipRequestBuilder Client_ip
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Client_ip.Client_ipRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The concurrency_groups property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Concurrency_groups.Concurrency_groupsRequestBuilder Concurrency_groups

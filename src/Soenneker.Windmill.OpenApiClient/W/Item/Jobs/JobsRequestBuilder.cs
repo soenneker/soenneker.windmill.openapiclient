@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Approvals;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Asset_dispatch_edges;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Completed;
 using Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Dbt_column_lineage;
@@ -46,6 +47,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Jobs
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class JobsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The approvals property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Approvals.ApprovalsRequestBuilder Approvals
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Approvals.ApprovalsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The asset_dispatch_edges property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Jobs.Asset_dispatch_edges.Asset_dispatch_edgesRequestBuilder Asset_dispatch_edges
         {

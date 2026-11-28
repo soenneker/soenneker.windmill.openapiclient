@@ -21,6 +21,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("account") is { } nullNodeAccount && nullNodeAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Account = null;
             if (parseNode.GetChildNode("agent_memory") is null) { _explicitNullValueAgentMemory = default!; _explicitNullProperties?.Remove("agent_memory"); }
             else if (parseNode.GetChildNode("agent_memory") is { } nullNodeAgentMemory && nullNodeAgentMemory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentMemory = null;
+            if (parseNode.GetChildNode("client") is null) { _explicitNullValueClient = default!; _explicitNullProperties?.Remove("client"); }
+            else if (parseNode.GetChildNode("client") is { } nullNodeClient && nullNodeClient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Client = null;
             if (parseNode.GetChildNode("created_by") is null) { _explicitNullValueCreatedBy = default!; _explicitNullProperties?.Remove("created_by"); }
             else if (parseNode.GetChildNode("created_by") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
             if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
@@ -53,6 +55,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("is_oauth") is { } nullNodeIsOauth && nullNodeIsOauth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsOauth = null;
             if (parseNode.GetChildNode("is_refreshed") is null) { _explicitNullValueIsRefreshed = default!; _explicitNullProperties?.Remove("is_refreshed"); }
             else if (parseNode.GetChildNode("is_refreshed") is { } nullNodeIsRefreshed && nullNodeIsRefreshed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsRefreshed = null;
+            if (parseNode.GetChildNode("is_workspace_integration") is null) { _explicitNullValueIsWorkspaceIntegration = default!; _explicitNullProperties?.Remove("is_workspace_integration"); }
+            else if (parseNode.GetChildNode("is_workspace_integration") is { } nullNodeIsWorkspaceIntegration && nullNodeIsWorkspaceIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsWorkspaceIntegration = null;
             if (parseNode.GetChildNode("labels") is null) { _explicitNullValueLabels = default!; _explicitNullProperties?.Remove("labels"); }
             else if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
             if (parseNode.GetChildNode("no_deployed") is null) { _explicitNullValueNoDeployed = default!; _explicitNullProperties?.Remove("no_deployed"); }
@@ -89,6 +93,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public UntypedNode AgentMemory { get => _explicitNullValueAgentMemory; set { _explicitNullValueAgentMemory = value; AdditionalData?.Remove("agent_memory"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_memory"); else _explicitNullProperties?.Remove("agent_memory"); } }
         private UntypedNode _explicitNullValueAgentMemory = default!;
+#endif
+        /// <summary>OAuth client the linked account refreshes through</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; AdditionalData?.Remove("client"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        private string? _explicitNullValueClient = default!;
+#nullable restore
+#else
+        public string Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; AdditionalData?.Remove("client"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        private string _explicitNullValueClient = default!;
 #endif
         /// <summary>The created_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -194,6 +208,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The is_refreshed property</summary>
         public bool? IsRefreshed { get => _explicitNullValueIsRefreshed; set { _explicitNullValueIsRefreshed = value; AdditionalData?.Remove("is_refreshed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_refreshed"); else _explicitNullProperties?.Remove("is_refreshed"); } }
         private bool? _explicitNullValueIsRefreshed = default!;
+        /// <summary>The linked account was connected through the workspace&apos;s own OAuth app</summary>
+        public bool? IsWorkspaceIntegration { get => _explicitNullValueIsWorkspaceIntegration; set { _explicitNullValueIsWorkspaceIntegration = value; AdditionalData?.Remove("is_workspace_integration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_workspace_integration"); else _explicitNullProperties?.Remove("is_workspace_integration"); } }
+        private bool? _explicitNullValueIsWorkspaceIntegration = default!;
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -303,10 +320,11 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(28)
+            return new Dictionary<string, Action<IParseNode>>(30)
             {
                 { "account", n => { Account = n.GetDoubleValue(); } },
                 { "agent_memory", n => { AgentMemory = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "client", n => { Client = n.GetStringValue(); } },
                 { "created_by", n => { CreatedBy = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "draft", n => { Draft = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft>(global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft.CreateFromDiscriminatorValue); } },
@@ -323,6 +341,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "is_linked", n => { IsLinked = n.GetBoolValue(); } },
                 { "is_oauth", n => { IsOauth = n.GetBoolValue(); } },
                 { "is_refreshed", n => { IsRefreshed = n.GetBoolValue(); } },
+                { "is_workspace_integration", n => { IsWorkspaceIntegration = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "no_deployed", n => { NoDeployed = n.GetBoolValue(); } },
                 { "other_drafts_users", n => { OtherDraftsUsers = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -344,6 +363,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("account", Account);
             writer.WriteObjectValue<UntypedNode>("agent_memory", AgentMemory);
+            writer.WriteStringValue("client", Client);
             writer.WriteStringValue("created_by", CreatedBy);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.GetResource200ResponseDraft>("draft", Draft);
@@ -360,6 +380,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_linked", IsLinked);
             writer.WriteBoolValue("is_oauth", IsOauth);
             writer.WriteBoolValue("is_refreshed", IsRefreshed);
+            writer.WriteBoolValue("is_workspace_integration", IsWorkspaceIntegration);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteBoolValue("no_deployed", NoDeployed);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsWWorkspaceVariablesGetPathGetResponses200ContentApplicationJsonSchemaAll8Ca801F1A4>("other_drafts_users", OtherDraftsUsers);

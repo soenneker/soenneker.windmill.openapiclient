@@ -17,6 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("admin") is null) { _explicitNullValueAdmin = default!; _explicitNullProperties?.Remove("admin"); }
+            else if (parseNode.GetChildNode("admin") is { } nullNodeAdmin && nullNodeAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Admin = null;
             if (parseNode.GetChildNode("allowed_ips") is null) { _explicitNullValueAllowedIps = default!; _explicitNullProperties?.Remove("allowed_ips"); }
             else if (parseNode.GetChildNode("allowed_ips") is { } nullNodeAllowedIps && nullNodeAllowedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedIps = null;
             if (parseNode.GetChildNode("expiration") is null) { _explicitNullValueExpiration = default!; _explicitNullProperties?.Remove("expiration"); }
@@ -35,6 +37,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Carry the owner&apos;s workspace admin rights in the workspaces the token reaches.Defaults to false: the token then acts as a regular member. Ignored when thecalling token does not hold them.</summary>
+        public bool? Admin { get => _explicitNullValueAdmin; set { _explicitNullValueAdmin = value; AdditionalData?.Remove("admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admin"); else _explicitNullProperties?.Remove("admin"); } }
+        private bool? _explicitNullValueAdmin = default!;
         /// <summary>IPs or CIDRs (IPv4 or IPv6) the token may be used from; omit to allow any.A request from elsewhere is refused as unauthenticated. A token that is itselfrestricted can only create tokens within its own networks, and creates onerestricted to them when this is omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,10 +76,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public List<string> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; AdditionalData?.Remove("scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
         private List<string> _explicitNullValueScopes = default!;
 #endif
-        /// <summary>For an MCP token (an `mcp:` scope) owned by a superadmin: carry the owner&apos;ssuperadmin rights, reaching every workspace rather than only theirmemberships. Ignored for other tokens, which always carry them.</summary>
+        /// <summary>Carry the owner&apos;s superadmin rights: admin in every workspace, including onesthey are not a member of, and the superadmin endpoints. Defaults to false, andis ignored when the owner or the calling token does not hold them.</summary>
         public bool? SuperAdmin { get => _explicitNullValueSuperAdmin; set { _explicitNullValueSuperAdmin = value; AdditionalData?.Remove("super_admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("super_admin"); else _explicitNullProperties?.Remove("super_admin"); } }
         private bool? _explicitNullValueSuperAdmin = default!;
-        /// <summary>The workspace_id property</summary>
+        /// <summary>Bind the token to this workspace: it is then refused on every other workspace andon instance-level endpoints. Omit for a token that reaches every workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
@@ -107,8 +112,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
+                { "admin", n => { Admin = n.GetBoolValue(); } },
                 { "allowed_ips", n => { AllowedIps = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "expiration", n => { Expiration = n.GetDateTimeOffsetValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
@@ -125,6 +131,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("admin", Admin);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_ips", AllowedIps);
             writer.WriteDateTimeOffsetValue("expiration", Expiration);
             writer.WriteStringValue("label", Label);

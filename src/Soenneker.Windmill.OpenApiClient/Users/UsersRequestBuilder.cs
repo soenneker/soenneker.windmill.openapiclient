@@ -29,6 +29,7 @@ using Soenneker.Windmill.OpenApiClient.Users.Set_login_type;
 using Soenneker.Windmill.OpenApiClient.Users.Set_password_of;
 using Soenneker.Windmill.OpenApiClient.Users.Setpassword;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens;
+using Soenneker.Windmill.OpenApiClient.Users.Totp;
 using Soenneker.Windmill.OpenApiClient.Users.Tutorial_progress;
 using Soenneker.Windmill.OpenApiClient.Users.Update;
 using Soenneker.Windmill.OpenApiClient.Users.Usage;
@@ -180,6 +181,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users
         public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.TokensRequestBuilder Tokens
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.TokensRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The totp property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Totp.TotpRequestBuilder Totp
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Totp.TotpRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The tutorial_progress property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Tutorial_progress.Tutorial_progressRequestBuilder Tutorial_progress

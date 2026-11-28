@@ -18,6 +18,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("failure_threshold") is null) { _explicitNullValueFailureThreshold = default!; _explicitNullProperties?.Remove("failure_threshold"); }
+            else if (parseNode.GetChildNode("failure_threshold") is { } nullNodeFailureThreshold && nullNodeFailureThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureThreshold = null;
             if (parseNode.GetChildNode("iteration_label") is null) { _explicitNullValueIterationLabel = default!; _explicitNullProperties?.Remove("iteration_label"); }
             else if (parseNode.GetChildNode("iteration_label") is { } nullNodeIterationLabel && nullNodeIterationLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IterationLabel = null;
             if (parseNode.GetChildNode("iterator") is null) { _explicitNullValueIterator = default!; _explicitNullProperties?.Remove("iterator"); }
@@ -38,6 +40,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? FailureThreshold { get => _explicitNullValueFailureThreshold; set { _explicitNullValueFailureThreshold = value; AdditionalData?.Remove("failure_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_threshold"); else _explicitNullProperties?.Remove("failure_threshold"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? _explicitNullValueFailureThreshold = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties FailureThreshold { get => _explicitNullValueFailureThreshold; set { _explicitNullValueFailureThreshold = value; AdditionalData?.Remove("failure_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_threshold"); else _explicitNullProperties?.Remove("failure_threshold"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties _explicitNullValueFailureThreshold = default!;
+#endif
         /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -113,8 +125,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(8)
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
+                { "failure_threshold", n => { FailureThreshold = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "iteration_label", n => { IterationLabel = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "iterator", n => { Iterator = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "modules", n => { Modules = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Dea7B7553>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Dea7B7553.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -132,6 +145,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("failure_threshold", FailureThreshold);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("iteration_label", IterationLabel);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("iterator", Iterator);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro1Dea7B7553>("modules", Modules);

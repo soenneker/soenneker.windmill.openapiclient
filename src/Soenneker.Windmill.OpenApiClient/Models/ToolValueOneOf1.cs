@@ -34,6 +34,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("custom_concurrency_key") is { } nullNodeCustomConcurrencyKey && nullNodeCustomConcurrencyKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomConcurrencyKey = null;
             if (parseNode.GetChildNode("default") is null) { _explicitNullValueDefault = default!; _explicitNullProperties?.Remove("default"); }
             else if (parseNode.GetChildNode("default") is { } nullNodeDefault && nullNodeDefault.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Default = null;
+            if (parseNode.GetChildNode("failure_threshold") is null) { _explicitNullValueFailureThreshold = default!; _explicitNullProperties?.Remove("failure_threshold"); }
+            else if (parseNode.GetChildNode("failure_threshold") is { } nullNodeFailureThreshold && nullNodeFailureThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureThreshold = null;
             if (parseNode.GetChildNode("flow") is null) { _explicitNullValueFlow = default!; _explicitNullProperties?.Remove("flow"); }
             else if (parseNode.GetChildNode("flow") is { } nullNodeFlow && nullNodeFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Flow = null;
             if (parseNode.GetChildNode("hash") is null) { _explicitNullValueHash = default!; _explicitNullProperties?.Remove("hash"); }
@@ -151,6 +153,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2A377170C2> Default { get => _explicitNullValueDefault; set { _explicitNullValueDefault = value; AdditionalData?.Remove("default"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default"); else _explicitNullProperties?.Remove("default"); } }
         private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2A377170C2> _explicitNullValueDefault = default!;
+#endif
+        /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? FailureThreshold { get => _explicitNullValueFailureThreshold; set { _explicitNullValueFailureThreshold = value; AdditionalData?.Remove("failure_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_threshold"); else _explicitNullProperties?.Remove("failure_threshold"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? _explicitNullValueFailureThreshold = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties FailureThreshold { get => _explicitNullValueFailureThreshold; set { _explicitNullValueFailureThreshold = value; AdditionalData?.Remove("failure_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_threshold"); else _explicitNullProperties?.Remove("failure_threshold"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties _explicitNullValueFailureThreshold = default!;
 #endif
         /// <summary>If true, marks this as a flow identity (special handling)</summary>
         public bool? Flow { get => _explicitNullValueFlow; set { _explicitNullValueFlow = value; AdditionalData?.Remove("flow"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow"); else _explicitNullProperties?.Remove("flow"); } }
@@ -334,7 +346,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(32)
+            return new Dictionary<string, Action<IParseNode>>(33)
             {
                 { "agent", n => { Agent = n.GetStringValue(); } },
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro02041F16B5>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro02041F16B5.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -344,6 +356,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "custom_concurrency_key", n => { CustomConcurrencyKey = n.GetStringValue(); } },
                 { "default", n => { Default = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2A377170C2>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2A377170C2.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "failure_threshold", n => { FailureThreshold = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "flow", n => { Flow = n.GetBoolValue(); } },
                 { "hash", n => { Hash = n.GetStringValue(); } },
                 { "input_transforms", n => { InputTransforms = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689InputTransforms>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689InputTransforms.CreateFromDiscriminatorValue); } },
@@ -385,6 +398,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("custom_concurrency_key", CustomConcurrencyKey);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowPro2A377170C2>("default", Default);
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("failure_threshold", FailureThreshold);
             writer.WriteBoolValue("flow", Flow);
             writer.WriteStringValue("hash", Hash);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProD3592D7689InputTransforms>("input_transforms", InputTransforms);

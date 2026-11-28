@@ -25,6 +25,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("labels") is { } nullNodeLabels && nullNodeLabels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Labels = null;
             if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
             else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("unlink_account") is null) { _explicitNullValueUnlinkAccount = default!; _explicitNullProperties?.Remove("unlink_account"); }
+            else if (parseNode.GetChildNode("unlink_account") is { } nullNodeUnlinkAccount && nullNodeUnlinkAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnlinkAccount = null;
             if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
             else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
             if (parseNode.GetChildNode("value_valid_until") is null) { _explicitNullValueValueValidUntil = default!; _explicitNullProperties?.Remove("value_valid_until"); }
@@ -68,6 +70,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private string _explicitNullValuePath = default!;
 #endif
+        /// <summary>Detach the OAuth account the variable refreshes through, deleting it when no other variable uses it.</summary>
+        public bool? UnlinkAccount { get => _explicitNullValueUnlinkAccount; set { _explicitNullValueUnlinkAccount = value; AdditionalData?.Remove("unlink_account"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unlink_account"); else _explicitNullProperties?.Remove("unlink_account"); } }
+        private bool? _explicitNullValueUnlinkAccount = default!;
         /// <summary>The new value of the variable. Accepts an `$external:vault://&lt;path&gt;[#&lt;key&gt;]` reference for a secret, as in CreateVariable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,12 +112,13 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(7)
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "is_secret", n => { IsSecret = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
+                { "unlink_account", n => { UnlinkAccount = n.GetBoolValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
                 { "value_valid_until", n => { ValueValidUntil = n.GetDateTimeOffsetValue(); } },
                 { "ws_specific", n => { WsSpecific = n.GetBoolValue(); } },
@@ -129,6 +135,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteBoolValue("is_secret", IsSecret);
             writer.WriteCollectionOfPrimitiveValues<string>("labels", Labels);
             writer.WriteStringValue("path", Path);
+            writer.WriteBoolValue("unlink_account", UnlinkAccount);
             writer.WriteStringValue("value", Value);
             writer.WriteDateTimeOffsetValue("value_valid_until", ValueValidUntil);
             writer.WriteBoolValue("ws_specific", WsSpecific);

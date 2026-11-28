@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Windmill.OpenApiClient.Tokens.Introspect;
 using Soenneker.Windmill.OpenApiClient.Tokens.List;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Windmill.OpenApiClient.Tokens
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TokensRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The introspect property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Tokens.Introspect.IntrospectRequestBuilder Introspect
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Tokens.Introspect.IntrospectRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The list property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Tokens.List.ListRequestBuilder List
         {

@@ -18,6 +18,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("failure_threshold") is null) { _explicitNullValueFailureThreshold = default!; _explicitNullProperties?.Remove("failure_threshold"); }
+            else if (parseNode.GetChildNode("failure_threshold") is { } nullNodeFailureThreshold && nullNodeFailureThreshold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureThreshold = null;
             if (parseNode.GetChildNode("max_duration_secs") is null) { _explicitNullValueMaxDurationSecs = default!; _explicitNullProperties?.Remove("max_duration_secs"); }
             else if (parseNode.GetChildNode("max_duration_secs") is { } nullNodeMaxDurationSecs && nullNodeMaxDurationSecs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxDurationSecs = null;
             if (parseNode.GetChildNode("max_iterations") is null) { _explicitNullValueMaxIterations = default!; _explicitNullProperties?.Remove("max_iterations"); }
@@ -38,6 +40,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Maps input parameters for a step. Can be a static value or a JavaScript expression that references previous results or flow inputs</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? FailureThreshold { get => _explicitNullValueFailureThreshold; set { _explicitNullValueFailureThreshold = value; AdditionalData?.Remove("failure_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_threshold"); else _explicitNullProperties?.Remove("failure_threshold"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties? _explicitNullValueFailureThreshold = default!;
+#nullable restore
+#else
+        public global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties FailureThreshold { get => _explicitNullValueFailureThreshold; set { _explicitNullValueFailureThreshold = value; AdditionalData?.Remove("failure_threshold"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure_threshold"); else _explicitNullProperties?.Remove("failure_threshold"); } }
+        private global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties _explicitNullValueFailureThreshold = default!;
+#endif
         /// <summary>Maximum wall-clock seconds since the first iteration started, checked after each iteration. A running iteration is not interrupted, so the loop can exceed the limit by up to one iteration; the timeout of the body&apos;s steps caps an iteration. When reached and stop_after_if did not stop the loop, the loop fails with an error named &apos;LoopExhausted&apos;</summary>
         public int? MaxDurationSecs { get => _explicitNullValueMaxDurationSecs; set { _explicitNullValueMaxDurationSecs = value; AdditionalData?.Remove("max_duration_secs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_duration_secs"); else _explicitNullProperties?.Remove("max_duration_secs"); } }
         private int? _explicitNullValueMaxDurationSecs = default!;
@@ -99,8 +111,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(8)
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
+                { "failure_threshold", n => { FailureThreshold = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>(global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties.CreateFromDiscriminatorValue); } },
                 { "max_duration_secs", n => { MaxDurationSecs = n.GetIntValue(); } },
                 { "max_iterations", n => { MaxIterations = n.GetIntValue(); } },
                 { "modules", n => { Modules = n.GetCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF927E7Fdc9>(global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF927E7Fdc9.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -118,6 +131,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.AiAgentToolInputsAdditionalPropertiesAdditionalProperties>("failure_threshold", FailureThreshold);
             writer.WriteIntValue("max_duration_secs", MaxDurationSecs);
             writer.WriteIntValue("max_iterations", MaxIterations);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsFlowsHubGetIdGetResponses200ContentApplicationJsonSchemaPropertiesFlowProF927E7Fdc9>("modules", Modules);

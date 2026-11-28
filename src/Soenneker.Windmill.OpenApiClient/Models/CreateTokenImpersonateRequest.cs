@@ -17,6 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("admin") is null) { _explicitNullValueAdmin = default!; _explicitNullProperties?.Remove("admin"); }
+            else if (parseNode.GetChildNode("admin") is { } nullNodeAdmin && nullNodeAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Admin = null;
             if (parseNode.GetChildNode("allowed_ips") is null) { _explicitNullValueAllowedIps = default!; _explicitNullProperties?.Remove("allowed_ips"); }
             else if (parseNode.GetChildNode("allowed_ips") is { } nullNodeAllowedIps && nullNodeAllowedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedIps = null;
             if (parseNode.GetChildNode("expiration") is null) { _explicitNullValueExpiration = default!; _explicitNullProperties?.Remove("expiration"); }
@@ -25,12 +27,17 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("impersonate_email") is { } nullNodeImpersonateEmail && nullNodeImpersonateEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImpersonateEmail = null;
             if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
             else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("super_admin") is null) { _explicitNullValueSuperAdmin = default!; _explicitNullProperties?.Remove("super_admin"); }
+            else if (parseNode.GetChildNode("super_admin") is { } nullNodeSuperAdmin && nullNodeSuperAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuperAdmin = null;
             if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
             else if (parseNode.GetChildNode("workspace_id") is { } nullNodeWorkspaceId && nullNodeWorkspaceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkspaceId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Carry the impersonated account&apos;s workspace admin rights. Defaults to false.</summary>
+        public bool? Admin { get => _explicitNullValueAdmin; set { _explicitNullValueAdmin = value; AdditionalData?.Remove("admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admin"); else _explicitNullProperties?.Remove("admin"); } }
+        private bool? _explicitNullValueAdmin = default!;
         /// <summary>IPs or CIDRs the token may be used from; omit to allow any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +71,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; AdditionalData?.Remove("label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
         private string _explicitNullValueLabel = default!;
 #endif
-        /// <summary>The workspace_id property</summary>
+        /// <summary>Carry the impersonated account&apos;s superadmin rights. Defaults to false.</summary>
+        public bool? SuperAdmin { get => _explicitNullValueSuperAdmin; set { _explicitNullValueSuperAdmin = value; AdditionalData?.Remove("super_admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("super_admin"); else _explicitNullProperties?.Remove("super_admin"); } }
+        private bool? _explicitNullValueSuperAdmin = default!;
+        /// <summary>Bind the token to this workspace; omit for a token that reaches every workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? WorkspaceId { get => _explicitNullValueWorkspaceId; set { _explicitNullValueWorkspaceId = value; AdditionalData?.Remove("workspace_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workspace_id"); else _explicitNullProperties?.Remove("workspace_id"); } }
@@ -97,12 +107,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(5)
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
+                { "admin", n => { Admin = n.GetBoolValue(); } },
                 { "allowed_ips", n => { AllowedIps = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "expiration", n => { Expiration = n.GetDateTimeOffsetValue(); } },
                 { "impersonate_email", n => { ImpersonateEmail = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
+                { "super_admin", n => { SuperAdmin = n.GetBoolValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
         }
@@ -113,10 +125,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("admin", Admin);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_ips", AllowedIps);
             writer.WriteDateTimeOffsetValue("expiration", Expiration);
             writer.WriteStringValue("impersonate_email", ImpersonateEmail);
             writer.WriteStringValue("label", Label);
+            writer.WriteBoolValue("super_admin", SuperAdmin);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

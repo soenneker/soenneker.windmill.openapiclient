@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.List;
+using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Workspace_apps;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -20,6 +21,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.List.ListRequestBuilder List
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.List.ListRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workspace_apps property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Workspace_apps.Workspace_appsRequestBuilder Workspace_apps
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Workspace_apps.Workspace_appsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Windmill.OpenApiClient.w.item.native_triggers.integrations.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>

@@ -4,9 +4,14 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Create;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Delete;
+using Soenneker.Windmill.OpenApiClient.Users.Tokens.Delete_as_super_admin;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Impersonate;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.List;
+using Soenneker.Windmill.OpenApiClient.Users.Tokens.List_as_super_admin;
+using Soenneker.Windmill.OpenApiClient.Users.Tokens.Risk_counts;
+using Soenneker.Windmill.OpenApiClient.Users.Tokens.Risk_counts_as_super_admin;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_label;
+using Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_limits;
 using Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +30,11 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Tokens
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Create.CreateRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The delete_as_super_admin property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Delete_as_super_admin.Delete_as_super_adminRequestBuilder Delete_as_super_admin
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Delete_as_super_admin.Delete_as_super_adminRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The deletePath property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Delete.DeleteRequestBuilder DeletePath
         {
@@ -40,10 +50,30 @@ namespace Soenneker.Windmill.OpenApiClient.Users.Tokens
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.List.ListRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The list_as_super_admin property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.List_as_super_admin.List_as_super_adminRequestBuilder List_as_super_admin
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.List_as_super_admin.List_as_super_adminRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The risk_counts property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Risk_counts.Risk_countsRequestBuilder Risk_counts
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Risk_counts.Risk_countsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The risk_counts_as_super_admin property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Risk_counts_as_super_admin.Risk_counts_as_super_adminRequestBuilder Risk_counts_as_super_admin
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Risk_counts_as_super_admin.Risk_counts_as_super_adminRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The update_label property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_label.Update_labelRequestBuilder Update_label
         {
             get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_label.Update_labelRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The update_limits property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_limits.Update_limitsRequestBuilder Update_limits
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_limits.Update_limitsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The update_scopes property</summary>
         public global::Soenneker.Windmill.OpenApiClient.Users.Tokens.Update_scopes.Update_scopesRequestBuilder Update_scopes

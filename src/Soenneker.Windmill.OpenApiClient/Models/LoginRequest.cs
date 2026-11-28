@@ -21,6 +21,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
             if (parseNode.GetChildNode("password") is null) { _explicitNullValuePassword = default!; _explicitNullProperties?.Remove("password"); }
             else if (parseNode.GetChildNode("password") is { } nullNodePassword && nullNodePassword.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Password = null;
+            if (parseNode.GetChildNode("totp_code") is null) { _explicitNullValueTotpCode = default!; _explicitNullProperties?.Remove("totp_code"); }
+            else if (parseNode.GetChildNode("totp_code") is { } nullNodeTotpCode && nullNodeTotpCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotpCode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,6 +46,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 #else
         public string Password { get => _explicitNullValuePassword; set { _explicitNullValuePassword = value; AdditionalData?.Remove("password"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("password"); else _explicitNullProperties?.Remove("password"); } }
         private string _explicitNullValuePassword = default!;
+#endif
+        /// <summary>Current code of the account&apos;s authenticator app, or one of its recovery codes. Required once the account has two-factor authentication enabled; the login answers &quot;Two-factor code required&quot; when it is missing and the password is correct.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TotpCode { get => _explicitNullValueTotpCode; set { _explicitNullValueTotpCode = value; AdditionalData?.Remove("totp_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totp_code"); else _explicitNullProperties?.Remove("totp_code"); } }
+        private string? _explicitNullValueTotpCode = default!;
+#nullable restore
+#else
+        public string TotpCode { get => _explicitNullValueTotpCode; set { _explicitNullValueTotpCode = value; AdditionalData?.Remove("totp_code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totp_code"); else _explicitNullProperties?.Remove("totp_code"); } }
+        private string _explicitNullValueTotpCode = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Windmill.OpenApiClient.Models.LoginRequest"/> and sets the default values.
@@ -72,6 +84,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             {
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
+                { "totp_code", n => { TotpCode = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -83,6 +96,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("password", Password);
+            writer.WriteStringValue("totp_code", TotpCode);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }

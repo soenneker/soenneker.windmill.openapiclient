@@ -31,10 +31,14 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("expires_in") is { } nullNodeExpiresIn && nullNodeExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresIn = null;
             if (parseNode.GetChildNode("grant_type") is null) { _explicitNullValueGrantType = default!; _explicitNullProperties?.Remove("grant_type"); }
             else if (parseNode.GetChildNode("grant_type") is { } nullNodeGrantType && nullNodeGrantType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantType = null;
+            if (parseNode.GetChildNode("is_workspace_integration") is null) { _explicitNullValueIsWorkspaceIntegration = default!; _explicitNullProperties?.Remove("is_workspace_integration"); }
+            else if (parseNode.GetChildNode("is_workspace_integration") is { } nullNodeIsWorkspaceIntegration && nullNodeIsWorkspaceIntegration.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsWorkspaceIntegration = null;
             if (parseNode.GetChildNode("mcp_server_url") is null) { _explicitNullValueMcpServerUrl = default!; _explicitNullProperties?.Remove("mcp_server_url"); }
             else if (parseNode.GetChildNode("mcp_server_url") is { } nullNodeMcpServerUrl && nullNodeMcpServerUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) McpServerUrl = null;
             if (parseNode.GetChildNode("refresh_token") is null) { _explicitNullValueRefreshToken = default!; _explicitNullProperties?.Remove("refresh_token"); }
             else if (parseNode.GetChildNode("refresh_token") is { } nullNodeRefreshToken && nullNodeRefreshToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefreshToken = null;
+            if (parseNode.GetChildNode("replace") is null) { _explicitNullValueReplace = default!; _explicitNullProperties?.Remove("replace"); }
+            else if (parseNode.GetChildNode("replace") is { } nullNodeReplace && nullNodeReplace.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Replace = null;
             if (parseNode.GetChildNode("scopes") is null) { _explicitNullValueScopes = default!; _explicitNullProperties?.Remove("scopes"); }
             else if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
             if (parseNode.GetChildNode("variable") is null) { _explicitNullValueVariable = default!; _explicitNullProperties?.Remove("variable"); }
@@ -106,6 +110,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; AdditionalData?.Remove("grant_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
         private string _explicitNullValueGrantType = default!;
 #endif
+        /// <summary>Issued by the workspace&apos;s own OAuth app, with `client` naming its service (google, github, nextcloud).</summary>
+        public bool? IsWorkspaceIntegration { get => _explicitNullValueIsWorkspaceIntegration; set { _explicitNullValueIsWorkspaceIntegration = value; AdditionalData?.Remove("is_workspace_integration"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_workspace_integration"); else _explicitNullProperties?.Remove("is_workspace_integration"); } }
+        private bool? _explicitNullValueIsWorkspaceIntegration = default!;
         /// <summary>MCP server URL for MCP OAuth token refresh</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,6 +133,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public string RefreshToken { get => _explicitNullValueRefreshToken; set { _explicitNullValueRefreshToken = value; AdditionalData?.Remove("refresh_token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refresh_token"); else _explicitNullProperties?.Remove("refresh_token"); } }
         private string _explicitNullValueRefreshToken = default!;
 #endif
+        /// <summary>Reconnect: swap the token and account of the existing variable at variable.path in place, keeping its sharing and description.</summary>
+        public bool? Replace { get => _explicitNullValueReplace; set { _explicitNullValueReplace = value; AdditionalData?.Remove("replace"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("replace"); else _explicitNullProperties?.Remove("replace"); } }
+        private bool? _explicitNullValueReplace = default!;
         /// <summary>OAuth scopes to use for token refresh. Overrides instance-level scopes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -170,7 +180,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(11)
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
                 { "cc_client_id", n => { CcClientId = n.GetStringValue(); } },
                 { "cc_client_secret", n => { CcClientSecret = n.GetStringValue(); } },
@@ -179,8 +189,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "client", n => { Client = n.GetStringValue(); } },
                 { "expires_in", n => { ExpiresIn = n.GetIntValue(); } },
                 { "grant_type", n => { GrantType = n.GetStringValue(); } },
+                { "is_workspace_integration", n => { IsWorkspaceIntegration = n.GetBoolValue(); } },
                 { "mcp_server_url", n => { McpServerUrl = n.GetStringValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
+                { "replace", n => { Replace = n.GetBoolValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "variable", n => { Variable = n.GetObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable>(global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable.CreateFromDiscriminatorValue); } },
             };
@@ -199,8 +211,10 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("client", Client);
             writer.WriteIntValue("expires_in", ExpiresIn);
             writer.WriteStringValue("grant_type", GrantType);
+            writer.WriteBoolValue("is_workspace_integration", IsWorkspaceIntegration);
             writer.WriteStringValue("mcp_server_url", McpServerUrl);
             writer.WriteStringValue("refresh_token", RefreshToken);
+            writer.WriteBoolValue("replace", Replace);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteObjectValue<global::Soenneker.Windmill.OpenApiClient.Models.CreateAccountRequestVariable>("variable", Variable);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

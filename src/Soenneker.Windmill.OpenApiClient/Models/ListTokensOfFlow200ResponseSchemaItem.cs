@@ -17,6 +17,8 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("admin") is null) { _explicitNullValueAdmin = default!; _explicitNullProperties?.Remove("admin"); }
+            else if (parseNode.GetChildNode("admin") is { } nullNodeAdmin && nullNodeAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Admin = null;
             if (parseNode.GetChildNode("allowed_ips") is null) { _explicitNullValueAllowedIps = default!; _explicitNullProperties?.Remove("allowed_ips"); }
             else if (parseNode.GetChildNode("allowed_ips") is { } nullNodeAllowedIps && nullNodeAllowedIps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AllowedIps = null;
             if (parseNode.GetChildNode("created_at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created_at"); }
@@ -31,8 +33,12 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             else if (parseNode.GetChildNode("last_used_at") is { } nullNodeLastUsedAt && nullNodeLastUsedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUsedAt = null;
             if (parseNode.GetChildNode("read_only") is null) { _explicitNullValueReadOnly = default!; _explicitNullProperties?.Remove("read_only"); }
             else if (parseNode.GetChildNode("read_only") is { } nullNodeReadOnly && nullNodeReadOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReadOnly = null;
+            if (parseNode.GetChildNode("risks") is null) { _explicitNullValueRisks = default!; _explicitNullProperties?.Remove("risks"); }
+            else if (parseNode.GetChildNode("risks") is { } nullNodeRisks && nullNodeRisks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Risks = null;
             if (parseNode.GetChildNode("scopes") is null) { _explicitNullValueScopes = default!; _explicitNullProperties?.Remove("scopes"); }
             else if (parseNode.GetChildNode("scopes") is { } nullNodeScopes && nullNodeScopes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scopes = null;
+            if (parseNode.GetChildNode("super_admin") is null) { _explicitNullValueSuperAdmin = default!; _explicitNullProperties?.Remove("super_admin"); }
+            else if (parseNode.GetChildNode("super_admin") is { } nullNodeSuperAdmin && nullNodeSuperAdmin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuperAdmin = null;
             if (parseNode.GetChildNode("token_prefix") is null) { _explicitNullValueTokenPrefix = default!; _explicitNullProperties?.Remove("token_prefix"); }
             else if (parseNode.GetChildNode("token_prefix") is { } nullNodeTokenPrefix && nullNodeTokenPrefix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenPrefix = null;
             if (parseNode.GetChildNode("workspace_id") is null) { _explicitNullValueWorkspaceId = default!; _explicitNullProperties?.Remove("workspace_id"); }
@@ -41,6 +47,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The token carries workspace admin rights: it was minted with them and its owner is anadmin of the workspace it is bound to (any workspace when unbound). Set by /users/tokens/list.</summary>
+        public bool? Admin { get => _explicitNullValueAdmin; set { _explicitNullValueAdmin = value; AdditionalData?.Remove("admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("admin"); else _explicitNullProperties?.Remove("admin"); } }
+        private bool? _explicitNullValueAdmin = default!;
         /// <summary>IPs or CIDRs the token may be used from; absent when it may be used from anywhere.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,6 +92,16 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <summary>The read_only property</summary>
         public bool? ReadOnly { get => _explicitNullValueReadOnly; set { _explicitNullValueReadOnly = value; AdditionalData?.Remove("read_only"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("read_only"); else _explicitNullProperties?.Remove("read_only"); } }
         private bool? _explicitNullValueReadOnly = default!;
+        /// <summary>what a token review flags on this token; empty for a token the server manages on its own</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesRis5F54B7578B?>? Risks { get => _explicitNullValueRisks; set { _explicitNullValueRisks = value; AdditionalData?.Remove("risks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("risks"); else _explicitNullProperties?.Remove("risks"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesRis5F54B7578B?>? _explicitNullValueRisks = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesRis5F54B7578B?> Risks { get => _explicitNullValueRisks; set { _explicitNullValueRisks = value; AdditionalData?.Remove("risks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("risks"); else _explicitNullProperties?.Remove("risks"); } }
+        private List<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesRis5F54B7578B?> _explicitNullValueRisks = default!;
+#endif
         /// <summary>The scopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,6 +112,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public List<string> Scopes { get => _explicitNullValueScopes; set { _explicitNullValueScopes = value; AdditionalData?.Remove("scopes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scopes"); else _explicitNullProperties?.Remove("scopes"); } }
         private List<string> _explicitNullValueScopes = default!;
 #endif
+        /// <summary>The token carries superadmin rights: it was minted with them (a session always is) andits owner is a superadmin. Set by /users/tokens/list.</summary>
+        public bool? SuperAdmin { get => _explicitNullValueSuperAdmin; set { _explicitNullValueSuperAdmin = value; AdditionalData?.Remove("super_admin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("super_admin"); else _explicitNullProperties?.Remove("super_admin"); } }
+        private bool? _explicitNullValueSuperAdmin = default!;
         /// <summary>The token_prefix property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,8 +158,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(10)
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
+                { "admin", n => { Admin = n.GetBoolValue(); } },
                 { "allowed_ips", n => { AllowedIps = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
@@ -145,7 +168,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "read_only", n => { ReadOnly = n.GetBoolValue(); } },
+                { "risks", n => { Risks = n.GetCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesRis5F54B7578B>()?.AsList(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "super_admin", n => { SuperAdmin = n.GetBoolValue(); } },
                 { "token_prefix", n => { TokenPrefix = n.GetStringValue(); } },
                 { "workspace_id", n => { WorkspaceId = n.GetStringValue(); } },
             };
@@ -157,6 +182,7 @@ namespace Soenneker.Windmill.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("admin", Admin);
             writer.WriteCollectionOfPrimitiveValues<string>("allowed_ips", AllowedIps);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("email", Email);
@@ -164,7 +190,9 @@ namespace Soenneker.Windmill.OpenApiClient.Models
             writer.WriteStringValue("label", Label);
             writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteBoolValue("read_only", ReadOnly);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Windmill.OpenApiClient.Models.YamlPathsUsersTokensListGetResponses200ContentApplicationJsonSchemaItemsPropertiesRis5F54B7578B>("risks", Risks);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
+            writer.WriteBoolValue("super_admin", SuperAdmin);
             writer.WriteStringValue("token_prefix", TokenPrefix);
             writer.WriteStringValue("workspace_id", WorkspaceId);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

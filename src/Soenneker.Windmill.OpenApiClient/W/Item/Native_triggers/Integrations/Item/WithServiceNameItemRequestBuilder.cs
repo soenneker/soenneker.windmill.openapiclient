@@ -9,6 +9,7 @@ using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Exists;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Generate_connect_url;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Instance_sharing_available;
+using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Required_scopes;
 using Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Workspace_connection;
 using System.Collections.Generic;
 using System.IO;
@@ -56,6 +57,11 @@ namespace Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.I
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Instance_sharing_available.Instance_sharing_availableRequestBuilder Instance_sharing_available
         {
             get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Instance_sharing_available.Instance_sharing_availableRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The required_scopes property</summary>
+        public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Required_scopes.Required_scopesRequestBuilder Required_scopes
+        {
+            get => new global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Required_scopes.Required_scopesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The workspace_connection property</summary>
         public global::Soenneker.Windmill.OpenApiClient.W.Item.Native_triggers.Integrations.Item.Workspace_connection.Workspace_connectionRequestBuilder Workspace_connection
